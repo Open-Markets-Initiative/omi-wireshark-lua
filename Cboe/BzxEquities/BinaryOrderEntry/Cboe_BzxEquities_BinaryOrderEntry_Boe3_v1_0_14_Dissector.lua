@@ -363,7 +363,7 @@ cboe_bzxequities_binaryorderentry_boe3_v1_0_14.base_liquidity_indicator.display 
     return "Base Liquidity Indicator: Auction Uncrossing (C)"
   end
   if value == "W" then
-    return "Base Liquidity Indicator: Waiting For Execution At Premarket Time (W)"
+    return "Base Liquidity Indicator: Waiting For Execution At Pre Market Time (W)"
   end
 
   return "Base Liquidity Indicator: Unknown("..value..")"

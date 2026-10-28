@@ -953,7 +953,7 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.request_order_book_type.size 
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.request_order_book_type.labels = {
   [0] = "Request Order Book Type: All Books (0)",
   [1] = "Request Order Book Type: Si Quote Book (1)",
-  [2] = "Request Order Book Type: Offbook (2)",
+  [2] = "Request Order Book Type: Off Book (2)",
 }
 
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.request_order_book_type.display = function(value)

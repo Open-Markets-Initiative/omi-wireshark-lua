@@ -40,8 +40,8 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.bas
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.bid_treasury_stock_declaration_id = ProtoField.new("Bid Treasury Stock Declaration Id", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.bidtreasurystockdeclarationid", ftypes.STRING, nil, nil, nil, "Bid_Treasury Stock Declaration ID 0: N/A N: Treasury Stock_direct_general S: Treasury Stock_direct_stock options 1 - 99999 Treasury Stock_Trust(report sequence number).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.bond_index_id = ProtoField.new("Bond Index Id", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.bondindexid", ftypes.STRING, nil, nil, nil, "Bond index identifier. Examples: BGG01T (KTB Index), BGG03T (KTB 10Y Index).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.business_date = ProtoField.new("Business Date", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.businessdate", ftypes.STRING, nil, nil, nil, "Business date for the index calculation in YYYYMMDD format.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.buyin_type_code = ProtoField.new("Buyin Type Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.buyintypecode", ftypes.STRING, nil, nil, nil, "Buy-in Type Code 1: Regular Buy-in 2: Same day Buy-in.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.buyin_volume = ProtoField.new("Buyin Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.buyinvolume", ftypes.UINT64, nil, nil, nil, "Buy-in Volume.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.buy_in_type_code = ProtoField.new("Buy In Type Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.buyintypecode", ftypes.STRING, nil, nil, nil, "Buy-in Type Code 1: Regular Buy-in 2: Same day Buy-in.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.buy_in_volume = ProtoField.new("Buy In Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.buyinvolume", ftypes.UINT64, nil, nil, nil, "Buy-in Volume.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.calculating_date = ProtoField.new("Calculating Date", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.calculatingdate", ftypes.STRING, nil, nil, nil, "Calculation date in YYYYMMDD format.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.calculating_time = ProtoField.new("Calculating Time", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.calculatingtime", ftypes.STRING, nil, nil, nil, "Calculation time in HHMMSS plus two trailing spaces.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.calculation_time = ProtoField.new("Calculation Time", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.calculationtime", ftypes.STRING, nil, nil, nil, "Calculation Time (HHMMSS).")
@@ -1177,56 +1177,56 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.business_date.
   return offset + length, value
 end
 
--- Buyin Type Code
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_type_code = {}
+-- Buy In Type Code
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_type_code = {}
 
--- Size: Buyin Type Code
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_type_code.size = 1
+-- Size: Buy In Type Code
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_type_code.size = 1
 
--- Display: Buyin Type Code
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_type_code.display = function(value)
-  return "Buyin Type Code: "..value
+-- Display: Buy In Type Code
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_type_code.display = function(value)
+  return "Buy In Type Code: "..value
 end
 
--- Dissect: Buyin Type Code
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_type_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_type_code.size
+-- Dissect: Buy In Type Code
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_type_code.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_type_code.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.buyin_type_code, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.buy_in_type_code, range, value, display)
 
   return offset + length, value
 end
 
--- Buyin Volume
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_volume = {}
+-- Buy In Volume
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_volume = {}
 
--- Size: Buyin Volume
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_volume.size = 15
+-- Size: Buy In Volume
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_volume.size = 15
 
--- Display: Buyin Volume
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_volume.display = function(value)
-  return "Buyin Volume: "..value
+-- Display: Buy In Volume
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_volume.display = function(value)
+  return "Buy In Volume: "..value
 end
 
--- Dissect: Buyin Volume
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_volume.size
+-- Dissect: Buy In Volume
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_volume.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.buyin_volume, range, value, "Buyin Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.experts.not_a_number, "Buyin Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.buy_in_volume, range, value, "Buy In Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.experts.not_a_number, "Buy In Volume is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_volume.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.buyin_volume, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.buy_in_volume, range, value, display)
 
   return offset + length, value
 end
@@ -3525,9 +3525,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.securities_buy
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.message_sequence_number.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.transmission_date.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_type_code.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_type_code.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.security_group_id.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_volume.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_volume.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.end_keyword.size
 
 -- Display: Securities Buy In Volume Message
@@ -3548,14 +3548,14 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.securities_buy
   -- Transmission Date: String
   index, transmission_date = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.transmission_date.dissect(buffer, index, packet, parent)
 
-  -- Buyin Type Code: String
-  index, buyin_type_code = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_type_code.dissect(buffer, index, packet, parent)
+  -- Buy In Type Code: String
+  index, buy_in_type_code = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_type_code.dissect(buffer, index, packet, parent)
 
   -- Security Group Id: String
   index, security_group_id = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.security_group_id.dissect(buffer, index, packet, parent)
 
-  -- Buyin Volume: Long
-  index, buyin_volume = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buyin_volume.dissect(buffer, index, packet, parent)
+  -- Buy In Volume: Long
+  index, buy_in_volume = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.buy_in_volume.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)

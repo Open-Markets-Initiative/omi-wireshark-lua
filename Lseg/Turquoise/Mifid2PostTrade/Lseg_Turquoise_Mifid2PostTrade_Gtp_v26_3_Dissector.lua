@@ -1092,7 +1092,7 @@ lseg_turquoise_mifid2posttrade_gtp_v26_3.negotiation_indicator.display = functio
   end
 
   if value == "8" then
-    return "Negotiation Indicator: Negotiated Trade With Pretrade Transparency Waiver (8)"
+    return "Negotiation Indicator: Negotiated Trade With Pre Trade Transparency Waiver (8)"
   end
   if value == "-" then
     return "Negotiation Indicator: Not A Negotiated Trade (-)"

@@ -109,6 +109,8 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.username = ProtoField.new
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.client_packet = ProtoField.new("Tcp Packet", "nasdaq.nsmequities.totalview.itch.v5.0.2026.clientpacket", ftypes.STRING, nil, nil, nil, "SoupBinTCP Packet sent by the client")
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.client_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.nsmequities.totalview.itch.v5.0.2026.clientpacketheader", ftypes.STRING, nil, nil, nil, "Packet header of a packet sent by the client")
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nsmequities.totalview.itch.v5.0.2026.clientsoupbintcppacket", ftypes.STRING, nil, nil, nil, "Soup Bin Tcp Packet sent by the client")
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.file = ProtoField.new("File", "nasdaq.nsmequities.totalview.itch.v5.0.2026.file", ftypes.STRING, nil, nil, nil, "Nasdaq historical file: every message of the day, each preceded by its length")
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.file_message = ProtoField.new("File Message", "nasdaq.nsmequities.totalview.itch.v5.0.2026.filemessage", ftypes.STRING, nil, nil, nil, "Nasdaq historical file message: its length, then the message")
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.totalview.itch.v5.0.2026.message", ftypes.STRING, nil, nil, nil, "Mold Udp64 Message")
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.totalview.itch.v5.0.2026.messageheader", ftypes.STRING, nil, nil, nil, "Mold Udp 64 Message Header")
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.itch.v5.0.2026.packet", ftypes.STRING, nil, nil, nil, "Itch Mold Udp 64 Packet")
@@ -4777,11 +4779,11 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.system_event_message.dissect = funct
   end
 end
 
--- Payload
-nasdaq_nsmequities_totalview_itch_v5_0_2026.payload = {}
+-- File Payload
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_payload = {}
 
--- Dispatch: Payload
-nasdaq_nsmequities_totalview_itch_v5_0_2026.payload.dispatch = {
+-- Dispatch: File Payload
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_payload.dispatch = {
   ["S"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.system_event_message.dissect,
   ["R"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_directory_message.dissect,
   ["H"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_trading_action_message.dissect,
@@ -4807,9 +4809,9 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.payload.dispatch = {
   ["O"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.direct_listing_with_capital_raise_price_discovery_message.dissect,
 }
 
--- Dissect: Payload
-nasdaq_nsmequities_totalview_itch_v5_0_2026.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = nasdaq_nsmequities_totalview_itch_v5_0_2026.payload.dispatch[message_type]
+-- Dissect: File Payload
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_payload.dissect = function(buffer, offset, packet, parent, message_type)
+  local dissect = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_payload.dispatch[message_type]
   if dissect then
     return dissect(buffer, offset, packet, parent)
   end
@@ -4859,6 +4861,156 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.message_header.dissect = function(bu
     -- Skip element, add fields directly
     return nasdaq_nsmequities_totalview_itch_v5_0_2026.message_header.fields(buffer, offset, packet, parent)
   end
+end
+
+-- File Message
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_message = {}
+
+-- Display: File Message
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: File Message
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_message.fields = function(buffer, offset, packet, parent, size_of_file_message)
+  local index = offset
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = nasdaq_nsmequities_totalview_itch_v5_0_2026.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):string()
+
+  -- File Payload: Runtime Type with 23 branches
+  index = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: File Message
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_message.dissect = function(buffer, offset, packet, parent, size_of_file_message)
+  local index = offset + size_of_file_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.file_message, buffer(offset, 0))
+    local current = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_message.fields(buffer, offset, packet, parent, size_of_file_message)
+    parent:set_len(size_of_file_message)
+    local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_totalview_itch_v5_0_2026.file_message.fields(buffer, offset, packet, parent, size_of_file_message)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: File Message
+local file_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < nasdaq_nsmequities_totalview_itch_v5_0_2026.message_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- File
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file = {}
+
+-- Verify required size of File packet
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_nsmequities_totalview_itch_v5_0_2026.message_header.size
+end
+
+-- Dissect File
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nasdaq_nsmequities_totalview_itch_v5_0_2026.conversation.data(packet)
+  if not packet.visited then
+  end
+  nasdaq_nsmequities_totalview_itch_v5_0_2026.conversation.current = data
+
+  local index = 0
+
+  -- Dependency for File Message
+  local end_of_payload = buffer:len()
+
+  -- File Message: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_file_message = file_message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_file_message):tvb()
+      index = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_message.dissect(frame, index, packet, parent, size_of_file_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+-- Payload
+nasdaq_nsmequities_totalview_itch_v5_0_2026.payload = {}
+
+-- Dispatch: Payload
+nasdaq_nsmequities_totalview_itch_v5_0_2026.payload.dispatch = {
+  ["S"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.system_event_message.dissect,
+  ["R"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_directory_message.dissect,
+  ["H"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_trading_action_message.dissect,
+  ["Y"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.dissect,
+  ["L"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.market_participant_position_message.dissect,
+  ["V"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.mwcb_decline_level_message.dissect,
+  ["W"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.mwcb_status_level_message.dissect,
+  ["K"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.ipo_quoting_period_update.dissect,
+  ["J"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.luld_auction_collar_message.dissect,
+  ["h"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.operational_halt_message.dissect,
+  ["A"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.add_order_no_mpid_attribution_message.dissect,
+  ["F"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.add_order_with_mpid_attribution_message.dissect,
+  ["E"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.order_executed_message.dissect,
+  ["C"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.order_executed_with_price_message.dissect,
+  ["X"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.order_cancel_message.dissect,
+  ["D"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.order_delete_message.dissect,
+  ["U"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.order_replace_message.dissect,
+  ["P"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.non_cross_trade_message.dissect,
+  ["Q"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.cross_trade_message.dissect,
+  ["B"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.broken_trade_message.dissect,
+  ["I"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.net_order_imbalance_indicator_message.dissect,
+  ["N"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.retail_price_improvement_indicator_message.dissect,
+  ["O"] = nasdaq_nsmequities_totalview_itch_v5_0_2026.direct_listing_with_capital_raise_price_discovery_message.dissect,
+}
+
+-- Dissect: Payload
+nasdaq_nsmequities_totalview_itch_v5_0_2026.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  local dissect = nasdaq_nsmequities_totalview_itch_v5_0_2026.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
 end
 
 -- Message
@@ -6149,6 +6301,7 @@ end
 -- Register Heuristics for Nasdaq NsmEquities TotalView Itch 5.0.2026
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026:register_heuristic("tcp", omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_tcp_heuristic)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026:register_heuristic("udp", omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_udp_heuristic)
+-- Nasdaq NsmEquities TotalView Itch 5.0.2026 is read from a file by a file handler, so it is registered for no transport; call nasdaq_nsmequities_totalview_itch_v5_0_2026.file.dissect to dissect it
 
 -- Register Nasdaq NsmEquities TotalView Itch 5.0.2026 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
@@ -6157,6 +6310,291 @@ tcp_table:add_for_decode_as(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026)
 -- Register Nasdaq NsmEquities TotalView Itch 5.0.2026 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026)
+
+-----------------------------------------------------------------------
+-- File Tree Dissector
+-----------------------------------------------------------------------
+
+-- Nasdaq NsmEquities TotalView Itch 5.0.2026 file records: the dissector a file handler's frames name
+local omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_file = Proto("Omi.Nasdaq.NsmEquities.TotalView.Itch.v5.0.2026.File", "Nasdaq NsmEquities TotalView Itch 5.0.2026 File")
+
+-- Dissect a frame of a file: what the file opens with, or one record
+function omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_file.dissector(buffer, packet, parent)
+  packet.cols.protocol = omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.name
+
+  local protocol = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026, buffer(), omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.description, "("..buffer:len().." Bytes)")
+  return nasdaq_nsmequities_totalview_itch_v5_0_2026.file.dissect(buffer, packet, protocol)
+end
+
+
+
+-----------------------------------------------------------------------
+-- File Reader
+-----------------------------------------------------------------------
+
+-- File reader state and functions
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler = {}
+
+-- The constants a file opens with, each at its offset
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.constants = {
+}
+
+-- How far each element a file opens with extends: a fixed size, or a length read at its start
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.preamble = {
+}
+
+-- How the records are framed: their length, and the sizes of the messages their type selects
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.framing = {
+  length = { offset = 0, size = 2, big = true, operator = "Plus", operand = 2 },
+  header = 3,
+  discriminator = { offset = 2, size = 1 },
+  arms = {
+    ["\083"] = { minimum = 14, maximum = 14 },
+    ["\082"] = { minimum = 41, maximum = 41 },
+    ["\072"] = { minimum = 27, maximum = 27 },
+    ["\089"] = { minimum = 22, maximum = 22 },
+    ["\076"] = { minimum = 28, maximum = 28 },
+    ["\086"] = { minimum = 37, maximum = 37 },
+    ["\087"] = { minimum = 14, maximum = 14 },
+    ["\075"] = { minimum = 30, maximum = 30 },
+    ["\074"] = { minimum = 37, maximum = 37 },
+    ["\104"] = { minimum = 23, maximum = 23 },
+    ["\065"] = { minimum = 38, maximum = 38 },
+    ["\070"] = { minimum = 42, maximum = 42 },
+    ["\069"] = { minimum = 33, maximum = 33 },
+    ["\067"] = { minimum = 38, maximum = 38 },
+    ["\088"] = { minimum = 25, maximum = 25 },
+    ["\068"] = { minimum = 21, maximum = 21 },
+    ["\085"] = { minimum = 37, maximum = 37 },
+    ["\080"] = { minimum = 46, maximum = 46 },
+    ["\081"] = { minimum = 42, maximum = 42 },
+    ["\066"] = { minimum = 21, maximum = 21 },
+    ["\073"] = { minimum = 52, maximum = 52 },
+    ["\078"] = { minimum = 22, maximum = 22 },
+    ["\079"] = { minimum = 50, maximum = 50 },
+  },
+}
+
+-- An unsigned integer of a size at an offset (from zero) of a string
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.unsigned = function(bytes, at, size, big)
+  local format = "<I"..size
+  if big then
+    format = ">I"..size
+  end
+  return (string.unpack(format, bytes, at + 1))
+end
+
+
+-- The bytes an element spans, from the length read at its start
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.measure = function(bytes, at, length)
+  local value = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.unsigned(bytes, at + length.offset, length.size, length.big)
+  if length.operator == "Plus" then
+    return value + length.operand
+  end
+  if length.operator == "Minus" then
+    return value - length.operand
+  end
+  if length.operator == "Multiply" then
+    return value * length.operand
+  end
+  if length.operator == "Divide" then
+    return value // length.operand
+  end
+  return value
+end
+
+
+-- Does a record of a length frame the message its type selects, at that message's size?
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.frames = function(bytes, at, total)
+  local framing = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.framing
+  if framing.discriminator == nil then
+    return true
+  end
+  local from = at + framing.discriminator.offset
+  local arm = framing.arms[bytes:sub(from + 1, from + framing.discriminator.size)]
+  if arm == nil or total < arm.minimum then
+    return false
+  end
+  if arm.maximum ~= nil then
+    return total <= arm.maximum
+  end
+  return true
+end
+
+
+-- The layout a file is of: 1 when its first bytes read as a file of the tree (its constants, then up to 16 records framed), else nil
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.recognize = function(file)
+  local head = file:read(65536)
+  if head == nil then
+    return nil
+  end
+  for _, constant in ipairs(nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.constants) do
+    if head:sub(constant.offset + 1, constant.offset + #constant.bytes) ~= constant.bytes then
+      return nil
+    end
+  end
+
+  local position = 0
+  for _, extent in ipairs(nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.preamble) do
+    if extent.length == nil then
+      position = position + extent.fixed
+    else
+      if position + extent.length.offset + extent.length.size > #head then
+        return nil
+      end
+      position = position + nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.measure(head, position, extent.length)
+    end
+  end
+
+  local framing = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.framing
+  local framed = 0
+  while framed < 16 and position + framing.header <= #head do
+    local total = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.measure(head, position, framing.length)
+    if total < framing.header or not nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.frames(head, position, total) then
+      return nil
+    end
+    position = position + total
+    framed = framed + 1
+  end
+
+  if framed > 0 then
+    return 1
+  end
+  return nil
+end
+
+
+-- The bytes a file opens with: each element it opens with measured where it starts
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.opening = function(file)
+  local position = 0
+  for _, extent in ipairs(nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.preamble) do
+    if extent.length == nil then
+      position = position + extent.fixed
+    else
+      local needed = extent.length.offset + extent.length.size
+      file:seek("set", position)
+      local head = file:read(needed)
+      if head == nil or #head < needed then
+        return nil
+      end
+      position = position + nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.measure(head, 0, extent.length)
+    end
+  end
+  return position
+end
+
+
+-- The frame at an offset, or with none the next: what the file opens with, then one record a frame
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.read = function(file, capture, offset)
+  local state = capture.private_table
+  if offset == nil then
+    offset = state.next or 0
+  end
+
+  local size = nil
+  if offset == 0 and #nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.preamble > 0 then
+    size = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.opening(file)
+  else
+    local header = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.framing.header
+    file:seek("set", offset)
+    local head = file:read(header)
+    if head == nil or #head < header then
+      return nil
+    end
+    size = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.measure(head, 0, nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.framing.length)
+    if size < header then
+      return nil
+    end
+  end
+  if size == nil then
+    return nil
+  end
+
+  file:seek("set", offset)
+  local data = file:read(size)
+  if data == nil or #data < size then
+    return nil
+  end
+  state.next = offset + size
+  return offset, data
+end
+
+
+
+-----------------------------------------------------------------------
+-- File Handler
+-----------------------------------------------------------------------
+
+-- File handler state
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file = {}
+
+-- Exported pdu tags each frame starts with: the dissector it is for, then the end of the tags
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.prefix = "\000\012\000\052omi.nasdaq.nsmequities.totalview.itch.v5.0.2026.file\000\000\000\000"
+
+-- The layout a file is of, or nil for a file of no layout
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.layout = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.recognize
+
+-- A record read into a frame, the one at an offset or with none the next: its offset, nil at the end of the file
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.frame = function(file, capture, frame, offset)
+  local at, data, seconds, nanoseconds = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.read(file, capture, offset)
+  if at == nil then
+    return nil
+  end
+  data = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.prefix .. data
+  frame.rec_type = wtap_rec_types.PACKET
+  frame.captured_length = #data
+  frame.original_length = #data
+  frame.flags = wtap_presence_flags.CAP_LEN
+  if seconds ~= nil then
+    frame.time = NSTime(seconds, nanoseconds)
+    frame.flags = wtap_presence_flags.TS + wtap_presence_flags.CAP_LEN
+  end
+  frame.data = data
+  return at
+end
+
+-- Nasdaq NsmEquities TotalView Itch 5.0.2026 (Omi) file handler: a heuristic reader, recognising a file by how its records frame
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.handler = FileHandler.new("Nasdaq NsmEquities TotalView Itch 5.0.2026 (Omi)", "omi_nasdaq_nsmequities_totalview_itch_v5_0_2026", "Nasdaq NsmEquities TotalView Itch 5.0.2026 (Omi) file", "rh")
+
+-- A file of a layout is this protocol's; read from its start, so its first line is the first frame
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.handler.read_open = function(file, capture)
+  local layout = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.layout(file)
+  if layout == nil then
+    return false
+  end
+  nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.variant = layout
+  file:seek("set", 0)
+  capture.private_table = {}
+  capture.encap = wtap_encaps.WIRESHARK_UPPER_PDU
+  capture.time_precision = wtap_tsprecs.NSEC
+  return true
+end
+
+-- The next record, returning its offset in the file
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.handler.read = function(file, capture, frame)
+  local offset = nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.frame(file, capture, frame, nil)
+  if offset == nil then
+    return false
+  end
+  return offset
+end
+
+-- The record at an offset read before
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.handler.seek_read = function(file, capture, frame, offset)
+  return nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.frame(file, capture, frame, offset) ~= nil
+end
+
+-- Nothing is held open beyond the file Wireshark closes
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.handler.read_close = function(file, capture)
+  return true
+end
+
+nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.handler.seq_read_close = function(file, capture)
+  return true
+end
+
+-- Register Nasdaq NsmEquities TotalView Itch 5.0.2026 (Omi) files
+register_filehandler(nasdaq_nsmequities_totalview_itch_v5_0_2026.file_handler.file.handler)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

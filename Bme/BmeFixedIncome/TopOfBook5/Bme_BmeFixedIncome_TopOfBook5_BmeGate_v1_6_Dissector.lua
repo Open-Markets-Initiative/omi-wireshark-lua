@@ -50,11 +50,11 @@ omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.ask_size_2 = ProtoField.ne
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.ask_size_3 = ProtoField.new("Ask Size 3", "bme.bmefixedincome.topofbook5.bmegate.v1.6.asksize3", ftypes.UINT32, nil, nil, nil, "Sell volume level 3")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.ask_size_4 = ProtoField.new("Ask Size 4", "bme.bmefixedincome.topofbook5.bmegate.v1.6.asksize4", ftypes.UINT32, nil, nil, nil, "Sell volume level 4")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.ask_size_5 = ProtoField.new("Ask Size 5", "bme.bmefixedincome.topofbook5.bmegate.v1.6.asksize5", ftypes.UINT32, nil, nil, nil, "Sell volume level 5")
+omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.benc_rfpt_flag = ProtoField.new("Benc Rfpt Flag", "bme.bmefixedincome.topofbook5.bmegate.v1.6.bencrfptflag", ftypes.STRING, nil, nil, nil, "Benchmark or Reference Price Indicator MMT")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.benchmark = ProtoField.new("Benchmark", "bme.bmefixedincome.topofbook5.bmegate.v1.6.benchmark", ftypes.UINT8)
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.benchmark_curve_points_units = ProtoField.new("Benchmark Curve Points Units", "bme.bmefixedincome.topofbook5.bmegate.v1.6.benchmarkcurvepointsunits", ftypes.STRING, nil, nil, nil, "Benchmark Curve Point for Index term")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.benchmark_curve_points_value = ProtoField.new("Benchmark Curve Points Value", "bme.bmefixedincome.topofbook5.bmegate.v1.6.benchmarkcurvepointsvalue", ftypes.UINT8, nil, nil, nil, "Benchmark Curve Point for Index term")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.benchmark_security_id = ProtoField.new("Benchmark Security Id", "bme.bmefixedincome.topofbook5.bmegate.v1.6.benchmarksecurityid", ftypes.STRING)
-omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.bencrfpt_flag = ProtoField.new("Bencrfpt Flag", "bme.bmefixedincome.topofbook5.bmegate.v1.6.bencrfptflag", ftypes.STRING, nil, nil, nil, "Benchmark or Reference Price Indicator MMT")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.bid_orders_1 = ProtoField.new("Bid Orders 1", "bme.bmefixedincome.topofbook5.bmegate.v1.6.bidorders1", ftypes.UINT16, nil, nil, nil, "Buy number of orders")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.bid_orders_2 = ProtoField.new("Bid Orders 2", "bme.bmefixedincome.topofbook5.bmegate.v1.6.bidorders2", ftypes.UINT16, nil, nil, nil, "Buy number of orders level 2")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.bid_orders_3 = ProtoField.new("Bid Orders 3", "bme.bmefixedincome.topofbook5.bmegate.v1.6.bidorders3", ftypes.UINT16, nil, nil, nil, "Buy number of orders level 3")
@@ -204,9 +204,9 @@ omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.security_list_message = Pr
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.security_list_update_report_message = ProtoField.new("Security List Update Report Message", "bme.bmefixedincome.topofbook5.bmegate.v1.6.securitylistupdatereportmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server for reporting updates, during the session, to the security definition")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.security_status_message = ProtoField.new("Security Status Message", "bme.bmefixedincome.topofbook5.bmegate.v1.6.securitystatusmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform on the status of one security")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.statistics_message = ProtoField.new("Statistics Message", "bme.bmefixedincome.topofbook5.bmegate.v1.6.statisticsmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform about closing prices and other statistics")
-omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.topofbook_5_levels_message = ProtoField.new("Topofbook 5 Levels Message", "bme.bmefixedincome.topofbook5.bmegate.v1.6.topofbook5levelsmessage", ftypes.STRING, nil, nil, nil, "Used by the UDP 5 level top-of-book Servers to communicate Top-of-book price information during open market. During auctions, only the first level is shown, and therefore this message is not published, and the message Top-of-book (Msg Type = 0x82) is used instead")
-omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.topofbook_message = ProtoField.new("Topofbook Message", "bme.bmefixedincome.topofbook5.bmegate.v1.6.topofbookmessage", ftypes.STRING, nil, nil, nil, "Used by the UDP Servers to communicate Top-of-book price information during auctions. When there is an indicative match price, the fields BidPx1 and AskPx1 will have the same value")
-omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.trade_market_post_transparency_information_topofbook_message = ProtoField.new("Trade Market Post Transparency Information Topofbook Message", "bme.bmefixedincome.topofbook5.bmegate.v1.6.trademarketposttransparencyinformationtopofbookmessage", ftypes.STRING, nil, nil, nil, "Used by the server to communicate trade information related to trades resulting from order matching in channels C/D and E/F. It is also used in channels A/B when the trade is the result of order matching at the end of an auction period (where only top-of-book information is shown)")
+omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.top_of_book_5_levels_message = ProtoField.new("Top Of Book 5 Levels Message", "bme.bmefixedincome.topofbook5.bmegate.v1.6.topofbook5levelsmessage", ftypes.STRING, nil, nil, nil, "Used by the UDP 5 level top-of-book Servers to communicate Top-of-book price information during open market. During auctions, only the first level is shown, and therefore this message is not published, and the message Top-of-book (Msg Type = 0x82) is used instead")
+omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.top_of_book_message = ProtoField.new("Top Of Book Message", "bme.bmefixedincome.topofbook5.bmegate.v1.6.topofbookmessage", ftypes.STRING, nil, nil, nil, "Used by the UDP Servers to communicate Top-of-book price information during auctions. When there is an indicative match price, the fields BidPx1 and AskPx1 will have the same value")
+omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.trade_market_post_transparency_information_top_of_book_message = ProtoField.new("Trade Market Post Transparency Information Top Of Book Message", "bme.bmefixedincome.topofbook5.bmegate.v1.6.trademarketposttransparencyinformationtopofbookmessage", ftypes.STRING, nil, nil, nil, "Used by the server to communicate trade information related to trades resulting from order matching in channels C/D and E/F. It is also used in channels A/B when the trade is the result of order matching at the end of an auction period (where only top-of-book information is shown)")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.trade_trade_amendment_or_cancellation_message = ProtoField.new("Trade Trade Amendment Or Cancellation Message", "bme.bmefixedincome.topofbook5.bmegate.v1.6.tradetradeamendmentorcancellationmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade produced due to any reason other than order matching, also to inform about trades produced due to order matching in a Dark pool. In this message, all fields with the suffix 2 refer to the sell order, and the ones without the suffix refer either to both legs or the buy order")
 omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "bme.bmefixedincome.topofbook5.bmegate.v1.6.tradingsessionstatusmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about the session status in each Trading Mode")
 
@@ -1287,6 +1287,36 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.ask_size_5.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Benc Rfpt Flag
+bme_bmefixedincome_topofbook5_bmegate_v1_6.benc_rfpt_flag = {}
+
+-- Size: Benc Rfpt Flag
+bme_bmefixedincome_topofbook5_bmegate_v1_6.benc_rfpt_flag.size = 1
+
+-- Display: Benc Rfpt Flag
+bme_bmefixedincome_topofbook5_bmegate_v1_6.benc_rfpt_flag.display = function(value)
+  if value == " " then
+    return "Benc Rfpt Flag: Normal Trade (<whitespace>)"
+  end
+  if value == "6" then
+    return "Benc Rfpt Flag: Benchmark Trade Benc (6)"
+  end
+
+  return "Benc Rfpt Flag: Unknown("..value..")"
+end
+
+-- Dissect: Benc Rfpt Flag
+bme_bmefixedincome_topofbook5_bmegate_v1_6.benc_rfpt_flag.dissect = function(buffer, offset, packet, parent)
+  local length = bme_bmefixedincome_topofbook5_bmegate_v1_6.benc_rfpt_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = bme_bmefixedincome_topofbook5_bmegate_v1_6.benc_rfpt_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.benc_rfpt_flag, range, value, display)
+
+  return offset + length, value
+end
+
 -- Benchmark
 bme_bmefixedincome_topofbook5_bmegate_v1_6.benchmark = {}
 
@@ -1419,36 +1449,6 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.benchmark_security_id.dissect = funct
   local display = bme_bmefixedincome_topofbook5_bmegate_v1_6.benchmark_security_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.benchmark_security_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Bencrfpt Flag
-bme_bmefixedincome_topofbook5_bmegate_v1_6.bencrfpt_flag = {}
-
--- Size: Bencrfpt Flag
-bme_bmefixedincome_topofbook5_bmegate_v1_6.bencrfpt_flag.size = 1
-
--- Display: Bencrfpt Flag
-bme_bmefixedincome_topofbook5_bmegate_v1_6.bencrfpt_flag.display = function(value)
-  if value == " " then
-    return "Bencrfpt Flag: Normal Trade (<whitespace>)"
-  end
-  if value == "6" then
-    return "Bencrfpt Flag: Benchmark Trade Benc (6)"
-  end
-
-  return "Bencrfpt Flag: Unknown("..value..")"
-end
-
--- Dissect: Bencrfpt Flag
-bme_bmefixedincome_topofbook5_bmegate_v1_6.bencrfpt_flag.dissect = function(buffer, offset, packet, parent)
-  local length = bme_bmefixedincome_topofbook5_bmegate_v1_6.bencrfpt_flag.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = bme_bmefixedincome_topofbook5_bmegate_v1_6.bencrfpt_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.bencrfpt_flag, range, value, display)
 
   return offset + length, value
 end
@@ -3442,7 +3442,7 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.message_type.display = function(value
     return "Message Type: Security Status Message (0x66)"
   end
   if value == 0x10 then
-    return "Message Type: Trade Market Post Transparency Information Topofbook Message (0x10)"
+    return "Message Type: Trade Market Post Transparency Information Top Of Book Message (0x10)"
   end
   if value == 0x18 then
     return "Message Type: Trade Trade Amendment Or Cancellation Message (0x18)"
@@ -3454,10 +3454,10 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.message_type.display = function(value
     return "Message Type: Rfq Market Pre Transparency Information Message (0x85)"
   end
   if value == 0x82 then
-    return "Message Type: Topofbook Message (0x82)"
+    return "Message Type: Top Of Book Message (0x82)"
   end
   if value == 0x83 then
-    return "Message Type: Topofbook 5 Levels Message (0x83)"
+    return "Message Type: Top Of Book 5 Levels Message (0x83)"
   end
 
   return "Message Type: Unknown("..string.format("0x%02X", value)..")"
@@ -3757,8 +3757,8 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.non_availability_reason.labels = {
   [0] = "Non Availability Reason: Not Halted (0)",
   [100] = "Non Availability Reason: Halted By Regulator (100)",
   [101] = "Non Availability Reason: Halted By Market Surveillance (101)",
-  [102] = "Non Availability Reason: Knockout (102)",
-  [103] = "Non Availability Reason: Knockin Pending (103)",
+  [102] = "Non Availability Reason: Knock Out (102)",
+  [103] = "Non Availability Reason: Knock In Pending (103)",
 }
 
 bme_bmefixedincome_topofbook5_bmegate_v1_6.non_availability_reason.display = function(value)
@@ -4264,7 +4264,7 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.security_trading_status.labels = {
   [19] = "Security Trading Status: Not Traded On This Segment (19)",
   [20] = "Security Trading Status: Unknown Or Invalid (20)",
   [21] = "Security Trading Status: Pre Open (21)",
-  [26] = "Security Trading Status: Postclose Ready To Trade In Tal (26)",
+  [26] = "Security Trading Status: Post Close Ready To Trade In Tal (26)",
   [23] = "Security Trading Status: Fast Market (23)",
   [100] = "Security Trading Status: Extraordinary Market Conditions (100)",
 }
@@ -5240,11 +5240,11 @@ end
 -- Dissect Bme BmeFixedIncome TopOfBook5 BmeGate 1.6
 -----------------------------------------------------------------------
 
--- Topofbook 5 Levels Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message = {}
+-- Top Of Book 5 Levels Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_5_levels_message = {}
 
--- Size: Topofbook 5 Levels Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.size =
+-- Size: Top Of Book 5 Levels Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_5_levels_message.size =
   bme_bmefixedincome_topofbook5_bmegate_v1_6.sequence_number.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.security_code.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.transaction_date_and_time.size + 
@@ -5289,13 +5289,13 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.size =
   bme_bmefixedincome_topofbook5_bmegate_v1_6.ask_px_5.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.alt_sell_px_5.size
 
--- Display: Topofbook 5 Levels Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.display = function(packet, parent, length)
+-- Display: Top Of Book 5 Levels Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_5_levels_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Topofbook 5 Levels Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Top Of Book 5 Levels Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_5_levels_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: U
@@ -5430,29 +5430,29 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.fields = f
   return index
 end
 
--- Dissect: Topofbook 5 Levels Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Top Of Book 5 Levels Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_5_levels_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.topofbook_5_levels_message, buffer(offset, 0))
-    local index = bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.top_of_book_5_levels_message, buffer(offset, 0))
+    local index = bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_5_levels_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.display(packet, parent, length)
+    local display = bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_5_levels_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.fields(buffer, offset, packet, parent)
+    return bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_5_levels_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Topofbook Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message = {}
+-- Top Of Book Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_message = {}
 
--- Size: Topofbook Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.size =
+-- Size: Top Of Book Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_message.size =
   bme_bmefixedincome_topofbook5_bmegate_v1_6.sequence_number.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.security_code.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.transaction_date_and_time.size + 
@@ -5465,13 +5465,13 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.size =
   bme_bmefixedincome_topofbook5_bmegate_v1_6.ask_px_1.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.alt_sell_px_1.size
 
--- Display: Topofbook Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.display = function(packet, parent, length)
+-- Display: Top Of Book Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Topofbook Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Top Of Book Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: U
@@ -5510,21 +5510,21 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.fields = function(b
   return index
 end
 
--- Dissect: Topofbook Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Top Of Book Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.topofbook_message, buffer(offset, 0))
-    local index = bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.top_of_book_message, buffer(offset, 0))
+    local index = bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.display(packet, parent, length)
+    local display = bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.fields(buffer, offset, packet, parent)
+    return bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5824,7 +5824,7 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_trade_amendment_or_cancellation
   bme_bmefixedincome_topofbook5_bmegate_v1_6.settl_date.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.transaction_category.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.last_change_flag.size + 
-  bme_bmefixedincome_topofbook5_bmegate_v1_6.bencrfpt_flag.size + 
+  bme_bmefixedincome_topofbook5_bmegate_v1_6.benc_rfpt_flag.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_price_condition.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.pre_trade_transparency_waiver.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.deferral_waiver.size + 
@@ -5904,8 +5904,8 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_trade_amendment_or_cancellation
   -- Last Change Flag: F
   index, last_change_flag = bme_bmefixedincome_topofbook5_bmegate_v1_6.last_change_flag.dissect(buffer, index, packet, parent)
 
-  -- Bencrfpt Flag: C
-  index, bencrfpt_flag = bme_bmefixedincome_topofbook5_bmegate_v1_6.bencrfpt_flag.dissect(buffer, index, packet, parent)
+  -- Benc Rfpt Flag: C
+  index, benc_rfpt_flag = bme_bmefixedincome_topofbook5_bmegate_v1_6.benc_rfpt_flag.dissect(buffer, index, packet, parent)
 
   -- Trade Price Condition: C
   index, trade_price_condition = bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_price_condition.dissect(buffer, index, packet, parent)
@@ -5964,11 +5964,11 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_trade_amendment_or_cancellation
   end
 end
 
--- Trade Market Post Transparency Information Topofbook Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message = {}
+-- Trade Market Post Transparency Information Top Of Book Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message = {}
 
--- Size: Trade Market Post Transparency Information Topofbook Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.size =
+-- Size: Trade Market Post Transparency Information Top Of Book Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.size =
   bme_bmefixedincome_topofbook5_bmegate_v1_6.sequence_number.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.security_code.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.transaction_date_and_time.size + 
@@ -5988,13 +5988,13 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_inform
   bme_bmefixedincome_topofbook5_bmegate_v1_6.settl_date.size + 
   bme_bmefixedincome_topofbook5_bmegate_v1_6.transaction_category.size
 
--- Display: Trade Market Post Transparency Information Topofbook Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.display = function(packet, parent, length)
+-- Display: Trade Market Post Transparency Information Top Of Book Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Trade Market Post Transparency Information Topofbook Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Market Post Transparency Information Top Of Book Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: U
@@ -6054,21 +6054,21 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_inform
   return index
 end
 
--- Dissect: Trade Market Post Transparency Information Topofbook Message
-bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Trade Market Post Transparency Information Top Of Book Message
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.trade_market_post_transparency_information_topofbook_message, buffer(offset, 0))
-    local index = bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_bme_bmefixedincome_topofbook5_bmegate_v1_6.fields.trade_market_post_transparency_information_top_of_book_message, buffer(offset, 0))
+    local index = bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.display(packet, parent, length)
+    local display = bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.fields(buffer, offset, packet, parent)
+    return bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7228,9 +7228,9 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.payload.dissect = function(buffer, of
   if message_type == 0x66 then
     return bme_bmefixedincome_topofbook5_bmegate_v1_6.security_status_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Trade Market Post Transparency Information Topofbook Message
+  -- Dissect Trade Market Post Transparency Information Top Of Book Message
   if message_type == 0x10 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.dissect(buffer, offset, packet, parent)
+    return bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Trade Amendment Or Cancellation Message
   if message_type == 0x18 then
@@ -7244,13 +7244,13 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.payload.dissect = function(buffer, of
   if message_type == 0x85 then
     return bme_bmefixedincome_topofbook5_bmegate_v1_6.rfq_market_pre_transparency_information_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Topofbook Message
+  -- Dissect Top Of Book Message
   if message_type == 0x82 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.dissect(buffer, offset, packet, parent)
+    return bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Topofbook 5 Levels Message
+  -- Dissect Top Of Book 5 Levels Message
   if message_type == 0x83 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.dissect(buffer, offset, packet, parent)
+    return bme_bmefixedincome_topofbook5_bmegate_v1_6.top_of_book_5_levels_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7462,7 +7462,7 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Trade Market Post Transparency Information Topofbook Message
+  -- Trade Market Post Transparency Information Top Of Book Message
   if message_type == 0x10 then
     return true
   end
@@ -7482,12 +7482,12 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Topofbook Message
+  -- Top Of Book Message
   if message_type == 0x82 then
     return true
   end
 
-  -- Topofbook 5 Levels Message
+  -- Top Of Book 5 Levels Message
   if message_type == 0x83 then
     return true
   end

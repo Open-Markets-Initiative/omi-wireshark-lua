@@ -675,12 +675,12 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.market_center.lab
   ["Z"] = "Market Center: Bzx (Z)",
   ["A"] = "Market Center: Edga (A)",
   ["X"] = "Market Center: Edgx (X)",
-  ["L"] = "Market Center: Neol (L)",
-  ["N"] = "Market Center: Neon (N)",
-  ["D"] = "Market Center: Neod (D)",
+  ["L"] = "Market Center: Neo L (L)",
+  ["N"] = "Market Center: Neo N (N)",
+  ["D"] = "Market Center: Neo D (D)",
   ["M"] = "Market Center: Match Now (M)",
   ["r"] = "Market Center: Neo Cross (r)",
-  ["t"] = "Market Center: Neosst (t)",
+  ["t"] = "Market Center: Neo Sst (t)",
 }
 
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.market_center.display = function(value)
@@ -1184,7 +1184,7 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.session_indicator
 -- Display: Session Indicator
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.session_indicator.labels = {
   ["R"] = "Session Indicator: Regular Trading Session (R)",
-  ["P"] = "Session Indicator: Pre Or Postmarket Session (P)",
+  ["P"] = "Session Indicator: Pre Or Post Market Session (P)",
 }
 
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.session_indicator.display = function(value)
@@ -1355,8 +1355,8 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.trading_status.la
   ["F"] = "Trading Status: Halted Full (F)",
   ["H"] = "Trading Status: Halted (H)",
   ["M"] = "Trading Status: Delayed Closing (M)",
-  ["O"] = "Trading Status: Preclose (O)",
-  ["P"] = "Trading Status: Postclose (P)",
+  ["O"] = "Trading Status: Pre Close (O)",
+  ["P"] = "Trading Status: Post Close (P)",
   ["Q"] = "Trading Status: Quote Only (Q)",
   ["S"] = "Trading Status: Exchange Specific Suspension (S)",
   ["T"] = "Trading Status: Trading (T)",

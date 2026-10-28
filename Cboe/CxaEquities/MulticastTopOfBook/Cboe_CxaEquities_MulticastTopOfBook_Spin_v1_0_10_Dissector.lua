@@ -736,10 +736,10 @@ cboe_cxaequities_multicasttopofbook_spin_v1_0_10.trading_status.size = 1
 -- Display: Trading Status
 cboe_cxaequities_multicasttopofbook_spin_v1_0_10.trading_status.labels = {
   ["C"] = "Trading Status: Closed (C)",
-  ["A"] = "Trading Status: Premarket (A)",
+  ["A"] = "Trading Status: Pre Market (A)",
   ["T"] = "Trading Status: Trading (T)",
   ["M"] = "Trading Status: Moc Trading (M)",
-  ["P"] = "Trading Status: Postmarket (P)",
+  ["P"] = "Trading Status: Post Market (P)",
   ["H"] = "Trading Status: Halted (H)",
   ["S"] = "Trading Status: Trading Suspended (S)",
   ["O"] = "Trading Status: Pre Open (O)",

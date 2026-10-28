@@ -39,11 +39,11 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.amended_trade_date = Proto
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.amended_trade_type = ProtoField.new("Amended Trade Type", "bme.bmefixedincome.orderentry.bmegate.v1.6.amendedtradetype", ftypes.STRING, nil, nil, nil, "Trade type of the amended/cancelled trade")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ask_px_1 = ProtoField.new("Ask Px 1", "bme.bmefixedincome.orderentry.bmegate.v1.6.askpx1", ftypes.DOUBLE, nil, nil, nil, "Sell price")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ask_size_1 = ProtoField.new("Ask Size 1", "bme.bmefixedincome.orderentry.bmegate.v1.6.asksize1", ftypes.UINT32, nil, nil, nil, "Sell volume")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.benc_rfpt_flag = ProtoField.new("Benc Rfpt Flag", "bme.bmefixedincome.orderentry.bmegate.v1.6.bencrfptflag", ftypes.STRING, nil, nil, nil, "Benchmark or Reference Price Indicator MMT")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.benchmark = ProtoField.new("Benchmark", "bme.bmefixedincome.orderentry.bmegate.v1.6.benchmark", ftypes.UINT8)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.benchmark_curve_points_units = ProtoField.new("Benchmark Curve Points Units", "bme.bmefixedincome.orderentry.bmegate.v1.6.benchmarkcurvepointsunits", ftypes.STRING, nil, nil, nil, "Benchmark Curve Point for Index term")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.benchmark_curve_points_value = ProtoField.new("Benchmark Curve Points Value", "bme.bmefixedincome.orderentry.bmegate.v1.6.benchmarkcurvepointsvalue", ftypes.UINT8, nil, nil, nil, "Benchmark Curve Point for Index term")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.benchmark_security_id = ProtoField.new("Benchmark Security Id", "bme.bmefixedincome.orderentry.bmegate.v1.6.benchmarksecurityid", ftypes.STRING)
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.bencrfpt_flag = ProtoField.new("Bencrfpt Flag", "bme.bmefixedincome.orderentry.bmegate.v1.6.bencrfptflag", ftypes.STRING, nil, nil, nil, "Benchmark or Reference Price Indicator MMT")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.bid_px_1 = ProtoField.new("Bid Px 1", "bme.bmefixedincome.orderentry.bmegate.v1.6.bidpx1", ftypes.DOUBLE, nil, nil, nil, "Buy price")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.bid_size_1 = ProtoField.new("Bid Size 1", "bme.bmefixedincome.orderentry.bmegate.v1.6.bidsize1", ftypes.UINT32, nil, nil, nil, "Buy volume")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.block_static_range = ProtoField.new("Block Static Range", "bme.bmefixedincome.orderentry.bmegate.v1.6.blockstaticrange", ftypes.DOUBLE, nil, nil, nil, "Static range for parametrised blocks")
@@ -1141,6 +1141,36 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.ask_size_1.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Benc Rfpt Flag
+bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag = {}
+
+-- Size: Benc Rfpt Flag
+bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag.size = 1
+
+-- Display: Benc Rfpt Flag
+bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag.display = function(value)
+  if value == " " then
+    return "Benc Rfpt Flag: Normal Trade (<whitespace>)"
+  end
+  if value == "6" then
+    return "Benc Rfpt Flag: Benchmark Trade Benc (6)"
+  end
+
+  return "Benc Rfpt Flag: Unknown("..value..")"
+end
+
+-- Dissect: Benc Rfpt Flag
+bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag.dissect = function(buffer, offset, packet, parent)
+  local length = bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.benc_rfpt_flag, range, value, display)
+
+  return offset + length, value
+end
+
 -- Benchmark
 bme_bmefixedincome_orderentry_bmegate_v1_6.benchmark = {}
 
@@ -1273,36 +1303,6 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.benchmark_security_id.dissect = funct
   local display = bme_bmefixedincome_orderentry_bmegate_v1_6.benchmark_security_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.benchmark_security_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Bencrfpt Flag
-bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag = {}
-
--- Size: Bencrfpt Flag
-bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag.size = 1
-
--- Display: Bencrfpt Flag
-bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag.display = function(value)
-  if value == " " then
-    return "Bencrfpt Flag: Normal Trade (<whitespace>)"
-  end
-  if value == "6" then
-    return "Bencrfpt Flag: Benchmark Trade Benc (6)"
-  end
-
-  return "Bencrfpt Flag: Unknown("..value..")"
-end
-
--- Dissect: Bencrfpt Flag
-bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag.dissect = function(buffer, offset, packet, parent)
-  local length = bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.bencrfpt_flag, range, value, display)
 
   return offset + length, value
 end
@@ -2158,7 +2158,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.cxl_rej_reason.labels = {
   ["h"] = "Cxl Rej Reason: Incorrect Volume (h)",
   ["i"] = "Cxl Rej Reason: Incorrect Date (i)",
   ["k"] = "Cxl Rej Reason: By Contract Status (k)",
-  ["o"] = "Cxl Rej Reason: By Selfmatch Prevention (o)",
+  ["o"] = "Cxl Rej Reason: By Self Match Prevention (o)",
   ["x"] = "Cxl Rej Reason: Invalid Ork Fields (x)",
 }
 
@@ -2717,7 +2717,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.exec_type.labels = {
   ["G"] = "Exec Type: Order Modification Deleting Intermediated Member (G)",
   ["F"] = "Exec Type: Order Modification Changing Intermediated Member (F)",
   ["R"] = "Exec Type: Order Refresh (R)",
-  ["D"] = "Exec Type: Stop Order Triggered Attheclose Order Activation (D)",
+  ["D"] = "Exec Type: Stop Order Triggered At The Close Order Activation (D)",
   ["8"] = "Exec Type: Order Rejection (8)",
   ["N"] = "Exec Type: Order Pending Validation (N)",
   ["P"] = "Exec Type: Order Modification Pending Validation (P)",
@@ -4247,8 +4247,8 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.non_availability_reason.labels = {
   [0] = "Non Availability Reason: Not Halted (0)",
   [100] = "Non Availability Reason: Halted By Regulator (100)",
   [101] = "Non Availability Reason: Halted By Market Surveillance (101)",
-  [102] = "Non Availability Reason: Knockout (102)",
-  [103] = "Non Availability Reason: Knockin Pending (103)",
+  [102] = "Non Availability Reason: Knock Out (102)",
+  [103] = "Non Availability Reason: Knock In Pending (103)",
 }
 
 bme_bmefixedincome_orderentry_bmegate_v1_6.non_availability_reason.display = function(value)
@@ -4320,7 +4320,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.ord_rej_reason.labels = {
   ["h"] = "Ord Rej Reason: Incorrect Volume (h)",
   ["i"] = "Ord Rej Reason: Incorrect Date (i)",
   ["k"] = "Ord Rej Reason: By Contract Status (k)",
-  ["o"] = "Ord Rej Reason: By Selfmatch Prevention (o)",
+  ["o"] = "Ord Rej Reason: By Self Match Prevention (o)",
   ["x"] = "Ord Rej Reason: Invalid Ork Fields (x)",
   ["L"] = "Ord Rej Reason: Priority Change Due To Change In Price (L)",
   ["M"] = "Ord Rej Reason: Priority Change Due To Volume Increase (M)",
@@ -4381,7 +4381,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.ord_rej_reason_2.labels = {
   ["h"] = "Ord Rej Reason 2: Incorrect Volume (h)",
   ["i"] = "Ord Rej Reason 2: Incorrect Date (i)",
   ["k"] = "Ord Rej Reason 2: By Contract Status (k)",
-  ["o"] = "Ord Rej Reason 2: By Selfmatch Prevention (o)",
+  ["o"] = "Ord Rej Reason 2: By Self Match Prevention (o)",
   ["x"] = "Ord Rej Reason 2: Invalid Ork Fields (x)",
   ["L"] = "Ord Rej Reason 2: Priority Change Due To Change In Price (L)",
   ["M"] = "Ord Rej Reason 2: Priority Change Due To Volume Increase (M)",
@@ -4426,8 +4426,8 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.ord_status.labels = {
   ["2"] = "Ord Status: Totally Filled (2)",
   ["4"] = "Ord Status: Cancelled Not Filled (4)",
   ["P"] = "Ord Status: Cancelled Partially Filled (P)",
-  ["A"] = "Ord Status: Nonworking Order Pending Validation (A)",
-  ["S"] = "Ord Status: Nonworking Order Pending Activation (S)",
+  ["A"] = "Ord Status: Non Working Order Pending Validation (A)",
+  ["S"] = "Ord Status: Non Working Order Pending Activation (S)",
   ["C"] = "Ord Status: Expired (C)",
 }
 
@@ -4461,8 +4461,8 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.ord_status_2.labels = {
   ["2"] = "Ord Status 2: Totally Filled (2)",
   ["4"] = "Ord Status 2: Cancelled Not Filled (4)",
   ["P"] = "Ord Status 2: Cancelled Partially Filled (P)",
-  ["A"] = "Ord Status 2: Nonworking Order Pending Validation (A)",
-  ["S"] = "Ord Status 2: Nonworking Order Pending Activation (S)",
+  ["A"] = "Ord Status 2: Non Working Order Pending Validation (A)",
+  ["S"] = "Ord Status 2: Non Working Order Pending Activation (S)",
 }
 
 bme_bmefixedincome_orderentry_bmegate_v1_6.ord_status_2.display = function(value)
@@ -5533,7 +5533,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.security_trading_status.labels = {
   [19] = "Security Trading Status: Not Traded On This Segment (19)",
   [20] = "Security Trading Status: Unknown Or Invalid (20)",
   [21] = "Security Trading Status: Pre Open (21)",
-  [26] = "Security Trading Status: Postclose Ready To Trade In Tal (26)",
+  [26] = "Security Trading Status: Post Close Ready To Trade In Tal (26)",
   [23] = "Security Trading Status: Fast Market (23)",
   [100] = "Security Trading Status: Extraordinary Market Conditions (100)",
 }
@@ -7257,7 +7257,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation
   bme_bmefixedincome_orderentry_bmegate_v1_6.settl_date.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.transaction_category.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.last_change_flag.size + 
-  bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag.size + 
+  bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.trade_price_condition.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.pre_trade_transparency_waiver.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.deferral_waiver.size + 
@@ -7401,8 +7401,8 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation
   -- Last Change Flag: B
   index, last_change_flag = bme_bmefixedincome_orderentry_bmegate_v1_6.last_change_flag.dissect(buffer, index, packet, parent)
 
-  -- Bencrfpt Flag: C
-  index, bencrfpt_flag = bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag.dissect(buffer, index, packet, parent)
+  -- Benc Rfpt Flag: C
+  index, benc_rfpt_flag = bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag.dissect(buffer, index, packet, parent)
 
   -- Trade Price Condition: C
   index, trade_price_condition = bme_bmefixedincome_orderentry_bmegate_v1_6.trade_price_condition.dissect(buffer, index, packet, parent)
@@ -7677,7 +7677,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation
   bme_bmefixedincome_orderentry_bmegate_v1_6.settl_date.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.transaction_category.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.last_change_flag.size + 
-  bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag.size + 
+  bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.trade_price_condition.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.pre_trade_transparency_waiver.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.deferral_waiver.size + 
@@ -7790,8 +7790,8 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation
   -- Last Change Flag: B
   index, last_change_flag = bme_bmefixedincome_orderentry_bmegate_v1_6.last_change_flag.dissect(buffer, index, packet, parent)
 
-  -- Bencrfpt Flag: C
-  index, bencrfpt_flag = bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag.dissect(buffer, index, packet, parent)
+  -- Benc Rfpt Flag: C
+  index, benc_rfpt_flag = bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag.dissect(buffer, index, packet, parent)
 
   -- Trade Price Condition: C
   index, trade_price_condition = bme_bmefixedincome_orderentry_bmegate_v1_6.trade_price_condition.dissect(buffer, index, packet, parent)
@@ -7973,7 +7973,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation
   bme_bmefixedincome_orderentry_bmegate_v1_6.settl_date.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.transaction_category.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.last_change_flag.size + 
-  bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag.size + 
+  bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.trade_price_condition.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.pre_trade_transparency_waiver.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.deferral_waiver.size + 
@@ -8086,8 +8086,8 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation
   -- Last Change Flag: B
   index, last_change_flag = bme_bmefixedincome_orderentry_bmegate_v1_6.last_change_flag.dissect(buffer, index, packet, parent)
 
-  -- Bencrfpt Flag: C
-  index, bencrfpt_flag = bme_bmefixedincome_orderentry_bmegate_v1_6.bencrfpt_flag.dissect(buffer, index, packet, parent)
+  -- Benc Rfpt Flag: C
+  index, benc_rfpt_flag = bme_bmefixedincome_orderentry_bmegate_v1_6.benc_rfpt_flag.dissect(buffer, index, packet, parent)
 
   -- Trade Price Condition: C
   index, trade_price_condition = bme_bmefixedincome_orderentry_bmegate_v1_6.trade_price_condition.dissect(buffer, index, packet, parent)

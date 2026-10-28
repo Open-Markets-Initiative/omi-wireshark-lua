@@ -1559,7 +1559,7 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_15.transaction_category.labels = 
   ["P"] = "Transaction Category: Plain Vanilla Trade (P)",
   ["D"] = "Transaction Category: Dark Trade (D)",
   ["T"] = "Transaction Category: Technical Trade (T)",
-  ["G"] = "Transaction Category: Giveup Givein Trade (G)",
+  ["G"] = "Transaction Category: Give Up Give In Trade (G)",
   ["F"] = "Transaction Category: Trade With Conditions (F)",
 }
 

@@ -1646,7 +1646,7 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_status.labels = {
   ["P"] = "Index Status: Last Close Value Previous Session (P)",
   ["R"] = "Index Status: Preliminary Close (R)",
   ["S"] = "Index Status: Stop Loss Index (S)",
-  ["T"] = "Index Status: Realtime Index Value (T)",
+  ["T"] = "Index Status: Real Time Index Value (T)",
 }
 
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_status.display = function(value)
@@ -3421,8 +3421,8 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.short_sell_flag.size = 1
 
 -- Display: Short Sell Flag
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.short_sell_flag.labels = {
-  ["Y"] = "Short Sell Flag: Shortsell Allowed (Y)",
-  ["N"] = "Short Sell Flag: Shortsell Not Allowed (N)",
+  ["Y"] = "Short Sell Flag: Short Sell Allowed (Y)",
+  ["N"] = "Short Sell Flag: Short Sell Not Allowed (N)",
 }
 
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.short_sell_flag.display = function(value)

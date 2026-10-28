@@ -1346,7 +1346,7 @@ biva_bivaequities_basic_itch_v1_12.trade_indicator.labels = {
   ["E"] = "Trade Indicator: Exceptional Cross Trade At Vwap (E)",
   ["I"] = "Trade Indicator: Ipo Cross (I)",
   ["R"] = "Trade Indicator: Regular Trade (R)",
-  ["U"] = "Trade Indicator: Unintentional Selfcross (U)",
+  ["U"] = "Trade Indicator: Unintentional Self Cross (U)",
 }
 
 biva_bivaequities_basic_itch_v1_12.trade_indicator.display = function(value)

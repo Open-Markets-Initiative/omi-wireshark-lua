@@ -1225,7 +1225,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.market_state.display = function(value)
   end
 
   if value == "P" then
-    return "Market State: Preopening (P)"
+    return "Market State: Pre Opening (P)"
   end
   if value == "E" then
     return "Market State: Early Session (E)"
@@ -2273,7 +2273,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.security_status.display = function(value)
     return "Security Status: Short Sale Restriction Deactivated (D)"
   end
   if value == "P" then
-    return "Security Status: Preopening (P)"
+    return "Security Status: Pre Opening (P)"
   end
   if value == "B" then
     return "Security Status: Begin Accepting Orders (B)"
@@ -2576,7 +2576,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.series_status.display = function(value)
     return "Series Status: Suspend (6)"
   end
   if value == "P" then
-    return "Series Status: Preopening (P)"
+    return "Series Status: Pre Opening (P)"
   end
   if value == "B" then
     return "Series Status: Begin Accepting Orders (B)"

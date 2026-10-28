@@ -293,7 +293,7 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.current_trading_state.size = 1
 -- Display: Current Trading State
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.current_trading_state.labels = {
   ["H"] = "Current Trading State: Halt In Effect (H)",
-  ["Q"] = "Current Trading State: Quotationonly Period In Effect (Q)",
+  ["Q"] = "Current Trading State: Quotation Only Period In Effect (Q)",
   ["T"] = "Current Trading State: Trading On Nasdaq (T)",
 }
 

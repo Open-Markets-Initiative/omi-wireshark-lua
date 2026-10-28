@@ -3084,7 +3084,7 @@ cboe_cxeequities_binaryorderentry_boe_v2_0_52.central_counterparty.display = fun
     return "Central Counterparty: Lch Clearnet (L)"
   end
   if value == "X" then
-    return "Central Counterparty: Six Xclear (X)"
+    return "Central Counterparty: Six X Clear (X)"
   end
   if value == "N" then
     return "Central Counterparty: None Clearing Suppressed For Self Match (N)"
@@ -6567,7 +6567,7 @@ cboe_cxeequities_binaryorderentry_boe_v2_0_52.sub_liquidity_indicator.display = 
     return "Sub Liquidity Indicator: Cboe Closing Cross (C)"
   end
   if value == "S" then
-    return "Sub Liquidity Indicator: Liquidity Alps Bbo (S)"
+    return "Sub Liquidity Indicator: Liquidity A Lps Bbo (S)"
   end
 
   return "Sub Liquidity Indicator: Unknown("..value..")"

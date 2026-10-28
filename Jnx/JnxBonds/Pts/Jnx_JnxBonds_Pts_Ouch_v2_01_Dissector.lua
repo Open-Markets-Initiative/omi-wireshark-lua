@@ -536,7 +536,7 @@ jnx_jnxbonds_pts_ouch_v2_01.display.display = function(value)
     return "Display: Unused (<whitespace>)"
   end
   if value == "P" then
-    return "Display: Postonly (P)"
+    return "Display: Post Only (P)"
   end
 
   return "Display: Unknown("..value..")"

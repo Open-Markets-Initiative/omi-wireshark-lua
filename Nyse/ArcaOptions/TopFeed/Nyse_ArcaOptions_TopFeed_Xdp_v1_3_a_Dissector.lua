@@ -580,7 +580,7 @@ nyse_arcaoptions_topfeed_xdp_v1_3_a.exchange_code.display = function(value)
     return "Exchange Code: Global Otc (1)"
   end
   if value == "2" then
-    return "Exchange Code: Arca Local Nontapeb Index (2)"
+    return "Exchange Code: Arca Local Non Tape B Index (2)"
   end
 
   return "Exchange Code: Unknown("..value..")"
@@ -1315,7 +1315,7 @@ nyse_arcaoptions_topfeed_xdp_v1_3_a.quote_condition.display = function(value)
     return "Quote Condition: Trading Halted (3)"
   end
   if value == "4" then
-    return "Quote Condition: Preopen (4)"
+    return "Quote Condition: Pre Open (4)"
   end
   if value == "5" then
     return "Quote Condition: Rotation Legal Width Quote Pending (5)"

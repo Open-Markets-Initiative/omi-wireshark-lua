@@ -1450,7 +1450,7 @@ tmx_mx_solaorderentry_sail_v1_21.duration_type.labels = {
   ["E"] = "Duration Type: Fill And Kill (E)",
   ["F"] = "Duration Type: Good Till Cancel (F)",
   ["J"] = "Duration Type: Day (J)",
-  ["P"] = "Duration Type: Preopening (P)",
+  ["P"] = "Duration Type: Pre Opening (P)",
   ["W"] = "Duration Type: While Connected (W)",
 }
 
@@ -1596,7 +1596,7 @@ tmx_mx_solaorderentry_sail_v1_21.error_code.labels = {
   [0708] = "Error Code: Trader Id Has No Quote For This Group (0708)",
   [0709] = "Error Code: All The Instruments Must Belong To The Same Group (0709)",
   [0710] = "Error Code: Clearing Data Has Not Been Initialized (0710)",
-  [1000] = "Error Code: Cross Orders Forbidden In Preopening Phase (1000)",
+  [1000] = "Error Code: Cross Orders Forbidden In Pre Opening Phase (1000)",
   [1001] = "Error Code: Instrument Does Not Exist (1001)",
   [1002] = "Error Code: Group Id Does Not Exist (1002)",
   [1003] = "Error Code: Trader Id Is Invalid (1003)",
@@ -2119,7 +2119,7 @@ tmx_mx_solaorderentry_sail_v1_21.group_state.size = 1
 tmx_mx_solaorderentry_sail_v1_21.group_state.labels = {
   ["C"] = "Group State: Consultation Start (C)",
   ["E"] = "Group State: No Cancel Period (E)",
-  ["P"] = "Group State: Preopening (P)",
+  ["P"] = "Group State: Pre Opening (P)",
   ["O"] = "Group State: Opening (O)",
   ["S"] = "Group State: Continuous Trading Session (S)",
   ["F"] = "Group State: Consultation End (F)",
@@ -2316,7 +2316,7 @@ tmx_mx_solaorderentry_sail_v1_21.instrument_state.size = 1
 tmx_mx_solaorderentry_sail_v1_21.instrument_state.labels = {
   ["N"] = "Instrument State: Normal (N)",
   ["F"] = "Instrument State: Forbidden (F)",
-  ["R"] = "Instrument State: Orders And Quotes Are Processed In Preopening If The Group Is In Trading Status (R)",
+  ["R"] = "Instrument State: Orders And Quotes Are Processed In Pre Opening If The Group Is In Trading Status (R)",
 }
 
 tmx_mx_solaorderentry_sail_v1_21.instrument_state.display = function(value)
@@ -4818,7 +4818,7 @@ tmx_mx_solaorderentry_sail_v1_21.status.display = function(value)
     return "Status: Eliminated By Mod (M)"
   end
   if value == "N" then
-    return "Status: Eliminated Due To Wash Trade Prevention In Nontrading State (N)"
+    return "Status: Eliminated Due To Wash Trade Prevention In Non Trading State (N)"
   end
   if value == "Q" then
     return "Status: Eliminated Due To Wash Trade Prevention Against Quote (Q)"

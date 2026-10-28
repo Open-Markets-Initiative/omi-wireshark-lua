@@ -158,7 +158,7 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.agent_classification.display = fu
     return "Agent Classification: Morningstar (MS)"
   end
   if value == "TP" then
-    return "Agent Classification: Thirdparty (TP)"
+    return "Agent Classification: Third Party (TP)"
   end
   if value == "MC" then
     return "Agent Classification: Morningstar Customer (MC)"

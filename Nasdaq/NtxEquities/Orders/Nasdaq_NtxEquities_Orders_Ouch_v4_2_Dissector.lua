@@ -602,7 +602,7 @@ nasdaq_ntxequities_orders_ouch_v4_2.display.labels = {
   ["N"] = "Display: Non Display (N)",
   ["P"] = "Display: Post Only (P)",
   ["I"] = "Display: Imbalance Only (I)",
-  ["Z"] = "Display: Changed To Nondisplayed (Z)",
+  ["Z"] = "Display: Changed To Non Displayed (Z)",
   ["M"] = "Display: Mid Point (M)",
   ["O"] = "Display: Retail Order Type 1 (O)",
   ["T"] = "Display: Retail Order Type 2 (T)",
@@ -761,7 +761,7 @@ nasdaq_ntxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size = 1
 nasdaq_ntxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.labels = {
   ["Y"] = "Intermarket Sweep Eligibility: Eligible (Y)",
   ["N"] = "Intermarket Sweep Eligibility: Not Eligible (N)",
-  ["y"] = "Intermarket Sweep Eligibility: Tradeat (y)",
+  ["y"] = "Intermarket Sweep Eligibility: Trade At (y)",
 }
 
 nasdaq_ntxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.display = function(value)
@@ -790,16 +790,16 @@ nasdaq_ntxequities_orders_ouch_v4_2.liquidity_flag.size = 1
 nasdaq_ntxequities_orders_ouch_v4_2.liquidity_flag.labels = {
   ["A"] = "Liquidity Flag: Added (A)",
   ["R"] = "Liquidity Flag: Removed (R)",
-  ["J"] = "Liquidity Flag: Nondisplayed (J)",
+  ["J"] = "Liquidity Flag: Non Displayed (J)",
   ["m"] = "Liquidity Flag: Removed (m)",
   ["k"] = "Liquidity Flag: Added (k)",
   ["j"] = "Liquidity Flag: Rpi (j)",
   ["r"] = "Liquidity Flag: Rmo Retail Order Removes Rpi Liquidity (r)",
-  ["t"] = "Liquidity Flag: Rmo Retail Order Removes Price Improving Nondisplayed Liquidity Other Than Rpi Liquidity (t)",
+  ["t"] = "Liquidity Flag: Rmo Retail Order Removes Price Improving Non Displayed Liquidity Other Than Rpi Liquidity (t)",
   ["q"] = "Liquidity Flag: Rmo Retail Order Removes Non Rpi Midpoint Liquidity (q)",
-  ["7"] = "Liquidity Flag: Displayed Liquidityadding Order Improves The Nbbo (7)",
-  ["8"] = "Liquidity Flag: Displayed Liquidityadding Order Sets The Bxbbo While Joining The Nbbo (8)",
-  ["p"] = "Liquidity Flag: Removed Price Improving Nondisplayed Liquidity (p)",
+  ["7"] = "Liquidity Flag: Displayed Liquidity Adding Order Improves The Nbbo (7)",
+  ["8"] = "Liquidity Flag: Displayed Liquidity Adding Order Sets The Bxbbo While Joining The Nbbo (8)",
+  ["p"] = "Liquidity Flag: Removed Price Improving Non Displayed Liquidity (p)",
   ["N"] = "Liquidity Flag: Passive Midpoint Execution (N)",
 }
 

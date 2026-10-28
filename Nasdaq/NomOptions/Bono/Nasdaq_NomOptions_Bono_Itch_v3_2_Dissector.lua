@@ -52,7 +52,7 @@ omi_nasdaq_nomoptions_bono_itch_v3_2.fields.size_2 = ProtoField.new("Size 2", "n
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.size_4 = ProtoField.new("Size 4", "nasdaq.nomoptions.bono.itch.v3.2.size4", ftypes.UINT32, nil, nil, nil, "Aggregated number of contracts on the bid side being displayed in the options market at the current time.")
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.source = ProtoField.new("Source", "nasdaq.nomoptions.bono.itch.v3.2.source", ftypes.UINT8, nil, nil, nil, "Identifies the source of the option, valid for the trading day.")
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.nomoptions.bono.itch.v3.2.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Explicit strike price. Refer to Data Types for field processing notes.")
-omi_nasdaq_nomoptions_bono_itch_v3_2.fields.subversion = ProtoField.new("Subversion", "nasdaq.nomoptions.bono.itch.v3.2.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of this interface. Currently set to 0.")
+omi_nasdaq_nomoptions_bono_itch_v3_2.fields.sub_version = ProtoField.new("Sub Version", "nasdaq.nomoptions.bono.itch.v3.2.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of this interface. Currently set to 0.")
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.tradable = ProtoField.new("Tradable", "nasdaq.nomoptions.bono.itch.v3.2.tradable", ftypes.STRING, nil, nil, nil, "Denotes whether or not this option is tradable at the exchange:")
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.nomoptions.bono.itch.v3.2.tradecondition", ftypes.STRING, nil, nil, nil, "To obtain a list of Trade Conditions, refer to the NOTE below.")
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.nomoptions.bono.itch.v3.2.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Denotes the unique symbol assigned to the underlying security within the Exchange System.")
@@ -1205,25 +1205,25 @@ nasdaq_nomoptions_bono_itch_v3_2.strike_price.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Subversion
-nasdaq_nomoptions_bono_itch_v3_2.subversion = {}
+-- Sub Version
+nasdaq_nomoptions_bono_itch_v3_2.sub_version = {}
 
--- Size: Subversion
-nasdaq_nomoptions_bono_itch_v3_2.subversion.size = 1
+-- Size: Sub Version
+nasdaq_nomoptions_bono_itch_v3_2.sub_version.size = 1
 
--- Display: Subversion
-nasdaq_nomoptions_bono_itch_v3_2.subversion.display = function(value)
-  return "Subversion: "..value
+-- Display: Sub Version
+nasdaq_nomoptions_bono_itch_v3_2.sub_version.display = function(value)
+  return "Sub Version: "..value
 end
 
--- Dissect: Subversion
-nasdaq_nomoptions_bono_itch_v3_2.subversion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.subversion.size
+-- Dissect: Sub Version
+nasdaq_nomoptions_bono_itch_v3_2.sub_version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.sub_version.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.subversion.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_bono_itch_v3_2.sub_version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.subversion, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.sub_version, range, value, display)
 
   return offset + length, value
 end
@@ -2072,7 +2072,7 @@ nasdaq_nomoptions_bono_itch_v3_2.system_event_message.size =
   nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size + 
   nasdaq_nomoptions_bono_itch_v3_2.event_code.size + 
   nasdaq_nomoptions_bono_itch_v3_2.version.size + 
-  nasdaq_nomoptions_bono_itch_v3_2.subversion.size
+  nasdaq_nomoptions_bono_itch_v3_2.sub_version.size
 
 -- Display: System Event Message
 nasdaq_nomoptions_bono_itch_v3_2.system_event_message.display = function(packet, parent, length)
@@ -2092,8 +2092,8 @@ nasdaq_nomoptions_bono_itch_v3_2.system_event_message.fields = function(buffer, 
   -- Version: Integer
   index, version = nasdaq_nomoptions_bono_itch_v3_2.version.dissect(buffer, index, packet, parent)
 
-  -- Subversion: Integer
-  index, subversion = nasdaq_nomoptions_bono_itch_v3_2.subversion.dissect(buffer, index, packet, parent)
+  -- Sub Version: Integer
+  index, sub_version = nasdaq_nomoptions_bono_itch_v3_2.sub_version.dissect(buffer, index, packet, parent)
 
   return index
 end

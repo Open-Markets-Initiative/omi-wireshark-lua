@@ -384,7 +384,7 @@ biva_bivaequities_totalview_itch_v1_12.cross_type.size = 1
 
 -- Display: Cross Type
 biva_bivaequities_totalview_itch_v1_12.cross_type.labels = {
-  ["O"] = "Cross Type: Preopening Session (O)",
+  ["O"] = "Cross Type: Pre Opening Session (O)",
   ["I"] = "Cross Type: Intraday Auction (I)",
 }
 
@@ -1612,7 +1612,7 @@ biva_bivaequities_totalview_itch_v1_12.trade_indicator.labels = {
   ["E"] = "Trade Indicator: Exceptional Cross Trade At Vwap (E)",
   ["I"] = "Trade Indicator: Ipo Cross (I)",
   ["R"] = "Trade Indicator: Regular Trade (R)",
-  ["U"] = "Trade Indicator: Unintentional Selfcross (U)",
+  ["U"] = "Trade Indicator: Unintentional Self Cross (U)",
 }
 
 biva_bivaequities_totalview_itch_v1_12.trade_indicator.display = function(value)

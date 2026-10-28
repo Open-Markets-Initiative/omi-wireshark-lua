@@ -4862,7 +4862,7 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.cust_order_handling_inst.display
     return "Cust Order Handling Inst: Desk (W)"
   end
   if value == "C" then
-    return "Cust Order Handling Inst: Vendorprovided Platform Billed By Executing Broker (C)"
+    return "Cust Order Handling Inst: Vendor Provided Platform Billed By Executing Broker (C)"
   end
   if value == "G" then
     return "Cust Order Handling Inst: Sponsored Access Via Exchange Api Or Fix Provided By (G)"
@@ -4871,7 +4871,7 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.cust_order_handling_inst.display
     return "Cust Order Handling Inst: Premium Algorithmic Trading Provider Billed By Execut (H)"
   end
   if value == "D" then
-    return "Cust Order Handling Inst: Other Including Otherprovided Screen (D)"
+    return "Cust Order Handling Inst: Other Including Other Provided Screen (D)"
   end
 
   return "Cust Order Handling Inst: Unknown("..value..")"
@@ -6522,13 +6522,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.multileg_reporting_type.display 
   end
 
   if value == "1" then
-    return "Multileg Reporting Type: Singleleg Simple Instrument (1)"
+    return "Multileg Reporting Type: Single Leg Simple Instrument (1)"
   end
   if value == "2" then
-    return "Multileg Reporting Type: Individual Leg Of Multileg Instrument (2)"
+    return "Multileg Reporting Type: Individual Leg Of Multi Leg Instrument (2)"
   end
   if value == "3" then
-    return "Multileg Reporting Type: Entire Multileg Spread Instrument Package (3)"
+    return "Multileg Reporting Type: Entire Multi Leg Spread Instrument Package (3)"
   end
 
   return "Multileg Reporting Type: Unknown("..value..")"

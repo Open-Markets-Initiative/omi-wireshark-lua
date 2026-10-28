@@ -1341,7 +1341,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.trade_attribute.size = 1
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.trade_attribute.labels = {
   ["B"] = "Trade Attribute: Bypass (B)",
   ["C"] = "Trade Attribute: Market On Close Or Cxd Conditional (C)",
-  ["L"] = "Trade Attribute: Melo (L)",
+  ["L"] = "Trade Attribute: M Elo (L)",
   ["P"] = "Trade Attribute: Cxd Pure Stream (P)",
 }
 

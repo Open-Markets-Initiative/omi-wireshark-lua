@@ -1559,13 +1559,13 @@ cboe_neoequities_orderentry_boe3_v1_0_19.ex_destination.display = function(value
     return "Ex Destination: Crossing Facility (C)"
   end
   if value == "D" then
-    return "Ex Destination: Neod (D)"
+    return "Ex Destination: Neo D (D)"
   end
   if value == "L" then
-    return "Ex Destination: Neol (L)"
+    return "Ex Destination: Neo L (L)"
   end
   if value == "N" then
-    return "Ex Destination: Neon (N)"
+    return "Ex Destination: Neo N (N)"
   end
   if value == "S" then
     return "Ex Destination: Sst (S)"
@@ -1675,7 +1675,7 @@ cboe_neoequities_orderentry_boe3_v1_0_19.exec_inst.display = function(value)
     return "Exec Inst: Trade At The Pnbbo Midpoint Only (M)"
   end
   if value == "R" then
-    return "Exec Inst: Trade At The Nearside Pnbbo (R)"
+    return "Exec Inst: Trade At The Near Side Pnbbo (R)"
   end
   if value == "p" then
     return "Exec Inst: Trade At The Less Aggressive Of Pnbbo Midpoint Or Minimum Improvement From The Pnbbo (p)"
@@ -1937,7 +1937,7 @@ cboe_neoequities_orderentry_boe3_v1_0_19.is_self_trade.display = function(value)
   end
 
   if value == "Y" then
-    return "Is Self Trade: Broker Executed A Selftrade Using No Trade Feat T Suppress From Tape (Y)"
+    return "Is Self Trade: Broker Executed A Self Trade Using No Trade Feat T Suppress From Tape (Y)"
   end
   if value == "N" then
     return "Is Self Trade: All Other Cases (N)"
@@ -3290,7 +3290,7 @@ cboe_neoequities_orderentry_boe3_v1_0_19.restatement_reason.display = function(v
     return "Restatement Reason: Reprice Ex Opr Mtl (P)"
   end
   if value == "W" then
-    return "Restatement Reason: Partial Reduce Due Selftrade Prevention Result Based On No Trade Feat (W)"
+    return "Restatement Reason: Partial Reduce Due Self Trade Prevention Result Based On No Trade Feat (W)"
   end
   if value == "T" then
     return "Restatement Reason: Triggered Stop Order (T)"

@@ -936,7 +936,7 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.customer_firm_indicator.size = 1
 nasdaq_nomoptions_itto_itch_v4_0_2025.customer_firm_indicator.labels = {
   ["C"] = "Customer Firm Indicator: Customer (C)",
   ["F"] = "Customer Firm Indicator: Firm Joint (F)",
-  ["M"] = "Customer Firm Indicator: Onfloor (M)",
+  ["M"] = "Customer Firm Indicator: On Floor (M)",
   ["P"] = "Customer Firm Indicator: Professional (P)",
   ["B"] = "Customer Firm Indicator: Broker Dealer Non Registered (B)",
 }
@@ -1764,7 +1764,7 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.printable.size = 1
 
 -- Display: Printable
 nasdaq_nomoptions_itto_itch_v4_0_2025.printable.labels = {
-  ["N"] = "Printable: Nonprintable (N)",
+  ["N"] = "Printable: Non Printable (N)",
   ["Y"] = "Printable: Printable (Y)",
 }
 

@@ -37,9 +37,9 @@ omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.lot_size = Prot
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.message_count = ProtoField.new("Message Count", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.message_length = ProtoField.new("Message Length", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.message_type = ProtoField.new("Message Type", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neod = ProtoField.new("Neod", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.neod", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "NEO-D book allowed.")
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neol = ProtoField.new("Neol", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.neol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "NEO-L book allowed.")
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neon = ProtoField.new("Neon", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.neon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "NEO-N book allowed.")
+omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neo_d = ProtoField.new("Neo D", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.neod", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "NEO-D book allowed.")
+omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neo_l = ProtoField.new("Neo L", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.neol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "NEO-L book allowed.")
+omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neo_n = ProtoField.new("Neo N", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.neon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "NEO-N book allowed.")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.odd_lot_allowed = ProtoField.new("Odd Lot Allowed", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.oddlotallowed", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "0 = Not Allowed, 1 = Allowed.")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.order_book_type = ProtoField.new("Order Book Type", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.orderbooktype", ftypes.UINT8, nil, nil, nil, "Order book to which the trading status applies.")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.original_price = ProtoField.new("Original Price", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.originalprice", ftypes.DOUBLE, nil, nil, nil, "Original price of the execution.")
@@ -609,9 +609,9 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.order_book_type.size = 1
 -- Display: Order Book Type
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.order_book_type.labels = {
   [0] = "Order Book Type: All Books (0)",
-  [3] = "Order Book Type: Neol (3)",
-  [4] = "Order Book Type: Neon (4)",
-  [5] = "Order Book Type: Neod (5)",
+  [3] = "Order Book Type: Neo L (3)",
+  [4] = "Order Book Type: Neo N (4)",
+  [5] = "Order Book Type: Neo D (5)",
   [6] = "Order Book Type: Crossing Facility (6)",
   [7] = "Order Book Type: Sst (7)",
 }
@@ -1005,7 +1005,7 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.settlement_type.labels = {
   [0] = "Settlement Type: No Special Settlement Terms Specified (0)",
   [1] = "Settlement Type: Cash (1)",
   [6] = "Settlement Type: Future (6)",
-  [11] = "Settlement Type: Nonnet (11)",
+  [11] = "Settlement Type: Non Net (11)",
 }
 
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.settlement_type.display = function(value)
@@ -1111,7 +1111,7 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trading_status.labels = {
   ["F"] = "Trading Status: Halted Full (F)",
   ["H"] = "Trading Status: Halted (H)",
   ["M"] = "Trading Status: Delayed Closing (M)",
-  ["O"] = "Trading Status: Preclose (O)",
+  ["O"] = "Trading Status: Pre Close (O)",
   ["P"] = "Trading Status: Post Close (P)",
   ["S"] = "Trading Status: Trading Suspended (S)",
   ["T"] = "Trading Status: Trading (T)",
@@ -1710,17 +1710,17 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.allowed_book_types.size = 
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.allowed_book_types.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Neol flag set?
+  -- Is Neo L flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Neol"
+    flags[#flags + 1] = "Neo L"
   end
-  -- Is Neon flag set?
+  -- Is Neo N flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Neon"
+    flags[#flags + 1] = "Neo N"
   end
-  -- Is Neod flag set?
+  -- Is Neo D flag set?
   if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Neod"
+    flags[#flags + 1] = "Neo D"
   end
   -- Is Crossing Facility flag set?
   if bit.band(value, 0x40) ~= 0 then
@@ -1740,14 +1740,14 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.allowed_book_types.bits = 
   -- Unused 3: 3 Bit
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.unused_3, range, value)
 
-  -- Neol: 1 Bit
-  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neol, range, value)
+  -- Neo L: 1 Bit
+  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neo_l, range, value)
 
-  -- Neon: 1 Bit
-  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neon, range, value)
+  -- Neo N: 1 Bit
+  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neo_n, range, value)
 
-  -- Neod: 1 Bit
-  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neod, range, value)
+  -- Neo D: 1 Bit
+  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neo_d, range, value)
 
   -- Crossing Facility: 1 Bit
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.crossing_facility, range, value)

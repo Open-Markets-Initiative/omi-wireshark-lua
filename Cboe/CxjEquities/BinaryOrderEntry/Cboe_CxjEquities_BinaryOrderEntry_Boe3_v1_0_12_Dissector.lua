@@ -1980,7 +1980,7 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.restatement_reason.display = func
   end
 
   if value == "W" then
-    return "Restatement Reason: Would Have Selftraded (W)"
+    return "Restatement Reason: Would Have Self Traded (W)"
   end
 
   return "Restatement Reason: Unknown("..value..")"

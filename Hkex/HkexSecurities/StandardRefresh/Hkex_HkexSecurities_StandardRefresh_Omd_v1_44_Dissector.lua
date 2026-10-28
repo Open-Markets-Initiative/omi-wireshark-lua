@@ -2693,8 +2693,8 @@ hkex_hkexsecurities_standardrefresh_omd_v1_44.short_sell_flag.size = 1
 
 -- Display: Short Sell Flag
 hkex_hkexsecurities_standardrefresh_omd_v1_44.short_sell_flag.labels = {
-  ["Y"] = "Short Sell Flag: Shortsell Allowed (Y)",
-  ["N"] = "Short Sell Flag: Shortsell Not Allowed (N)",
+  ["Y"] = "Short Sell Flag: Short Sell Allowed (Y)",
+  ["N"] = "Short Sell Flag: Short Sell Not Allowed (N)",
 }
 
 hkex_hkexsecurities_standardrefresh_omd_v1_44.short_sell_flag.display = function(value)

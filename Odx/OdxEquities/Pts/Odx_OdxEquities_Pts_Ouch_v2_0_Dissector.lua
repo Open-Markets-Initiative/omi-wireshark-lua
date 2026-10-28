@@ -514,7 +514,7 @@ odx_odxequities_pts_ouch_v2_0.display.size = 1
 
 -- Display: Display
 odx_odxequities_pts_ouch_v2_0.display.labels = {
-  ["P"] = "Display: Postonly (P)",
+  ["P"] = "Display: Post Only (P)",
 }
 
 odx_odxequities_pts_ouch_v2_0.display.display = function(value)

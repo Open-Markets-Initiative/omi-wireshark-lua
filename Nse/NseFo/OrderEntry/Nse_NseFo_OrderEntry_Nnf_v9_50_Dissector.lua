@@ -51,8 +51,8 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.broad_cast_message_length = ProtoField
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.broker_id = ProtoField.new("Broker Id", "nse.nsefo.orderentry.nnf.v9.50.brokerid", ftypes.STRING, nil, nil, nil, "Trading member Id")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.broker_id_1 = ProtoField.new("Broker Id 1", "nse.nsefo.orderentry.nnf.v9.50.brokerid1", ftypes.STRING, nil, nil, nil, "Trading member Id")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.broker_name = ProtoField.new("Broker Name", "nse.nsefo.orderentry.nnf.v9.50.brokername", ftypes.STRING, nil, nil, nil, "Name of the trading member")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.broker_number = ProtoField.new("Broker Number", "nse.nsefo.orderentry.nnf.v9.50.brokernumber", ftypes.STRING, nil, nil, nil, "Trading member Id")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.broker_status = ProtoField.new("Broker Status", "nse.nsefo.orderentry.nnf.v9.50.brokerstatus", ftypes.STRING, nil, nil, nil, "Status of the trading member")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.brokernumber = ProtoField.new("Brokernumber", "nse.nsefo.orderentry.nnf.v9.50.brokernumber", ftypes.STRING, nil, nil, nil, "Trading member Id")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.buy_account_number = ProtoField.new("Buy Account Number", "nse.nsefo.orderentry.nnf.v9.50.buyaccountnumber", ftypes.STRING, nil, nil, nil, "Account number on the buy side")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.buy_broker_id = ProtoField.new("Buy Broker Id", "nse.nsefo.orderentry.nnf.v9.50.buybrokerid", ftypes.STRING, nil, nil, nil, "Trading member Id on the buy side")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.buy_open_close = ProtoField.new("Buy Open Close", "nse.nsefo.orderentry.nnf.v9.50.buyopenclose", ftypes.STRING, nil, nil, nil, "Whether the buy opens or closes a position")
@@ -1241,6 +1241,29 @@ nse_nsefo_orderentry_nnf_v9_50.broker_name.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Broker Number
+nse_nsefo_orderentry_nnf_v9_50.broker_number = {}
+
+-- Size: Broker Number
+nse_nsefo_orderentry_nnf_v9_50.broker_number.size = 5
+
+-- Display: Broker Number
+nse_nsefo_orderentry_nnf_v9_50.broker_number.display = function(value)
+  return "Broker Number: "..value
+end
+
+-- Dissect: Broker Number
+nse_nsefo_orderentry_nnf_v9_50.broker_number.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnf_v9_50.broker_number.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nse_nsefo_orderentry_nnf_v9_50.broker_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.broker_number, range, value, display)
+
+  return offset + length, value
+end
+
 -- Broker Status
 nse_nsefo_orderentry_nnf_v9_50.broker_status = {}
 
@@ -1260,29 +1283,6 @@ nse_nsefo_orderentry_nnf_v9_50.broker_status.dissect = function(buffer, offset, 
   local display = nse_nsefo_orderentry_nnf_v9_50.broker_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.broker_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Brokernumber
-nse_nsefo_orderentry_nnf_v9_50.brokernumber = {}
-
--- Size: Brokernumber
-nse_nsefo_orderentry_nnf_v9_50.brokernumber.size = 5
-
--- Display: Brokernumber
-nse_nsefo_orderentry_nnf_v9_50.brokernumber.display = function(value)
-  return "Brokernumber: "..value
-end
-
--- Dissect: Brokernumber
-nse_nsefo_orderentry_nnf_v9_50.brokernumber.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnf_v9_50.brokernumber.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nse_nsefo_orderentry_nnf_v9_50.brokernumber.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.brokernumber, range, value, display)
 
   return offset + length, value
 end
@@ -10874,7 +10874,7 @@ nse_nsefo_orderentry_nnf_v9_50.spread_report_header_body.size =
   nse_nsefo_orderentry_nnf_v9_50.org_scope.size + 
   nse_nsefo_orderentry_nnf_v9_50.report_date.size + 
   nse_nsefo_orderentry_nnf_v9_50.user_type.size + 
-  nse_nsefo_orderentry_nnf_v9_50.brokernumber.size + 
+  nse_nsefo_orderentry_nnf_v9_50.broker_number.size + 
   nse_nsefo_orderentry_nnf_v9_50.broker_name.size + 
   nse_nsefo_orderentry_nnf_v9_50.trader_number.size + 
   nse_nsefo_orderentry_nnf_v9_50.trader_name.size
@@ -10897,8 +10897,8 @@ nse_nsefo_orderentry_nnf_v9_50.spread_report_header_body.fields = function(buffe
   -- User Type: SHORT
   index, user_type = nse_nsefo_orderentry_nnf_v9_50.user_type.dissect(buffer, index, packet, parent)
 
-  -- Brokernumber: CHAR
-  index, brokernumber = nse_nsefo_orderentry_nnf_v9_50.brokernumber.dissect(buffer, index, packet, parent)
+  -- Broker Number: CHAR
+  index, broker_number = nse_nsefo_orderentry_nnf_v9_50.broker_number.dissect(buffer, index, packet, parent)
 
   -- Broker Name: CHAR
   index, broker_name = nse_nsefo_orderentry_nnf_v9_50.broker_name.dissect(buffer, index, packet, parent)

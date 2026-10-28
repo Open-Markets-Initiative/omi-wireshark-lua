@@ -760,7 +760,7 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.quote_condition.display = function(value
     return "Quote Condition: Trading Halted (3)"
   end
   if value == "4" then
-    return "Quote Condition: Preopen (4)"
+    return "Quote Condition: Pre Open (4)"
   end
   if value == "5" then
     return "Quote Condition: Rotation Legal Width Quote Pending (5)"

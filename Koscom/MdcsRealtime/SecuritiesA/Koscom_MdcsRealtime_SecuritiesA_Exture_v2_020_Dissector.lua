@@ -94,15 +94,15 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.average_spread_sign = P
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.average_yld = ProtoField.new("Average Yld", "koscom.mdcsrealtime.securitiesa.exture.v2.020.averageyld", ftypes.DOUBLE, nil, nil, nil, "Average yield across the index constituents (16 ASCII digits with 6 implied decimal places). Unit: percent.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.average_ytm = ProtoField.new("Average Ytm", "koscom.mdcsrealtime.securitiesa.exture.v2.020.averageytm", ftypes.DOUBLE, nil, nil, nil, "Average yield to maturity (7 ASCII digits with 3 implied decimal places). Unit: percent.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.baby_bonds_type_code = ProtoField.new("Baby Bonds Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.babybondstypecode", ftypes.STRING, nil, nil, nil, "Baby Bonds Type Code.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.backdoor_listing = ProtoField.new("Backdoor Listing", "koscom.mdcsrealtime.securitiesa.exture.v2.020.backdoorlisting", ftypes.STRING, nil, nil, nil, "Y/N to Back-door Listing.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.back_door_listing = ProtoField.new("Back Door Listing", "koscom.mdcsrealtime.securitiesa.exture.v2.020.backdoorlisting", ftypes.STRING, nil, nil, nil, "Y/N to Back-door Listing.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.base_date = ProtoField.new("Base Date", "koscom.mdcsrealtime.securitiesa.exture.v2.020.basedate", ftypes.STRING, nil, nil, nil, "Base date for the index calculation in YYYYMMDD format.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.base_price = ProtoField.new("Base Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.baseprice", ftypes.DOUBLE, nil, nil, nil, "A base price of a day. A base price to calculate a upper/lower price.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.base_price_change = ProtoField.new("Base Price Change", "koscom.mdcsrealtime.securitiesa.exture.v2.020.basepricechange", ftypes.STRING, nil, nil, nil, "Y/N to change of base price due to par-value change or increase of capital.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.base_price_of_underlying_asset = ProtoField.new("Base Price Of Underlying Asset", "koscom.mdcsrealtime.securitiesa.exture.v2.020.basepriceofunderlyingasset", ftypes.DOUBLE, nil, nil, nil, "A price of underlying asset which is a basis for exercise price and issue price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.base_price_to_knockout_elw = ProtoField.new("Base Price To Knockout Elw", "koscom.mdcsrealtime.securitiesa.exture.v2.020.basepricetoknockoutelw", ftypes.DOUBLE, nil, nil, nil, "Base Price to knock-out ELW.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.base_price_to_knock_out_elw = ProtoField.new("Base Price To Knock Out Elw", "koscom.mdcsrealtime.securitiesa.exture.v2.020.basepricetoknockoutelw", ftypes.DOUBLE, nil, nil, nil, "Base Price to knock-out ELW.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.base_time = ProtoField.new("Base Time", "koscom.mdcsrealtime.securitiesa.exture.v2.020.basetime", ftypes.STRING, nil, nil, nil, "Base time for the index calculation in HHMMSS format.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.basis_price = ProtoField.new("Basis Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.basisprice", ftypes.DOUBLE, nil, nil, nil, "Basis price of the constituent (10 ASCII digits with 2 implied decimal places).")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.basket_trading_in_the_preopening_market = ProtoField.new("Basket Trading In The Preopening Market", "koscom.mdcsrealtime.securitiesa.exture.v2.020.baskettradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Basket Trading in the Pre-opening Market.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.basket_trading_in_the_pre_opening_market = ProtoField.new("Basket Trading In The Pre Opening Market", "koscom.mdcsrealtime.securitiesa.exture.v2.020.baskettradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Basket Trading in the Pre-opening Market.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.best_favorable_order_permission_type_code = ProtoField.new("Best Favorable Order Permission Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bestfavorableorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_ask_spread_unit_code = ProtoField.new("Bid Ask Spread Unit Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidaskspreadunitcode", ftypes.STRING, nil, nil, nil, "R: Price Ratio Y: Yield Ratio T: Tick.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel1price", ftypes.DOUBLE, nil, nil, nil, "The best bid.")
@@ -138,7 +138,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_trading_volume_3 = 
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_trading_volume_4 = ProtoField.new("Bid Trading Volume 4", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidtradingvolume4", ftypes.UINT64, nil, nil, nil, "Bid-side trading volume for the #4 trader.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_trading_volume_5 = ProtoField.new("Bid Trading Volume 5", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidtradingvolume5", ftypes.UINT64, nil, nil, nil, "Bid-side trading volume for the #5 trader.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_treasury_stock_declaration_id = ProtoField.new("Bid Treasury Stock Declaration Id", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidtreasurystockdeclarationid", ftypes.STRING, nil, nil, nil, "Bid_Treasury Stock Declaration ID 0: N/A N: Treasury Stock_direct_general S: Treasury Stock_direct_stock options 1 - 99999 Treasury Stock_Trust(report sequence number).")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.block_trading_in_the_preopening_market = ProtoField.new("Block Trading In The Preopening Market", "koscom.mdcsrealtime.securitiesa.exture.v2.020.blocktradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Block Trading in the Pre-opening Market.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.block_trading_in_the_pre_opening_market = ProtoField.new("Block Trading In The Pre Opening Market", "koscom.mdcsrealtime.securitiesa.exture.v2.020.blocktradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Block Trading in the Pre-opening Market.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.board_event_group_code = ProtoField.new("Board Event Group Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.boardeventgroupcode", ftypes.UINT24, nil, nil, nil, "Board Event Group Code (Bitwise operation) ▦▦ Code ▦▦ 1: A regular Issue (Not an issue on the last trading day) 2: An issue on the Last trading day 4: A regular issue (Not a discrete-time traded issue.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.board_event_id = ProtoField.new("Board Event Id", "koscom.mdcsrealtime.securitiesa.exture.v2.020.boardeventid", ftypes.STRING, nil, nil, nil, "An ID indicates an event that occurs on a Board in a designated time.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.board_event_processing_time = ProtoField.new("Board Event Processing Time", "koscom.mdcsrealtime.securitiesa.exture.v2.020.boardeventprocessingtime", ftypes.STRING, nil, nil, nil, "Board Event Processing Time.")
@@ -151,19 +151,19 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bond_listing_type_code 
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bps = ProtoField.new("Bps", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bps", ftypes.DOUBLE, nil, nil, nil, "Book-value Per Share.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bps_calculation = ProtoField.new("Bps Calculation", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bpscalculation", ftypes.STRING, nil, nil, nil, "BPS Calculation.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.business_date = ProtoField.new("Business Date", "koscom.mdcsrealtime.securitiesa.exture.v2.020.businessdate", ftypes.STRING, nil, nil, nil, "Business Date.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyin_type_code = ProtoField.new("Buyin Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buyintypecode", ftypes.STRING, nil, nil, nil, "Buy-in Type Code 1: Regular Buy-in 2: Same day Buy-in.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyin_volume = ProtoField.new("Buyin Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buyinvolume", ftypes.UINT64, nil, nil, nil, "Buy-in Volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buying_volume_block_trading_in_offhours_session = ProtoField.new("Buying Volume Block Trading In Offhours Session", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buyingvolumeblocktradinginoffhourssession", ftypes.UINT64, nil, nil, nil, "An amount of treasury stock that a company plans to buy during off-hours session.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_in_type_code = ProtoField.new("Buy In Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buyintypecode", ftypes.STRING, nil, nil, nil, "Buy-in Type Code 1: Regular Buy-in 2: Same day Buy-in.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_in_volume = ProtoField.new("Buy In Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buyinvolume", ftypes.UINT64, nil, nil, nil, "Buy-in Volume.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_quantity = ProtoField.new("Buy Side Arbitrage Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidearbitragequantity", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Quantity.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_trading_remaining_quantity = ProtoField.new("Buy Side Arbitrage Trading Remaining Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidearbitragetradingremainingquantity", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Trading Remaining Quantity.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_value = ProtoField.new("Buy Side Arbitrage Value", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidearbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Buy-side Arbitrage Value.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_volume = ProtoField.new("Buy Side Arbitrage Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidearbitragevolume", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Volume.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_quantity = ProtoField.new("Buy Side Non Arbitrage Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidenonarbitragequantity", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Quantity.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_remaining_quantity = ProtoField.new("Buy Side Non Arbitrage Remaining Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidenonarbitrageremainingquantity", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Remaining Quantity.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_value = ProtoField.new("Buy Side Non Arbitrage Value", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidenonarbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Buy-side Non-arbitrage Value.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_volume = ProtoField.new("Buy Side Non Arbitrage Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidenonarbitragevolume", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Volume.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buying_volume_block_trading_in_off_hours_session = ProtoField.new("Buying Volume Block Trading In Off Hours Session", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buyingvolumeblocktradinginoffhourssession", ftypes.UINT64, nil, nil, nil, "An amount of treasury stock that a company plans to buy during off-hours session.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buying_volume_open_single_price_session = ProtoField.new("Buying Volume Open Single Price Session", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buyingvolumeopensinglepricesession", ftypes.UINT64, nil, nil, nil, "An amount of treasury stock that a company plans to buy during the opening single price session.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buying_volume_regular_session = ProtoField.new("Buying Volume Regular Session", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buyingvolumeregularsession", ftypes.UINT64, nil, nil, nil, "An amount of treasury stock that a company plans to buy during the regular session.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_quantity = ProtoField.new("Buyside Arbitrage Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidearbitragequantity", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Quantity.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_trading_remaining_quantity = ProtoField.new("Buyside Arbitrage Trading Remaining Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidearbitragetradingremainingquantity", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Trading Remaining Quantity.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_value = ProtoField.new("Buyside Arbitrage Value", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidearbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Buy-side Arbitrage Value.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_volume = ProtoField.new("Buyside Arbitrage Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidearbitragevolume", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_quantity = ProtoField.new("Buyside Nonarbitrage Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidenonarbitragequantity", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Quantity.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_remaining_quantity = ProtoField.new("Buyside Nonarbitrage Remaining Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidenonarbitrageremainingquantity", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Remaining Quantity.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_value = ProtoField.new("Buyside Nonarbitrage Value", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidenonarbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Buy-side Non-arbitrage Value.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_volume = ProtoField.new("Buyside Nonarbitrage Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.buysidenonarbitragevolume", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Volume.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.calculating_date = ProtoField.new("Calculating Date", "koscom.mdcsrealtime.securitiesa.exture.v2.020.calculatingdate", ftypes.STRING, nil, nil, nil, "Calculation date in YYYYMMDD format.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.calculating_time = ProtoField.new("Calculating Time", "koscom.mdcsrealtime.securitiesa.exture.v2.020.calculatingtime", ftypes.STRING, nil, nil, nil, "Calculation time in HHMMSS plus two trailing spaces.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.calculation_methods_of_appraised_price_at_maturity = ProtoField.new("Calculation Methods Of Appraised Price At Maturity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.calculationmethodsofappraisedpriceatmaturity", ftypes.STRING, nil, nil, nil, "A method to calculate an appraised price at maturity.")
@@ -184,7 +184,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.closing_date = ProtoFie
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.closing_price = ProtoField.new("Closing Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.closingprice", ftypes.DOUBLE, nil, nil, nil, "Closing price on the day's regular session.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.closing_price_base_price_of_buy_in = ProtoField.new("Closing Price Base Price Of Buy In", "koscom.mdcsrealtime.securitiesa.exture.v2.020.closingpricebasepriceofbuyin", ftypes.DOUBLE, nil, nil, nil, "Closing Price_Base Price of Buy-In.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.closing_price_lower_limit_of_buy_in = ProtoField.new("Closing Price Lower Limit Of Buy In", "koscom.mdcsrealtime.securitiesa.exture.v2.020.closingpricelowerlimitofbuyin", ftypes.DOUBLE, nil, nil, nil, "Closing Price_Lower Limit of Buy-In.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.closing_price_trading_in_the_preopening_market = ProtoField.new("Closing Price Trading In The Preopening Market", "koscom.mdcsrealtime.securitiesa.exture.v2.020.closingpricetradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Y/N to a Closing Price Trading in the Pre-opening Market.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.closing_price_trading_in_the_pre_opening_market = ProtoField.new("Closing Price Trading In The Pre Opening Market", "koscom.mdcsrealtime.securitiesa.exture.v2.020.closingpricetradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Y/N to a Closing Price Trading in the Pre-opening Market.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.closing_price_trading_possibility_in_the_after_hours = ProtoField.new("Closing Price Trading Possibility In The After Hours", "koscom.mdcsrealtime.securitiesa.exture.v2.020.closingpricetradingpossibilityintheafterhours", ftypes.STRING, nil, nil, nil, "Closing PriceTrading Possibility in the After Hours.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.closingpricetypecode", ftypes.STRING, nil, nil, nil, "1: Closing price 2: Quotation 3: No Trades 4: Quotation of an Issue of which base price is settled with a today's single price.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.closing_price_upper_limit_of_buy_in = ProtoField.new("Closing Price Upper Limit Of Buy In", "koscom.mdcsrealtime.securitiesa.exture.v2.020.closingpriceupperlimitofbuyin", ftypes.DOUBLE, nil, nil, nil, "Closing Price_Upper Limit of Buy-In.")
@@ -230,10 +230,10 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elw_conversion_rate = P
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elw_fixed_payment = ProtoField.new("Elw Fixed Payment", "koscom.mdcsrealtime.securitiesa.exture.v2.020.elwfixedpayment", ftypes.DOUBLE, nil, nil, nil, "An amount of payment due to an execution of ELW rights.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elw_guaranteed_rate_for_price_decreases = ProtoField.new("Elw Guaranteed Rate For Price Decreases", "koscom.mdcsrealtime.securitiesa.exture.v2.020.elwguaranteedrateforpricedecreases", ftypes.DOUBLE, nil, nil, nil, "A guaranteed minimum ratio of decrease for underlying asset. In case of knock-out ELW, the ratio is being used to calculate a minimum payment.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elw_guaranteed_rate_for_price_increases = ProtoField.new("Elw Guaranteed Rate For Price Increases", "koscom.mdcsrealtime.securitiesa.exture.v2.020.elwguaranteedrateforpriceincreases", ftypes.DOUBLE, nil, nil, nil, "A guaranteed minimum ratio of increase for underlying asset.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elw_lp_holding_quantity = ProtoField.new("Elw Lp Holding Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.elwlpholdingquantity", ftypes.UINT64, nil, nil, nil, "An amount of ELW that LP accounts hold.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elw_payment_agent = ProtoField.new("Elw Payment Agent", "koscom.mdcsrealtime.securitiesa.exture.v2.020.elwpaymentagent", ftypes.STRING, nil, nil, nil, "The agent which makes a premium payment on a maturity date. (KB Bank, Yeoui-do Branch).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elw_payment_date = ProtoField.new("Elw Payment Date", "koscom.mdcsrealtime.securitiesa.exture.v2.020.elwpaymentdate", ftypes.STRING, nil, nil, nil, "The date when a payment is being made due to the execution of ELW rights.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elw_rights_type_code = ProtoField.new("Elw Rights Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.elwrightstypecode", ftypes.STRING, nil, nil, nil, "ELW rights type code such as standard and digital. * Digital ELW: An ELW adopting digital option that makes a payment if a price exceeds certain level rather than a profit is being made depends on und.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elwlp_holding_quantity = ProtoField.new("Elwlp Holding Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.elwlpholdingquantity", ftypes.UINT64, nil, nil, nil, "An amount of ELW that LP accounts hold.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.end_keyword = ProtoField.new("End Keyword", "koscom.mdcsrealtime.securitiesa.exture.v2.020.endkeyword", ftypes.UINT8, nil, nil, nil, "End of text sentinel (0xFF).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.english_name_of_issuer = ProtoField.new("English Name Of Issuer", "koscom.mdcsrealtime.securitiesa.exture.v2.020.englishnameofissuer", ftypes.STRING, nil, nil, nil, "English name of issuer such as institutions, exchanges and members.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.eps = ProtoField.new("Eps", "koscom.mdcsrealtime.securitiesa.exture.v2.020.eps", ftypes.DOUBLE, nil, nil, nil, "EPS.")
@@ -244,10 +244,10 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etf_replication_methods
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etf_tracking_difference = ProtoField.new("Etf Tracking Difference", "koscom.mdcsrealtime.securitiesa.exture.v2.020.etftrackingdifference", ftypes.DOUBLE, nil, nil, nil, "ETF Tracking Difference.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etn_early_redemption_period = ProtoField.new("Etn Early Redemption Period", "koscom.mdcsrealtime.securitiesa.exture.v2.020.etnearlyredemptionperiod", ftypes.STRING, nil, nil, nil, "To identify the period of early redemption for loss protection ETN Available to choose only if ETN Early Redemption Possibility is [Y] ▦▦Code Values▦▦ 01: Permanent(everyday) 02: Every three months 03.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etn_early_redemption_possibility = ProtoField.new("Etn Early Redemption Possibility", "koscom.mdcsrealtime.securitiesa.exture.v2.020.etnearlyredemptionpossibility", ftypes.STRING, nil, nil, nil, "Y/N to the possibility of early redemption.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etn_lp_holding_quantity = ProtoField.new("Etn Lp Holding Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.etnlpholdingquantity", ftypes.UINT64, nil, nil, nil, "An amount of ETN that LP accounts hold.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etn_maximum_redemption_price = ProtoField.new("Etn Maximum Redemption Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.etnmaximumredemptionprice", ftypes.DOUBLE, nil, nil, nil, "A maximum redemption price before subtracting expenses.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etn_minimum_redemption_price = ProtoField.new("Etn Minimum Redemption Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.etnminimumredemptionprice", ftypes.DOUBLE, nil, nil, nil, "A mimimum redemption price before subtracting expenses.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etn_payment_date = ProtoField.new("Etn Payment Date", "koscom.mdcsrealtime.securitiesa.exture.v2.020.etnpaymentdate", ftypes.STRING, nil, nil, nil, "The date when a payment is being made due to the execution of ETN rights.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etnlp_holding_quantity = ProtoField.new("Etnlp Holding Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.etnlpholdingquantity", ftypes.UINT64, nil, nil, nil, "An amount of ETN that LP accounts hold.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etp_product_type_code = ProtoField.new("Etp Product Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.etpproducttypecode", ftypes.STRING, nil, nil, nil, "ETP Product Type Code.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.event_end_date = ProtoField.new("Event End Date", "koscom.mdcsrealtime.securitiesa.exture.v2.020.eventenddate", ftypes.STRING, nil, nil, nil, "End date of Issue Event.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.event_reason_code = ProtoField.new("Event Reason Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.eventreasoncode", ftypes.STRING, nil, nil, nil, "When Event Type Code is 01(Trading Halt), 02(Oversight Issues), 05(Backdoor Listing), please refer to the below for more details. \"0000\" is N/A. 01: (Designation Alert) Application for restoration pro.")
@@ -309,12 +309,12 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.issued_amount = ProtoFi
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.issued_amount_weight = ProtoField.new("Issued Amount Weight", "koscom.mdcsrealtime.securitiesa.exture.v2.020.issuedamountweight", ftypes.DOUBLE, nil, nil, nil, "Weighted issued amount (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.issuing_amount = ProtoField.new("Issuing Amount", "koscom.mdcsrealtime.securitiesa.exture.v2.020.issuingamount", ftypes.DOUBLE, nil, nil, nil, "Issuing Amount.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.issuing_price = ProtoField.new("Issuing Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.issuingprice", ftypes.DOUBLE, nil, nil, nil, "Issuing price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knockout_elw_calculation_of_appraised_price = ProtoField.new("Knockout Elw Calculation Of Appraised Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.knockoutelwcalculationofappraisedprice", ftypes.STRING, nil, nil, nil, "A method to calculate an appraised price of an knock-out ELW issue.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knockout_elw_rights = ProtoField.new("Knockout Elw Rights", "koscom.mdcsrealtime.securitiesa.exture.v2.020.knockoutelwrights", ftypes.STRING, nil, nil, nil, "Knock-out ELW_Rights.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knockout_elw_triggering_time = ProtoField.new("Knockout Elw Triggering Time", "koscom.mdcsrealtime.securitiesa.exture.v2.020.knockoutelwtriggeringtime", ftypes.STRING, nil, nil, nil, "The time when Knock-out ELW reaches to the designated price HH(0-23) MM(0-59) SS(0-59).")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knockout_elw_type_code = ProtoField.new("Knockout Elw Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.knockoutelwtypecode", ftypes.STRING, nil, nil, nil, "The status of warrants \"Y\": Knock-out.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knock_out_elw_calculation_of_appraised_price = ProtoField.new("Knock Out Elw Calculation Of Appraised Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.knockoutelwcalculationofappraisedprice", ftypes.STRING, nil, nil, nil, "A method to calculate an appraised price of an knock-out ELW issue.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knock_out_elw_rights = ProtoField.new("Knock Out Elw Rights", "koscom.mdcsrealtime.securitiesa.exture.v2.020.knockoutelwrights", ftypes.STRING, nil, nil, nil, "Knock-out ELW_Rights.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knock_out_elw_triggering_time = ProtoField.new("Knock Out Elw Triggering Time", "koscom.mdcsrealtime.securitiesa.exture.v2.020.knockoutelwtriggeringtime", ftypes.STRING, nil, nil, nil, "The time when Knock-out ELW reaches to the designated price HH(0-23) MM(0-59) SS(0-59).")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knock_out_elw_type_code = ProtoField.new("Knock Out Elw Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.knockoutelwtypecode", ftypes.STRING, nil, nil, nil, "The status of warrants \"Y\": Knock-out.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.korea_corporate_governance_stock_price_index_kogi = ProtoField.new("Korea Corporate Governance Stock Price Index Kogi", "koscom.mdcsrealtime.securitiesa.exture.v2.020.koreacorporategovernancestockpriceindexkogi", ftypes.STRING, nil, nil, nil, "Y/N to whether an issuer has a good governance (only for KOSDAQ).")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.korea_valueup_index = ProtoField.new("Korea Valueup Index", "koscom.mdcsrealtime.securitiesa.exture.v2.020.koreavalueupindex", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of Korea Value-up Index).")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.korea_value_up_index = ProtoField.new("Korea Value Up Index", "koscom.mdcsrealtime.securitiesa.exture.v2.020.koreavalueupindex", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of Korea Value-up Index).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.kosdaq = ProtoField.new("Kosdaq", "koscom.mdcsrealtime.securitiesa.exture.v2.020.kosdaq", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of KOSDAQ).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.kosdaq_150 = ProtoField.new("Kosdaq 150", "koscom.mdcsrealtime.securitiesa.exture.v2.020.kosdaq150", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of KOSDAQ 150).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.kospi = ProtoField.new("Kospi", "koscom.mdcsrealtime.securitiesa.exture.v2.020.kospi", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of KOSPI).")
@@ -335,7 +335,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.listed_amount = ProtoFi
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.listing_date = ProtoField.new("Listing Date", "koscom.mdcsrealtime.securitiesa.exture.v2.020.listingdate", ftypes.STRING, nil, nil, nil, "Listing Date of derivatives(CLASS) or issues.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.loss_category = ProtoField.new("Loss Category", "koscom.mdcsrealtime.securitiesa.exture.v2.020.losscategory", ftypes.STRING, nil, nil, nil, "Y/N to Loss(whether a value of EPS is positive or negative).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.loss_protection_etn_profit_structure_code = ProtoField.new("Loss Protection Etn Profit Structure Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lossprotectionetnprofitstructurecode", ftypes.STRING, nil, nil, nil, "An ETN product that its profit is based on differences of underlying asset and limits loss at certain level to minimizes a sudden increase/decrease of a price. 01: Call 02: Put 03: Call spread 04: Put.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lot_size_afterhours_trading = ProtoField.new("Lot Size Afterhours Trading", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lotsizeafterhourstrading", ftypes.UINT64, nil, nil, nil, "Lot Size(After-hours Trading).")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lot_size_after_hours_trading = ProtoField.new("Lot Size After Hours Trading", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lotsizeafterhourstrading", ftypes.UINT64, nil, nil, nil, "Lot Size(After-hours Trading).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lot_sizes = ProtoField.new("Lot Sizes", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lotsizes", ftypes.UINT64, nil, nil, nil, "A lot size is an unit of a quote for a financial issue traded on an exchange. The quotes should be submitted with integer multiples.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.low_liquidity = ProtoField.new("Low Liquidity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lowliquidity", ftypes.STRING, nil, nil, nil, "Low Liquidity.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lower_limit_of_base_price = ProtoField.new("Lower Limit Of Base Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lowerlimitofbaseprice", ftypes.DOUBLE, nil, nil, nil, "Lower Price of Base Price.")
@@ -496,18 +496,18 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.second_filler_11 = Prot
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.section_type_code = ProtoField.new("Section Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sectiontypecode", ftypes.STRING, nil, nil, nil, "1: KOSDAQ Prime 2: KOSDAQ Venture 3: KOSDAQ Standard 4: KOSDAQ Growth A: Foreign Company(No Section Type) B: Investment Company(No Section Type) C: SPAC(No Section Type) D: ETF(No Section Type) E: Adm.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.security_group_id = ProtoField.new("Security Group Id", "koscom.mdcsrealtime.securitiesa.exture.v2.020.securitygroupid", ftypes.STRING, nil, nil, nil, "Security Group ID (Equities, Investment firms, ETF, ELW, Futures, Options etc.).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.segment_type_code = ProtoField.new("Segment Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.segmenttypecode", ftypes.STRING, nil, nil, nil, "KOSDAQ Market Segment type code.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_quantity = ProtoField.new("Sellside Arbitrage Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidearbitragequantity", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Quantity.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_trading_remaining_quantity = ProtoField.new("Sellside Arbitrage Trading Remaining Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidearbitragetradingremainingquantity", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Trading Remaining Quantity.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_value = ProtoField.new("Sellside Arbitrage Value", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidearbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Sell-side Arbitrage Value.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_volume = ProtoField.new("Sellside Arbitrage Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidearbitragevolume", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_quantity = ProtoField.new("Sellside Nonarbitrage Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidenonarbitragequantity", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Quantity.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_remaining_quantity = ProtoField.new("Sellside Nonarbitrage Remaining Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidenonarbitrageremainingquantity", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Remaining Quantity.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_value = ProtoField.new("Sellside Nonarbitrage Value", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidenonarbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Sell-side Non-arbitrage Value.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_volume = ProtoField.new("Sellside Nonarbitrage Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidenonarbitragevolume", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Volume.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_quantity = ProtoField.new("Sell Side Arbitrage Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidearbitragequantity", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Quantity.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_trading_remaining_quantity = ProtoField.new("Sell Side Arbitrage Trading Remaining Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidearbitragetradingremainingquantity", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Trading Remaining Quantity.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_value = ProtoField.new("Sell Side Arbitrage Value", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidearbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Sell-side Arbitrage Value.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_volume = ProtoField.new("Sell Side Arbitrage Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidearbitragevolume", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Volume.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_quantity = ProtoField.new("Sell Side Non Arbitrage Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidenonarbitragequantity", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Quantity.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_remaining_quantity = ProtoField.new("Sell Side Non Arbitrage Remaining Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidenonarbitrageremainingquantity", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Remaining Quantity.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_value = ProtoField.new("Sell Side Non Arbitrage Value", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidenonarbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Sell-side Non-arbitrage Value.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_volume = ProtoField.new("Sell Side Non Arbitrage Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sellsidenonarbitragevolume", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Volume.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.session_id = ProtoField.new("Session Id", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sessionid", ftypes.STRING, nil, nil, nil, "A Session is a subordinate concept of a Board and each session follows different trading methods and rules.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.session_start_end_code = ProtoField.new("Session Start End Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.sessionstartendcode", ftypes.STRING, nil, nil, nil, "A code refers to the start/end of session. Board will end when the last session ends. BS: Board Start BE: Board End SS: Session Start SE: Session End SH: Session Halt SR: Session Resumption.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.short_selling = ProtoField.new("Short Selling", "koscom.mdcsrealtime.securitiesa.exture.v2.020.shortselling", ftypes.STRING, nil, nil, nil, "Y/N to Short Selling.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.shortterm_overheat_issue_type_code = ProtoField.new("Shortterm Overheat Issue Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.shorttermoverheatissuetypecode", ftypes.STRING, nil, nil, nil, "0: N/A 1: Designation Alert 2: Designation 3: Extension of Designation(Delay in lifting).")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.short_term_overheat_issue_type_code = ProtoField.new("Short Term Overheat Issue Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.shorttermoverheatissuetypecode", ftypes.STRING, nil, nil, nil, "0: N/A 1: Designation Alert 2: Designation 3: Extension of Designation(Delay in lifting).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.small_medium_sized_business = ProtoField.new("Small Medium Sized Business", "koscom.mdcsrealtime.securitiesa.exture.v2.020.smallmediumsizedbusiness", ftypes.STRING, nil, nil, nil, "Small & Medium Sized Business (only for KOSDAQ).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.spac = ProtoField.new("Spac", "koscom.mdcsrealtime.securitiesa.exture.v2.020.spac", ftypes.STRING, nil, nil, nil, "Y/N to SPAC (Special Purpose Acquisition Company).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.spac_merger = ProtoField.new("Spac Merger", "koscom.mdcsrealtime.securitiesa.exture.v2.020.spacmerger", ftypes.STRING, nil, nil, nil, "Y/N.")
@@ -522,7 +522,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.target_stock_isin_code 
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.tax_type_code = ProtoField.new("Tax Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.taxtypecode", ftypes.STRING, nil, nil, nil, "Dividend Income Tax, Securities Transaction Tax, etc.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.the_best_ask = ProtoField.new("The Best Ask", "koscom.mdcsrealtime.securitiesa.exture.v2.020.thebestask", ftypes.DOUBLE, nil, nil, nil, "The lowest offer price.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.the_best_bid = ProtoField.new("The Best Bid", "koscom.mdcsrealtime.securitiesa.exture.v2.020.thebestbid", ftypes.DOUBLE, nil, nil, nil, "The highest quoted bid.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.the_date_knockout_occurred = ProtoField.new("The Date Knockout Occurred", "koscom.mdcsrealtime.securitiesa.exture.v2.020.thedateknockoutoccurred", ftypes.STRING, nil, nil, nil, "The Date Knock-out occurred.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.the_date_knock_out_occurred = ProtoField.new("The Date Knock Out Occurred", "koscom.mdcsrealtime.securitiesa.exture.v2.020.thedateknockoutoccurred", ftypes.STRING, nil, nil, nil, "The Date Knock-out occurred.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.the_establishment_date = ProtoField.new("The Establishment Date", "koscom.mdcsrealtime.securitiesa.exture.v2.020.theestablishmentdate", ftypes.STRING, nil, nil, nil, "The establishment date of an investment company, REITs, the ship investment corporation.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.the_time_ending_vi = ProtoField.new("The Time Ending Vi", "koscom.mdcsrealtime.securitiesa.exture.v2.020.thetimeendingvi", ftypes.STRING, nil, nil, nil, "The time ending VI.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.time_when_allocation_ended = ProtoField.new("Time When Allocation Ended", "koscom.mdcsrealtime.securitiesa.exture.v2.020.timewhenallocationended", ftypes.STRING, nil, nil, nil, "Time when Allocation ended.")
@@ -3550,25 +3550,25 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.baby_bonds_type_code.dissect = fun
   return offset + length, value
 end
 
--- Backdoor Listing
-koscom_mdcsrealtime_securitiesa_exture_v2_020.backdoor_listing = {}
+-- Back Door Listing
+koscom_mdcsrealtime_securitiesa_exture_v2_020.back_door_listing = {}
 
--- Size: Backdoor Listing
-koscom_mdcsrealtime_securitiesa_exture_v2_020.backdoor_listing.size = 1
+-- Size: Back Door Listing
+koscom_mdcsrealtime_securitiesa_exture_v2_020.back_door_listing.size = 1
 
--- Display: Backdoor Listing
-koscom_mdcsrealtime_securitiesa_exture_v2_020.backdoor_listing.display = function(value)
-  return "Backdoor Listing: "..value
+-- Display: Back Door Listing
+koscom_mdcsrealtime_securitiesa_exture_v2_020.back_door_listing.display = function(value)
+  return "Back Door Listing: "..value
 end
 
--- Dissect: Backdoor Listing
-koscom_mdcsrealtime_securitiesa_exture_v2_020.backdoor_listing.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.backdoor_listing.size
+-- Dissect: Back Door Listing
+koscom_mdcsrealtime_securitiesa_exture_v2_020.back_door_listing.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.back_door_listing.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding)
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.backdoor_listing.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.back_door_listing.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.backdoor_listing, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.back_door_listing, range, value, display)
 
   return offset + length, value
 end
@@ -3706,47 +3706,47 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_of_underlying_asset.dis
   return offset + length, value
 end
 
--- Base Price To Knockout Elw
-koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knockout_elw = {}
+-- Base Price To Knock Out Elw
+koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knock_out_elw = {}
 
--- Size: Base Price To Knockout Elw
-koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knockout_elw.size = 13
+-- Size: Base Price To Knock Out Elw
+koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knock_out_elw.size = 13
 
--- Display: Base Price To Knockout Elw
-koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knockout_elw.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knockout_elw.size):string()
+-- Display: Base Price To Knock Out Elw
+koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knock_out_elw.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knock_out_elw.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Base Price To Knockout Elw: No Value"
+    return "Base Price To Knock Out Elw: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 3 then
-    return "Base Price To Knockout Elw: "..text.." (expected 3 places)"
+    return "Base Price To Knock Out Elw: "..text.." (expected 3 places)"
   end
 
-  return "Base Price To Knockout Elw: "..text
+  return "Base Price To Knock Out Elw: "..text
 end
 
--- Dissect: Base Price To Knockout Elw
-koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knockout_elw.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knockout_elw.size
+-- Dissect: Base Price To Knock Out Elw
+koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knock_out_elw.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knock_out_elw.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.base_price_to_knockout_elw, range, value, "Base Price To Knockout Elw: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Base Price To Knockout Elw is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.base_price_to_knock_out_elw, range, value, "Base Price To Knock Out Elw: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Base Price To Knock Out Elw is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knockout_elw.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knock_out_elw.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.base_price_to_knockout_elw, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.base_price_to_knock_out_elw, range, value, display)
 
   return offset + length, value
 end
@@ -3823,25 +3823,25 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.basis_price.dissect = function(buf
   return offset + length, value
 end
 
--- Basket Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_preopening_market = {}
+-- Basket Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_pre_opening_market = {}
 
--- Size: Basket Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_preopening_market.size = 1
+-- Size: Basket Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_pre_opening_market.size = 1
 
--- Display: Basket Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_preopening_market.display = function(value)
-  return "Basket Trading In The Preopening Market: "..value
+-- Display: Basket Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_pre_opening_market.display = function(value)
+  return "Basket Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Basket Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_preopening_market.size
+-- Dissect: Basket Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding)
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.basket_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.basket_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -5055,25 +5055,25 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_treasury_stock_declaration_id.
   return offset + length, value
 end
 
--- Block Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_preopening_market = {}
+-- Block Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_pre_opening_market = {}
 
--- Size: Block Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_preopening_market.size = 1
+-- Size: Block Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_pre_opening_market.size = 1
 
--- Display: Block Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_preopening_market.display = function(value)
-  return "Block Trading In The Preopening Market: "..value
+-- Display: Block Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_pre_opening_market.display = function(value)
+  return "Block Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Block Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_preopening_market.size
+-- Dissect: Block Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding)
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.block_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.block_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -5419,87 +5419,363 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.business_date.dissect = function(b
   return offset + length, value
 end
 
--- Buyin Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_type_code = {}
+-- Buy In Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_type_code = {}
 
--- Size: Buyin Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_type_code.size = 1
+-- Size: Buy In Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_type_code.size = 1
 
--- Display: Buyin Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_type_code.display = function(value)
-  return "Buyin Type Code: "..value
+-- Display: Buy In Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_type_code.display = function(value)
+  return "Buy In Type Code: "..value
 end
 
--- Dissect: Buyin Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_type_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_type_code.size
+-- Dissect: Buy In Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_type_code.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding)
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_type_code.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyin_type_code, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_in_type_code, range, value, display)
 
   return offset + length, value
 end
 
--- Buyin Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_volume = {}
+-- Buy In Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_volume = {}
 
--- Size: Buyin Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_volume.size = 15
+-- Size: Buy In Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_volume.size = 15
 
--- Display: Buyin Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_volume.display = function(value)
-  return "Buyin Volume: "..value
+-- Display: Buy In Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_volume.display = function(value)
+  return "Buy In Volume: "..value
 end
 
--- Dissect: Buyin Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_volume.size
+-- Dissect: Buy In Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_volume.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyin_volume, range, value, "Buyin Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buyin Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_in_volume, range, value, "Buy In Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buy In Volume is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_volume.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyin_volume, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_in_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Buying Volume Block Trading In Offhours Session
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_offhours_session = {}
+-- Buy Side Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_quantity = {}
 
--- Size: Buying Volume Block Trading In Offhours Session
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_offhours_session.size = 12
+-- Size: Buy Side Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_quantity.size = 15
 
--- Display: Buying Volume Block Trading In Offhours Session
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_offhours_session.display = function(value)
-  return "Buying Volume Block Trading In Offhours Session: "..value
+-- Display: Buy Side Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_quantity.display = function(value)
+  return "Buy Side Arbitrage Quantity: "..value
 end
 
--- Dissect: Buying Volume Block Trading In Offhours Session
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_offhours_session.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_offhours_session.size
+-- Dissect: Buy Side Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buying_volume_block_trading_in_offhours_session, range, value, "Buying Volume Block Trading In Offhours Session: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buying Volume Block Trading In Offhours Session is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_quantity, range, value, "Buy Side Arbitrage Quantity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buy Side Arbitrage Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_offhours_session.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buying_volume_block_trading_in_offhours_session, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Side Arbitrage Trading Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_trading_remaining_quantity = {}
+
+-- Size: Buy Side Arbitrage Trading Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_trading_remaining_quantity.size = 15
+
+-- Display: Buy Side Arbitrage Trading Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_trading_remaining_quantity.display = function(value)
+  return "Buy Side Arbitrage Trading Remaining Quantity: "..value
+end
+
+-- Dissect: Buy Side Arbitrage Trading Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_trading_remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_trading_remaining_quantity.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_trading_remaining_quantity, range, value, "Buy Side Arbitrage Trading Remaining Quantity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buy Side Arbitrage Trading Remaining Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_trading_remaining_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_trading_remaining_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Side Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_value = {}
+
+-- Size: Buy Side Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_value.size = 22
+
+-- Display: Buy Side Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_value.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Buy Side Arbitrage Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Buy Side Arbitrage Value: "..text.." (expected 3 places)"
+  end
+
+  return "Buy Side Arbitrage Value: "..text
+end
+
+-- Dissect: Buy Side Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_value.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_value.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_value, range, value, "Buy Side Arbitrage Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buy Side Arbitrage Value is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Side Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_volume = {}
+
+-- Size: Buy Side Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_volume.size = 15
+
+-- Display: Buy Side Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_volume.display = function(value)
+  return "Buy Side Arbitrage Volume: "..value
+end
+
+-- Dissect: Buy Side Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_volume.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_volume, range, value, "Buy Side Arbitrage Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buy Side Arbitrage Volume is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_arbitrage_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Side Non Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_quantity = {}
+
+-- Size: Buy Side Non Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_quantity.size = 15
+
+-- Display: Buy Side Non Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_quantity.display = function(value)
+  return "Buy Side Non Arbitrage Quantity: "..value
+end
+
+-- Dissect: Buy Side Non Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_quantity.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_quantity, range, value, "Buy Side Non Arbitrage Quantity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buy Side Non Arbitrage Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Side Non Arbitrage Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_remaining_quantity = {}
+
+-- Size: Buy Side Non Arbitrage Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_remaining_quantity.size = 15
+
+-- Display: Buy Side Non Arbitrage Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_remaining_quantity.display = function(value)
+  return "Buy Side Non Arbitrage Remaining Quantity: "..value
+end
+
+-- Dissect: Buy Side Non Arbitrage Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_remaining_quantity.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_remaining_quantity, range, value, "Buy Side Non Arbitrage Remaining Quantity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buy Side Non Arbitrage Remaining Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_remaining_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_remaining_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Side Non Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_value = {}
+
+-- Size: Buy Side Non Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_value.size = 22
+
+-- Display: Buy Side Non Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_value.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Buy Side Non Arbitrage Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Buy Side Non Arbitrage Value: "..text.." (expected 3 places)"
+  end
+
+  return "Buy Side Non Arbitrage Value: "..text
+end
+
+-- Dissect: Buy Side Non Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_value.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_value.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_value, range, value, "Buy Side Non Arbitrage Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buy Side Non Arbitrage Value is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Side Non Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_volume = {}
+
+-- Size: Buy Side Non Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_volume.size = 15
+
+-- Display: Buy Side Non Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_volume.display = function(value)
+  return "Buy Side Non Arbitrage Volume: "..value
+end
+
+-- Dissect: Buy Side Non Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_volume.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_volume, range, value, "Buy Side Non Arbitrage Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buy Side Non Arbitrage Volume is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buy_side_non_arbitrage_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buying Volume Block Trading In Off Hours Session
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_off_hours_session = {}
+
+-- Size: Buying Volume Block Trading In Off Hours Session
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_off_hours_session.size = 12
+
+-- Display: Buying Volume Block Trading In Off Hours Session
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_off_hours_session.display = function(value)
+  return "Buying Volume Block Trading In Off Hours Session: "..value
+end
+
+-- Dissect: Buying Volume Block Trading In Off Hours Session
+koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_off_hours_session.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_off_hours_session.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buying_volume_block_trading_in_off_hours_session, range, value, "Buying Volume Block Trading In Off Hours Session: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buying Volume Block Trading In Off Hours Session is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_off_hours_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buying_volume_block_trading_in_off_hours_session, range, value, display)
 
   return offset + length, value
 end
@@ -5562,282 +5838,6 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_regular_session.diss
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_regular_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buying_volume_regular_session, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyside Arbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_quantity = {}
-
--- Size: Buyside Arbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_quantity.size = 15
-
--- Display: Buyside Arbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_quantity.display = function(value)
-  return "Buyside Arbitrage Quantity: "..value
-end
-
--- Dissect: Buyside Arbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_quantity.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_quantity, range, value, "Buyside Arbitrage Quantity: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buyside Arbitrage Quantity is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyside Arbitrage Trading Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_trading_remaining_quantity = {}
-
--- Size: Buyside Arbitrage Trading Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_trading_remaining_quantity.size = 15
-
--- Display: Buyside Arbitrage Trading Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_trading_remaining_quantity.display = function(value)
-  return "Buyside Arbitrage Trading Remaining Quantity: "..value
-end
-
--- Dissect: Buyside Arbitrage Trading Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_trading_remaining_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_trading_remaining_quantity.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_trading_remaining_quantity, range, value, "Buyside Arbitrage Trading Remaining Quantity: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buyside Arbitrage Trading Remaining Quantity is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_trading_remaining_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_trading_remaining_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyside Arbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_value = {}
-
--- Size: Buyside Arbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_value.size = 22
-
--- Display: Buyside Arbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_value.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Buyside Arbitrage Value: No Value"
-  end
-
-  local point = text:find(".", 1, true)
-  local places = point and (#text - point) or 0
-
-  if places ~= 3 then
-    return "Buyside Arbitrage Value: "..text.." (expected 3 places)"
-  end
-
-  return "Buyside Arbitrage Value: "..text
-end
-
--- Dissect: Buyside Arbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_value.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_value.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_value, range, value, "Buyside Arbitrage Value: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buyside Arbitrage Value is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyside Arbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_volume = {}
-
--- Size: Buyside Arbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_volume.size = 15
-
--- Display: Buyside Arbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_volume.display = function(value)
-  return "Buyside Arbitrage Volume: "..value
-end
-
--- Dissect: Buyside Arbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_volume, range, value, "Buyside Arbitrage Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buyside Arbitrage Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_arbitrage_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyside Nonarbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_quantity = {}
-
--- Size: Buyside Nonarbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_quantity.size = 15
-
--- Display: Buyside Nonarbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_quantity.display = function(value)
-  return "Buyside Nonarbitrage Quantity: "..value
-end
-
--- Dissect: Buyside Nonarbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_quantity.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_quantity, range, value, "Buyside Nonarbitrage Quantity: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buyside Nonarbitrage Quantity is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyside Nonarbitrage Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_remaining_quantity = {}
-
--- Size: Buyside Nonarbitrage Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_remaining_quantity.size = 15
-
--- Display: Buyside Nonarbitrage Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_remaining_quantity.display = function(value)
-  return "Buyside Nonarbitrage Remaining Quantity: "..value
-end
-
--- Dissect: Buyside Nonarbitrage Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_remaining_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_remaining_quantity.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_remaining_quantity, range, value, "Buyside Nonarbitrage Remaining Quantity: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buyside Nonarbitrage Remaining Quantity is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_remaining_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_remaining_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyside Nonarbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_value = {}
-
--- Size: Buyside Nonarbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_value.size = 22
-
--- Display: Buyside Nonarbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_value.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Buyside Nonarbitrage Value: No Value"
-  end
-
-  local point = text:find(".", 1, true)
-  local places = point and (#text - point) or 0
-
-  if places ~= 3 then
-    return "Buyside Nonarbitrage Value: "..text.." (expected 3 places)"
-  end
-
-  return "Buyside Nonarbitrage Value: "..text
-end
-
--- Dissect: Buyside Nonarbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_value.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_value.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_value, range, value, "Buyside Nonarbitrage Value: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buyside Nonarbitrage Value is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyside Nonarbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_volume = {}
-
--- Size: Buyside Nonarbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_volume.size = 15
-
--- Display: Buyside Nonarbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_volume.display = function(value)
-  return "Buyside Nonarbitrage Volume: "..value
-end
-
--- Dissect: Buyside Nonarbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_volume, range, value, "Buyside Nonarbitrage Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Buyside Nonarbitrage Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.buyside_nonarbitrage_volume, range, value, display)
 
   return offset + length, value
 end
@@ -6557,25 +6557,25 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_lower_limit_of_buy_i
   return offset + length, value
 end
 
--- Closing Price Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_preopening_market = {}
+-- Closing Price Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_pre_opening_market = {}
 
--- Size: Closing Price Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_preopening_market.size = 1
+-- Size: Closing Price Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_pre_opening_market.size = 1
 
--- Display: Closing Price Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_preopening_market.display = function(value)
-  return "Closing Price Trading In The Preopening Market: "..value
+-- Display: Closing Price Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_pre_opening_market.display = function(value)
+  return "Closing Price Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Closing Price Trading In The Preopening Market
-koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_preopening_market.size
+-- Dissect: Closing Price Trading In The Pre Opening Market
+koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding)
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.closing_price_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.closing_price_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -8100,6 +8100,37 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_guaranteed_rate_for_price_incr
   return offset + length, value
 end
 
+-- Elw Lp Holding Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_lp_holding_quantity = {}
+
+-- Size: Elw Lp Holding Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_lp_holding_quantity.size = 15
+
+-- Display: Elw Lp Holding Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_lp_holding_quantity.display = function(value)
+  return "Elw Lp Holding Quantity: "..value
+end
+
+-- Dissect: Elw Lp Holding Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_lp_holding_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_lp_holding_quantity.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elw_lp_holding_quantity, range, value, "Elw Lp Holding Quantity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Elw Lp Holding Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_lp_holding_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elw_lp_holding_quantity, range, value, display)
+
+  return offset + length, value
+end
+
 -- Elw Payment Agent
 koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_payment_agent = {}
 
@@ -8165,37 +8196,6 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_rights_type_code.dissect = fun
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_rights_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elw_rights_type_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Elwlp Holding Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.elwlp_holding_quantity = {}
-
--- Size: Elwlp Holding Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.elwlp_holding_quantity.size = 15
-
--- Display: Elwlp Holding Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.elwlp_holding_quantity.display = function(value)
-  return "Elwlp Holding Quantity: "..value
-end
-
--- Dissect: Elwlp Holding Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.elwlp_holding_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.elwlp_holding_quantity.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elwlp_holding_quantity, range, value, "Elwlp Holding Quantity: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Elwlp Holding Quantity is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.elwlp_holding_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.elwlp_holding_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -8501,6 +8501,37 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_early_redemption_possibility.d
   return offset + length, value
 end
 
+-- Etn Lp Holding Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_lp_holding_quantity = {}
+
+-- Size: Etn Lp Holding Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_lp_holding_quantity.size = 15
+
+-- Display: Etn Lp Holding Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_lp_holding_quantity.display = function(value)
+  return "Etn Lp Holding Quantity: "..value
+end
+
+-- Dissect: Etn Lp Holding Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_lp_holding_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_lp_holding_quantity.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etn_lp_holding_quantity, range, value, "Etn Lp Holding Quantity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Etn Lp Holding Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_lp_holding_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etn_lp_holding_quantity, range, value, display)
+
+  return offset + length, value
+end
+
 -- Etn Maximum Redemption Price
 koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_maximum_redemption_price = {}
 
@@ -8596,37 +8627,6 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_payment_date.dissect = functio
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_payment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etn_payment_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Etnlp Holding Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.etnlp_holding_quantity = {}
-
--- Size: Etnlp Holding Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.etnlp_holding_quantity.size = 15
-
--- Display: Etnlp Holding Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.etnlp_holding_quantity.display = function(value)
-  return "Etnlp Holding Quantity: "..value
-end
-
--- Dissect: Etnlp Holding Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.etnlp_holding_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.etnlp_holding_quantity.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etnlp_holding_quantity, range, value, "Etnlp Holding Quantity: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Etnlp Holding Quantity is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.etnlp_holding_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.etnlp_holding_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -10306,94 +10306,94 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.issuing_price.dissect = function(b
   return offset + length, value
 end
 
--- Knockout Elw Calculation Of Appraised Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_calculation_of_appraised_price = {}
+-- Knock Out Elw Calculation Of Appraised Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_calculation_of_appraised_price = {}
 
--- Size: Knockout Elw Calculation Of Appraised Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_calculation_of_appraised_price.size = 300
+-- Size: Knock Out Elw Calculation Of Appraised Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_calculation_of_appraised_price.size = 300
 
--- Display: Knockout Elw Calculation Of Appraised Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_calculation_of_appraised_price.display = function(value)
-  return "Knockout Elw Calculation Of Appraised Price: "..value
+-- Display: Knock Out Elw Calculation Of Appraised Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_calculation_of_appraised_price.display = function(value)
+  return "Knock Out Elw Calculation Of Appraised Price: "..value
 end
 
--- Dissect: Knockout Elw Calculation Of Appraised Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_calculation_of_appraised_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_calculation_of_appraised_price.size
+-- Dissect: Knock Out Elw Calculation Of Appraised Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_calculation_of_appraised_price.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_calculation_of_appraised_price.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding))
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_calculation_of_appraised_price.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_calculation_of_appraised_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knockout_elw_calculation_of_appraised_price, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knock_out_elw_calculation_of_appraised_price, range, value, display)
 
   return offset + length, value
 end
 
--- Knockout Elw Rights
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_rights = {}
+-- Knock Out Elw Rights
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_rights = {}
 
--- Size: Knockout Elw Rights
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_rights.size = 200
+-- Size: Knock Out Elw Rights
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_rights.size = 200
 
--- Display: Knockout Elw Rights
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_rights.display = function(value)
-  return "Knockout Elw Rights: "..value
+-- Display: Knock Out Elw Rights
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_rights.display = function(value)
+  return "Knock Out Elw Rights: "..value
 end
 
--- Dissect: Knockout Elw Rights
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_rights.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_rights.size
+-- Dissect: Knock Out Elw Rights
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_rights.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_rights.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding))
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_rights.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_rights.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knockout_elw_rights, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knock_out_elw_rights, range, value, display)
 
   return offset + length, value
 end
 
--- Knockout Elw Triggering Time
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_triggering_time = {}
+-- Knock Out Elw Triggering Time
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_triggering_time = {}
 
--- Size: Knockout Elw Triggering Time
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_triggering_time.size = 9
+-- Size: Knock Out Elw Triggering Time
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_triggering_time.size = 9
 
--- Display: Knockout Elw Triggering Time
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_triggering_time.display = function(value)
-  return "Knockout Elw Triggering Time: "..value
+-- Display: Knock Out Elw Triggering Time
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_triggering_time.display = function(value)
+  return "Knock Out Elw Triggering Time: "..value
 end
 
--- Dissect: Knockout Elw Triggering Time
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_triggering_time.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_triggering_time.size
+-- Dissect: Knock Out Elw Triggering Time
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_triggering_time.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_triggering_time.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding))
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_triggering_time.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_triggering_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knockout_elw_triggering_time, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knock_out_elw_triggering_time, range, value, display)
 
   return offset + length, value
 end
 
--- Knockout Elw Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_type_code = {}
+-- Knock Out Elw Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_type_code = {}
 
--- Size: Knockout Elw Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_type_code.size = 1
+-- Size: Knock Out Elw Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_type_code.size = 1
 
--- Display: Knockout Elw Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_type_code.display = function(value)
-  return "Knockout Elw Type Code: "..value
+-- Display: Knock Out Elw Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_type_code.display = function(value)
+  return "Knock Out Elw Type Code: "..value
 end
 
--- Dissect: Knockout Elw Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_type_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_type_code.size
+-- Dissect: Knock Out Elw Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_type_code.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding)
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_type_code.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knockout_elw_type_code, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.knock_out_elw_type_code, range, value, display)
 
   return offset + length, value
 end
@@ -10421,25 +10421,25 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_corporate_governance_stock_p
   return offset + length, value
 end
 
--- Korea Valueup Index
-koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_valueup_index = {}
+-- Korea Value Up Index
+koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_value_up_index = {}
 
--- Size: Korea Valueup Index
-koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_valueup_index.size = 1
+-- Size: Korea Value Up Index
+koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_value_up_index.size = 1
 
--- Display: Korea Valueup Index
-koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_valueup_index.display = function(value)
-  return "Korea Valueup Index: "..value
+-- Display: Korea Value Up Index
+koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_value_up_index.display = function(value)
+  return "Korea Value Up Index: "..value
 end
 
--- Dissect: Korea Valueup Index
-koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_valueup_index.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_valueup_index.size
+-- Dissect: Korea Value Up Index
+koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_value_up_index.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_value_up_index.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding)
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_valueup_index.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_value_up_index.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.korea_valueup_index, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.korea_value_up_index, range, value, display)
 
   return offset + length, value
 end
@@ -10934,33 +10934,33 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.loss_protection_etn_profit_structu
   return offset + length, value
 end
 
--- Lot Size Afterhours Trading
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_afterhours_trading = {}
+-- Lot Size After Hours Trading
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_after_hours_trading = {}
 
--- Size: Lot Size Afterhours Trading
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_afterhours_trading.size = 11
+-- Size: Lot Size After Hours Trading
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_after_hours_trading.size = 11
 
--- Display: Lot Size Afterhours Trading
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_afterhours_trading.display = function(value)
-  return "Lot Size Afterhours Trading: "..value
+-- Display: Lot Size After Hours Trading
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_after_hours_trading.display = function(value)
+  return "Lot Size After Hours Trading: "..value
 end
 
--- Dissect: Lot Size Afterhours Trading
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_afterhours_trading.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_afterhours_trading.size
+-- Dissect: Lot Size After Hours Trading
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_after_hours_trading.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_after_hours_trading.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lot_size_afterhours_trading, range, value, "Lot Size Afterhours Trading: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lot Size Afterhours Trading is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lot_size_after_hours_trading, range, value, "Lot Size After Hours Trading: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lot Size After Hours Trading is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_afterhours_trading.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_after_hours_trading.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lot_size_afterhours_trading, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lot_size_after_hours_trading, range, value, display)
 
   return offset + length, value
 end
@@ -15641,278 +15641,278 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.segment_type_code.dissect = functi
   return offset + length, value
 end
 
--- Sellside Arbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_quantity = {}
+-- Sell Side Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_quantity = {}
 
--- Size: Sellside Arbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_quantity.size = 15
+-- Size: Sell Side Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_quantity.size = 15
 
--- Display: Sellside Arbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_quantity.display = function(value)
-  return "Sellside Arbitrage Quantity: "..value
+-- Display: Sell Side Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_quantity.display = function(value)
+  return "Sell Side Arbitrage Quantity: "..value
 end
 
--- Dissect: Sellside Arbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_quantity.size
+-- Dissect: Sell Side Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_quantity, range, value, "Sellside Arbitrage Quantity: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sellside Arbitrage Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_quantity, range, value, "Sell Side Arbitrage Quantity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sell Side Arbitrage Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_quantity.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_quantity, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Arbitrage Trading Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_trading_remaining_quantity = {}
+-- Sell Side Arbitrage Trading Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_trading_remaining_quantity = {}
 
--- Size: Sellside Arbitrage Trading Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_trading_remaining_quantity.size = 15
+-- Size: Sell Side Arbitrage Trading Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_trading_remaining_quantity.size = 15
 
--- Display: Sellside Arbitrage Trading Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_trading_remaining_quantity.display = function(value)
-  return "Sellside Arbitrage Trading Remaining Quantity: "..value
+-- Display: Sell Side Arbitrage Trading Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_trading_remaining_quantity.display = function(value)
+  return "Sell Side Arbitrage Trading Remaining Quantity: "..value
 end
 
--- Dissect: Sellside Arbitrage Trading Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_trading_remaining_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_trading_remaining_quantity.size
+-- Dissect: Sell Side Arbitrage Trading Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_trading_remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_trading_remaining_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_trading_remaining_quantity, range, value, "Sellside Arbitrage Trading Remaining Quantity: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sellside Arbitrage Trading Remaining Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_trading_remaining_quantity, range, value, "Sell Side Arbitrage Trading Remaining Quantity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sell Side Arbitrage Trading Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_trading_remaining_quantity.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_trading_remaining_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_trading_remaining_quantity, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_trading_remaining_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Arbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_value = {}
+-- Sell Side Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_value = {}
 
--- Size: Sellside Arbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_value.size = 22
+-- Size: Sell Side Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_value.size = 22
 
--- Display: Sellside Arbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_value.size):string()
+-- Display: Sell Side Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_value.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Sellside Arbitrage Value: No Value"
+    return "Sell Side Arbitrage Value: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 3 then
-    return "Sellside Arbitrage Value: "..text.." (expected 3 places)"
+    return "Sell Side Arbitrage Value: "..text.." (expected 3 places)"
   end
 
-  return "Sellside Arbitrage Value: "..text
+  return "Sell Side Arbitrage Value: "..text
 end
 
--- Dissect: Sellside Arbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_value.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_value.size
+-- Dissect: Sell Side Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_value.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_value, range, value, "Sellside Arbitrage Value: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sellside Arbitrage Value is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_value, range, value, "Sell Side Arbitrage Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sell Side Arbitrage Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_value.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_value, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_value, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Arbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_volume = {}
+-- Sell Side Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_volume = {}
 
--- Size: Sellside Arbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_volume.size = 15
+-- Size: Sell Side Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_volume.size = 15
 
--- Display: Sellside Arbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_volume.display = function(value)
-  return "Sellside Arbitrage Volume: "..value
+-- Display: Sell Side Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_volume.display = function(value)
+  return "Sell Side Arbitrage Volume: "..value
 end
 
--- Dissect: Sellside Arbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_volume.size
+-- Dissect: Sell Side Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_volume.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_volume, range, value, "Sellside Arbitrage Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sellside Arbitrage Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_volume, range, value, "Sell Side Arbitrage Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sell Side Arbitrage Volume is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_volume.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_arbitrage_volume, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_arbitrage_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Nonarbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_quantity = {}
+-- Sell Side Non Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_quantity = {}
 
--- Size: Sellside Nonarbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_quantity.size = 15
+-- Size: Sell Side Non Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_quantity.size = 15
 
--- Display: Sellside Nonarbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_quantity.display = function(value)
-  return "Sellside Nonarbitrage Quantity: "..value
+-- Display: Sell Side Non Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_quantity.display = function(value)
+  return "Sell Side Non Arbitrage Quantity: "..value
 end
 
--- Dissect: Sellside Nonarbitrage Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_quantity.size
+-- Dissect: Sell Side Non Arbitrage Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_quantity, range, value, "Sellside Nonarbitrage Quantity: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sellside Nonarbitrage Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_quantity, range, value, "Sell Side Non Arbitrage Quantity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sell Side Non Arbitrage Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_quantity.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_quantity, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Nonarbitrage Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_remaining_quantity = {}
+-- Sell Side Non Arbitrage Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_remaining_quantity = {}
 
--- Size: Sellside Nonarbitrage Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_remaining_quantity.size = 15
+-- Size: Sell Side Non Arbitrage Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_remaining_quantity.size = 15
 
--- Display: Sellside Nonarbitrage Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_remaining_quantity.display = function(value)
-  return "Sellside Nonarbitrage Remaining Quantity: "..value
+-- Display: Sell Side Non Arbitrage Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_remaining_quantity.display = function(value)
+  return "Sell Side Non Arbitrage Remaining Quantity: "..value
 end
 
--- Dissect: Sellside Nonarbitrage Remaining Quantity
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_remaining_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_remaining_quantity.size
+-- Dissect: Sell Side Non Arbitrage Remaining Quantity
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_remaining_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_remaining_quantity, range, value, "Sellside Nonarbitrage Remaining Quantity: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sellside Nonarbitrage Remaining Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_remaining_quantity, range, value, "Sell Side Non Arbitrage Remaining Quantity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sell Side Non Arbitrage Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_remaining_quantity.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_remaining_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_remaining_quantity, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_remaining_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Nonarbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_value = {}
+-- Sell Side Non Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_value = {}
 
--- Size: Sellside Nonarbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_value.size = 22
+-- Size: Sell Side Non Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_value.size = 22
 
--- Display: Sellside Nonarbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_value.size):string()
+-- Display: Sell Side Non Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_value.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Sellside Nonarbitrage Value: No Value"
+    return "Sell Side Non Arbitrage Value: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 3 then
-    return "Sellside Nonarbitrage Value: "..text.." (expected 3 places)"
+    return "Sell Side Non Arbitrage Value: "..text.." (expected 3 places)"
   end
 
-  return "Sellside Nonarbitrage Value: "..text
+  return "Sell Side Non Arbitrage Value: "..text
 end
 
--- Dissect: Sellside Nonarbitrage Value
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_value.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_value.size
+-- Dissect: Sell Side Non Arbitrage Value
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_value.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_value, range, value, "Sellside Nonarbitrage Value: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sellside Nonarbitrage Value is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_value, range, value, "Sell Side Non Arbitrage Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sell Side Non Arbitrage Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_value.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_value, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_value, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Nonarbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_volume = {}
+-- Sell Side Non Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_volume = {}
 
--- Size: Sellside Nonarbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_volume.size = 15
+-- Size: Sell Side Non Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_volume.size = 15
 
--- Display: Sellside Nonarbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_volume.display = function(value)
-  return "Sellside Nonarbitrage Volume: "..value
+-- Display: Sell Side Non Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_volume.display = function(value)
+  return "Sell Side Non Arbitrage Volume: "..value
 end
 
--- Dissect: Sellside Nonarbitrage Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_volume.size
+-- Dissect: Sell Side Non Arbitrage Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_volume.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_volume, range, value, "Sellside Nonarbitrage Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sellside Nonarbitrage Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_volume, range, value, "Sell Side Non Arbitrage Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Sell Side Non Arbitrage Volume is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_volume.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sellside_nonarbitrage_volume, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.sell_side_non_arbitrage_volume, range, value, display)
 
   return offset + length, value
 end
@@ -15986,25 +15986,25 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.short_selling.dissect = function(b
   return offset + length, value
 end
 
--- Shortterm Overheat Issue Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.shortterm_overheat_issue_type_code = {}
+-- Short Term Overheat Issue Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.short_term_overheat_issue_type_code = {}
 
--- Size: Shortterm Overheat Issue Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.shortterm_overheat_issue_type_code.size = 1
+-- Size: Short Term Overheat Issue Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.short_term_overheat_issue_type_code.size = 1
 
--- Display: Shortterm Overheat Issue Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.shortterm_overheat_issue_type_code.display = function(value)
-  return "Shortterm Overheat Issue Type Code: "..value
+-- Display: Short Term Overheat Issue Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.short_term_overheat_issue_type_code.display = function(value)
+  return "Short Term Overheat Issue Type Code: "..value
 end
 
--- Dissect: Shortterm Overheat Issue Type Code
-koscom_mdcsrealtime_securitiesa_exture_v2_020.shortterm_overheat_issue_type_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.shortterm_overheat_issue_type_code.size
+-- Dissect: Short Term Overheat Issue Type Code
+koscom_mdcsrealtime_securitiesa_exture_v2_020.short_term_overheat_issue_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.short_term_overheat_issue_type_code.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding)
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.shortterm_overheat_issue_type_code.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.short_term_overheat_issue_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.shortterm_overheat_issue_type_code, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.short_term_overheat_issue_type_code, range, value, display)
 
   return offset + length, value
 end
@@ -16413,25 +16413,25 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.the_best_bid.dissect = function(bu
   return offset + length, value
 end
 
--- The Date Knockout Occurred
-koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knockout_occurred = {}
+-- The Date Knock Out Occurred
+koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knock_out_occurred = {}
 
--- Size: The Date Knockout Occurred
-koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knockout_occurred.size = 8
+-- Size: The Date Knock Out Occurred
+koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knock_out_occurred.size = 8
 
--- Display: The Date Knockout Occurred
-koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knockout_occurred.display = function(value)
-  return "The Date Knockout Occurred: "..value
+-- Display: The Date Knock Out Occurred
+koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knock_out_occurred.display = function(value)
+  return "The Date Knock Out Occurred: "..value
 end
 
--- Dissect: The Date Knockout Occurred
-koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knockout_occurred.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knockout_occurred.size
+-- Dissect: The Date Knock Out Occurred
+koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knock_out_occurred.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knock_out_occurred.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_securitiesa_exture_v2_020.text_encoding))
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knockout_occurred.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knock_out_occurred.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.the_date_knockout_occurred, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.the_date_knock_out_occurred, range, value, display)
 
   return offset + length, value
 end
@@ -20850,14 +20850,14 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_program_trading_informa
 
 -- Size: Securities Program Trading Information Of Total Aggregated Message
 koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_program_trading_information_of_total_aggregated_message.size =
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_trading_remaining_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_trading_remaining_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_remaining_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_remaining_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_trading_remaining_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_trading_remaining_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_remaining_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_remaining_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_quantity.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.arbitrage_ask_trust_trading_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.arbitrage_ask_principal_trading_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.arbitrage_bid_trust_trading_volume.size + 
@@ -20885,29 +20885,29 @@ end
 koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_program_trading_information_of_total_aggregated_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sellside Arbitrage Trading Remaining Quantity: Long
-  index, sellside_arbitrage_trading_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Trading Remaining Quantity: Long
+  index, sell_side_arbitrage_trading_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Trading Remaining Quantity: Long
-  index, buyside_arbitrage_trading_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Trading Remaining Quantity: Long
+  index, buy_side_arbitrage_trading_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Remaining Quantity: Long
-  index, sellside_nonarbitrage_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Remaining Quantity: Long
+  index, sell_side_non_arbitrage_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Remaining Quantity: Long
-  index, buyside_nonarbitrage_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Remaining Quantity: Long
+  index, buy_side_non_arbitrage_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Arbitrage Quantity: Long
-  index, sellside_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Quantity: Long
+  index, sell_side_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Quantity: Long
-  index, buyside_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Quantity: Long
+  index, buy_side_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Quantity: Long
-  index, sellside_nonarbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Quantity: Long
+  index, sell_side_non_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Quantity: Long
-  index, buyside_nonarbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Quantity: Long
+  index, buy_side_non_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
   -- Arbitrage Ask Trust Trading Volume: Long
   index, arbitrage_ask_trust_trading_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.arbitrage_ask_trust_trading_volume.dissect(buffer, index, packet, parent)
@@ -20988,14 +20988,14 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_program_trading_informa
 koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_program_trading_information_per_issue_aggregated_message.size =
   koscom_mdcsrealtime_securitiesa_exture_v2_020.isin_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.a_designated_number_for_an_issue.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_trading_remaining_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_trading_remaining_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_remaining_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_remaining_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_quantity.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_trading_remaining_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_trading_remaining_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_remaining_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_remaining_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_quantity.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.arbitrage_ask_trust_trading_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.arbitrage_ask_principal_trading_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.arbitrage_bid_trust_trading_volume.size + 
@@ -21029,29 +21029,29 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_program_trading_informa
   -- A Designated Number For An Issue: Int
   index, a_designated_number_for_an_issue = koscom_mdcsrealtime_securitiesa_exture_v2_020.a_designated_number_for_an_issue.dissect(buffer, index, packet, parent)
 
-  -- Sellside Arbitrage Trading Remaining Quantity: Long
-  index, sellside_arbitrage_trading_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Trading Remaining Quantity: Long
+  index, sell_side_arbitrage_trading_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Trading Remaining Quantity: Long
-  index, buyside_arbitrage_trading_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Trading Remaining Quantity: Long
+  index, buy_side_arbitrage_trading_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Remaining Quantity: Long
-  index, sellside_nonarbitrage_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Remaining Quantity: Long
+  index, sell_side_non_arbitrage_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Remaining Quantity: Long
-  index, buyside_nonarbitrage_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Remaining Quantity: Long
+  index, buy_side_non_arbitrage_remaining_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Arbitrage Quantity: Long
-  index, sellside_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Quantity: Long
+  index, sell_side_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Quantity: Long
-  index, buyside_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Quantity: Long
+  index, buy_side_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Quantity: Long
-  index, sellside_nonarbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Quantity: Long
+  index, sell_side_non_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Quantity: Long
-  index, buyside_nonarbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Quantity: Long
+  index, buy_side_non_arbitrage_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
   -- Arbitrage Ask Trust Trading Volume: Long
   index, arbitrage_ask_trust_trading_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.arbitrage_ask_trust_trading_volume.dissect(buffer, index, packet, parent)
@@ -21132,14 +21132,14 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_program_trading_activit
 koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_program_trading_activity_per_investor_message.size =
   koscom_mdcsrealtime_securitiesa_exture_v2_020.calculation_time.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.investor_code.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_value.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_value.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_value.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_value.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_volume.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_value.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_volume.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_value.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_volume.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_value.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_volume.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_value.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.end_keyword.size
 
 -- Display: Securities Program Trading Activity Per Investor Message
@@ -21157,29 +21157,29 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_program_trading_activit
   -- Investor Code: String
   index, investor_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.investor_code.dissect(buffer, index, packet, parent)
 
-  -- Sellside Arbitrage Volume: Long
-  index, sellside_arbitrage_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_volume.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Volume: Long
+  index, sell_side_arbitrage_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_volume.dissect(buffer, index, packet, parent)
 
-  -- Sellside Arbitrage Value: FLOAT128
-  index, sellside_arbitrage_value = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_arbitrage_value.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Value: FLOAT128
+  index, sell_side_arbitrage_value = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_arbitrage_value.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Volume: Long
-  index, sellside_nonarbitrage_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_volume.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Volume: Long
+  index, sell_side_non_arbitrage_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_volume.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Value: FLOAT128
-  index, sellside_nonarbitrage_value = koscom_mdcsrealtime_securitiesa_exture_v2_020.sellside_nonarbitrage_value.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Value: FLOAT128
+  index, sell_side_non_arbitrage_value = koscom_mdcsrealtime_securitiesa_exture_v2_020.sell_side_non_arbitrage_value.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Volume: Long
-  index, buyside_arbitrage_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_volume.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Volume: Long
+  index, buy_side_arbitrage_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_volume.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Value: FLOAT128
-  index, buyside_arbitrage_value = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_arbitrage_value.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Value: FLOAT128
+  index, buy_side_arbitrage_value = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_arbitrage_value.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Volume: Long
-  index, buyside_nonarbitrage_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_volume.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Volume: Long
+  index, buy_side_non_arbitrage_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_volume.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Value: FLOAT128
-  index, buyside_nonarbitrage_value = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyside_nonarbitrage_value.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Value: FLOAT128
+  index, buy_side_non_arbitrage_value = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_side_non_arbitrage_value.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesa_exture_v2_020.end_keyword.dissect(buffer, index, packet, parent)
@@ -21214,7 +21214,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_knock_out_underlying_me
   koscom_mdcsrealtime_securitiesa_exture_v2_020.message_sequence_number.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.transmission_date.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.trading_date_of_underlying_asset.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knockout_occurred.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knock_out_occurred.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.ampm_type_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.underlying_isin_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.index_id.size + 
@@ -21244,8 +21244,8 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_knock_out_underlying_me
   -- Trading Date Of Underlying Asset: String
   index, trading_date_of_underlying_asset = koscom_mdcsrealtime_securitiesa_exture_v2_020.trading_date_of_underlying_asset.dissect(buffer, index, packet, parent)
 
-  -- The Date Knockout Occurred: String
-  index, the_date_knockout_occurred = koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knockout_occurred.dissect(buffer, index, packet, parent)
+  -- The Date Knock Out Occurred: String
+  index, the_date_knock_out_occurred = koscom_mdcsrealtime_securitiesa_exture_v2_020.the_date_knock_out_occurred.dissect(buffer, index, packet, parent)
 
   -- Ampm Type Code: String
   index, ampm_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.ampm_type_code.dissect(buffer, index, packet, parent)
@@ -21296,9 +21296,9 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_knock_out_elw_message =
 koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_knock_out_elw_message.size =
   koscom_mdcsrealtime_securitiesa_exture_v2_020.message_sequence_number.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.isin_code.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knockout_elw.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_rights.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_calculation_of_appraised_price.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knock_out_elw.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_rights.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_calculation_of_appraised_price.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.end_keyword.size
 
 -- Display: Securities Knock Out Elw Message
@@ -21316,14 +21316,14 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_knock_out_elw_message.f
   -- Isin Code: String
   index, isin_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.isin_code.dissect(buffer, index, packet, parent)
 
-  -- Base Price To Knockout Elw: Double
-  index, base_price_to_knockout_elw = koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knockout_elw.dissect(buffer, index, packet, parent)
+  -- Base Price To Knock Out Elw: Double
+  index, base_price_to_knock_out_elw = koscom_mdcsrealtime_securitiesa_exture_v2_020.base_price_to_knock_out_elw.dissect(buffer, index, packet, parent)
 
-  -- Knockout Elw Rights: String
-  index, knockout_elw_rights = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_rights.dissect(buffer, index, packet, parent)
+  -- Knock Out Elw Rights: String
+  index, knock_out_elw_rights = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_rights.dissect(buffer, index, packet, parent)
 
-  -- Knockout Elw Calculation Of Appraised Price: String
-  index, knockout_elw_calculation_of_appraised_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_calculation_of_appraised_price.dissect(buffer, index, packet, parent)
+  -- Knock Out Elw Calculation Of Appraised Price: String
+  index, knock_out_elw_calculation_of_appraised_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_calculation_of_appraised_price.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesa_exture_v2_020.end_keyword.dissect(buffer, index, packet, parent)
@@ -21523,7 +21523,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_etn_batch_data_message.
   koscom_mdcsrealtime_securitiesa_exture_v2_020.payment_methods.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.last_trading_date.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_payment_date.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.etnlp_holding_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_lp_holding_quantity.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.loss_protection_etn_profit_structure_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_maximum_redemption_price.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_minimum_redemption_price.size + 
@@ -21569,8 +21569,8 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_etn_batch_data_message.
   -- Etn Payment Date: String
   index, etn_payment_date = koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_payment_date.dissect(buffer, index, packet, parent)
 
-  -- Etnlp Holding Quantity: Long
-  index, etnlp_holding_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.etnlp_holding_quantity.dissect(buffer, index, packet, parent)
+  -- Etn Lp Holding Quantity: Long
+  index, etn_lp_holding_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.etn_lp_holding_quantity.dissect(buffer, index, packet, parent)
 
   -- Loss Protection Etn Profit Structure Code: String
   index, loss_protection_etn_profit_structure_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.loss_protection_etn_profit_structure_code.dissect(buffer, index, packet, parent)
@@ -21658,7 +21658,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_elw_batch_data_message.
   koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_payment_agent.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.calculation_methods_of_appraised_price_at_maturity.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_rights_type_code.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.elwlp_holding_quantity.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_lp_holding_quantity.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.filler_4.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.end_keyword.size
 
@@ -21779,8 +21779,8 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_elw_batch_data_message.
   -- Elw Rights Type Code: String
   index, elw_rights_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_rights_type_code.dissect(buffer, index, packet, parent)
 
-  -- Elwlp Holding Quantity: Long
-  index, elwlp_holding_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.elwlp_holding_quantity.dissect(buffer, index, packet, parent)
+  -- Elw Lp Holding Quantity: Long
+  index, elw_lp_holding_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.elw_lp_holding_quantity.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
   index, filler_4 = koscom_mdcsrealtime_securitiesa_exture_v2_020.filler_4.dissect(buffer, index, packet, parent)
@@ -21817,9 +21817,9 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_buy_in_volume_message.s
   koscom_mdcsrealtime_securitiesa_exture_v2_020.message_sequence_number.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.isin_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.transmission_date.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_type_code.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_type_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.security_group_id.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_volume.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.end_keyword.size
 
 -- Display: Securities Buy In Volume Message
@@ -21840,14 +21840,14 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_buy_in_volume_message.f
   -- Transmission Date: String
   index, transmission_date = koscom_mdcsrealtime_securitiesa_exture_v2_020.transmission_date.dissect(buffer, index, packet, parent)
 
-  -- Buyin Type Code: String
-  index, buyin_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_type_code.dissect(buffer, index, packet, parent)
+  -- Buy In Type Code: String
+  index, buy_in_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_type_code.dissect(buffer, index, packet, parent)
 
   -- Security Group Id: String
   index, security_group_id = koscom_mdcsrealtime_securitiesa_exture_v2_020.security_group_id.dissect(buffer, index, packet, parent)
 
-  -- Buyin Volume: Long
-  index, buyin_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.buyin_volume.dissect(buffer, index, packet, parent)
+  -- Buy In Volume: Long
+  index, buy_in_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.buy_in_volume.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesa_exture_v2_020.end_keyword.dissect(buffer, index, packet, parent)
@@ -22310,7 +22310,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_equity_index_indicator_
   koscom_mdcsrealtime_securitiesa_exture_v2_020.krx_bbig_index.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.krx_secondary_battery_top_10_index.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.krx_bio_top_10_index.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_valueup_index.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_value_up_index.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.filler_8.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.end_keyword.size
 
@@ -22419,8 +22419,8 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_equity_index_indicator_
   -- Krx Bio Top 10 Index: String
   index, krx_bio_top_10_index = koscom_mdcsrealtime_securitiesa_exture_v2_020.krx_bio_top_10_index.dissect(buffer, index, packet, parent)
 
-  -- Korea Valueup Index: String
-  index, korea_valueup_index = koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_valueup_index.dissect(buffer, index, packet, parent)
+  -- Korea Value Up Index: String
+  index, korea_value_up_index = koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_value_up_index.dissect(buffer, index, packet, parent)
 
   -- Filler 8: String
   index, filler_8 = koscom_mdcsrealtime_securitiesa_exture_v2_020.filler_8.dissect(buffer, index, packet, parent)
@@ -22465,7 +22465,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_treasury_stocks_batch_m
   koscom_mdcsrealtime_securitiesa_exture_v2_020.market_participant_number.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_open_single_price_session.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_regular_session.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_offhours_session.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_off_hours_session.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.accumulated_trading_quantity.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.accumulated_trading_value.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.end_keyword.size
@@ -22512,8 +22512,8 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_treasury_stocks_batch_m
   -- Buying Volume Regular Session: Long
   index, buying_volume_regular_session = koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_regular_session.dissect(buffer, index, packet, parent)
 
-  -- Buying Volume Block Trading In Offhours Session: Long
-  index, buying_volume_block_trading_in_offhours_session = koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_offhours_session.dissect(buffer, index, packet, parent)
+  -- Buying Volume Block Trading In Off Hours Session: Long
+  index, buying_volume_block_trading_in_off_hours_session = koscom_mdcsrealtime_securitiesa_exture_v2_020.buying_volume_block_trading_in_off_hours_session.dissect(buffer, index, packet, parent)
 
   -- Accumulated Trading Quantity: Long
   index, accumulated_trading_quantity = koscom_mdcsrealtime_securitiesa_exture_v2_020.accumulated_trading_quantity.dissect(buffer, index, packet, parent)
@@ -22789,7 +22789,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_equities_batch_data_mes
   koscom_mdcsrealtime_securitiesa_exture_v2_020.korea_corporate_governance_stock_price_index_kogi.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.issue_for_administration.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.unfaithful_disclosure.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.backdoor_listing.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.back_door_listing.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.trading_halt.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.industry_id.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.small_medium_sized_business.size + 
@@ -22829,16 +22829,16 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_equities_batch_data_mes
   koscom_mdcsrealtime_securitiesa_exture_v2_020.lowest_order_price.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.highest_order_price.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.unit_of_volume_in_main_board.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_afterhours_trading.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_after_hours_trading.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.rei_ts_type_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.target_stock_isin_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.currency_iso_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.country_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.market_making_possibility.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_possibility_in_the_after_hours.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_preopening_market.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_preopening_market.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_preopening_market.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_pre_opening_market.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_pre_opening_market.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_pre_opening_market.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.announcement_of_estimated_trading_price.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.short_selling.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.etf_tracking_difference.size + 
@@ -22848,7 +22848,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_equities_batch_data_mes
   koscom_mdcsrealtime_securitiesa_exture_v2_020.appraisal_ratio_of_substitute_price.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.investment_caution_issue.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.delisting_date.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.shortterm_overheat_issue_type_code.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.short_term_overheat_issue_type_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.etf_replication_methods_type_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.expiration_date.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.distribution_type_code.size + 
@@ -22953,8 +22953,8 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_equities_batch_data_mes
   -- Unfaithful Disclosure: String
   index, unfaithful_disclosure = koscom_mdcsrealtime_securitiesa_exture_v2_020.unfaithful_disclosure.dissect(buffer, index, packet, parent)
 
-  -- Backdoor Listing: String
-  index, backdoor_listing = koscom_mdcsrealtime_securitiesa_exture_v2_020.backdoor_listing.dissect(buffer, index, packet, parent)
+  -- Back Door Listing: String
+  index, back_door_listing = koscom_mdcsrealtime_securitiesa_exture_v2_020.back_door_listing.dissect(buffer, index, packet, parent)
 
   -- Trading Halt: String
   index, trading_halt = koscom_mdcsrealtime_securitiesa_exture_v2_020.trading_halt.dissect(buffer, index, packet, parent)
@@ -23073,8 +23073,8 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_equities_batch_data_mes
   -- Unit Of Volume In Main Board: Long
   index, unit_of_volume_in_main_board = koscom_mdcsrealtime_securitiesa_exture_v2_020.unit_of_volume_in_main_board.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Afterhours Trading: Long
-  index, lot_size_afterhours_trading = koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_afterhours_trading.dissect(buffer, index, packet, parent)
+  -- Lot Size After Hours Trading: Long
+  index, lot_size_after_hours_trading = koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_size_after_hours_trading.dissect(buffer, index, packet, parent)
 
   -- Rei Ts Type Code: String
   index, rei_ts_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.rei_ts_type_code.dissect(buffer, index, packet, parent)
@@ -23094,14 +23094,14 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_equities_batch_data_mes
   -- Closing Price Trading Possibility In The After Hours: String
   index, closing_price_trading_possibility_in_the_after_hours = koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_possibility_in_the_after_hours.dissect(buffer, index, packet, parent)
 
-  -- Closing Price Trading In The Preopening Market: String
-  index, closing_price_trading_in_the_preopening_market = koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Closing Price Trading In The Pre Opening Market: String
+  index, closing_price_trading_in_the_pre_opening_market = koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
-  -- Block Trading In The Preopening Market: String
-  index, block_trading_in_the_preopening_market = koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Block Trading In The Pre Opening Market: String
+  index, block_trading_in_the_pre_opening_market = koscom_mdcsrealtime_securitiesa_exture_v2_020.block_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
-  -- Basket Trading In The Preopening Market: String
-  index, basket_trading_in_the_preopening_market = koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Basket Trading In The Pre Opening Market: String
+  index, basket_trading_in_the_pre_opening_market = koscom_mdcsrealtime_securitiesa_exture_v2_020.basket_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
   -- Announcement Of Estimated Trading Price: String
   index, announcement_of_estimated_trading_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.announcement_of_estimated_trading_price.dissect(buffer, index, packet, parent)
@@ -23130,8 +23130,8 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_equities_batch_data_mes
   -- Delisting Date: String
   index, delisting_date = koscom_mdcsrealtime_securitiesa_exture_v2_020.delisting_date.dissect(buffer, index, packet, parent)
 
-  -- Shortterm Overheat Issue Type Code: String
-  index, shortterm_overheat_issue_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.shortterm_overheat_issue_type_code.dissect(buffer, index, packet, parent)
+  -- Short Term Overheat Issue Type Code: String
+  index, short_term_overheat_issue_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.short_term_overheat_issue_type_code.dissect(buffer, index, packet, parent)
 
   -- Etf Replication Methods Type Code: String
   index, etf_replication_methods_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.etf_replication_methods_type_code.dissect(buffer, index, packet, parent)
@@ -23314,7 +23314,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_equities_changes_of_bat
   koscom_mdcsrealtime_securitiesa_exture_v2_020.lot_sizes.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.number_of_listed_shares.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.designation.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_preopening_market.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_pre_opening_market.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.end_keyword.size
 
 -- Display: Securities Equities Changes Of Batch Data Message
@@ -23374,8 +23374,8 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_equities_changes_of_bat
   -- Designation: String
   index, designation = koscom_mdcsrealtime_securitiesa_exture_v2_020.designation.dissect(buffer, index, packet, parent)
 
-  -- Closing Price Trading In The Preopening Market: String
-  index, closing_price_trading_in_the_preopening_market = koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Closing Price Trading In The Pre Opening Market: String
+  index, closing_price_trading_in_the_pre_opening_market = koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesa_exture_v2_020.end_keyword.dissect(buffer, index, packet, parent)
@@ -24283,8 +24283,8 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_snapshot_mm_lp_included
   koscom_mdcsrealtime_securitiesa_exture_v2_020.estimated_trading_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.closing_price_type_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.trading_halt.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_type_code.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_triggering_time.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_type_code.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_triggering_time.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.midpoint.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_mid_price_total_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_mid_price_total_volume.size + 
@@ -24542,11 +24542,11 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_snapshot_mm_lp_included
   -- Trading Halt: String
   index, trading_halt = koscom_mdcsrealtime_securitiesa_exture_v2_020.trading_halt.dissect(buffer, index, packet, parent)
 
-  -- Knockout Elw Type Code: String
-  index, knockout_elw_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_type_code.dissect(buffer, index, packet, parent)
+  -- Knock Out Elw Type Code: String
+  index, knock_out_elw_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_type_code.dissect(buffer, index, packet, parent)
 
-  -- Knockout Elw Triggering Time: String
-  index, knockout_elw_triggering_time = koscom_mdcsrealtime_securitiesa_exture_v2_020.knockout_elw_triggering_time.dissect(buffer, index, packet, parent)
+  -- Knock Out Elw Triggering Time: String
+  index, knock_out_elw_triggering_time = koscom_mdcsrealtime_securitiesa_exture_v2_020.knock_out_elw_triggering_time.dissect(buffer, index, packet, parent)
 
   -- Midpoint: Double
   index, midpoint = koscom_mdcsrealtime_securitiesa_exture_v2_020.midpoint.dissect(buffer, index, packet, parent)

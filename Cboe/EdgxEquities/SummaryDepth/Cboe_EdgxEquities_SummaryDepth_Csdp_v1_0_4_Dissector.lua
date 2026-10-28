@@ -27,8 +27,8 @@ omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.execution_id = ProtoField.
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.halt_status = ProtoField.new("Halt Status", "cboe.edgxequities.summarydepth.csdp.v1.0.4.haltstatus", ftypes.STRING)
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.last_price = ProtoField.new("Last Price", "cboe.edgxequities.summarydepth.csdp.v1.0.4.lastprice", ftypes.DOUBLE, nil, nil, nil, "Last trade price.")
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.last_quantity = ProtoField.new("Last Quantity", "cboe.edgxequities.summarydepth.csdp.v1.0.4.lastquantity", ftypes.UINT64, nil, nil, nil, "Last trade quantity.")
+omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.last_sale_eligible = ProtoField.new("Last Sale Eligible", "cboe.edgxequities.summarydepth.csdp.v1.0.4.lastsaleeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "last-sale eligible")
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.edgxequities.summarydepth.csdp.v1.0.4.lastupdatetimestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe Summary Depth server's cache.")
-omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.lastsale_eligible = ProtoField.new("Lastsale Eligible", "cboe.edgxequities.summarydepth.csdp.v1.0.4.lastsaleeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "last-sale eligible")
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.length = ProtoField.new("Length", "cboe.edgxequities.summarydepth.csdp.v1.0.4.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.long_update_adap_block = ProtoField.new("Long Update Adap Block", "cboe.edgxequities.summarydepth.csdp.v1.0.4.longupdateadapblock", ftypes.STRING)
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.market_status = ProtoField.new("Market Status", "cboe.edgxequities.summarydepth.csdp.v1.0.4.marketstatus", ftypes.STRING)
@@ -1096,9 +1096,9 @@ cboe_edgxequities_summarydepth_csdp_v1_0_4.trade_flags.size = 1
 cboe_edgxequities_summarydepth_csdp_v1_0_4.trade_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Lastsale Eligible flag set?
+  -- Is Last Sale Eligible flag set?
   if bit.band(value, 0x02) ~= 0 then
-    flags[#flags + 1] = "Lastsale Eligible"
+    flags[#flags + 1] = "Last Sale Eligible"
   end
 
   return table.concat(flags, "|")
@@ -1110,8 +1110,8 @@ cboe_edgxequities_summarydepth_csdp_v1_0_4.trade_flags.bits = function(range, va
   -- Unused 1: 1 Bit
   parent:add(omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.unused_1, range, value)
 
-  -- Lastsale Eligible: 1 Bit
-  parent:add(omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.lastsale_eligible, range, value)
+  -- Last Sale Eligible: 1 Bit
+  parent:add(omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.last_sale_eligible, range, value)
 
   -- Unused 6: 6 Bit
   parent:add(omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.fields.unused_6, range, value)

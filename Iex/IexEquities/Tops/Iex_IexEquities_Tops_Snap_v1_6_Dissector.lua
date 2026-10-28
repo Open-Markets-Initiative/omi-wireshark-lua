@@ -68,7 +68,7 @@ omi_iex_iexequities_tops_snap_v1_6.fields.send_time = ProtoField.new("Send Time"
 omi_iex_iexequities_tops_snap_v1_6.fields.send_time_utc = ProtoField.new("Send Time", "iex.iexequities.tops.snap.v1.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of segment")
 omi_iex_iexequities_tops_snap_v1_6.fields.session_id = ProtoField.new("Session Id", "iex.iexequities.tops.snap.v1.6.sessionid", ftypes.UINT32, nil, nil, nil, "Session identifier from the Tops feed IexTp header")
 omi_iex_iexequities_tops_snap_v1_6.fields.short_sale_price_test_status = ProtoField.new("Short Sale Price Test Status", "iex.iexequities.tops.snap.v1.6.shortsalepriceteststatus", ftypes.UINT8, nil, nil, nil, "Reg. SHO short sale price test restriction status")
-omi_iex_iexequities_tops_snap_v1_6.fields.singleprice_cross_trade = ProtoField.new("Singleprice Cross Trade", "iex.iexequities.tops.snap.v1.6.singlepricecrosstrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Trade resulting from a single-price cross")
+omi_iex_iexequities_tops_snap_v1_6.fields.single_price_cross_trade = ProtoField.new("Single Price Cross Trade", "iex.iexequities.tops.snap.v1.6.singlepricecrosstrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Trade resulting from a single-price cross")
 omi_iex_iexequities_tops_snap_v1_6.fields.size = ProtoField.new("Size", "iex.iexequities.tops.snap.v1.6.size", ftypes.UINT32, nil, nil, nil, "Trade volume")
 omi_iex_iexequities_tops_snap_v1_6.fields.snapshot_length = ProtoField.new("Snapshot Length", "iex.iexequities.tops.snap.v1.6.snapshotlength", ftypes.UINT64, nil, nil, nil, "Length in bytes of the complete Snapshot Response including the Snapshot Start message, all Snapshot Data messages, and the Snapshot End message")
 omi_iex_iexequities_tops_snap_v1_6.fields.snapshot_sequence_number = ProtoField.new("Snapshot Sequence Number", "iex.iexequities.tops.snap.v1.6.snapshotsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence at which the snapshot was created")
@@ -1730,9 +1730,9 @@ iex_iexequities_tops_snap_v1_6.sale_condition_flags.size = 1
 iex_iexequities_tops_snap_v1_6.sale_condition_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Singleprice Cross Trade flag set?
+  -- Is Single Price Cross Trade flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Singleprice Cross Trade"
+    flags[#flags + 1] = "Single Price Cross Trade"
   end
   -- Is Trade Through Exempt flag set?
   if bit.band(value, 0x10) ~= 0 then
@@ -1760,8 +1760,8 @@ iex_iexequities_tops_snap_v1_6.sale_condition_flags.bits = function(range, value
   -- Unused 3: 3 Bit
   parent:add(omi_iex_iexequities_tops_snap_v1_6.fields.unused_3, range, value)
 
-  -- Singleprice Cross Trade: 1 Bit
-  parent:add(omi_iex_iexequities_tops_snap_v1_6.fields.singleprice_cross_trade, range, value)
+  -- Single Price Cross Trade: 1 Bit
+  parent:add(omi_iex_iexequities_tops_snap_v1_6.fields.single_price_cross_trade, range, value)
 
   -- Trade Through Exempt: 1 Bit
   parent:add(omi_iex_iexequities_tops_snap_v1_6.fields.trade_through_exempt, range, value)

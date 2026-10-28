@@ -41,8 +41,8 @@ omi_lseg_lse_level1_gtp_v26_2.fields.message_length = ProtoField.new("Message Le
 omi_lseg_lse_level1_gtp_v26_2.fields.message_type = ProtoField.new("Message Type", "lseg.lse.level1.gtp.v26.2.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
 omi_lseg_lse_level1_gtp_v26_2.fields.new_end_time = ProtoField.new("New End Time", "lseg.lse.level1.gtp.v26.2.newendtime", ftypes.STRING, nil, nil, nil, "New time the session will end. The field will contain only spaces if Session Change Reason is '0' or the Session Change Reason is not present. New End Time will be in terms of the local time on the server (i.e., not UTC).")
 omi_lseg_lse_level1_gtp_v26_2.fields.number_of_trades = ProtoField.new("Number Of Trades", "lseg.lse.level1.gtp.v26.2.numberoftrades", ftypes.UINT32, nil, nil, nil, "Count of all trades for the day.")
-omi_lseg_lse_level1_gtp_v26_2.fields.number_of_trades_onbook_only = ProtoField.new("Number Of Trades Onbook Only", "lseg.lse.level1.gtp.v26.2.numberoftradesonbookonly", ftypes.UINT32, nil, nil, nil, "Count of trades for the day excluding off-book trades.")
-omi_lseg_lse_level1_gtp_v26_2.fields.offbook = ProtoField.new("Offbook", "lseg.lse.level1.gtp.v26.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Off-book")
+omi_lseg_lse_level1_gtp_v26_2.fields.number_of_trades_on_book_only = ProtoField.new("Number Of Trades On Book Only", "lseg.lse.level1.gtp.v26.2.numberoftradesonbookonly", ftypes.UINT32, nil, nil, nil, "Count of trades for the day excluding off-book trades.")
+omi_lseg_lse_level1_gtp_v26_2.fields.off_book = ProtoField.new("Off Book", "lseg.lse.level1.gtp.v26.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Off-book")
 omi_lseg_lse_level1_gtp_v26_2.fields.offer_depth = ProtoField.new("Offer Depth", "lseg.lse.level1.gtp.v26.2.offerdepth", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_lseg_lse_level1_gtp_v26_2.fields.offer_limit_price = ProtoField.new("Offer Limit Price", "lseg.lse.level1.gtp.v26.2.offerlimitprice", ftypes.DOUBLE, nil, nil, nil, "Price of the best sell limit order.")
 omi_lseg_lse_level1_gtp_v26_2.fields.offer_limit_size = ProtoField.new("Offer Limit Size", "lseg.lse.level1.gtp.v26.2.offerlimitsize", ftypes.DOUBLE, nil, nil, nil, "Aggregated size of all orders at the best sell limit price.")
@@ -81,15 +81,15 @@ omi_lseg_lse_level1_gtp_v26_2.fields.trading_status = ProtoField.new("Trading St
 omi_lseg_lse_level1_gtp_v26_2.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.lse.level1.gtp.v26.2.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Execution timestamp as reported by the supported market. If a trade is cancelled or amended, this field will contain the transaction time of the original trade.")
 omi_lseg_lse_level1_gtp_v26_2.fields.transaction_time_utc = ProtoField.new("Transaction Time", "lseg.lse.level1.gtp.v26.2.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Execution timestamp as reported by the supported market. If a trade is cancelled or amended, this field will contain the transaction time of the original trade.")
 omi_lseg_lse_level1_gtp_v26_2.fields.turnover = ProtoField.new("Turnover", "lseg.lse.level1.gtp.v26.2.turnover", ftypes.DOUBLE, nil, nil, nil, "Turnover of all trades for the day.")
-omi_lseg_lse_level1_gtp_v26_2.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.lse.level1.gtp.v26.2.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Turnover for the day excluding off-book trades.")
+omi_lseg_lse_level1_gtp_v26_2.fields.turnover_on_book_only = ProtoField.new("Turnover On Book Only", "lseg.lse.level1.gtp.v26.2.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Turnover for the day excluding off-book trades.")
 omi_lseg_lse_level1_gtp_v26_2.fields.unused_1 = ProtoField.new("Unused 1", "lseg.lse.level1.gtp.v26.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
 omi_lseg_lse_level1_gtp_v26_2.fields.unused_3 = ProtoField.new("Unused 3", "lseg.lse.level1.gtp.v26.2.unused3", ftypes.UINT8, nil, base.DEC, 0xE0, "Reserved")
 omi_lseg_lse_level1_gtp_v26_2.fields.unused_6 = ProtoField.new("Unused 6", "lseg.lse.level1.gtp.v26.2.unused6", ftypes.UINT8, nil, base.DEC, 0xFC, "Reserved")
 omi_lseg_lse_level1_gtp_v26_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.lse.level1.gtp.v26.2.venueinstrumentid", ftypes.STRING, nil, nil, nil, "Instrument identifier used by the source venue.")
 omi_lseg_lse_level1_gtp_v26_2.fields.volume = ProtoField.new("Volume", "lseg.lse.level1.gtp.v26.2.volume", ftypes.DOUBLE, nil, nil, nil, "Cumulative volume of all trades for the trading day.")
-omi_lseg_lse_level1_gtp_v26_2.fields.volume_onbook_only = ProtoField.new("Volume Onbook Only", "lseg.lse.level1.gtp.v26.2.volumeonbookonly", ftypes.DOUBLE, nil, nil, nil, "Cumulative volume for the trading day excluding off-book trades.")
+omi_lseg_lse_level1_gtp_v26_2.fields.volume_on_book_only = ProtoField.new("Volume On Book Only", "lseg.lse.level1.gtp.v26.2.volumeonbookonly", ftypes.DOUBLE, nil, nil, nil, "Cumulative volume for the trading day excluding off-book trades.")
 omi_lseg_lse_level1_gtp_v26_2.fields.vwap = ProtoField.new("Vwap", "lseg.lse.level1.gtp.v26.2.vwap", ftypes.DOUBLE, nil, nil, nil, "Volume weighted average price for the day for all trades.")
-omi_lseg_lse_level1_gtp_v26_2.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.lse.level1.gtp.v26.2.vwaponbookonly", ftypes.DOUBLE, nil, nil, nil, "Volume weighted average price for the day excluding off-book trades.")
+omi_lseg_lse_level1_gtp_v26_2.fields.vwap_on_book_only = ProtoField.new("Vwap On Book Only", "lseg.lse.level1.gtp.v26.2.vwaponbookonly", ftypes.DOUBLE, nil, nil, nil, "Volume weighted average price for the day excluding off-book trades.")
 
 -- Lseg Lse Level1 Gtp 26.2 Framing
 omi_lseg_lse_level1_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.level1.gtp.v26.2.message", ftypes.STRING)
@@ -865,25 +865,25 @@ lseg_lse_level1_gtp_v26_2.number_of_trades.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Number Of Trades Onbook Only
-lseg_lse_level1_gtp_v26_2.number_of_trades_onbook_only = {}
+-- Number Of Trades On Book Only
+lseg_lse_level1_gtp_v26_2.number_of_trades_on_book_only = {}
 
--- Size: Number Of Trades Onbook Only
-lseg_lse_level1_gtp_v26_2.number_of_trades_onbook_only.size = 4
+-- Size: Number Of Trades On Book Only
+lseg_lse_level1_gtp_v26_2.number_of_trades_on_book_only.size = 4
 
--- Display: Number Of Trades Onbook Only
-lseg_lse_level1_gtp_v26_2.number_of_trades_onbook_only.display = function(value)
-  return "Number Of Trades Onbook Only: "..value
+-- Display: Number Of Trades On Book Only
+lseg_lse_level1_gtp_v26_2.number_of_trades_on_book_only.display = function(value)
+  return "Number Of Trades On Book Only: "..value
 end
 
--- Dissect: Number Of Trades Onbook Only
-lseg_lse_level1_gtp_v26_2.number_of_trades_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_lse_level1_gtp_v26_2.number_of_trades_onbook_only.size
+-- Dissect: Number Of Trades On Book Only
+lseg_lse_level1_gtp_v26_2.number_of_trades_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_level1_gtp_v26_2.number_of_trades_on_book_only.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_lse_level1_gtp_v26_2.number_of_trades_onbook_only.display(value, buffer, offset, packet, parent)
+  local display = lseg_lse_level1_gtp_v26_2.number_of_trades_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.number_of_trades_onbook_only, range, value, display)
+  parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.number_of_trades_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -1042,7 +1042,7 @@ lseg_lse_level1_gtp_v26_2.order_book_type.size = 1
 -- Display: Order Book Type
 lseg_lse_level1_gtp_v26_2.order_book_type.labels = {
   [1] = "Order Book Type: Firm Quote Book (1)",
-  [2] = "Order Book Type: Offbook (2)",
+  [2] = "Order Book Type: Off Book (2)",
   [3] = "Order Book Type: Electronic Order Book (3)",
   [4] = "Order Book Type: Private Rfq (4)",
 }
@@ -1655,7 +1655,7 @@ lseg_lse_level1_gtp_v26_2.trade_type.labels = {
   [0] = "Trade Type: Regular Or Continuous Trade (0)",
   [1] = "Trade Type: Auction Trade Bulk (1)",
   [2] = "Trade Type: Auction Trade Individual (2)",
-  [9] = "Trade Type: Onbook Trade Cancellation (9)",
+  [9] = "Trade Type: On Book Trade Cancellation (9)",
   [11] = "Trade Type: Trade Correction (11)",
   [22] = "Trade Type: Rfq Trade (22)",
   [23] = "Trade Type: Rfq Trade Cancellation (23)",
@@ -1834,31 +1834,31 @@ lseg_lse_level1_gtp_v26_2.turnover.dissect = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
--- Turnover Onbook Only
-lseg_lse_level1_gtp_v26_2.turnover_onbook_only = {}
+-- Turnover On Book Only
+lseg_lse_level1_gtp_v26_2.turnover_on_book_only = {}
 
--- Size: Turnover Onbook Only
-lseg_lse_level1_gtp_v26_2.turnover_onbook_only.size = 8
+-- Size: Turnover On Book Only
+lseg_lse_level1_gtp_v26_2.turnover_on_book_only.size = 8
 
--- Display: Turnover Onbook Only
-lseg_lse_level1_gtp_v26_2.turnover_onbook_only.display = function(value)
-  return "Turnover Onbook Only: "..value
+-- Display: Turnover On Book Only
+lseg_lse_level1_gtp_v26_2.turnover_on_book_only.display = function(value)
+  return "Turnover On Book Only: "..value
 end
 
--- Translate: Turnover Onbook Only
-lseg_lse_level1_gtp_v26_2.turnover_onbook_only.translate = function(raw)
+-- Translate: Turnover On Book Only
+lseg_lse_level1_gtp_v26_2.turnover_on_book_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Turnover Onbook Only
-lseg_lse_level1_gtp_v26_2.turnover_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_lse_level1_gtp_v26_2.turnover_onbook_only.size
+-- Dissect: Turnover On Book Only
+lseg_lse_level1_gtp_v26_2.turnover_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_level1_gtp_v26_2.turnover_on_book_only.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = lseg_lse_level1_gtp_v26_2.turnover_onbook_only.translate(raw)
-  local display = lseg_lse_level1_gtp_v26_2.turnover_onbook_only.display(value, buffer, offset, packet, parent)
+  local value = lseg_lse_level1_gtp_v26_2.turnover_on_book_only.translate(raw)
+  local display = lseg_lse_level1_gtp_v26_2.turnover_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.turnover_onbook_only, range, value, display)
+  parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.turnover_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -1920,31 +1920,31 @@ lseg_lse_level1_gtp_v26_2.volume.dissect = function(buffer, offset, packet, pare
   return offset + length, value
 end
 
--- Volume Onbook Only
-lseg_lse_level1_gtp_v26_2.volume_onbook_only = {}
+-- Volume On Book Only
+lseg_lse_level1_gtp_v26_2.volume_on_book_only = {}
 
--- Size: Volume Onbook Only
-lseg_lse_level1_gtp_v26_2.volume_onbook_only.size = 8
+-- Size: Volume On Book Only
+lseg_lse_level1_gtp_v26_2.volume_on_book_only.size = 8
 
--- Display: Volume Onbook Only
-lseg_lse_level1_gtp_v26_2.volume_onbook_only.display = function(value)
-  return "Volume Onbook Only: "..value
+-- Display: Volume On Book Only
+lseg_lse_level1_gtp_v26_2.volume_on_book_only.display = function(value)
+  return "Volume On Book Only: "..value
 end
 
--- Translate: Volume Onbook Only
-lseg_lse_level1_gtp_v26_2.volume_onbook_only.translate = function(raw)
+-- Translate: Volume On Book Only
+lseg_lse_level1_gtp_v26_2.volume_on_book_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Volume Onbook Only
-lseg_lse_level1_gtp_v26_2.volume_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_lse_level1_gtp_v26_2.volume_onbook_only.size
+-- Dissect: Volume On Book Only
+lseg_lse_level1_gtp_v26_2.volume_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_level1_gtp_v26_2.volume_on_book_only.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = lseg_lse_level1_gtp_v26_2.volume_onbook_only.translate(raw)
-  local display = lseg_lse_level1_gtp_v26_2.volume_onbook_only.display(value, buffer, offset, packet, parent)
+  local value = lseg_lse_level1_gtp_v26_2.volume_on_book_only.translate(raw)
+  local display = lseg_lse_level1_gtp_v26_2.volume_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.volume_onbook_only, range, value, display)
+  parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.volume_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -1978,31 +1978,31 @@ lseg_lse_level1_gtp_v26_2.vwap.dissect = function(buffer, offset, packet, parent
   return offset + length, value
 end
 
--- Vwap Onbook Only
-lseg_lse_level1_gtp_v26_2.vwap_onbook_only = {}
+-- Vwap On Book Only
+lseg_lse_level1_gtp_v26_2.vwap_on_book_only = {}
 
--- Size: Vwap Onbook Only
-lseg_lse_level1_gtp_v26_2.vwap_onbook_only.size = 8
+-- Size: Vwap On Book Only
+lseg_lse_level1_gtp_v26_2.vwap_on_book_only.size = 8
 
--- Display: Vwap Onbook Only
-lseg_lse_level1_gtp_v26_2.vwap_onbook_only.display = function(value)
-  return "Vwap Onbook Only: "..value
+-- Display: Vwap On Book Only
+lseg_lse_level1_gtp_v26_2.vwap_on_book_only.display = function(value)
+  return "Vwap On Book Only: "..value
 end
 
--- Translate: Vwap Onbook Only
-lseg_lse_level1_gtp_v26_2.vwap_onbook_only.translate = function(raw)
+-- Translate: Vwap On Book Only
+lseg_lse_level1_gtp_v26_2.vwap_on_book_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Vwap Onbook Only
-lseg_lse_level1_gtp_v26_2.vwap_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_lse_level1_gtp_v26_2.vwap_onbook_only.size
+-- Dissect: Vwap On Book Only
+lseg_lse_level1_gtp_v26_2.vwap_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_level1_gtp_v26_2.vwap_on_book_only.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = lseg_lse_level1_gtp_v26_2.vwap_onbook_only.translate(raw)
-  local display = lseg_lse_level1_gtp_v26_2.vwap_onbook_only.display(value, buffer, offset, packet, parent)
+  local value = lseg_lse_level1_gtp_v26_2.vwap_on_book_only.translate(raw)
+  local display = lseg_lse_level1_gtp_v26_2.vwap_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.vwap_onbook_only, range, value, display)
+  parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.vwap_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -2097,13 +2097,13 @@ lseg_lse_level1_gtp_v26_2.statistics_message.size =
   lseg_lse_level1_gtp_v26_2.instrument.size + 
   lseg_lse_level1_gtp_v26_2.source_venue.size + 
   lseg_lse_level1_gtp_v26_2.volume.size + 
-  lseg_lse_level1_gtp_v26_2.volume_onbook_only.size + 
+  lseg_lse_level1_gtp_v26_2.volume_on_book_only.size + 
   lseg_lse_level1_gtp_v26_2.vwap.size + 
-  lseg_lse_level1_gtp_v26_2.vwap_onbook_only.size + 
+  lseg_lse_level1_gtp_v26_2.vwap_on_book_only.size + 
   lseg_lse_level1_gtp_v26_2.number_of_trades.size + 
-  lseg_lse_level1_gtp_v26_2.number_of_trades_onbook_only.size + 
+  lseg_lse_level1_gtp_v26_2.number_of_trades_on_book_only.size + 
   lseg_lse_level1_gtp_v26_2.turnover.size + 
-  lseg_lse_level1_gtp_v26_2.turnover_onbook_only.size
+  lseg_lse_level1_gtp_v26_2.turnover_on_book_only.size
 
 -- Display: Statistics Message
 lseg_lse_level1_gtp_v26_2.statistics_message.display = function(packet, parent, length)
@@ -2126,26 +2126,26 @@ lseg_lse_level1_gtp_v26_2.statistics_message.fields = function(buffer, offset, p
   -- Volume: Size4
   index, volume = lseg_lse_level1_gtp_v26_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Volume Onbook Only: Size4
-  index, volume_onbook_only = lseg_lse_level1_gtp_v26_2.volume_onbook_only.dissect(buffer, index, packet, parent)
+  -- Volume On Book Only: Size4
+  index, volume_on_book_only = lseg_lse_level1_gtp_v26_2.volume_on_book_only.dissect(buffer, index, packet, parent)
 
   -- Vwap: Price4
   index, vwap = lseg_lse_level1_gtp_v26_2.vwap.dissect(buffer, index, packet, parent)
 
-  -- Vwap Onbook Only: Price4
-  index, vwap_onbook_only = lseg_lse_level1_gtp_v26_2.vwap_onbook_only.dissect(buffer, index, packet, parent)
+  -- Vwap On Book Only: Price4
+  index, vwap_on_book_only = lseg_lse_level1_gtp_v26_2.vwap_on_book_only.dissect(buffer, index, packet, parent)
 
   -- Number Of Trades: UInt32
   index, number_of_trades = lseg_lse_level1_gtp_v26_2.number_of_trades.dissect(buffer, index, packet, parent)
 
-  -- Number Of Trades Onbook Only: UInt32
-  index, number_of_trades_onbook_only = lseg_lse_level1_gtp_v26_2.number_of_trades_onbook_only.dissect(buffer, index, packet, parent)
+  -- Number Of Trades On Book Only: UInt32
+  index, number_of_trades_on_book_only = lseg_lse_level1_gtp_v26_2.number_of_trades_on_book_only.dissect(buffer, index, packet, parent)
 
   -- Turnover: Price4
   index, turnover = lseg_lse_level1_gtp_v26_2.turnover.dissect(buffer, index, packet, parent)
 
-  -- Turnover Onbook Only: Price4
-  index, turnover_onbook_only = lseg_lse_level1_gtp_v26_2.turnover_onbook_only.dissect(buffer, index, packet, parent)
+  -- Turnover On Book Only: Price4
+  index, turnover_on_book_only = lseg_lse_level1_gtp_v26_2.turnover_on_book_only.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2574,9 +2574,9 @@ lseg_lse_level1_gtp_v26_2.allowed_book_types.display = function(range, value, pa
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Firm Quote Book"
   end
-  -- Is Offbook flag set?
+  -- Is Off Book flag set?
   if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Offbook"
+    flags[#flags + 1] = "Off Book"
   end
   -- Is Electronic Order Book flag set?
   if bit.band(value, 0x08) ~= 0 then
@@ -2599,8 +2599,8 @@ lseg_lse_level1_gtp_v26_2.allowed_book_types.bits = function(range, value, packe
   -- Firm Quote Book: 1 Bit
   parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.firm_quote_book, range, value)
 
-  -- Offbook: 1 Bit
-  parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.offbook, range, value)
+  -- Off Book: 1 Bit
+  parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.off_book, range, value)
 
   -- Electronic Order Book: 1 Bit
   parent:add(omi_lseg_lse_level1_gtp_v26_2.fields.electronic_order_book, range, value)

@@ -650,7 +650,7 @@ finra_trace_atds_dfi_v2_1.contra_party_type.size = 1
 finra_trace_atds_dfi_v2_1.contra_party_type.labels = {
   ["D"] = "Contra Party Type: Contra Party Is A Broker Dealer (D)",
   ["C"] = "Contra Party Type: Contra Party Is A Customer Non Finra Member (C)",
-  ["A"] = "Contra Party Type: Contra Party Is A Nonmember Affiliate (A)",
+  ["A"] = "Contra Party Type: Contra Party Is A Non Member Affiliate (A)",
   ["T"] = "Contra Party Type: Contra Party Is An Alternative Trading System Ats (T)",
 }
 

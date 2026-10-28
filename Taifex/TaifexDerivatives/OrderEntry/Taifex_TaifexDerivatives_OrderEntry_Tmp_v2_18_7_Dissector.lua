@@ -15,143 +15,143 @@ local taifex_taifexderivatives_orderentry_tmp_v2_18_7 = {}
 -----------------------------------------------------------------------
 
 -- Taifex TaifexDerivatives OrderEntry Tmp 2.18.7 Fields
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.apcode = ProtoField.new("Apcode", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.apcode", ftypes.UINT8, nil, nil, nil, "Application system code, naming the line the session joins.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.appendno = ProtoField.new("Appendno", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.appendno", ftypes.UINT16, nil, nil, nil, "Appended check value, a three-digit random number the futures commission merchant is asked to include in its logon message for the calculation of KEY-VALUE.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.applicationtype = ProtoField.new("Applicationtype", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.applicationtype", ftypes.STRING, nil, nil, nil, "Application type, naming who applies for the product definition.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.beforeqty = ProtoField.new("Beforeqty", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.beforeqty", ftypes.UINT16, nil, nil, nil, "Remaining order quantity before match.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.ap_code = ProtoField.new("Ap Code", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.apcode", ftypes.UINT8, nil, nil, nil, "Application system code, naming the line the session joins.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.append_no = ProtoField.new("Append No", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.appendno", ftypes.UINT16, nil, nil, nil, "Appended check value, a three-digit random number the futures commission merchant is asked to include in its logon message for the calculation of KEY-VALUE.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.application_type = ProtoField.new("Application Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.applicationtype", ftypes.STRING, nil, nil, nil, "Application type, naming who applies for the product definition.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.before_qty = ProtoField.new("Before Qty", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.beforeqty", ftypes.UINT16, nil, nil, nil, "Remaining order quantity before match.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bid_px = ProtoField.new("Bid Px", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bidpx", ftypes.INT32, nil, nil, nil, "Buy order price, an integer whose number of decimal digits is the Decimal_Locator of the product definition file.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bid_size = ProtoField.new("Bid Size", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bidsize", ftypes.UINT16, nil, nil, nil, "Buy quantity.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletinreqid = ProtoField.new("Bulletinreqid", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletinreqid", ftypes.UINT32, nil, nil, nil, "Bulletin request No, of which only the file request, value 0, is currently allowed.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletinseq = ProtoField.new("Bulletinseq", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletinseq", ftypes.UINT32, nil, nil, nil, "Bulletin No, which is 0 for a file ready notice and other than 0 for a bulletin message.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletintime_msgtime = ProtoField.new("Bulletintime Msgtime", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletintimemsgtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletintime_msgtime_utc = ProtoField.new("Bulletintime Msgtime", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletintimemsgtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletintime_msgtimex = ProtoField.new("Bulletintime Msgtimex", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletintimemsgtimex", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletintime_msgtimex_utc = ProtoField.new("Bulletintime Msgtimex", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletintimemsgtimex.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.callputcode = ProtoField.new("Callputcode", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.callputcode", ftypes.STRING, nil, nil, nil, "Call/put option code, left blank for futures.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.cancelordersec = ProtoField.new("Cancelordersec", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.cancelordersec", ftypes.UINT8, nil, nil, nil, "Reject order second on an order line, and the reply data per second in units of 100 on a TMPCM or TMPDC session.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_req_id = ProtoField.new("Bulletin Req Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletinreqid", ftypes.UINT32, nil, nil, nil, "Bulletin request No, of which only the file request, value 0, is currently allowed.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_seq = ProtoField.new("Bulletin Seq", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletinseq", ftypes.UINT32, nil, nil, nil, "Bulletin No, which is 0 for a file ready notice and other than 0 for a bulletin message.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time = ProtoField.new("Bulletin Time Msg Time", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletintimemsgtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time_utc = ProtoField.new("Bulletin Time Msg Time", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletintimemsgtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time_x = ProtoField.new("Bulletin Time Msg Time X", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletintimemsgtimex", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time_x_utc = ProtoField.new("Bulletin Time Msg Time X", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.bulletintimemsgtimex.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.call_put_code = ProtoField.new("Call Put Code", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.callputcode", ftypes.STRING, nil, nil, nil, "Call/put option code, left blank for futures.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.cancel_order_sec = ProtoField.new("Cancel Order Sec", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.cancelordersec", ftypes.UINT8, nil, nil, nil, "Reject order second on an order line, and the reply data per second in units of 100 on a TMPCM or TMPDC session.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.check_sum = ProtoField.new("Check Sum", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.checksum", ftypes.UINT8, nil, nil, nil, "Check sum, the remainder of the sum of the binary values of every byte from the front-end field up to the field right before the CheckSum field divided by 256")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.cmid = ProtoField.new("Cmid", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.cmid", ftypes.UINT16, nil, nil, nil, "Clearing member ID, read from the FCM ID Mapping File P06.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.combop = ProtoField.new("Combop", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.combop", ftypes.UINT8, nil, nil, nil, "ID of multi-leg order.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.contractdate = ProtoField.new("Contractdate", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.contractdate", ftypes.STRING, nil, nil, nil, "Contract date, in the form yyyymmdd.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.cm_id = ProtoField.new("Cm Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.cmid", ftypes.UINT16, nil, nil, nil, "Clearing member ID, read from the FCM ID Mapping File P06.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.comb_op = ProtoField.new("Comb Op", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.combop", ftypes.UINT8, nil, nil, nil, "ID of multi-leg order.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.contract_date = ProtoField.new("Contract Date", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.contractdate", ftypes.STRING, nil, nil, nil, "Contract date, in the form yyyymmdd.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.cum_qty = ProtoField.new("Cum Qty", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.cumqty", ftypes.UINT16, nil, nil, nil, "Total quantity executed.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_15 = ProtoField.new("Data Char Hdrmsglength 15", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength15", ftypes.STRING, nil, nil, nil, "Data, of variable length, defined per FUNCTION-TYPE and FUNCTION-CODE by the definition of the data field in R17.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_151 = ProtoField.new("Data Char Hdrmsglength 151", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength151", ftypes.STRING, nil, nil, nil, "Data, of variable length, defined per FUNCTION-TYPE and FUNCTION-CODE.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_1515 = ProtoField.new("Data Char Hdrmsglength 1515", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength1515", ftypes.STRING, nil, nil, nil, "Bulletin data, of variable length, defined per file by the definition of the data field in RX13.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_1516 = ProtoField.new("Data Char Hdrmsglength 1516", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength1516", ftypes.STRING, nil, nil, nil, "Bulletin information, of variable length, which carries the original R13 data content where the R13 message has errors.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_1525 = ProtoField.new("Data Char Hdrmsglength 1525", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength1525", ftypes.STRING, nil, nil, nil, "Bulletin information, of variable length, which carries the original RX13 data content where the RX13 message has errors.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_159 = ProtoField.new("Data Char Hdrmsglength 159", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength159", ftypes.STRING, nil, nil, nil, "Bulletin data, of variable length, defined per file by the definition of the data field in R13.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdrmsglength_1514 = ProtoField.new("Data Uint 8 Hdrmsglength 1514", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datauint8hdrmsglength1514", ftypes.BYTES, nil, nil, nil, "Data, containing all messages between request_start_seq plus one and end_out_bound_num.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdrmsglength_156 = ProtoField.new("Data Uint 8 Hdrmsglength 156", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datauint8hdrmsglength156", ftypes.BYTES, nil, nil, nil, "Data, containing all messages between request_start_seq+1 and end_out_bound_num.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_15 = ProtoField.new("Data Char Hdr Msg Length 15", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength15", ftypes.STRING, nil, nil, nil, "Data, of variable length, defined per FUNCTION-TYPE and FUNCTION-CODE by the definition of the data field in R17.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_151 = ProtoField.new("Data Char Hdr Msg Length 151", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength151", ftypes.STRING, nil, nil, nil, "Data, of variable length, defined per FUNCTION-TYPE and FUNCTION-CODE.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_1515 = ProtoField.new("Data Char Hdr Msg Length 1515", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength1515", ftypes.STRING, nil, nil, nil, "Bulletin data, of variable length, defined per file by the definition of the data field in RX13.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_1516 = ProtoField.new("Data Char Hdr Msg Length 1516", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength1516", ftypes.STRING, nil, nil, nil, "Bulletin information, of variable length, which carries the original R13 data content where the R13 message has errors.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_1525 = ProtoField.new("Data Char Hdr Msg Length 1525", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength1525", ftypes.STRING, nil, nil, nil, "Bulletin information, of variable length, which carries the original RX13 data content where the RX13 message has errors.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_159 = ProtoField.new("Data Char Hdr Msg Length 159", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datacharhdrmsglength159", ftypes.STRING, nil, nil, nil, "Bulletin data, of variable length, defined per file by the definition of the data field in R13.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdr_msg_length_1514 = ProtoField.new("Data Uint 8 Hdr Msg Length 1514", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datauint8hdrmsglength1514", ftypes.BYTES, nil, nil, nil, "Data, containing all messages between request_start_seq plus one and end_out_bound_num.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdr_msg_length_156 = ProtoField.new("Data Uint 8 Hdr Msg Length 156", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.datauint8hdrmsglength156", ftypes.BYTES, nil, nil, nil, "Data, containing all messages between request_start_seq+1 and end_out_bound_num.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.encrypt_method = ProtoField.new("Encrypt Method", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.encryptmethod", ftypes.UINT8, nil, nil, nil, "Encryption method, 0 if unencrypted.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.endoutboundnum = ProtoField.new("Endoutboundnum", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.endoutboundnum", ftypes.UINT32, nil, nil, nil, "The last end message No, the number of the last valid response message Taifex sent the futures commission merchant.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epochs_int_324 = ProtoField.new("Epochs Int 324", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.epochsint324", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epochs_int_324_utc = ProtoField.new("Epochs Int 324", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.epochsint324.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epochs_uint_324 = ProtoField.new("Epochs Uint 324", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.epochsuint324", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epochs_uint_324_utc = ProtoField.new("Epochs Uint 324", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.epochsuint324.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.end_out_bound_num = ProtoField.new("End Out Bound Num", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.endoutboundnum", ftypes.UINT32, nil, nil, nil, "The last end message No, the number of the last valid response message Taifex sent the futures commission merchant.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_int_324 = ProtoField.new("Epoch S Int 324", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.epochsint324", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_int_324_utc = ProtoField.new("Epoch S Int 324", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.epochsint324.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_uint_324 = ProtoField.new("Epoch S Uint 324", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.epochsuint324", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_uint_324_utc = ProtoField.new("Epoch S Uint 324", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.epochsuint324.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.exec_type = ProtoField.new("Exec Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.exectype", ftypes.STRING, nil, nil, nil, "Execution type.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.expirytype = ProtoField.new("Expirytype", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.expirytype", ftypes.STRING, nil, nil, nil, "Expiry type.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.fcmid = ProtoField.new("Fcmid", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.fcmid", ftypes.UINT16, nil, nil, nil, "FCM ID, read from the FCM ID Mapping File P06.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.fcmreqid = ProtoField.new("Fcmreqid", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.fcmreqid", ftypes.UINT32, nil, nil, nil, "FCM request No, defined by the futures commission merchant and not to be 0.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.filesize = ProtoField.new("Filesize", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.filesize", ftypes.UINT32, nil, nil, nil, "Total length of file sent.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.flowgroupno = ProtoField.new("Flowgroupno", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.flowgroupno", ftypes.UINT8, nil, nil, nil, "Flow group No, which the futures commission merchant obtains from the Product and Flow Group Definition File P08/PA8.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.expiry_type = ProtoField.new("Expiry Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.expirytype", ftypes.STRING, nil, nil, nil, "Expiry type.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.fcm_id = ProtoField.new("Fcm Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.fcmid", ftypes.UINT16, nil, nil, nil, "FCM ID, read from the FCM ID Mapping File P06.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.fcm_req_id = ProtoField.new("Fcm Req Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.fcmreqid", ftypes.UINT32, nil, nil, nil, "FCM request No, defined by the futures commission merchant and not to be 0.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.file_size = ProtoField.new("File Size", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.filesize", ftypes.UINT32, nil, nil, nil, "Total length of file sent.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.flow_group_no = ProtoField.new("Flow Group No", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.flowgroupno", ftypes.UINT8, nil, nil, nil, "Flow group No, which the futures commission merchant obtains from the Product and Flow Group Definition File P08/PA8.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.header_epoch_s = ProtoField.new("Header Epoch S", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.headerepochs", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.header_epoch_s_utc = ProtoField.new("Header Epoch S", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.headerepochs.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.header_ms = ProtoField.new("Header Ms", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.headerms", ftypes.UINT16, nil, nil, nil, "One thousandth of a second, the millisecond fraction of the second carried beside it")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.header_time = ProtoField.new("Header Time", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.headertime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message time, the Tmp time format of section 2.1 carried by the common message header")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.header_time_utc = ProtoField.new("Header Time", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.headertime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Message time, the Tmp time format of section 2.1 carried by the common message header")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.heartbtint", ftypes.UINT8, nil, nil, nil, "Seconds in synchronization, whose default is 30.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.infosource = ProtoField.new("Infosource", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.infosource", ftypes.STRING, nil, nil, nil, "Market data source, a Vendor Code for a vendor and 999 for the futures commission merchant.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.investoracno = ProtoField.new("Investoracno", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.investoracno", ftypes.UINT32, nil, nil, nil, "Investor account No.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.investorflag = ProtoField.new("Investorflag", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.investorflag", ftypes.STRING, nil, nil, nil, "Investor ID code.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.iseof = ProtoField.new("Iseof", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.iseof", ftypes.UINT8, nil, nil, nil, "End-of-file symbol.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.keyvalue = ProtoField.new("Keyvalue", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.keyvalue", ftypes.UINT8, nil, nil, nil, "Key value, the two-digit number at the thousandth and hundredth place of append_no multiplied by the password the futures commission merchant set on line application.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.info_source = ProtoField.new("Info Source", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.infosource", ftypes.STRING, nil, nil, nil, "Market data source, a Vendor Code for a vendor and 999 for the futures commission merchant.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.investor_acno = ProtoField.new("Investor Acno", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.investoracno", ftypes.UINT32, nil, nil, nil, "Investor account No.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.investor_flag = ProtoField.new("Investor Flag", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.investorflag", ftypes.STRING, nil, nil, nil, "Investor ID code.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.is_eof = ProtoField.new("Is Eof", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.iseof", ftypes.UINT8, nil, nil, nil, "End-of-file symbol.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.key_value = ProtoField.new("Key Value", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.keyvalue", ftypes.UINT8, nil, nil, nil, "Key value, the two-digit number at the thousandth and hundredth place of append_no multiplied by the password the futures commission merchant set on line application.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.last_px = ProtoField.new("Last Px", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.lastpx", ftypes.INT32, nil, nil, nil, "Last execution price, which is the last execution price for an execution report and 0 for a cancel, decrease or modify price order.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.last_qty = ProtoField.new("Last Qty", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.lastqty", ftypes.UINT16, nil, nil, nil, "Last quantity executed, which is the last execution quantity for an execution report and 0 for a cancel, decrease or modify price order.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leaves_qty = ProtoField.new("Leaves Qty", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.leavesqty", ftypes.UINT16, nil, nil, nil, "Remaining quantity.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legentrynum = ProtoField.new("Legentrynum", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legentrynum", ftypes.STRING, nil, nil, nil, "One leg of a multi leg FLEX order whose product is named by a numeric product serial number")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legentrytxt = ProtoField.new("Legentrytxt", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legentrytxt", ftypes.STRING, nil, nil, nil, "One leg of a multi leg FLEX order whose product is named by a textual product symbol")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legpx = ProtoField.new("Legpx", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legpx", ftypes.INT32, nil, nil, nil, "Execution price for both legs.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legqty_uint_162 = ProtoField.new("Legqty Uint 162", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legqtyuint162", ftypes.UINT16, nil, nil, nil, "Quantity for one leg.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legqty_uint_1624 = ProtoField.new("Legqty Uint 1624", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legqtyuint1624", ftypes.UINT16, nil, nil, nil, "Quantity executed for both legs.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legside_uint_81 = ProtoField.new("Legside Uint 81", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legsideuint81", ftypes.UINT8, nil, nil, nil, "Buy/sell code for one leg.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legside_uint_822 = ProtoField.new("Legside Uint 822", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legsideuint822", ftypes.UINT8, nil, nil, nil, "Buy/sell code for both legs, where 0 in the first element means a single order.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legsym_symbolnumx = ProtoField.new("Legsym Symbolnumx", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legsymsymbolnumx", ftypes.STRING, nil, nil, nil, "FLEX Numeric Single Product Serial number, naming a FLEX product by the serial number of the XP08 product and time flow group definition file")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legsym_symboltxtx = ProtoField.new("Legsym Symboltxtx", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legsymsymboltxtx", ftypes.STRING, nil, nil, nil, "FLEX Textual Single Product Symbol, naming a FLEX product by the product symbol of the XP08 product and time flow group definition file")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.longsymbolnum = ProtoField.new("Longsymbolnum", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.longsymbolnum", ftypes.STRING, nil, nil, nil, "Numeric product ID in the long product format, naming a product by the number Taifex assigns it in each session")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.longsymboltext = ProtoField.new("Longsymboltext", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.longsymboltext", ftypes.STRING, nil, nil, nil, "Text product ID in the long product format, naming a product by its Ascii character string symbol")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.maxflowctrlcnt = ProtoField.new("Maxflowctrlcnt", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.maxflowctrlcnt", ftypes.UINT16, nil, nil, nil, "Maximum flow per second, informing the futures commission merchant of the limit of input per second in this session.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_entry_num = ProtoField.new("Leg Entry Num", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legentrynum", ftypes.STRING, nil, nil, nil, "One leg of a multi leg FLEX order whose product is named by a numeric product serial number")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_entry_txt = ProtoField.new("Leg Entry Txt", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legentrytxt", ftypes.STRING, nil, nil, nil, "One leg of a multi leg FLEX order whose product is named by a textual product symbol")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_px = ProtoField.new("Leg Px", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legpx", ftypes.INT32, nil, nil, nil, "Execution price for both legs.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_qty_uint_162 = ProtoField.new("Leg Qty Uint 162", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legqtyuint162", ftypes.UINT16, nil, nil, nil, "Quantity for one leg.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_qty_uint_1624 = ProtoField.new("Leg Qty Uint 1624", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legqtyuint1624", ftypes.UINT16, nil, nil, nil, "Quantity executed for both legs.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_side_uint_81 = ProtoField.new("Leg Side Uint 81", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legsideuint81", ftypes.UINT8, nil, nil, nil, "Buy/sell code for one leg.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_side_uint_822 = ProtoField.new("Leg Side Uint 822", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legsideuint822", ftypes.UINT8, nil, nil, nil, "Buy/sell code for both legs, where 0 in the first element means a single order.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_sym_symbol_num_x = ProtoField.new("Leg Sym Symbol Num X", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legsymsymbolnumx", ftypes.STRING, nil, nil, nil, "FLEX Numeric Single Product Serial number, naming a FLEX product by the serial number of the XP08 product and time flow group definition file")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_sym_symbol_txt_x = ProtoField.new("Leg Sym Symbol Txt X", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legsymsymboltxtx", ftypes.STRING, nil, nil, nil, "FLEX Textual Single Product Symbol, naming a FLEX product by the product symbol of the XP08 product and time flow group definition file")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.long_symbol_num = ProtoField.new("Long Symbol Num", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.longsymbolnum", ftypes.STRING, nil, nil, nil, "Numeric product ID in the long product format, naming a product by the number Taifex assigns it in each session")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.long_symbol_text = ProtoField.new("Long Symbol Text", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.longsymboltext", ftypes.STRING, nil, nil, nil, "Text product ID in the long product format, naming a product by its Ascii character string symbol")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.max_flow_ctrl_cnt = ProtoField.new("Max Flow Ctrl Cnt", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.maxflowctrlcnt", ftypes.UINT16, nil, nil, nil, "Maximum flow per second, informing the futures commission merchant of the limit of input per second in this session.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.message_tail = ProtoField.new("Message Tail", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.messagetail", ftypes.STRING, nil, nil, nil, "Tmp Message Tail, carrying the check sum of a message")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.message_type = ProtoField.new("Message Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.messagetype", ftypes.UINT8, nil, nil, nil, "Message code, which section 2.1 names by a letter and a number, L for a Link Subsystem message and R for a Trading Subsystem message")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.ms = ProtoField.new("Ms", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.ms", ftypes.UINT16, nil, nil, nil, "One thousandth of a second.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.msg_length = ProtoField.new("Msg Length", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.msglength", ftypes.UINT16, nil, nil, nil, "Message length, the total number of bytes behind the msg_length field up to before the CheckSum field")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.msgseqnum", ftypes.UINT32, nil, nil, nil, "Message sequence number, assigned to each new order, cancel or change order message as a unique identification code and entered as zero on the messages that carry none")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.msg_time_ns = ProtoField.new("Msg Time Ns", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.msgtimens", ftypes.UINT32, nil, nil, nil, "Nanosecond-level timing details for the msg_time field in the hdr, of which currently only data at the microsecond level is available.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.msg_type_ext = ProtoField.new("Msg Type Ext", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.msgtypeext", ftypes.UINT8, nil, nil, nil, "Expanded MessageType, by which additional subcategories of a MessageType assign different functionalities based on each specific definition.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.msgtimens = ProtoField.new("Msgtimens", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.msgtimens", ftypes.UINT32, nil, nil, nil, "Nanosecond-level timing details for the msg_time field in the hdr, of which currently only data at the microsecond level is available.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.multilegnum = ProtoField.new("Multilegnum", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.multilegnum", ftypes.STRING, nil, nil, nil, "Multi leg FLEX product named by numeric product serial numbers, which section 2.17.1 lays out as a number of legs, the multi leg order code and one block per leg")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.multilegtxt = ProtoField.new("Multilegtxt", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.multilegtxt", ftypes.STRING, nil, nil, nil, "Multi leg FLEX product named by textual product symbols, which section 2.17.1 lays out as a number of legs, the multi leg order code and one block per leg")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.multi_leg_num = ProtoField.new("Multi Leg Num", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.multilegnum", ftypes.STRING, nil, nil, nil, "Multi leg FLEX product named by numeric product serial numbers, which section 2.17.1 lays out as a number of legs, the multi leg order code and one block per leg")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.multi_leg_txt = ProtoField.new("Multi Leg Txt", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.multilegtxt", ftypes.STRING, nil, nil, nil, "Multi leg FLEX product named by textual product symbols, which section 2.17.1 lays out as a number of legs, the multi leg order code and one block per leg")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.nanosecond = ProtoField.new("Nanosecond", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.nanosecond", ftypes.UINT32, nil, nil, nil, "One billionth of a second.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.no_leg = ProtoField.new("No Leg", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.noleg", ftypes.UINT8, nil, nil, nil, "Number of legs, which is 1 for a single-leg product and by which the content of the NoLeg related block is modified.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.offer_px = ProtoField.new("Offer Px", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.offerpx", ftypes.INT32, nil, nil, nil, "Sell order price, an integer whose number of decimal digits is the Decimal_Locator of the product definition file.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.offer_size = ProtoField.new("Offer Size", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.offersize", ftypes.UINT16, nil, nil, nil, "Sell quantity.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.ord_id = ProtoField.new("Ord Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.ordid", ftypes.UINT32, nil, nil, nil, "Order serial No, a number of at most seven digits.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.ord_type = ProtoField.new("Ord Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.ordtype", ftypes.UINT8, nil, nil, nil, "Order type.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.orderno = ProtoField.new("Orderno", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.orderno", ftypes.STRING, nil, nil, nil, "Order No, whose five characters may all be alphanumeric.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.ordersource = ProtoField.new("Ordersource", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.ordersource", ftypes.STRING, nil, nil, nil, "Order Source, naming the channel the order came through.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.ordid = ProtoField.new("Ordid", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.ordid", ftypes.UINT32, nil, nil, nil, "Order serial No, a number of at most seven digits.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.orgtranstime_msgtime = ProtoField.new("Orgtranstime Msgtime", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.orgtranstimemsgtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.orgtranstime_msgtime_utc = ProtoField.new("Orgtranstime Msgtime", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.orgtranstimemsgtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.orgtranstime_msgtimex = ProtoField.new("Orgtranstime Msgtimex", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.orgtranstimemsgtimex", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.orgtranstime_msgtimex_utc = ProtoField.new("Orgtranstime Msgtimex", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.orgtranstimemsgtimex.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.order_no = ProtoField.new("Order No", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.orderno", ftypes.STRING, nil, nil, nil, "Order No, whose five characters may all be alphanumeric.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.order_source = ProtoField.new("Order Source", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.ordersource", ftypes.STRING, nil, nil, nil, "Order Source, naming the channel the order came through.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time = ProtoField.new("Org Trans Time Msg Time", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.orgtranstimemsgtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time_utc = ProtoField.new("Org Trans Time Msg Time", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.orgtranstimemsgtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time_x = ProtoField.new("Org Trans Time Msg Time X", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.orgtranstimemsgtimex", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time_x_utc = ProtoField.new("Org Trans Time Msg Time X", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.orgtranstimemsgtimex.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.ori_message_type = ProtoField.new("Ori Message Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.orimessagetype", ftypes.UINT8, nil, nil, nil, "Original message code, the code of the message this error reports on.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.partid = ProtoField.new("Partid", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.partid", ftypes.UINT8, nil, nil, nil, "Partition ID, referring to Section 3.6.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.part_id = ProtoField.new("Part Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.partid", ftypes.UINT8, nil, nil, nil, "Partition ID, referring to Section 3.6.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.position_effect = ProtoField.new("Position Effect", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.positioneffect", ftypes.STRING, nil, nil, nil, "Open/offset code.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.preserve = ProtoField.new("Preserve", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.preserve", ftypes.UINT8, nil, nil, nil, "Preserve, whose default is 0.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.price = ProtoField.new("Price", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.price", ftypes.INT32, nil, nil, nil, "Order price, an integer whose number of decimal digits is the Decimal_Locator of the product definition file.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.prodid = ProtoField.new("Prodid", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.prodid", ftypes.STRING, nil, nil, nil, "Textual Product Symbol, referring to the product symbol in XP08.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.protocoltype = ProtoField.new("Protocoltype", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.protocoltype", ftypes.UINT8, nil, nil, nil, "Source of new order data, distinguishing the protocol the order was placed over.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.prod_id = ProtoField.new("Prod Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.prodid", ftypes.STRING, nil, nil, nil, "Textual Product Symbol, referring to the product symbol in XP08.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.protocol_type = ProtoField.new("Protocol Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.protocoltype", ftypes.UINT8, nil, nil, nil, "Source of new order data, distinguishing the protocol the order was placed over.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.pseq = ProtoField.new("Pseq", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.pseq", ftypes.UINT32, nil, nil, nil, "Numeric product serial number, referring to the product serial number in XP08.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.pseq_1 = ProtoField.new("Pseq 1", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.pseq1", ftypes.UINT16, nil, nil, nil, "First leg product ID, whose minimum value is 1.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.pseq_2 = ProtoField.new("Pseq 2", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.pseq2", ftypes.UINT16, nil, nil, nil, "Second leg product ID, where 0 means a single order.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.pxsubtotal = ProtoField.new("Pxsubtotal", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.pxsubtotal", ftypes.INT64, nil, nil, nil, "Cumulative weighted execution price, which divided by CumQty is the average price per contract.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.px_subtotal = ProtoField.new("Px Subtotal", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.pxsubtotal", ftypes.INT64, nil, nil, nil, "Cumulative weighted execution price, which divided by CumQty is the average price per contract.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.qty = ProtoField.new("Qty", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.qty", ftypes.UINT16, nil, nil, nil, "Order quantity.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.requeststartseq = ProtoField.new("Requeststartseq", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.requeststartseq", ftypes.UINT32, nil, nil, nil, "The start message No this time, entered as 0 for the Clearing member order and execution report Line and the TMPDC Session.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.request_start_seq = ProtoField.new("Request Start Seq", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.requeststartseq", ftypes.UINT32, nil, nil, nil, "The start message No this time, entered as 0 for the Clearing member order and execution report Line and the TMPDC Session.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_12 = ProtoField.new("Reserved 12", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.reserved12", ftypes.BYTES, nil, nil, nil, "Reserved.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_13 = ProtoField.new("Reserved 13", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.reserved13", ftypes.BYTES, nil, nil, nil, "Make up field length.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_20 = ProtoField.new("Reserved 20", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.reserved20", ftypes.BYTES, nil, nil, nil, "Space.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_33 = ProtoField.new("Reserved 33", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.reserved33", ftypes.BYTES, nil, nil, nil, "Make up field length.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_8 = ProtoField.new("Reserved 8", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rootsymbol = ProtoField.new("Rootsymbol", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.rootsymbol", ftypes.STRING, nil, nil, nil, "Product ID, referring to XP09.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rptseq = ProtoField.new("Rptseq", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.rptseq", ftypes.UINT32, nil, nil, nil, "Report sequence No.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rptsessionid = ProtoField.new("Rptsessionid", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.rptsessionid", ftypes.UINT16, nil, nil, nil, "Session ID of the session the report relates to.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rptsessionseq = ProtoField.new("Rptsessionseq", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.rptsessionseq", ftypes.UINT32, nil, nil, nil, "Session serial No, the current session_seq where target_id is 4 and the session_seq of the original reporting session where it is 8 or 9.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.root_symbol = ProtoField.new("Root Symbol", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.rootsymbol", ftypes.STRING, nil, nil, nil, "Product ID, referring to XP09.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rpt_seq = ProtoField.new("Rpt Seq", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.rptseq", ftypes.UINT32, nil, nil, nil, "Report sequence No.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rpt_session_id = ProtoField.new("Rpt Session Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.rptsessionid", ftypes.UINT16, nil, nil, nil, "Session ID of the session the report relates to.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rpt_session_seq = ProtoField.new("Rpt Session Seq", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.rptsessionseq", ftypes.UINT32, nil, nil, nil, "Session serial No, the current session_seq where target_id is 4 and the session_seq of the original reporting session where it is 8 or 9.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.security_req_id = ProtoField.new("Security Req Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.securityreqid", ftypes.UINT32, nil, nil, nil, "Unique ID of a Security Definition Request.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.security_request_type = ProtoField.new("Security Request Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.securityrequesttype", ftypes.STRING, nil, nil, nil, "Type of Security Definition Request.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.sessionid = ProtoField.new("Sessionid", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.sessionid", ftypes.UINT16, nil, nil, nil, "Tcp connection session number, connection to the trading system being allowed only if fcm_id and session_id are provided together.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.session_id = ProtoField.new("Session Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.sessionid", ftypes.UINT16, nil, nil, nil, "Tcp connection session number, connection to the trading system being allowed only if fcm_id and session_id are provided together.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.side = ProtoField.new("Side", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.side", ftypes.UINT8, nil, nil, nil, "Buy/sell code.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.startinboundnum = ProtoField.new("Startinboundnum", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.startinboundnum", ftypes.UINT32, nil, nil, nil, "Order message start No, assigned zero.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.statuscode_uint_162 = ProtoField.new("Statuscode Uint 162", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.statuscodeuint162", ftypes.UINT16, nil, nil, nil, "Status code, referring to the Error Message Table.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.statuscode_uint_81 = ProtoField.new("Statuscode Uint 81", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.statuscodeuint81", ftypes.UINT8, nil, nil, nil, "Status code, referring to the Error Message Tables.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.strikeprice = ProtoField.new("Strikeprice", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.strikeprice", ftypes.UINT32, nil, nil, nil, "Strike price, which for options refers to the decimal places of the same root symbol in XP09 and for futures is filled with 0.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.subhdr = ProtoField.new("Subhdr", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.subhdr", ftypes.STRING, nil, nil, nil, "Tmp Expanded Message Header, which assigns different functionalities to a MessageType by defining additional subcategories for it")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.start_in_bound_num = ProtoField.new("Start In Bound Num", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.startinboundnum", ftypes.UINT32, nil, nil, nil, "Order message start No, assigned zero.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.status_code_uint_162 = ProtoField.new("Status Code Uint 162", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.statuscodeuint162", ftypes.UINT16, nil, nil, nil, "Status code, referring to the Error Message Table.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.status_code_uint_81 = ProtoField.new("Status Code Uint 81", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.statuscodeuint81", ftypes.UINT8, nil, nil, nil, "Status code, referring to the Error Message Tables.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.strike_price = ProtoField.new("Strike Price", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.strikeprice", ftypes.UINT32, nil, nil, nil, "Strike price, which for options refers to the decimal places of the same root symbol in XP09 and for futures is filled with 0.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.sub_hdr = ProtoField.new("Sub Hdr", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.subhdr", ftypes.STRING, nil, nil, nil, "Tmp Expanded Message Header, which assigns different functionalities to a MessageType by defining additional subcategories for it")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.subscription_request_type = ProtoField.new("Subscription Request Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.subscriptionrequesttype", ftypes.UINT8, nil, nil, nil, "Status subscription type.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_char_2020 = ProtoField.new("Symbol Char 2020", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symbolchar2020", ftypes.STRING, nil, nil, nil, "Text product ID.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_char_4040 = ProtoField.new("Symbol Char 4040", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symbolchar4040", ftypes.STRING, nil, nil, nil, "Text product ID.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbolnum = ProtoField.new("Symbolnum", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symbolnum", ftypes.STRING, nil, nil, nil, "Numeric product ID, naming a product by the number Taifex assigns it in each session")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbolnumx = ProtoField.new("Symbolnumx", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symbolnumx", ftypes.STRING, nil, nil, nil, "FLEX Numeric Single Product Serial number, naming a FLEX product by the serial number of the XP08 product and time flow group definition file")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symboltext = ProtoField.new("Symboltext", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symboltext", ftypes.STRING, nil, nil, nil, "Text product ID, naming a product by its Ascii character string symbol")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symboltxtx = ProtoField.new("Symboltxtx", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symboltxtx", ftypes.STRING, nil, nil, nil, "FLEX Textual Single Product Symbol, naming a FLEX product by the product symbol of the XP08 product and time flow group definition file")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symboltype = ProtoField.new("Symboltype", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symboltype", ftypes.UINT8, nil, nil, nil, "Product ID format, 1 for a numeric and 2 for a text product ID.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.systemtype = ProtoField.new("Systemtype", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.systemtype", ftypes.UINT8, nil, nil, nil, "System type, naming the market and the trading session.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.targetid = ProtoField.new("Targetid", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.targetid", ftypes.UINT8, nil, nil, nil, "Target ID, naming the report this message carries and the line it is sent on.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_num = ProtoField.new("Symbol Num", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symbolnum", ftypes.STRING, nil, nil, nil, "Numeric product ID, naming a product by the number Taifex assigns it in each session")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_num_x = ProtoField.new("Symbol Num X", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symbolnumx", ftypes.STRING, nil, nil, nil, "FLEX Numeric Single Product Serial number, naming a FLEX product by the serial number of the XP08 product and time flow group definition file")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_text = ProtoField.new("Symbol Text", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symboltext", ftypes.STRING, nil, nil, nil, "Text product ID, naming a product by its Ascii character string symbol")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_txt_x = ProtoField.new("Symbol Txt X", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symboltxtx", ftypes.STRING, nil, nil, nil, "FLEX Textual Single Product Symbol, naming a FLEX product by the product symbol of the XP08 product and time flow group definition file")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_type = ProtoField.new("Symbol Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.symboltype", ftypes.UINT8, nil, nil, nil, "Product ID format, 1 for a numeric and 2 for a text product ID.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.system_type = ProtoField.new("System Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.systemtype", ftypes.UINT8, nil, nil, nil, "System type, naming the market and the trading session.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.target_id = ProtoField.new("Target Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.targetid", ftypes.UINT8, nil, nil, nil, "Target ID, naming the report this message carries and the line it is sent on.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.time_in_force = ProtoField.new("Time In Force", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.timeinforce", ftypes.UINT8, nil, nil, nil, "Order condition.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.trade_req_id = ProtoField.new("Trade Req Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.tradereqid", ftypes.UINT16, nil, nil, nil, "Status request No, corresponding to the TradeReqID of R12.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.trade_status = ProtoField.new("Trade Status", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.tradestatus", ftypes.UINT8, nil, nil, nil, "Trade status, referring to Trade Session Status.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msgtime = ProtoField.new("Transact Time Msgtime", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.transacttimemsgtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msgtime_utc = ProtoField.new("Transact Time Msgtime", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.transacttimemsgtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msgtimex = ProtoField.new("Transact Time Msgtimex", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.transacttimemsgtimex", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msgtimex_utc = ProtoField.new("Transact Time Msgtimex", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.transacttimemsgtimex.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time = ProtoField.new("Transact Time Msg Time", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.transacttimemsgtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time_utc = ProtoField.new("Transact Time Msg Time", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.transacttimemsgtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time_x = ProtoField.new("Transact Time Msg Time X", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.transacttimemsgtimex", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time_x_utc = ProtoField.new("Transact Time Msg Time X", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.transacttimemsgtimex.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.type = ProtoField.new("Type", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.type", ftypes.STRING, nil, nil, nil, "Type of the product the definition is requested for.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.uniqid = ProtoField.new("Uniqid", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.uniqid", ftypes.UINT32, nil, nil, nil, "Unique ID, a system unique No assigned to the order reply of each order.")
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.userdefine = ProtoField.new("Userdefine", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.userdefine", ftypes.STRING, nil, nil, nil, "FCM defined variable, which the trading system updates in the order status when it adds, cancels or changes an order.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.uniq_id = ProtoField.new("Uniq Id", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.uniqid", ftypes.UINT32, nil, nil, nil, "Unique ID, a system unique No assigned to the order reply of each order.")
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.user_define = ProtoField.new("User Define", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.userdefine", ftypes.STRING, nil, nil, nil, "FCM defined variable, which the trading system updates in the order status when it adds, cancels or changes an order.")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.version = ProtoField.new("Version", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.version", ftypes.UINT8, nil, nil, nil, "Version, indicating the message version, with 1 denoting the use of the new FLEX message.")
 
 -- Taifex TaifexDerivatives OrderEntry Tmp 2.18.7 Framing
@@ -206,11 +206,11 @@ omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.wake_up_call_confirme
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.wake_up_call_message = ProtoField.new("Wake Up Call Message", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.wakeupcallmessage", ftypes.STRING, nil, nil, nil, "Wake up call message, which either Taifex or the futures commission merchant may initiate in the logon phase of the Link Subsystem.")
 
 -- Taifex TaifexDerivatives OrderEntry Tmp 2.18.7 Generated Fields
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legentrynum_index = ProtoField.new("Legentrynum Index", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legentrynumindex", ftypes.UINT16)
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legentrytxt_index = ProtoField.new("Legentrytxt Index", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legentrytxtindex", ftypes.UINT16)
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legpx_index = ProtoField.new("Legpx Index", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legpxindex", ftypes.UINT16)
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legqty_uint_1624_index = ProtoField.new("Legqty Uint 1624 Index", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legqtyuint1624index", ftypes.UINT16)
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legside_uint_822_index = ProtoField.new("Legside Uint 822 Index", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legsideuint822index", ftypes.UINT16)
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_entry_num_index = ProtoField.new("Leg Entry Num Index", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legentrynumindex", ftypes.UINT16)
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_entry_txt_index = ProtoField.new("Leg Entry Txt Index", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legentrytxtindex", ftypes.UINT16)
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_px_index = ProtoField.new("Leg Px Index", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legpxindex", ftypes.UINT16)
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_qty_uint_1624_index = ProtoField.new("Leg Qty Uint 1624 Index", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legqtyuint1624index", ftypes.UINT16)
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_side_uint_822_index = ProtoField.new("Leg Side Uint 822 Index", "taifex.taifexderivatives.orderentry.tmp.v2.18.7.legsideuint822index", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Taifex TaifexDerivatives OrderEntry Tmp 2.18.7 Formatting
@@ -277,107 +277,107 @@ end
 -- Taifex TaifexDerivatives OrderEntry Tmp 2.18.7 Fields
 -----------------------------------------------------------------------
 
--- Apcode
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.apcode = {}
+-- Ap Code
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.ap_code = {}
 
--- Size: Apcode
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.apcode.size = 1
+-- Size: Ap Code
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.ap_code.size = 1
 
--- Display: Apcode
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.apcode.labels = {
-  [4] = "Apcode: Fcm Order Transaction (4)",
-  [6] = "Apcode: Fcm Condensed Version Order Transaction (6)",
-  [7] = "Apcode: Tmpdc Session (7)",
-  [8] = "Apcode: Clearing Member Order Transaction Report (8)",
+-- Display: Ap Code
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.ap_code.labels = {
+  [4] = "Ap Code: Fcm Order Transaction (4)",
+  [6] = "Ap Code: Fcm Condensed Version Order Transaction (6)",
+  [7] = "Ap Code: Tmpdc Session (7)",
+  [8] = "Ap Code: Clearing Member Order Transaction Report (8)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.apcode.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.apcode.labels[value] or "Apcode: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.ap_code.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.ap_code.labels[value] or "Ap Code: Unknown("..value..")"
 end
 
--- Dissect: Apcode
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.apcode.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.apcode.size
+-- Dissect: Ap Code
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.ap_code.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ap_code.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.apcode.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ap_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.apcode, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.ap_code, range, value, display)
 
   return offset + length, value
 end
 
--- Appendno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.appendno = {}
+-- Append No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.append_no = {}
 
--- Size: Appendno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.appendno.size = 2
+-- Size: Append No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.append_no.size = 2
 
--- Display: Appendno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.appendno.display = function(value)
-  return "Appendno: "..value
+-- Display: Append No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.append_no.display = function(value)
+  return "Append No: "..value
 end
 
--- Dissect: Appendno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.appendno.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.appendno.size
+-- Dissect: Append No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.append_no.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.append_no.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.appendno.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.append_no.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.appendno, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.append_no, range, value, display)
 
   return offset + length, value
 end
 
--- Applicationtype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.applicationtype = {}
+-- Application Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.application_type = {}
 
--- Size: Applicationtype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.applicationtype.size = 1
+-- Size: Application Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.application_type.size = 1
 
--- Display: Applicationtype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.applicationtype.labels = {
-  ["1"] = "Applicationtype: Traders Delegated Application (1)",
-  ["2"] = "Applicationtype: Proprietary Traders Self Application (2)",
-  ["3"] = "Applicationtype: Fcms Self Application (3)",
+-- Display: Application Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.application_type.labels = {
+  ["1"] = "Application Type: Traders Delegated Application (1)",
+  ["2"] = "Application Type: Proprietary Traders Self Application (2)",
+  ["3"] = "Application Type: Fcms Self Application (3)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.applicationtype.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.applicationtype.labels[value] or "Applicationtype: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.application_type.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.application_type.labels[value] or "Application Type: Unknown("..value..")"
 end
 
--- Dissect: Applicationtype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.applicationtype.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.applicationtype.size
+-- Dissect: Application Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.application_type.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.application_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.applicationtype.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.application_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.applicationtype, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.application_type, range, value, display)
 
   return offset + length, value
 end
 
--- Beforeqty
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty = {}
+-- Before Qty
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty = {}
 
--- Size: Beforeqty
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.size = 2
+-- Size: Before Qty
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.size = 2
 
--- Display: Beforeqty
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.display = function(value)
-  return "Beforeqty: "..value
+-- Display: Before Qty
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.display = function(value)
+  return "Before Qty: "..value
 end
 
--- Dissect: Beforeqty
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.size
+-- Dissect: Before Qty
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.beforeqty, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.before_qty, range, value, display)
 
   return offset + length, value
 end
@@ -428,103 +428,103 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bid_size.dissect = function(buff
   return offset + length, value
 end
 
--- Bulletinreqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid = {}
+-- Bulletin Req Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id = {}
 
--- Size: Bulletinreqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid.size = 4
+-- Size: Bulletin Req Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id.size = 4
 
--- Display: Bulletinreqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid.labels = {
-  [0] = "Bulletinreqid: File Request (0)",
+-- Display: Bulletin Req Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id.labels = {
+  [0] = "Bulletin Req Id: File Request (0)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid.labels[value] or "Bulletinreqid: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id.labels[value] or "Bulletin Req Id: Unknown("..value..")"
 end
 
--- Dissect: Bulletinreqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid.size
+-- Dissect: Bulletin Req Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletinreqid, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_req_id, range, value, display)
 
   return offset + length, value
 end
 
--- Bulletinseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinseq = {}
+-- Bulletin Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_seq = {}
 
--- Size: Bulletinseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinseq.size = 4
+-- Size: Bulletin Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_seq.size = 4
 
--- Display: Bulletinseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinseq.display = function(value)
-  return "Bulletinseq: "..value
+-- Display: Bulletin Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_seq.display = function(value)
+  return "Bulletin Seq: "..value
 end
 
--- Dissect: Bulletinseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinseq.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinseq.size
+-- Dissect: Bulletin Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_seq.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_seq.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinseq.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_seq.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletinseq, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_seq, range, value, display)
 
   return offset + length, value
 end
 
--- Callputcode
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.callputcode = {}
+-- Call Put Code
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.call_put_code = {}
 
--- Size: Callputcode
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.callputcode.size = 1
+-- Size: Call Put Code
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.call_put_code.size = 1
 
--- Display: Callputcode
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.callputcode.labels = {
-  ["C"] = "Callputcode: Call (C)",
-  ["P"] = "Callputcode: Put (P)",
+-- Display: Call Put Code
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.call_put_code.labels = {
+  ["C"] = "Call Put Code: Call (C)",
+  ["P"] = "Call Put Code: Put (P)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.callputcode.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.callputcode.labels[value] or "Callputcode: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.call_put_code.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.call_put_code.labels[value] or "Call Put Code: Unknown("..value..")"
 end
 
--- Dissect: Callputcode
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.callputcode.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.callputcode.size
+-- Dissect: Call Put Code
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.call_put_code.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.call_put_code.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.callputcode.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.call_put_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.callputcode, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.call_put_code, range, value, display)
 
   return offset + length, value
 end
 
--- Cancelordersec
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancelordersec = {}
+-- Cancel Order Sec
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancel_order_sec = {}
 
--- Size: Cancelordersec
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancelordersec.size = 1
+-- Size: Cancel Order Sec
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancel_order_sec.size = 1
 
--- Display: Cancelordersec
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancelordersec.display = function(value)
-  return "Cancelordersec: "..value
+-- Display: Cancel Order Sec
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancel_order_sec.display = function(value)
+  return "Cancel Order Sec: "..value
 end
 
--- Dissect: Cancelordersec
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancelordersec.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancelordersec.size
+-- Dissect: Cancel Order Sec
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancel_order_sec.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancel_order_sec.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancelordersec.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancel_order_sec.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.cancelordersec, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.cancel_order_sec, range, value, display)
 
   return offset + length, value
 end
@@ -552,80 +552,80 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.check_sum.dissect = function(buf
   return offset + length, value
 end
 
--- Cmid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid = {}
+-- Cm Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id = {}
 
--- Size: Cmid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size = 2
+-- Size: Cm Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size = 2
 
--- Display: Cmid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.display = function(value)
-  return "Cmid: "..value
+-- Display: Cm Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.display = function(value)
+  return "Cm Id: "..value
 end
 
--- Dissect: Cmid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size
+-- Dissect: Cm Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.cmid, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.cm_id, range, value, display)
 
   return offset + length, value
 end
 
--- Combop
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop = {}
+-- Comb Op
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op = {}
 
--- Size: Combop
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.size = 1
+-- Size: Comb Op
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.size = 1
 
--- Display: Combop
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.labels = {
-  [0] = "Combop: Single Order (0)",
-  [1] = "Combop: Price Spread (1)",
-  [2] = "Combop: Time Spread (2)",
-  [3] = "Combop: Straddle (3)",
-  [4] = "Combop: Strangle (4)",
-  [5] = "Combop: Conversion And Reversals (5)",
+-- Display: Comb Op
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.labels = {
+  [0] = "Comb Op: Single Order (0)",
+  [1] = "Comb Op: Price Spread (1)",
+  [2] = "Comb Op: Time Spread (2)",
+  [3] = "Comb Op: Straddle (3)",
+  [4] = "Comb Op: Strangle (4)",
+  [5] = "Comb Op: Conversion And Reversals (5)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.labels[value] or "Combop: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.labels[value] or "Comb Op: Unknown("..value..")"
 end
 
--- Dissect: Combop
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.size
+-- Dissect: Comb Op
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.combop, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.comb_op, range, value, display)
 
   return offset + length, value
 end
 
--- Contractdate
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.contractdate = {}
+-- Contract Date
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date = {}
 
--- Size: Contractdate
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.contractdate.size = 8
+-- Size: Contract Date
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.size = 8
 
--- Display: Contractdate
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.contractdate.display = function(value)
-  return "Contractdate: "..value
+-- Display: Contract Date
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.display = function(value)
+  return "Contract Date: "..value
 end
 
--- Dissect: Contractdate
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.contractdate.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.contractdate.size
+-- Dissect: Contract Date
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.contractdate.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.contractdate, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.contract_date, range, value, display)
 
   return offset + length, value
 end
@@ -653,154 +653,154 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.cum_qty.dissect = function(buffe
   return offset + length, value
 end
 
--- Data Char Hdrmsglength 15
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_15 = {}
+-- Data Char Hdr Msg Length 15
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_15 = {}
 
--- Display: Data Char Hdrmsglength 15
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_15.display = function(value)
-  return "Data Char Hdrmsglength 15: "..value
+-- Display: Data Char Hdr Msg Length 15
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_15.display = function(value)
+  return "Data Char Hdr Msg Length 15: "..value
 end
 
--- Dissect runtime sized field: Data Char Hdrmsglength 15
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_15.dissect = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Data Char Hdr Msg Length 15
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_15.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_15.display(value, packet, parent, size)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_15.display(value, packet, parent, size)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_15, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_15, range, value, display)
 
   return offset + size, value
 end
 
--- Data Char Hdrmsglength 151
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_151 = {}
+-- Data Char Hdr Msg Length 151
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_151 = {}
 
--- Display: Data Char Hdrmsglength 151
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_151.display = function(value)
-  return "Data Char Hdrmsglength 151: "..value
+-- Display: Data Char Hdr Msg Length 151
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_151.display = function(value)
+  return "Data Char Hdr Msg Length 151: "..value
 end
 
--- Dissect runtime sized field: Data Char Hdrmsglength 151
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_151.dissect = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Data Char Hdr Msg Length 151
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_151.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_151.display(value, packet, parent, size)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_151.display(value, packet, parent, size)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_151, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_151, range, value, display)
 
   return offset + size, value
 end
 
--- Data Char Hdrmsglength 1515
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1515 = {}
+-- Data Char Hdr Msg Length 1515
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1515 = {}
 
--- Display: Data Char Hdrmsglength 1515
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1515.display = function(value)
-  return "Data Char Hdrmsglength 1515: "..value
+-- Display: Data Char Hdr Msg Length 1515
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1515.display = function(value)
+  return "Data Char Hdr Msg Length 1515: "..value
 end
 
--- Dissect runtime sized field: Data Char Hdrmsglength 1515
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1515.dissect = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Data Char Hdr Msg Length 1515
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1515.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1515.display(value, packet, parent, size)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1515.display(value, packet, parent, size)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_1515, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_1515, range, value, display)
 
   return offset + size, value
 end
 
--- Data Char Hdrmsglength 1516
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1516 = {}
+-- Data Char Hdr Msg Length 1516
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1516 = {}
 
--- Display: Data Char Hdrmsglength 1516
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1516.display = function(value)
-  return "Data Char Hdrmsglength 1516: "..value
+-- Display: Data Char Hdr Msg Length 1516
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1516.display = function(value)
+  return "Data Char Hdr Msg Length 1516: "..value
 end
 
--- Dissect runtime sized field: Data Char Hdrmsglength 1516
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1516.dissect = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Data Char Hdr Msg Length 1516
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1516.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1516.display(value, packet, parent, size)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1516.display(value, packet, parent, size)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_1516, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_1516, range, value, display)
 
   return offset + size, value
 end
 
--- Data Char Hdrmsglength 1525
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1525 = {}
+-- Data Char Hdr Msg Length 1525
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1525 = {}
 
--- Display: Data Char Hdrmsglength 1525
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1525.display = function(value)
-  return "Data Char Hdrmsglength 1525: "..value
+-- Display: Data Char Hdr Msg Length 1525
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1525.display = function(value)
+  return "Data Char Hdr Msg Length 1525: "..value
 end
 
--- Dissect runtime sized field: Data Char Hdrmsglength 1525
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1525.dissect = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Data Char Hdr Msg Length 1525
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1525.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1525.display(value, packet, parent, size)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1525.display(value, packet, parent, size)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_1525, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_1525, range, value, display)
 
   return offset + size, value
 end
 
--- Data Char Hdrmsglength 159
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_159 = {}
+-- Data Char Hdr Msg Length 159
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_159 = {}
 
--- Display: Data Char Hdrmsglength 159
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_159.display = function(value)
-  return "Data Char Hdrmsglength 159: "..value
+-- Display: Data Char Hdr Msg Length 159
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_159.display = function(value)
+  return "Data Char Hdr Msg Length 159: "..value
 end
 
--- Dissect runtime sized field: Data Char Hdrmsglength 159
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_159.dissect = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Data Char Hdr Msg Length 159
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_159.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_159.display(value, packet, parent, size)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_159.display(value, packet, parent, size)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdrmsglength_159, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_char_hdr_msg_length_159, range, value, display)
 
   return offset + size, value
 end
 
--- Data Uint 8 Hdrmsglength 1514
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdrmsglength_1514 = {}
+-- Data Uint 8 Hdr Msg Length 1514
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_1514 = {}
 
--- Display: Data Uint 8 Hdrmsglength 1514
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdrmsglength_1514.display = function(value)
-  return "Data Uint 8 Hdrmsglength 1514: "..value
+-- Display: Data Uint 8 Hdr Msg Length 1514
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_1514.display = function(value)
+  return "Data Uint 8 Hdr Msg Length 1514: "..value
 end
 
--- Dissect runtime sized field: Data Uint 8 Hdrmsglength 1514
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdrmsglength_1514.dissect = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Data Uint 8 Hdr Msg Length 1514
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_1514.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdrmsglength_1514.display(value, packet, parent, size)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_1514.display(value, packet, parent, size)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdrmsglength_1514, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdr_msg_length_1514, range, value, display)
 
   return offset + size, value
 end
 
--- Data Uint 8 Hdrmsglength 156
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdrmsglength_156 = {}
+-- Data Uint 8 Hdr Msg Length 156
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_156 = {}
 
--- Display: Data Uint 8 Hdrmsglength 156
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdrmsglength_156.display = function(value)
-  return "Data Uint 8 Hdrmsglength 156: "..value
+-- Display: Data Uint 8 Hdr Msg Length 156
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_156.display = function(value)
+  return "Data Uint 8 Hdr Msg Length 156: "..value
 end
 
--- Dissect runtime sized field: Data Uint 8 Hdrmsglength 156
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdrmsglength_156.dissect = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Data Uint 8 Hdr Msg Length 156
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_156.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdrmsglength_156.display(value, packet, parent, size)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_156.display(value, packet, parent, size)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdrmsglength_156, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdr_msg_length_156, range, value, display)
 
   return offset + size, value
 end
@@ -832,45 +832,45 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.encrypt_method.dissect = functio
   return offset + length, value
 end
 
--- Endoutboundnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.endoutboundnum = {}
+-- End Out Bound Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.end_out_bound_num = {}
 
--- Size: Endoutboundnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.endoutboundnum.size = 4
+-- Size: End Out Bound Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.end_out_bound_num.size = 4
 
--- Display: Endoutboundnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.endoutboundnum.display = function(value)
-  return "Endoutboundnum: "..value
+-- Display: End Out Bound Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.end_out_bound_num.display = function(value)
+  return "End Out Bound Num: "..value
 end
 
--- Dissect: Endoutboundnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.endoutboundnum.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.endoutboundnum.size
+-- Dissect: End Out Bound Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.end_out_bound_num.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.end_out_bound_num.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.endoutboundnum.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.end_out_bound_num.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.endoutboundnum, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.end_out_bound_num, range, value, display)
 
   return offset + length, value
 end
 
--- Epochs Int 324
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_int_324 = {}
+-- Epoch S Int 324
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_int_324 = {}
 
--- Size: Epochs Int 324
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_int_324.size = 4
+-- Size: Epoch S Int 324
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_int_324.size = 4
 
--- Dissect: Epochs Int 324
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_int_324.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_int_324.size
+-- Dissect: Epoch S Int 324
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_int_324.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_int_324.size
   local range = buffer(offset, length)
   local value = range:int()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epochs_int_324
-  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epochs_int_324_utc end
+  local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_int_324
+  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_int_324_utc end
 
   local seconds = value
   local nanos = 0
@@ -879,22 +879,22 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_int_324.dissect = functio
   return offset + length, value
 end
 
--- Epochs Uint 324
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_uint_324 = {}
+-- Epoch S Uint 324
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_uint_324 = {}
 
--- Size: Epochs Uint 324
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_uint_324.size = 4
+-- Size: Epoch S Uint 324
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_uint_324.size = 4
 
--- Dissect: Epochs Uint 324
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_uint_324.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_uint_324.size
+-- Dissect: Epoch S Uint 324
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_uint_324.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_uint_324.size
   local range = buffer(offset, length)
   local value = range:uint()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epochs_uint_324
-  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epochs_uint_324_utc end
+  local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_uint_324
+  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_uint_324_utc end
 
   local seconds = value
   local nanos = 0
@@ -937,121 +937,121 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect = function(buf
   return offset + length, value
 end
 
--- Expirytype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.expirytype = {}
+-- Expiry Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.expiry_type = {}
 
--- Size: Expirytype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.expirytype.size = 1
+-- Size: Expiry Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.expiry_type.size = 1
 
--- Display: Expirytype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.expirytype.labels = {
-  ["X"] = "Expirytype: Flexible European Style Exercise Cash Settlement (X)",
+-- Display: Expiry Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.expiry_type.labels = {
+  ["X"] = "Expiry Type: Flexible European Style Exercise Cash Settlement (X)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.expirytype.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.expirytype.labels[value] or "Expirytype: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.expiry_type.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.expiry_type.labels[value] or "Expiry Type: Unknown("..value..")"
 end
 
--- Dissect: Expirytype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.expirytype.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.expirytype.size
+-- Dissect: Expiry Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.expiry_type.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.expiry_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.expirytype.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.expiry_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.expirytype, range, value, display)
-
-  return offset + length, value
-end
-
--- Fcmid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid = {}
-
--- Size: Fcmid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size = 2
-
--- Display: Fcmid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.display = function(value)
-  return "Fcmid: "..value
-end
-
--- Dissect: Fcmid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.fcmid, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.expiry_type, range, value, display)
 
   return offset + length, value
 end
 
--- Fcmreqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid = {}
+-- Fcm Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id = {}
 
--- Size: Fcmreqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.size = 4
+-- Size: Fcm Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size = 2
 
--- Display: Fcmreqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.display = function(value)
-  return "Fcmreqid: "..value
+-- Display: Fcm Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.display = function(value)
+  return "Fcm Id: "..value
 end
 
--- Dissect: Fcmreqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.size
+-- Dissect: Fcm Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.fcmreqid, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.fcm_id, range, value, display)
 
   return offset + length, value
 end
 
--- Filesize
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.filesize = {}
+-- Fcm Req Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id = {}
 
--- Size: Filesize
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.filesize.size = 4
+-- Size: Fcm Req Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.size = 4
 
--- Display: Filesize
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.filesize.display = function(value)
-  return "Filesize: "..value
+-- Display: Fcm Req Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.display = function(value)
+  return "Fcm Req Id: "..value
 end
 
--- Dissect: Filesize
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.filesize.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.filesize.size
+-- Dissect: Fcm Req Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.filesize.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.filesize, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.fcm_req_id, range, value, display)
 
   return offset + length, value
 end
 
--- Flowgroupno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.flowgroupno = {}
+-- File Size
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size = {}
 
--- Size: Flowgroupno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.flowgroupno.size = 1
+-- Size: File Size
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size.size = 4
 
--- Display: Flowgroupno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.flowgroupno.display = function(value)
-  return "Flowgroupno: "..value
+-- Display: File Size
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size.display = function(value)
+  return "File Size: "..value
 end
 
--- Dissect: Flowgroupno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.flowgroupno.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.flowgroupno.size
+-- Dissect: File Size
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.flowgroupno.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.flowgroupno, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.file_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Flow Group No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.flow_group_no = {}
+
+-- Size: Flow Group No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.flow_group_no.size = 1
+
+-- Display: Flow Group No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.flow_group_no.display = function(value)
+  return "Flow Group No: "..value
+end
+
+-- Dissect: Flow Group No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.flow_group_no.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.flow_group_no.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.flow_group_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.flow_group_no, range, value, display)
 
   return offset + length, value
 end
@@ -1126,122 +1126,122 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.heart_bt_int.dissect = function(
   return offset + length, value
 end
 
--- Infosource
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource = {}
+-- Info Source
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source = {}
 
--- Size: Infosource
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.size = 3
+-- Size: Info Source
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.size = 3
 
--- Display: Infosource
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.display = function(value)
-  return "Infosource: "..value
+-- Display: Info Source
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.display = function(value)
+  return "Info Source: "..value
 end
 
--- Dissect: Infosource
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.size
+-- Dissect: Info Source
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.infosource, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.info_source, range, value, display)
 
   return offset + length, value
 end
 
--- Investoracno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno = {}
+-- Investor Acno
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno = {}
 
--- Size: Investoracno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size = 4
+-- Size: Investor Acno
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size = 4
 
--- Display: Investoracno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.display = function(value)
-  return "Investoracno: "..value
+-- Display: Investor Acno
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.display = function(value)
+  return "Investor Acno: "..value
 end
 
--- Dissect: Investoracno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size
+-- Dissect: Investor Acno
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.investoracno, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.investor_acno, range, value, display)
 
   return offset + length, value
 end
 
--- Investorflag
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag = {}
+-- Investor Flag
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag = {}
 
--- Size: Investorflag
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size = 1
+-- Size: Investor Flag
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size = 1
 
--- Display: Investorflag
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.display = function(value)
-  return "Investorflag: "..value
+-- Display: Investor Flag
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.display = function(value)
+  return "Investor Flag: "..value
 end
 
--- Dissect: Investorflag
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size
+-- Dissect: Investor Flag
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.investorflag, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.investor_flag, range, value, display)
 
   return offset + length, value
 end
 
--- Iseof
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof = {}
+-- Is Eof
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof = {}
 
--- Size: Iseof
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof.size = 1
+-- Size: Is Eof
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof.size = 1
 
--- Display: Iseof
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof.labels = {
-  [0] = "Iseof: No (0)",
-  [1] = "Iseof: End Of File (1)",
+-- Display: Is Eof
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof.labels = {
+  [0] = "Is Eof: No (0)",
+  [1] = "Is Eof: End Of File (1)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof.labels[value] or "Iseof: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof.labels[value] or "Is Eof: Unknown("..value..")"
 end
 
--- Dissect: Iseof
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof.size
+-- Dissect: Is Eof
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.iseof, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.is_eof, range, value, display)
 
   return offset + length, value
 end
 
--- Keyvalue
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.keyvalue = {}
+-- Key Value
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.key_value = {}
 
--- Size: Keyvalue
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.keyvalue.size = 1
+-- Size: Key Value
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.key_value.size = 1
 
--- Display: Keyvalue
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.keyvalue.display = function(value)
-  return "Keyvalue: "..value
+-- Display: Key Value
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.key_value.display = function(value)
+  return "Key Value: "..value
 end
 
--- Dissect: Keyvalue
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.keyvalue.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.keyvalue.size
+-- Dissect: Key Value
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.key_value.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.key_value.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.keyvalue.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.key_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.keyvalue, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.key_value, range, value, display)
 
   return offset + length, value
 end
@@ -1315,152 +1315,152 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.leaves_qty.dissect = function(bu
   return offset + length, value
 end
 
--- Legpx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx = {}
+-- Leg Px
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px = {}
 
--- Size: Legpx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.size = 4
+-- Size: Leg Px
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.size = 4
 
--- Display: Legpx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.display = function(value)
-  return "Legpx: "..value
+-- Display: Leg Px
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.display = function(value)
+  return "Leg Px: "..value
 end
 
--- Dissect: Legpx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.size
+-- Dissect: Leg Px
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legpx, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_px, range, value, display)
 
   return offset + length, value
 end
 
--- Legqty Uint 162
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_162 = {}
+-- Leg Qty Uint 162
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_162 = {}
 
--- Size: Legqty Uint 162
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_162.size = 2
+-- Size: Leg Qty Uint 162
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_162.size = 2
 
--- Display: Legqty Uint 162
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_162.display = function(value)
-  return "Legqty Uint 162: "..value
+-- Display: Leg Qty Uint 162
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_162.display = function(value)
+  return "Leg Qty Uint 162: "..value
 end
 
--- Dissect: Legqty Uint 162
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_162.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_162.size
+-- Dissect: Leg Qty Uint 162
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_162.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_162.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_162.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_162.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legqty_uint_162, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_qty_uint_162, range, value, display)
 
   return offset + length, value
 end
 
--- Legqty Uint 1624
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624 = {}
+-- Leg Qty Uint 1624
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624 = {}
 
--- Size: Legqty Uint 1624
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.size = 2
+-- Size: Leg Qty Uint 1624
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.size = 2
 
--- Display: Legqty Uint 1624
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.display = function(value)
-  return "Legqty Uint 1624: "..value
+-- Display: Leg Qty Uint 1624
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.display = function(value)
+  return "Leg Qty Uint 1624: "..value
 end
 
--- Dissect: Legqty Uint 1624
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.size
+-- Dissect: Leg Qty Uint 1624
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legqty_uint_1624, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_qty_uint_1624, range, value, display)
 
   return offset + length, value
 end
 
--- Legside Uint 81
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81 = {}
+-- Leg Side Uint 81
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81 = {}
 
--- Size: Legside Uint 81
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81.size = 1
+-- Size: Leg Side Uint 81
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81.size = 1
 
--- Display: Legside Uint 81
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81.labels = {
-  [0] = "Legside Uint 81: Single Order (0)",
-  [1] = "Legside Uint 81: Buy (1)",
-  [2] = "Legside Uint 81: Sell (2)",
+-- Display: Leg Side Uint 81
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81.labels = {
+  [0] = "Leg Side Uint 81: Single Order (0)",
+  [1] = "Leg Side Uint 81: Buy (1)",
+  [2] = "Leg Side Uint 81: Sell (2)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81.labels[value] or "Legside Uint 81: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81.labels[value] or "Leg Side Uint 81: Unknown("..value..")"
 end
 
--- Dissect: Legside Uint 81
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81.size
+-- Dissect: Leg Side Uint 81
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legside_uint_81, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_side_uint_81, range, value, display)
 
   return offset + length, value
 end
 
--- Legside Uint 822
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822 = {}
+-- Leg Side Uint 822
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822 = {}
 
--- Size: Legside Uint 822
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.size = 1
+-- Size: Leg Side Uint 822
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.size = 1
 
--- Display: Legside Uint 822
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.labels = {
-  [0] = "Legside Uint 822: Single Order (0)",
-  [1] = "Legside Uint 822: Buy (1)",
-  [2] = "Legside Uint 822: Sell (2)",
+-- Display: Leg Side Uint 822
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.labels = {
+  [0] = "Leg Side Uint 822: Single Order (0)",
+  [1] = "Leg Side Uint 822: Buy (1)",
+  [2] = "Leg Side Uint 822: Sell (2)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.labels[value] or "Legside Uint 822: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.labels[value] or "Leg Side Uint 822: Unknown("..value..")"
 end
 
--- Dissect: Legside Uint 822
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.size
+-- Dissect: Leg Side Uint 822
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legside_uint_822, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_side_uint_822, range, value, display)
 
   return offset + length, value
 end
 
--- Maxflowctrlcnt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.maxflowctrlcnt = {}
+-- Max Flow Ctrl Cnt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.max_flow_ctrl_cnt = {}
 
--- Size: Maxflowctrlcnt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.maxflowctrlcnt.size = 2
+-- Size: Max Flow Ctrl Cnt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.max_flow_ctrl_cnt.size = 2
 
--- Display: Maxflowctrlcnt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.maxflowctrlcnt.display = function(value)
-  return "Maxflowctrlcnt: "..value
+-- Display: Max Flow Ctrl Cnt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.max_flow_ctrl_cnt.display = function(value)
+  return "Max Flow Ctrl Cnt: "..value
 end
 
--- Dissect: Maxflowctrlcnt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.maxflowctrlcnt.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.maxflowctrlcnt.size
+-- Dissect: Max Flow Ctrl Cnt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.max_flow_ctrl_cnt.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.max_flow_ctrl_cnt.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.maxflowctrlcnt.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.max_flow_ctrl_cnt.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.maxflowctrlcnt, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.max_flow_ctrl_cnt, range, value, display)
 
   return offset + length, value
 end
@@ -1605,6 +1605,29 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_seq_num.dissect = function(b
   return offset + length, value
 end
 
+-- Msg Time Ns
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_time_ns = {}
+
+-- Size: Msg Time Ns
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_time_ns.size = 4
+
+-- Display: Msg Time Ns
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_time_ns.display = function(value)
+  return "Msg Time Ns: "..value
+end
+
+-- Dissect: Msg Time Ns
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_time_ns.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_time_ns.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_time_ns.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.msg_time_ns, range, value, display)
+
+  return offset + length, value
+end
+
 -- Msg Type Ext
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_type_ext = {}
 
@@ -1633,29 +1656,6 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_type_ext.dissect = function(
   local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_type_ext.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.msg_type_ext, range, value, display)
-
-  return offset + length, value
-end
-
--- Msgtimens
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.msgtimens = {}
-
--- Size: Msgtimens
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.msgtimens.size = 4
-
--- Display: Msgtimens
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.msgtimens.display = function(value)
-  return "Msgtimens: "..value
-end
-
--- Dissect: Msgtimens
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.msgtimens.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.msgtimens.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.msgtimens.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.msgtimens, range, value, display)
 
   return offset + length, value
 end
@@ -1752,6 +1752,29 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.offer_size.dissect = function(bu
   return offset + length, value
 end
 
+-- Ord Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id = {}
+
+-- Size: Ord Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size = 4
+
+-- Display: Ord Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.display = function(value)
+  return "Ord Id: "..value
+end
+
+-- Dissect: Ord Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.ord_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Ord Type
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_type = {}
 
@@ -1781,81 +1804,58 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_type.dissect = function(buff
   return offset + length, value
 end
 
--- Orderno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno = {}
+-- Order No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no = {}
 
--- Size: Orderno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size = 5
+-- Size: Order No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size = 5
 
--- Display: Orderno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.display = function(value)
-  return "Orderno: "..value
+-- Display: Order No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.display = function(value)
+  return "Order No: "..value
 end
 
--- Dissect: Orderno
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+-- Dissect: Order No
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.orderno, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.order_no, range, value, display)
 
   return offset + length, value
 end
 
--- Ordersource
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource = {}
+-- Order Source
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source = {}
 
--- Size: Ordersource
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.size = 1
+-- Size: Order Source
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.size = 1
 
--- Display: Ordersource
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.labels = {
-  ["D"] = "Ordersource: Leased Line Or Vpn Or Closed Private Network (D)",
-  ["A"] = "Ordersource: Application Program Interface (A)",
-  ["M"] = "Ordersource: Mobile Device (M)",
-  ["W"] = "Ordersource: Web Site (W)",
-  ["P"] = "Ordersource: Personal Computer (P)",
-  ["V"] = "Ordersource: Voice (V)",
-  ["G"] = "Ordersource: In Writing Or By Telephone Or Telegram (G)",
+-- Display: Order Source
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.labels = {
+  ["D"] = "Order Source: Leased Line Or Vpn Or Closed Private Network (D)",
+  ["A"] = "Order Source: Application Program Interface (A)",
+  ["M"] = "Order Source: Mobile Device (M)",
+  ["W"] = "Order Source: Web Site (W)",
+  ["P"] = "Order Source: Personal Computer (P)",
+  ["V"] = "Order Source: Voice (V)",
+  ["G"] = "Order Source: In Writing Or By Telephone Or Telegram (G)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.labels[value] or "Ordersource: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.labels[value] or "Order Source: Unknown("..value..")"
 end
 
--- Dissect: Ordersource
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.size
+-- Dissect: Order Source
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.ordersource, range, value, display)
-
-  return offset + length, value
-end
-
--- Ordid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid = {}
-
--- Size: Ordid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size = 4
-
--- Display: Ordid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.display = function(value)
-  return "Ordid: "..value
-end
-
--- Dissect: Ordid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.ordid, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.order_source, range, value, display)
 
   return offset + length, value
 end
@@ -1883,30 +1883,30 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.ori_message_type.dissect = funct
   return offset + length, value
 end
 
--- Partid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid = {}
+-- Part Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id = {}
 
--- Size: Partid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.size = 1
+-- Size: Part Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.size = 1
 
--- Display: Partid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.labels = {
-  [102] = "Partid: Flex Options Regular Market Hours (102)",
-  [202] = "Partid: Flex Futures Regular Market Hours (202)",
+-- Display: Part Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.labels = {
+  [102] = "Part Id: Flex Options Regular Market Hours (102)",
+  [202] = "Part Id: Flex Futures Regular Market Hours (202)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.labels[value] or "Partid: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.labels[value] or "Part Id: Unknown("..value..")"
 end
 
--- Dissect: Partid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.size
+-- Dissect: Part Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.partid, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.part_id, range, value, display)
 
   return offset + length, value
 end
@@ -1989,54 +1989,54 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.dissect = function(buffer,
   return offset + length, value
 end
 
--- Prodid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.prodid = {}
+-- Prod Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.prod_id = {}
 
--- Size: Prodid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.prodid.size = 20
+-- Size: Prod Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.prod_id.size = 20
 
--- Display: Prodid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.prodid.display = function(value)
-  return "Prodid: "..value
+-- Display: Prod Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.prod_id.display = function(value)
+  return "Prod Id: "..value
 end
 
--- Dissect: Prodid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.prodid.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.prodid.size
+-- Dissect: Prod Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.prod_id.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.prod_id.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.prodid.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.prod_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.prodid, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.prod_id, range, value, display)
 
   return offset + length, value
 end
 
--- Protocoltype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype = {}
+-- Protocol Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type = {}
 
--- Size: Protocoltype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.size = 1
+-- Size: Protocol Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.size = 1
 
--- Display: Protocoltype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.labels = {
-  [0] = "Protocoltype: Reserved (0)",
-  [1] = "Protocoltype: Tmp (1)",
-  [2] = "Protocoltype: Fix (2)",
+-- Display: Protocol Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.labels = {
+  [0] = "Protocol Type: Reserved (0)",
+  [1] = "Protocol Type: Tmp (1)",
+  [2] = "Protocol Type: Fix (2)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.labels[value] or "Protocoltype: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.labels[value] or "Protocol Type: Unknown("..value..")"
 end
 
--- Dissect: Protocoltype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.size
+-- Dissect: Protocol Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.protocoltype, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.protocol_type, range, value, display)
 
   return offset + length, value
 end
@@ -2110,25 +2110,25 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.pseq_2.dissect = function(buffer
   return offset + length, value
 end
 
--- Pxsubtotal
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal = {}
+-- Px Subtotal
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal = {}
 
--- Size: Pxsubtotal
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.size = 8
+-- Size: Px Subtotal
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.size = 8
 
--- Display: Pxsubtotal
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.display = function(value)
-  return "Pxsubtotal: "..value
+-- Display: Px Subtotal
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.display = function(value)
+  return "Px Subtotal: "..value
 end
 
--- Dissect: Pxsubtotal
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.size
+-- Dissect: Px Subtotal
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.pxsubtotal, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.px_subtotal, range, value, display)
 
   return offset + length, value
 end
@@ -2156,25 +2156,25 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Requeststartseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.requeststartseq = {}
+-- Request Start Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_start_seq = {}
 
--- Size: Requeststartseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.requeststartseq.size = 4
+-- Size: Request Start Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_start_seq.size = 4
 
--- Display: Requeststartseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.requeststartseq.display = function(value)
-  return "Requeststartseq: "..value
+-- Display: Request Start Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_start_seq.display = function(value)
+  return "Request Start Seq: "..value
 end
 
--- Dissect: Requeststartseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.requeststartseq.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.requeststartseq.size
+-- Dissect: Request Start Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_start_seq.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_start_seq.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.requeststartseq.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_start_seq.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.requeststartseq, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.request_start_seq, range, value, display)
 
   return offset + length, value
 end
@@ -2294,94 +2294,94 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_8.dissect = function(bu
   return offset + length, value
 end
 
--- Rootsymbol
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rootsymbol = {}
+-- Root Symbol
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.root_symbol = {}
 
--- Size: Rootsymbol
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rootsymbol.size = 3
+-- Size: Root Symbol
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.root_symbol.size = 3
 
--- Display: Rootsymbol
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rootsymbol.display = function(value)
-  return "Rootsymbol: "..value
+-- Display: Root Symbol
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.root_symbol.display = function(value)
+  return "Root Symbol: "..value
 end
 
--- Dissect: Rootsymbol
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rootsymbol.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rootsymbol.size
+-- Dissect: Root Symbol
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.root_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.root_symbol.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rootsymbol.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.root_symbol.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rootsymbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Rptseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq = {}
-
--- Size: Rptseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.size = 4
-
--- Display: Rptseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.display = function(value)
-  return "Rptseq: "..value
-end
-
--- Dissect: Rptseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rptseq, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.root_symbol, range, value, display)
 
   return offset + length, value
 end
 
--- Rptsessionid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionid = {}
+-- Rpt Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq = {}
 
--- Size: Rptsessionid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionid.size = 2
+-- Size: Rpt Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.size = 4
 
--- Display: Rptsessionid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionid.display = function(value)
-  return "Rptsessionid: "..value
+-- Display: Rpt Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.display = function(value)
+  return "Rpt Seq: "..value
 end
 
--- Dissect: Rptsessionid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionid.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionid.size
+-- Dissect: Rpt Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionid.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rptsessionid, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rpt_seq, range, value, display)
 
   return offset + length, value
 end
 
--- Rptsessionseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionseq = {}
+-- Rpt Session Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_id = {}
 
--- Size: Rptsessionseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionseq.size = 4
+-- Size: Rpt Session Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_id.size = 2
 
--- Display: Rptsessionseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionseq.display = function(value)
-  return "Rptsessionseq: "..value
+-- Display: Rpt Session Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_id.display = function(value)
+  return "Rpt Session Id: "..value
 end
 
--- Dissect: Rptsessionseq
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionseq.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionseq.size
+-- Dissect: Rpt Session Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionseq.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rptsessionseq, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rpt_session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rpt Session Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_seq = {}
+
+-- Size: Rpt Session Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_seq.size = 4
+
+-- Display: Rpt Session Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_seq.display = function(value)
+  return "Rpt Session Seq: "..value
+end
+
+-- Dissect: Rpt Session Seq
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_seq.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_seq.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.rpt_session_seq, range, value, display)
 
   return offset + length, value
 end
@@ -2437,25 +2437,25 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.security_request_type.dissect = 
   return offset + length, value
 end
 
--- Sessionid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sessionid = {}
+-- Session Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.session_id = {}
 
--- Size: Sessionid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sessionid.size = 2
+-- Size: Session Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.session_id.size = 2
 
--- Display: Sessionid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sessionid.display = function(value)
-  return "Sessionid: "..value
+-- Display: Session Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.session_id.display = function(value)
+  return "Session Id: "..value
 end
 
--- Dissect: Sessionid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sessionid.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sessionid.size
+-- Dissect: Session Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.session_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sessionid.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.session_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.sessionid, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -2488,355 +2488,355 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Startinboundnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.startinboundnum = {}
+-- Start In Bound Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.start_in_bound_num = {}
 
--- Size: Startinboundnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.startinboundnum.size = 4
+-- Size: Start In Bound Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.start_in_bound_num.size = 4
 
--- Display: Startinboundnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.startinboundnum.display = function(value)
-  return "Startinboundnum: "..value
+-- Display: Start In Bound Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.start_in_bound_num.display = function(value)
+  return "Start In Bound Num: "..value
 end
 
--- Dissect: Startinboundnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.startinboundnum.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.startinboundnum.size
+-- Dissect: Start In Bound Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.start_in_bound_num.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.start_in_bound_num.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.startinboundnum.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.start_in_bound_num.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.startinboundnum, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.start_in_bound_num, range, value, display)
 
   return offset + length, value
 end
 
--- Statuscode Uint 162
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162 = {}
+-- Status Code Uint 162
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162 = {}
 
--- Size: Statuscode Uint 162
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.size = 2
+-- Size: Status Code Uint 162
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.size = 2
 
--- Display: Statuscode Uint 162
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.labels = {
-  [0] = "Statuscode Uint 162: Succeed (0)",
-  [1] = "Statuscode Uint 162: Trading Time Over (1)",
-  [2] = "Statuscode Uint 162: Order Acceptance Not Yet Started Or Trading Halt (2)",
-  [3] = "Statuscode Uint 162: Price Quote Not Yet Accepted (3)",
-  [4] = "Statuscode Uint 162: In Processing No Order Accepted For The Time Being (4)",
-  [5] = "Statuscode Uint 162: No Such Order No (5)",
-  [6] = "Statuscode Uint 162: Order Or Quote Filled (6)",
-  [7] = "Statuscode Uint 162: Order Or Quote Cancelled (7)",
-  [8] = "Statuscode Uint 162: Stop Order (8)",
-  [9] = "Statuscode Uint 162: Order Limit (9)",
-  [10] = "Statuscode Uint 162: Order Not In The Book (10)",
-  [11] = "Statuscode Uint 162: Exec Type Error (11)",
-  [12] = "Statuscode Uint 162: Broker Id Error (12)",
-  [13] = "Statuscode Uint 162: Branch No Error (13)",
-  [14] = "Statuscode Uint 162: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)",
-  [15] = "Statuscode Uint 162: Investor Id Code Error (15)",
-  [16] = "Statuscode Uint 162: Reject Delete Or Modify Order During Noncancel Period (16)",
-  [17] = "Statuscode Uint 162: Duplicate Order No Or Quote No (17)",
-  [18] = "Statuscode Uint 162: Order No Or Quote No Error (18)",
-  [19] = "Statuscode Uint 162: The Same Side Order Not Exist (19)",
-  [20] = "Statuscode Uint 162: Product Id Error (20)",
-  [21] = "Statuscode Uint 162: Exceeding Risefall Limit (21)",
-  [22] = "Statuscode Uint 162: Order Quantity Error (22)",
-  [23] = "Statuscode Uint 162: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)",
-  [24] = "Statuscode Uint 162: Buysell Error (24)",
-  [25] = "Statuscode Uint 162: Ord Type Error (25)",
-  [26] = "Statuscode Uint 162: Order Type And Price Not Matched (26)",
-  [27] = "Statuscode Uint 162: Time In Force Error (27)",
-  [28] = "Statuscode Uint 162: Position Effect Error (28)",
-  [29] = "Statuscode Uint 162: Price And Tick Size Not Matched (29)",
-  [30] = "Statuscode Uint 162: Product Expired (30)",
-  [31] = "Statuscode Uint 162: Broker Id Product Group And Market Makers Account No Inconsistent (31)",
-  [32] = "Statuscode Uint 162: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)",
-  [33] = "Statuscode Uint 162: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)",
-  [34] = "Statuscode Uint 162: Bid Price Exceeding Ask Price (34)",
-  [35] = "Statuscode Uint 162: Remaining Quantity Of The Unmodified Side Is Zero (35)",
-  [36] = "Statuscode Uint 162: The Unfilled Part Of The Oneway Quote Is Less Than The Minimum Quantity Limit (36)",
-  [37] = "Statuscode Uint 162: Price Inquiry Already Present (37)",
-  [38] = "Statuscode Uint 162: Market Orderand Mwp Does Not Accept Rod (38)",
-  [39] = "Statuscode Uint 162: Decrease Quantity Error (39)",
-  [40] = "Statuscode Uint 162: Price Error Singleside Quote Order Modification (40)",
-  [41] = "Statuscode Uint 162: Settlement Month Error (41)",
-  [42] = "Statuscode Uint 162: Strike Price Error (42)",
-  [43] = "Statuscode Uint 162: Clearing Member Id Error (43)",
-  [44] = "Statuscode Uint 162: Ordersource Error (44)",
-  [45] = "Statuscode Uint 162: Infosource Error (45)",
-  [46] = "Statuscode Uint 162: Disable Kill Switch Operation Error (46)",
-  [47] = "Statuscode Uint 162: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)",
-  [48] = "Statuscode Uint 162: Dynamic Price Banding Limit Price Disclosure (48)",
-  [51] = "Statuscode Uint 162: Fok Not Filled And Deleted By System (51)",
-  [52] = "Statuscode Uint 162: Ioc Is Partially Filled (52)",
-  [53] = "Statuscode Uint 162: Ioc Not Filled And Deleted By System (53)",
-  [54] = "Statuscode Uint 162: Delete The Order Because Of Cod (54)",
-  [61] = "Statuscode Uint 162: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)",
-  [62] = "Statuscode Uint 162: Product Id Of Canceldecrease Order Not Matching Original Order (62)",
-  [63] = "Statuscode Uint 162: Modify Price Of Ioc Order Not Allowed (63)",
-  [64] = "Statuscode Uint 162: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)",
-  [65] = "Statuscode Uint 162: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)",
-  [77] = "Statuscode Uint 162: No Such Contract (77)",
-  [78] = "Statuscode Uint 162: Order Of This Contract Is Restricted For This Accountcode (78)",
-  [79] = "Statuscode Uint 162: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)",
-  [80] = "Statuscode Uint 162: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)",
-  [89] = "Statuscode Uint 162: Too Many Errors (89)",
-  [91] = "Statuscode Uint 162: Message Time Out (91)",
-  [92] = "Statuscode Uint 162: Message Length Error (92)",
-  [93] = "Statuscode Uint 162: Message Format Error (93)",
-  [99] = "Statuscode Uint 162: Major Error (99)",
-  [110] = "Statuscode Uint 162: Illegal File Code (110)",
-  [113] = "Statuscode Uint 162: Wrong File Request Range (113)",
-  [114] = "Statuscode Uint 162: File Is Not Ready (114)",
-  [117] = "Statuscode Uint 162: File Is Ready But Empty (117)",
-  [120] = "Statuscode Uint 162: File Not Found For Broker (120)",
-  [121] = "Statuscode Uint 162: Illegal Time To Get File (121)",
-  [150] = "Statuscode Uint 162: Fcmuniqueid Or Serial No Duplicate (150)",
-  [151] = "Statuscode Uint 162: Product Can Not Block Trade (151)",
-  [152] = "Statuscode Uint 162: Block Trade Order Quantity Error (152)",
-  [153] = "Statuscode Uint 162: Invalid Prodcount (153)",
-  [154] = "Statuscode Uint 162: Prodcount Is Not Match With The Number Of Legs In A Block Trade Order (154)",
-  [155] = "Statuscode Uint 162: Invalid Fcmuniqueid Or Serial No (155)",
-  [156] = "Statuscode Uint 162: Block Trade Id Duplicate (156)",
-  [157] = "Statuscode Uint 162: Invalid Block Trade Id (157)",
-  [158] = "Statuscode Uint 162: Invalid Participantfcmcount (158)",
-  [159] = "Statuscode Uint 162: Participantfcmcount Is Not Consistent With Participantfcmid List (159)",
-  [160] = "Statuscode Uint 162: Participantfcmid Error (160)",
-  [161] = "Statuscode Uint 162: Invalid Prodcount (161)",
-  [162] = "Statuscode Uint 162: Block Trade Id Does Not Exist (162)",
-  [163] = "Statuscode Uint 162: Negotiated Block Trade Success (163)",
-  [164] = "Statuscode Uint 162: Negotiated Block Trade Fail (164)",
-  [165] = "Statuscode Uint 162: Negotiated Block Trade Calcelled (165)",
-  [166] = "Statuscode Uint 162: Negotiated Block Trade Wait Fcm To Comfirm Order (166)",
-  [167] = "Statuscode Uint 162: Fcmid Not Matching Represent Fcm (167)",
-  [168] = "Statuscode Uint 162: Symboltype Error (168)",
-  [169] = "Statuscode Uint 162: Invalid Ordercount Of Negotiated Block Trade Confirm Input (169)",
-  [170] = "Statuscode Uint 162: Number Of Orders In B 31 Xb 31 Is Not Consistent With Ordercount Field (170)",
-  [171] = "Statuscode Uint 162: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)",
-  [172] = "Statuscode Uint 162: Investoracno Duplicate In Negotiated Block Trade Confirm Input (172)",
-  [175] = "Statuscode Uint 162: Negotiated Block Trade Timed Out (175)",
-  [176] = "Statuscode Uint 162: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)",
-  [177] = "Statuscode Uint 162: Negotiated Block Trade Beyond The Position Limit (177)",
-  [186] = "Statuscode Uint 162: Illegal Source Id (186)",
-  [200] = "Statuscode Uint 162: Significant System Time Error (200)",
-  [201] = "Statuscode Uint 162: Appendno Error (201)",
-  [202] = "Statuscode Uint 162: Fcmid Error (202)",
-  [203] = "Statuscode Uint 162: Apcode Error (203)",
-  [204] = "Statuscode Uint 162: Keyvalue Error (204)",
-  [205] = "Statuscode Uint 162: Sessionid Error (205)",
-  [206] = "Statuscode Uint 162: Systemtype Error (206)",
-  [207] = "Statuscode Uint 162: Msg Seq Num Error (207)",
-  [208] = "Statuscode Uint 162: Targetid Error (208)",
-  [209] = "Statuscode Uint 162: Flowgroupno Error (209)",
-  [210] = "Statuscode Uint 162: Subscription Request Type Error (210)",
-  [220] = "Statuscode Uint 162: Msg Type Ext Error (220)",
-  [221] = "Statuscode Uint 162: Partid Error (221)",
-  [240] = "Statuscode Uint 162: Session Exceeds The Flow Limit (240)",
-  [241] = "Statuscode Uint 162: Session Exceeds Flow Limit Continuously And Is Locked (241)",
-  [242] = "Statuscode Uint 162: Order Older Than Cancelordersec And Rejected (242)",
-  [248] = "Statuscode Uint 162: Session Reach 80% Of The Flow Limit (248)",
-  [249] = "Statuscode Uint 162: Session Reach 90% Of The Flow Limit (249)",
-  [250] = "Statuscode Uint 162: Order Older Than Two Seconds (250)",
-  [300] = "Statuscode Uint 162: The Flex Contract Has Been Resubmitted (300)",
-  [301] = "Statuscode Uint 162: Open Interest For Today Undetermined (301)",
-  [302] = "Statuscode Uint 162: The Flex Contract Is Listed For Trading (302)",
-  [303] = "Statuscode Uint 162: Incorrect Expiration Date For The Flex Contract (303)",
-  [304] = "Statuscode Uint 162: Duplicate Unique Id Of A Security Definition Request For The Flex Contract (304)",
-  [305] = "Statuscode Uint 162: Exceeding The Flex Contract Limit (305)",
-  [306] = "Statuscode Uint 162: No Record Of Successful Flex Contract Application Was Found (306)",
-  [310] = "Statuscode Uint 162: Nonflexible Contract Application Period (310)",
-  [311] = "Statuscode Uint 162: The Proprietary Trading Account Has Not Been Approved To Apply For Flex Contracts (311)",
-  [312] = "Statuscode Uint 162: The Fcm Account Has Not Been Approved To Apply For Flex Contracts (312)",
-  [313] = "Statuscode Uint 162: Incorrect Coverage Range For The Flex Contract (313)",
-  [314] = "Statuscode Uint 162: Invalid Strikeprice For The Flex Contract (314)",
-  [315] = "Statuscode Uint 162: Invalid Security Request Type For The Flex Contract (315)",
-  [316] = "Statuscode Uint 162: Invalid Application Type For The Flex Contract (316)",
-  [317] = "Statuscode Uint 162: Invalid Type For The Flex Contract (317)",
-  [318] = "Statuscode Uint 162: Expirytype Error (318)",
-  [319] = "Statuscode Uint 162: Callputcode Error (319)",
+-- Display: Status Code Uint 162
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.labels = {
+  [0] = "Status Code Uint 162: Succeed (0)",
+  [1] = "Status Code Uint 162: Trading Time Over (1)",
+  [2] = "Status Code Uint 162: Order Acceptance Not Yet Started Or Trading Halt (2)",
+  [3] = "Status Code Uint 162: Price Quote Not Yet Accepted (3)",
+  [4] = "Status Code Uint 162: In Processing No Order Accepted For The Time Being (4)",
+  [5] = "Status Code Uint 162: No Such Order No (5)",
+  [6] = "Status Code Uint 162: Order Or Quote Filled (6)",
+  [7] = "Status Code Uint 162: Order Or Quote Cancelled (7)",
+  [8] = "Status Code Uint 162: Stop Order (8)",
+  [9] = "Status Code Uint 162: Order Limit (9)",
+  [10] = "Status Code Uint 162: Order Not In The Book (10)",
+  [11] = "Status Code Uint 162: Exec Type Error (11)",
+  [12] = "Status Code Uint 162: Broker Id Error (12)",
+  [13] = "Status Code Uint 162: Branch No Error (13)",
+  [14] = "Status Code Uint 162: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)",
+  [15] = "Status Code Uint 162: Investor Id Code Error (15)",
+  [16] = "Status Code Uint 162: Reject Delete Or Modify Order During Non Cancel Period (16)",
+  [17] = "Status Code Uint 162: Duplicate Order No Or Quote No (17)",
+  [18] = "Status Code Uint 162: Order No Or Quote No Error (18)",
+  [19] = "Status Code Uint 162: The Same Side Order Not Exist (19)",
+  [20] = "Status Code Uint 162: Product Id Error (20)",
+  [21] = "Status Code Uint 162: Exceeding Risefall Limit (21)",
+  [22] = "Status Code Uint 162: Order Quantity Error (22)",
+  [23] = "Status Code Uint 162: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)",
+  [24] = "Status Code Uint 162: Buy Sell Error (24)",
+  [25] = "Status Code Uint 162: Ord Type Error (25)",
+  [26] = "Status Code Uint 162: Order Type And Price Not Matched (26)",
+  [27] = "Status Code Uint 162: Time In Force Error (27)",
+  [28] = "Status Code Uint 162: Position Effect Error (28)",
+  [29] = "Status Code Uint 162: Price And Tick Size Not Matched (29)",
+  [30] = "Status Code Uint 162: Product Expired (30)",
+  [31] = "Status Code Uint 162: Broker Id Product Group And Market Makers Account No Inconsistent (31)",
+  [32] = "Status Code Uint 162: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)",
+  [33] = "Status Code Uint 162: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)",
+  [34] = "Status Code Uint 162: Bid Price Exceeding Ask Price (34)",
+  [35] = "Status Code Uint 162: Remaining Quantity Of The Unmodified Side Is Zero (35)",
+  [36] = "Status Code Uint 162: The Unfilled Part Of The One Way Quote Is Less Than The Minimum Quantity Limit (36)",
+  [37] = "Status Code Uint 162: Price Inquiry Already Present (37)",
+  [38] = "Status Code Uint 162: Market Orderand Mwp Does Not Accept Rod (38)",
+  [39] = "Status Code Uint 162: Decrease Quantity Error (39)",
+  [40] = "Status Code Uint 162: Price Error Single Side Quote Order Modification (40)",
+  [41] = "Status Code Uint 162: Settlement Month Error (41)",
+  [42] = "Status Code Uint 162: Strike Price Error (42)",
+  [43] = "Status Code Uint 162: Clearing Member Id Error (43)",
+  [44] = "Status Code Uint 162: Order Source Error (44)",
+  [45] = "Status Code Uint 162: Info Source Error (45)",
+  [46] = "Status Code Uint 162: Disable Kill Switch Operation Error (46)",
+  [47] = "Status Code Uint 162: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)",
+  [48] = "Status Code Uint 162: Dynamic Price Banding Limit Price Disclosure (48)",
+  [51] = "Status Code Uint 162: Fok Not Filled And Deleted By System (51)",
+  [52] = "Status Code Uint 162: Ioc Is Partially Filled (52)",
+  [53] = "Status Code Uint 162: Ioc Not Filled And Deleted By System (53)",
+  [54] = "Status Code Uint 162: Delete The Order Because Of Cod (54)",
+  [61] = "Status Code Uint 162: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)",
+  [62] = "Status Code Uint 162: Product Id Of Canceldecrease Order Not Matching Original Order (62)",
+  [63] = "Status Code Uint 162: Modify Price Of Ioc Order Not Allowed (63)",
+  [64] = "Status Code Uint 162: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)",
+  [65] = "Status Code Uint 162: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)",
+  [77] = "Status Code Uint 162: No Such Contract (77)",
+  [78] = "Status Code Uint 162: Order Of This Contract Is Restricted For This Account Code (78)",
+  [79] = "Status Code Uint 162: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)",
+  [80] = "Status Code Uint 162: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)",
+  [89] = "Status Code Uint 162: Too Many Errors (89)",
+  [91] = "Status Code Uint 162: Message Time Out (91)",
+  [92] = "Status Code Uint 162: Message Length Error (92)",
+  [93] = "Status Code Uint 162: Message Format Error (93)",
+  [99] = "Status Code Uint 162: Major Error (99)",
+  [110] = "Status Code Uint 162: Illegal File Code (110)",
+  [113] = "Status Code Uint 162: Wrong File Request Range (113)",
+  [114] = "Status Code Uint 162: File Is Not Ready (114)",
+  [117] = "Status Code Uint 162: File Is Ready But Empty (117)",
+  [120] = "Status Code Uint 162: File Not Found For Broker (120)",
+  [121] = "Status Code Uint 162: Illegal Time To Get File (121)",
+  [150] = "Status Code Uint 162: Fcm Unique Id Or Serial No Duplicate (150)",
+  [151] = "Status Code Uint 162: Product Can Not Block Trade (151)",
+  [152] = "Status Code Uint 162: Block Trade Order Quantity Error (152)",
+  [153] = "Status Code Uint 162: Invalid Prod Count (153)",
+  [154] = "Status Code Uint 162: Prod Count Is Not Match With The Number Of Legs In A Block Trade Order (154)",
+  [155] = "Status Code Uint 162: Invalid Fcm Unique Id Or Serial No (155)",
+  [156] = "Status Code Uint 162: Block Trade Id Duplicate (156)",
+  [157] = "Status Code Uint 162: Invalid Block Trade Id (157)",
+  [158] = "Status Code Uint 162: Invalid Participant Fcm Count (158)",
+  [159] = "Status Code Uint 162: Participant Fcm Count Is Not Consistent With Participant Fcm Id List (159)",
+  [160] = "Status Code Uint 162: Participant Fcm Id Error (160)",
+  [161] = "Status Code Uint 162: Invalid Prod Count (161)",
+  [162] = "Status Code Uint 162: Block Trade Id Does Not Exist (162)",
+  [163] = "Status Code Uint 162: Negotiated Block Trade Success (163)",
+  [164] = "Status Code Uint 162: Negotiated Block Trade Fail (164)",
+  [165] = "Status Code Uint 162: Negotiated Block Trade Calcelled (165)",
+  [166] = "Status Code Uint 162: Negotiated Block Trade Wait Fcm To Comfirm Order (166)",
+  [167] = "Status Code Uint 162: Fcm Id Not Matching Represent Fcm (167)",
+  [168] = "Status Code Uint 162: Symbol Type Error (168)",
+  [169] = "Status Code Uint 162: Invalid Order Count Of Negotiated Block Trade Confirm Input (169)",
+  [170] = "Status Code Uint 162: Number Of Orders In B 31 Xb 31 Is Not Consistent With Order Count Field (170)",
+  [171] = "Status Code Uint 162: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)",
+  [172] = "Status Code Uint 162: Investor Acno Duplicate In Negotiated Block Trade Confirm Input (172)",
+  [175] = "Status Code Uint 162: Negotiated Block Trade Timed Out (175)",
+  [176] = "Status Code Uint 162: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)",
+  [177] = "Status Code Uint 162: Negotiated Block Trade Beyond The Position Limit (177)",
+  [186] = "Status Code Uint 162: Illegal Source Id (186)",
+  [200] = "Status Code Uint 162: Significant System Time Error (200)",
+  [201] = "Status Code Uint 162: Append No Error (201)",
+  [202] = "Status Code Uint 162: Fcm Id Error (202)",
+  [203] = "Status Code Uint 162: Ap Code Error (203)",
+  [204] = "Status Code Uint 162: Key Value Error (204)",
+  [205] = "Status Code Uint 162: Session Id Error (205)",
+  [206] = "Status Code Uint 162: System Type Error (206)",
+  [207] = "Status Code Uint 162: Msg Seq Num Error (207)",
+  [208] = "Status Code Uint 162: Target Id Error (208)",
+  [209] = "Status Code Uint 162: Flow Group No Error (209)",
+  [210] = "Status Code Uint 162: Subscription Request Type Error (210)",
+  [220] = "Status Code Uint 162: Msg Type Ext Error (220)",
+  [221] = "Status Code Uint 162: Part Id Error (221)",
+  [240] = "Status Code Uint 162: Session Exceeds The Flow Limit (240)",
+  [241] = "Status Code Uint 162: Session Exceeds Flow Limit Continuously And Is Locked (241)",
+  [242] = "Status Code Uint 162: Order Older Than Cancel Order Sec And Rejected (242)",
+  [248] = "Status Code Uint 162: Session Reach 80% Of The Flow Limit (248)",
+  [249] = "Status Code Uint 162: Session Reach 90% Of The Flow Limit (249)",
+  [250] = "Status Code Uint 162: Order Older Than Two Seconds (250)",
+  [300] = "Status Code Uint 162: The Flex Contract Has Been Resubmitted (300)",
+  [301] = "Status Code Uint 162: Open Interest For Today Undetermined (301)",
+  [302] = "Status Code Uint 162: The Flex Contract Is Listed For Trading (302)",
+  [303] = "Status Code Uint 162: Incorrect Expiration Date For The Flex Contract (303)",
+  [304] = "Status Code Uint 162: Duplicate Unique Id Of A Security Definition Request For The Flex Contract (304)",
+  [305] = "Status Code Uint 162: Exceeding The Flex Contract Limit (305)",
+  [306] = "Status Code Uint 162: No Record Of Successful Flex Contract Application Was Found (306)",
+  [310] = "Status Code Uint 162: Non Flexible Contract Application Period (310)",
+  [311] = "Status Code Uint 162: The Proprietary Trading Account Has Not Been Approved To Apply For Flex Contracts (311)",
+  [312] = "Status Code Uint 162: The Fcm Account Has Not Been Approved To Apply For Flex Contracts (312)",
+  [313] = "Status Code Uint 162: Incorrect Coverage Range For The Flex Contract (313)",
+  [314] = "Status Code Uint 162: Invalid Strike Price For The Flex Contract (314)",
+  [315] = "Status Code Uint 162: Invalid Security Request Type For The Flex Contract (315)",
+  [316] = "Status Code Uint 162: Invalid Application Type For The Flex Contract (316)",
+  [317] = "Status Code Uint 162: Invalid Type For The Flex Contract (317)",
+  [318] = "Status Code Uint 162: Expiry Type Error (318)",
+  [319] = "Status Code Uint 162: Call Put Code Error (319)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.labels[value] or "Statuscode Uint 162: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.labels[value] or "Status Code Uint 162: Unknown("..value..")"
 end
 
--- Dissect: Statuscode Uint 162
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.size
+-- Dissect: Status Code Uint 162
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.statuscode_uint_162, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.status_code_uint_162, range, value, display)
 
   return offset + length, value
 end
 
--- Statuscode Uint 81
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81 = {}
+-- Status Code Uint 81
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81 = {}
 
--- Size: Statuscode Uint 81
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size = 1
+-- Size: Status Code Uint 81
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size = 1
 
--- Display: Statuscode Uint 81
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.labels = {
-  [0] = "Statuscode Uint 81: Succeed (0)",
-  [1] = "Statuscode Uint 81: Trading Time Over (1)",
-  [2] = "Statuscode Uint 81: Order Acceptance Not Yet Started Or Trading Halt (2)",
-  [3] = "Statuscode Uint 81: Price Quote Not Yet Accepted (3)",
-  [4] = "Statuscode Uint 81: In Processing No Order Accepted For The Time Being (4)",
-  [5] = "Statuscode Uint 81: No Such Order No (5)",
-  [6] = "Statuscode Uint 81: Order Or Quote Filled (6)",
-  [7] = "Statuscode Uint 81: Order Or Quote Cancelled (7)",
-  [8] = "Statuscode Uint 81: Stop Order (8)",
-  [9] = "Statuscode Uint 81: Order Limit (9)",
-  [10] = "Statuscode Uint 81: Order Not In The Book (10)",
-  [11] = "Statuscode Uint 81: Exec Type Error (11)",
-  [12] = "Statuscode Uint 81: Broker Id Error (12)",
-  [13] = "Statuscode Uint 81: Branch No Error (13)",
-  [14] = "Statuscode Uint 81: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)",
-  [15] = "Statuscode Uint 81: Investor Id Code Error (15)",
-  [16] = "Statuscode Uint 81: Reject Delete Or Modify Order During Noncancel Period (16)",
-  [17] = "Statuscode Uint 81: Duplicate Order No Or Quote No (17)",
-  [18] = "Statuscode Uint 81: Order No Or Quote No Error (18)",
-  [19] = "Statuscode Uint 81: The Same Side Order Not Exist (19)",
-  [20] = "Statuscode Uint 81: Product Id Error (20)",
-  [21] = "Statuscode Uint 81: Exceeding Risefall Limit (21)",
-  [22] = "Statuscode Uint 81: Order Quantity Error (22)",
-  [23] = "Statuscode Uint 81: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)",
-  [24] = "Statuscode Uint 81: Buysell Error (24)",
-  [25] = "Statuscode Uint 81: Ord Type Error (25)",
-  [26] = "Statuscode Uint 81: Order Type And Price Not Matched (26)",
-  [27] = "Statuscode Uint 81: Time In Force Error (27)",
-  [28] = "Statuscode Uint 81: Position Effect Error (28)",
-  [29] = "Statuscode Uint 81: Price And Tick Size Not Matched (29)",
-  [30] = "Statuscode Uint 81: Product Expired (30)",
-  [31] = "Statuscode Uint 81: Broker Id Product Group And Market Makers Account No Inconsistent (31)",
-  [32] = "Statuscode Uint 81: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)",
-  [33] = "Statuscode Uint 81: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)",
-  [34] = "Statuscode Uint 81: Bid Price Exceeding Ask Price (34)",
-  [35] = "Statuscode Uint 81: Remaining Quantity Of The Unmodified Side Is Zero (35)",
-  [36] = "Statuscode Uint 81: The Unfilled Part Of The Oneway Quote Is Less Than The Minimum Quantity Limit (36)",
-  [37] = "Statuscode Uint 81: Price Inquiry Already Present (37)",
-  [38] = "Statuscode Uint 81: Market Orderand Mwp Does Not Accept Rod (38)",
-  [39] = "Statuscode Uint 81: Decrease Quantity Error (39)",
-  [40] = "Statuscode Uint 81: Price Error Singleside Quote Order Modification (40)",
-  [41] = "Statuscode Uint 81: Settlement Month Error (41)",
-  [42] = "Statuscode Uint 81: Strike Price Error (42)",
-  [43] = "Statuscode Uint 81: Clearing Member Id Error (43)",
-  [44] = "Statuscode Uint 81: Ordersource Error (44)",
-  [45] = "Statuscode Uint 81: Infosource Error (45)",
-  [46] = "Statuscode Uint 81: Disable Kill Switch Operation Error (46)",
-  [47] = "Statuscode Uint 81: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)",
-  [48] = "Statuscode Uint 81: Dynamic Price Banding Limit Price Disclosure (48)",
-  [51] = "Statuscode Uint 81: Fok Not Filled And Deleted By System (51)",
-  [52] = "Statuscode Uint 81: Ioc Is Partially Filled (52)",
-  [53] = "Statuscode Uint 81: Ioc Not Filled And Deleted By System (53)",
-  [54] = "Statuscode Uint 81: Delete The Order Because Of Cod (54)",
-  [61] = "Statuscode Uint 81: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)",
-  [62] = "Statuscode Uint 81: Product Id Of Canceldecrease Order Not Matching Original Order (62)",
-  [63] = "Statuscode Uint 81: Modify Price Of Ioc Order Not Allowed (63)",
-  [64] = "Statuscode Uint 81: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)",
-  [65] = "Statuscode Uint 81: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)",
-  [77] = "Statuscode Uint 81: No Such Contract (77)",
-  [78] = "Statuscode Uint 81: Order Of This Contract Is Restricted For This Accountcode (78)",
-  [79] = "Statuscode Uint 81: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)",
-  [80] = "Statuscode Uint 81: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)",
-  [89] = "Statuscode Uint 81: Too Many Errors (89)",
-  [91] = "Statuscode Uint 81: Message Time Out (91)",
-  [92] = "Statuscode Uint 81: Message Length Error (92)",
-  [93] = "Statuscode Uint 81: Message Format Error (93)",
-  [99] = "Statuscode Uint 81: Major Error (99)",
-  [110] = "Statuscode Uint 81: Illegal File Code (110)",
-  [113] = "Statuscode Uint 81: Wrong File Request Range (113)",
-  [114] = "Statuscode Uint 81: File Is Not Ready (114)",
-  [117] = "Statuscode Uint 81: File Is Ready But Empty (117)",
-  [120] = "Statuscode Uint 81: File Not Found For Broker (120)",
-  [121] = "Statuscode Uint 81: Illegal Time To Get File (121)",
-  [150] = "Statuscode Uint 81: Fcmuniqueid Or Serial No Duplicate (150)",
-  [151] = "Statuscode Uint 81: Product Can Not Block Trade (151)",
-  [152] = "Statuscode Uint 81: Block Trade Order Quantity Error (152)",
-  [153] = "Statuscode Uint 81: Invalid Prodcount (153)",
-  [154] = "Statuscode Uint 81: Prodcount Is Not Match With The Number Of Legs In A Block Trade Order (154)",
-  [155] = "Statuscode Uint 81: Invalid Fcmuniqueid Or Serial No (155)",
-  [156] = "Statuscode Uint 81: Block Trade Id Duplicate (156)",
-  [157] = "Statuscode Uint 81: Invalid Block Trade Id (157)",
-  [158] = "Statuscode Uint 81: Invalid Participantfcmcount (158)",
-  [159] = "Statuscode Uint 81: Participantfcmcount Is Not Consistent With Participantfcmid List (159)",
-  [160] = "Statuscode Uint 81: Participantfcmid Error (160)",
-  [161] = "Statuscode Uint 81: Invalid Prodcount (161)",
-  [162] = "Statuscode Uint 81: Block Trade Id Does Not Exist (162)",
-  [163] = "Statuscode Uint 81: Negotiated Block Trade Success (163)",
-  [164] = "Statuscode Uint 81: Negotiated Block Trade Fail (164)",
-  [165] = "Statuscode Uint 81: Negotiated Block Trade Calcelled (165)",
-  [166] = "Statuscode Uint 81: Negotiated Block Trade Wait Fcm To Comfirm Order (166)",
-  [167] = "Statuscode Uint 81: Fcmid Not Matching Represent Fcm (167)",
-  [168] = "Statuscode Uint 81: Symboltype Error (168)",
-  [169] = "Statuscode Uint 81: Invalid Ordercount Of Negotiated Block Trade Confirm Input (169)",
-  [170] = "Statuscode Uint 81: Number Of Orders In B 31 Xb 31 Is Not Consistent With Ordercount Field (170)",
-  [171] = "Statuscode Uint 81: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)",
-  [172] = "Statuscode Uint 81: Investoracno Duplicate In Negotiated Block Trade Confirm Input (172)",
-  [175] = "Statuscode Uint 81: Negotiated Block Trade Timed Out (175)",
-  [176] = "Statuscode Uint 81: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)",
-  [177] = "Statuscode Uint 81: Negotiated Block Trade Beyond The Position Limit (177)",
-  [186] = "Statuscode Uint 81: Illegal Source Id (186)",
-  [200] = "Statuscode Uint 81: Significant System Time Error (200)",
-  [201] = "Statuscode Uint 81: Appendno Error (201)",
-  [202] = "Statuscode Uint 81: Fcmid Error (202)",
-  [203] = "Statuscode Uint 81: Apcode Error (203)",
-  [204] = "Statuscode Uint 81: Keyvalue Error (204)",
-  [205] = "Statuscode Uint 81: Sessionid Error (205)",
-  [206] = "Statuscode Uint 81: Systemtype Error (206)",
-  [207] = "Statuscode Uint 81: Msg Seq Num Error (207)",
-  [208] = "Statuscode Uint 81: Targetid Error (208)",
-  [209] = "Statuscode Uint 81: Flowgroupno Error (209)",
-  [210] = "Statuscode Uint 81: Subscription Request Type Error (210)",
-  [220] = "Statuscode Uint 81: Msg Type Ext Error (220)",
-  [221] = "Statuscode Uint 81: Partid Error (221)",
-  [240] = "Statuscode Uint 81: Session Exceeds The Flow Limit (240)",
-  [241] = "Statuscode Uint 81: Session Exceeds Flow Limit Continuously And Is Locked (241)",
-  [242] = "Statuscode Uint 81: Order Older Than Cancelordersec And Rejected (242)",
-  [248] = "Statuscode Uint 81: Session Reach 80% Of The Flow Limit (248)",
-  [249] = "Statuscode Uint 81: Session Reach 90% Of The Flow Limit (249)",
-  [250] = "Statuscode Uint 81: Order Older Than Two Seconds (250)",
+-- Display: Status Code Uint 81
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.labels = {
+  [0] = "Status Code Uint 81: Succeed (0)",
+  [1] = "Status Code Uint 81: Trading Time Over (1)",
+  [2] = "Status Code Uint 81: Order Acceptance Not Yet Started Or Trading Halt (2)",
+  [3] = "Status Code Uint 81: Price Quote Not Yet Accepted (3)",
+  [4] = "Status Code Uint 81: In Processing No Order Accepted For The Time Being (4)",
+  [5] = "Status Code Uint 81: No Such Order No (5)",
+  [6] = "Status Code Uint 81: Order Or Quote Filled (6)",
+  [7] = "Status Code Uint 81: Order Or Quote Cancelled (7)",
+  [8] = "Status Code Uint 81: Stop Order (8)",
+  [9] = "Status Code Uint 81: Order Limit (9)",
+  [10] = "Status Code Uint 81: Order Not In The Book (10)",
+  [11] = "Status Code Uint 81: Exec Type Error (11)",
+  [12] = "Status Code Uint 81: Broker Id Error (12)",
+  [13] = "Status Code Uint 81: Branch No Error (13)",
+  [14] = "Status Code Uint 81: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)",
+  [15] = "Status Code Uint 81: Investor Id Code Error (15)",
+  [16] = "Status Code Uint 81: Reject Delete Or Modify Order During Non Cancel Period (16)",
+  [17] = "Status Code Uint 81: Duplicate Order No Or Quote No (17)",
+  [18] = "Status Code Uint 81: Order No Or Quote No Error (18)",
+  [19] = "Status Code Uint 81: The Same Side Order Not Exist (19)",
+  [20] = "Status Code Uint 81: Product Id Error (20)",
+  [21] = "Status Code Uint 81: Exceeding Risefall Limit (21)",
+  [22] = "Status Code Uint 81: Order Quantity Error (22)",
+  [23] = "Status Code Uint 81: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)",
+  [24] = "Status Code Uint 81: Buy Sell Error (24)",
+  [25] = "Status Code Uint 81: Ord Type Error (25)",
+  [26] = "Status Code Uint 81: Order Type And Price Not Matched (26)",
+  [27] = "Status Code Uint 81: Time In Force Error (27)",
+  [28] = "Status Code Uint 81: Position Effect Error (28)",
+  [29] = "Status Code Uint 81: Price And Tick Size Not Matched (29)",
+  [30] = "Status Code Uint 81: Product Expired (30)",
+  [31] = "Status Code Uint 81: Broker Id Product Group And Market Makers Account No Inconsistent (31)",
+  [32] = "Status Code Uint 81: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)",
+  [33] = "Status Code Uint 81: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)",
+  [34] = "Status Code Uint 81: Bid Price Exceeding Ask Price (34)",
+  [35] = "Status Code Uint 81: Remaining Quantity Of The Unmodified Side Is Zero (35)",
+  [36] = "Status Code Uint 81: The Unfilled Part Of The One Way Quote Is Less Than The Minimum Quantity Limit (36)",
+  [37] = "Status Code Uint 81: Price Inquiry Already Present (37)",
+  [38] = "Status Code Uint 81: Market Orderand Mwp Does Not Accept Rod (38)",
+  [39] = "Status Code Uint 81: Decrease Quantity Error (39)",
+  [40] = "Status Code Uint 81: Price Error Single Side Quote Order Modification (40)",
+  [41] = "Status Code Uint 81: Settlement Month Error (41)",
+  [42] = "Status Code Uint 81: Strike Price Error (42)",
+  [43] = "Status Code Uint 81: Clearing Member Id Error (43)",
+  [44] = "Status Code Uint 81: Order Source Error (44)",
+  [45] = "Status Code Uint 81: Info Source Error (45)",
+  [46] = "Status Code Uint 81: Disable Kill Switch Operation Error (46)",
+  [47] = "Status Code Uint 81: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)",
+  [48] = "Status Code Uint 81: Dynamic Price Banding Limit Price Disclosure (48)",
+  [51] = "Status Code Uint 81: Fok Not Filled And Deleted By System (51)",
+  [52] = "Status Code Uint 81: Ioc Is Partially Filled (52)",
+  [53] = "Status Code Uint 81: Ioc Not Filled And Deleted By System (53)",
+  [54] = "Status Code Uint 81: Delete The Order Because Of Cod (54)",
+  [61] = "Status Code Uint 81: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)",
+  [62] = "Status Code Uint 81: Product Id Of Canceldecrease Order Not Matching Original Order (62)",
+  [63] = "Status Code Uint 81: Modify Price Of Ioc Order Not Allowed (63)",
+  [64] = "Status Code Uint 81: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)",
+  [65] = "Status Code Uint 81: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)",
+  [77] = "Status Code Uint 81: No Such Contract (77)",
+  [78] = "Status Code Uint 81: Order Of This Contract Is Restricted For This Account Code (78)",
+  [79] = "Status Code Uint 81: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)",
+  [80] = "Status Code Uint 81: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)",
+  [89] = "Status Code Uint 81: Too Many Errors (89)",
+  [91] = "Status Code Uint 81: Message Time Out (91)",
+  [92] = "Status Code Uint 81: Message Length Error (92)",
+  [93] = "Status Code Uint 81: Message Format Error (93)",
+  [99] = "Status Code Uint 81: Major Error (99)",
+  [110] = "Status Code Uint 81: Illegal File Code (110)",
+  [113] = "Status Code Uint 81: Wrong File Request Range (113)",
+  [114] = "Status Code Uint 81: File Is Not Ready (114)",
+  [117] = "Status Code Uint 81: File Is Ready But Empty (117)",
+  [120] = "Status Code Uint 81: File Not Found For Broker (120)",
+  [121] = "Status Code Uint 81: Illegal Time To Get File (121)",
+  [150] = "Status Code Uint 81: Fcm Unique Id Or Serial No Duplicate (150)",
+  [151] = "Status Code Uint 81: Product Can Not Block Trade (151)",
+  [152] = "Status Code Uint 81: Block Trade Order Quantity Error (152)",
+  [153] = "Status Code Uint 81: Invalid Prod Count (153)",
+  [154] = "Status Code Uint 81: Prod Count Is Not Match With The Number Of Legs In A Block Trade Order (154)",
+  [155] = "Status Code Uint 81: Invalid Fcm Unique Id Or Serial No (155)",
+  [156] = "Status Code Uint 81: Block Trade Id Duplicate (156)",
+  [157] = "Status Code Uint 81: Invalid Block Trade Id (157)",
+  [158] = "Status Code Uint 81: Invalid Participant Fcm Count (158)",
+  [159] = "Status Code Uint 81: Participant Fcm Count Is Not Consistent With Participant Fcm Id List (159)",
+  [160] = "Status Code Uint 81: Participant Fcm Id Error (160)",
+  [161] = "Status Code Uint 81: Invalid Prod Count (161)",
+  [162] = "Status Code Uint 81: Block Trade Id Does Not Exist (162)",
+  [163] = "Status Code Uint 81: Negotiated Block Trade Success (163)",
+  [164] = "Status Code Uint 81: Negotiated Block Trade Fail (164)",
+  [165] = "Status Code Uint 81: Negotiated Block Trade Calcelled (165)",
+  [166] = "Status Code Uint 81: Negotiated Block Trade Wait Fcm To Comfirm Order (166)",
+  [167] = "Status Code Uint 81: Fcm Id Not Matching Represent Fcm (167)",
+  [168] = "Status Code Uint 81: Symbol Type Error (168)",
+  [169] = "Status Code Uint 81: Invalid Order Count Of Negotiated Block Trade Confirm Input (169)",
+  [170] = "Status Code Uint 81: Number Of Orders In B 31 Xb 31 Is Not Consistent With Order Count Field (170)",
+  [171] = "Status Code Uint 81: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)",
+  [172] = "Status Code Uint 81: Investor Acno Duplicate In Negotiated Block Trade Confirm Input (172)",
+  [175] = "Status Code Uint 81: Negotiated Block Trade Timed Out (175)",
+  [176] = "Status Code Uint 81: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)",
+  [177] = "Status Code Uint 81: Negotiated Block Trade Beyond The Position Limit (177)",
+  [186] = "Status Code Uint 81: Illegal Source Id (186)",
+  [200] = "Status Code Uint 81: Significant System Time Error (200)",
+  [201] = "Status Code Uint 81: Append No Error (201)",
+  [202] = "Status Code Uint 81: Fcm Id Error (202)",
+  [203] = "Status Code Uint 81: Ap Code Error (203)",
+  [204] = "Status Code Uint 81: Key Value Error (204)",
+  [205] = "Status Code Uint 81: Session Id Error (205)",
+  [206] = "Status Code Uint 81: System Type Error (206)",
+  [207] = "Status Code Uint 81: Msg Seq Num Error (207)",
+  [208] = "Status Code Uint 81: Target Id Error (208)",
+  [209] = "Status Code Uint 81: Flow Group No Error (209)",
+  [210] = "Status Code Uint 81: Subscription Request Type Error (210)",
+  [220] = "Status Code Uint 81: Msg Type Ext Error (220)",
+  [221] = "Status Code Uint 81: Part Id Error (221)",
+  [240] = "Status Code Uint 81: Session Exceeds The Flow Limit (240)",
+  [241] = "Status Code Uint 81: Session Exceeds Flow Limit Continuously And Is Locked (241)",
+  [242] = "Status Code Uint 81: Order Older Than Cancel Order Sec And Rejected (242)",
+  [248] = "Status Code Uint 81: Session Reach 80% Of The Flow Limit (248)",
+  [249] = "Status Code Uint 81: Session Reach 90% Of The Flow Limit (249)",
+  [250] = "Status Code Uint 81: Order Older Than Two Seconds (250)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.labels[value] or "Statuscode Uint 81: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.labels[value] or "Status Code Uint 81: Unknown("..value..")"
 end
 
--- Dissect: Statuscode Uint 81
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+-- Dissect: Status Code Uint 81
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.statuscode_uint_81, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.status_code_uint_81, range, value, display)
 
   return offset + length, value
 end
 
--- Strikeprice
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.strikeprice = {}
+-- Strike Price
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.strike_price = {}
 
--- Size: Strikeprice
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.strikeprice.size = 4
+-- Size: Strike Price
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.strike_price.size = 4
 
--- Display: Strikeprice
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.strikeprice.display = function(value)
-  return "Strikeprice: "..value
+-- Display: Strike Price
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.strike_price.display = function(value)
+  return "Strike Price: "..value
 end
 
--- Dissect: Strikeprice
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.strikeprice.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.strikeprice.size
+-- Dissect: Strike Price
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.strike_price.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.strikeprice.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.strike_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.strikeprice, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -2916,98 +2916,98 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_char_4040.dissect = funct
   return offset + length, value
 end
 
--- Symboltype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype = {}
+-- Symbol Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type = {}
 
--- Size: Symboltype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size = 1
+-- Size: Symbol Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size = 1
 
--- Display: Symboltype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.labels = {
-  [1] = "Symboltype: Numeric Product Id (1)",
-  [2] = "Symboltype: Text Product Id (2)",
-  [3] = "Symboltype: Numeric Product Id Long Format (3)",
-  [4] = "Symboltype: Text Product Id Long Format (4)",
+-- Display: Symbol Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.labels = {
+  [1] = "Symbol Type: Numeric Product Id (1)",
+  [2] = "Symbol Type: Text Product Id (2)",
+  [3] = "Symbol Type: Numeric Product Id Long Format (3)",
+  [4] = "Symbol Type: Text Product Id Long Format (4)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.labels[value] or "Symboltype: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.labels[value] or "Symbol Type: Unknown("..value..")"
 end
 
--- Dissect: Symboltype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+-- Dissect: Symbol Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symboltype, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_type, range, value, display)
 
   return offset + length, value
 end
 
--- Systemtype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype = {}
+-- System Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type = {}
 
--- Size: Systemtype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.size = 1
+-- Size: System Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size = 1
 
--- Display: Systemtype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.labels = {
-  [10] = "Systemtype: Options Regular Market Hours (10)",
-  [20] = "Systemtype: Futures Regular Market Hours (20)",
-  [11] = "Systemtype: Options After Market Hours (11)",
-  [21] = "Systemtype: Futures After Market Hours (21)",
+-- Display: System Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.labels = {
+  [10] = "System Type: Options Regular Market Hours (10)",
+  [20] = "System Type: Futures Regular Market Hours (20)",
+  [11] = "System Type: Options After Market Hours (11)",
+  [21] = "System Type: Futures After Market Hours (21)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.labels[value] or "Systemtype: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.labels[value] or "System Type: Unknown("..value..")"
 end
 
--- Dissect: Systemtype
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.size
+-- Dissect: System Type
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.systemtype, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.system_type, range, value, display)
 
   return offset + length, value
 end
 
--- Targetid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid = {}
+-- Target Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id = {}
 
--- Size: Targetid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.size = 1
+-- Size: Target Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.size = 1
 
--- Display: Targetid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.labels = {
-  [3] = "Targetid: Execution Report Including Head Office And Branch Offices In R 02 Format (3)",
-  [4] = "Targetid: Fcm (4)",
-  [7] = "Targetid: Drop Copy In R 02 Format (7)",
-  [8] = "Targetid: Clearing Member Order And Execution In R 02 Format (8)",
-  [9] = "Targetid: Clearing Member Execution In R 02 Format (9)",
-  [13] = "Targetid: Execution Report Including Head Office And Branch Offices In R 32 Format (13)",
-  [17] = "Targetid: Drop Copy In R 32 Format (17)",
-  [18] = "Targetid: Clearing Member Order And Execution In R 32 Format (18)",
-  [19] = "Targetid: Clearing Member Execution In R 32 Format (19)",
-  [23] = "Targetid: Execution Report Including Head Office And Branch Offices In R 06 Format (23)",
+-- Display: Target Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.labels = {
+  [3] = "Target Id: Execution Report Including Head Office And Branch Offices In R 02 Format (3)",
+  [4] = "Target Id: Fcm (4)",
+  [7] = "Target Id: Drop Copy In R 02 Format (7)",
+  [8] = "Target Id: Clearing Member Order And Execution In R 02 Format (8)",
+  [9] = "Target Id: Clearing Member Execution In R 02 Format (9)",
+  [13] = "Target Id: Execution Report Including Head Office And Branch Offices In R 32 Format (13)",
+  [17] = "Target Id: Drop Copy In R 32 Format (17)",
+  [18] = "Target Id: Clearing Member Order And Execution In R 32 Format (18)",
+  [19] = "Target Id: Clearing Member Execution In R 32 Format (19)",
+  [23] = "Target Id: Execution Report Including Head Office And Branch Offices In R 06 Format (23)",
 }
 
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.display = function(value)
-  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.labels[value] or "Targetid: Unknown("..value..")"
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.display = function(value)
+  return taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.labels[value] or "Target Id: Unknown("..value..")"
 end
 
--- Dissect: Targetid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.size
+-- Dissect: Target Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.targetid, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.target_id, range, value, display)
 
   return offset + length, value
 end
@@ -3125,48 +3125,48 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.type.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Uniqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid = {}
+-- Uniq Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id = {}
 
--- Size: Uniqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.size = 4
+-- Size: Uniq Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.size = 4
 
--- Display: Uniqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.display = function(value)
-  return "Uniqid: "..value
+-- Display: Uniq Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.display = function(value)
+  return "Uniq Id: "..value
 end
 
--- Dissect: Uniqid
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.size
+-- Dissect: Uniq Id
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.uniqid, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.uniq_id, range, value, display)
 
   return offset + length, value
 end
 
--- Userdefine
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine = {}
+-- User Define
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define = {}
 
--- Size: Userdefine
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size = 8
+-- Size: User Define
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size = 8
 
--- Display: Userdefine
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.display = function(value)
-  return "Userdefine: "..value
+-- Display: User Define
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.display = function(value)
+  return "User Define: "..value
 end
 
--- Dissect: Userdefine
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size
+-- Dissect: User Define
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.userdefine, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.user_define, range, value, display)
 
   return offset + length, value
 end
@@ -3244,16 +3244,16 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.message_tail.dissect = function(
   end
 end
 
--- Bulletintime Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtimex = {}
+-- Bulletin Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x = {}
 
--- Size: Bulletintime Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtimex.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_uint_324.size + 
+-- Size: Bulletin Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.size =
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_uint_324.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.nanosecond.size
 
--- Display: Bulletintime Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtimex.display = function(packet, parent, value)
+-- Display: Bulletin Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.display = function(packet, parent, value)
   -- Check null value
   if value == nil then
     return "No Value"
@@ -3267,60 +3267,60 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtimex.display = 
   return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
--- Dissect Fields: Bulletintime Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtimex.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Bulletin Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Epochs Uint 324: uint32
-  index, epochs_uint_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_uint_324.dissect(buffer, index, packet, parent)
+  -- Epoch S Uint 324: uint32
+  index, epoch_s_uint_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_uint_324.dissect(buffer, index, packet, parent)
 
   -- Nanosecond: uint32
   index, nanosecond = taifex_taifexderivatives_orderentry_tmp_v2_18_7.nanosecond.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local bulletintime_msgtimex = UInt64.new(epochs_uint_324 * 1000000000 + nanosecond)
+  local bulletin_time_msg_time_x = UInt64.new(epoch_s_uint_324 * 1000000000 + nanosecond)
 
-  return index, bulletintime_msgtimex
+  return index, bulletin_time_msg_time_x
 end
 
--- Dissect: Bulletintime Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtimex.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Bulletin Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- An absolute time item carries its value from the moment it is created,
     -- so the parts are read here rather than taken from the fields below it
-    local epochs_uint_324 = buffer(offset, 4):uint()
+    local epoch_s_uint_324 = buffer(offset, 4):uint()
     local nanosecond = buffer(offset + 4, 4):uint()
-    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtimex.size
+    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletintime_msgtimex
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletintime_msgtimex_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(epochs_uint_324, nanosecond))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtimex.fields(buffer, offset, packet, parent)
+    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time_x
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time_x_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_uint_324, nanosecond))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.fields(buffer, offset, packet, parent)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtimex.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.fields(buffer, offset, packet, parent)
   end
 end
 
--- Subhdr
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr = {}
+-- Sub Hdr
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr = {}
 
--- Size: Subhdr
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size =
+-- Size: Sub Hdr
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size =
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_type_ext.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.preserve.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.msgtimens.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_time_ns.size
 
--- Display: Subhdr
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.display = function(packet, parent, length)
+-- Display: Sub Hdr
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Subhdr
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Sub Hdr
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Msg Type Ext: uint8
@@ -3329,27 +3329,27 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.fields = function(buffer,
   -- Preserve: uint8
   index, preserve = taifex_taifexderivatives_orderentry_tmp_v2_18_7.preserve.dissect(buffer, index, packet, parent)
 
-  -- Msgtimens: uint32
-  index, msgtimens = taifex_taifexderivatives_orderentry_tmp_v2_18_7.msgtimens.dissect(buffer, index, packet, parent)
+  -- Msg Time Ns: uint32
+  index, msg_time_ns = taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_time_ns.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Subhdr
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Sub Hdr
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.subhdr, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.sub_hdr, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3360,19 +3360,19 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_bulletin_report_message = {
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_bulletin_report_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinseq.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_seq.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtimex.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size
 
-  -- Parse runtime size of: Data Char Hdrmsglength 1525
+  -- Parse runtime size of: Data Char Hdr Msg Length 1525
   index = index + buffer(offset + index - 42, 2):uint()
 
   return index
@@ -3387,32 +3387,32 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_bulletin_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
-  -- Statuscode Uint 162: uint16
-  index, statuscode_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 162: uint16
+  index, status_code_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.dissect(buffer, index, packet, parent)
 
-  -- Fcmreqid: uint32
-  index, fcmreqid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.dissect(buffer, index, packet, parent)
+  -- Fcm Req Id: uint32
+  index, fcm_req_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.dissect(buffer, index, packet, parent)
 
-  -- Bulletinseq: uint32
-  index, bulletinseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinseq.dissect(buffer, index, packet, parent)
+  -- Bulletin Seq: uint32
+  index, bulletin_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_seq.dissect(buffer, index, packet, parent)
 
-  -- Bulletintime Msgtimex: Struct of 2 fields
-  index, bulletintime_msgtimex = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtimex.dissect(buffer, index, packet, parent)
+  -- Bulletin Time Msg Time X: Struct of 2 fields
+  index, bulletin_time_msg_time_x = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.dissect(buffer, index, packet, parent)
 
-  -- Systemtype: uint8
-  index, systemtype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.dissect(buffer, index, packet, parent)
+  -- System Type: uint8
+  index, system_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Length
   local msg_length = buffer(offset - 17, 2):uint()
 
-  -- Runtime Size Of: Data Char Hdrmsglength 1525
-  local size_of_data_char_hdrmsglength_1525 = msg_length - 40
+  -- Runtime Size Of: Data Char Hdr Msg Length 1525
+  local size_of_data_char_hdr_msg_length_1525 = msg_length - 40
 
-  -- Data Char Hdrmsglength 1525: char
-  index, data_char_hdrmsglength_1525 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1525.dissect(buffer, index, packet, parent, size_of_data_char_hdrmsglength_1525)
+  -- Data Char Hdr Msg Length 1525: char
+  index, data_char_hdr_msg_length_1525 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1525.dissect(buffer, index, packet, parent, size_of_data_char_hdr_msg_length_1525)
 
   return index
 end
@@ -3442,15 +3442,15 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_bulletin_request_message = 
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_bulletin_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size
 
-  -- Parse runtime size of: Data Char Hdrmsglength 1515
+  -- Parse runtime size of: Data Char Hdr Msg Length 1515
   index = index + buffer(offset + index - 32, 2):uint()
 
   return index
@@ -3465,26 +3465,26 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_bulletin_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
-  -- Fcmreqid: uint32
-  index, fcmreqid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.dissect(buffer, index, packet, parent)
+  -- Fcm Req Id: uint32
+  index, fcm_req_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.dissect(buffer, index, packet, parent)
 
-  -- Bulletinreqid: uint32
-  index, bulletinreqid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid.dissect(buffer, index, packet, parent)
+  -- Bulletin Req Id: uint32
+  index, bulletin_req_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id.dissect(buffer, index, packet, parent)
 
-  -- Systemtype: uint8
-  index, systemtype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.dissect(buffer, index, packet, parent)
+  -- System Type: uint8
+  index, system_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Length
   local msg_length = buffer(offset - 17, 2):uint()
 
-  -- Runtime Size Of: Data Char Hdrmsglength 1515
-  local size_of_data_char_hdrmsglength_1515 = msg_length - 30
+  -- Runtime Size Of: Data Char Hdr Msg Length 1515
+  local size_of_data_char_hdr_msg_length_1515 = msg_length - 30
 
-  -- Data Char Hdrmsglength 1515: char
-  index, data_char_hdrmsglength_1515 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1515.dissect(buffer, index, packet, parent, size_of_data_char_hdrmsglength_1515)
+  -- Data Char Hdr Msg Length 1515: char
+  index, data_char_hdr_msg_length_1515 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1515.dissect(buffer, index, packet, parent, size_of_data_char_hdr_msg_length_1515)
 
   return index
 end
@@ -3512,10 +3512,10 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_product_definition_message 
 
 -- Size: Flex Product Definition Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_product_definition_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.security_request_type.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.security_req_id.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.size
 
 -- Display: Flex Product Definition Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_product_definition_message.display = function(packet, parent, length)
@@ -3526,8 +3526,8 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_product_definition_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
   -- Security Request Type: char
   index, security_request_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.security_request_type.dissect(buffer, index, packet, parent)
@@ -3535,8 +3535,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_product_definition_message.
   -- Security Req Id: uint32
   index, security_req_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.security_req_id.dissect(buffer, index, packet, parent)
 
-  -- Statuscode Uint 162: uint16
-  index, statuscode_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 162: uint16
+  index, status_code_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3566,17 +3566,17 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.send_flex_group_report_resend_me
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.send_flex_group_report_resend_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.filesize.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size.size
 
-  -- Parse runtime size of: Data Uint 8 Hdrmsglength 1514
+  -- Parse runtime size of: Data Uint 8 Hdr Msg Length 1514
   index = index + buffer(offset + index - 31, 2):uint()
 
   return index
@@ -3591,29 +3591,29 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.send_flex_group_report_resend_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
-  -- Statuscode Uint 162: uint16
-  index, statuscode_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 162: uint16
+  index, status_code_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.dissect(buffer, index, packet, parent)
 
-  -- Partid: uint8
-  index, partid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.dissect(buffer, index, packet, parent)
+  -- Part Id: uint8
+  index, part_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.dissect(buffer, index, packet, parent)
 
-  -- Iseof: uint8
-  index, iseof = taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof.dissect(buffer, index, packet, parent)
+  -- Is Eof: uint8
+  index, is_eof = taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof.dissect(buffer, index, packet, parent)
 
-  -- Filesize: uint32
-  index, filesize = taifex_taifexderivatives_orderentry_tmp_v2_18_7.filesize.dissect(buffer, index, packet, parent)
+  -- File Size: uint32
+  index, file_size = taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Length
   local msg_length = buffer(offset - 17, 2):uint()
 
-  -- Runtime Size Of: Data Uint 8 Hdrmsglength 1514
-  local size_of_data_uint_8_hdrmsglength_1514 = msg_length - 29
+  -- Runtime Size Of: Data Uint 8 Hdr Msg Length 1514
+  local size_of_data_uint_8_hdr_msg_length_1514 = msg_length - 29
 
-  -- Data Uint 8 Hdrmsglength 1514: uint8
-  index, data_uint_8_hdrmsglength_1514 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdrmsglength_1514.dissect(buffer, index, packet, parent, size_of_data_uint_8_hdrmsglength_1514)
+  -- Data Uint 8 Hdr Msg Length 1514: uint8
+  index, data_uint_8_hdr_msg_length_1514 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_1514.dissect(buffer, index, packet, parent, size_of_data_uint_8_hdr_msg_length_1514)
 
   return index
 end
@@ -3636,173 +3636,173 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.send_flex_group_report_resend_me
   end
 end
 
--- Legsym Symboltxtx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symboltxtx = {}
+-- Leg Sym Symbol Txt X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_txt_x = {}
 
--- Size: Legsym Symboltxtx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symboltxtx.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.prodid.size
+-- Size: Leg Sym Symbol Txt X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_txt_x.size =
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.prod_id.size
 
--- Display: Legsym Symboltxtx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symboltxtx.display = function(packet, parent, length)
+-- Display: Leg Sym Symbol Txt X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_txt_x.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Legsym Symboltxtx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symboltxtx.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Leg Sym Symbol Txt X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_txt_x.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Prodid: char[20]
-  index, prodid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.prodid.dissect(buffer, index, packet, parent)
+  -- Prod Id: char[20]
+  index, prod_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.prod_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Legsym Symboltxtx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symboltxtx.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Leg Sym Symbol Txt X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_txt_x.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legsym_symboltxtx, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symboltxtx.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_sym_symbol_txt_x, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_txt_x.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symboltxtx.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_txt_x.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symboltxtx.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_txt_x.fields(buffer, offset, packet, parent)
   end
 end
 
--- Legentrytxt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrytxt = {}
+-- Leg Entry Txt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_txt = {}
 
--- Size: Legentrytxt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrytxt.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symboltxtx.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_162.size
+-- Size: Leg Entry Txt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_txt.size =
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_txt_x.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_162.size
 
--- Display: Legentrytxt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrytxt.display = function(packet, parent, length)
+-- Display: Leg Entry Txt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_txt.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Legentrytxt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrytxt.fields = function(buffer, offset, packet, parent, legentrytxt_index)
+-- Dissect Fields: Leg Entry Txt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_txt.fields = function(buffer, offset, packet, parent, leg_entry_txt_index)
   local index = offset
 
-  -- Implicit Legentrytxt Index
-  if legentrytxt_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legentrytxt_index, legentrytxt_index)
+  -- Implicit Leg Entry Txt Index
+  if leg_entry_txt_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_entry_txt_index, leg_entry_txt_index)
     iteration:set_generated()
   end
 
-  -- Legsym Symboltxtx: Struct of 1 fields
-  index, legsym_symboltxtx = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symboltxtx.dissect(buffer, index, packet, parent)
+  -- Leg Sym Symbol Txt X: Struct of 1 fields
+  index, leg_sym_symbol_txt_x = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_txt_x.dissect(buffer, index, packet, parent)
 
-  -- Legside Uint 81: uint8
-  index, legside_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81.dissect(buffer, index, packet, parent)
+  -- Leg Side Uint 81: uint8
+  index, leg_side_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81.dissect(buffer, index, packet, parent)
 
-  -- Legqty Uint 162: uint16
-  index, legqty_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_162.dissect(buffer, index, packet, parent)
+  -- Leg Qty Uint 162: uint16
+  index, leg_qty_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_162.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Legentrytxt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrytxt.dissect = function(buffer, offset, packet, parent, legentrytxt_index)
+-- Dissect: Leg Entry Txt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_txt.dissect = function(buffer, offset, packet, parent, leg_entry_txt_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legentrytxt, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrytxt.fields(buffer, offset, packet, parent, legentrytxt_index)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_entry_txt, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_txt.fields(buffer, offset, packet, parent, leg_entry_txt_index)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrytxt.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_txt.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrytxt.fields(buffer, offset, packet, parent, legentrytxt_index)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_txt.fields(buffer, offset, packet, parent, leg_entry_txt_index)
   end
 end
 
--- Multilegtxt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegtxt = {}
+-- Multi Leg Txt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_txt = {}
 
--- Calculate size of: Multilegtxt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegtxt.size = function(buffer, offset)
+-- Calculate size of: Multi Leg Txt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_txt.size = function(buffer, offset)
   local index = 0
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.no_leg.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.size
 
   -- Calculate field size from count
-  local legentrytxt_count = buffer(offset + index - 2, 1):uint()
-  index = index + legentrytxt_count * 23
+  local leg_entry_txt_count = buffer(offset + index - 2, 1):uint()
+  index = index + leg_entry_txt_count * 23
 
   return index
 end
 
--- Display: Multilegtxt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegtxt.display = function(packet, parent, length)
+-- Display: Multi Leg Txt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_txt.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Multilegtxt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegtxt.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Multi Leg Txt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_txt.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- No Leg: uint8
   index, no_leg = taifex_taifexderivatives_orderentry_tmp_v2_18_7.no_leg.dissect(buffer, index, packet, parent)
 
-  -- Combop: uint8
-  index, combop = taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.dissect(buffer, index, packet, parent)
+  -- Comb Op: uint8
+  index, comb_op = taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Legentrytxt
-  for legentrytxt_index = 1, no_leg do
-    index, legentrytxt = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrytxt.dissect(buffer, index, packet, parent, legentrytxt_index)
+  -- Repeating: Leg Entry Txt
+  for leg_entry_txt_index = 1, no_leg do
+    index, leg_entry_txt = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_txt.dissect(buffer, index, packet, parent, leg_entry_txt_index)
   end
 
   return index
 end
 
--- Dissect: Multilegtxt
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegtxt.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Multi Leg Txt
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_txt.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.multilegtxt, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegtxt.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.multi_leg_txt, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_txt.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegtxt.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_txt.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegtxt.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_txt.fields(buffer, offset, packet, parent)
   end
 end
 
--- Legsym Symbolnumx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symbolnumx = {}
+-- Leg Sym Symbol Num X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_num_x = {}
 
--- Size: Legsym Symbolnumx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symbolnumx.size =
+-- Size: Leg Sym Symbol Num X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_num_x.size =
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.pseq.size
 
--- Display: Legsym Symbolnumx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symbolnumx.display = function(packet, parent, length)
+-- Display: Leg Sym Symbol Num X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_num_x.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Legsym Symbolnumx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symbolnumx.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Leg Sym Symbol Num X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_num_x.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Pseq: uint32
@@ -3811,191 +3811,191 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symbolnumx.fields = funct
   return index
 end
 
--- Dissect: Legsym Symbolnumx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symbolnumx.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Leg Sym Symbol Num X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_num_x.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legsym_symbolnumx, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symbolnumx.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_sym_symbol_num_x, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_num_x.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symbolnumx.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_num_x.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symbolnumx.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_num_x.fields(buffer, offset, packet, parent)
   end
 end
 
--- Legentrynum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrynum = {}
+-- Leg Entry Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_num = {}
 
--- Size: Legentrynum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrynum.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symbolnumx.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_162.size
+-- Size: Leg Entry Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_num.size =
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_num_x.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_162.size
 
--- Display: Legentrynum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrynum.display = function(packet, parent, length)
+-- Display: Leg Entry Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_num.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Legentrynum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrynum.fields = function(buffer, offset, packet, parent, legentrynum_index)
+-- Dissect Fields: Leg Entry Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_num.fields = function(buffer, offset, packet, parent, leg_entry_num_index)
   local index = offset
 
-  -- Implicit Legentrynum Index
-  if legentrynum_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legentrynum_index, legentrynum_index)
+  -- Implicit Leg Entry Num Index
+  if leg_entry_num_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_entry_num_index, leg_entry_num_index)
     iteration:set_generated()
   end
 
-  -- Legsym Symbolnumx: Struct of 1 fields
-  index, legsym_symbolnumx = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legsym_symbolnumx.dissect(buffer, index, packet, parent)
+  -- Leg Sym Symbol Num X: Struct of 1 fields
+  index, leg_sym_symbol_num_x = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_sym_symbol_num_x.dissect(buffer, index, packet, parent)
 
-  -- Legside Uint 81: uint8
-  index, legside_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_81.dissect(buffer, index, packet, parent)
+  -- Leg Side Uint 81: uint8
+  index, leg_side_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_81.dissect(buffer, index, packet, parent)
 
-  -- Legqty Uint 162: uint16
-  index, legqty_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_162.dissect(buffer, index, packet, parent)
+  -- Leg Qty Uint 162: uint16
+  index, leg_qty_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_162.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Legentrynum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrynum.dissect = function(buffer, offset, packet, parent, legentrynum_index)
+-- Dissect: Leg Entry Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_num.dissect = function(buffer, offset, packet, parent, leg_entry_num_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.legentrynum, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrynum.fields(buffer, offset, packet, parent, legentrynum_index)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_entry_num, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_num.fields(buffer, offset, packet, parent, leg_entry_num_index)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrynum.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_num.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrynum.fields(buffer, offset, packet, parent, legentrynum_index)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_num.fields(buffer, offset, packet, parent, leg_entry_num_index)
   end
 end
 
--- Multilegnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegnum = {}
+-- Multi Leg Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_num = {}
 
--- Calculate size of: Multilegnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegnum.size = function(buffer, offset)
+-- Calculate size of: Multi Leg Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_num.size = function(buffer, offset)
   local index = 0
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.no_leg.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.size
 
   -- Calculate field size from count
-  local legentrynum_count = buffer(offset + index - 2, 1):uint()
-  index = index + legentrynum_count * 7
+  local leg_entry_num_count = buffer(offset + index - 2, 1):uint()
+  index = index + leg_entry_num_count * 7
 
   return index
 end
 
--- Display: Multilegnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegnum.display = function(packet, parent, length)
+-- Display: Multi Leg Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_num.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Multilegnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegnum.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Multi Leg Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_num.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- No Leg: uint8
   index, no_leg = taifex_taifexderivatives_orderentry_tmp_v2_18_7.no_leg.dissect(buffer, index, packet, parent)
 
-  -- Combop: uint8
-  index, combop = taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.dissect(buffer, index, packet, parent)
+  -- Comb Op: uint8
+  index, comb_op = taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Legentrynum
-  for legentrynum_index = 1, no_leg do
-    index, legentrynum = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legentrynum.dissect(buffer, index, packet, parent, legentrynum_index)
+  -- Repeating: Leg Entry Num
+  for leg_entry_num_index = 1, no_leg do
+    index, leg_entry_num = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_entry_num.dissect(buffer, index, packet, parent, leg_entry_num_index)
   end
 
   return index
 end
 
--- Dissect: Multilegnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegnum.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Multi Leg Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_num.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.multilegnum, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegnum.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.multi_leg_num, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_num.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegnum.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_num.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegnum.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_num.fields(buffer, offset, packet, parent)
   end
 end
 
--- Symboltxtx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltxtx = {}
+-- Symbol Txt X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_txt_x = {}
 
--- Size: Symboltxtx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltxtx.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.prodid.size
+-- Size: Symbol Txt X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_txt_x.size =
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.prod_id.size
 
--- Display: Symboltxtx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltxtx.display = function(packet, parent, length)
+-- Display: Symbol Txt X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_txt_x.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Symboltxtx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltxtx.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Symbol Txt X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_txt_x.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Prodid: char[20]
-  index, prodid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.prodid.dissect(buffer, index, packet, parent)
+  -- Prod Id: char[20]
+  index, prod_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.prod_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Symboltxtx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltxtx.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Symbol Txt X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_txt_x.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symboltxtx, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltxtx.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_txt_x, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_txt_x.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltxtx.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_txt_x.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltxtx.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_txt_x.fields(buffer, offset, packet, parent)
   end
 end
 
--- Symbolnumx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnumx = {}
+-- Symbol Num X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num_x = {}
 
--- Size: Symbolnumx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnumx.size =
+-- Size: Symbol Num X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num_x.size =
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.pseq.size
 
--- Display: Symbolnumx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnumx.display = function(packet, parent, length)
+-- Display: Symbol Num X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num_x.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Symbolnumx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnumx.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Symbol Num X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num_x.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Pseq: uint32
@@ -4004,38 +4004,38 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnumx.fields = function(buf
   return index
 end
 
--- Dissect: Symbolnumx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnumx.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Symbol Num X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num_x.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbolnumx, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnumx.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_num_x, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num_x.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnumx.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num_x.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnumx.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num_x.fields(buffer, offset, packet, parent)
   end
 end
 
--- Sym Flexproductx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx = {}
+-- Sym Flex Product X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x = {}
 
--- Dispatch: Sym Flexproductx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.dispatch = {
-  [1] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnumx.dissect,
-  [2] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltxtx.dissect,
-  [3] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegnum.dissect,
-  [4] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multilegtxt.dissect,
+-- Dispatch: Sym Flex Product X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.dispatch = {
+  [1] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num_x.dissect,
+  [2] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_txt_x.dissect,
+  [3] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_num.dissect,
+  [4] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.multi_leg_txt.dissect,
 }
 
--- Dissect: Sym Flexproductx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.dissect = function(buffer, offset, packet, parent, msg_type_ext)
-  local dissect = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.dispatch[msg_type_ext]
+-- Dissect: Sym Flex Product X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.dissect = function(buffer, offset, packet, parent, msg_type_ext)
+  local dissect = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.dispatch[msg_type_ext]
   if dissect then
     return dissect(buffer, offset, packet, parent)
   end
@@ -4050,22 +4050,22 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_price_inquiry_reply_message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_price_inquiry_reply_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  -- Calculate runtime size of Sym Flexproductx field
-  local sym_flexproductx_offset = offset + index
-  local sym_flexproductx_type = buffer(sym_flexproductx_offset - 20, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.size(buffer, sym_flexproductx_offset, sym_flexproductx_type)
+  -- Calculate runtime size of Sym Flex Product X field
+  local sym_flex_product_x_offset = offset + index
+  local sym_flex_product_x_type = buffer(sym_flex_product_x_offset - 20, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.size(buffer, sym_flex_product_x_offset, sym_flex_product_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_8.size
 
@@ -4081,29 +4081,29 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_price_inquiry_reply_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
-  -- Partid: uint8
-  index, partid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.dissect(buffer, index, packet, parent)
+  -- Part Id: uint8
+  index, part_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.dissect(buffer, index, packet, parent)
 
-  -- Statuscode Uint 162: uint16
-  index, statuscode_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 162: uint16
+  index, status_code_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Type Ext
   local msg_type_ext = buffer(index - 20, 1):uint()
 
-  -- Sym Flexproductx: Runtime Type with 4 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.dissect(buffer, index, packet, parent, msg_type_ext)
+  -- Sym Flex Product X: Runtime Type with 4 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.dissect(buffer, index, packet, parent, msg_type_ext)
 
   -- Reserved 8: uint8[8]
   index, reserved_8 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_8.dissect(buffer, index, packet, parent)
@@ -4134,16 +4134,16 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_error_report_message = {}
 
 -- Size: Flex Error Report Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_error_report_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.ori_message_type.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_12.size
 
@@ -4156,35 +4156,35 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_error_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
-  -- Partid: uint8
-  index, partid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.dissect(buffer, index, packet, parent)
+  -- Part Id: uint8
+  index, part_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.dissect(buffer, index, packet, parent)
 
   -- Ori Message Type: uint8
   index, ori_message_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ori_message_type.dissect(buffer, index, packet, parent)
 
-  -- Statuscode Uint 162: uint16
-  index, statuscode_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 162: uint16
+  index, status_code_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
-  -- Rptseq: uint32
-  index, rptseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.dissect(buffer, index, packet, parent)
+  -- Rpt Seq: uint32
+  index, rpt_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.dissect(buffer, index, packet, parent)
 
   -- Side: uint8
   index, side = taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.dissect(buffer, index, packet, parent)
@@ -4213,16 +4213,16 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_error_report_message.dissec
   end
 end
 
--- Transact Time Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtimex = {}
+-- Transact Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x = {}
 
--- Size: Transact Time Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtimex.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_uint_324.size + 
+-- Size: Transact Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.size =
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_uint_324.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.nanosecond.size
 
--- Display: Transact Time Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtimex.display = function(packet, parent, value)
+-- Display: Transact Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.display = function(packet, parent, value)
   -- Check null value
   if value == nil then
     return "No Value"
@@ -4236,54 +4236,54 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtimex.display =
   return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
--- Dissect Fields: Transact Time Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtimex.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Transact Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Epochs Uint 324: uint32
-  index, epochs_uint_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_uint_324.dissect(buffer, index, packet, parent)
+  -- Epoch S Uint 324: uint32
+  index, epoch_s_uint_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_uint_324.dissect(buffer, index, packet, parent)
 
   -- Nanosecond: uint32
   index, nanosecond = taifex_taifexderivatives_orderentry_tmp_v2_18_7.nanosecond.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local transact_time_msgtimex = UInt64.new(epochs_uint_324 * 1000000000 + nanosecond)
+  local transact_time_msg_time_x = UInt64.new(epoch_s_uint_324 * 1000000000 + nanosecond)
 
-  return index, transact_time_msgtimex
+  return index, transact_time_msg_time_x
 end
 
--- Dissect: Transact Time Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtimex.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Transact Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- An absolute time item carries its value from the moment it is created,
     -- so the parts are read here rather than taken from the fields below it
-    local epochs_uint_324 = buffer(offset, 4):uint()
+    local epoch_s_uint_324 = buffer(offset, 4):uint()
     local nanosecond = buffer(offset + 4, 4):uint()
-    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtimex.size
+    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msgtimex
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msgtimex_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(epochs_uint_324, nanosecond))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtimex.fields(buffer, offset, packet, parent)
+    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time_x
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time_x_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_uint_324, nanosecond))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.fields(buffer, offset, packet, parent)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtimex.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.fields(buffer, offset, packet, parent)
   end
 end
 
--- Orgtranstime Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtimex = {}
+-- Org Trans Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x = {}
 
--- Size: Orgtranstime Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtimex.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_uint_324.size + 
+-- Size: Org Trans Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.size =
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_uint_324.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.nanosecond.size
 
--- Display: Orgtranstime Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtimex.display = function(packet, parent, value)
+-- Display: Org Trans Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.display = function(packet, parent, value)
   -- Check null value
   if value == nil then
     return "No Value"
@@ -4297,41 +4297,41 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtimex.display = 
   return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
--- Dissect Fields: Orgtranstime Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtimex.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Org Trans Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Epochs Uint 324: uint32
-  index, epochs_uint_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_uint_324.dissect(buffer, index, packet, parent)
+  -- Epoch S Uint 324: uint32
+  index, epoch_s_uint_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_uint_324.dissect(buffer, index, packet, parent)
 
   -- Nanosecond: uint32
   index, nanosecond = taifex_taifexderivatives_orderentry_tmp_v2_18_7.nanosecond.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local orgtranstime_msgtimex = UInt64.new(epochs_uint_324 * 1000000000 + nanosecond)
+  local org_trans_time_msg_time_x = UInt64.new(epoch_s_uint_324 * 1000000000 + nanosecond)
 
-  return index, orgtranstime_msgtimex
+  return index, org_trans_time_msg_time_x
 end
 
--- Dissect: Orgtranstime Msgtimex
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtimex.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Org Trans Time Msg Time X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- An absolute time item carries its value from the moment it is created,
     -- so the parts are read here rather than taken from the fields below it
-    local epochs_uint_324 = buffer(offset, 4):uint()
+    local epoch_s_uint_324 = buffer(offset, 4):uint()
     local nanosecond = buffer(offset + 4, 4):uint()
-    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtimex.size
+    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.orgtranstime_msgtimex
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.orgtranstime_msgtimex_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(epochs_uint_324, nanosecond))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtimex.fields(buffer, offset, packet, parent)
+    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time_x
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time_x_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_uint_324, nanosecond))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.fields(buffer, offset, packet, parent)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtimex.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4342,38 +4342,38 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_order_status_report_message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_order_status_report_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.no_leg.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size
 
-  -- Calculate runtime size of Sym Flexproductx field
-  local sym_flexproductx_offset = offset + index
-  local sym_flexproductx_type = buffer(sym_flexproductx_offset - 32, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.size(buffer, sym_flexproductx_offset, sym_flexproductx_type)
+  -- Calculate runtime size of Sym Flex Product X field
+  local sym_flex_product_x_offset = offset + index
+  local sym_flex_product_x_type = buffer(sym_flex_product_x_offset - 32, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.size(buffer, sym_flex_product_x_offset, sym_flex_product_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.size
 
@@ -4387,27 +4387,27 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_order_status_report_message
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.last_qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cum_qty.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.leaves_qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtimex.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtimex.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionseq.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_seq.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_12.size
 
@@ -4423,41 +4423,41 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_order_status_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
-  -- Partid: uint8
-  index, partid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.dissect(buffer, index, packet, parent)
+  -- Part Id: uint8
+  index, part_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.dissect(buffer, index, packet, parent)
 
   -- No Leg: uint8
   index, no_leg = taifex_taifexderivatives_orderentry_tmp_v2_18_7.no_leg.dissect(buffer, index, packet, parent)
 
-  -- Statuscode Uint 162: uint16
-  index, statuscode_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 162: uint16
+  index, status_code_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Cmid: uint16
-  index, cmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.dissect(buffer, index, packet, parent)
+  -- Cm Id: uint16
+  index, cm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Type Ext
   local msg_type_ext = buffer(index - 32, 1):uint()
 
-  -- Sym Flexproductx: Runtime Type with 4 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.dissect(buffer, index, packet, parent, msg_type_ext)
+  -- Sym Flex Product X: Runtime Type with 4 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.dissect(buffer, index, packet, parent, msg_type_ext)
 
   -- Price: int32
   index, price = taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.dissect(buffer, index, packet, parent)
@@ -4465,11 +4465,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_order_status_report_message
   -- Qty: uint16
   index, qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.dissect(buffer, index, packet, parent)
 
-  -- Investoracno: uint32
-  index, investoracno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect(buffer, index, packet, parent)
+  -- Investor Acno: uint32
+  index, investor_acno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect(buffer, index, packet, parent)
 
-  -- Investorflag: char
-  index, investorflag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.dissect(buffer, index, packet, parent)
+  -- Investor Flag: char
+  index, investor_flag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.dissect(buffer, index, packet, parent)
 
   -- Side: uint8
   index, side = taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.dissect(buffer, index, packet, parent)
@@ -4489,8 +4489,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_order_status_report_message
   -- Last Qty: uint16
   index, last_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Pxsubtotal: int64
-  index, pxsubtotal = taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.dissect(buffer, index, packet, parent)
+  -- Px Subtotal: int64
+  index, px_subtotal = taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.dissect(buffer, index, packet, parent)
 
   -- Cum Qty: uint16
   index, cum_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cum_qty.dissect(buffer, index, packet, parent)
@@ -4498,29 +4498,29 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_order_status_report_message
   -- Leaves Qty: uint16
   index, leaves_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Beforeqty: uint16
-  index, beforeqty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.dissect(buffer, index, packet, parent)
+  -- Before Qty: uint16
+  index, before_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.dissect(buffer, index, packet, parent)
 
-  -- Orgtranstime Msgtimex: Struct of 2 fields
-  index, orgtranstime_msgtimex = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtimex.dissect(buffer, index, packet, parent)
+  -- Org Trans Time Msg Time X: Struct of 2 fields
+  index, org_trans_time_msg_time_x = taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.dissect(buffer, index, packet, parent)
 
-  -- Transact Time Msgtimex: Struct of 2 fields
-  index, transact_time_msgtimex = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtimex.dissect(buffer, index, packet, parent)
+  -- Transact Time Msg Time X: Struct of 2 fields
+  index, transact_time_msg_time_x = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.dissect(buffer, index, packet, parent)
 
-  -- Targetid: uint8
-  index, targetid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.dissect(buffer, index, packet, parent)
+  -- Target Id: uint8
+  index, target_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.dissect(buffer, index, packet, parent)
 
-  -- Uniqid: uint32
-  index, uniqid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.dissect(buffer, index, packet, parent)
+  -- Uniq Id: uint32
+  index, uniq_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.dissect(buffer, index, packet, parent)
 
-  -- Rptseq: uint32
-  index, rptseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.dissect(buffer, index, packet, parent)
+  -- Rpt Seq: uint32
+  index, rpt_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Rptsessionid: uint16
-  index, rptsessionid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionid.dissect(buffer, index, packet, parent)
+  -- Rpt Session Id: uint16
+  index, rpt_session_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_id.dissect(buffer, index, packet, parent)
 
-  -- Rptsessionseq: uint32
-  index, rptsessionseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionseq.dissect(buffer, index, packet, parent)
+  -- Rpt Session Seq: uint32
+  index, rpt_session_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_seq.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: uint8[12]
   index, reserved_12 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_12.dissect(buffer, index, packet, parent)
@@ -4551,18 +4551,18 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_product_definition_request_
 
 -- Size: Flex Product Definition Request Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_product_definition_request_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.security_request_type.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.security_req_id.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.type.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.applicationtype.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.rootsymbol.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.expirytype.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.contractdate.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.strikeprice.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.callputcode.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.application_type.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.root_symbol.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.expiry_type.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.strike_price.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.call_put_code.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_20.size
 
 -- Display: Flex Product Definition Request Message
@@ -4574,8 +4574,8 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_product_definition_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
   -- Security Request Type: char
   index, security_request_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.security_request_type.dissect(buffer, index, packet, parent)
@@ -4586,29 +4586,29 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_product_definition_request_
   -- Type: char
   index, type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.type.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Investoracno: uint32
-  index, investoracno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect(buffer, index, packet, parent)
+  -- Investor Acno: uint32
+  index, investor_acno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect(buffer, index, packet, parent)
 
-  -- Applicationtype: char
-  index, applicationtype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.applicationtype.dissect(buffer, index, packet, parent)
+  -- Application Type: char
+  index, application_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.application_type.dissect(buffer, index, packet, parent)
 
-  -- Rootsymbol: char[3]
-  index, rootsymbol = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rootsymbol.dissect(buffer, index, packet, parent)
+  -- Root Symbol: char[3]
+  index, root_symbol = taifex_taifexderivatives_orderentry_tmp_v2_18_7.root_symbol.dissect(buffer, index, packet, parent)
 
-  -- Expirytype: char
-  index, expirytype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.expirytype.dissect(buffer, index, packet, parent)
+  -- Expiry Type: char
+  index, expiry_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.expiry_type.dissect(buffer, index, packet, parent)
 
-  -- Contractdate: char[8]
-  index, contractdate = taifex_taifexderivatives_orderentry_tmp_v2_18_7.contractdate.dissect(buffer, index, packet, parent)
+  -- Contract Date: char[8]
+  index, contract_date = taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.dissect(buffer, index, packet, parent)
 
-  -- Strikeprice: uint32
-  index, strikeprice = taifex_taifexderivatives_orderentry_tmp_v2_18_7.strikeprice.dissect(buffer, index, packet, parent)
+  -- Strike Price: uint32
+  index, strike_price = taifex_taifexderivatives_orderentry_tmp_v2_18_7.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Callputcode: char
-  index, callputcode = taifex_taifexderivatives_orderentry_tmp_v2_18_7.callputcode.dissect(buffer, index, packet, parent)
+  -- Call Put Code: char
+  index, call_put_code = taifex_taifexderivatives_orderentry_tmp_v2_18_7.call_put_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 20: char[20]
   index, reserved_20 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_20.dissect(buffer, index, packet, parent)
@@ -4639,8 +4639,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.temporary_suspension_of_suppleme
 
 -- Size: Temporary Suspension Of Supplementary Flex Group Report Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.temporary_suspension_of_supplementary_flex_group_report_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.size
 
 -- Display: Temporary Suspension Of Supplementary Flex Group Report Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.temporary_suspension_of_supplementary_flex_group_report_message.display = function(packet, parent, length)
@@ -4651,11 +4651,11 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.temporary_suspension_of_supplementary_flex_group_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
-  -- Partid: uint8
-  index, partid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.dissect(buffer, index, packet, parent)
+  -- Part Id: uint8
+  index, part_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4683,9 +4683,9 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_for_supplementary_flex_g
 
 -- Size: Request For Supplementary Flex Group Report Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_for_supplementary_flex_group_report_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.requeststartseq.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_start_seq.size
 
 -- Display: Request For Supplementary Flex Group Report Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_for_supplementary_flex_group_report_message.display = function(packet, parent, length)
@@ -4696,14 +4696,14 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_for_supplementary_flex_group_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
-  -- Partid: uint8
-  index, partid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.dissect(buffer, index, packet, parent)
+  -- Part Id: uint8
+  index, part_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.dissect(buffer, index, packet, parent)
 
-  -- Requeststartseq: uint32
-  index, requeststartseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.requeststartseq.dissect(buffer, index, packet, parent)
+  -- Request Start Seq: uint32
+  index, request_start_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_start_seq.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4733,24 +4733,24 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_quote_input_message = {}
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_quote_input_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size
 
-  -- Calculate runtime size of Sym Flexproductx field
-  local sym_flexproductx_offset = offset + index
-  local sym_flexproductx_type = buffer(sym_flexproductx_offset - 28, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.size(buffer, sym_flexproductx_offset, sym_flexproductx_type)
+  -- Calculate runtime size of Sym Flex Product X field
+  local sym_flex_product_x_offset = offset + index
+  local sym_flex_product_x_type = buffer(sym_flex_product_x_offset - 28, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.size(buffer, sym_flex_product_x_offset, sym_flex_product_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bid_px.size
 
@@ -4760,9 +4760,9 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_quote_input_message.size = 
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.offer_size.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.time_in_force.size
 
@@ -4782,32 +4782,32 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_quote_input_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Cmid: uint16
-  index, cmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.dissect(buffer, index, packet, parent)
+  -- Cm Id: uint16
+  index, cm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Type Ext
   local msg_type_ext = buffer(index - 28, 1):uint()
 
-  -- Sym Flexproductx: Runtime Type with 4 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.dissect(buffer, index, packet, parent, msg_type_ext)
+  -- Sym Flex Product X: Runtime Type with 4 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.dissect(buffer, index, packet, parent, msg_type_ext)
 
   -- Bid Px: int32
   index, bid_px = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bid_px.dissect(buffer, index, packet, parent)
@@ -4821,11 +4821,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_quote_input_message.fields 
   -- Offer Size: uint16
   index, offer_size = taifex_taifexderivatives_orderentry_tmp_v2_18_7.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Investoracno: uint32
-  index, investoracno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect(buffer, index, packet, parent)
+  -- Investor Acno: uint32
+  index, investor_acno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect(buffer, index, packet, parent)
 
-  -- Investorflag: char
-  index, investorflag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.dissect(buffer, index, packet, parent)
+  -- Investor Flag: char
+  index, investor_flag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.dissect(buffer, index, packet, parent)
 
   -- Time In Force: uint8
   index, time_in_force = taifex_taifexderivatives_orderentry_tmp_v2_18_7.time_in_force.dissect(buffer, index, packet, parent)
@@ -4864,18 +4864,18 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_price_inquiry_input_message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_price_inquiry_input_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  -- Calculate runtime size of Sym Flexproductx field
-  local sym_flexproductx_offset = offset + index
-  local sym_flexproductx_type = buffer(sym_flexproductx_offset - 17, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.size(buffer, sym_flexproductx_offset, sym_flexproductx_type)
+  -- Calculate runtime size of Sym Flex Product X field
+  local sym_flex_product_x_offset = offset + index
+  local sym_flex_product_x_type = buffer(sym_flex_product_x_offset - 17, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.size(buffer, sym_flex_product_x_offset, sym_flex_product_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_8.size
 
@@ -4891,23 +4891,23 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_price_inquiry_input_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Type Ext
   local msg_type_ext = buffer(index - 17, 1):uint()
 
-  -- Sym Flexproductx: Runtime Type with 4 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.dissect(buffer, index, packet, parent, msg_type_ext)
+  -- Sym Flex Product X: Runtime Type with 4 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.dissect(buffer, index, packet, parent, msg_type_ext)
 
   -- Reserved 8: uint8[8]
   index, reserved_8 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_8.dissect(buffer, index, packet, parent)
@@ -4940,32 +4940,32 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_order_input_single_message 
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_order_input_single_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size
 
-  -- Calculate runtime size of Sym Flexproductx field
-  local sym_flexproductx_offset = offset + index
-  local sym_flexproductx_type = buffer(sym_flexproductx_offset - 28, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.size(buffer, sym_flexproductx_offset, sym_flexproductx_type)
+  -- Calculate runtime size of Sym Flex Product X field
+  local sym_flex_product_x_offset = offset + index
+  local sym_flex_product_x_type = buffer(sym_flex_product_x_offset - 28, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.size(buffer, sym_flex_product_x_offset, sym_flex_product_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.size
 
@@ -4989,32 +4989,32 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_order_input_single_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Cmid: uint16
-  index, cmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.dissect(buffer, index, packet, parent)
+  -- Cm Id: uint16
+  index, cm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Type Ext
   local msg_type_ext = buffer(index - 28, 1):uint()
 
-  -- Sym Flexproductx: Runtime Type with 4 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flexproductx.dissect(buffer, index, packet, parent, msg_type_ext)
+  -- Sym Flex Product X: Runtime Type with 4 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_flex_product_x.dissect(buffer, index, packet, parent, msg_type_ext)
 
   -- Price: int32
   index, price = taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.dissect(buffer, index, packet, parent)
@@ -5022,11 +5022,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_order_input_single_message.
   -- Qty: uint16
   index, qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.dissect(buffer, index, packet, parent)
 
-  -- Investoracno: uint32
-  index, investoracno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect(buffer, index, packet, parent)
+  -- Investor Acno: uint32
+  index, investor_acno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect(buffer, index, packet, parent)
 
-  -- Investorflag: char
-  index, investorflag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.dissect(buffer, index, packet, parent)
+  -- Investor Flag: char
+  index, investor_flag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.dissect(buffer, index, packet, parent)
 
   -- Side: uint8
   index, side = taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.dissect(buffer, index, packet, parent)
@@ -5071,9 +5071,9 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_notification_message = {}
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_notification_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
-  -- Parse runtime size of: Data Char Hdrmsglength 151
+  -- Parse runtime size of: Data Char Hdr Msg Length 151
   index = index + buffer(offset + index - 18, 2):uint()
 
   return index
@@ -5088,17 +5088,17 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Length
   local msg_length = buffer(offset - 17, 2):uint()
 
-  -- Runtime Size Of: Data Char Hdrmsglength 151
-  local size_of_data_char_hdrmsglength_151 = msg_length - 16
+  -- Runtime Size Of: Data Char Hdr Msg Length 151
+  local size_of_data_char_hdr_msg_length_151 = msg_length - 16
 
-  -- Data Char Hdrmsglength 151: char
-  index, data_char_hdrmsglength_151 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_151.dissect(buffer, index, packet, parent, size_of_data_char_hdrmsglength_151)
+  -- Data Char Hdr Msg Length 151: char
+  index, data_char_hdr_msg_length_151 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_151.dissect(buffer, index, packet, parent, size_of_data_char_hdr_msg_length_151)
 
   return index
 end
@@ -5128,7 +5128,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_setting_message = {}
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_setting_message.size = function(buffer, offset)
   local index = 0
 
-  -- Parse runtime size of: Data Char Hdrmsglength 15
+  -- Parse runtime size of: Data Char Hdr Msg Length 15
   index = index + buffer(offset + index - 17, 2):uint()
 
   return index
@@ -5146,11 +5146,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_setting_message.fields = 
   -- Dependency element: Msg Length
   local msg_length = buffer(offset - 17, 2):uint()
 
-  -- Runtime Size Of: Data Char Hdrmsglength 15
-  local size_of_data_char_hdrmsglength_15 = msg_length - 15
+  -- Runtime Size Of: Data Char Hdr Msg Length 15
+  local size_of_data_char_hdr_msg_length_15 = msg_length - 15
 
-  -- Data Char Hdrmsglength 15: char
-  index, data_char_hdrmsglength_15 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_15.dissect(buffer, index, packet, parent, size_of_data_char_hdrmsglength_15)
+  -- Data Char Hdr Msg Length 15: char
+  index, data_char_hdr_msg_length_15 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_15.dissect(buffer, index, packet, parent, size_of_data_char_hdr_msg_length_15)
 
   return index
 end
@@ -5173,16 +5173,16 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_setting_message.dissect =
   end
 end
 
--- Bulletintime Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtime = {}
+-- Bulletin Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time = {}
 
--- Size: Bulletintime Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtime.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_int_324.size + 
+-- Size: Bulletin Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.size =
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_int_324.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.ms.size
 
--- Display: Bulletintime Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtime.display = function(packet, parent, value)
+-- Display: Bulletin Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.display = function(packet, parent, value)
   -- Check null value
   if value == nil then
     return "No Value"
@@ -5196,41 +5196,41 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtime.display = f
   return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
--- Dissect Fields: Bulletintime Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtime.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Bulletin Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Epochs Int 324: int32
-  index, epochs_int_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_int_324.dissect(buffer, index, packet, parent)
+  -- Epoch S Int 324: int32
+  index, epoch_s_int_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_int_324.dissect(buffer, index, packet, parent)
 
   -- Ms: uint16
   index, ms = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ms.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local bulletintime_msgtime = epochs_int_324 * 1000 + ms
+  local bulletin_time_msg_time = epoch_s_int_324 * 1000 + ms
 
-  return index, bulletintime_msgtime
+  return index, bulletin_time_msg_time
 end
 
--- Dissect: Bulletintime Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtime.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Bulletin Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- An absolute time item carries its value from the moment it is created,
     -- so the parts are read here rather than taken from the fields below it
-    local epochs_int_324 = buffer(offset, 4):int()
+    local epoch_s_int_324 = buffer(offset, 4):int()
     local ms = buffer(offset + 4, 2):uint()
-    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtime.size
+    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletintime_msgtime
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletintime_msgtime_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(epochs_int_324, ms * 1000000))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtime.fields(buffer, offset, packet, parent)
+    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_int_324, ms * 1000000))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.fields(buffer, offset, packet, parent)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtime.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5241,17 +5241,17 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_report_message = {}
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_report_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinseq.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_seq.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtime.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size
 
-  -- Parse runtime size of: Data Char Hdrmsglength 1516
+  -- Parse runtime size of: Data Char Hdr Msg Length 1516
   index = index + buffer(offset + index - 33, 2):uint()
 
   return index
@@ -5266,29 +5266,29 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
-  -- Fcmreqid: uint32
-  index, fcmreqid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.dissect(buffer, index, packet, parent)
+  -- Fcm Req Id: uint32
+  index, fcm_req_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.dissect(buffer, index, packet, parent)
 
-  -- Bulletinseq: uint32
-  index, bulletinseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinseq.dissect(buffer, index, packet, parent)
+  -- Bulletin Seq: uint32
+  index, bulletin_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_seq.dissect(buffer, index, packet, parent)
 
-  -- Bulletintime Msgtime: Struct of 2 fields
-  index, bulletintime_msgtime = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletintime_msgtime.dissect(buffer, index, packet, parent)
+  -- Bulletin Time Msg Time: Struct of 2 fields
+  index, bulletin_time_msg_time = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.dissect(buffer, index, packet, parent)
 
-  -- Systemtype: uint8
-  index, systemtype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.dissect(buffer, index, packet, parent)
+  -- System Type: uint8
+  index, system_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Length
   local msg_length = buffer(offset - 17, 2):uint()
 
-  -- Runtime Size Of: Data Char Hdrmsglength 1516
-  local size_of_data_char_hdrmsglength_1516 = msg_length - 31
+  -- Runtime Size Of: Data Char Hdr Msg Length 1516
+  local size_of_data_char_hdr_msg_length_1516 = msg_length - 31
 
-  -- Data Char Hdrmsglength 1516: char
-  index, data_char_hdrmsglength_1516 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_1516.dissect(buffer, index, packet, parent, size_of_data_char_hdrmsglength_1516)
+  -- Data Char Hdr Msg Length 1516: char
+  index, data_char_hdr_msg_length_1516 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_1516.dissect(buffer, index, packet, parent, size_of_data_char_hdr_msg_length_1516)
 
   return index
 end
@@ -5318,13 +5318,13 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_request_message = {}
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size
 
-  -- Parse runtime size of: Data Char Hdrmsglength 159
+  -- Parse runtime size of: Data Char Hdr Msg Length 159
   index = index + buffer(offset + index - 26, 2):uint()
 
   return index
@@ -5339,23 +5339,23 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Fcmreqid: uint32
-  index, fcmreqid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmreqid.dissect(buffer, index, packet, parent)
+  -- Fcm Req Id: uint32
+  index, fcm_req_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_req_id.dissect(buffer, index, packet, parent)
 
-  -- Bulletinreqid: uint32
-  index, bulletinreqid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletinreqid.dissect(buffer, index, packet, parent)
+  -- Bulletin Req Id: uint32
+  index, bulletin_req_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_req_id.dissect(buffer, index, packet, parent)
 
-  -- Systemtype: uint8
-  index, systemtype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.dissect(buffer, index, packet, parent)
+  -- System Type: uint8
+  index, system_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Length
   local msg_length = buffer(offset - 17, 2):uint()
 
-  -- Runtime Size Of: Data Char Hdrmsglength 159
-  local size_of_data_char_hdrmsglength_159 = msg_length - 24
+  -- Runtime Size Of: Data Char Hdr Msg Length 159
+  local size_of_data_char_hdr_msg_length_159 = msg_length - 24
 
-  -- Data Char Hdrmsglength 159: char
-  index, data_char_hdrmsglength_159 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdrmsglength_159.dissect(buffer, index, packet, parent, size_of_data_char_hdrmsglength_159)
+  -- Data Char Hdr Msg Length 159: char
+  index, data_char_hdr_msg_length_159 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_char_hdr_msg_length_159.dissect(buffer, index, packet, parent, size_of_data_char_hdr_msg_length_159)
 
   return index
 end
@@ -5378,16 +5378,16 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_request_message.dissect
   end
 end
 
--- Transact Time Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime = {}
+-- Transact Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time = {}
 
--- Size: Transact Time Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_int_324.size + 
+-- Size: Transact Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.size =
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_int_324.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.ms.size
 
--- Display: Transact Time Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.display = function(packet, parent, value)
+-- Display: Transact Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.display = function(packet, parent, value)
   -- Check null value
   if value == nil then
     return "No Value"
@@ -5401,54 +5401,54 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.display = 
   return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
--- Dissect Fields: Transact Time Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Transact Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Epochs Int 324: int32
-  index, epochs_int_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_int_324.dissect(buffer, index, packet, parent)
+  -- Epoch S Int 324: int32
+  index, epoch_s_int_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_int_324.dissect(buffer, index, packet, parent)
 
   -- Ms: uint16
   index, ms = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ms.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local transact_time_msgtime = epochs_int_324 * 1000 + ms
+  local transact_time_msg_time = epoch_s_int_324 * 1000 + ms
 
-  return index, transact_time_msgtime
+  return index, transact_time_msg_time
 end
 
--- Dissect: Transact Time Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Transact Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- An absolute time item carries its value from the moment it is created,
     -- so the parts are read here rather than taken from the fields below it
-    local epochs_int_324 = buffer(offset, 4):int()
+    local epoch_s_int_324 = buffer(offset, 4):int()
     local ms = buffer(offset + 4, 2):uint()
-    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.size
+    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msgtime
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msgtime_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(epochs_int_324, ms * 1000000))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.fields(buffer, offset, packet, parent)
+    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_int_324, ms * 1000000))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.fields(buffer, offset, packet, parent)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.fields(buffer, offset, packet, parent)
   end
 end
 
--- Orgtranstime Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime = {}
+-- Org Trans Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time = {}
 
--- Size: Orgtranstime Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_int_324.size + 
+-- Size: Org Trans Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.size =
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_int_324.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.ms.size
 
--- Display: Orgtranstime Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.display = function(packet, parent, value)
+-- Display: Org Trans Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.display = function(packet, parent, value)
   -- Check null value
   if value == nil then
     return "No Value"
@@ -5462,58 +5462,58 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.display = f
   return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
--- Dissect Fields: Orgtranstime Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Org Trans Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Epochs Int 324: int32
-  index, epochs_int_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epochs_int_324.dissect(buffer, index, packet, parent)
+  -- Epoch S Int 324: int32
+  index, epoch_s_int_324 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_int_324.dissect(buffer, index, packet, parent)
 
   -- Ms: uint16
   index, ms = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ms.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local orgtranstime_msgtime = epochs_int_324 * 1000 + ms
+  local org_trans_time_msg_time = epoch_s_int_324 * 1000 + ms
 
-  return index, orgtranstime_msgtime
+  return index, org_trans_time_msg_time
 end
 
--- Dissect: Orgtranstime Msgtime
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Org Trans Time Msg Time
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- An absolute time item carries its value from the moment it is created,
     -- so the parts are read here rather than taken from the fields below it
-    local epochs_int_324 = buffer(offset, 4):int()
+    local epoch_s_int_324 = buffer(offset, 4):int()
     local ms = buffer(offset + 4, 2):uint()
-    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.size
+    local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.orgtranstime_msgtime
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.orgtranstime_msgtime_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(epochs_int_324, ms * 1000000))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.fields(buffer, offset, packet, parent)
+    local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_int_324, ms * 1000000))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.fields(buffer, offset, packet, parent)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.fields(buffer, offset, packet, parent)
   end
 end
 
--- Symboltext
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltext = {}
+-- Symbol Text
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_text = {}
 
--- Size: Symboltext
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltext.size =
+-- Size: Symbol Text
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_text.size =
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_char_2020.size
 
--- Display: Symboltext
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltext.display = function(packet, parent, length)
+-- Display: Symbol Text
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_text.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Symboltext
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltext.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Symbol Text
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_text.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Char 2020: char [20]
@@ -5522,42 +5522,42 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltext.fields = function(buf
   return index
 end
 
--- Dissect: Symboltext
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltext.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Symbol Text
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_text.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symboltext, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltext.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_text, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_text.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltext.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_text.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltext.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_text.fields(buffer, offset, packet, parent)
   end
 end
 
--- Symbolnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnum = {}
+-- Symbol Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num = {}
 
--- Size: Symbolnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnum.size =
+-- Size: Symbol Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num.size =
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.pseq_1.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.pseq_2.size + 
-  2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.size + 
+  2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_13.size
 
--- Display: Symbolnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnum.display = function(packet, parent, length)
+-- Display: Symbol Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Symbolnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnum.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Symbol Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Pseq 1: uint16
@@ -5566,13 +5566,13 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnum.fields = function(buff
   -- Pseq 2: uint16
   index, pseq_2 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.pseq_2.dissect(buffer, index, packet, parent)
 
-  -- Array Of: Legside Uint 822
-  for legside_uint_822_index = 1, 2 do
-    index, legside_uint_822 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.dissect(buffer, index, packet, parent, legside_uint_822_index)
+  -- Array Of: Leg Side Uint 822
+  for leg_side_uint_822_index = 1, 2 do
+    index, leg_side_uint_822 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.dissect(buffer, index, packet, parent, leg_side_uint_822_index)
   end
 
-  -- Combop: uint8
-  index, combop = taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.dissect(buffer, index, packet, parent)
+  -- Comb Op: uint8
+  index, comb_op = taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.dissect(buffer, index, packet, parent)
 
   -- Reserved 13: uint8 [13]
   index, reserved_13 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_13.dissect(buffer, index, packet, parent)
@@ -5580,36 +5580,36 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnum.fields = function(buff
   return index
 end
 
--- Dissect: Symbolnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnum.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Symbol Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbolnum, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnum.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.symbol_num, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnum.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnum.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num.fields(buffer, offset, packet, parent)
   end
 end
 
--- Sym Symbolx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx = {}
+-- Sym Symbol X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x = {}
 
--- Dispatch: Sym Symbolx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.dispatch = {
-  [1] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbolnum.dissect,
-  [2] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltext.dissect,
+-- Dispatch: Sym Symbol X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.dispatch = {
+  [1] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_num.dissect,
+  [2] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_text.dissect,
 }
 
--- Dissect: Sym Symbolx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.dissect = function(buffer, offset, packet, parent, symboltype)
-  local dissect = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.dispatch[symboltype]
+-- Dissect: Sym Symbol X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.dissect = function(buffer, offset, packet, parent, symbol_type)
+  local dissect = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.dispatch[symbol_type]
   if dissect then
     return dissect(buffer, offset, packet, parent)
   end
@@ -5624,34 +5624,34 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.execution_report_including_head_
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.execution_report_including_head_office_and_branch_offices_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
 
-  -- Calculate runtime size of Sym Symbolx field
-  local sym_symbolx_offset = offset + index
-  local sym_symbolx_type = buffer(sym_symbolx_offset - 1, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.size(buffer, sym_symbolx_offset, sym_symbolx_type)
+  -- Calculate runtime size of Sym Symbol X field
+  local sym_symbol_x_offset = offset + index
+  local sym_symbol_x_type = buffer(sym_symbol_x_offset - 1, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.size(buffer, sym_symbol_x_offset, sym_symbol_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.size
 
@@ -5665,33 +5665,33 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.execution_report_including_head_
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.last_qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cum_qty.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.leaves_qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.size
 
-  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.size
+  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.size
 
-  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.size
+  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.size
 
-  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.size
+  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_id.size
 
   return index
 end
@@ -5705,32 +5705,32 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.execution_report_including_head_office_and_branch_offices_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Cmid: uint16
-  index, cmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.dissect(buffer, index, packet, parent)
+  -- Cm Id: uint16
+  index, cm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
-  -- Symboltype: uint8
-  index, symboltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect(buffer, index, packet, parent)
+  -- Symbol Type: uint8
+  index, symbol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect(buffer, index, packet, parent)
 
-  -- Sym Symbolx: Runtime Type with 2 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.dissect(buffer, index, packet, parent, symboltype)
+  -- Sym Symbol X: Runtime Type with 2 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.dissect(buffer, index, packet, parent, symbol_type)
 
   -- Price: int32
   index, price = taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.dissect(buffer, index, packet, parent)
@@ -5738,11 +5738,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.execution_report_including_head_
   -- Qty: uint16
   index, qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.dissect(buffer, index, packet, parent)
 
-  -- Investoracno: uint32
-  index, investoracno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect(buffer, index, packet, parent)
+  -- Investor Acno: uint32
+  index, investor_acno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect(buffer, index, packet, parent)
 
-  -- Investorflag: char
-  index, investorflag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.dissect(buffer, index, packet, parent)
+  -- Investor Flag: char
+  index, investor_flag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.dissect(buffer, index, packet, parent)
 
   -- Side: uint8
   index, side = taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.dissect(buffer, index, packet, parent)
@@ -5762,8 +5762,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.execution_report_including_head_
   -- Last Qty: uint16
   index, last_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Pxsubtotal: int64
-  index, pxsubtotal = taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.dissect(buffer, index, packet, parent)
+  -- Px Subtotal: int64
+  index, px_subtotal = taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.dissect(buffer, index, packet, parent)
 
   -- Cum Qty: uint16
   index, cum_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cum_qty.dissect(buffer, index, packet, parent)
@@ -5771,44 +5771,44 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.execution_report_including_head_
   -- Leaves Qty: uint16
   index, leaves_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Beforeqty: uint16
-  index, beforeqty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.dissect(buffer, index, packet, parent)
+  -- Before Qty: uint16
+  index, before_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.dissect(buffer, index, packet, parent)
 
-  -- Array Of: Legside Uint 822
-  for legside_uint_822_index = 1, 2 do
-    index, legside_uint_822 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.dissect(buffer, index, packet, parent, legside_uint_822_index)
+  -- Array Of: Leg Side Uint 822
+  for leg_side_uint_822_index = 1, 2 do
+    index, leg_side_uint_822 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.dissect(buffer, index, packet, parent, leg_side_uint_822_index)
   end
 
-  -- Array Of: Legpx
-  for legpx_index = 1, 2 do
-    index, legpx = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.dissect(buffer, index, packet, parent, legpx_index)
+  -- Array Of: Leg Px
+  for leg_px_index = 1, 2 do
+    index, leg_px = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.dissect(buffer, index, packet, parent, leg_px_index)
   end
 
-  -- Array Of: Legqty Uint 1624
-  for legqty_uint_1624_index = 1, 2 do
-    index, legqty_uint_1624 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.dissect(buffer, index, packet, parent, legqty_uint_1624_index)
+  -- Array Of: Leg Qty Uint 1624
+  for leg_qty_uint_1624_index = 1, 2 do
+    index, leg_qty_uint_1624 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.dissect(buffer, index, packet, parent, leg_qty_uint_1624_index)
   end
 
-  -- Orgtranstime Msgtime: Struct of 2 fields
-  index, orgtranstime_msgtime = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.dissect(buffer, index, packet, parent)
+  -- Org Trans Time Msg Time: Struct of 2 fields
+  index, org_trans_time_msg_time = taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time Msgtime: Struct of 2 fields
-  index, transact_time_msgtime = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.dissect(buffer, index, packet, parent)
+  -- Transact Time Msg Time: Struct of 2 fields
+  index, transact_time_msg_time = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.dissect(buffer, index, packet, parent)
 
-  -- Targetid: uint8
-  index, targetid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.dissect(buffer, index, packet, parent)
+  -- Target Id: uint8
+  index, target_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.dissect(buffer, index, packet, parent)
 
-  -- Uniqid: uint32
-  index, uniqid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.dissect(buffer, index, packet, parent)
+  -- Uniq Id: uint32
+  index, uniq_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.dissect(buffer, index, packet, parent)
 
-  -- Rptseq: uint32
-  index, rptseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.dissect(buffer, index, packet, parent)
+  -- Rpt Seq: uint32
+  index, rpt_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Protocoltype: uint8
-  index, protocoltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.dissect(buffer, index, packet, parent)
+  -- Protocol Type: uint8
+  index, protocol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.dissect(buffer, index, packet, parent)
 
-  -- Rptsessionid: uint16
-  index, rptsessionid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptsessionid.dissect(buffer, index, packet, parent)
+  -- Rpt Session Id: uint16
+  index, rpt_session_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_session_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5836,22 +5836,22 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.condensed_version_order_status_r
 
 -- Size: Condensed Version Order Status Report Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.condensed_version_order_status_report_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.position_effect.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.leaves_qty.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.size + 
-  2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.size + 
-  2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.size + 
+  2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.size + 
+  2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.size
 
 -- Display: Condensed Version Order Status Report Message
@@ -5863,23 +5863,23 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.condensed_version_order_status_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
   -- Side: uint8
   index, side = taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.dissect(buffer, index, packet, parent)
@@ -5890,30 +5890,30 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.condensed_version_order_status_r
   -- Leaves Qty: uint16
   index, leaves_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Beforeqty: uint16
-  index, beforeqty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.dissect(buffer, index, packet, parent)
+  -- Before Qty: uint16
+  index, before_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.dissect(buffer, index, packet, parent)
 
-  -- Array Of: Legpx
-  for legpx_index = 1, 2 do
-    index, legpx = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.dissect(buffer, index, packet, parent, legpx_index)
+  -- Array Of: Leg Px
+  for leg_px_index = 1, 2 do
+    index, leg_px = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.dissect(buffer, index, packet, parent, leg_px_index)
   end
 
-  -- Array Of: Legqty Uint 1624
-  for legqty_uint_1624_index = 1, 2 do
-    index, legqty_uint_1624 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.dissect(buffer, index, packet, parent, legqty_uint_1624_index)
+  -- Array Of: Leg Qty Uint 1624
+  for leg_qty_uint_1624_index = 1, 2 do
+    index, leg_qty_uint_1624 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.dissect(buffer, index, packet, parent, leg_qty_uint_1624_index)
   end
 
-  -- Transact Time Msgtime: Struct of 2 fields
-  index, transact_time_msgtime = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.dissect(buffer, index, packet, parent)
+  -- Transact Time Msg Time: Struct of 2 fields
+  index, transact_time_msg_time = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.dissect(buffer, index, packet, parent)
 
-  -- Uniqid: uint32
-  index, uniqid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.dissect(buffer, index, packet, parent)
+  -- Uniq Id: uint32
+  index, uniq_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.dissect(buffer, index, packet, parent)
 
-  -- Rptseq: uint32
-  index, rptseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.dissect(buffer, index, packet, parent)
+  -- Rpt Seq: uint32
+  index, rpt_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Protocoltype: uint8
-  index, protocoltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.dissect(buffer, index, packet, parent)
+  -- Protocol Type: uint8
+  index, protocol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.dissect(buffer, index, packet, parent)
 
   -- Price: int32
   index, price = taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.dissect(buffer, index, packet, parent)
@@ -5939,20 +5939,20 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.condensed_version_order_status_r
   end
 end
 
--- Longsymboltext
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymboltext = {}
+-- Long Symbol Text
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_text = {}
 
--- Size: Longsymboltext
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymboltext.size =
+-- Size: Long Symbol Text
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_text.size =
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_char_4040.size
 
--- Display: Longsymboltext
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymboltext.display = function(packet, parent, length)
+-- Display: Long Symbol Text
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_text.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Longsymboltext
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymboltext.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Symbol Text
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_text.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Char 4040: char [40]
@@ -5961,42 +5961,42 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymboltext.fields = function
   return index
 end
 
--- Dissect: Longsymboltext
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymboltext.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Long Symbol Text
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_text.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.longsymboltext, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymboltext.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.long_symbol_text, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_text.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymboltext.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_text.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymboltext.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_text.fields(buffer, offset, packet, parent)
   end
 end
 
--- Longsymbolnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymbolnum = {}
+-- Long Symbol Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_num = {}
 
--- Size: Longsymbolnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymbolnum.size =
+-- Size: Long Symbol Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_num.size =
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.pseq_1.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.pseq_2.size + 
-  2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.size + 
+  2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_33.size
 
--- Display: Longsymbolnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymbolnum.display = function(packet, parent, length)
+-- Display: Long Symbol Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_num.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Longsymbolnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymbolnum.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Symbol Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_num.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Pseq 1: uint16
@@ -6005,13 +6005,13 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymbolnum.fields = function(
   -- Pseq 2: uint16
   index, pseq_2 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.pseq_2.dissect(buffer, index, packet, parent)
 
-  -- Array Of: Legside Uint 822
-  for legside_uint_822_index = 1, 2 do
-    index, legside_uint_822 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.dissect(buffer, index, packet, parent, legside_uint_822_index)
+  -- Array Of: Leg Side Uint 822
+  for leg_side_uint_822_index = 1, 2 do
+    index, leg_side_uint_822 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.dissect(buffer, index, packet, parent, leg_side_uint_822_index)
   end
 
-  -- Combop: uint8
-  index, combop = taifex_taifexderivatives_orderentry_tmp_v2_18_7.combop.dissect(buffer, index, packet, parent)
+  -- Comb Op: uint8
+  index, comb_op = taifex_taifexderivatives_orderentry_tmp_v2_18_7.comb_op.dissect(buffer, index, packet, parent)
 
   -- Reserved 33: uint8 [33]
   index, reserved_33 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_33.dissect(buffer, index, packet, parent)
@@ -6019,36 +6019,36 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymbolnum.fields = function(
   return index
 end
 
--- Dissect: Longsymbolnum
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymbolnum.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Long Symbol Num
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_num.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.longsymbolnum, buffer(offset, 0))
-    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymbolnum.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.long_symbol_num, buffer(offset, 0))
+    local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_num.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymbolnum.display(packet, parent, length)
+    local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_num.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymbolnum.fields(buffer, offset, packet, parent)
+    return taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_num.fields(buffer, offset, packet, parent)
   end
 end
 
--- Sym Longsymbolx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx = {}
+-- Sym Long Symbol X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x = {}
 
--- Dispatch: Sym Longsymbolx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.dispatch = {
-  [3] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymbolnum.dissect,
-  [4] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.longsymboltext.dissect,
+-- Dispatch: Sym Long Symbol X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.dispatch = {
+  [3] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_num.dissect,
+  [4] = taifex_taifexderivatives_orderentry_tmp_v2_18_7.long_symbol_text.dissect,
 }
 
--- Dissect: Sym Longsymbolx
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.dissect = function(buffer, offset, packet, parent, symboltype)
-  local dissect = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.dispatch[symboltype]
+-- Dissect: Sym Long Symbol X
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.dissect = function(buffer, offset, packet, parent, symbol_type)
+  local dissect = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.dispatch[symbol_type]
   if dissect then
     return dissect(buffer, offset, packet, parent)
   end
@@ -6065,22 +6065,22 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.quote_input_long_format_message.
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
 
-  -- Calculate runtime size of Sym Longsymbolx field
-  local sym_longsymbolx_offset = offset + index
-  local sym_longsymbolx_type = buffer(sym_longsymbolx_offset - 1, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.size(buffer, sym_longsymbolx_offset, sym_longsymbolx_type)
+  -- Calculate runtime size of Sym Long Symbol X field
+  local sym_long_symbol_x_offset = offset + index
+  local sym_long_symbol_x_type = buffer(sym_long_symbol_x_offset - 1, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.size(buffer, sym_long_symbol_x_offset, sym_long_symbol_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bid_px.size
 
@@ -6090,17 +6090,17 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.quote_input_long_format_message.
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.offer_size.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.time_in_force.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.position_effect.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.size
 
   return index
 end
@@ -6117,26 +6117,26 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.quote_input_long_format_message.
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Cmid: uint16
-  index, cmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.dissect(buffer, index, packet, parent)
+  -- Cm Id: uint16
+  index, cm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
-  -- Symboltype: uint8
-  index, symboltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect(buffer, index, packet, parent)
+  -- Symbol Type: uint8
+  index, symbol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect(buffer, index, packet, parent)
 
-  -- Sym Longsymbolx: Runtime Type with 2 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.dissect(buffer, index, packet, parent, symboltype)
+  -- Sym Long Symbol X: Runtime Type with 2 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.dissect(buffer, index, packet, parent, symbol_type)
 
   -- Bid Px: int32
   index, bid_px = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bid_px.dissect(buffer, index, packet, parent)
@@ -6150,11 +6150,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.quote_input_long_format_message.
   -- Offer Size: uint16
   index, offer_size = taifex_taifexderivatives_orderentry_tmp_v2_18_7.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Investoracno: uint32
-  index, investoracno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect(buffer, index, packet, parent)
+  -- Investor Acno: uint32
+  index, investor_acno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect(buffer, index, packet, parent)
 
-  -- Investorflag: char
-  index, investorflag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.dissect(buffer, index, packet, parent)
+  -- Investor Flag: char
+  index, investor_flag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.dissect(buffer, index, packet, parent)
 
   -- Time In Force: uint8
   index, time_in_force = taifex_taifexderivatives_orderentry_tmp_v2_18_7.time_in_force.dissect(buffer, index, packet, parent)
@@ -6162,11 +6162,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.quote_input_long_format_message.
   -- Position Effect: char
   index, position_effect = taifex_taifexderivatives_orderentry_tmp_v2_18_7.position_effect.dissect(buffer, index, packet, parent)
 
-  -- Ordersource: char
-  index, ordersource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.dissect(buffer, index, packet, parent)
+  -- Order Source: char
+  index, order_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.dissect(buffer, index, packet, parent)
 
-  -- Infosource: char [3]
-  index, infosource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.dissect(buffer, index, packet, parent)
+  -- Info Source: char [3]
+  index, info_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6198,22 +6198,22 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.quote_input_message.size = funct
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
 
-  -- Calculate runtime size of Sym Symbolx field
-  local sym_symbolx_offset = offset + index
-  local sym_symbolx_type = buffer(sym_symbolx_offset - 1, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.size(buffer, sym_symbolx_offset, sym_symbolx_type)
+  -- Calculate runtime size of Sym Symbol X field
+  local sym_symbol_x_offset = offset + index
+  local sym_symbol_x_type = buffer(sym_symbol_x_offset - 1, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.size(buffer, sym_symbol_x_offset, sym_symbol_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.bid_px.size
 
@@ -6223,17 +6223,17 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.quote_input_message.size = funct
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.offer_size.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.time_in_force.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.position_effect.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.size
 
   return index
 end
@@ -6250,26 +6250,26 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.quote_input_message.fields = fun
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Cmid: uint16
-  index, cmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.dissect(buffer, index, packet, parent)
+  -- Cm Id: uint16
+  index, cm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
-  -- Symboltype: uint8
-  index, symboltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect(buffer, index, packet, parent)
+  -- Symbol Type: uint8
+  index, symbol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect(buffer, index, packet, parent)
 
-  -- Sym Symbolx: Runtime Type with 2 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.dissect(buffer, index, packet, parent, symboltype)
+  -- Sym Symbol X: Runtime Type with 2 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.dissect(buffer, index, packet, parent, symbol_type)
 
   -- Bid Px: int32
   index, bid_px = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bid_px.dissect(buffer, index, packet, parent)
@@ -6283,11 +6283,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.quote_input_message.fields = fun
   -- Offer Size: uint16
   index, offer_size = taifex_taifexderivatives_orderentry_tmp_v2_18_7.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Investoracno: uint32
-  index, investoracno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect(buffer, index, packet, parent)
+  -- Investor Acno: uint32
+  index, investor_acno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect(buffer, index, packet, parent)
 
-  -- Investorflag: char
-  index, investorflag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.dissect(buffer, index, packet, parent)
+  -- Investor Flag: char
+  index, investor_flag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.dissect(buffer, index, packet, parent)
 
   -- Time In Force: uint8
   index, time_in_force = taifex_taifexderivatives_orderentry_tmp_v2_18_7.time_in_force.dissect(buffer, index, packet, parent)
@@ -6295,11 +6295,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.quote_input_message.fields = fun
   -- Position Effect: char
   index, position_effect = taifex_taifexderivatives_orderentry_tmp_v2_18_7.position_effect.dissect(buffer, index, packet, parent)
 
-  -- Ordersource: char
-  index, ordersource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.dissect(buffer, index, packet, parent)
+  -- Order Source: char
+  index, order_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.dissect(buffer, index, packet, parent)
 
-  -- Infosource: char [3]
-  index, infosource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.dissect(buffer, index, packet, parent)
+  -- Info Source: char [3]
+  index, info_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6329,20 +6329,20 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_reply_long_format_
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_reply_long_format_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
 
-  -- Calculate runtime size of Sym Longsymbolx field
-  local sym_longsymbolx_offset = offset + index
-  local sym_longsymbolx_type = buffer(sym_longsymbolx_offset - 1, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.size(buffer, sym_longsymbolx_offset, sym_longsymbolx_type)
+  -- Calculate runtime size of Sym Long Symbol X field
+  local sym_long_symbol_x_offset = offset + index
+  local sym_long_symbol_x_type = buffer(sym_long_symbol_x_offset - 1, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.size(buffer, sym_long_symbol_x_offset, sym_long_symbol_x_type)
 
   return index
 end
@@ -6356,23 +6356,23 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_reply_long_format_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Symboltype: uint8
-  index, symboltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect(buffer, index, packet, parent)
+  -- Symbol Type: uint8
+  index, symbol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect(buffer, index, packet, parent)
 
-  -- Sym Longsymbolx: Runtime Type with 2 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.dissect(buffer, index, packet, parent, symboltype)
+  -- Sym Long Symbol X: Runtime Type with 2 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.dissect(buffer, index, packet, parent, symbol_type)
 
   return index
 end
@@ -6402,20 +6402,20 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_reply_message = {}
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_reply_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
 
-  -- Calculate runtime size of Sym Symbolx field
-  local sym_symbolx_offset = offset + index
-  local sym_symbolx_type = buffer(sym_symbolx_offset - 1, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.size(buffer, sym_symbolx_offset, sym_symbolx_type)
+  -- Calculate runtime size of Sym Symbol X field
+  local sym_symbol_x_offset = offset + index
+  local sym_symbol_x_type = buffer(sym_symbol_x_offset - 1, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.size(buffer, sym_symbol_x_offset, sym_symbol_x_type)
 
   return index
 end
@@ -6429,23 +6429,23 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_reply_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Symboltype: uint8
-  index, symboltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect(buffer, index, packet, parent)
+  -- Symbol Type: uint8
+  index, symbol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect(buffer, index, packet, parent)
 
-  -- Sym Symbolx: Runtime Type with 2 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.dissect(buffer, index, packet, parent, symboltype)
+  -- Sym Symbol X: Runtime Type with 2 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.dissect(buffer, index, packet, parent, symbol_type)
 
   return index
 end
@@ -6475,22 +6475,22 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_input_long_format_
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_input_long_format_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
 
-  -- Calculate runtime size of Sym Longsymbolx field
-  local sym_longsymbolx_offset = offset + index
-  local sym_longsymbolx_type = buffer(sym_longsymbolx_offset - 1, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.size(buffer, sym_longsymbolx_offset, sym_longsymbolx_type)
+  -- Calculate runtime size of Sym Long Symbol X field
+  local sym_long_symbol_x_offset = offset + index
+  local sym_long_symbol_x_type = buffer(sym_long_symbol_x_offset - 1, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.size(buffer, sym_long_symbol_x_offset, sym_long_symbol_x_type)
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.size
 
   return index
 end
@@ -6504,26 +6504,26 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_input_long_format_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Symboltype: uint8
-  index, symboltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect(buffer, index, packet, parent)
+  -- Symbol Type: uint8
+  index, symbol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect(buffer, index, packet, parent)
 
-  -- Sym Longsymbolx: Runtime Type with 2 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.dissect(buffer, index, packet, parent, symboltype)
+  -- Sym Long Symbol X: Runtime Type with 2 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.dissect(buffer, index, packet, parent, symbol_type)
 
-  -- Ordersource: char
-  index, ordersource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.dissect(buffer, index, packet, parent)
+  -- Order Source: char
+  index, order_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.dissect(buffer, index, packet, parent)
 
-  -- Infosource: char [3]
-  index, infosource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.dissect(buffer, index, packet, parent)
+  -- Info Source: char [3]
+  index, info_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6553,22 +6553,22 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_input_message = {}
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_input_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
 
-  -- Calculate runtime size of Sym Symbolx field
-  local sym_symbolx_offset = offset + index
-  local sym_symbolx_type = buffer(sym_symbolx_offset - 1, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.size(buffer, sym_symbolx_offset, sym_symbolx_type)
+  -- Calculate runtime size of Sym Symbol X field
+  local sym_symbol_x_offset = offset + index
+  local sym_symbol_x_type = buffer(sym_symbol_x_offset - 1, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.size(buffer, sym_symbol_x_offset, sym_symbol_x_type)
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.size
 
   return index
 end
@@ -6582,26 +6582,26 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.price_inquiry_input_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Symboltype: uint8
-  index, symboltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect(buffer, index, packet, parent)
+  -- Symbol Type: uint8
+  index, symbol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect(buffer, index, packet, parent)
 
-  -- Sym Symbolx: Runtime Type with 2 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.dissect(buffer, index, packet, parent, symboltype)
+  -- Sym Symbol X: Runtime Type with 2 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.dissect(buffer, index, packet, parent, symbol_type)
 
-  -- Ordersource: char
-  index, ordersource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.dissect(buffer, index, packet, parent)
+  -- Order Source: char
+  index, order_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.dissect(buffer, index, packet, parent)
 
-  -- Infosource: char [3]
-  index, infosource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.dissect(buffer, index, packet, parent)
+  -- Info Source: char [3]
+  index, info_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6629,13 +6629,13 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.error_report_message = {}
 
 -- Size: Error Report Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.error_report_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.size
 
 -- Display: Error Report Message
@@ -6647,26 +6647,26 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.error_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
-  -- Rptseq: uint32
-  index, rptseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.dissect(buffer, index, packet, parent)
+  -- Rpt Seq: uint32
+  index, rpt_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.dissect(buffer, index, packet, parent)
 
   -- Side: uint8
   index, side = taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.dissect(buffer, index, packet, parent)
@@ -6699,34 +6699,34 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_long_format_
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_long_format_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
 
-  -- Calculate runtime size of Sym Longsymbolx field
-  local sym_longsymbolx_offset = offset + index
-  local sym_longsymbolx_type = buffer(sym_longsymbolx_offset - 1, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.size(buffer, sym_longsymbolx_offset, sym_longsymbolx_type)
+  -- Calculate runtime size of Sym Long Symbol X field
+  local sym_long_symbol_x_offset = offset + index
+  local sym_long_symbol_x_type = buffer(sym_long_symbol_x_offset - 1, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.size(buffer, sym_long_symbol_x_offset, sym_long_symbol_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.size
 
@@ -6740,31 +6740,31 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_long_format_
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.last_qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cum_qty.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.leaves_qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.size
 
-  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.size
+  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.size
 
-  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.size
+  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.size
 
-  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.size
+  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.size
 
   return index
 end
@@ -6778,32 +6778,32 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_long_format_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Cmid: uint16
-  index, cmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.dissect(buffer, index, packet, parent)
+  -- Cm Id: uint16
+  index, cm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
-  -- Symboltype: uint8
-  index, symboltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect(buffer, index, packet, parent)
+  -- Symbol Type: uint8
+  index, symbol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect(buffer, index, packet, parent)
 
-  -- Sym Longsymbolx: Runtime Type with 2 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.dissect(buffer, index, packet, parent, symboltype)
+  -- Sym Long Symbol X: Runtime Type with 2 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.dissect(buffer, index, packet, parent, symbol_type)
 
   -- Price: int32
   index, price = taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.dissect(buffer, index, packet, parent)
@@ -6811,11 +6811,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_long_format_
   -- Qty: uint16
   index, qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.dissect(buffer, index, packet, parent)
 
-  -- Investoracno: uint32
-  index, investoracno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect(buffer, index, packet, parent)
+  -- Investor Acno: uint32
+  index, investor_acno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect(buffer, index, packet, parent)
 
-  -- Investorflag: char
-  index, investorflag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.dissect(buffer, index, packet, parent)
+  -- Investor Flag: char
+  index, investor_flag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.dissect(buffer, index, packet, parent)
 
   -- Side: uint8
   index, side = taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.dissect(buffer, index, packet, parent)
@@ -6835,8 +6835,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_long_format_
   -- Last Qty: uint16
   index, last_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Pxsubtotal: int64
-  index, pxsubtotal = taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.dissect(buffer, index, packet, parent)
+  -- Px Subtotal: int64
+  index, px_subtotal = taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.dissect(buffer, index, packet, parent)
 
   -- Cum Qty: uint16
   index, cum_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cum_qty.dissect(buffer, index, packet, parent)
@@ -6844,41 +6844,41 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_long_format_
   -- Leaves Qty: uint16
   index, leaves_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Beforeqty: uint16
-  index, beforeqty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.dissect(buffer, index, packet, parent)
+  -- Before Qty: uint16
+  index, before_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.dissect(buffer, index, packet, parent)
 
-  -- Array Of: Legside Uint 822
-  for legside_uint_822_index = 1, 2 do
-    index, legside_uint_822 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.dissect(buffer, index, packet, parent, legside_uint_822_index)
+  -- Array Of: Leg Side Uint 822
+  for leg_side_uint_822_index = 1, 2 do
+    index, leg_side_uint_822 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.dissect(buffer, index, packet, parent, leg_side_uint_822_index)
   end
 
-  -- Array Of: Legpx
-  for legpx_index = 1, 2 do
-    index, legpx = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.dissect(buffer, index, packet, parent, legpx_index)
+  -- Array Of: Leg Px
+  for leg_px_index = 1, 2 do
+    index, leg_px = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.dissect(buffer, index, packet, parent, leg_px_index)
   end
 
-  -- Array Of: Legqty Uint 1624
-  for legqty_uint_1624_index = 1, 2 do
-    index, legqty_uint_1624 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.dissect(buffer, index, packet, parent, legqty_uint_1624_index)
+  -- Array Of: Leg Qty Uint 1624
+  for leg_qty_uint_1624_index = 1, 2 do
+    index, leg_qty_uint_1624 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.dissect(buffer, index, packet, parent, leg_qty_uint_1624_index)
   end
 
-  -- Orgtranstime Msgtime: Struct of 2 fields
-  index, orgtranstime_msgtime = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.dissect(buffer, index, packet, parent)
+  -- Org Trans Time Msg Time: Struct of 2 fields
+  index, org_trans_time_msg_time = taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time Msgtime: Struct of 2 fields
-  index, transact_time_msgtime = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.dissect(buffer, index, packet, parent)
+  -- Transact Time Msg Time: Struct of 2 fields
+  index, transact_time_msg_time = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.dissect(buffer, index, packet, parent)
 
-  -- Targetid: uint8
-  index, targetid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.dissect(buffer, index, packet, parent)
+  -- Target Id: uint8
+  index, target_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.dissect(buffer, index, packet, parent)
 
-  -- Uniqid: uint32
-  index, uniqid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.dissect(buffer, index, packet, parent)
+  -- Uniq Id: uint32
+  index, uniq_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.dissect(buffer, index, packet, parent)
 
-  -- Rptseq: uint32
-  index, rptseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.dissect(buffer, index, packet, parent)
+  -- Rpt Seq: uint32
+  index, rpt_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Protocoltype: uint8
-  index, protocoltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.dissect(buffer, index, packet, parent)
+  -- Protocol Type: uint8
+  index, protocol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6908,34 +6908,34 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_message = {}
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
 
-  -- Calculate runtime size of Sym Symbolx field
-  local sym_symbolx_offset = offset + index
-  local sym_symbolx_type = buffer(sym_symbolx_offset - 1, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.size(buffer, sym_symbolx_offset, sym_symbolx_type)
+  -- Calculate runtime size of Sym Symbol X field
+  local sym_symbol_x_offset = offset + index
+  local sym_symbol_x_type = buffer(sym_symbol_x_offset - 1, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.size(buffer, sym_symbol_x_offset, sym_symbol_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.size
 
@@ -6949,31 +6949,31 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_message.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.last_qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cum_qty.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.leaves_qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.size
 
-  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.size
+  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.size
 
-  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.size
+  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.size
 
-  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.size
+  index = index + 2 * taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.size
 
   return index
 end
@@ -6987,32 +6987,32 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Cmid: uint16
-  index, cmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.dissect(buffer, index, packet, parent)
+  -- Cm Id: uint16
+  index, cm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
-  -- Symboltype: uint8
-  index, symboltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect(buffer, index, packet, parent)
+  -- Symbol Type: uint8
+  index, symbol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect(buffer, index, packet, parent)
 
-  -- Sym Symbolx: Runtime Type with 2 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.dissect(buffer, index, packet, parent, symboltype)
+  -- Sym Symbol X: Runtime Type with 2 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.dissect(buffer, index, packet, parent, symbol_type)
 
   -- Price: int32
   index, price = taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.dissect(buffer, index, packet, parent)
@@ -7020,11 +7020,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_message.fiel
   -- Qty: uint16
   index, qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.dissect(buffer, index, packet, parent)
 
-  -- Investoracno: uint32
-  index, investoracno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect(buffer, index, packet, parent)
+  -- Investor Acno: uint32
+  index, investor_acno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect(buffer, index, packet, parent)
 
-  -- Investorflag: char
-  index, investorflag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.dissect(buffer, index, packet, parent)
+  -- Investor Flag: char
+  index, investor_flag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.dissect(buffer, index, packet, parent)
 
   -- Side: uint8
   index, side = taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.dissect(buffer, index, packet, parent)
@@ -7044,8 +7044,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_message.fiel
   -- Last Qty: uint16
   index, last_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Pxsubtotal: int64
-  index, pxsubtotal = taifex_taifexderivatives_orderentry_tmp_v2_18_7.pxsubtotal.dissect(buffer, index, packet, parent)
+  -- Px Subtotal: int64
+  index, px_subtotal = taifex_taifexderivatives_orderentry_tmp_v2_18_7.px_subtotal.dissect(buffer, index, packet, parent)
 
   -- Cum Qty: uint16
   index, cum_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cum_qty.dissect(buffer, index, packet, parent)
@@ -7053,41 +7053,41 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_status_report_message.fiel
   -- Leaves Qty: uint16
   index, leaves_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Beforeqty: uint16
-  index, beforeqty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.beforeqty.dissect(buffer, index, packet, parent)
+  -- Before Qty: uint16
+  index, before_qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.before_qty.dissect(buffer, index, packet, parent)
 
-  -- Array Of: Legside Uint 822
-  for legside_uint_822_index = 1, 2 do
-    index, legside_uint_822 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legside_uint_822.dissect(buffer, index, packet, parent, legside_uint_822_index)
+  -- Array Of: Leg Side Uint 822
+  for leg_side_uint_822_index = 1, 2 do
+    index, leg_side_uint_822 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_side_uint_822.dissect(buffer, index, packet, parent, leg_side_uint_822_index)
   end
 
-  -- Array Of: Legpx
-  for legpx_index = 1, 2 do
-    index, legpx = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legpx.dissect(buffer, index, packet, parent, legpx_index)
+  -- Array Of: Leg Px
+  for leg_px_index = 1, 2 do
+    index, leg_px = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_px.dissect(buffer, index, packet, parent, leg_px_index)
   end
 
-  -- Array Of: Legqty Uint 1624
-  for legqty_uint_1624_index = 1, 2 do
-    index, legqty_uint_1624 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.legqty_uint_1624.dissect(buffer, index, packet, parent, legqty_uint_1624_index)
+  -- Array Of: Leg Qty Uint 1624
+  for leg_qty_uint_1624_index = 1, 2 do
+    index, leg_qty_uint_1624 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.leg_qty_uint_1624.dissect(buffer, index, packet, parent, leg_qty_uint_1624_index)
   end
 
-  -- Orgtranstime Msgtime: Struct of 2 fields
-  index, orgtranstime_msgtime = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orgtranstime_msgtime.dissect(buffer, index, packet, parent)
+  -- Org Trans Time Msg Time: Struct of 2 fields
+  index, org_trans_time_msg_time = taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.dissect(buffer, index, packet, parent)
 
-  -- Transact Time Msgtime: Struct of 2 fields
-  index, transact_time_msgtime = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msgtime.dissect(buffer, index, packet, parent)
+  -- Transact Time Msg Time: Struct of 2 fields
+  index, transact_time_msg_time = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.dissect(buffer, index, packet, parent)
 
-  -- Targetid: uint8
-  index, targetid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.targetid.dissect(buffer, index, packet, parent)
+  -- Target Id: uint8
+  index, target_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.target_id.dissect(buffer, index, packet, parent)
 
-  -- Uniqid: uint32
-  index, uniqid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniqid.dissect(buffer, index, packet, parent)
+  -- Uniq Id: uint32
+  index, uniq_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.uniq_id.dissect(buffer, index, packet, parent)
 
-  -- Rptseq: uint32
-  index, rptseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rptseq.dissect(buffer, index, packet, parent)
+  -- Rpt Seq: uint32
+  index, rpt_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Protocoltype: uint8
-  index, protocoltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocoltype.dissect(buffer, index, packet, parent)
+  -- Protocol Type: uint8
+  index, protocol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.protocol_type.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7119,30 +7119,30 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_input_long_format_message.
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
 
-  -- Calculate runtime size of Sym Longsymbolx field
-  local sym_longsymbolx_offset = offset + index
-  local sym_longsymbolx_type = buffer(sym_longsymbolx_offset - 1, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.size(buffer, sym_longsymbolx_offset, sym_longsymbolx_type)
+  -- Calculate runtime size of Sym Long Symbol X field
+  local sym_long_symbol_x_offset = offset + index
+  local sym_long_symbol_x_type = buffer(sym_long_symbol_x_offset - 1, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.size(buffer, sym_long_symbol_x_offset, sym_long_symbol_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.size
 
@@ -7152,9 +7152,9 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_input_long_format_message.
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.position_effect.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.size
 
   return index
 end
@@ -7171,26 +7171,26 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_input_long_format_message.
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Cmid: uint16
-  index, cmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.dissect(buffer, index, packet, parent)
+  -- Cm Id: uint16
+  index, cm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
-  -- Symboltype: uint8
-  index, symboltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect(buffer, index, packet, parent)
+  -- Symbol Type: uint8
+  index, symbol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect(buffer, index, packet, parent)
 
-  -- Sym Longsymbolx: Runtime Type with 2 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_longsymbolx.dissect(buffer, index, packet, parent, symboltype)
+  -- Sym Long Symbol X: Runtime Type with 2 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_long_symbol_x.dissect(buffer, index, packet, parent, symbol_type)
 
   -- Price: int32
   index, price = taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.dissect(buffer, index, packet, parent)
@@ -7198,11 +7198,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_input_long_format_message.
   -- Qty: uint16
   index, qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.dissect(buffer, index, packet, parent)
 
-  -- Investoracno: uint32
-  index, investoracno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect(buffer, index, packet, parent)
+  -- Investor Acno: uint32
+  index, investor_acno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect(buffer, index, packet, parent)
 
-  -- Investorflag: char
-  index, investorflag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.dissect(buffer, index, packet, parent)
+  -- Investor Flag: char
+  index, investor_flag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.dissect(buffer, index, packet, parent)
 
   -- Side: uint8
   index, side = taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.dissect(buffer, index, packet, parent)
@@ -7216,11 +7216,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_input_long_format_message.
   -- Position Effect: char
   index, position_effect = taifex_taifexderivatives_orderentry_tmp_v2_18_7.position_effect.dissect(buffer, index, packet, parent)
 
-  -- Ordersource: char
-  index, ordersource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.dissect(buffer, index, packet, parent)
+  -- Order Source: char
+  index, order_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.dissect(buffer, index, packet, parent)
 
-  -- Infosource: char [3]
-  index, infosource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.dissect(buffer, index, packet, parent)
+  -- Info Source: char [3]
+  index, info_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7252,30 +7252,30 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_input_message.size = funct
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.size
 
-  -- Calculate runtime size of Sym Symbolx field
-  local sym_symbolx_offset = offset + index
-  local sym_symbolx_type = buffer(sym_symbolx_offset - 1, 1):uint()
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.size(buffer, sym_symbolx_offset, sym_symbolx_type)
+  -- Calculate runtime size of Sym Symbol X field
+  local sym_symbol_x_offset = offset + index
+  local sym_symbol_x_type = buffer(sym_symbol_x_offset - 1, 1):uint()
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.size(buffer, sym_symbol_x_offset, sym_symbol_x_type)
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.size
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.size
 
@@ -7285,9 +7285,9 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_input_message.size = funct
 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.position_effect.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.size
 
   return index
 end
@@ -7304,26 +7304,26 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_input_message.fields = fun
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Cmid: uint16
-  index, cmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cmid.dissect(buffer, index, packet, parent)
+  -- Cm Id: uint16
+  index, cm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cm_id.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Orderno: char [5]
-  index, orderno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.orderno.dissect(buffer, index, packet, parent)
+  -- Order No: char [5]
+  index, order_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_no.dissect(buffer, index, packet, parent)
 
-  -- Ordid: uint32
-  index, ordid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordid.dissect(buffer, index, packet, parent)
+  -- Ord Id: uint32
+  index, ord_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ord_id.dissect(buffer, index, packet, parent)
 
-  -- Userdefine: char [8]
-  index, userdefine = taifex_taifexderivatives_orderentry_tmp_v2_18_7.userdefine.dissect(buffer, index, packet, parent)
+  -- User Define: char [8]
+  index, user_define = taifex_taifexderivatives_orderentry_tmp_v2_18_7.user_define.dissect(buffer, index, packet, parent)
 
-  -- Symboltype: uint8
-  index, symboltype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symboltype.dissect(buffer, index, packet, parent)
+  -- Symbol Type: uint8
+  index, symbol_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.symbol_type.dissect(buffer, index, packet, parent)
 
-  -- Sym Symbolx: Runtime Type with 2 branches
-  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbolx.dissect(buffer, index, packet, parent, symboltype)
+  -- Sym Symbol X: Runtime Type with 2 branches
+  index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sym_symbol_x.dissect(buffer, index, packet, parent, symbol_type)
 
   -- Price: int32
   index, price = taifex_taifexderivatives_orderentry_tmp_v2_18_7.price.dissect(buffer, index, packet, parent)
@@ -7331,11 +7331,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_input_message.fields = fun
   -- Qty: uint16
   index, qty = taifex_taifexderivatives_orderentry_tmp_v2_18_7.qty.dissect(buffer, index, packet, parent)
 
-  -- Investoracno: uint32
-  index, investoracno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investoracno.dissect(buffer, index, packet, parent)
+  -- Investor Acno: uint32
+  index, investor_acno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_acno.dissect(buffer, index, packet, parent)
 
-  -- Investorflag: char
-  index, investorflag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investorflag.dissect(buffer, index, packet, parent)
+  -- Investor Flag: char
+  index, investor_flag = taifex_taifexderivatives_orderentry_tmp_v2_18_7.investor_flag.dissect(buffer, index, packet, parent)
 
   -- Side: uint8
   index, side = taifex_taifexderivatives_orderentry_tmp_v2_18_7.side.dissect(buffer, index, packet, parent)
@@ -7349,11 +7349,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_input_message.fields = fun
   -- Position Effect: char
   index, position_effect = taifex_taifexderivatives_orderentry_tmp_v2_18_7.position_effect.dissect(buffer, index, packet, parent)
 
-  -- Ordersource: char
-  index, ordersource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ordersource.dissect(buffer, index, packet, parent)
+  -- Order Source: char
+  index, order_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.order_source.dissect(buffer, index, packet, parent)
 
-  -- Infosource: char [3]
-  index, infosource = taifex_taifexderivatives_orderentry_tmp_v2_18_7.infosource.dissect(buffer, index, packet, parent)
+  -- Info Source: char [3]
+  index, info_source = taifex_taifexderivatives_orderentry_tmp_v2_18_7.info_source.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7381,9 +7381,9 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_session_status_report_mess
 
 -- Size: Trade Session Status Report Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_session_status_report_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_req_id.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.flowgroupno.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.flow_group_no.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_status.size
 
 -- Display: Trade Session Status Report Message
@@ -7395,14 +7395,14 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_session_status_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   -- Trade Req Id: uint16
   index, trade_req_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_req_id.dissect(buffer, index, packet, parent)
 
-  -- Flowgroupno: uint8
-  index, flowgroupno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.flowgroupno.dissect(buffer, index, packet, parent)
+  -- Flow Group No: uint8
+  index, flow_group_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.flow_group_no.dissect(buffer, index, packet, parent)
 
   -- Trade Status: uint8
   index, trade_status = taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_status.dissect(buffer, index, packet, parent)
@@ -7433,9 +7433,9 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_session_status_request_mes
 
 -- Size: Trade Session Status Request Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_session_status_request_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_req_id.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.flowgroupno.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.flow_group_no.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.subscription_request_type.size
 
 -- Display: Trade Session Status Request Message
@@ -7447,14 +7447,14 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_session_status_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   -- Trade Req Id: uint16
   index, trade_req_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.trade_req_id.dissect(buffer, index, packet, parent)
 
-  -- Flowgroupno: uint8
-  index, flowgroupno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.flowgroupno.dissect(buffer, index, packet, parent)
+  -- Flow Group No: uint8
+  index, flow_group_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.flow_group_no.dissect(buffer, index, packet, parent)
 
   -- Subscription Request Type: uint8
   index, subscription_request_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subscription_request_type.dissect(buffer, index, packet, parent)
@@ -7485,7 +7485,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.connection_confirmed_message = {
 
 -- Size: Connection Confirmed Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.connection_confirmed_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
 -- Display: Connection Confirmed Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.connection_confirmed_message.display = function(packet, parent, length)
@@ -7496,8 +7496,8 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.connection_confirmed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7525,7 +7525,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.confirm_connection_message = {}
 
 -- Size: Confirm Connection Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.confirm_connection_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
 -- Display: Confirm Connection Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.confirm_connection_message.display = function(packet, parent, length)
@@ -7536,8 +7536,8 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.confirm_connection_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7565,7 +7565,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.logout_confirmed_message = {}
 
 -- Size: Logout Confirmed Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.logout_confirmed_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
 -- Display: Logout Confirmed Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.logout_confirmed_message.display = function(packet, parent, length)
@@ -7576,8 +7576,8 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.logout_confirmed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7622,7 +7622,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.activate_application_system_conf
 
 -- Size: Activate Application System Confirmed Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.activate_application_system_confirmed_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
 -- Display: Activate Application System Confirmed Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.activate_application_system_confirmed_message.display = function(packet, parent, length)
@@ -7633,8 +7633,8 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.activate_application_system_confirmed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7662,9 +7662,9 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.activate_application_system_mess
 
 -- Size: Activate Application System Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.activate_application_system_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.heart_bt_int.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.maxflowctrlcnt.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.max_flow_ctrl_cnt.size
 
 -- Display: Activate Application System Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.activate_application_system_message.display = function(packet, parent, length)
@@ -7675,14 +7675,14 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.activate_application_system_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   -- Heart Bt Int: uint8
   index, heart_bt_int = taifex_taifexderivatives_orderentry_tmp_v2_18_7.heart_bt_int.dissect(buffer, index, packet, parent)
 
-  -- Maxflowctrlcnt: uint16
-  index, maxflowctrlcnt = taifex_taifexderivatives_orderentry_tmp_v2_18_7.maxflowctrlcnt.dissect(buffer, index, packet, parent)
+  -- Max Flow Ctrl Cnt: uint16
+  index, max_flow_ctrl_cnt = taifex_taifexderivatives_orderentry_tmp_v2_18_7.max_flow_ctrl_cnt.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7710,7 +7710,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.resend_report_confirmed_message 
 
 -- Size: Resend Report Confirmed Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.resend_report_confirmed_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
 -- Display: Resend Report Confirmed Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.resend_report_confirmed_message.display = function(packet, parent, length)
@@ -7721,8 +7721,8 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.resend_report_confirmed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7752,13 +7752,13 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.resend_report_message = {}
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.resend_report_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof.size
 
-  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.filesize.size
+  index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size.size
 
-  -- Parse runtime size of: Data Uint 8 Hdrmsglength 156
+  -- Parse runtime size of: Data Uint 8 Hdr Msg Length 156
   index = index + buffer(offset + index - 23, 2):uint()
 
   return index
@@ -7773,23 +7773,23 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.resend_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
-  -- Iseof: uint8
-  index, iseof = taifex_taifexderivatives_orderentry_tmp_v2_18_7.iseof.dissect(buffer, index, packet, parent)
+  -- Is Eof: uint8
+  index, is_eof = taifex_taifexderivatives_orderentry_tmp_v2_18_7.is_eof.dissect(buffer, index, packet, parent)
 
-  -- Filesize: uint32
-  index, filesize = taifex_taifexderivatives_orderentry_tmp_v2_18_7.filesize.dissect(buffer, index, packet, parent)
+  -- File Size: uint32
+  index, file_size = taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Msg Length
   local msg_length = buffer(offset - 17, 2):uint()
 
-  -- Runtime Size Of: Data Uint 8 Hdrmsglength 156
-  local size_of_data_uint_8_hdrmsglength_156 = msg_length - 21
+  -- Runtime Size Of: Data Uint 8 Hdr Msg Length 156
+  local size_of_data_uint_8_hdr_msg_length_156 = msg_length - 21
 
-  -- Data Uint 8 Hdrmsglength 156: uint8
-  index, data_uint_8_hdrmsglength_156 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdrmsglength_156.dissect(buffer, index, packet, parent, size_of_data_uint_8_hdrmsglength_156)
+  -- Data Uint 8 Hdr Msg Length 156: uint8
+  index, data_uint_8_hdr_msg_length_156 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_156.dissect(buffer, index, packet, parent, size_of_data_uint_8_hdr_msg_length_156)
 
   return index
 end
@@ -7817,15 +7817,15 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_logon_message = {}
 
 -- Size: Request Logon Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_logon_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.appendno.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.sessionid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.apcode.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.keyvalue.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.requeststartseq.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancelordersec.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.append_no.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.session_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.ap_code.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.key_value.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_start_seq.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancel_order_sec.size
 
 -- Display: Request Logon Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_logon_message.display = function(packet, parent, length)
@@ -7836,32 +7836,32 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_logon_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
-  -- Appendno: uint16
-  index, appendno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.appendno.dissect(buffer, index, packet, parent)
+  -- Append No: uint16
+  index, append_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.append_no.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Sessionid: uint16
-  index, sessionid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sessionid.dissect(buffer, index, packet, parent)
+  -- Session Id: uint16
+  index, session_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.session_id.dissect(buffer, index, packet, parent)
 
-  -- Systemtype: uint8
-  index, systemtype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.dissect(buffer, index, packet, parent)
+  -- System Type: uint8
+  index, system_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.dissect(buffer, index, packet, parent)
 
-  -- Apcode: uint8
-  index, apcode = taifex_taifexderivatives_orderentry_tmp_v2_18_7.apcode.dissect(buffer, index, packet, parent)
+  -- Ap Code: uint8
+  index, ap_code = taifex_taifexderivatives_orderentry_tmp_v2_18_7.ap_code.dissect(buffer, index, packet, parent)
 
-  -- Keyvalue: uint8
-  index, keyvalue = taifex_taifexderivatives_orderentry_tmp_v2_18_7.keyvalue.dissect(buffer, index, packet, parent)
+  -- Key Value: uint8
+  index, key_value = taifex_taifexderivatives_orderentry_tmp_v2_18_7.key_value.dissect(buffer, index, packet, parent)
 
-  -- Requeststartseq: uint32
-  index, requeststartseq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.requeststartseq.dissect(buffer, index, packet, parent)
+  -- Request Start Seq: uint32
+  index, request_start_seq = taifex_taifexderivatives_orderentry_tmp_v2_18_7.request_start_seq.dissect(buffer, index, packet, parent)
 
-  -- Cancelordersec: uint8
-  index, cancelordersec = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancelordersec.dissect(buffer, index, packet, parent)
+  -- Cancel Order Sec: uint8
+  index, cancel_order_sec = taifex_taifexderivatives_orderentry_tmp_v2_18_7.cancel_order_sec.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7889,10 +7889,10 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.final_sequential_number_notifica
 
 -- Size: Final Sequential Number Notification For Group Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.final_sequential_number_notification_for_group_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.endoutboundnum.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.end_out_bound_num.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_8.size
 
 -- Display: Final Sequential Number Notification For Group Message
@@ -7904,17 +7904,17 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.final_sequential_number_notification_for_group_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Subhdr: Struct of 3 fields
-  index, subhdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.subhdr.dissect(buffer, index, packet, parent)
+  -- Sub Hdr: Struct of 3 fields
+  index, sub_hdr = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
-  -- Statuscode Uint 162: uint16
-  index, statuscode_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 162: uint16
+  index, status_code_uint_162 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_162.dissect(buffer, index, packet, parent)
 
-  -- Partid: uint8
-  index, partid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.partid.dissect(buffer, index, packet, parent)
+  -- Part Id: uint8
+  index, part_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.part_id.dissect(buffer, index, packet, parent)
 
-  -- Endoutboundnum: uint32
-  index, endoutboundnum = taifex_taifexderivatives_orderentry_tmp_v2_18_7.endoutboundnum.dissect(buffer, index, packet, parent)
+  -- End Out Bound Num: uint32
+  index, end_out_bound_num = taifex_taifexderivatives_orderentry_tmp_v2_18_7.end_out_bound_num.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: uint8[8]
   index, reserved_8 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_8.dissect(buffer, index, packet, parent)
@@ -7945,10 +7945,10 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.logon_notice_message = {}
 
 -- Size: Logon Notice Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.logon_notice_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.appendno.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.endoutboundnum.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.append_no.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.end_out_bound_num.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.encrypt_method.size
 
 -- Display: Logon Notice Message
@@ -7960,17 +7960,17 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.logon_notice_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
-  -- Appendno: uint16
-  index, appendno = taifex_taifexderivatives_orderentry_tmp_v2_18_7.appendno.dissect(buffer, index, packet, parent)
+  -- Append No: uint16
+  index, append_no = taifex_taifexderivatives_orderentry_tmp_v2_18_7.append_no.dissect(buffer, index, packet, parent)
 
-  -- Endoutboundnum: uint32
-  index, endoutboundnum = taifex_taifexderivatives_orderentry_tmp_v2_18_7.endoutboundnum.dissect(buffer, index, packet, parent)
+  -- End Out Bound Num: uint32
+  index, end_out_bound_num = taifex_taifexderivatives_orderentry_tmp_v2_18_7.end_out_bound_num.dissect(buffer, index, packet, parent)
 
-  -- Systemtype: uint8
-  index, systemtype = taifex_taifexderivatives_orderentry_tmp_v2_18_7.systemtype.dissect(buffer, index, packet, parent)
+  -- System Type: uint8
+  index, system_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.dissect(buffer, index, packet, parent)
 
   -- Encrypt Method: uint8
   index, encrypt_method = taifex_taifexderivatives_orderentry_tmp_v2_18_7.encrypt_method.dissect(buffer, index, packet, parent)
@@ -8041,8 +8041,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.wake_up_call_message = {}
 
 -- Size: Wake Up Call Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.wake_up_call_message.size =
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.startinboundnum.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.start_in_bound_num.size
 
 -- Display: Wake Up Call Message
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.wake_up_call_message.display = function(packet, parent, length)
@@ -8053,11 +8053,11 @@ end
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.wake_up_call_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Statuscode Uint 81: uint8
-  index, statuscode_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code Uint 81: uint8
+  index, status_code_uint_81 = taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
 
-  -- Startinboundnum: uint32
-  index, startinboundnum = taifex_taifexderivatives_orderentry_tmp_v2_18_7.startinboundnum.dissect(buffer, index, packet, parent)
+  -- Start In Bound Num: uint32
+  index, start_in_bound_num = taifex_taifexderivatives_orderentry_tmp_v2_18_7.start_in_bound_num.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8212,8 +8212,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.hdr.size =
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.msg_seq_num.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.header_time.size + 
   taifex_taifexderivatives_orderentry_tmp_v2_18_7.message_type.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.size + 
-  taifex_taifexderivatives_orderentry_tmp_v2_18_7.sessionid.size
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.size + 
+  taifex_taifexderivatives_orderentry_tmp_v2_18_7.session_id.size
 
 -- Display: Hdr
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.hdr.display = function(packet, parent, length)
@@ -8236,11 +8236,11 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.hdr.fields = function(buffer, of
   -- Message Type: uint8
   index, message_type = taifex_taifexderivatives_orderentry_tmp_v2_18_7.message_type.dissect(buffer, index, packet, parent)
 
-  -- Fcmid: uint16
-  index, fcmid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcmid.dissect(buffer, index, packet, parent)
+  -- Fcm Id: uint16
+  index, fcm_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.fcm_id.dissect(buffer, index, packet, parent)
 
-  -- Sessionid: uint16
-  index, sessionid = taifex_taifexderivatives_orderentry_tmp_v2_18_7.sessionid.dissect(buffer, index, packet, parent)
+  -- Session Id: uint16
+  index, session_id = taifex_taifexderivatives_orderentry_tmp_v2_18_7.session_id.dissect(buffer, index, packet, parent)
 
   return index
 end

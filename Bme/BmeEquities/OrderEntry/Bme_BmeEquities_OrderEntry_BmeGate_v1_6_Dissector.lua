@@ -47,7 +47,7 @@ omi_bme_bmeequities_orderentry_bmegate_v1_6.fields.barrier = ProtoField.new("Bar
 omi_bme_bmeequities_orderentry_bmegate_v1_6.fields.barrier_2 = ProtoField.new("Barrier 2", "bme.bmeequities.orderentry.bmegate.v1.6.barrier2", ftypes.DOUBLE, nil, nil, nil, "Second Barrier")
 omi_bme_bmeequities_orderentry_bmegate_v1_6.fields.barrier_return = ProtoField.new("Barrier Return", "bme.bmeequities.orderentry.bmegate.v1.6.barrierreturn", ftypes.DOUBLE)
 omi_bme_bmeequities_orderentry_bmegate_v1_6.fields.base_product = ProtoField.new("Base Product", "bme.bmeequities.orderentry.bmegate.v1.6.baseproduct", ftypes.STRING)
-omi_bme_bmeequities_orderentry_bmegate_v1_6.fields.bencrfpt_flag = ProtoField.new("Bencrfpt Flag", "bme.bmeequities.orderentry.bmegate.v1.6.bencrfptflag", ftypes.STRING, nil, nil, nil, "Benchmark or Reference Price Indicator MMT")
+omi_bme_bmeequities_orderentry_bmegate_v1_6.fields.benc_rfpt_flag = ProtoField.new("Benc Rfpt Flag", "bme.bmeequities.orderentry.bmegate.v1.6.bencrfptflag", ftypes.STRING, nil, nil, nil, "Benchmark or Reference Price Indicator MMT")
 omi_bme_bmeequities_orderentry_bmegate_v1_6.fields.bid_px_1 = ProtoField.new("Bid Px 1", "bme.bmeequities.orderentry.bmegate.v1.6.bidpx1", ftypes.DOUBLE, nil, nil, nil, "Buy price")
 omi_bme_bmeequities_orderentry_bmegate_v1_6.fields.bid_size_1 = ProtoField.new("Bid Size 1", "bme.bmeequities.orderentry.bmegate.v1.6.bidsize1", ftypes.UINT32, nil, nil, nil, "Buy volume")
 omi_bme_bmeequities_orderentry_bmegate_v1_6.fields.block_oscilation_percentage = ProtoField.new("Block Oscilation Percentage", "bme.bmeequities.orderentry.bmegate.v1.6.blockoscilationpercentage", ftypes.DOUBLE, nil, nil, nil, "Price fluctuation on bid/ask spread midpoint for agreed blocks")
@@ -1469,41 +1469,41 @@ bme_bmeequities_orderentry_bmegate_v1_6.base_product.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Bencrfpt Flag
-bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag = {}
+-- Benc Rfpt Flag
+bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag = {}
 
--- Size: Bencrfpt Flag
-bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag.size = 1
+-- Size: Benc Rfpt Flag
+bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag.size = 1
 
--- Display: Bencrfpt Flag
-bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag.display = function(value)
+-- Display: Benc Rfpt Flag
+bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag.display = function(value)
   if value == " " then
-    return "Bencrfpt Flag: Normal Trade (<whitespace>)"
+    return "Benc Rfpt Flag: Normal Trade (<whitespace>)"
   end
   if value == "6" then
-    return "Bencrfpt Flag: Benchmark Trade Benc (6)"
+    return "Benc Rfpt Flag: Benchmark Trade Benc (6)"
   end
   if value == "3" then
-    return "Bencrfpt Flag: Reference Price Trade Rfpt (3)"
+    return "Benc Rfpt Flag: Reference Price Trade Rfpt (3)"
   end
   if value == "C" then
-    return "Bencrfpt Flag: Contingency Trade Cont (C)"
+    return "Benc Rfpt Flag: Contingency Trade Cont (C)"
   end
   if value == "M" then
-    return "Bencrfpt Flag: Benc Cont (M)"
+    return "Benc Rfpt Flag: Benc Cont (M)"
   end
 
-  return "Bencrfpt Flag: Unknown("..value..")"
+  return "Benc Rfpt Flag: Unknown("..value..")"
 end
 
--- Dissect: Bencrfpt Flag
-bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag.dissect = function(buffer, offset, packet, parent)
-  local length = bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag.size
+-- Dissect: Benc Rfpt Flag
+bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag.dissect = function(buffer, offset, packet, parent)
+  local length = bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag.display(value, buffer, offset, packet, parent)
+  local display = bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bme_bmeequities_orderentry_bmegate_v1_6.fields.bencrfpt_flag, range, value, display)
+  parent:add(omi_bme_bmeequities_orderentry_bmegate_v1_6.fields.benc_rfpt_flag, range, value, display)
 
   return offset + length, value
 end
@@ -3084,7 +3084,7 @@ bme_bmeequities_orderentry_bmegate_v1_6.exec_type.labels = {
   ["G"] = "Exec Type: Order Modification Deleting Intermediated Member (G)",
   ["F"] = "Exec Type: Order Modification Changing Intermediated Member (F)",
   ["R"] = "Exec Type: Order Refresh (R)",
-  ["D"] = "Exec Type: Stop Order Triggered Attheclose Order Activation (D)",
+  ["D"] = "Exec Type: Stop Order Triggered At The Close Order Activation (D)",
   ["8"] = "Exec Type: Order Rejection (8)",
   ["N"] = "Exec Type: Order Pending Validation (N)",
   ["P"] = "Exec Type: Order Modification Pending Validation (P)",
@@ -5394,8 +5394,8 @@ bme_bmeequities_orderentry_bmegate_v1_6.non_availability_reason.labels = {
   [0] = "Non Availability Reason: Not Halted (0)",
   [100] = "Non Availability Reason: Halted By Regulator (100)",
   [101] = "Non Availability Reason: Halted By Market Surveillance (101)",
-  [102] = "Non Availability Reason: Knockout (102)",
-  [103] = "Non Availability Reason: Knockin Pending (103)",
+  [102] = "Non Availability Reason: Knock Out (102)",
+  [103] = "Non Availability Reason: Knock In Pending (103)",
 }
 
 bme_bmeequities_orderentry_bmegate_v1_6.non_availability_reason.display = function(value)
@@ -5629,8 +5629,8 @@ bme_bmeequities_orderentry_bmegate_v1_6.ord_status.labels = {
   ["2"] = "Ord Status: Totally Filled (2)",
   ["4"] = "Ord Status: Cancelled Not Filled (4)",
   ["P"] = "Ord Status: Cancelled Partially Filled (P)",
-  ["A"] = "Ord Status: Nonworking Order Pending Validation (A)",
-  ["S"] = "Ord Status: Nonworking Order Pending Activation (S)",
+  ["A"] = "Ord Status: Non Working Order Pending Validation (A)",
+  ["S"] = "Ord Status: Non Working Order Pending Activation (S)",
   ["C"] = "Ord Status: Expired (C)",
 }
 
@@ -5664,8 +5664,8 @@ bme_bmeequities_orderentry_bmegate_v1_6.ord_status_2.labels = {
   ["2"] = "Ord Status 2: Totally Filled (2)",
   ["4"] = "Ord Status 2: Cancelled Not Filled (4)",
   ["P"] = "Ord Status 2: Cancelled Partially Filled (P)",
-  ["A"] = "Ord Status 2: Nonworking Order Pending Validation (A)",
-  ["S"] = "Ord Status 2: Nonworking Order Pending Activation (S)",
+  ["A"] = "Ord Status 2: Non Working Order Pending Validation (A)",
+  ["S"] = "Ord Status 2: Non Working Order Pending Activation (S)",
 }
 
 bme_bmeequities_orderentry_bmegate_v1_6.ord_status_2.display = function(value)
@@ -7109,7 +7109,7 @@ bme_bmeequities_orderentry_bmegate_v1_6.security_trading_status.labels = {
   [19] = "Security Trading Status: Not Traded On This Segment (19)",
   [20] = "Security Trading Status: Unknown Or Invalid (20)",
   [21] = "Security Trading Status: Pre Open (21)",
-  [26] = "Security Trading Status: Postclose Ready To Trade In Tal (26)",
+  [26] = "Security Trading Status: Post Close Ready To Trade In Tal (26)",
   [23] = "Security Trading Status: Fast Market (23)",
   [100] = "Security Trading Status: Extraordinary Market Conditions (100)",
 }
@@ -9294,7 +9294,7 @@ bme_bmeequities_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_2_
   bme_bmeequities_orderentry_bmegate_v1_6.settl_date.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.transaction_category.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.last_change_flag.size + 
-  bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag.size + 
+  bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.trade_price_condition.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.pre_trade_transparency_waiver.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.deferral_waiver.size + 
@@ -9451,8 +9451,8 @@ bme_bmeequities_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_2_
   -- Last Change Flag: B
   index, last_change_flag = bme_bmeequities_orderentry_bmegate_v1_6.last_change_flag.dissect(buffer, index, packet, parent)
 
-  -- Bencrfpt Flag: C
-  index, bencrfpt_flag = bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag.dissect(buffer, index, packet, parent)
+  -- Benc Rfpt Flag: C
+  index, benc_rfpt_flag = bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag.dissect(buffer, index, packet, parent)
 
   -- Trade Price Condition: C
   index, trade_price_condition = bme_bmeequities_orderentry_bmegate_v1_6.trade_price_condition.dissect(buffer, index, packet, parent)
@@ -9782,7 +9782,7 @@ bme_bmeequities_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_
   bme_bmeequities_orderentry_bmegate_v1_6.settl_date.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.transaction_category.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.last_change_flag.size + 
-  bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag.size + 
+  bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.trade_price_condition.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.pre_trade_transparency_waiver.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.deferral_waiver.size + 
@@ -9897,8 +9897,8 @@ bme_bmeequities_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_
   -- Last Change Flag: B
   index, last_change_flag = bme_bmeequities_orderentry_bmegate_v1_6.last_change_flag.dissect(buffer, index, packet, parent)
 
-  -- Bencrfpt Flag: C
-  index, bencrfpt_flag = bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag.dissect(buffer, index, packet, parent)
+  -- Benc Rfpt Flag: C
+  index, benc_rfpt_flag = bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag.dissect(buffer, index, packet, parent)
 
   -- Trade Price Condition: C
   index, trade_price_condition = bme_bmeequities_orderentry_bmegate_v1_6.trade_price_condition.dissect(buffer, index, packet, parent)
@@ -10102,7 +10102,7 @@ bme_bmeequities_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_
   bme_bmeequities_orderentry_bmegate_v1_6.settl_date.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.transaction_category.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.last_change_flag.size + 
-  bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag.size + 
+  bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.trade_price_condition.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.pre_trade_transparency_waiver.size + 
   bme_bmeequities_orderentry_bmegate_v1_6.deferral_waiver.size + 
@@ -10217,8 +10217,8 @@ bme_bmeequities_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_
   -- Last Change Flag: B
   index, last_change_flag = bme_bmeequities_orderentry_bmegate_v1_6.last_change_flag.dissect(buffer, index, packet, parent)
 
-  -- Bencrfpt Flag: C
-  index, bencrfpt_flag = bme_bmeequities_orderentry_bmegate_v1_6.bencrfpt_flag.dissect(buffer, index, packet, parent)
+  -- Benc Rfpt Flag: C
+  index, benc_rfpt_flag = bme_bmeequities_orderentry_bmegate_v1_6.benc_rfpt_flag.dissect(buffer, index, packet, parent)
 
   -- Trade Price Condition: C
   index, trade_price_condition = bme_bmeequities_orderentry_bmegate_v1_6.trade_price_condition.dissect(buffer, index, packet, parent)

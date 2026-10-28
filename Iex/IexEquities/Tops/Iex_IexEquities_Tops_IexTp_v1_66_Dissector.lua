@@ -61,7 +61,7 @@ omi_iex_iexequities_tops_iextp_v1_66.fields.send_time = ProtoField.new("Send Tim
 omi_iex_iexequities_tops_iextp_v1_66.fields.send_time_utc = ProtoField.new("Send Time", "iex.iexequities.tops.iextp.v1.66.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of segment")
 omi_iex_iexequities_tops_iextp_v1_66.fields.session_id = ProtoField.new("Session Id", "iex.iexequities.tops.iextp.v1.66.sessionid", ftypes.UINT32, nil, nil, nil, "Identifies the session")
 omi_iex_iexequities_tops_iextp_v1_66.fields.short_sale_price_test_status = ProtoField.new("Short Sale Price Test Status", "iex.iexequities.tops.iextp.v1.66.shortsalepriceteststatus", ftypes.UINT8, nil, nil, nil, "Reg. SHO short sale price test restriction status")
-omi_iex_iexequities_tops_iextp_v1_66.fields.singleprice_cross_trade = ProtoField.new("Singleprice Cross Trade", "iex.iexequities.tops.iextp.v1.66.singlepricecrosstrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Trade resulting from a single-price cross")
+omi_iex_iexequities_tops_iextp_v1_66.fields.single_price_cross_trade = ProtoField.new("Single Price Cross Trade", "iex.iexequities.tops.iextp.v1.66.singlepricecrosstrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Trade resulting from a single-price cross")
 omi_iex_iexequities_tops_iextp_v1_66.fields.size = ProtoField.new("Size", "iex.iexequities.tops.iextp.v1.66.size", ftypes.UINT32, nil, nil, nil, "Trade volume")
 omi_iex_iexequities_tops_iextp_v1_66.fields.stream_offset = ProtoField.new("Stream Offset", "iex.iexequities.tops.iextp.v1.66.streamoffset", ftypes.UINT64, nil, nil, nil, "Byte offset of the data stream")
 omi_iex_iexequities_tops_iextp_v1_66.fields.symbol = ProtoField.new("Symbol", "iex.iexequities.tops.iextp.v1.66.symbol", ftypes.STRING, nil, nil, nil, "Security identifier")
@@ -1501,9 +1501,9 @@ iex_iexequities_tops_iextp_v1_66.sale_condition_flags.size = 1
 iex_iexequities_tops_iextp_v1_66.sale_condition_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Singleprice Cross Trade flag set?
+  -- Is Single Price Cross Trade flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Singleprice Cross Trade"
+    flags[#flags + 1] = "Single Price Cross Trade"
   end
   -- Is Trade Through Exempt flag set?
   if bit.band(value, 0x10) ~= 0 then
@@ -1531,8 +1531,8 @@ iex_iexequities_tops_iextp_v1_66.sale_condition_flags.bits = function(range, val
   -- Unused 3: 3 Bit
   parent:add(omi_iex_iexequities_tops_iextp_v1_66.fields.unused_3, range, value)
 
-  -- Singleprice Cross Trade: 1 Bit
-  parent:add(omi_iex_iexequities_tops_iextp_v1_66.fields.singleprice_cross_trade, range, value)
+  -- Single Price Cross Trade: 1 Bit
+  parent:add(omi_iex_iexequities_tops_iextp_v1_66.fields.single_price_cross_trade, range, value)
 
   -- Trade Through Exempt: 1 Bit
   parent:add(omi_iex_iexequities_tops_iextp_v1_66.fields.trade_through_exempt, range, value)

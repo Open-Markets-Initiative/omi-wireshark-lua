@@ -2640,7 +2640,7 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.restatement_reason.display = func
     return "Restatement Reason: Iceberg Order Reload (r)"
   end
   if value == "W" then
-    return "Restatement Reason: Would Have Selftraded (W)"
+    return "Restatement Reason: Would Have Self Traded (W)"
   end
   if value == "R" then
     return "Restatement Reason: Replaced By Another Port Ie Purge Amend Port (R)"

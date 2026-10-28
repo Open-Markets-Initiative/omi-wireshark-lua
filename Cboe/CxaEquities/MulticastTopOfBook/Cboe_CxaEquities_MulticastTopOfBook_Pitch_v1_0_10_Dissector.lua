@@ -876,7 +876,7 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.trade_designation.display = fu
     return "Trade Designation: Cxam Moc (M)"
   end
   if value == " " then
-    return "Trade Designation: Not Applicable Offexchange (<whitespace>)"
+    return "Trade Designation: Not Applicable Off Exchange (<whitespace>)"
   end
 
   return "Trade Designation: Unknown("..value..")"
@@ -927,7 +927,7 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.trade_report_type.display = fu
     return "Trade Report Type: Etf Trade Report For Unit Creations Or Redemptions (F)"
   end
   if value == " " then
-    return "Trade Report Type: Not Applicable Onexchange (<whitespace>)"
+    return "Trade Report Type: Not Applicable On Exchange (<whitespace>)"
   end
 
   return "Trade Report Type: Unknown("..value..")"
@@ -992,7 +992,7 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.trade_type.display = function(
     return "Trade Type: Halt Auction Re Opening (H)"
   end
   if value == " " then
-    return "Trade Type: Offexchange Trade Report (<whitespace>)"
+    return "Trade Type: Off Exchange Trade Report (<whitespace>)"
   end
 
   return "Trade Type: Unknown("..value..")"
@@ -1019,10 +1019,10 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.trading_status.size = 1
 -- Display: Trading Status
 cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.trading_status.labels = {
   ["C"] = "Trading Status: Closed (C)",
-  ["A"] = "Trading Status: Premarket (A)",
+  ["A"] = "Trading Status: Pre Market (A)",
   ["T"] = "Trading Status: Trading (T)",
   ["M"] = "Trading Status: Moc Trading (M)",
-  ["P"] = "Trading Status: Postmarket (P)",
+  ["P"] = "Trading Status: Post Market (P)",
   ["H"] = "Trading Status: Halted (H)",
   ["S"] = "Trading Status: Trading Suspended (S)",
   ["O"] = "Trading Status: Pre Open (O)",

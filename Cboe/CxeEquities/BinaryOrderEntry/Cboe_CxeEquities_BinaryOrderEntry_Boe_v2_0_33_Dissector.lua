@@ -2583,7 +2583,7 @@ cboe_cxeequities_binaryorderentry_boe_v2_0_33.central_counterparty.display = fun
     return "Central Counterparty: Lch Clearnet (L)"
   end
   if value == "X" then
-    return "Central Counterparty: Six Xclear (X)"
+    return "Central Counterparty: Six X Clear (X)"
   end
   if value == "C" then
     return "Central Counterparty: Euro Ccp (C)"

@@ -31,14 +31,14 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.da_digital_asset = Pr
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.debugtext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.em_exceptional_circumstances_related_to_market_maker = ProtoField.new("Em Exceptional Circumstances Related To Market Maker", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.emexceptionalcircumstancesrelatedtomarketmaker", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.eventcode", ftypes.STRING, nil, nil, nil, "System event code")
-omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.ew_marketwide_exceptional_circumstance = ProtoField.new("Ew Marketwide Exceptional Circumstance", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.ewmarketwideexceptionalcircumstance", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.ew_market_wide_exceptional_circumstance = ProtoField.new("Ew Market Wide Exceptional Circumstance", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.ewmarketwideexceptionalcircumstance", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.extension = ProtoField.new("Extension", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.extension", ftypes.STRING, nil, nil, nil, "Whether the cross has been extended")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.fe_foreign_non_eueea_entity = ProtoField.new("Fe Foreign Non Eueea Entity", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.feforeignnoneueeaentity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.financial_product = ProtoField.new("Financial Product", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.financialproduct", ftypes.UINT8, nil, nil, nil, "Type of financial product")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.fn_first_north_company = ProtoField.new("Fn First North Company", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.fnfirstnorthcompany", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.isin = ProtoField.new("Isin", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.isin", ftypes.STRING, nil, nil, nil, "Isin code identifying security")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.kb_knock_out_buy_back = ProtoField.new("Kb Knock Out Buy Back", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.kbknockoutbuyback", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
-omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.kn_knockout_buy_back_into_next_trading_day = ProtoField.new("Kn Knockout Buy Back Into Next Trading Day", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.knknockoutbuybackintonexttradingday", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.kn_knock_out_buy_back_into_next_trading_day = ProtoField.new("Kn Knock Out Buy Back Into Next Trading Day", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.knknockoutbuybackintonexttradingday", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.market_segment_id = ProtoField.new("Market Segment Id", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.marketsegmentid", ftypes.UINT16, nil, nil, nil, "Market segment this order book belongs to")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.mic = ProtoField.new("Mic", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.mic", ftypes.STRING, nil, nil, nil, "Market identifier code")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.multiplier_for_calculating_quantity_in_measurement_unit = ProtoField.new("Multiplier For Calculating Quantity In Measurement Unit", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.multiplierforcalculatingquantityinmeasurementunit", ftypes.DOUBLE, nil, nil, nil, "Multiplier to calculate quantity in measurement units")
@@ -1756,9 +1756,9 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.note_codes_bit_field_5.display =
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "Da Digital Asset"
   end
-  -- Is Kn Knockout Buy Back Into Next Trading Day flag set?
+  -- Is Kn Knock Out Buy Back Into Next Trading Day flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Kn Knockout Buy Back Into Next Trading Day"
+    flags[#flags + 1] = "Kn Knock Out Buy Back Into Next Trading Day"
   end
 
   return table.concat(flags, "|")
@@ -1776,8 +1776,8 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.note_codes_bit_field_5.bits = fu
   -- Da Digital Asset: 1 Bit
   parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.da_digital_asset, range, value)
 
-  -- Kn Knockout Buy Back Into Next Trading Day: 1 Bit
-  parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.kn_knockout_buy_back_into_next_trading_day, range, value)
+  -- Kn Knock Out Buy Back Into Next Trading Day: 1 Bit
+  parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.kn_knock_out_buy_back_into_next_trading_day, range, value)
 
   -- Reserved 58: 4 Bit
   parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.reserved_58, range, value)
@@ -1824,9 +1824,9 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.note_codes_bit_field_4.display =
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "Sm Stressed Market"
   end
-  -- Is Ew Marketwide Exceptional Circumstance flag set?
+  -- Is Ew Market Wide Exceptional Circumstance flag set?
   if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Ew Marketwide Exceptional Circumstance"
+    flags[#flags + 1] = "Ew Market Wide Exceptional Circumstance"
   end
 
   return table.concat(flags, "|")
@@ -1853,8 +1853,8 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.note_codes_bit_field_4.bits = fu
   -- Sm Stressed Market: 1 Bit
   parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sm_stressed_market, range, value)
 
-  -- Ew Marketwide Exceptional Circumstance: 1 Bit
-  parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.ew_marketwide_exceptional_circumstance, range, value)
+  -- Ew Market Wide Exceptional Circumstance: 1 Bit
+  parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.ew_market_wide_exceptional_circumstance, range, value)
 end
 
 -- Dissect: Note Codes Bit Field 4

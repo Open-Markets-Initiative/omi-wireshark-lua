@@ -45,7 +45,7 @@ omi_currenex_currenexforex_now_cbp_v10.fields.size_indicator = ProtoField.new("S
 omi_currenex_currenexforex_now_cbp_v10.fields.subscribe_to_now_depth_of_book = ProtoField.new("Subscribe To Now Depth Of Book", "currenex.currenexforex.now.cbp.v10.subscribetonowdepthofbook", ftypes.STRING, nil, nil, nil, "Subscribe to price updates with full depth of the book")
 omi_currenex_currenexforex_now_cbp_v10.fields.subscribe_to_now_mid_activity_indicator = ProtoField.new("Subscribe To Now Mid Activity Indicator", "currenex.currenexforex.now.cbp.v10.subscribetonowmidactivityindicator", ftypes.STRING, nil, nil, nil, "Subscribe to Mid Activity Indicator updates")
 omi_currenex_currenexforex_now_cbp_v10.fields.subscribe_to_now_paid_given_with_bucketed_size = ProtoField.new("Subscribe To Now Paid Given With Bucketed Size", "currenex.currenexforex.now.cbp.v10.subscribetonowpaidgivenwithbucketedsize", ftypes.STRING, nil, nil, nil, "Subscribe to now paid/given with bucketed size")
-omi_currenex_currenexforex_now_cbp_v10.fields.subscribe_to_nowwamr_with_confidence_factor = ProtoField.new("Subscribe To Nowwamr With Confidence Factor", "currenex.currenexforex.now.cbp.v10.subscribetonowwamrwithconfidencefactor", ftypes.STRING, nil, nil, nil, "Subscribe to WAMR updates with confidence factor")
+omi_currenex_currenexforex_now_cbp_v10.fields.subscribe_to_now_wamr_with_confidence_factor = ProtoField.new("Subscribe To Now Wamr With Confidence Factor", "currenex.currenexforex.now.cbp.v10.subscribetonowwamrwithconfidencefactor", ftypes.STRING, nil, nil, nil, "Subscribe to WAMR updates with confidence factor")
 omi_currenex_currenexforex_now_cbp_v10.fields.subscription_type = ProtoField.new("Subscription Type", "currenex.currenexforex.now.cbp.v10.subscriptiontype", ftypes.STRING, nil, nil, nil, "SubscriptionType")
 omi_currenex_currenexforex_now_cbp_v10.fields.timestamp = ProtoField.new("Timestamp", "currenex.currenexforex.now.cbp.v10.timestamp", ftypes.INT64, nil, nil, nil, "Epoch microseconds of WAMR calc")
 omi_currenex_currenexforex_now_cbp_v10.fields.transact_time = ProtoField.new("Transact Time", "currenex.currenexforex.now.cbp.v10.transacttime", ftypes.INT64, nil, nil, nil, "Epoch ms of trade")
@@ -834,25 +834,25 @@ currenex_currenexforex_now_cbp_v10.subscribe_to_now_paid_given_with_bucketed_siz
   return offset + length, value
 end
 
--- Subscribe To Nowwamr With Confidence Factor
-currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor = {}
+-- Subscribe To Now Wamr With Confidence Factor
+currenex_currenexforex_now_cbp_v10.subscribe_to_now_wamr_with_confidence_factor = {}
 
--- Size: Subscribe To Nowwamr With Confidence Factor
-currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.size = 1
+-- Size: Subscribe To Now Wamr With Confidence Factor
+currenex_currenexforex_now_cbp_v10.subscribe_to_now_wamr_with_confidence_factor.size = 1
 
--- Display: Subscribe To Nowwamr With Confidence Factor
-currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.display = function(value)
+-- Display: Subscribe To Now Wamr With Confidence Factor
+currenex_currenexforex_now_cbp_v10.subscribe_to_now_wamr_with_confidence_factor.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Subscribe To Nowwamr With Confidence Factor: No Value"
+    return "Subscribe To Now Wamr With Confidence Factor: No Value"
   end
 
-  return "Subscribe To Nowwamr With Confidence Factor: "..value
+  return "Subscribe To Now Wamr With Confidence Factor: "..value
 end
 
--- Dissect: Subscribe To Nowwamr With Confidence Factor
-currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.size
+-- Dissect: Subscribe To Now Wamr With Confidence Factor
+currenex_currenexforex_now_cbp_v10.subscribe_to_now_wamr_with_confidence_factor.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_currenexforex_now_cbp_v10.subscribe_to_now_wamr_with_confidence_factor.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -863,9 +863,9 @@ currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.d
     value = range:string()
   end
 
-  local display = currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.display(value, buffer, offset, packet, parent)
+  local display = currenex_currenexforex_now_cbp_v10.subscribe_to_now_wamr_with_confidence_factor.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_currenexforex_now_cbp_v10.fields.subscribe_to_nowwamr_with_confidence_factor, range, value, display)
+  parent:add(omi_currenex_currenexforex_now_cbp_v10.fields.subscribe_to_now_wamr_with_confidence_factor, range, value, display)
 
   return offset + length, value
 end
@@ -1659,7 +1659,7 @@ currenex_currenexforex_now_cbp_v10.mass_subscription_request_message.size =
   currenex_currenexforex_now_cbp_v10.subscription_type.size + 
   currenex_currenexforex_now_cbp_v10.subscribe_to_now_depth_of_book.size + 
   currenex_currenexforex_now_cbp_v10.subscribe_to_now_paid_given_with_bucketed_size.size + 
-  currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.size + 
+  currenex_currenexforex_now_cbp_v10.subscribe_to_now_wamr_with_confidence_factor.size + 
   currenex_currenexforex_now_cbp_v10.subscribe_to_now_mid_activity_indicator.size
 
 -- Display: Mass Subscription Request Message
@@ -1683,8 +1683,8 @@ currenex_currenexforex_now_cbp_v10.mass_subscription_request_message.fields = fu
   -- Subscribe To Now Paid Given With Bucketed Size: Alpha
   index, subscribe_to_now_paid_given_with_bucketed_size = currenex_currenexforex_now_cbp_v10.subscribe_to_now_paid_given_with_bucketed_size.dissect(buffer, index, packet, parent)
 
-  -- Subscribe To Nowwamr With Confidence Factor: Alpha
-  index, subscribe_to_nowwamr_with_confidence_factor = currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.dissect(buffer, index, packet, parent)
+  -- Subscribe To Now Wamr With Confidence Factor: Alpha
+  index, subscribe_to_now_wamr_with_confidence_factor = currenex_currenexforex_now_cbp_v10.subscribe_to_now_wamr_with_confidence_factor.dissect(buffer, index, packet, parent)
 
   -- Subscribe To Now Mid Activity Indicator: Alpha
   index, subscribe_to_now_mid_activity_indicator = currenex_currenexforex_now_cbp_v10.subscribe_to_now_mid_activity_indicator.dissect(buffer, index, packet, parent)
@@ -1720,7 +1720,7 @@ currenex_currenexforex_now_cbp_v10.subscription_request_message.size =
   currenex_currenexforex_now_cbp_v10.instrument_index.size + 
   currenex_currenexforex_now_cbp_v10.subscribe_to_now_depth_of_book.size + 
   currenex_currenexforex_now_cbp_v10.subscribe_to_now_paid_given_with_bucketed_size.size + 
-  currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.size + 
+  currenex_currenexforex_now_cbp_v10.subscribe_to_now_wamr_with_confidence_factor.size + 
   currenex_currenexforex_now_cbp_v10.subscribe_to_now_mid_activity_indicator.size
 
 -- Display: Subscription Request Message
@@ -1747,8 +1747,8 @@ currenex_currenexforex_now_cbp_v10.subscription_request_message.fields = functio
   -- Subscribe To Now Paid Given With Bucketed Size: Alpha
   index, subscribe_to_now_paid_given_with_bucketed_size = currenex_currenexforex_now_cbp_v10.subscribe_to_now_paid_given_with_bucketed_size.dissect(buffer, index, packet, parent)
 
-  -- Subscribe To Nowwamr With Confidence Factor: Alpha
-  index, subscribe_to_nowwamr_with_confidence_factor = currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.dissect(buffer, index, packet, parent)
+  -- Subscribe To Now Wamr With Confidence Factor: Alpha
+  index, subscribe_to_now_wamr_with_confidence_factor = currenex_currenexforex_now_cbp_v10.subscribe_to_now_wamr_with_confidence_factor.dissect(buffer, index, packet, parent)
 
   -- Subscribe To Now Mid Activity Indicator: Alpha
   index, subscribe_to_now_mid_activity_indicator = currenex_currenexforex_now_cbp_v10.subscribe_to_now_mid_activity_indicator.dissect(buffer, index, packet, parent)

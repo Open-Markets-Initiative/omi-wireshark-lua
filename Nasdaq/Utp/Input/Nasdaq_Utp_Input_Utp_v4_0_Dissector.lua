@@ -51,7 +51,7 @@ omi_nasdaq_utp_input_utp_v4_0.fields.feed_sequence = ProtoField.new("Feed Sequen
 omi_nasdaq_utp_input_utp_v4_0.fields.first_security = ProtoField.new("First Security", "nasdaq.utp.input.utp.v4.0.firstsecurity", ftypes.STRING, nil, nil, nil, "First Security symbol in range")
 omi_nasdaq_utp_input_utp_v4_0.fields.inbound_administrative_messages_message = ProtoField.new("Inbound Administrative Messages Message", "nasdaq.utp.input.utp.v4.0.inboundadministrativemessagesmessage", ftypes.STRING, nil, nil, nil, "Inbound Administrative Messages Participant→ Sip")
 omi_nasdaq_utp_input_utp_v4_0.fields.inbound_administrative_messages_message_type = ProtoField.new("Inbound Administrative Messages Message Type", "nasdaq.utp.input.utp.v4.0.inboundadministrativemessagesmessagetype", ftypes.STRING)
-omi_nasdaq_utp_input_utp_v4_0.fields.inbound_control_messages_message = ProtoField.new("Inbound Control Messages Message", "nasdaq.utp.input.utp.v4.0.inboundcontrolmessagesmessage", ftypes.STRING, nil, nil, nil, "Inbound Control Messages Participant→ Sip— Sequence And Symbolstate Inquiries")
+omi_nasdaq_utp_input_utp_v4_0.fields.inbound_control_messages_message = ProtoField.new("Inbound Control Messages Message", "nasdaq.utp.input.utp.v4.0.inboundcontrolmessagesmessage", ftypes.STRING, nil, nil, nil, "Inbound Control Messages Participant→ Sip— Sequence And Symbol State Inquiries")
 omi_nasdaq_utp_input_utp_v4_0.fields.inbound_control_messages_message_type = ProtoField.new("Inbound Control Messages Message Type", "nasdaq.utp.input.utp.v4.0.inboundcontrolmessagesmessagetype", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.inbound_quote_messages_message = ProtoField.new("Inbound Quote Messages Message", "nasdaq.utp.input.utp.v4.0.inboundquotemessagesmessage", ftypes.STRING, nil, nil, nil, "Inbound Quote Messages Participant→ Sip Quote Line Only Message Category Q Uppercase")
 omi_nasdaq_utp_input_utp_v4_0.fields.inbound_quote_messages_message_type = ProtoField.new("Inbound Quote Messages Message Type", "nasdaq.utp.input.utp.v4.0.inboundquotemessagesmessagetype", ftypes.STRING)
@@ -163,8 +163,8 @@ omi_nasdaq_utp_input_utp_v4_0.fields.market_closed_message = ProtoField.new("Mar
 omi_nasdaq_utp_input_utp_v4_0.fields.market_open_message = ProtoField.new("Market Open Message", "nasdaq.utp.input.utp.v4.0.marketopenmessage", ftypes.STRING, nil, nil, nil, "Market Open Message (AX). Indicates participant quotes should be marked as opened.")
 omi_nasdaq_utp_input_utp_v4_0.fields.opening_reference_midpoint_price_message = ProtoField.new("Opening Reference Midpoint Price Message", "nasdaq.utp.input.utp.v4.0.openingreferencemidpointpricemessage", ftypes.STRING, nil, nil, nil, "Opening Reference Midpoint Price Message (AM). Listing market provides midpoint reference price for LULD calculations.")
 omi_nasdaq_utp_input_utp_v4_0.fields.participant_input_warning_message = ProtoField.new("Participant Input Warning Message", "nasdaq.utp.input.utp.v4.0.participantinputwarningmessage", ftypes.STRING, nil, nil, nil, "Participant Input Warning Message (aW). Sent when an inbound quote message would exceed odd-lot price-level limits. Carries the unprocessed price levels as attachments whose form is selected by olAttachmenType (2=Short, 3=Long, 5=ADF MPID). The attached price levels are not enumerated as Pdf.xml groups in this version — extend in a follow-up release when the loader's value-gated Optional rules are wired through Edits.xml.")
-omi_nasdaq_utp_input_utp_v4_0.fields.protected_exchange_quote_message_longform_message = ProtoField.new("Protected Exchange Quote Message Longform Message", "nasdaq.utp.input.utp.v4.0.protectedexchangequotemessagelongformmessage", ftypes.STRING, nil, nil, nil, "Long-format Exchange Quotation Message (QL).")
-omi_nasdaq_utp_input_utp_v4_0.fields.protected_exchange_quote_message_shortform_message = ProtoField.new("Protected Exchange Quote Message Shortform Message", "nasdaq.utp.input.utp.v4.0.protectedexchangequotemessageshortformmessage", ftypes.STRING, nil, nil, nil, "Short-format Exchange Quotation Message (QQ). Transmits Bid and Ask price and size from an Exchange to the SIP.")
+omi_nasdaq_utp_input_utp_v4_0.fields.protected_exchange_quote_message_long_form_message = ProtoField.new("Protected Exchange Quote Message Long Form Message", "nasdaq.utp.input.utp.v4.0.protectedexchangequotemessagelongformmessage", ftypes.STRING, nil, nil, nil, "Long-format Exchange Quotation Message (QL).")
+omi_nasdaq_utp_input_utp_v4_0.fields.protected_exchange_quote_message_short_form_message = ProtoField.new("Protected Exchange Quote Message Short Form Message", "nasdaq.utp.input.utp.v4.0.protectedexchangequotemessageshortformmessage", ftypes.STRING, nil, nil, nil, "Short-format Exchange Quotation Message (QQ). Transmits Bid and Ask price and size from an Exchange to the SIP.")
 omi_nasdaq_utp_input_utp_v4_0.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.utp.input.utp.v4.0.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING, nil, nil, nil, "Reg SHO Short Sale Price Test Restricted Indicator Message (AV). Notifies that a security has breached the short sale price test threshold.")
 omi_nasdaq_utp_input_utp_v4_0.fields.regular_trade_report_message = ProtoField.new("Regular Trade Report Message", "nasdaq.utp.input.utp.v4.0.regulartradereportmessage", ftypes.STRING, nil, nil, nil, "Regular Trade Report Message (TE). Carries whole-share last sale reports from an Exchange to the SIP.")
 omi_nasdaq_utp_input_utp_v4_0.fields.reject_message = ProtoField.new("Reject Message", "nasdaq.utp.input.utp.v4.0.rejectmessage", ftypes.STRING, nil, nil, nil, "Reject Message (aR). SIP returns this message when an inbound message is rejected. syntaxViolation 'Y' indicates a syntax error and the port will be disconnected.")
@@ -787,9 +787,9 @@ nasdaq_utp_input_utp_v4_0.bbo_cond.labels = {
   ["H"] = "Bbo Cond: Manual Bid And Ask (H)",
   ["I"] = "Bbo Cond: Order Imbalance (I)",
   ["L"] = "Bbo Cond: Closed Quote (L)",
-  ["N"] = "Bbo Cond: Nonfirm Quote (N)",
+  ["N"] = "Bbo Cond: Non Firm Quote (N)",
   ["O"] = "Bbo Cond: Opening Quote Automated (O)",
-  ["R"] = "Bbo Cond: Regular Twosided Open Quote Automated (R)",
+  ["R"] = "Bbo Cond: Regular Two Sided Open Quote Automated (R)",
 }
 
 nasdaq_utp_input_utp_v4_0.bbo_cond.display = function(value)
@@ -1123,10 +1123,10 @@ nasdaq_utp_input_utp_v4_0.cond.labels = {
   ["H"] = "Cond: Manual Bid And Ask (H)",
   ["I"] = "Cond: Order Imbalance (I)",
   ["L"] = "Cond: Closed Quote (L)",
-  ["N"] = "Cond: Nonfirm Quote (N)",
+  ["N"] = "Cond: Non Firm Quote (N)",
   ["O"] = "Cond: Opening Quote Automated (O)",
-  ["R"] = "Cond: Regular Twosided Open Quote Automated (R)",
-  ["U"] = "Cond: Manual Bid And Ask Nonfirm (U)",
+  ["R"] = "Cond: Regular Two Sided Open Quote Automated (R)",
+  ["U"] = "Cond: Manual Bid And Ask Non Firm (U)",
   ["X"] = "Cond: Order Influx (X)",
   ["Y"] = "Cond: Automated Bid No Offer Or Automated Offer No Bid (Y)",
   ["Z"] = "Cond: No Openno Resume (Z)",
@@ -6814,11 +6814,11 @@ nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_short_form_message.diss
   end
 end
 
--- Protected Exchange Quote Message Longform Message
-nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message = {}
+-- Protected Exchange Quote Message Long Form Message
+nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_long_form_message = {}
 
--- Size: Protected Exchange Quote Message Longform Message
-nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.size =
+-- Size: Protected Exchange Quote Message Long Form Message
+nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_long_form_message.size =
   nasdaq_utp_input_utp_v4_0.orig.size + 
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
@@ -6831,13 +6831,13 @@ nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.size
   nasdaq_utp_input_utp_v4_0.cond.size + 
   nasdaq_utp_input_utp_v4_0.rii.size
 
--- Display: Protected Exchange Quote Message Longform Message
-nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.display = function(packet, parent, length)
+-- Display: Protected Exchange Quote Message Long Form Message
+nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_long_form_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Protected Exchange Quote Message Longform Message
-nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Protected Exchange Quote Message Long Form Message
+nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_long_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Orig: byte[]
@@ -6876,29 +6876,29 @@ nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.fiel
   return index
 end
 
--- Dissect: Protected Exchange Quote Message Longform Message
-nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Protected Exchange Quote Message Long Form Message
+nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_long_form_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.protected_exchange_quote_message_longform_message, buffer(offset, 0))
-    local index = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.protected_exchange_quote_message_long_form_message, buffer(offset, 0))
+    local index = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_long_form_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.display(packet, parent, length)
+    local display = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_long_form_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.fields(buffer, offset, packet, parent)
+    return nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_long_form_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Protected Exchange Quote Message Shortform Message
-nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message = {}
+-- Protected Exchange Quote Message Short Form Message
+nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_short_form_message = {}
 
--- Size: Protected Exchange Quote Message Shortform Message
-nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.size =
+-- Size: Protected Exchange Quote Message Short Form Message
+nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_short_form_message.size =
   nasdaq_utp_input_utp_v4_0.orig.size + 
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
@@ -6911,13 +6911,13 @@ nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.siz
   nasdaq_utp_input_utp_v4_0.cond.size + 
   nasdaq_utp_input_utp_v4_0.rii.size
 
--- Display: Protected Exchange Quote Message Shortform Message
-nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.display = function(packet, parent, length)
+-- Display: Protected Exchange Quote Message Short Form Message
+nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_short_form_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Protected Exchange Quote Message Shortform Message
-nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Protected Exchange Quote Message Short Form Message
+nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_short_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Orig: byte[]
@@ -6956,21 +6956,21 @@ nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.fie
   return index
 end
 
--- Dissect: Protected Exchange Quote Message Shortform Message
-nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Protected Exchange Quote Message Short Form Message
+nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_short_form_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.protected_exchange_quote_message_shortform_message, buffer(offset, 0))
-    local index = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.protected_exchange_quote_message_short_form_message, buffer(offset, 0))
+    local index = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_short_form_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.display(packet, parent, length)
+    local display = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_short_form_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.fields(buffer, offset, packet, parent)
+    return nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_short_form_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6979,8 +6979,8 @@ nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message_payload = {}
 
 -- Dispatch: Inbound Quote Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message_payload.dispatch = {
-  ["Q"] = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.dissect,
-  ["L"] = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.dissect,
+  ["Q"] = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_short_form_message.dissect,
+  ["L"] = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_long_form_message.dissect,
   ["O"] = nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_short_form_message.dissect,
   ["J"] = nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_long_form_message.dissect,
   ["P"] = nasdaq_utp_input_utp_v4_0.exchange_combined_quote_message_short_form_message.dissect,

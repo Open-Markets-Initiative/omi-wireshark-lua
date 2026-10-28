@@ -1108,7 +1108,7 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_a.market_state.display = function(v
   end
 
   if value == "P" then
-    return "Market State: Preopening (P)"
+    return "Market State: Pre Opening (P)"
   end
   if value == "E" then
     return "Market State: Early Session (E)"
@@ -2029,7 +2029,7 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_a.security_status.display = functio
     return "Security Status: Short Sale Restriction Deactivated (D)"
   end
   if value == "P" then
-    return "Security Status: Preopening (P)"
+    return "Security Status: Pre Opening (P)"
   end
   if value == "E" then
     return "Security Status: Early Session (E)"

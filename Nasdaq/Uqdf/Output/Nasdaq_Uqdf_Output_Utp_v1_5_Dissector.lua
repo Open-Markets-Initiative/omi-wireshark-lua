@@ -2300,7 +2300,7 @@ nasdaq_uqdf_output_utp_v1_5.sip_generated_update.display = function(value)
     return "Sip Generated Update: Originated From The Market Participant (<whitespace>)"
   end
   if value == "E" then
-    return "Sip Generated Update: Si Pgenerated Transaction (E)"
+    return "Sip Generated Update: Sip Generated Transaction (E)"
   end
 
   return "Sip Generated Update: Unknown("..value..")"

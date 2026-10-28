@@ -29,9 +29,9 @@ omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.accumulated_bid_trading_v
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.accumulated_bid_trading_volume = ProtoField.new("Accumulated Bid Trading Volume", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.accumulatedbidtradingvolume", ftypes.INT64, nil, nil, nil, "Accumulated Bid Trading Volume.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.accumulated_trading_value = ProtoField.new("Accumulated Trading Value", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.accumulatedtradingvalue", ftypes.BYTES, nil, nil, nil, "Accumulated trading value Trading value=trading amount*trading price.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.accumulated_trading_volume = ProtoField.new("Accumulated Trading Volume", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.accumulatedtradingvolume", ftypes.INT64, nil, nil, nil, "Accumulated Trading Volume.")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.after_market_accumulated_trading_value = ProtoField.new("After Market Accumulated Trading Value", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.aftermarketaccumulatedtradingvalue", ftypes.BYTES, nil, nil, nil, "After-market accumulated trading value in the Regular market.")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.after_market_accumulated_trading_volume = ProtoField.new("After Market Accumulated Trading Volume", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.aftermarketaccumulatedtradingvolume", ftypes.INT64, nil, nil, nil, "After-market accumulated trading volume in the Regular market.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.after_market_possibility = ProtoField.new("After Market Possibility", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.aftermarketpossibility", ftypes.STRING, nil, nil, nil, "Y/N to after-market possibility.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.aftermarket_accumulated_trading_value = ProtoField.new("Aftermarket Accumulated Trading Value", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.aftermarketaccumulatedtradingvalue", ftypes.BYTES, nil, nil, nil, "After-market accumulated trading value in the Regular market.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.aftermarket_accumulated_trading_volume = ProtoField.new("Aftermarket Accumulated Trading Volume", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.aftermarketaccumulatedtradingvolume", ftypes.INT64, nil, nil, nil, "After-market accumulated trading volume in the Regular market.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.an_abbreviated_name_of_a_market_participant_in_kr = ProtoField.new("An Abbreviated Name Of A Market Participant In Kr", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.anabbreviatednameofamarketparticipantinkr", ftypes.STRING, nil, nil, nil, "An Abbreviated Name of a Market Participant in KR.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.an_issue_of_which_base_price_is_settled_with_a_todays_single_price = ProtoField.new("An Issue Of Which Base Price Is Settled With A Todays Single Price", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.anissueofwhichbasepriceissettledwithatodayssingleprice", ftypes.STRING, nil, nil, nil, "Y/N to an Issue of which base price is settled with a today's single price.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.an_obligatory_time_interval_to_place_an_order = ProtoField.new("An Obligatory Time Interval To Place An Order", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.anobligatorytimeintervaltoplaceanorder", ftypes.INT32, nil, nil, nil, "A time interval that a market maker should obey between placing an bid/ask order. Unit: Sec.")
@@ -70,10 +70,10 @@ omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_volume_2 = Pr
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_volume_3 = ProtoField.new("Ask Trading Volume 3", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.asktradingvolume3", ftypes.INT64, nil, nil, nil, "Trading Volume from Member Number 3 among Top Five Members for Ask.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_volume_4 = ProtoField.new("Ask Trading Volume 4", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.asktradingvolume4", ftypes.INT64, nil, nil, nil, "Trading Volume from Member Number 4 among Top Five Members for Ask.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_volume_5 = ProtoField.new("Ask Trading Volume 5", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.asktradingvolume5", ftypes.INT64, nil, nil, nil, "Trading Volume from Member Number 5 among Top Five Members for Ask.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.backdoor_listing = ProtoField.new("Backdoor Listing", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.backdoorlisting", ftypes.STRING, nil, nil, nil, "Y/N to Back-door Listing.")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.back_door_listing = ProtoField.new("Back Door Listing", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.backdoorlisting", ftypes.STRING, nil, nil, nil, "Y/N to Back-door Listing.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.base_price = ProtoField.new("Base Price", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.baseprice", ftypes.DOUBLE, nil, nil, nil, "A base price of a day. A base price to calculate a upper/lower price.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.base_price_change = ProtoField.new("Base Price Change", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.basepricechange", ftypes.STRING, nil, nil, nil, "Y/N to change of base price due to par-value change or increase of capital.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.basket_trading_in_the_preopening_market = ProtoField.new("Basket Trading In The Preopening Market", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.baskettradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Basket Trading in the Pre-opening Market.")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.basket_trading_in_the_pre_opening_market = ProtoField.new("Basket Trading In The Pre Opening Market", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.baskettradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Basket Trading in the Pre-opening Market.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.best_favorable_order_permission_type_code = ProtoField.new("Best Favorable Order Permission Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.bestfavorableorderpermissiontypecode", ftypes.INT32, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill).")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_ask_spread_unit_code = ProtoField.new("Bid Ask Spread Unit Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.bidaskspreadunitcode", ftypes.STRING, nil, nil, nil, "R: Price Ratio Y: Yield Ratio T: Tick.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.bidlevel1price", ftypes.DOUBLE, nil, nil, nil, "The best bid.")
@@ -106,7 +106,7 @@ omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_volume_2 = Pr
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_volume_3 = ProtoField.new("Bid Trading Volume 3", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.bidtradingvolume3", ftypes.INT64, nil, nil, nil, "Trading Volume from Member Number 3 among Top Five Members for Bid.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_volume_4 = ProtoField.new("Bid Trading Volume 4", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.bidtradingvolume4", ftypes.INT64, nil, nil, nil, "Trading Volume from Member Number 4 among Top Five Members for Bid.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_volume_5 = ProtoField.new("Bid Trading Volume 5", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.bidtradingvolume5", ftypes.INT64, nil, nil, nil, "Trading Volume from Member Number 5 among Top Five Members for Bid.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.block_trading_in_the_preopening_market = ProtoField.new("Block Trading In The Preopening Market", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.blocktradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Block Trading in the Pre-opening Market.")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.block_trading_in_the_pre_opening_market = ProtoField.new("Block Trading In The Pre Opening Market", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.blocktradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Block Trading in the Pre-opening Market.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.board_event_group_code = ProtoField.new("Board Event Group Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.boardeventgroupcode", ftypes.INT32, nil, nil, nil, "Board Event Group Code (Bitwise operation) ▦▦ Code ▦▦ 1: A regular Issue (not an issue on the last trading day) 2: An issue on the Last trading day 4: A regular issue (not a unit trading issue) 8: Uni.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.board_event_id = ProtoField.new("Board Event Id", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.boardeventid", ftypes.STRING, nil, nil, nil, "An ID indicates an event that occurs on a Board in a designated time.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.board_id = ProtoField.new("Board Id", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.boardid", ftypes.STRING, nil, nil, nil, "The Board ID refers to each Board in which an issue is traded under different trading schedules and rules. Individual issue can be traded on more than two Boards under each Board's schedule and with d.")
@@ -120,7 +120,7 @@ omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.choice_on_competitive_tra
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.closing_price = ProtoField.new("Closing Price", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.closingprice", ftypes.DOUBLE, nil, nil, nil, "Closing price on the day's regular session. However, for G3 board, the closing price of KRX is set.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.closing_price_base_price_of_buy_in = ProtoField.new("Closing Price Base Price Of Buy In", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.closingpricebasepriceofbuyin", ftypes.DOUBLE, nil, nil, nil, "Closing Price_Base Price of Buy-In.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.closing_price_lower_limit_of_buy_in = ProtoField.new("Closing Price Lower Limit Of Buy In", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.closingpricelowerlimitofbuyin", ftypes.DOUBLE, nil, nil, nil, "Closing Price_Lower Limit of Buy-In.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.closing_price_trading_in_the_preopening_market = ProtoField.new("Closing Price Trading In The Preopening Market", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.closingpricetradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Y/N to a Closing Price Trading in the Pre-opening Market.")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.closing_price_trading_in_the_pre_opening_market = ProtoField.new("Closing Price Trading In The Pre Opening Market", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.closingpricetradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Y/N to a Closing Price Trading in the Pre-opening Market.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.closing_price_trading_possibility_in_the_after_hours = ProtoField.new("Closing Price Trading Possibility In The After Hours", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.closingpricetradingpossibilityintheafterhours", ftypes.STRING, nil, nil, nil, "Closing Price Trading Possibility in the After Hours.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.closingpricetypecode", ftypes.STRING, nil, nil, nil, "1: Closing price 3: No Trades.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.closing_price_upper_limit_of_buy_in = ProtoField.new("Closing Price Upper Limit Of Buy In", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.closingpriceupperlimitofbuyin", ftypes.DOUBLE, nil, nil, nil, "Closing Price_Upper Limit of Buy-In.")
@@ -180,14 +180,14 @@ omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.isin_code = ProtoField.ne
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.isin_code_of_a_common_stock = ProtoField.new("Isin Code Of A Common Stock", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.isincodeofacommonstock", ftypes.STRING, nil, nil, nil, "ISIN code of a Common Stock.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.issue_for_administration = ProtoField.new("Issue For Administration", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.issueforadministration", ftypes.STRING, nil, nil, nil, "Issue for Administration.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.issuing_price = ProtoField.new("Issuing Price", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.issuingprice", ftypes.DOUBLE, nil, nil, nil, "Issuing price.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.knockout_elw_triggering_time = ProtoField.new("Knockout Elw Triggering Time", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.knockoutelwtriggeringtime", ftypes.STRING, nil, nil, nil, "The time when Knock-out ELW reaches to the designated price HH(0-23) MM(0-59) SS(0-59).")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.knockout_elw_type_code = ProtoField.new("Knockout Elw Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.knockoutelwtypecode", ftypes.STRING, nil, nil, nil, "The status of warrants \"Y\": Knock-out.")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.knock_out_elw_triggering_time = ProtoField.new("Knock Out Elw Triggering Time", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.knockoutelwtriggeringtime", ftypes.STRING, nil, nil, nil, "The time when Knock-out ELW reaches to the designated price HH(0-23) MM(0-59) SS(0-59).")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.knock_out_elw_type_code = ProtoField.new("Knock Out Elw Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.knockoutelwtypecode", ftypes.STRING, nil, nil, nil, "The status of warrants \"Y\": Knock-out.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.korea_corporate_governance_stock_price_index_kogi = ProtoField.new("Korea Corporate Governance Stock Price Index Kogi", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.koreacorporategovernancestockpriceindexkogi", ftypes.STRING, nil, nil, nil, "Y/N to whether an issuer has a good governance (only for KOSDAQ).")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.limit_on_competitive_trading_volume = ProtoField.new("Limit On Competitive Trading Volume", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.limitoncompetitivetradingvolume", ftypes.STRING, nil, nil, nil, "Information whether the trading limit for the issue on competitive trading has been reached, resulting in trading restriction.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.limit_order_permission_type_code = ProtoField.new("Limit Order Permission Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.limitorderpermissiontypecode", ftypes.INT32, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill).")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.liquidation_trade = ProtoField.new("Liquidation Trade", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.liquidationtrade", ftypes.STRING, nil, nil, nil, "Liquidation Trade.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.listing_date = ProtoField.new("Listing Date", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.listingdate", ftypes.STRING, nil, nil, nil, "Listing Date of derivatives(CLASS) or issues.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.lot_size_afterhours_trading = ProtoField.new("Lot Size Afterhours Trading", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.lotsizeafterhourstrading", ftypes.INT64, nil, nil, nil, "Lot Size(After-hours Trading).")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.lot_size_after_hours_trading = ProtoField.new("Lot Size After Hours Trading", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.lotsizeafterhourstrading", ftypes.INT64, nil, nil, nil, "Lot Size(After-hours Trading).")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.low_liquidity = ProtoField.new("Low Liquidity", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.lowliquidity", ftypes.STRING, nil, nil, nil, "Low Liquidity.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.lower_limit_price = ProtoField.new("Lower Limit Price", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.lowerlimitprice", ftypes.DOUBLE, nil, nil, nil, "A price subtracting the price limit from the base price.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.lower_limit_price_on_the_single_price_trade_in_the_off_hours_session = ProtoField.new("Lower Limit Price On The Single Price Trade In The Off Hours Session", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.lowerlimitpriceonthesinglepricetradeintheoffhourssession", ftypes.DOUBLE, nil, nil, nil, "Lower Limit Price on the Single Price in the Off-Hours Session.")
@@ -216,9 +216,9 @@ omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.lp_end_date = ProtoField.
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.lp_holding_quantity = ProtoField.new("Lp Holding Quantity", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.lpholdingquantity", ftypes.INT64, nil, nil, nil, "LP holding quantity per each account.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.lp_order = ProtoField.new("Lp Order", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.lporder", ftypes.STRING, nil, nil, nil, "LP Order.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.lp_start_date = ProtoField.new("Lp Start Date", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.lpstartdate", ftypes.STRING, nil, nil, nil, "Start date of Liquidity Provide.")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.main_market_accumulated_trading_value = ProtoField.new("Main Market Accumulated Trading Value", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.mainmarketaccumulatedtradingvalue", ftypes.BYTES, nil, nil, nil, "Main-market accumulated trading value in the Regular market.")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.main_market_accumulated_trading_volume = ProtoField.new("Main Market Accumulated Trading Volume", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.mainmarketaccumulatedtradingvolume", ftypes.INT64, nil, nil, nil, "Main-market accumulated trading volume in the Regular market.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.main_market_bid_ask_spread_value = ProtoField.new("Main Market Bid Ask Spread Value", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.mainmarketbidaskspreadvalue", ftypes.BYTES, nil, nil, nil, "The bid-ask spread interval or ratio at which MM/LP quoting obligations apply in the main market.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.mainmarket_accumulated_trading_value = ProtoField.new("Mainmarket Accumulated Trading Value", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.mainmarketaccumulatedtradingvalue", ftypes.BYTES, nil, nil, nil, "Main-market accumulated trading value in the Regular market.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.mainmarket_accumulated_trading_volume = ProtoField.new("Mainmarket Accumulated Trading Volume", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.mainmarketaccumulatedtradingvolume", ftypes.INT64, nil, nil, nil, "Main-market accumulated trading volume in the Regular market.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.market_alert = ProtoField.new("Market Alert", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.marketalert", ftypes.STRING, nil, nil, nil, "Market Alert.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.market_alert_type_code = ProtoField.new("Market Alert Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.marketalerttypecode", ftypes.STRING, nil, nil, nil, "Market Alert_Type Code 00: N/A (None of items chosen for those may notified market warning) 01: Investment Warning 02: Investment Alert 03: Investment Danger.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.market_making_lp_type_code = ProtoField.new("Market Making Lp Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.marketmakinglptypecode", ftypes.STRING, nil, nil, nil, "M: Market making L: Liquidity provider.")
@@ -258,9 +258,9 @@ omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.opening_price = ProtoFiel
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.other_stock_type_code = ProtoField.new("Other Stock Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.otherstocktypecode", ftypes.STRING, nil, nil, nil, "0: N/A(Common Stock) 1: Old Preferred Stock 2: New Preferred Stock 9: Other types of Stocks.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.par_value = ProtoField.new("Par Value", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.parvalue", ftypes.DOUBLE, nil, nil, nil, "Par Value.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.par_value_type_code = ProtoField.new("Par Value Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.parvaluetypecode", ftypes.STRING, nil, nil, nil, "00: N/A 01: Split at par value 02: Consolidation at par value 03: Stock split 04: Reverse stock split 99: Others.")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.pre_market_accumulated_trading_value = ProtoField.new("Pre Market Accumulated Trading Value", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.premarketaccumulatedtradingvalue", ftypes.BYTES, nil, nil, nil, "Pre-market accumulated trading value in the Regular market.")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.pre_market_accumulated_trading_volume = ProtoField.new("Pre Market Accumulated Trading Volume", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.premarketaccumulatedtradingvolume", ftypes.INT64, nil, nil, nil, "Pre-market accumulated trading volume in the Regular market.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.preferred_stocks_with_lesser_shares = ProtoField.new("Preferred Stocks With Lesser Shares", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.preferredstockswithlessershares", ftypes.STRING, nil, nil, nil, "Preferred Stocks with lesser shares.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.premarket_accumulated_trading_value = ProtoField.new("Premarket Accumulated Trading Value", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.premarketaccumulatedtradingvalue", ftypes.BYTES, nil, nil, nil, "Pre-market accumulated trading value in the Regular market.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.premarket_accumulated_trading_volume = ProtoField.new("Premarket Accumulated Trading Volume", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.premarketaccumulatedtradingvolume", ftypes.INT64, nil, nil, nil, "Pre-market accumulated trading volume in the Regular market.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.price_change_against_previous_day = ProtoField.new("Price Change Against Previous Day", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.pricechangeagainstpreviousday", ftypes.STRING, nil, nil, nil, "0: Mark Impossible 1:high limit 2:ascended 3:unchanged 4:low limit 5:declined.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.price_limit_range_expansion_for_base_issue_type_code = ProtoField.new("Price Limit Range Expansion For Base Issue Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.pricelimitrangeexpansionforbaseissuetypecode", ftypes.STRING, nil, nil, nil, "A code to expand price limit range for Base Issue D: descending U: Up X: N/A.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.processing_time_of_trading_system = ProtoField.new("Processing Time Of Trading System", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.processingtimeoftradingsystem", ftypes.STRING, nil, nil, nil, "HHMMSSuuuuuu.")
@@ -277,7 +277,7 @@ omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.segment_type_code = Proto
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.session_id = ProtoField.new("Session Id", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.sessionid", ftypes.STRING, nil, nil, nil, "A Session is a subordinate concept of a Board and each session follows different trading methods and rules.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.session_start_end_code = ProtoField.new("Session Start End Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.sessionstartendcode", ftypes.STRING, nil, nil, nil, "A code refers to the start/end of session. Board will end when the last session ends. BS: Board Start BE: Board End SS: Session Start SE: Session End SH: Session Halt SR: Session Resumption.")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.short_selling = ProtoField.new("Short Selling", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.shortselling", ftypes.STRING, nil, nil, nil, "Y/N to Short Selling.")
-omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.shortterm_overheat_issue_type_code = ProtoField.new("Shortterm Overheat Issue Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.shorttermoverheatissuetypecode", ftypes.STRING, nil, nil, nil, "0: N/A 1: Designation Alert 2: Designation 3: Extension of Designation(Delay in lifting).")
+omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.short_term_overheat_issue_type_code = ProtoField.new("Short Term Overheat Issue Type Code", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.shorttermoverheatissuetypecode", ftypes.STRING, nil, nil, nil, "0: N/A 1: Designation Alert 2: Designation 3: Extension of Designation(Delay in lifting).")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.small_medium_sized_business = ProtoField.new("Small Medium Sized Business", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.smallmediumsizedbusiness", ftypes.STRING, nil, nil, nil, "Small & Medium Sized Business (only for KOSDAQ).")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.spac = ProtoField.new("Spac", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.spac", ftypes.STRING, nil, nil, nil, "Y/N to SPAC (Special Purpose Acquisition Company).")
 omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.spac_merger = ProtoField.new("Spac Merger", "nextrade.nextrade.etpcommon.nxtbinary.v2.12.spacmerger", ftypes.STRING, nil, nil, nil, "SPAC Merger.")
@@ -731,6 +731,52 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.accumulated_trading_volume.dissect =
   return offset + length, value
 end
 
+-- After Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_value = {}
+
+-- Size: After Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_value.size = 16
+
+-- Display: After Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_value.display = function(value)
+  return "After Market Accumulated Trading Value: "..value
+end
+
+-- Dissect: After Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_value.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.after_market_accumulated_trading_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- After Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_volume = {}
+
+-- Size: After Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_volume.size = 8
+
+-- Display: After Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_volume.display = function(value)
+  return "After Market Accumulated Trading Volume: "..value
+end
+
+-- Dissect: After Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.after_market_accumulated_trading_volume, range, value, display)
+
+  return offset + length, value
+end
+
 -- After Market Possibility
 nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_possibility = {}
 
@@ -750,52 +796,6 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_possibility.dissect = f
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_possibility.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.after_market_possibility, range, value, display)
-
-  return offset + length, value
-end
-
--- Aftermarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_value = {}
-
--- Size: Aftermarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_value.size = 16
-
--- Display: Aftermarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_value.display = function(value)
-  return "Aftermarket Accumulated Trading Value: "..value
-end
-
--- Dissect: Aftermarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_value.size
-  local range = buffer(offset, length)
-  local value = range:le_float()
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.aftermarket_accumulated_trading_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Aftermarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_volume = {}
-
--- Size: Aftermarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_volume.size = 8
-
--- Display: Aftermarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_volume.display = function(value)
-  return "Aftermarket Accumulated Trading Volume: "..value
-end
-
--- Dissect: Aftermarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.aftermarket_accumulated_trading_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1674,25 +1674,25 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.ask_trading_volume_5.dissect = funct
   return offset + length, value
 end
 
--- Backdoor Listing
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.backdoor_listing = {}
+-- Back Door Listing
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.back_door_listing = {}
 
--- Size: Backdoor Listing
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.backdoor_listing.size = 1
+-- Size: Back Door Listing
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.back_door_listing.size = 1
 
--- Display: Backdoor Listing
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.backdoor_listing.display = function(value)
-  return "Backdoor Listing: "..value
+-- Display: Back Door Listing
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.back_door_listing.display = function(value)
+  return "Back Door Listing: "..value
 end
 
--- Dissect: Backdoor Listing
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.backdoor_listing.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.backdoor_listing.size
+-- Dissect: Back Door Listing
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.back_door_listing.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.back_door_listing.size
   local range = buffer(offset, length)
   local value = range:string(nextrade_nextrade_etpcommon_nxtbinary_v2_12.text_encoding)
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.backdoor_listing.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.back_door_listing.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.backdoor_listing, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.back_door_listing, range, value, display)
 
   return offset + length, value
 end
@@ -1743,25 +1743,25 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.base_price_change.dissect = function
   return offset + length, value
 end
 
--- Basket Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_preopening_market = {}
+-- Basket Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_pre_opening_market = {}
 
--- Size: Basket Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_preopening_market.size = 1
+-- Size: Basket Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_pre_opening_market.size = 1
 
--- Display: Basket Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_preopening_market.display = function(value)
-  return "Basket Trading In The Preopening Market: "..value
+-- Display: Basket Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_pre_opening_market.display = function(value)
+  return "Basket Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Basket Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_preopening_market.size
+-- Dissect: Basket Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(nextrade_nextrade_etpcommon_nxtbinary_v2_12.text_encoding)
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.basket_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.basket_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -2502,25 +2502,25 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.bid_trading_volume_5.dissect = funct
   return offset + length, value
 end
 
--- Block Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_preopening_market = {}
+-- Block Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_pre_opening_market = {}
 
--- Size: Block Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_preopening_market.size = 1
+-- Size: Block Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_pre_opening_market.size = 1
 
--- Display: Block Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_preopening_market.display = function(value)
-  return "Block Trading In The Preopening Market: "..value
+-- Display: Block Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_pre_opening_market.display = function(value)
+  return "Block Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Block Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_preopening_market.size
+-- Dissect: Block Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(nextrade_nextrade_etpcommon_nxtbinary_v2_12.text_encoding)
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.block_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.block_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -2828,25 +2828,25 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_lower_limit_of_buy_in.
   return offset + length, value
 end
 
--- Closing Price Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_preopening_market = {}
+-- Closing Price Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_pre_opening_market = {}
 
--- Size: Closing Price Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_preopening_market.size = 1
+-- Size: Closing Price Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_pre_opening_market.size = 1
 
--- Display: Closing Price Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_preopening_market.display = function(value)
-  return "Closing Price Trading In The Preopening Market: "..value
+-- Display: Closing Price Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_pre_opening_market.display = function(value)
+  return "Closing Price Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Closing Price Trading In The Preopening Market
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_preopening_market.size
+-- Dissect: Closing Price Trading In The Pre Opening Market
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(nextrade_nextrade_etpcommon_nxtbinary_v2_12.text_encoding)
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.closing_price_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.closing_price_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -4208,48 +4208,48 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.issuing_price.dissect = function(buf
   return offset + length, value
 end
 
--- Knockout Elw Triggering Time
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_triggering_time = {}
+-- Knock Out Elw Triggering Time
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_triggering_time = {}
 
--- Size: Knockout Elw Triggering Time
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_triggering_time.size = 9
+-- Size: Knock Out Elw Triggering Time
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_triggering_time.size = 9
 
--- Display: Knockout Elw Triggering Time
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_triggering_time.display = function(value)
-  return "Knockout Elw Triggering Time: "..value
+-- Display: Knock Out Elw Triggering Time
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_triggering_time.display = function(value)
+  return "Knock Out Elw Triggering Time: "..value
 end
 
--- Dissect: Knockout Elw Triggering Time
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_triggering_time.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_triggering_time.size
+-- Dissect: Knock Out Elw Triggering Time
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_triggering_time.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_triggering_time.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(nextrade_nextrade_etpcommon_nxtbinary_v2_12.text_encoding))
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_triggering_time.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_triggering_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.knockout_elw_triggering_time, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.knock_out_elw_triggering_time, range, value, display)
 
   return offset + length, value
 end
 
--- Knockout Elw Type Code
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_type_code = {}
+-- Knock Out Elw Type Code
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_type_code = {}
 
--- Size: Knockout Elw Type Code
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_type_code.size = 1
+-- Size: Knock Out Elw Type Code
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_type_code.size = 1
 
--- Display: Knockout Elw Type Code
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_type_code.display = function(value)
-  return "Knockout Elw Type Code: "..value
+-- Display: Knock Out Elw Type Code
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_type_code.display = function(value)
+  return "Knock Out Elw Type Code: "..value
 end
 
--- Dissect: Knockout Elw Type Code
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_type_code.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_type_code.size
+-- Dissect: Knock Out Elw Type Code
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_type_code.size
   local range = buffer(offset, length)
   local value = range:string(nextrade_nextrade_etpcommon_nxtbinary_v2_12.text_encoding)
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_type_code.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.knockout_elw_type_code, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.knock_out_elw_type_code, range, value, display)
 
   return offset + length, value
 end
@@ -4369,25 +4369,25 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.listing_date.dissect = function(buff
   return offset + length, value
 end
 
--- Lot Size Afterhours Trading
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_afterhours_trading = {}
+-- Lot Size After Hours Trading
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_after_hours_trading = {}
 
--- Size: Lot Size Afterhours Trading
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_afterhours_trading.size = 8
+-- Size: Lot Size After Hours Trading
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_after_hours_trading.size = 8
 
--- Display: Lot Size Afterhours Trading
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_afterhours_trading.display = function(value)
-  return "Lot Size Afterhours Trading: "..value
+-- Display: Lot Size After Hours Trading
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_after_hours_trading.display = function(value)
+  return "Lot Size After Hours Trading: "..value
 end
 
--- Dissect: Lot Size Afterhours Trading
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_afterhours_trading.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_afterhours_trading.size
+-- Dissect: Lot Size After Hours Trading
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_after_hours_trading.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_after_hours_trading.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_afterhours_trading.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_after_hours_trading.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.lot_size_afterhours_trading, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.lot_size_after_hours_trading, range, value, display)
 
   return offset + length, value
 end
@@ -5036,6 +5036,52 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.lp_start_date.dissect = function(buf
   return offset + length, value
 end
 
+-- Main Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_value = {}
+
+-- Size: Main Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_value.size = 16
+
+-- Display: Main Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_value.display = function(value)
+  return "Main Market Accumulated Trading Value: "..value
+end
+
+-- Dissect: Main Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_value.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.main_market_accumulated_trading_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Main Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_volume = {}
+
+-- Size: Main Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_volume.size = 8
+
+-- Display: Main Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_volume.display = function(value)
+  return "Main Market Accumulated Trading Volume: "..value
+end
+
+-- Dissect: Main Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.main_market_accumulated_trading_volume, range, value, display)
+
+  return offset + length, value
+end
+
 -- Main Market Bid Ask Spread Value
 nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_bid_ask_spread_value = {}
 
@@ -5055,52 +5101,6 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_bid_ask_spread_value.dis
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_bid_ask_spread_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.main_market_bid_ask_spread_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Mainmarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_value = {}
-
--- Size: Mainmarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_value.size = 16
-
--- Display: Mainmarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_value.display = function(value)
-  return "Mainmarket Accumulated Trading Value: "..value
-end
-
--- Dissect: Mainmarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_value.size
-  local range = buffer(offset, length)
-  local value = range:le_float()
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.mainmarket_accumulated_trading_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Mainmarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_volume = {}
-
--- Size: Mainmarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_volume.size = 8
-
--- Display: Mainmarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_volume.display = function(value)
-  return "Mainmarket Accumulated Trading Volume: "..value
-end
-
--- Dissect: Mainmarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.mainmarket_accumulated_trading_volume, range, value, display)
 
   return offset + length, value
 end
@@ -6002,6 +6002,52 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.par_value_type_code.dissect = functi
   return offset + length, value
 end
 
+-- Pre Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_value = {}
+
+-- Size: Pre Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_value.size = 16
+
+-- Display: Pre Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_value.display = function(value)
+  return "Pre Market Accumulated Trading Value: "..value
+end
+
+-- Dissect: Pre Market Accumulated Trading Value
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_value.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.pre_market_accumulated_trading_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pre Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_volume = {}
+
+-- Size: Pre Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_volume.size = 8
+
+-- Display: Pre Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_volume.display = function(value)
+  return "Pre Market Accumulated Trading Volume: "..value
+end
+
+-- Dissect: Pre Market Accumulated Trading Volume
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.pre_market_accumulated_trading_volume, range, value, display)
+
+  return offset + length, value
+end
+
 -- Preferred Stocks With Lesser Shares
 nextrade_nextrade_etpcommon_nxtbinary_v2_12.preferred_stocks_with_lesser_shares = {}
 
@@ -6021,52 +6067,6 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.preferred_stocks_with_lesser_shares.
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.preferred_stocks_with_lesser_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.preferred_stocks_with_lesser_shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Premarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_value = {}
-
--- Size: Premarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_value.size = 16
-
--- Display: Premarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_value.display = function(value)
-  return "Premarket Accumulated Trading Value: "..value
-end
-
--- Dissect: Premarket Accumulated Trading Value
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_value.size
-  local range = buffer(offset, length)
-  local value = range:le_float()
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.premarket_accumulated_trading_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Premarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_volume = {}
-
--- Size: Premarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_volume.size = 8
-
--- Display: Premarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_volume.display = function(value)
-  return "Premarket Accumulated Trading Volume: "..value
-end
-
--- Dissect: Premarket Accumulated Trading Volume
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.premarket_accumulated_trading_volume, range, value, display)
 
   return offset + length, value
 end
@@ -6443,25 +6443,25 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.short_selling.dissect = function(buf
   return offset + length, value
 end
 
--- Shortterm Overheat Issue Type Code
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.shortterm_overheat_issue_type_code = {}
+-- Short Term Overheat Issue Type Code
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.short_term_overheat_issue_type_code = {}
 
--- Size: Shortterm Overheat Issue Type Code
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.shortterm_overheat_issue_type_code.size = 1
+-- Size: Short Term Overheat Issue Type Code
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.short_term_overheat_issue_type_code.size = 1
 
--- Display: Shortterm Overheat Issue Type Code
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.shortterm_overheat_issue_type_code.display = function(value)
-  return "Shortterm Overheat Issue Type Code: "..value
+-- Display: Short Term Overheat Issue Type Code
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.short_term_overheat_issue_type_code.display = function(value)
+  return "Short Term Overheat Issue Type Code: "..value
 end
 
--- Dissect: Shortterm Overheat Issue Type Code
-nextrade_nextrade_etpcommon_nxtbinary_v2_12.shortterm_overheat_issue_type_code.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.shortterm_overheat_issue_type_code.size
+-- Dissect: Short Term Overheat Issue Type Code
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.short_term_overheat_issue_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_etpcommon_nxtbinary_v2_12.short_term_overheat_issue_type_code.size
   local range = buffer(offset, length)
   local value = range:string(nextrade_nextrade_etpcommon_nxtbinary_v2_12.text_encoding)
-  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.shortterm_overheat_issue_type_code.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.short_term_overheat_issue_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.shortterm_overheat_issue_type_code, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.short_term_overheat_issue_type_code, range, value, display)
 
   return offset + length, value
 end
@@ -7612,12 +7612,12 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.trading_activity_by_session_per_an_i
 nextrade_nextrade_etpcommon_nxtbinary_v2_12.trading_activity_by_session_per_an_issue_message.size =
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.isin_code.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.total_number_of_tradable_issues_on_competitive_trading.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_volume.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_value.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_volume.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_value.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_volume.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_value.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_volume.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_value.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_volume.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_value.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_volume.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_value.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.end_keyword.size
 
 -- Display: Trading Activity By Session Per An Issue Message
@@ -7635,23 +7635,23 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.trading_activity_by_session_per_an_i
   -- Total Number Of Tradable Issues On Competitive Trading: Int
   index, total_number_of_tradable_issues_on_competitive_trading = nextrade_nextrade_etpcommon_nxtbinary_v2_12.total_number_of_tradable_issues_on_competitive_trading.dissect(buffer, index, packet, parent)
 
-  -- Premarket Accumulated Trading Volume: Long
-  index, premarket_accumulated_trading_volume = nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Pre Market Accumulated Trading Volume: Long
+  index, pre_market_accumulated_trading_volume = nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Premarket Accumulated Trading Value: FLOAT128
-  index, premarket_accumulated_trading_value = nextrade_nextrade_etpcommon_nxtbinary_v2_12.premarket_accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Pre Market Accumulated Trading Value: FLOAT128
+  index, pre_market_accumulated_trading_value = nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Mainmarket Accumulated Trading Volume: Long
-  index, mainmarket_accumulated_trading_volume = nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Main Market Accumulated Trading Volume: Long
+  index, main_market_accumulated_trading_volume = nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Mainmarket Accumulated Trading Value: FLOAT128
-  index, mainmarket_accumulated_trading_value = nextrade_nextrade_etpcommon_nxtbinary_v2_12.mainmarket_accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Main Market Accumulated Trading Value: FLOAT128
+  index, main_market_accumulated_trading_value = nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Aftermarket Accumulated Trading Volume: Long
-  index, aftermarket_accumulated_trading_volume = nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- After Market Accumulated Trading Volume: Long
+  index, after_market_accumulated_trading_volume = nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Aftermarket Accumulated Trading Value: FLOAT128
-  index, aftermarket_accumulated_trading_value = nextrade_nextrade_etpcommon_nxtbinary_v2_12.aftermarket_accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- After Market Accumulated Trading Value: FLOAT128
+  index, after_market_accumulated_trading_value = nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_value.dissect(buffer, index, packet, parent)
 
   -- End Keyword: Int
   index, end_keyword = nextrade_nextrade_etpcommon_nxtbinary_v2_12.end_keyword.dissect(buffer, index, packet, parent)
@@ -8093,7 +8093,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.equities_batch_data_message.size =
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.korea_corporate_governance_stock_price_index_kogi.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.issue_for_administration.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.unfaithful_disclosure.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.backdoor_listing.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.back_door_listing.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.trading_halt.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.industry_id.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.small_medium_sized_business.size + 
@@ -8133,16 +8133,16 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.equities_batch_data_message.size =
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.lowest_order_price.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.highest_order_price.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.unit_of_volume_in_main_board.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_afterhours_trading.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_after_hours_trading.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.rei_ts_type_code.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.target_stock_isin_code.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.currency_iso_code.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.country_code.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.market_making_possibility.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_possibility_in_the_after_hours.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_preopening_market.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_preopening_market.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_preopening_market.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_pre_opening_market.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_pre_opening_market.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_pre_opening_market.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.announcement_of_estimated_trading_price.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.short_selling.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.etf_tracking_difference.size + 
@@ -8152,7 +8152,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.equities_batch_data_message.size =
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.appraisal_ratio_of_substitute_price.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.investment_caution_issue.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.delisting_date.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.shortterm_overheat_issue_type_code.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.short_term_overheat_issue_type_code.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.etf_replication_methods_type_code.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.expiration_date.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.distribution_type_code.size + 
@@ -8265,8 +8265,8 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.equities_batch_data_message.fields =
   -- Unfaithful Disclosure: String
   index, unfaithful_disclosure = nextrade_nextrade_etpcommon_nxtbinary_v2_12.unfaithful_disclosure.dissect(buffer, index, packet, parent)
 
-  -- Backdoor Listing: String
-  index, backdoor_listing = nextrade_nextrade_etpcommon_nxtbinary_v2_12.backdoor_listing.dissect(buffer, index, packet, parent)
+  -- Back Door Listing: String
+  index, back_door_listing = nextrade_nextrade_etpcommon_nxtbinary_v2_12.back_door_listing.dissect(buffer, index, packet, parent)
 
   -- Trading Halt: String
   index, trading_halt = nextrade_nextrade_etpcommon_nxtbinary_v2_12.trading_halt.dissect(buffer, index, packet, parent)
@@ -8385,8 +8385,8 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.equities_batch_data_message.fields =
   -- Unit Of Volume In Main Board: Long
   index, unit_of_volume_in_main_board = nextrade_nextrade_etpcommon_nxtbinary_v2_12.unit_of_volume_in_main_board.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Afterhours Trading: Long
-  index, lot_size_afterhours_trading = nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_afterhours_trading.dissect(buffer, index, packet, parent)
+  -- Lot Size After Hours Trading: Long
+  index, lot_size_after_hours_trading = nextrade_nextrade_etpcommon_nxtbinary_v2_12.lot_size_after_hours_trading.dissect(buffer, index, packet, parent)
 
   -- Rei Ts Type Code: String
   index, rei_ts_type_code = nextrade_nextrade_etpcommon_nxtbinary_v2_12.rei_ts_type_code.dissect(buffer, index, packet, parent)
@@ -8406,14 +8406,14 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.equities_batch_data_message.fields =
   -- Closing Price Trading Possibility In The After Hours: String
   index, closing_price_trading_possibility_in_the_after_hours = nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_possibility_in_the_after_hours.dissect(buffer, index, packet, parent)
 
-  -- Closing Price Trading In The Preopening Market: String
-  index, closing_price_trading_in_the_preopening_market = nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Closing Price Trading In The Pre Opening Market: String
+  index, closing_price_trading_in_the_pre_opening_market = nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
-  -- Block Trading In The Preopening Market: String
-  index, block_trading_in_the_preopening_market = nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Block Trading In The Pre Opening Market: String
+  index, block_trading_in_the_pre_opening_market = nextrade_nextrade_etpcommon_nxtbinary_v2_12.block_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
-  -- Basket Trading In The Preopening Market: String
-  index, basket_trading_in_the_preopening_market = nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Basket Trading In The Pre Opening Market: String
+  index, basket_trading_in_the_pre_opening_market = nextrade_nextrade_etpcommon_nxtbinary_v2_12.basket_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
   -- Announcement Of Estimated Trading Price: String
   index, announcement_of_estimated_trading_price = nextrade_nextrade_etpcommon_nxtbinary_v2_12.announcement_of_estimated_trading_price.dissect(buffer, index, packet, parent)
@@ -8442,8 +8442,8 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.equities_batch_data_message.fields =
   -- Delisting Date: String
   index, delisting_date = nextrade_nextrade_etpcommon_nxtbinary_v2_12.delisting_date.dissect(buffer, index, packet, parent)
 
-  -- Shortterm Overheat Issue Type Code: String
-  index, shortterm_overheat_issue_type_code = nextrade_nextrade_etpcommon_nxtbinary_v2_12.shortterm_overheat_issue_type_code.dissect(buffer, index, packet, parent)
+  -- Short Term Overheat Issue Type Code: String
+  index, short_term_overheat_issue_type_code = nextrade_nextrade_etpcommon_nxtbinary_v2_12.short_term_overheat_issue_type_code.dissect(buffer, index, packet, parent)
 
   -- Etf Replication Methods Type Code: String
   index, etf_replication_methods_type_code = nextrade_nextrade_etpcommon_nxtbinary_v2_12.etf_replication_methods_type_code.dissect(buffer, index, packet, parent)
@@ -9243,8 +9243,8 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.equities_snapshot_mm_lp_quotes_inclu
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.estimated_trading_volume.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.closing_price_type_code.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.trading_halt.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_type_code.size + 
-  nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_triggering_time.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_type_code.size + 
+  nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_triggering_time.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.mid_price.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.total_mid_price_ask_volume_total_ask_volume_on_mid_price.size + 
   nextrade_nextrade_etpcommon_nxtbinary_v2_12.total_mid_price_bid_volume_total_bid_volume_on_mid_price.size + 
@@ -9502,11 +9502,11 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.equities_snapshot_mm_lp_quotes_inclu
   -- Trading Halt: String
   index, trading_halt = nextrade_nextrade_etpcommon_nxtbinary_v2_12.trading_halt.dissect(buffer, index, packet, parent)
 
-  -- Knockout Elw Type Code: String
-  index, knockout_elw_type_code = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_type_code.dissect(buffer, index, packet, parent)
+  -- Knock Out Elw Type Code: String
+  index, knock_out_elw_type_code = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_type_code.dissect(buffer, index, packet, parent)
 
-  -- Knockout Elw Triggering Time: String
-  index, knockout_elw_triggering_time = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knockout_elw_triggering_time.dissect(buffer, index, packet, parent)
+  -- Knock Out Elw Triggering Time: String
+  index, knock_out_elw_triggering_time = nextrade_nextrade_etpcommon_nxtbinary_v2_12.knock_out_elw_triggering_time.dissect(buffer, index, packet, parent)
 
   -- Mid Price: Double
   index, mid_price = nextrade_nextrade_etpcommon_nxtbinary_v2_12.mid_price.dissect(buffer, index, packet, parent)

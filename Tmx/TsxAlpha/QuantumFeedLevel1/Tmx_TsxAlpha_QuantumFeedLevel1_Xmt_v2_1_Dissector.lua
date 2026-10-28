@@ -24,7 +24,7 @@ omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.bid_price = ProtoField.new("B
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.bid_size = ProtoField.new("Bid Size", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.bidsize", ftypes.UINT32, nil, nil, nil, "Contains The Bid Size Volume For The Symbol")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.board_lot = ProtoField.new("Board Lot", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.boardlot", ftypes.UINT16, nil, nil, nil, "Contains The Board Lot Size")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.business_bodies = ProtoField.new("Business Bodies", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.businessbodies", ftypes.STRING)
-omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.buybrokernumber", ftypes.UINT16, nil, nil, nil, "An Exchangeassigned Public Number Uniquely Identifying A Participating Organization Associated With A Buy Order")
+omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.buybrokernumber", ftypes.UINT16, nil, nil, nil, "An Exchange Assigned Public Number Uniquely Identifying A Partici Pating Organization Associated With A Buy Order")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.bypass = ProtoField.new("Bypass", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.bypass", ftypes.STRING, nil, nil, nil, "An Indicator For Bypass Crosses Which Can Be Printed Outside Of The Protected Nbbo And Are Not Subject To Cross Interference")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.comment = ProtoField.new("Comment", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.comment", ftypes.STRING, nil, nil, nil, "A Text Field Corresponding To A Reason Code Entered When A Stock Is Halted Or The Initiator Of A Delayed Opening On A Stock Or When There Is A Change To The Oddlot Trader On A Stock")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.cross_type = ProtoField.new("Cross Type", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.crosstype", ftypes.STRING, nil, nil, nil, "Type Of Crosses Originating From A Participating Organization Between Managed Accounts That Have The Same Manager")
@@ -47,7 +47,7 @@ omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.product_type = ProtoField.new
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.protocol_name = ProtoField.new("Protocol Name", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.protocolname", ftypes.STRING)
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.protocol_version = ProtoField.new("Protocol Version", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.protocolversion", ftypes.UINT8, nil, nil, nil, "Protocol major version number")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.resume_trade_time = ProtoField.new("Resume Trade Time", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.resumetradetime", ftypes.UINT32, nil, nil, nil, "The Time At Which A Halted Stock Will Resume Trading")
-omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.sell_broker_number = ProtoField.new("Sell Broker Number", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.sellbrokernumber", ftypes.UINT16, nil, nil, nil, "An Exchangeassigned Number Uniquely Identifying A Participating Organization Associated With A Sell Order")
+omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.sell_broker_number = ProtoField.new("Sell Broker Number", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.sellbrokernumber", ftypes.UINT16, nil, nil, nil, "An Exchange Assigned Number Uniquely Identifying A Participating Organ Ization Associated With A Sell Order")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.sequence_0 = ProtoField.new("Sequence 0", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.sequence0", ftypes.UINT8, nil, nil, nil, "Reserved for future expansion, Value is 0")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.sequence_1 = ProtoField.new("Sequence 1", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.sequence1", ftypes.UINT32, nil, nil, nil, "Sequence per Stream Id of the Business message")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.session_id = ProtoField.new("Session Id", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.sessionid", ftypes.UINT32, nil, nil, nil, "Constant Session Id")
@@ -1167,7 +1167,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.settlement_terms.display = function(valu
     return "Settlement Terms: Nn (N)"
   end
   if value == "M" then
-    return "Settlement Terms: Ms Derivativesrelated Contingent Equity Trade (M)"
+    return "Settlement Terms: Ms Derivatives Related Contingent Equity Trade (M)"
   end
   if value == "T" then
     return "Settlement Terms: Ct Cash Today (T)"

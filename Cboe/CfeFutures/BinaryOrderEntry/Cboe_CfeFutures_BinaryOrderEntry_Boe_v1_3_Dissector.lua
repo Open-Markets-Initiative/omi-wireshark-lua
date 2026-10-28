@@ -3690,8 +3690,8 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.risk_reset.size = 8
 
 -- Display: Risk Reset
 cboe_cfefutures_binaryorderentry_boe_v1_3.risk_reset.labels = {
-  ["S"] = "Risk Reset: Productlevel Risk Lockout Reset (S)",
-  ["F"] = "Risk Reset: Firmlevel Lockout Reset (F)",
+  ["S"] = "Risk Reset: Product Level Risk Lockout Reset (S)",
+  ["F"] = "Risk Reset: Firm Level Lockout Reset (F)",
   ["C"] = "Risk Reset: Custom Group Id Lockout Reset (C)",
 }
 

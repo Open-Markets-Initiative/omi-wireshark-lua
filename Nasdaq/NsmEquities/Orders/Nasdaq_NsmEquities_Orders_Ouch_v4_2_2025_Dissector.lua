@@ -797,7 +797,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_2025.intermarket_sweep_eligibility.size = 1
 nasdaq_nsmequities_orders_ouch_v4_2_2025.intermarket_sweep_eligibility.labels = {
   ["Y"] = "Intermarket Sweep Eligibility: Eligible (Y)",
   ["N"] = "Intermarket Sweep Eligibility: Not Eligible (N)",
-  ["y"] = "Intermarket Sweep Eligibility: Tradeat (y)",
+  ["y"] = "Intermarket Sweep Eligibility: Trade At (y)",
 }
 
 nasdaq_nsmequities_orders_ouch_v4_2_2025.intermarket_sweep_eligibility.display = function(value)
@@ -832,7 +832,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_2025.liquidity_flag.labels = {
   ["L"] = "Liquidity Flag: Closing Cross (L)",
   ["H"] = "Liquidity Flag: Halt Ipo (H)",
   ["K"] = "Liquidity Flag: Halt (K)",
-  ["J"] = "Liquidity Flag: Nondisplayed (J)",
+  ["J"] = "Liquidity Flag: Non Displayed (J)",
   ["N"] = "Liquidity Flag: Passive Midpoint Execution (N)",
   ["W"] = "Liquidity Flag: Added Post Only (W)",
   ["m"] = "Liquidity Flag: Removed At Midpoint (m)",

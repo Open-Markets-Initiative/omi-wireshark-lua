@@ -39,8 +39,8 @@ omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.cb_proper_name_code 
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.cb_reserved_code = ProtoField.new("CB Reserved Code", "jpx.tseequities.issuebasicinformation.flex.v19.5.cbreservedcode", ftypes.STRING, nil, nil, nil, "Reserved Code.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.cb_space = ProtoField.new("CB Space", "jpx.tseequities.issuebasicinformation.flex.v19.5.cbspace", ftypes.STRING, nil, nil, nil, "Space.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.control_medium_classification = ProtoField.new("Control Medium Classification", "jpx.tseequities.issuebasicinformation.flex.v19.5.controlmediumclassification", ftypes.STRING, nil, nil, nil, "Medium Classification of a Control Message. Indicates details and other information.")
+omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.ex_dividend_ex_right_flag = ProtoField.new("Ex Dividend Ex Right Flag", "jpx.tseequities.issuebasicinformation.flex.v19.5.exdividendexrightflag", ftypes.STRING, nil, nil, nil, "Indicates the Ex-dividend / Ex-right flag.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.exchange_code = ProtoField.new("Exchange Code", "jpx.tseequities.issuebasicinformation.flex.v19.5.exchangecode", ftypes.STRING, nil, nil, nil, "Exchange the information belongs to. This section is a space in Control Message.")
-omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.exdividend_exright_flag = ProtoField.new("Exdividend Exright Flag", "jpx.tseequities.issuebasicinformation.flex.v19.5.exdividendexrightflag", ftypes.STRING, nil, nil, nil, "Indicates the Ex-dividend / Ex-right flag.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.index_constituent_issue = ProtoField.new("Index Constituent Issue", "jpx.tseequities.issuebasicinformation.flex.v19.5.indexconstituentissue", ftypes.STRING)
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.index_medium_classification = ProtoField.new("Index Medium Classification", "jpx.tseequities.issuebasicinformation.flex.v19.5.indexmediumclassification", ftypes.STRING, nil, nil, nil, "Medium Classification of a Index Message. Indicates details and other information.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.industry_code = ProtoField.new("Industry Code", "jpx.tseequities.issuebasicinformation.flex.v19.5.industrycode", ftypes.STRING, nil, nil, nil, "Indicates the Industry code.")
@@ -99,7 +99,7 @@ omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.time = ProtoField.ne
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.time_symbol = ProtoField.new("Time Symbol", "jpx.tseequities.issuebasicinformation.flex.v19.5.timesymbol", ftypes.STRING, nil, nil, nil, "Time Symbol.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.unit_flag = ProtoField.new("Unit Flag", "jpx.tseequities.issuebasicinformation.flex.v19.5.unitflag", ftypes.STRING, nil, nil, nil, "Indicates the Unit Flag.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.unit_of_trading = ProtoField.new("Unit Of Trading", "jpx.tseequities.issuebasicinformation.flex.v19.5.unitoftrading", ftypes.STRING, nil, nil, nil, "Indicates unit of trading.")
-omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.whenissued_transaction_flag = ProtoField.new("Whenissued Transaction Flag", "jpx.tseequities.issuebasicinformation.flex.v19.5.whenissuedtransactionflag", ftypes.STRING, nil, nil, nil, "Indicates the When-issued transaction issue.")
+omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.when_issued_transaction_flag = ProtoField.new("When Issued Transaction Flag", "jpx.tseequities.issuebasicinformation.flex.v19.5.whenissuedtransactionflag", ftypes.STRING, nil, nil, nil, "Indicates the When-issued transaction issue.")
 
 -- Jpx TseEquities IssueBasicInformation Flex 19.5 Framing
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.service_header = ProtoField.new("Service Header", "jpx.tseequities.issuebasicinformation.flex.v19.5.serviceheader", ftypes.STRING, nil, nil, nil, "Jpx Flex 39 byte service header, common to all message types")
@@ -845,6 +845,43 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.control_medium_classification.d
   return offset + length, value
 end
 
+-- Ex Dividend Ex Right Flag
+jpx_tseequities_issuebasicinformation_flex_v19_5.ex_dividend_ex_right_flag = {}
+
+-- Size: Ex Dividend Ex Right Flag
+jpx_tseequities_issuebasicinformation_flex_v19_5.ex_dividend_ex_right_flag.size = 2
+
+-- Display: Ex Dividend Ex Right Flag
+jpx_tseequities_issuebasicinformation_flex_v19_5.ex_dividend_ex_right_flag.labels = {
+  ["00"] = "Ex Dividend Ex Right Flag: None Specified (00)",
+  ["01"] = "Ex Dividend Ex Right Flag: Ex Dividend (01)",
+  ["02"] = "Ex Dividend Ex Right Flag: Ex New (02)",
+  ["03"] = "Ex Dividend Ex Right Flag: Other Ex Rights (03)",
+  ["04"] = "Ex Dividend Ex Right Flag: Ex Dividend Other Ex Rights (04)",
+  ["05"] = "Ex Dividend Ex Right Flag: Ex New Other Ex Rights (05)",
+  ["06"] = "Ex Dividend Ex Right Flag: Ex Dividend Ex New (06)",
+  ["07"] = "Ex Dividend Ex Right Flag: Ex Dividend Ex New Other Ex Rights (07)",
+  ["08"] = "Ex Dividend Ex Right Flag: Cum Due Bill (08)",
+  ["09"] = "Ex Dividend Ex Right Flag: Ex Due Bill (09)",
+  ["10"] = "Ex Dividend Ex Right Flag: Cum Due Bill Plus One Of Ex Dividend Ex New Or Other Ex Rights Or Two Or More Of These (10)",
+}
+
+jpx_tseequities_issuebasicinformation_flex_v19_5.ex_dividend_ex_right_flag.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.ex_dividend_ex_right_flag.labels[value] or "Ex Dividend Ex Right Flag: Unknown("..value..")"
+end
+
+-- Dissect: Ex Dividend Ex Right Flag
+jpx_tseequities_issuebasicinformation_flex_v19_5.ex_dividend_ex_right_flag.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_issuebasicinformation_flex_v19_5.ex_dividend_ex_right_flag.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = jpx_tseequities_issuebasicinformation_flex_v19_5.ex_dividend_ex_right_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.ex_dividend_ex_right_flag, range, value, display)
+
+  return offset + length, value
+end
+
 -- Exchange Code
 jpx_tseequities_issuebasicinformation_flex_v19_5.exchange_code = {}
 
@@ -883,43 +920,6 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.exchange_code.dissect = functio
   local display = jpx_tseequities_issuebasicinformation_flex_v19_5.exchange_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.exchange_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Exdividend Exright Flag
-jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag = {}
-
--- Size: Exdividend Exright Flag
-jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.size = 2
-
--- Display: Exdividend Exright Flag
-jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.labels = {
-  ["00"] = "Exdividend Exright Flag: None Specified (00)",
-  ["01"] = "Exdividend Exright Flag: Exdividend (01)",
-  ["02"] = "Exdividend Exright Flag: Exnew (02)",
-  ["03"] = "Exdividend Exright Flag: Other Exrights (03)",
-  ["04"] = "Exdividend Exright Flag: Exdividendother Exrights (04)",
-  ["05"] = "Exdividend Exright Flag: Exnewother Exrights (05)",
-  ["06"] = "Exdividend Exright Flag: Exdividendexnew (06)",
-  ["07"] = "Exdividend Exright Flag: Exdividendexnewother Exrights (07)",
-  ["08"] = "Exdividend Exright Flag: Cumduebill (08)",
-  ["09"] = "Exdividend Exright Flag: Exduebill (09)",
-  ["10"] = "Exdividend Exright Flag: Cumduebill Plus One Of Exdividend Exnew Or Other Exrights Or Two Or More Of These (10)",
-}
-
-jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.display = function(value)
-  return jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.labels[value] or "Exdividend Exright Flag: Unknown("..value..")"
-end
-
--- Dissect: Exdividend Exright Flag
-jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.size
-  local range = buffer(offset, length)
-  local value = trim_left_spaces(range:string())
-  local display = jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.exdividend_exright_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1654,48 +1654,48 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.security_type_etc_identificatio
   ["12"] = "Security Type Etc Identification Code: Foreign Stock New Common Stock (12)",
   ["13"] = "Security Type Etc Identification Code: Foreign Stock Preffered Stock (13)",
   ["17"] = "Security Type Etc Identification Code: Foreign Stockwarrant (17)",
-  ["21"] = "Security Type Etc Identification Code: Domestic Government Bond Interestbearing Treasury Notes (21)",
+  ["21"] = "Security Type Etc Identification Code: Domestic Government Bond Interest Bearing Treasury Notes (21)",
   ["22"] = "Security Type Etc Identification Code: Domestic Government Bond Discount Treasury Notes (22)",
-  ["23"] = "Security Type Etc Identification Code: Domestic Government Bond Shortterm Discount Treasury Notes (23)",
+  ["23"] = "Security Type Etc Identification Code: Domestic Government Bond Short Term Discount Treasury Notes (23)",
   ["24"] = "Security Type Etc Identification Code: Domestic Government Bond Floating Rate Treasury Notes (24)",
-  ["25"] = "Security Type Etc Identification Code: Domestic Government Bond Shortterm Government Securities (25)",
+  ["25"] = "Security Type Etc Identification Code: Domestic Government Bond Short Term Government Securities (25)",
   ["26"] = "Security Type Etc Identification Code: Domestic Government Bond Stripped Principal For Interest Bearing Govt Bd (26)",
   ["27"] = "Security Type Etc Identification Code: Domestic Government Bond Stripped Coupon For Interest Bearing Govt Bd (27)",
   ["31"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Local Government Bond (31)",
   ["32"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Government Guarantee Bond (32)",
   ["33"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Special Bond Broadcasting Bond Etc (33)",
-  ["34"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Interestbearing Bank Debenture (34)",
+  ["34"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Interest Bearing Bank Debenture (34)",
   ["35"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Discount Bank Debenture (35)",
   ["36"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Corporate Bond (36)",
   ["39"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Private Placement Local Government Bond (39)",
   ["3A"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Not Public Offering Bond (3A)",
   ["3F"] = "Security Type Etc Identification Code: Subscription Warrant Security Jasdec Transfer (3F)",
   ["51"] = "Security Type Etc Identification Code: Domestic Cb Issued Domestically Japanese Yen Cb (51)",
-  ["52"] = "Security Type Etc Identification Code: Domestic Cb Issued Domestically Foreigncurrency Cb (52)",
+  ["52"] = "Security Type Etc Identification Code: Domestic Cb Issued Domestically Foreign Currency Cb (52)",
   ["53"] = "Security Type Etc Identification Code: Domestic Cb Issued Overseas Japanese Yen Cb (53)",
-  ["54"] = "Security Type Etc Identification Code: Domestic Cb Issued Overseas Foreigncurrency Cb (54)",
+  ["54"] = "Security Type Etc Identification Code: Domestic Cb Issued Overseas Foreign Currency Cb (54)",
   ["55"] = "Security Type Etc Identification Code: Foreign Cb Issued Domestically Japanese Yen Cb (55)",
-  ["56"] = "Security Type Etc Identification Code: Foreign Cb Issued Domestically Foreigncurrency Cb (56)",
-  ["62"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Domestically Foreigncurrency Bond With Warrant Detachable (62)",
-  ["63"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Domestically Japanese Yen Bond With Warrant Nondetachable (63)",
-  ["64"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Overseas Japanese Yen Bond With Warrant Nondetachable (64)",
-  ["65"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Overseas Foreigncurrency Bond With Warrant Nondetachable (65)",
-  ["66"] = "Security Type Etc Identification Code: Foreign Bond With Warrant Issued Domestically Japanese Yen Bond With Warrant Nondetachable (66)",
-  ["67"] = "Security Type Etc Identification Code: Foreign Bond With Warrant Issued Domestically Foreigncurrency Bond With Warrant Nondetachable (67)",
+  ["56"] = "Security Type Etc Identification Code: Foreign Cb Issued Domestically Foreign Currency Cb (56)",
+  ["62"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Domestically Foreign Currency Bond With Warrant Detachable (62)",
+  ["63"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Domestically Japanese Yen Bond With Warrant Non Detachable (63)",
+  ["64"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Overseas Japanese Yen Bond With Warrant Non Detachable (64)",
+  ["65"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Overseas Foreign Currency Bond With Warrant Non Detachable (65)",
+  ["66"] = "Security Type Etc Identification Code: Foreign Bond With Warrant Issued Domestically Japanese Yen Bond With Warrant Non Detachable (66)",
+  ["67"] = "Security Type Etc Identification Code: Foreign Bond With Warrant Issued Domestically Foreign Currency Bond With Warrant Non Detachable (67)",
   ["71"] = "Security Type Etc Identification Code: Domestic Subscription Warrant Security Issued Domestically (71)",
   ["72"] = "Security Type Etc Identification Code: Domestic Subscription Warrant Security Issued Overseas (72)",
   ["73"] = "Security Type Etc Identification Code: Foreign Subscription Warrant Security Issued Domestically (73)",
   ["81"] = "Security Type Etc Identification Code: Foreign Bond Issued Domestically Japanese Yen Foreign Bond (81)",
   ["82"] = "Security Type Etc Identification Code: Foreign Bond Issued Domestically Japanese Yen Foreign Bond Special (82)",
-  ["83"] = "Security Type Etc Identification Code: Foreign Bond Issued Domestically Foreigncurrency Foreign Bond (83)",
-  ["84"] = "Security Type Etc Identification Code: Foreign Bond Issued Domestically Dualcurrency Foreign Bond (84)",
+  ["83"] = "Security Type Etc Identification Code: Foreign Bond Issued Domestically Foreign Currency Foreign Bond (83)",
+  ["84"] = "Security Type Etc Identification Code: Foreign Bond Issued Domestically Dual Currency Foreign Bond (84)",
   ["85"] = "Security Type Etc Identification Code: Foreign Bond Issued Domesticallynot Public Offering Bond (85)",
   ["91"] = "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Domestically Japanese Yen Exchangeable Bond (91)",
-  ["92"] = "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Domestically Foreigncurrency Yen Exchangeable Bond (92)",
+  ["92"] = "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Domestically Foreign Currency Yen Exchangeable Bond (92)",
   ["93"] = "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Overseas Japanese Yen Exchangeable Bond (93)",
-  ["94"] = "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Overseas Foreigncurrency Yen Exchangeable Bond (94)",
+  ["94"] = "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Overseas Foreign Currency Yen Exchangeable Bond (94)",
   ["95"] = "Security Type Etc Identification Code: Foreign Exchangeable Bond Issued Domestically Japanese Yen Exchangeable Bond (95)",
-  ["96"] = "Security Type Etc Identification Code: Foreign Exchangeable Bond Issued Domestically Foreigncurrency Yen Exchangeable Bond (96)",
+  ["96"] = "Security Type Etc Identification Code: Foreign Exchangeable Bond Issued Domestically Foreign Currency Yen Exchangeable Bond (96)",
   ["A1"] = "Security Type Etc Identification Code: Futures Transaction Bonds (A1)",
   ["A2"] = "Security Type Etc Identification Code: Futures Transaction Stock Index (A2)",
   ["A6"] = "Security Type Etc Identification Code: Option Transaction Bond (A6)",
@@ -2290,32 +2290,32 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.unit_of_trading.dissect = funct
   return offset + length, value
 end
 
--- Whenissued Transaction Flag
-jpx_tseequities_issuebasicinformation_flex_v19_5.whenissued_transaction_flag = {}
+-- When Issued Transaction Flag
+jpx_tseequities_issuebasicinformation_flex_v19_5.when_issued_transaction_flag = {}
 
--- Size: Whenissued Transaction Flag
-jpx_tseequities_issuebasicinformation_flex_v19_5.whenissued_transaction_flag.size = 1
+-- Size: When Issued Transaction Flag
+jpx_tseequities_issuebasicinformation_flex_v19_5.when_issued_transaction_flag.size = 1
 
--- Display: Whenissued Transaction Flag
-jpx_tseequities_issuebasicinformation_flex_v19_5.whenissued_transaction_flag.display = function(value)
+-- Display: When Issued Transaction Flag
+jpx_tseequities_issuebasicinformation_flex_v19_5.when_issued_transaction_flag.display = function(value)
   if value == "1" then
-    return "Whenissued Transaction Flag: Whenissued Transaction Issue (1)"
+    return "When Issued Transaction Flag: When Issued Transaction Issue (1)"
   end
   if value == " " then
-    return "Whenissued Transaction Flag: Other Than The Above (<whitespace>)"
+    return "When Issued Transaction Flag: Other Than The Above (<whitespace>)"
   end
 
-  return "Whenissued Transaction Flag: Unknown("..value..")"
+  return "When Issued Transaction Flag: Unknown("..value..")"
 end
 
--- Dissect: Whenissued Transaction Flag
-jpx_tseequities_issuebasicinformation_flex_v19_5.whenissued_transaction_flag.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_issuebasicinformation_flex_v19_5.whenissued_transaction_flag.size
+-- Dissect: When Issued Transaction Flag
+jpx_tseequities_issuebasicinformation_flex_v19_5.when_issued_transaction_flag.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_issuebasicinformation_flex_v19_5.when_issued_transaction_flag.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = jpx_tseequities_issuebasicinformation_flex_v19_5.whenissued_transaction_flag.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_issuebasicinformation_flex_v19_5.when_issued_transaction_flag.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.whenissued_transaction_flag, range, value, display)
+  parent:add(omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.when_issued_transaction_flag, range, value, display)
 
   return offset + length, value
 end
@@ -2944,10 +2944,10 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.issue_information_message.size 
   jpx_tseequities_issuebasicinformation_flex_v19_5.new_security_code.size + 
   jpx_tseequities_issuebasicinformation_flex_v19_5.industry_code.size + 
   jpx_tseequities_issuebasicinformation_flex_v19_5.new_listing_flag.size + 
-  jpx_tseequities_issuebasicinformation_flex_v19_5.whenissued_transaction_flag.size + 
+  jpx_tseequities_issuebasicinformation_flex_v19_5.when_issued_transaction_flag.size + 
   jpx_tseequities_issuebasicinformation_flex_v19_5.short_selling_price_restriction_applied_flag_at_the_regular_distribution.size + 
   jpx_tseequities_issuebasicinformation_flex_v19_5.loan_margin_flag.size + 
-  jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.size + 
+  jpx_tseequities_issuebasicinformation_flex_v19_5.ex_dividend_ex_right_flag.size + 
   jpx_tseequities_issuebasicinformation_flex_v19_5.securities_to_be_delisted_under_supervision_classification.size + 
   jpx_tseequities_issuebasicinformation_flex_v19_5.reserved_5.size + 
   jpx_tseequities_issuebasicinformation_flex_v19_5.unit_of_trading.size + 
@@ -2994,8 +2994,8 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.issue_information_message.field
   -- New Listing Flag: C
   index, new_listing_flag = jpx_tseequities_issuebasicinformation_flex_v19_5.new_listing_flag.dissect(buffer, index, packet, parent)
 
-  -- Whenissued Transaction Flag: C
-  index, whenissued_transaction_flag = jpx_tseequities_issuebasicinformation_flex_v19_5.whenissued_transaction_flag.dissect(buffer, index, packet, parent)
+  -- When Issued Transaction Flag: C
+  index, when_issued_transaction_flag = jpx_tseequities_issuebasicinformation_flex_v19_5.when_issued_transaction_flag.dissect(buffer, index, packet, parent)
 
   -- Short Selling Price Restriction Applied Flag At The Regular Distribution: C
   index, short_selling_price_restriction_applied_flag_at_the_regular_distribution = jpx_tseequities_issuebasicinformation_flex_v19_5.short_selling_price_restriction_applied_flag_at_the_regular_distribution.dissect(buffer, index, packet, parent)
@@ -3003,8 +3003,8 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.issue_information_message.field
   -- Loan Margin Flag: C
   index, loan_margin_flag = jpx_tseequities_issuebasicinformation_flex_v19_5.loan_margin_flag.dissect(buffer, index, packet, parent)
 
-  -- Exdividend Exright Flag: C
-  index, exdividend_exright_flag = jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.dissect(buffer, index, packet, parent)
+  -- Ex Dividend Ex Right Flag: C
+  index, ex_dividend_ex_right_flag = jpx_tseequities_issuebasicinformation_flex_v19_5.ex_dividend_ex_right_flag.dissect(buffer, index, packet, parent)
 
   -- Securities To Be Delisted Under Supervision Classification: C
   index, securities_to_be_delisted_under_supervision_classification = jpx_tseequities_issuebasicinformation_flex_v19_5.securities_to_be_delisted_under_supervision_classification.dissect(buffer, index, packet, parent)

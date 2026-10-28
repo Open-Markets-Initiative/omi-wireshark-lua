@@ -544,7 +544,7 @@ hkex_hkexsecurities_indexretrans_omd_v1_45.index_status.labels = {
   ["P"] = "Index Status: Last Close Value Previous Session (P)",
   ["R"] = "Index Status: Preliminary Close (R)",
   ["S"] = "Index Status: Stop Loss Index (S)",
-  ["T"] = "Index Status: Realtime Index Value (T)",
+  ["T"] = "Index Status: Real Time Index Value (T)",
 }
 
 hkex_hkexsecurities_indexretrans_omd_v1_45.index_status.display = function(value)

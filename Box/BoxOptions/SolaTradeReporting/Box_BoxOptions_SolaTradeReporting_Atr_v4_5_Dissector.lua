@@ -55,7 +55,7 @@ omi_box_boxoptions_solatradereporting_atr_v4_5.fields.sequence_number = ProtoFie
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.source = ProtoField.new("Source", "box.boxoptions.solatradereporting.atr.v4.5.source", ftypes.STRING, nil, nil, nil, "Contains the mnemonic of the message source")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price = ProtoField.new("Strike Price", "box.boxoptions.solatradereporting.atr.v4.5.strikeprice", ftypes.UINT32, nil, nil, nil, "Option Strike Price The format is defined by the new field ‘Strike Price Fraction Indicator’. Filled with zero when the instrument is not an option Right justified, Zero padded")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "box.boxoptions.solatradereporting.atr.v4.5.strikepricefractionindicator", ftypes.STRING, nil, nil, nil, "Define the number of decimal places or fraction positions")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.subtrader_id = ProtoField.new("Subtrader Id", "box.boxoptions.solatradereporting.atr.v4.5.subtraderid", ftypes.STRING, nil, nil, nil, "For Allocation (40) and Allocation Cancel (41) messages, the 'Sub-trader ID' field contains the Market Maker OCC sub-account. For Trade (30) and Trade Cancel (31) messages, the ‘Sub-trader ID’ field contains the last 2 digits of the Trader ID.")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.sub_trader_id = ProtoField.new("Sub Trader Id", "box.boxoptions.solatradereporting.atr.v4.5.subtraderid", ftypes.STRING, nil, nil, nil, "For Allocation (40) and Allocation Cancel (41) messages, the 'Sub-trader ID' field contains the Market Maker OCC sub-account. For Trade (30) and Trade Cancel (31) messages, the ‘Sub-trader ID’ field contains the last 2 digits of the Trader ID.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.symbol = ProtoField.new("Symbol", "box.boxoptions.solatradereporting.atr.v4.5.symbol", ftypes.STRING, nil, nil, nil, "Instrument symbol Left justified, Blank padded")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.time = ProtoField.new("Time", "box.boxoptions.solatradereporting.atr.v4.5.time", ftypes.UINT24, nil, nil, nil, "Time at which the Client Signon is sent (HHMMSS)")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.timestamp = ProtoField.new("Timestamp", "box.boxoptions.solatradereporting.atr.v4.5.timestamp", ftypes.STRING, nil, nil, nil, "Time at which the trade occurred (Eastern Time) HHMMSS")
@@ -1400,25 +1400,25 @@ box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.disse
   return offset + length, value
 end
 
--- Subtrader Id
-box_boxoptions_solatradereporting_atr_v4_5.subtrader_id = {}
+-- Sub Trader Id
+box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id = {}
 
--- Size: Subtrader Id
-box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size = 3
+-- Size: Sub Trader Id
+box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size = 3
 
--- Display: Subtrader Id
-box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.display = function(value)
-  return "Subtrader Id: "..value
+-- Display: Sub Trader Id
+box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.display = function(value)
+  return "Sub Trader Id: "..value
 end
 
--- Dissect: Subtrader Id
-box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size
+-- Dissect: Sub Trader Id
+box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.display(value, buffer, offset, packet, parent)
+  local display = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.subtrader_id, range, value, display)
+  parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.sub_trader_id, range, value, display)
 
   return offset + length, value
 end
@@ -1827,7 +1827,7 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up_cancel.size =
   box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size + 
   box_boxoptions_solatradereporting_atr_v4_5.open_close.size + 
   box_boxoptions_solatradereporting_atr_v4_5.executing_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_account_number.size + 
@@ -1889,8 +1889,8 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up_cancel.fields = function(buff
   -- Account Type: A
   index, account_type = box_boxoptions_solatradereporting_atr_v4_5.account_type.dissect(buffer, index, packet, parent)
 
-  -- Subtrader Id: A
-  index, subtrader_id = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.dissect(buffer, index, packet, parent)
+  -- Sub Trader Id: A
+  index, sub_trader_id = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.dissect(buffer, index, packet, parent)
 
   -- Open Close: A
   index, open_close = box_boxoptions_solatradereporting_atr_v4_5.open_close.dissect(buffer, index, packet, parent)
@@ -1975,7 +1975,7 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up.size =
   box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size + 
   box_boxoptions_solatradereporting_atr_v4_5.open_close.size + 
   box_boxoptions_solatradereporting_atr_v4_5.executing_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_account_number.size + 
@@ -2037,8 +2037,8 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up.fields = function(buffer, off
   -- Account Type: A
   index, account_type = box_boxoptions_solatradereporting_atr_v4_5.account_type.dissect(buffer, index, packet, parent)
 
-  -- Subtrader Id: A
-  index, subtrader_id = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.dissect(buffer, index, packet, parent)
+  -- Sub Trader Id: A
+  index, sub_trader_id = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.dissect(buffer, index, packet, parent)
 
   -- Open Close: A
   index, open_close = box_boxoptions_solatradereporting_atr_v4_5.open_close.dissect(buffer, index, packet, parent)
@@ -2123,7 +2123,7 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation_cancel.size =
   box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size + 
   box_boxoptions_solatradereporting_atr_v4_5.open_close.size + 
   box_boxoptions_solatradereporting_atr_v4_5.executing_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_account_number.size + 
@@ -2183,8 +2183,8 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation_cancel.fields = function(b
   -- Account Type: A
   index, account_type = box_boxoptions_solatradereporting_atr_v4_5.account_type.dissect(buffer, index, packet, parent)
 
-  -- Subtrader Id: A
-  index, subtrader_id = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.dissect(buffer, index, packet, parent)
+  -- Sub Trader Id: A
+  index, sub_trader_id = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.dissect(buffer, index, packet, parent)
 
   -- Open Close: A
   index, open_close = box_boxoptions_solatradereporting_atr_v4_5.open_close.dissect(buffer, index, packet, parent)
@@ -2263,7 +2263,7 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation.size =
   box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size + 
   box_boxoptions_solatradereporting_atr_v4_5.open_close.size + 
   box_boxoptions_solatradereporting_atr_v4_5.executing_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_account_number.size + 
@@ -2323,8 +2323,8 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation.fields = function(buffer, 
   -- Account Type: A
   index, account_type = box_boxoptions_solatradereporting_atr_v4_5.account_type.dissect(buffer, index, packet, parent)
 
-  -- Subtrader Id: A
-  index, subtrader_id = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.dissect(buffer, index, packet, parent)
+  -- Sub Trader Id: A
+  index, sub_trader_id = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.dissect(buffer, index, packet, parent)
 
   -- Open Close: A
   index, open_close = box_boxoptions_solatradereporting_atr_v4_5.open_close.dissect(buffer, index, packet, parent)
@@ -2403,7 +2403,7 @@ box_boxoptions_solatradereporting_atr_v4_5.trade_cancel.size =
   box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size + 
   box_boxoptions_solatradereporting_atr_v4_5.open_close.size + 
   box_boxoptions_solatradereporting_atr_v4_5.executing_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_account_number.size + 
@@ -2463,8 +2463,8 @@ box_boxoptions_solatradereporting_atr_v4_5.trade_cancel.fields = function(buffer
   -- Account Type: A
   index, account_type = box_boxoptions_solatradereporting_atr_v4_5.account_type.dissect(buffer, index, packet, parent)
 
-  -- Subtrader Id: A
-  index, subtrader_id = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.dissect(buffer, index, packet, parent)
+  -- Sub Trader Id: A
+  index, sub_trader_id = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.dissect(buffer, index, packet, parent)
 
   -- Open Close: A
   index, open_close = box_boxoptions_solatradereporting_atr_v4_5.open_close.dissect(buffer, index, packet, parent)
@@ -2543,7 +2543,7 @@ box_boxoptions_solatradereporting_atr_v4_5.trade.size =
   box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size + 
   box_boxoptions_solatradereporting_atr_v4_5.open_close.size + 
   box_boxoptions_solatradereporting_atr_v4_5.executing_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_account_number.size + 
@@ -2603,8 +2603,8 @@ box_boxoptions_solatradereporting_atr_v4_5.trade.fields = function(buffer, offse
   -- Account Type: A
   index, account_type = box_boxoptions_solatradereporting_atr_v4_5.account_type.dissect(buffer, index, packet, parent)
 
-  -- Subtrader Id: A
-  index, subtrader_id = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.dissect(buffer, index, packet, parent)
+  -- Sub Trader Id: A
+  index, sub_trader_id = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.dissect(buffer, index, packet, parent)
 
   -- Open Close: A
   index, open_close = box_boxoptions_solatradereporting_atr_v4_5.open_close.dissect(buffer, index, packet, parent)
@@ -3033,7 +3033,7 @@ box_boxoptions_solatradereporting_atr_v4_5.modify_give_up.size =
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.open_close.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_account_number.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_memo.size + 
   box_boxoptions_solatradereporting_atr_v4_5.additional_firm.size + 
@@ -3069,8 +3069,8 @@ box_boxoptions_solatradereporting_atr_v4_5.modify_give_up.fields = function(buff
   -- Client Account Number: A
   index, client_account_number = box_boxoptions_solatradereporting_atr_v4_5.client_account_number.dissect(buffer, index, packet, parent)
 
-  -- Subtrader Id: A
-  index, subtrader_id = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.dissect(buffer, index, packet, parent)
+  -- Sub Trader Id: A
+  index, sub_trader_id = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.dissect(buffer, index, packet, parent)
 
   -- Cmta Broker: N
   index, cmta_broker = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect(buffer, index, packet, parent)
@@ -3117,7 +3117,7 @@ box_boxoptions_solatradereporting_atr_v4_5.new_give_up.size =
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.open_close.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_account_number.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_memo.size + 
   box_boxoptions_solatradereporting_atr_v4_5.additional_firm.size + 
@@ -3153,8 +3153,8 @@ box_boxoptions_solatradereporting_atr_v4_5.new_give_up.fields = function(buffer,
   -- Client Account Number: A
   index, client_account_number = box_boxoptions_solatradereporting_atr_v4_5.client_account_number.dissect(buffer, index, packet, parent)
 
-  -- Subtrader Id: A
-  index, subtrader_id = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.dissect(buffer, index, packet, parent)
+  -- Sub Trader Id: A
+  index, sub_trader_id = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.dissect(buffer, index, packet, parent)
 
   -- Cmta Broker: N
   index, cmta_broker = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect(buffer, index, packet, parent)
@@ -3245,7 +3245,7 @@ box_boxoptions_solatradereporting_atr_v4_5.modify_allocation.size =
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.open_close.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_account_number.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_memo.size + 
   box_boxoptions_solatradereporting_atr_v4_5.additional_firm.size + 
@@ -3281,8 +3281,8 @@ box_boxoptions_solatradereporting_atr_v4_5.modify_allocation.fields = function(b
   -- Client Account Number: A
   index, client_account_number = box_boxoptions_solatradereporting_atr_v4_5.client_account_number.dissect(buffer, index, packet, parent)
 
-  -- Subtrader Id: A
-  index, subtrader_id = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.dissect(buffer, index, packet, parent)
+  -- Sub Trader Id: A
+  index, sub_trader_id = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.dissect(buffer, index, packet, parent)
 
   -- Cmta Broker: N
   index, cmta_broker = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect(buffer, index, packet, parent)
@@ -3329,7 +3329,7 @@ box_boxoptions_solatradereporting_atr_v4_5.new_allocation.size =
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.open_close.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_account_number.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.client_memo.size + 
   box_boxoptions_solatradereporting_atr_v4_5.additional_firm.size + 
@@ -3365,8 +3365,8 @@ box_boxoptions_solatradereporting_atr_v4_5.new_allocation.fields = function(buff
   -- Client Account Number: A
   index, client_account_number = box_boxoptions_solatradereporting_atr_v4_5.client_account_number.dissect(buffer, index, packet, parent)
 
-  -- Subtrader Id: A
-  index, subtrader_id = box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.dissect(buffer, index, packet, parent)
+  -- Sub Trader Id: A
+  index, sub_trader_id = box_boxoptions_solatradereporting_atr_v4_5.sub_trader_id.dissect(buffer, index, packet, parent)
 
   -- Cmta Broker: N
   index, cmta_broker = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect(buffer, index, packet, parent)

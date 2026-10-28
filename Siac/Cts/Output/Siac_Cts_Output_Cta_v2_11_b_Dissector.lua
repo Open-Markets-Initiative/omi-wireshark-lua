@@ -643,7 +643,7 @@ siac_cts_output_cta_v2_11_b.category_2.display = function(value)
     return "Category 2: No Trade Through Exempt Reason (<whitespace>)"
   end
   if value == "F" then
-    return "Category 2: Intermarket Sweep Order (F)"
+    return "Category 2: Inter Market Sweep Order (F)"
   end
   if value == "4" then
     return "Category 2: Derivatively Priced (4)"
@@ -3409,7 +3409,7 @@ siac_cts_output_cta_v2_11_b.sale_condition_1.display = function(value)
     return "Sale Condition 1: Automatic Execution (E)"
   end
   if value == "F" then
-    return "Sale Condition 1: Intermarket Sweep Order (F)"
+    return "Sale Condition 1: Inter Market Sweep Order (F)"
   end
   if value == "H" then
     return "Sale Condition 1: Price Variation Trade (H)"

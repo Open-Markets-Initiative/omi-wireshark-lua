@@ -329,7 +329,7 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.algorithmic_trade.size = 1
 -- Display: Algorithmic Trade
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.algorithmic_trade.labels = {
   ["H"] = "Algorithmic Trade: Algorithmic Trade (H)",
-  ["-"] = "Algorithmic Trade: Nonalgorithmic Trade (-)",
+  ["-"] = "Algorithmic Trade: Non Algorithmic Trade (-)",
 }
 
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.algorithmic_trade.display = function(value)
@@ -456,7 +456,7 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_type.size = 1
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_type.labels = {
   ["O"] = "Auction Type: Opening Auction (O)",
   ["B"] = "Auction Type: Aim (B)",
-  ["C"] = "Auction Type: Crfq (C)",
+  ["C"] = "Auction Type: C Rfq (C)",
 }
 
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_type.display = function(value)

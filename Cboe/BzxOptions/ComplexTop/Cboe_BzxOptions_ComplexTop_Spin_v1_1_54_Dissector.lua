@@ -1450,13 +1450,13 @@ cboe_bzxoptions_complextop_spin_v1_1_54.trade_condition.size = 1
 -- Display: Trade Condition
 cboe_bzxoptions_complextop_spin_v1_1_54.trade_condition.labels = {
   ["f"] = "Trade Condition: Complex To Complex Electronic Trade Cboe Auction Type Is Coa (f)",
-  ["g"] = "Trade Condition: Complex Auction Trade Cboe Order Types Include Caim Csam (g)",
-  ["h"] = "Trade Condition: Complex Cross Cboe Auction Types Include Cust To Cust Caim Cqcc (h)",
+  ["g"] = "Trade Condition: Complex Auction Trade Cboe Order Types Include C Aim C Sam (g)",
+  ["h"] = "Trade Condition: Complex Cross Cboe Auction Types Include Cust To Cust C Aim C Qcc (h)",
   ["j"] = "Trade Condition: Complex Electronic Trade Against Single Legs (j)",
-  ["k"] = "Trade Condition: Complex With Stock Options Auction Trade Cboe Auction Types Include Caim W Stock Csam W Stock (k)",
+  ["k"] = "Trade Condition: Complex With Stock Options Auction Trade Cboe Auction Types Include C Aim W Stock C Sam W Stock (k)",
   ["m"] = "Trade Condition: Complex Floor Trade Against Single Legs All Complex Floor Executions Are Reported As Condition M (m)",
   ["n"] = "Trade Condition: Complex With Stock Electronic Trade Includes Coa Auctions Done Electronically (n)",
-  ["o"] = "Trade Condition: Complex With Stock Cross Cboe Auction Types Include Cqcc W Stock (o)",
+  ["o"] = "Trade Condition: Complex With Stock Cross Cboe Auction Types Include C Qcc W Stock (o)",
   ["p"] = "Trade Condition: Complex With Stock Floor Trade (p)",
   ["t"] = "Trade Condition: Complex Floor Trade Of Proprietary Products Marked As Combo Order (t)",
   ["v"] = "Trade Condition: Extended Hours Trade Transaction Represents A Trade Executed During The Curb Session (v)",

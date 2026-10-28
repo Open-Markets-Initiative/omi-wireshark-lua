@@ -30,7 +30,7 @@ omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.financial_status_indicator = Pr
 omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.psxequities.bbo.itch.v2.1.2026.inverseindicator", ftypes.STRING, nil, nil, nil, "Indicates the directional relationship between the ETP and underlying index. Example: An ETP Leverage Factor of 3 and an Inverse value of ‘Y’ indicates the ETP will decrease by a value of 3.")
 omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.psxequities.bbo.itch.v2.1.2026.ipoflag", ftypes.STRING, nil, nil, nil, "Indicates if the NASDAQ security is set up for IPO release. This field is intended to help NASDAQ market participant firms comply with FINRA Rule 5131(b).")
 omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.psxequities.bbo.itch.v2.1.2026.issueclassification", ftypes.STRING, nil, nil, nil, "Identifies the security class for the issue as assigned by NASDAQ. See Appendix for allowable values.")
-omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.issue_subtype = ProtoField.new("Issue Subtype", "nasdaq.psxequities.bbo.itch.v2.1.2026.issuesubtype", ftypes.STRING, nil, nil, nil, "Identifies the security sub-type for the issue as assigned by NASDAQ. See Appendix for allowable values.")
+omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.psxequities.bbo.itch.v2.1.2026.issuesubtype", ftypes.STRING, nil, nil, nil, "Identifies the security sub-type for the issue as assigned by NASDAQ. See Appendix for allowable values.")
 omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.level_1 = ProtoField.new("Level 1", "nasdaq.psxequities.bbo.itch.v2.1.2026.level1", ftypes.DOUBLE, nil, nil, nil, "Denotes the MWCB Level 1 Value.")
 omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.level_2 = ProtoField.new("Level 2", "nasdaq.psxequities.bbo.itch.v2.1.2026.level2", ftypes.DOUBLE, nil, nil, nil, "Denotes the MWCB Level 2 Value.")
 omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psxequities.bbo.itch.v2.1.2026.level3", ftypes.DOUBLE, nil, nil, nil, "Denotes the MWCB Level 3 Value.")
@@ -623,25 +623,25 @@ nasdaq_psxequities_bbo_itch_v2_1_2026.issue_classification.dissect = function(bu
   return offset + length, value
 end
 
--- Issue Subtype
-nasdaq_psxequities_bbo_itch_v2_1_2026.issue_subtype = {}
+-- Issue Sub Type
+nasdaq_psxequities_bbo_itch_v2_1_2026.issue_sub_type = {}
 
--- Size: Issue Subtype
-nasdaq_psxequities_bbo_itch_v2_1_2026.issue_subtype.size = 2
+-- Size: Issue Sub Type
+nasdaq_psxequities_bbo_itch_v2_1_2026.issue_sub_type.size = 2
 
--- Display: Issue Subtype
-nasdaq_psxequities_bbo_itch_v2_1_2026.issue_subtype.display = function(value)
-  return "Issue Subtype: "..value
+-- Display: Issue Sub Type
+nasdaq_psxequities_bbo_itch_v2_1_2026.issue_sub_type.display = function(value)
+  return "Issue Sub Type: "..value
 end
 
--- Dissect: Issue Subtype
-nasdaq_psxequities_bbo_itch_v2_1_2026.issue_subtype.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2026.issue_subtype.size
+-- Dissect: Issue Sub Type
+nasdaq_psxequities_bbo_itch_v2_1_2026.issue_sub_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2026.issue_sub_type.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2026.issue_subtype.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2026.issue_sub_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.issue_subtype, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.issue_sub_type, range, value, display)
 
   return offset + length, value
 end
@@ -1653,7 +1653,7 @@ nasdaq_psxequities_bbo_itch_v2_1_2026.stock_directory_message.size =
   nasdaq_psxequities_bbo_itch_v2_1_2026.round_lot_size.size + 
   nasdaq_psxequities_bbo_itch_v2_1_2026.round_lots_only.size + 
   nasdaq_psxequities_bbo_itch_v2_1_2026.issue_classification.size + 
-  nasdaq_psxequities_bbo_itch_v2_1_2026.issue_subtype.size + 
+  nasdaq_psxequities_bbo_itch_v2_1_2026.issue_sub_type.size + 
   nasdaq_psxequities_bbo_itch_v2_1_2026.authenticity.size + 
   nasdaq_psxequities_bbo_itch_v2_1_2026.short_sale_threshold_indicator.size + 
   nasdaq_psxequities_bbo_itch_v2_1_2026.ipo_flag.size + 
@@ -1695,8 +1695,8 @@ nasdaq_psxequities_bbo_itch_v2_1_2026.stock_directory_message.fields = function(
   -- Issue Classification: Alpha
   index, issue_classification = nasdaq_psxequities_bbo_itch_v2_1_2026.issue_classification.dissect(buffer, index, packet, parent)
 
-  -- Issue Subtype: Alpha
-  index, issue_subtype = nasdaq_psxequities_bbo_itch_v2_1_2026.issue_subtype.dissect(buffer, index, packet, parent)
+  -- Issue Sub Type: Alpha
+  index, issue_sub_type = nasdaq_psxequities_bbo_itch_v2_1_2026.issue_sub_type.dissect(buffer, index, packet, parent)
 
   -- Authenticity: Alpha
   index, authenticity = nasdaq_psxequities_bbo_itch_v2_1_2026.authenticity.dissect(buffer, index, packet, parent)

@@ -282,7 +282,7 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_68.algorithmic_trade.size = 1
 -- Display: Algorithmic Trade
 cboe_cxeequities_multicastdepthofbook_pitch_v6_68.algorithmic_trade.labels = {
   ["H"] = "Algorithmic Trade: Algorithmic Trade (H)",
-  ["-"] = "Algorithmic Trade: Nonalgorithmic Trade (-)",
+  ["-"] = "Algorithmic Trade: Non Algorithmic Trade (-)",
 }
 
 cboe_cxeequities_multicastdepthofbook_pitch_v6_68.algorithmic_trade.display = function(value)
@@ -438,8 +438,8 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_68.cboe_trade_flags.labels = {
   ["1"] = "Cboe Trade Flags: Uk The Trade Was Reported To Cboe Late (1)",
   ["2"] = "Cboe Trade Flags: Uk The Trade Was Reported To Cboe Out Of The Main Session (2)",
   ["3"] = "Cboe Trade Flags: Uk The Trade Was Reported To Cboe Late And Out Of The Main Session (3)",
-  ["G"] = "Cboe Trade Flags: Uk The Trade Was An Execution Against Retailonly Liquidity (G)",
-  ["K"] = "Cboe Trade Flags: Eu The Trade Was An Execution Against Retailonly Liquidity (K)",
+  ["G"] = "Cboe Trade Flags: Uk The Trade Was An Execution Against Retail Only Liquidity (G)",
+  ["K"] = "Cboe Trade Flags: Eu The Trade Was An Execution Against Retail Only Liquidity (K)",
 }
 
 cboe_cxeequities_multicastdepthofbook_pitch_v6_68.cboe_trade_flags.display = function(value)

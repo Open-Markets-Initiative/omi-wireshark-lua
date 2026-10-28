@@ -579,7 +579,7 @@ nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.market_state.disp
   end
 
   if value == "P" then
-    return "Market State: Preopening (P)"
+    return "Market State: Pre Opening (P)"
   end
   if value == "E" then
     return "Market State: Early Session (E)"
@@ -1145,7 +1145,7 @@ nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.security_status.d
     return "Security Status: Short Sale Restriction Deactivated (D)"
   end
   if value == "P" then
-    return "Security Status: Preopening (P)"
+    return "Security Status: Pre Opening (P)"
   end
   if value == "B" then
     return "Security Status: Begin Accepting Orders (B)"

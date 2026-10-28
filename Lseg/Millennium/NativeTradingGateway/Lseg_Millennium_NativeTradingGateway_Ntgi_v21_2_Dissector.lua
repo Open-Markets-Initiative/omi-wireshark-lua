@@ -1184,8 +1184,8 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.execution_report_pegged_exec_ins
 
 -- Display: Execution Report Pegged Exec Inst
 lseg_millennium_nativetradinggateway_ntgi_v21_2.execution_report_pegged_exec_inst.labels = {
-  [1] = "Execution Report Pegged Exec Inst: Permissioned For Execution Against Midpriced Pegged Orders (1)",
-  [2] = "Execution Report Pegged Exec Inst: Not Permissioned For Execution Against Midpriced Pegged Orders (2)",
+  [1] = "Execution Report Pegged Exec Inst: Permissioned For Execution Against Mid Priced Pegged Orders (1)",
+  [2] = "Execution Report Pegged Exec Inst: Not Permissioned For Execution Against Mid Priced Pegged Orders (2)",
 }
 
 lseg_millennium_nativetradinggateway_ntgi_v21_2.execution_report_pegged_exec_inst.display = function(value)
@@ -1942,8 +1942,8 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.new_order_pegged_exec_inst.size 
 -- Display: New Order Pegged Exec Inst
 lseg_millennium_nativetradinggateway_ntgi_v21_2.new_order_pegged_exec_inst.labels = {
   [0] = "New Order Pegged Exec Inst: Default (0)",
-  [1] = "New Order Pegged Exec Inst: Permitted To Execute Against Midpriced Pegged Orders (1)",
-  [2] = "New Order Pegged Exec Inst: Not Permitted To Execute Against Midpriced Pegged Orders (2)",
+  [1] = "New Order Pegged Exec Inst: Permitted To Execute Against Mid Priced Pegged Orders (1)",
+  [2] = "New Order Pegged Exec Inst: Not Permitted To Execute Against Mid Priced Pegged Orders (2)",
 }
 
 lseg_millennium_nativetradinggateway_ntgi_v21_2.new_order_pegged_exec_inst.display = function(value)
@@ -2010,8 +2010,8 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.new_quote_pegged_exec_inst.size 
 -- Display: New Quote Pegged Exec Inst
 lseg_millennium_nativetradinggateway_ntgi_v21_2.new_quote_pegged_exec_inst.labels = {
   [0] = "New Quote Pegged Exec Inst: Default (0)",
-  [1] = "New Quote Pegged Exec Inst: Permitted To Execute Against Midpriced Pegged Orders (1)",
-  [2] = "New Quote Pegged Exec Inst: Not Permitted To Execute Against Midpriced Pegged Orders (2)",
+  [1] = "New Quote Pegged Exec Inst: Permitted To Execute Against Mid Priced Pegged Orders (1)",
+  [2] = "New Quote Pegged Exec Inst: Not Permitted To Execute Against Mid Priced Pegged Orders (2)",
 }
 
 lseg_millennium_nativetradinggateway_ntgi_v21_2.new_quote_pegged_exec_inst.display = function(value)
@@ -2492,8 +2492,8 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.passive_only_order.labels = {
   [99] = "Passive Only Order: Only Accept Order If It Will Not Match With Visible Contra Order Otherwise Expire Order (99)",
   [100] = "Passive Only Order: Only Accept Order If Setting New Visible Bbo Otherwise Expire Order (100)",
   [1] = "Passive Only Order: Only Accept Order If Setting New Bbo Or Joining Existing Bbo Otherwise Expire Order (1)",
-  [2] = "Passive Only Order: Only Accept Order If Will Be At Bbo Or Within One Visible Pricepoint Otherwise Expire Order (2)",
-  [3] = "Passive Only Order: Only Accept Order If Will Be At Bbo Or Within Two Visible Pricepoints Otherwise Expire Order (3)",
+  [2] = "Passive Only Order: Only Accept Order If Will Be At Bbo Or Within One Visible Price Point Otherwise Expire Order (2)",
+  [3] = "Passive Only Order: Only Accept Order If Will Be At Bbo Or Within Two Visible Price Points Otherwise Expire Order (3)",
 }
 
 lseg_millennium_nativetradinggateway_ntgi_v21_2.passive_only_order.display = function(value)

@@ -992,8 +992,8 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_
 
 -- Display: Execution Report Pegged Exec Inst
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_exec_inst.labels = {
-  [1] = "Execution Report Pegged Exec Inst: Permissioned For Execution Against Midpriced Pegged Orders (1)",
-  [2] = "Execution Report Pegged Exec Inst: Not Permissioned For Execution Against Midpriced Pegged Orders (2)",
+  [1] = "Execution Report Pegged Exec Inst: Permissioned For Execution Against Mid Priced Pegged Orders (1)",
+  [2] = "Execution Report Pegged Exec Inst: Not Permissioned For Execution Against Mid Priced Pegged Orders (2)",
 }
 
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_exec_inst.display = function(value)

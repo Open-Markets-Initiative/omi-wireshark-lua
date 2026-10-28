@@ -58,7 +58,7 @@ omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.size = ProtoField.new("Siz
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.source = ProtoField.new("Source", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.source", ftypes.UINT8, nil, nil, nil, "Identifies the source of the Strategy, valid for the trading day")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategyid", ftypes.UINT32, nil, nil, nil, "ISE’s Strategy ID assigned daily, valid while there are any open complex orders for the day")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_type = ProtoField.new("Strategy Type", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategytype", ftypes.STRING, nil, nil, nil, "StrategyType value")
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.subversion = ProtoField.new("Subversion", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of this interface. Currently set to 0.")
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.sub_version = ProtoField.new("Sub Version", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of this interface. Currently set to 0.")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.timestamp", ftypes.UINT64, nil, nil, nil, "The time, expressed as the number of nanoseconds after midnight.")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying Symbol for the strategy. All legs in this strategy belong to this Underlying")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.version", ftypes.UINT8, nil, nil, nil, "Version of this interface. Currently set to 1.")
@@ -1264,25 +1264,25 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1.strategy_type.dissect = function(buff
   return offset + length, value
 end
 
--- Subversion
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.subversion = {}
+-- Sub Version
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.sub_version = {}
 
--- Size: Subversion
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.subversion.size = 1
+-- Size: Sub Version
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.sub_version.size = 1
 
--- Display: Subversion
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.subversion.display = function(value)
-  return "Subversion: "..value
+-- Display: Sub Version
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.sub_version.display = function(value)
+  return "Sub Version: "..value
 end
 
--- Dissect: Subversion
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.subversion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_ordercombofeed_itch_v1_1.subversion.size
+-- Dissect: Sub Version
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.sub_version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_ordercombofeed_itch_v1_1.sub_version.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1.subversion.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1.sub_version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.subversion, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.sub_version, range, value, display)
 
   return offset + length, value
 end
@@ -1912,7 +1912,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1.system_event_message.size =
   nasdaq_iseoptions_ordercombofeed_itch_v1_1.current_month.size + 
   nasdaq_iseoptions_ordercombofeed_itch_v1_1.current_day.size + 
   nasdaq_iseoptions_ordercombofeed_itch_v1_1.version.size + 
-  nasdaq_iseoptions_ordercombofeed_itch_v1_1.subversion.size
+  nasdaq_iseoptions_ordercombofeed_itch_v1_1.sub_version.size
 
 -- Display: System Event Message
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.system_event_message.display = function(packet, parent, length)
@@ -1941,8 +1941,8 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1.system_event_message.fields = functio
   -- Version: Integer
   index, version = nasdaq_iseoptions_ordercombofeed_itch_v1_1.version.dissect(buffer, index, packet, parent)
 
-  -- Subversion: Integer
-  index, subversion = nasdaq_iseoptions_ordercombofeed_itch_v1_1.subversion.dissect(buffer, index, packet, parent)
+  -- Sub Version: Integer
+  index, sub_version = nasdaq_iseoptions_ordercombofeed_itch_v1_1.sub_version.dissect(buffer, index, packet, parent)
 
   return index
 end

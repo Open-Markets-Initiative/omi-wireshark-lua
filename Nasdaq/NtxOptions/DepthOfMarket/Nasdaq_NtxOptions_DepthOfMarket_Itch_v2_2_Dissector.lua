@@ -1933,7 +1933,7 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.printable.size = 1
 
 -- Display: Printable
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.printable.labels = {
-  ["N"] = "Printable: Nonprintable (N)",
+  ["N"] = "Printable: Non Printable (N)",
   ["Y"] = "Printable: Printable (Y)",
 }
 

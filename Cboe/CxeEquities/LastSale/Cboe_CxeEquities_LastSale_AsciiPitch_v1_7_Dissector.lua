@@ -29,7 +29,7 @@ omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.duplicative_indicator = Pro
 omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.duplicative_within_jurisdiction = ProtoField.new("Duplicative Within Jurisdiction", "cboe.cxeequities.lastsale.asciipitch.v1.7.duplicativewithinjurisdiction", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v4.1 Level 5.1")
 omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.cxeequities.lastsale.asciipitch.v1.7.executedshares", ftypes.UINT64, nil, nil, nil, "Number of shares executed")
 omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.execution_venue = ProtoField.new("Execution Venue", "cboe.cxeequities.lastsale.asciipitch.v1.7.executionvenue", ftypes.STRING, nil, nil, nil, "ISO 10383 segment MIC, and SINT for Systematic internalisers, XOFF for OTC trades")
-omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.giveup_flag = ProtoField.new("Giveup Flag", "cboe.cxeequities.lastsale.asciipitch.v1.7.giveupflag", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v3 Level 3.13")
+omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.give_up_flag = ProtoField.new("Give Up Flag", "cboe.cxeequities.lastsale.asciipitch.v1.7.giveupflag", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v3 Level 3.13")
 omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.intra_group_indicator = ProtoField.new("Intra Group Indicator", "cboe.cxeequities.lastsale.asciipitch.v1.7.intragroupindicator", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v4.1 Level 5.3")
 omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.jurisdiction = ProtoField.new("Jurisdiction", "cboe.cxeequities.lastsale.asciipitch.v1.7.jurisdiction", ftypes.STRING, nil, nil, nil, "Corresponds to venue where the trade was executed")
 omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.cxeequities.lastsale.asciipitch.v1.7.loginacceptedpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 server sends a Login Accepted Packet in response to receiving a valid Login Request from the client.")
@@ -475,25 +475,25 @@ cboe_cxeequities_lastsale_asciipitch_v1_7.execution_venue.dissect = function(buf
   return offset + length, value
 end
 
--- Giveup Flag
-cboe_cxeequities_lastsale_asciipitch_v1_7.giveup_flag = {}
+-- Give Up Flag
+cboe_cxeequities_lastsale_asciipitch_v1_7.give_up_flag = {}
 
--- Size: Giveup Flag
-cboe_cxeequities_lastsale_asciipitch_v1_7.giveup_flag.size = 4
+-- Size: Give Up Flag
+cboe_cxeequities_lastsale_asciipitch_v1_7.give_up_flag.size = 4
 
--- Display: Giveup Flag
-cboe_cxeequities_lastsale_asciipitch_v1_7.giveup_flag.display = function(value)
-  return "Giveup Flag: "..value
+-- Display: Give Up Flag
+cboe_cxeequities_lastsale_asciipitch_v1_7.give_up_flag.display = function(value)
+  return "Give Up Flag: "..value
 end
 
--- Dissect: Giveup Flag
-cboe_cxeequities_lastsale_asciipitch_v1_7.giveup_flag.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cxeequities_lastsale_asciipitch_v1_7.giveup_flag.size
+-- Dissect: Give Up Flag
+cboe_cxeequities_lastsale_asciipitch_v1_7.give_up_flag.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cxeequities_lastsale_asciipitch_v1_7.give_up_flag.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_cxeequities_lastsale_asciipitch_v1_7.giveup_flag.display(value, buffer, offset, packet, parent)
+  local display = cboe_cxeequities_lastsale_asciipitch_v1_7.give_up_flag.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.giveup_flag, range, value, display)
+  parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.give_up_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1504,7 +1504,7 @@ cboe_cxeequities_lastsale_asciipitch_v1_7.last_sale_europe_message_new.size =
   cboe_cxeequities_lastsale_asciipitch_v1_7.pre_trade_transparency_waiver.size + 
   cboe_cxeequities_lastsale_asciipitch_v1_7.portfolio_flag.size + 
   cboe_cxeequities_lastsale_asciipitch_v1_7.contingent_flag.size + 
-  cboe_cxeequities_lastsale_asciipitch_v1_7.giveup_flag.size + 
+  cboe_cxeequities_lastsale_asciipitch_v1_7.give_up_flag.size + 
   cboe_cxeequities_lastsale_asciipitch_v1_7.post_trade_deferral_reason.size + 
   cboe_cxeequities_lastsale_asciipitch_v1_7.deferral_or_enrichment_type.size + 
   cboe_cxeequities_lastsale_asciipitch_v1_7.deferral_illiquid_instrument.size + 
@@ -1601,8 +1601,8 @@ cboe_cxeequities_lastsale_asciipitch_v1_7.last_sale_europe_message_new.fields = 
   -- Contingent Flag: Alpha Flag
   index, contingent_flag = cboe_cxeequities_lastsale_asciipitch_v1_7.contingent_flag.dissect(buffer, index, packet, parent)
 
-  -- Giveup Flag: Alpha Flag
-  index, giveup_flag = cboe_cxeequities_lastsale_asciipitch_v1_7.giveup_flag.dissect(buffer, index, packet, parent)
+  -- Give Up Flag: Alpha Flag
+  index, give_up_flag = cboe_cxeequities_lastsale_asciipitch_v1_7.give_up_flag.dissect(buffer, index, packet, parent)
 
   -- Post Trade Deferral Reason: Alpha Flag
   index, post_trade_deferral_reason = cboe_cxeequities_lastsale_asciipitch_v1_7.post_trade_deferral_reason.dissect(buffer, index, packet, parent)

@@ -33,7 +33,7 @@ omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.ipo_price = ProtoField.new("Ipo Pri
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.ipo_quotation_release_qualifier = ProtoField.new("Ipo Quotation Release Qualifier", "nasdaq.nsmequities.qbbo.itch.v2.1.ipoquotationreleasequalifier", ftypes.STRING, nil, nil, nil, "Denotes the IPO release qualifier")
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.nsmequities.qbbo.itch.v2.1.ipoquotationreleasetime", ftypes.UINT32, nil, nil, nil, "Denotes the IPO release time, in seconds since midnight, for quotation to the nearest second.")
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.nsmequities.qbbo.itch.v2.1.issueclassification", ftypes.STRING, nil, nil, nil, "Identifies the security class for the issue as assigned by Nasdaq. See Appendix for allowable values.")
-omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.issue_subtype = ProtoField.new("Issue Subtype", "nasdaq.nsmequities.qbbo.itch.v2.1.issuesubtype", ftypes.STRING, nil, nil, nil, "Identifies the security sub-type for the issue as assigned by Nasdaq. See Appendix for allowable values.")
+omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.nsmequities.qbbo.itch.v2.1.issuesubtype", ftypes.STRING, nil, nil, nil, "Identifies the security sub-type for the issue as assigned by Nasdaq. See Appendix for allowable values.")
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.level_1 = ProtoField.new("Level 1", "nasdaq.nsmequities.qbbo.itch.v2.1.level1", ftypes.DOUBLE, nil, nil, nil, "Denotes the MWCB Level 1 Value.")
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.level_2 = ProtoField.new("Level 2", "nasdaq.nsmequities.qbbo.itch.v2.1.level2", ftypes.DOUBLE, nil, nil, nil, "Denotes the MWCB Level 2 Value.")
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.level_3 = ProtoField.new("Level 3", "nasdaq.nsmequities.qbbo.itch.v2.1.level3", ftypes.DOUBLE, nil, nil, nil, "Denotes the MWCB Level 3 Value.")
@@ -724,86 +724,86 @@ nasdaq_nsmequities_qbbo_itch_v2_1.issue_classification.dissect = function(buffer
   return offset + length, value
 end
 
--- Issue Subtype
-nasdaq_nsmequities_qbbo_itch_v2_1.issue_subtype = {}
+-- Issue Sub Type
+nasdaq_nsmequities_qbbo_itch_v2_1.issue_sub_type = {}
 
--- Size: Issue Subtype
-nasdaq_nsmequities_qbbo_itch_v2_1.issue_subtype.size = 2
+-- Size: Issue Sub Type
+nasdaq_nsmequities_qbbo_itch_v2_1.issue_sub_type.size = 2
 
--- Display: Issue Subtype
-nasdaq_nsmequities_qbbo_itch_v2_1.issue_subtype.labels = {
-  ["A"] = "Issue Subtype: Preferred Trust Securities (A)",
-  ["AI"] = "Issue Subtype: Alpha Index Et Ns (AI)",
-  ["B"] = "Issue Subtype: Index Based Derivative (B)",
-  ["C"] = "Issue Subtype: Common Shares (C)",
-  ["CB"] = "Issue Subtype: Commodity Based Trust Shares (CB)",
-  ["CF"] = "Issue Subtype: Commodity Futures Trust Shares (CF)",
-  ["CL"] = "Issue Subtype: Commodity Linked Securities (CL)",
-  ["CM"] = "Issue Subtype: Commodity Index Trust Shares (CM)",
-  ["CO"] = "Issue Subtype: Collateralized Mortgage Obligation (CO)",
-  ["CT"] = "Issue Subtype: Currency Trust Shares (CT)",
-  ["CU"] = "Issue Subtype: Commodity Currency Linked Securities (CU)",
-  ["CW"] = "Issue Subtype: Currency Warrants (CW)",
-  ["D"] = "Issue Subtype: Global Depositary Shares (D)",
-  ["E"] = "Issue Subtype: Etf Portfolio Depositary Receipt (E)",
-  ["EG"] = "Issue Subtype: Equity Gold Shares (EG)",
-  ["EI"] = "Issue Subtype: Etn Equity Index Linked Securities (EI)",
-  ["EM"] = "Issue Subtype: Exchange Traded Managed Funds (EM)",
-  ["EN"] = "Issue Subtype: Exchange Traded Notes (EN)",
-  ["EU"] = "Issue Subtype: Equity Units (EU)",
-  ["F"] = "Issue Subtype: Holdrs (F)",
-  ["FI"] = "Issue Subtype: Etn Fixed Income Linked Securities (FI)",
-  ["FL"] = "Issue Subtype: Etn Futures Linked Securities (FL)",
-  ["G"] = "Issue Subtype: Global Shares (G)",
-  ["I"] = "Issue Subtype: Etf Index Fund Shares (I)",
-  ["IR"] = "Issue Subtype: Interest Rate (IR)",
-  ["IW"] = "Issue Subtype: Index Warrant (IW)",
-  ["IX"] = "Issue Subtype: Index Linked Exchangeable Notes (IX)",
-  ["J"] = "Issue Subtype: Corporate Backed Trust Security (J)",
-  ["L"] = "Issue Subtype: Contingent Litigation Right (L)",
-  ["LL"] = "Issue Subtype: Limited Liability Company (LL)",
-  ["M"] = "Issue Subtype: Equity Based Derivative (M)",
-  ["MF"] = "Issue Subtype: Managed Fund Shares (MF)",
-  ["ML"] = "Issue Subtype: Etn Multi Factor Index Linked Securities (ML)",
-  ["MT"] = "Issue Subtype: Managed Trust Securities (MT)",
-  ["N"] = "Issue Subtype: Ny Registry Shares (N)",
-  ["O"] = "Issue Subtype: Open Ended Mutual Fund (O)",
-  ["P"] = "Issue Subtype: Privately Held Security (P)",
-  ["PP"] = "Issue Subtype: Poison Pill (PP)",
-  ["PU"] = "Issue Subtype: Partnership Units (PU)",
-  ["Q"] = "Issue Subtype: Closed End Funds (Q)",
-  ["R"] = "Issue Subtype: Reg S (R)",
-  ["RC"] = "Issue Subtype: Commodity Redeemable Commodity Linked Securities (RC)",
-  ["RF"] = "Issue Subtype: Etn Redeemable Futures Linked Securities (RF)",
-  ["RT"] = "Issue Subtype: Reit (RT)",
-  ["RU"] = "Issue Subtype: Commodity Redeemable Currency Linked Securities (RU)",
-  ["S"] = "Issue Subtype: Seed (S)",
-  ["SC"] = "Issue Subtype: Spot Rate Closing (SC)",
-  ["SI"] = "Issue Subtype: Spot Rate Intraday (SI)",
-  ["T"] = "Issue Subtype: Tracking Stock (T)",
-  ["TC"] = "Issue Subtype: Trust Certificates (TC)",
-  ["TU"] = "Issue Subtype: Trust Units (TU)",
-  ["U"] = "Issue Subtype: Portal (U)",
-  ["V"] = "Issue Subtype: Contingent Value Right (V)",
-  ["W"] = "Issue Subtype: Trust Issued Receipts (W)",
-  ["WC"] = "Issue Subtype: World Currency Option (WC)",
-  ["X"] = "Issue Subtype: Trust (X)",
-  ["Y"] = "Issue Subtype: Other (Y)",
-  ["Z"] = "Issue Subtype: Not Applicable (Z)",
+-- Display: Issue Sub Type
+nasdaq_nsmequities_qbbo_itch_v2_1.issue_sub_type.labels = {
+  ["A"] = "Issue Sub Type: Preferred Trust Securities (A)",
+  ["AI"] = "Issue Sub Type: Alpha Index Et Ns (AI)",
+  ["B"] = "Issue Sub Type: Index Based Derivative (B)",
+  ["C"] = "Issue Sub Type: Common Shares (C)",
+  ["CB"] = "Issue Sub Type: Commodity Based Trust Shares (CB)",
+  ["CF"] = "Issue Sub Type: Commodity Futures Trust Shares (CF)",
+  ["CL"] = "Issue Sub Type: Commodity Linked Securities (CL)",
+  ["CM"] = "Issue Sub Type: Commodity Index Trust Shares (CM)",
+  ["CO"] = "Issue Sub Type: Collateralized Mortgage Obligation (CO)",
+  ["CT"] = "Issue Sub Type: Currency Trust Shares (CT)",
+  ["CU"] = "Issue Sub Type: Commodity Currency Linked Securities (CU)",
+  ["CW"] = "Issue Sub Type: Currency Warrants (CW)",
+  ["D"] = "Issue Sub Type: Global Depositary Shares (D)",
+  ["E"] = "Issue Sub Type: Etf Portfolio Depositary Receipt (E)",
+  ["EG"] = "Issue Sub Type: Equity Gold Shares (EG)",
+  ["EI"] = "Issue Sub Type: Etn Equity Index Linked Securities (EI)",
+  ["EM"] = "Issue Sub Type: Exchange Traded Managed Funds (EM)",
+  ["EN"] = "Issue Sub Type: Exchange Traded Notes (EN)",
+  ["EU"] = "Issue Sub Type: Equity Units (EU)",
+  ["F"] = "Issue Sub Type: Holdrs (F)",
+  ["FI"] = "Issue Sub Type: Etn Fixed Income Linked Securities (FI)",
+  ["FL"] = "Issue Sub Type: Etn Futures Linked Securities (FL)",
+  ["G"] = "Issue Sub Type: Global Shares (G)",
+  ["I"] = "Issue Sub Type: Etf Index Fund Shares (I)",
+  ["IR"] = "Issue Sub Type: Interest Rate (IR)",
+  ["IW"] = "Issue Sub Type: Index Warrant (IW)",
+  ["IX"] = "Issue Sub Type: Index Linked Exchangeable Notes (IX)",
+  ["J"] = "Issue Sub Type: Corporate Backed Trust Security (J)",
+  ["L"] = "Issue Sub Type: Contingent Litigation Right (L)",
+  ["LL"] = "Issue Sub Type: Limited Liability Company (LL)",
+  ["M"] = "Issue Sub Type: Equity Based Derivative (M)",
+  ["MF"] = "Issue Sub Type: Managed Fund Shares (MF)",
+  ["ML"] = "Issue Sub Type: Etn Multi Factor Index Linked Securities (ML)",
+  ["MT"] = "Issue Sub Type: Managed Trust Securities (MT)",
+  ["N"] = "Issue Sub Type: Ny Registry Shares (N)",
+  ["O"] = "Issue Sub Type: Open Ended Mutual Fund (O)",
+  ["P"] = "Issue Sub Type: Privately Held Security (P)",
+  ["PP"] = "Issue Sub Type: Poison Pill (PP)",
+  ["PU"] = "Issue Sub Type: Partnership Units (PU)",
+  ["Q"] = "Issue Sub Type: Closed End Funds (Q)",
+  ["R"] = "Issue Sub Type: Reg S (R)",
+  ["RC"] = "Issue Sub Type: Commodity Redeemable Commodity Linked Securities (RC)",
+  ["RF"] = "Issue Sub Type: Etn Redeemable Futures Linked Securities (RF)",
+  ["RT"] = "Issue Sub Type: Reit (RT)",
+  ["RU"] = "Issue Sub Type: Commodity Redeemable Currency Linked Securities (RU)",
+  ["S"] = "Issue Sub Type: Seed (S)",
+  ["SC"] = "Issue Sub Type: Spot Rate Closing (SC)",
+  ["SI"] = "Issue Sub Type: Spot Rate Intraday (SI)",
+  ["T"] = "Issue Sub Type: Tracking Stock (T)",
+  ["TC"] = "Issue Sub Type: Trust Certificates (TC)",
+  ["TU"] = "Issue Sub Type: Trust Units (TU)",
+  ["U"] = "Issue Sub Type: Portal (U)",
+  ["V"] = "Issue Sub Type: Contingent Value Right (V)",
+  ["W"] = "Issue Sub Type: Trust Issued Receipts (W)",
+  ["WC"] = "Issue Sub Type: World Currency Option (WC)",
+  ["X"] = "Issue Sub Type: Trust (X)",
+  ["Y"] = "Issue Sub Type: Other (Y)",
+  ["Z"] = "Issue Sub Type: Not Applicable (Z)",
 }
 
-nasdaq_nsmequities_qbbo_itch_v2_1.issue_subtype.display = function(value)
-  return nasdaq_nsmequities_qbbo_itch_v2_1.issue_subtype.labels[value] or "Issue Subtype: Unknown("..value..")"
+nasdaq_nsmequities_qbbo_itch_v2_1.issue_sub_type.display = function(value)
+  return nasdaq_nsmequities_qbbo_itch_v2_1.issue_sub_type.labels[value] or "Issue Sub Type: Unknown("..value..")"
 end
 
--- Dissect: Issue Subtype
-nasdaq_nsmequities_qbbo_itch_v2_1.issue_subtype.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_qbbo_itch_v2_1.issue_subtype.size
+-- Dissect: Issue Sub Type
+nasdaq_nsmequities_qbbo_itch_v2_1.issue_sub_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_qbbo_itch_v2_1.issue_sub_type.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_qbbo_itch_v2_1.issue_subtype.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_qbbo_itch_v2_1.issue_sub_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.issue_subtype, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.issue_sub_type, range, value, display)
 
   return offset + length, value
 end
@@ -1934,7 +1934,7 @@ nasdaq_nsmequities_qbbo_itch_v2_1.stock_directory_message.size =
   nasdaq_nsmequities_qbbo_itch_v2_1.round_lot_size.size + 
   nasdaq_nsmequities_qbbo_itch_v2_1.round_lots_only.size + 
   nasdaq_nsmequities_qbbo_itch_v2_1.issue_classification.size + 
-  nasdaq_nsmequities_qbbo_itch_v2_1.issue_subtype.size + 
+  nasdaq_nsmequities_qbbo_itch_v2_1.issue_sub_type.size + 
   nasdaq_nsmequities_qbbo_itch_v2_1.authenticity.size + 
   nasdaq_nsmequities_qbbo_itch_v2_1.short_sale_threshold_indicator.size + 
   nasdaq_nsmequities_qbbo_itch_v2_1.ipo_flag.size + 
@@ -1976,8 +1976,8 @@ nasdaq_nsmequities_qbbo_itch_v2_1.stock_directory_message.fields = function(buff
   -- Issue Classification: Alpha
   index, issue_classification = nasdaq_nsmequities_qbbo_itch_v2_1.issue_classification.dissect(buffer, index, packet, parent)
 
-  -- Issue Subtype: Alpha
-  index, issue_subtype = nasdaq_nsmequities_qbbo_itch_v2_1.issue_subtype.dissect(buffer, index, packet, parent)
+  -- Issue Sub Type: Alpha
+  index, issue_sub_type = nasdaq_nsmequities_qbbo_itch_v2_1.issue_sub_type.dissect(buffer, index, packet, parent)
 
   -- Authenticity: Alpha
   index, authenticity = nasdaq_nsmequities_qbbo_itch_v2_1.authenticity.dissect(buffer, index, packet, parent)

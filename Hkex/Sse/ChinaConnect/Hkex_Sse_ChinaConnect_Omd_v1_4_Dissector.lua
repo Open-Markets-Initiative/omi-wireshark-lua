@@ -1157,8 +1157,8 @@ hkex_sse_chinaconnect_omd_v1_4.shortsell_flag.size = 1
 
 -- Display: Shortsell Flag
 hkex_sse_chinaconnect_omd_v1_4.shortsell_flag.labels = {
-  ["Y"] = "Shortsell Flag: Shortsell Allowed (Y)",
-  ["N"] = "Shortsell Flag: Shortsell Not Allowed (N)",
+  ["Y"] = "Shortsell Flag: Short Sell Allowed (Y)",
+  ["N"] = "Shortsell Flag: Short Sell Not Allowed (N)",
 }
 
 hkex_sse_chinaconnect_omd_v1_4.shortsell_flag.display = function(value)

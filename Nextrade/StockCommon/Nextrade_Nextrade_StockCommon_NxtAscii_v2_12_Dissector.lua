@@ -29,9 +29,9 @@ omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.accumulated_bid_trading_
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.accumulated_bid_trading_volume = ProtoField.new("Accumulated Bid Trading Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.accumulatedbidtradingvolume", ftypes.UINT64, nil, nil, nil, "Accumulated Bid Trading Volume.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.accumulated_trading_value = ProtoField.new("Accumulated Trading Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.accumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Accumulated trading value Trading value=trading amount*trading price.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.accumulated_trading_volume = ProtoField.new("Accumulated Trading Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.accumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Accumulated Trading Volume.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.after_market_accumulated_trading_value = ProtoField.new("After Market Accumulated Trading Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.aftermarketaccumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "After-market accumulated trading value in the Regular market.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.after_market_accumulated_trading_volume = ProtoField.new("After Market Accumulated Trading Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.aftermarketaccumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "After-market accumulated trading volume in the Regular market.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.after_market_possibility = ProtoField.new("After Market Possibility", "nextrade.nextrade.stockcommon.nxtascii.v2.12.aftermarketpossibility", ftypes.STRING, nil, nil, nil, "Y/N to after-market possibility.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.aftermarket_accumulated_trading_value = ProtoField.new("Aftermarket Accumulated Trading Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.aftermarketaccumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "After-market accumulated trading value in the Regular market.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.aftermarket_accumulated_trading_volume = ProtoField.new("Aftermarket Accumulated Trading Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.aftermarketaccumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "After-market accumulated trading volume in the Regular market.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.an_abbreviated_name_of_a_market_participant_in_kr = ProtoField.new("An Abbreviated Name Of A Market Participant In Kr", "nextrade.nextrade.stockcommon.nxtascii.v2.12.anabbreviatednameofamarketparticipantinkr", ftypes.STRING, nil, nil, nil, "An Abbreviated Name of a Market Participant in KR.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.an_issue_of_which_base_price_is_settled_with_a_todays_single_price = ProtoField.new("An Issue Of Which Base Price Is Settled With A Todays Single Price", "nextrade.nextrade.stockcommon.nxtascii.v2.12.anissueofwhichbasepriceissettledwithatodayssingleprice", ftypes.STRING, nil, nil, nil, "Y/N to an Issue of which base price is settled with a today's single price.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.announcement_of_estimated_trading_price = ProtoField.new("Announcement Of Estimated Trading Price", "nextrade.nextrade.stockcommon.nxtascii.v2.12.announcementofestimatedtradingprice", ftypes.STRING, nil, nil, nil, "Announcement of Estimated Trading Price.")
@@ -77,10 +77,10 @@ omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.ask_trading_volume_2 = P
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.ask_trading_volume_3 = ProtoField.new("Ask Trading Volume 3", "nextrade.nextrade.stockcommon.nxtascii.v2.12.asktradingvolume3", ftypes.UINT64, nil, nil, nil, "Trading Volume from Member Number 3 among Top Five Members for Ask.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.ask_trading_volume_4 = ProtoField.new("Ask Trading Volume 4", "nextrade.nextrade.stockcommon.nxtascii.v2.12.asktradingvolume4", ftypes.UINT64, nil, nil, nil, "Trading Volume from Member Number 4 among Top Five Members for Ask.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.ask_trading_volume_5 = ProtoField.new("Ask Trading Volume 5", "nextrade.nextrade.stockcommon.nxtascii.v2.12.asktradingvolume5", ftypes.UINT64, nil, nil, nil, "Trading Volume from Member Number 5 among Top Five Members for Ask.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.backdoor_listing = ProtoField.new("Backdoor Listing", "nextrade.nextrade.stockcommon.nxtascii.v2.12.backdoorlisting", ftypes.STRING, nil, nil, nil, "Y/N to Back-door Listing.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.back_door_listing = ProtoField.new("Back Door Listing", "nextrade.nextrade.stockcommon.nxtascii.v2.12.backdoorlisting", ftypes.STRING, nil, nil, nil, "Y/N to Back-door Listing.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.base_price = ProtoField.new("Base Price", "nextrade.nextrade.stockcommon.nxtascii.v2.12.baseprice", ftypes.UINT64, nil, nil, nil, "A base price of a day. A base price to calculate a upper/lower price.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.base_price_change = ProtoField.new("Base Price Change", "nextrade.nextrade.stockcommon.nxtascii.v2.12.basepricechange", ftypes.STRING, nil, nil, nil, "Y/N to change of base price due to par-value change or increase of capital.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.basket_trading_in_the_preopening_market = ProtoField.new("Basket Trading In The Preopening Market", "nextrade.nextrade.stockcommon.nxtascii.v2.12.baskettradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Basket Trading in the Pre-opening Market.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.basket_trading_in_the_pre_opening_market = ProtoField.new("Basket Trading In The Pre Opening Market", "nextrade.nextrade.stockcommon.nxtascii.v2.12.baskettradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Basket Trading in the Pre-opening Market.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.best_favorable_order_permission_type_code = ProtoField.new("Best Favorable Order Permission Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.bestfavorableorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill).")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "nextrade.nextrade.stockcommon.nxtascii.v2.12.bidlevel1price", ftypes.UINT64, nil, nil, nil, "The best bid.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.bid_level_1_volume = ProtoField.new("Bid Level 1 Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.bidlevel1volume", ftypes.UINT64, nil, nil, nil, "The best bid volume.")
@@ -112,19 +112,19 @@ omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.bid_trading_volume_2 = P
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.bid_trading_volume_3 = ProtoField.new("Bid Trading Volume 3", "nextrade.nextrade.stockcommon.nxtascii.v2.12.bidtradingvolume3", ftypes.UINT64, nil, nil, nil, "Trading Volume from Member Number 3 among Top Five Members for Bid.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.bid_trading_volume_4 = ProtoField.new("Bid Trading Volume 4", "nextrade.nextrade.stockcommon.nxtascii.v2.12.bidtradingvolume4", ftypes.UINT64, nil, nil, nil, "Trading Volume from Member Number 4 among Top Five Members for Bid.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.bid_trading_volume_5 = ProtoField.new("Bid Trading Volume 5", "nextrade.nextrade.stockcommon.nxtascii.v2.12.bidtradingvolume5", ftypes.UINT64, nil, nil, nil, "Trading Volume from Member Number 5 among Top Five Members for Bid.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.block_trading_in_the_preopening_market = ProtoField.new("Block Trading In The Preopening Market", "nextrade.nextrade.stockcommon.nxtascii.v2.12.blocktradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Block Trading in the Pre-opening Market.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.block_trading_in_the_pre_opening_market = ProtoField.new("Block Trading In The Pre Opening Market", "nextrade.nextrade.stockcommon.nxtascii.v2.12.blocktradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Block Trading in the Pre-opening Market.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.board_event_group_code = ProtoField.new("Board Event Group Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.boardeventgroupcode", ftypes.UINT24, nil, nil, nil, "Board Event Group Code (Bitwise operation) ▦▦ Code ▦▦ 1: A regular Issue (not an issue on the last trading day) 2: An issue on the Last trading day 4: A regular issue (not a unit trading issue) 8: Uni.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.board_event_id = ProtoField.new("Board Event Id", "nextrade.nextrade.stockcommon.nxtascii.v2.12.boardeventid", ftypes.STRING, nil, nil, nil, "An ID indicates an event that occurs on a Board in a designated time.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.board_id = ProtoField.new("Board Id", "nextrade.nextrade.stockcommon.nxtascii.v2.12.boardid", ftypes.STRING, nil, nil, nil, "The Board ID refers to each Board in which an issue is traded under different trading schedules and rules. Individual issue can be traded on more than two Boards under each Board's schedule and with d.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.business_date = ProtoField.new("Business Date", "nextrade.nextrade.stockcommon.nxtascii.v2.12.businessdate", ftypes.STRING, nil, nil, nil, "Business Date.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_quantity = ProtoField.new("Buyside Arbitrage Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidearbitragequantity", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Quantity.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_trading_remaining_quantity = ProtoField.new("Buyside Arbitrage Trading Remaining Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidearbitragetradingremainingquantity", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Trading Remaining Quantity.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_value = ProtoField.new("Buyside Arbitrage Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidearbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Buy-side Arbitrage Value.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_volume = ProtoField.new("Buyside Arbitrage Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidearbitragevolume", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Volume.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_quantity = ProtoField.new("Buyside Nonarbitrage Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidenonarbitragequantity", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Quantity.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_remaining_quantity = ProtoField.new("Buyside Nonarbitrage Remaining Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidenonarbitrageremainingquantity", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Remaining Quantity.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_value = ProtoField.new("Buyside Nonarbitrage Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidenonarbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Buy-side Non-arbitrage Value.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_volume = ProtoField.new("Buyside Nonarbitrage Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidenonarbitragevolume", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Volume.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_quantity = ProtoField.new("Buy Side Arbitrage Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidearbitragequantity", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Quantity.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_trading_remaining_quantity = ProtoField.new("Buy Side Arbitrage Trading Remaining Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidearbitragetradingremainingquantity", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Trading Remaining Quantity.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_value = ProtoField.new("Buy Side Arbitrage Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidearbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Buy-side Arbitrage Value.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_volume = ProtoField.new("Buy Side Arbitrage Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidearbitragevolume", ftypes.UINT64, nil, nil, nil, "Buy-side Arbitrage Volume.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_quantity = ProtoField.new("Buy Side Non Arbitrage Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidenonarbitragequantity", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Quantity.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_remaining_quantity = ProtoField.new("Buy Side Non Arbitrage Remaining Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidenonarbitrageremainingquantity", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Remaining Quantity.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_value = ProtoField.new("Buy Side Non Arbitrage Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidenonarbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Buy-side Non-arbitrage Value.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_volume = ProtoField.new("Buy Side Non Arbitrage Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.buysidenonarbitragevolume", ftypes.UINT64, nil, nil, nil, "Buy-side Non-arbitrage Volume.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.calculation_of_redemption_price_end_date = ProtoField.new("Calculation Of Redemption Price End Date", "nextrade.nextrade.stockcommon.nxtascii.v2.12.calculationofredemptionpriceenddate", ftypes.STRING, nil, nil, nil, "Calculation of Redemption Price_End Date.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.calculation_of_redemption_price_start_date = ProtoField.new("Calculation Of Redemption Price Start Date", "nextrade.nextrade.stockcommon.nxtascii.v2.12.calculationofredemptionpricestartdate", ftypes.STRING, nil, nil, nil, "Calculation of Redemption Price_Start Date.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.calculation_time = ProtoField.new("Calculation Time", "nextrade.nextrade.stockcommon.nxtascii.v2.12.calculationtime", ftypes.STRING, nil, nil, nil, "Time for statistical calcultation.")
@@ -134,7 +134,7 @@ omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.choice_on_competitive_tr
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.closing_price = ProtoField.new("Closing Price", "nextrade.nextrade.stockcommon.nxtascii.v2.12.closingprice", ftypes.UINT64, nil, nil, nil, "Closing price on the day's regular session. However, for G3 board, the closing price of KRX is set.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.closing_price_base_price_of_buy_in = ProtoField.new("Closing Price Base Price Of Buy In", "nextrade.nextrade.stockcommon.nxtascii.v2.12.closingpricebasepriceofbuyin", ftypes.UINT64, nil, nil, nil, "Closing Price_Base Price of Buy-In.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.closing_price_lower_limit_of_buy_in = ProtoField.new("Closing Price Lower Limit Of Buy In", "nextrade.nextrade.stockcommon.nxtascii.v2.12.closingpricelowerlimitofbuyin", ftypes.UINT64, nil, nil, nil, "Closing Price_Lower Limit of Buy-In.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.closing_price_trading_in_the_preopening_market = ProtoField.new("Closing Price Trading In The Preopening Market", "nextrade.nextrade.stockcommon.nxtascii.v2.12.closingpricetradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Y/N to a Closing Price Trading in the Pre-opening Market.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.closing_price_trading_in_the_pre_opening_market = ProtoField.new("Closing Price Trading In The Pre Opening Market", "nextrade.nextrade.stockcommon.nxtascii.v2.12.closingpricetradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Y/N to a Closing Price Trading in the Pre-opening Market.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.closing_price_trading_possibility_in_the_after_hours = ProtoField.new("Closing Price Trading Possibility In The After Hours", "nextrade.nextrade.stockcommon.nxtascii.v2.12.closingpricetradingpossibilityintheafterhours", ftypes.STRING, nil, nil, nil, "Closing Price Trading Possibility in the After Hours.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.closingpricetypecode", ftypes.STRING, nil, nil, nil, "1: Closing price 3: No Trades.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.closing_price_upper_limit_of_buy_in = ProtoField.new("Closing Price Upper Limit Of Buy In", "nextrade.nextrade.stockcommon.nxtascii.v2.12.closingpriceupperlimitofbuyin", ftypes.UINT64, nil, nil, nil, "Closing Price_Upper Limit of Buy-In.")
@@ -196,15 +196,15 @@ omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.limit_on_competitive_tra
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.limit_order_permission_type_code = ProtoField.new("Limit Order Permission Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.limitorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill).")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.liquidation_trade = ProtoField.new("Liquidation Trade", "nextrade.nextrade.stockcommon.nxtascii.v2.12.liquidationtrade", ftypes.STRING, nil, nil, nil, "Liquidation Trade.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.listing_date = ProtoField.new("Listing Date", "nextrade.nextrade.stockcommon.nxtascii.v2.12.listingdate", ftypes.STRING, nil, nil, nil, "Listing Date of derivatives(CLASS) or issues.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.lot_size_afterhours_trading = ProtoField.new("Lot Size Afterhours Trading", "nextrade.nextrade.stockcommon.nxtascii.v2.12.lotsizeafterhourstrading", ftypes.UINT64, nil, nil, nil, "Lot Size(After-hours Trading).")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.lot_size_after_hours_trading = ProtoField.new("Lot Size After Hours Trading", "nextrade.nextrade.stockcommon.nxtascii.v2.12.lotsizeafterhourstrading", ftypes.UINT64, nil, nil, nil, "Lot Size(After-hours Trading).")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.low_liquidity = ProtoField.new("Low Liquidity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.lowliquidity", ftypes.STRING, nil, nil, nil, "Low Liquidity.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.lower_limit_price = ProtoField.new("Lower Limit Price", "nextrade.nextrade.stockcommon.nxtascii.v2.12.lowerlimitprice", ftypes.UINT64, nil, nil, nil, "A price subtracting the price limit from the base price.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.lower_limit_price_on_the_single_price_trade_in_the_off_hours_session = ProtoField.new("Lower Limit Price On The Single Price Trade In The Off Hours Session", "nextrade.nextrade.stockcommon.nxtascii.v2.12.lowerlimitpriceonthesinglepricetradeintheoffhourssession", ftypes.UINT64, nil, nil, nil, "Lower Limit Price on the Single Price in the Off-Hours Session.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.lowest_order_price = ProtoField.new("Lowest Order Price", "nextrade.nextrade.stockcommon.nxtascii.v2.12.lowestorderprice", ftypes.UINT64, nil, nil, nil, "An lower limit price of an issue of which base price is settled with today's single price.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.lp_holding_quantity = ProtoField.new("Lp Holding Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.lpholdingquantity", ftypes.UINT64, nil, nil, nil, "LP holding quantity per each account.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.lp_order = ProtoField.new("Lp Order", "nextrade.nextrade.stockcommon.nxtascii.v2.12.lporder", ftypes.STRING, nil, nil, nil, "LP Order.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.mainmarket_accumulated_trading_value = ProtoField.new("Mainmarket Accumulated Trading Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.mainmarketaccumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Main-market accumulated trading value in the Regular market.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.mainmarket_accumulated_trading_volume = ProtoField.new("Mainmarket Accumulated Trading Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.mainmarketaccumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Main-market accumulated trading volume in the Regular market.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.main_market_accumulated_trading_value = ProtoField.new("Main Market Accumulated Trading Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.mainmarketaccumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Main-market accumulated trading value in the Regular market.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.main_market_accumulated_trading_volume = ProtoField.new("Main Market Accumulated Trading Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.mainmarketaccumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Main-market accumulated trading volume in the Regular market.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.market_alert = ProtoField.new("Market Alert", "nextrade.nextrade.stockcommon.nxtascii.v2.12.marketalert", ftypes.STRING, nil, nil, nil, "Market Alert.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.market_alert_type_code = ProtoField.new("Market Alert Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.marketalerttypecode", ftypes.STRING, nil, nil, nil, "Market Alert_Type Code 00: N/A (None of items chosen for those may notified market warning) 01: Investment Warning 02: Investment Alert 03: Investment Danger.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.market_making_possibility = ProtoField.new("Market Making Possibility", "nextrade.nextrade.stockcommon.nxtascii.v2.12.marketmakingpossibility", ftypes.STRING, nil, nil, nil, "Market Making Possibility.")
@@ -254,9 +254,9 @@ omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.opening_price = ProtoFie
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.other_stock_type_code = ProtoField.new("Other Stock Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.otherstocktypecode", ftypes.STRING, nil, nil, nil, "0: N/A(Common Stock) 1: Old Preferred Stock 2: New Preferred Stock 9: Other types of Stocks.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.par_value = ProtoField.new("Par Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.parvalue", ftypes.DOUBLE, nil, nil, nil, "Par Value.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.par_value_type_code = ProtoField.new("Par Value Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.parvaluetypecode", ftypes.STRING, nil, nil, nil, "00: N/A 01: Split at par value 02: Consolidation at par value 03: Stock split 04: Reverse stock split 99: Others.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.pre_market_accumulated_trading_value = ProtoField.new("Pre Market Accumulated Trading Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.premarketaccumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Pre-market accumulated trading value in the Regular market.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.pre_market_accumulated_trading_volume = ProtoField.new("Pre Market Accumulated Trading Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.premarketaccumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Pre-market accumulated trading volume in the Regular market.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.preferred_stocks_with_lesser_shares = ProtoField.new("Preferred Stocks With Lesser Shares", "nextrade.nextrade.stockcommon.nxtascii.v2.12.preferredstockswithlessershares", ftypes.STRING, nil, nil, nil, "Preferred Stocks with lesser shares.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.premarket_accumulated_trading_value = ProtoField.new("Premarket Accumulated Trading Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.premarketaccumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Pre-market accumulated trading value in the Regular market.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.premarket_accumulated_trading_volume = ProtoField.new("Premarket Accumulated Trading Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.premarketaccumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Pre-market accumulated trading volume in the Regular market.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.price_change_against_previous_day = ProtoField.new("Price Change Against Previous Day", "nextrade.nextrade.stockcommon.nxtascii.v2.12.pricechangeagainstpreviousday", ftypes.STRING, nil, nil, nil, "0: Mark Impossible 1:high limit 2:ascended 3:unchanged 4:low limit 5:declined.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.price_limit_range_expansion_for_base_issue_type_code = ProtoField.new("Price Limit Range Expansion For Base Issue Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.pricelimitrangeexpansionforbaseissuetypecode", ftypes.STRING, nil, nil, nil, "A code to expand price limit range for Base Issue D: descending U: Up X: N/A.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.processing_time_of_trading_system = ProtoField.new("Processing Time Of Trading System", "nextrade.nextrade.stockcommon.nxtascii.v2.12.processingtimeoftradingsystem", ftypes.STRING, nil, nil, nil, "HHMMSSuuuuuu.")
@@ -270,18 +270,18 @@ omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.rights_type_code = Proto
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.section_type_code = ProtoField.new("Section Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sectiontypecode", ftypes.STRING, nil, nil, nil, "1: KOSDAQ Prime 2: KOSDAQ Venture 3: KOSDAQ Standard 4: KOSDAQ Growth A: Foreign Company(No Section Type) B: Investment Company(No Section Type) C: SPAC(No Section Type) D: ETF(No Section Type) E: Adm.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.security_group_id = ProtoField.new("Security Group Id", "nextrade.nextrade.stockcommon.nxtascii.v2.12.securitygroupid", ftypes.STRING, nil, nil, nil, "Security Group ID (Equities, Investment firms, ETF, ELW, Futures, Options etc.).")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.segment_type_code = ProtoField.new("Segment Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.segmenttypecode", ftypes.STRING, nil, nil, nil, "Segment type code.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_quantity = ProtoField.new("Sellside Arbitrage Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidearbitragequantity", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Quantity.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_trading_remaining_quantity = ProtoField.new("Sellside Arbitrage Trading Remaining Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidearbitragetradingremainingquantity", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Trading Remaining Quantity.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_value = ProtoField.new("Sellside Arbitrage Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidearbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Sell-side Arbitrage Value.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_volume = ProtoField.new("Sellside Arbitrage Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidearbitragevolume", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Volume.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_quantity = ProtoField.new("Sellside Nonarbitrage Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidenonarbitragequantity", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Quantity.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_remaining_quantity = ProtoField.new("Sellside Nonarbitrage Remaining Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidenonarbitrageremainingquantity", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Remaining Quantity.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_value = ProtoField.new("Sellside Nonarbitrage Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidenonarbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Sell-side Non-arbitrage Value.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_volume = ProtoField.new("Sellside Nonarbitrage Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidenonarbitragevolume", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Volume.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_quantity = ProtoField.new("Sell Side Arbitrage Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidearbitragequantity", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Quantity.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_trading_remaining_quantity = ProtoField.new("Sell Side Arbitrage Trading Remaining Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidearbitragetradingremainingquantity", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Trading Remaining Quantity.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_value = ProtoField.new("Sell Side Arbitrage Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidearbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Sell-side Arbitrage Value.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_volume = ProtoField.new("Sell Side Arbitrage Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidearbitragevolume", ftypes.UINT64, nil, nil, nil, "Sell-side Arbitrage Volume.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_quantity = ProtoField.new("Sell Side Non Arbitrage Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidenonarbitragequantity", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Quantity.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_remaining_quantity = ProtoField.new("Sell Side Non Arbitrage Remaining Quantity", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidenonarbitrageremainingquantity", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Remaining Quantity.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_value = ProtoField.new("Sell Side Non Arbitrage Value", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidenonarbitragevalue", ftypes.DOUBLE, nil, nil, nil, "Sell-side Non-arbitrage Value.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_volume = ProtoField.new("Sell Side Non Arbitrage Volume", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sellsidenonarbitragevolume", ftypes.UINT64, nil, nil, nil, "Sell-side Non-arbitrage Volume.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.session_id = ProtoField.new("Session Id", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sessionid", ftypes.STRING, nil, nil, nil, "A Session is a subordinate concept of a Board and each session follows different trading methods and rules.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.session_start_end_code = ProtoField.new("Session Start End Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.sessionstartendcode", ftypes.STRING, nil, nil, nil, "A code refers to the start/end of session. Board will end when the last session ends. BS: Board Start BE: Board End SS: Session Start SE: Session End SH: Session Halt SR: Session Resumption.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.short_selling = ProtoField.new("Short Selling", "nextrade.nextrade.stockcommon.nxtascii.v2.12.shortselling", ftypes.STRING, nil, nil, nil, "Y/N to Short Selling.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.shortterm_overheat_issue_type_code = ProtoField.new("Shortterm Overheat Issue Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.shorttermoverheatissuetypecode", ftypes.STRING, nil, nil, nil, "0: N/A 1: Designation Alert 2: Designation 3: Extension of Designation(Delay in lifting).")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.short_term_overheat_issue_type_code = ProtoField.new("Short Term Overheat Issue Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.shorttermoverheatissuetypecode", ftypes.STRING, nil, nil, nil, "0: N/A 1: Designation Alert 2: Designation 3: Extension of Designation(Delay in lifting).")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.small_medium_sized_business = ProtoField.new("Small Medium Sized Business", "nextrade.nextrade.stockcommon.nxtascii.v2.12.smallmediumsizedbusiness", ftypes.STRING, nil, nil, nil, "Small & Medium Sized Business (only for KOSDAQ).")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.spac = ProtoField.new("Spac", "nextrade.nextrade.stockcommon.nxtascii.v2.12.spac", ftypes.STRING, nil, nil, nil, "Y/N to SPAC (Special Purpose Acquisition Company).")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.spac_merger = ProtoField.new("Spac Merger", "nextrade.nextrade.stockcommon.nxtascii.v2.12.spacmerger", ftypes.STRING, nil, nil, nil, "SPAC Merger.")
@@ -935,6 +935,82 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.accumulated_trading_volume.dissect 
   return offset + length, value
 end
 
+-- After Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_value = {}
+
+-- Size: After Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_value.size = 22
+
+-- Display: After Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_value.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "After Market Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "After Market Accumulated Trading Value: "..text.." (expected 3 places)"
+  end
+
+  return "After Market Accumulated Trading Value: "..text
+end
+
+-- Dissect: After Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_value.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.after_market_accumulated_trading_value, range, value, "After Market Accumulated Trading Value: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "After Market Accumulated Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.after_market_accumulated_trading_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- After Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_volume = {}
+
+-- Size: After Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_volume.size = 12
+
+-- Display: After Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_volume.display = function(value)
+  return "After Market Accumulated Trading Volume: "..value
+end
+
+-- Dissect: After Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_volume.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.after_market_accumulated_trading_volume, range, value, "After Market Accumulated Trading Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "After Market Accumulated Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.after_market_accumulated_trading_volume, range, value, display)
+
+  return offset + length, value
+end
+
 -- After Market Possibility
 nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_possibility = {}
 
@@ -954,82 +1030,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_possibility.dissect = 
   local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_possibility.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.after_market_possibility, range, value, display)
-
-  return offset + length, value
-end
-
--- Aftermarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value = {}
-
--- Size: Aftermarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.size = 22
-
--- Display: Aftermarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Aftermarket Accumulated Trading Value: No Value"
-  end
-
-  local point = text:find(".", 1, true)
-  local places = point and (#text - point) or 0
-
-  if places ~= 3 then
-    return "Aftermarket Accumulated Trading Value: "..text.." (expected 3 places)"
-  end
-
-  return "Aftermarket Accumulated Trading Value: "..text
-end
-
--- Dissect: Aftermarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.aftermarket_accumulated_trading_value, range, value, "Aftermarket Accumulated Trading Value: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Aftermarket Accumulated Trading Value is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.aftermarket_accumulated_trading_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Aftermarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_volume = {}
-
--- Size: Aftermarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_volume.size = 12
-
--- Display: Aftermarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_volume.display = function(value)
-  return "Aftermarket Accumulated Trading Volume: "..value
-end
-
--- Dissect: Aftermarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.aftermarket_accumulated_trading_volume, range, value, "Aftermarket Accumulated Trading Volume: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Aftermarket Accumulated Trading Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.aftermarket_accumulated_trading_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2529,25 +2529,25 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_volume_5.dissect = func
   return offset + length, value
 end
 
--- Backdoor Listing
-nextrade_nextrade_stockcommon_nxtascii_v2_12.backdoor_listing = {}
+-- Back Door Listing
+nextrade_nextrade_stockcommon_nxtascii_v2_12.back_door_listing = {}
 
--- Size: Backdoor Listing
-nextrade_nextrade_stockcommon_nxtascii_v2_12.backdoor_listing.size = 1
+-- Size: Back Door Listing
+nextrade_nextrade_stockcommon_nxtascii_v2_12.back_door_listing.size = 1
 
--- Display: Backdoor Listing
-nextrade_nextrade_stockcommon_nxtascii_v2_12.backdoor_listing.display = function(value)
-  return "Backdoor Listing: "..value
+-- Display: Back Door Listing
+nextrade_nextrade_stockcommon_nxtascii_v2_12.back_door_listing.display = function(value)
+  return "Back Door Listing: "..value
 end
 
--- Dissect: Backdoor Listing
-nextrade_nextrade_stockcommon_nxtascii_v2_12.backdoor_listing.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.backdoor_listing.size
+-- Dissect: Back Door Listing
+nextrade_nextrade_stockcommon_nxtascii_v2_12.back_door_listing.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.back_door_listing.size
   local range = buffer(offset, length)
   local value = range:string(nextrade_nextrade_stockcommon_nxtascii_v2_12.text_encoding)
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.backdoor_listing.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.back_door_listing.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.backdoor_listing, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.back_door_listing, range, value, display)
 
   return offset + length, value
 end
@@ -2606,25 +2606,25 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.base_price_change.dissect = functio
   return offset + length, value
 end
 
--- Basket Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_preopening_market = {}
+-- Basket Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_pre_opening_market = {}
 
--- Size: Basket Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_preopening_market.size = 1
+-- Size: Basket Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_pre_opening_market.size = 1
 
--- Display: Basket Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_preopening_market.display = function(value)
-  return "Basket Trading In The Preopening Market: "..value
+-- Display: Basket Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_pre_opening_market.display = function(value)
+  return "Basket Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Basket Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_preopening_market.size
+-- Dissect: Basket Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(nextrade_nextrade_stockcommon_nxtascii_v2_12.text_encoding)
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.basket_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.basket_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -3660,25 +3660,25 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_volume_5.dissect = func
   return offset + length, value
 end
 
--- Block Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_preopening_market = {}
+-- Block Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_pre_opening_market = {}
 
--- Size: Block Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_preopening_market.size = 1
+-- Size: Block Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_pre_opening_market.size = 1
 
--- Display: Block Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_preopening_market.display = function(value)
-  return "Block Trading In The Preopening Market: "..value
+-- Display: Block Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_pre_opening_market.display = function(value)
+  return "Block Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Block Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_preopening_market.size
+-- Dissect: Block Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(nextrade_nextrade_stockcommon_nxtascii_v2_12.text_encoding)
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.block_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.block_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -3783,278 +3783,278 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.business_date.dissect = function(bu
   return offset + length, value
 end
 
--- Buyside Arbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_quantity = {}
+-- Buy Side Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_quantity = {}
 
--- Size: Buyside Arbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_quantity.size = 15
+-- Size: Buy Side Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_quantity.size = 15
 
--- Display: Buyside Arbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_quantity.display = function(value)
-  return "Buyside Arbitrage Quantity: "..value
+-- Display: Buy Side Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_quantity.display = function(value)
+  return "Buy Side Arbitrage Quantity: "..value
 end
 
--- Dissect: Buyside Arbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_quantity.size
+-- Dissect: Buy Side Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_quantity, range, value, "Buyside Arbitrage Quantity: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buyside Arbitrage Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_quantity, range, value, "Buy Side Arbitrage Quantity: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buy Side Arbitrage Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_quantity.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_quantity, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Buyside Arbitrage Trading Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_trading_remaining_quantity = {}
+-- Buy Side Arbitrage Trading Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_trading_remaining_quantity = {}
 
--- Size: Buyside Arbitrage Trading Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_trading_remaining_quantity.size = 15
+-- Size: Buy Side Arbitrage Trading Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_trading_remaining_quantity.size = 15
 
--- Display: Buyside Arbitrage Trading Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_trading_remaining_quantity.display = function(value)
-  return "Buyside Arbitrage Trading Remaining Quantity: "..value
+-- Display: Buy Side Arbitrage Trading Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_trading_remaining_quantity.display = function(value)
+  return "Buy Side Arbitrage Trading Remaining Quantity: "..value
 end
 
--- Dissect: Buyside Arbitrage Trading Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_trading_remaining_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_trading_remaining_quantity.size
+-- Dissect: Buy Side Arbitrage Trading Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_trading_remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_trading_remaining_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_trading_remaining_quantity, range, value, "Buyside Arbitrage Trading Remaining Quantity: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buyside Arbitrage Trading Remaining Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_trading_remaining_quantity, range, value, "Buy Side Arbitrage Trading Remaining Quantity: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buy Side Arbitrage Trading Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_trading_remaining_quantity.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_trading_remaining_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_trading_remaining_quantity, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_trading_remaining_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Buyside Arbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value = {}
+-- Buy Side Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_value = {}
 
--- Size: Buyside Arbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value.size = 22
+-- Size: Buy Side Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_value.size = 22
 
--- Display: Buyside Arbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value.size):string()
+-- Display: Buy Side Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_value.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Buyside Arbitrage Value: No Value"
+    return "Buy Side Arbitrage Value: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 3 then
-    return "Buyside Arbitrage Value: "..text.." (expected 3 places)"
+    return "Buy Side Arbitrage Value: "..text.." (expected 3 places)"
   end
 
-  return "Buyside Arbitrage Value: "..text
+  return "Buy Side Arbitrage Value: "..text
 end
 
--- Dissect: Buyside Arbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value.size
+-- Dissect: Buy Side Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_value.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_value, range, value, "Buyside Arbitrage Value: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buyside Arbitrage Value is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_value, range, value, "Buy Side Arbitrage Value: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buy Side Arbitrage Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_value, range, value, display)
 
   return offset + length, value
 end
 
--- Buyside Arbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_volume = {}
+-- Buy Side Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_volume = {}
 
--- Size: Buyside Arbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_volume.size = 15
+-- Size: Buy Side Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_volume.size = 15
 
--- Display: Buyside Arbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_volume.display = function(value)
-  return "Buyside Arbitrage Volume: "..value
+-- Display: Buy Side Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_volume.display = function(value)
+  return "Buy Side Arbitrage Volume: "..value
 end
 
--- Dissect: Buyside Arbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_volume.size
+-- Dissect: Buy Side Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_volume.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_volume, range, value, "Buyside Arbitrage Volume: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buyside Arbitrage Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_volume, range, value, "Buy Side Arbitrage Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buy Side Arbitrage Volume is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_volume.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_arbitrage_volume, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_arbitrage_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Buyside Nonarbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_quantity = {}
+-- Buy Side Non Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_quantity = {}
 
--- Size: Buyside Nonarbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_quantity.size = 15
+-- Size: Buy Side Non Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_quantity.size = 15
 
--- Display: Buyside Nonarbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_quantity.display = function(value)
-  return "Buyside Nonarbitrage Quantity: "..value
+-- Display: Buy Side Non Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_quantity.display = function(value)
+  return "Buy Side Non Arbitrage Quantity: "..value
 end
 
--- Dissect: Buyside Nonarbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_quantity.size
+-- Dissect: Buy Side Non Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_quantity, range, value, "Buyside Nonarbitrage Quantity: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buyside Nonarbitrage Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_quantity, range, value, "Buy Side Non Arbitrage Quantity: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buy Side Non Arbitrage Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_quantity.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_quantity, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Buyside Nonarbitrage Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_remaining_quantity = {}
+-- Buy Side Non Arbitrage Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_remaining_quantity = {}
 
--- Size: Buyside Nonarbitrage Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_remaining_quantity.size = 15
+-- Size: Buy Side Non Arbitrage Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_remaining_quantity.size = 15
 
--- Display: Buyside Nonarbitrage Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_remaining_quantity.display = function(value)
-  return "Buyside Nonarbitrage Remaining Quantity: "..value
+-- Display: Buy Side Non Arbitrage Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_remaining_quantity.display = function(value)
+  return "Buy Side Non Arbitrage Remaining Quantity: "..value
 end
 
--- Dissect: Buyside Nonarbitrage Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_remaining_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_remaining_quantity.size
+-- Dissect: Buy Side Non Arbitrage Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_remaining_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_remaining_quantity, range, value, "Buyside Nonarbitrage Remaining Quantity: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buyside Nonarbitrage Remaining Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_remaining_quantity, range, value, "Buy Side Non Arbitrage Remaining Quantity: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buy Side Non Arbitrage Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_remaining_quantity.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_remaining_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_remaining_quantity, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_remaining_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Buyside Nonarbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value = {}
+-- Buy Side Non Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_value = {}
 
--- Size: Buyside Nonarbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value.size = 22
+-- Size: Buy Side Non Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_value.size = 22
 
--- Display: Buyside Nonarbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value.size):string()
+-- Display: Buy Side Non Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_value.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Buyside Nonarbitrage Value: No Value"
+    return "Buy Side Non Arbitrage Value: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 3 then
-    return "Buyside Nonarbitrage Value: "..text.." (expected 3 places)"
+    return "Buy Side Non Arbitrage Value: "..text.." (expected 3 places)"
   end
 
-  return "Buyside Nonarbitrage Value: "..text
+  return "Buy Side Non Arbitrage Value: "..text
 end
 
--- Dissect: Buyside Nonarbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value.size
+-- Dissect: Buy Side Non Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_value.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_value, range, value, "Buyside Nonarbitrage Value: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buyside Nonarbitrage Value is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_value, range, value, "Buy Side Non Arbitrage Value: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buy Side Non Arbitrage Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_value, range, value, display)
 
   return offset + length, value
 end
 
--- Buyside Nonarbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_volume = {}
+-- Buy Side Non Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_volume = {}
 
--- Size: Buyside Nonarbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_volume.size = 15
+-- Size: Buy Side Non Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_volume.size = 15
 
--- Display: Buyside Nonarbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_volume.display = function(value)
-  return "Buyside Nonarbitrage Volume: "..value
+-- Display: Buy Side Non Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_volume.display = function(value)
+  return "Buy Side Non Arbitrage Volume: "..value
 end
 
--- Dissect: Buyside Nonarbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_volume.size
+-- Dissect: Buy Side Non Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_volume.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_volume, range, value, "Buyside Nonarbitrage Volume: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buyside Nonarbitrage Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_volume, range, value, "Buy Side Non Arbitrage Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Buy Side Non Arbitrage Volume is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_volume.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buyside_nonarbitrage_volume, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.buy_side_non_arbitrage_volume, range, value, display)
 
   return offset + length, value
 end
@@ -4316,25 +4316,25 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_lower_limit_of_buy_in
   return offset + length, value
 end
 
--- Closing Price Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_preopening_market = {}
+-- Closing Price Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_pre_opening_market = {}
 
--- Size: Closing Price Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_preopening_market.size = 1
+-- Size: Closing Price Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_pre_opening_market.size = 1
 
--- Display: Closing Price Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_preopening_market.display = function(value)
-  return "Closing Price Trading In The Preopening Market: "..value
+-- Display: Closing Price Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_pre_opening_market.display = function(value)
+  return "Closing Price Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Closing Price Trading In The Preopening Market
-nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_preopening_market.size
+-- Dissect: Closing Price Trading In The Pre Opening Market
+nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(nextrade_nextrade_stockcommon_nxtascii_v2_12.text_encoding)
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.closing_price_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.closing_price_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -5948,33 +5948,33 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.listing_date.dissect = function(buf
   return offset + length, value
 end
 
--- Lot Size Afterhours Trading
-nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_afterhours_trading = {}
+-- Lot Size After Hours Trading
+nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_after_hours_trading = {}
 
--- Size: Lot Size Afterhours Trading
-nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_afterhours_trading.size = 11
+-- Size: Lot Size After Hours Trading
+nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_after_hours_trading.size = 11
 
--- Display: Lot Size Afterhours Trading
-nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_afterhours_trading.display = function(value)
-  return "Lot Size Afterhours Trading: "..value
+-- Display: Lot Size After Hours Trading
+nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_after_hours_trading.display = function(value)
+  return "Lot Size After Hours Trading: "..value
 end
 
--- Dissect: Lot Size Afterhours Trading
-nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_afterhours_trading.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_afterhours_trading.size
+-- Dissect: Lot Size After Hours Trading
+nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_after_hours_trading.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_after_hours_trading.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.lot_size_afterhours_trading, range, value, "Lot Size Afterhours Trading: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Lot Size Afterhours Trading is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.lot_size_after_hours_trading, range, value, "Lot Size After Hours Trading: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Lot Size After Hours Trading is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_afterhours_trading.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_after_hours_trading.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.lot_size_afterhours_trading, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.lot_size_after_hours_trading, range, value, display)
 
   return offset + length, value
 end
@@ -6149,78 +6149,78 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.lp_order.dissect = function(buffer,
   return offset + length, value
 end
 
--- Mainmarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value = {}
+-- Main Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_value = {}
 
--- Size: Mainmarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.size = 22
+-- Size: Main Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_value.size = 22
 
--- Display: Mainmarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.size):string()
+-- Display: Main Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_value.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Mainmarket Accumulated Trading Value: No Value"
+    return "Main Market Accumulated Trading Value: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 3 then
-    return "Mainmarket Accumulated Trading Value: "..text.." (expected 3 places)"
+    return "Main Market Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
-  return "Mainmarket Accumulated Trading Value: "..text
+  return "Main Market Accumulated Trading Value: "..text
 end
 
--- Dissect: Mainmarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.size
+-- Dissect: Main Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.mainmarket_accumulated_trading_value, range, value, "Mainmarket Accumulated Trading Value: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Mainmarket Accumulated Trading Value is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.main_market_accumulated_trading_value, range, value, "Main Market Accumulated Trading Value: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Main Market Accumulated Trading Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.mainmarket_accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.main_market_accumulated_trading_value, range, value, display)
 
   return offset + length, value
 end
 
--- Mainmarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_volume = {}
+-- Main Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_volume = {}
 
--- Size: Mainmarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_volume.size = 12
+-- Size: Main Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_volume.size = 12
 
--- Display: Mainmarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_volume.display = function(value)
-  return "Mainmarket Accumulated Trading Volume: "..value
+-- Display: Main Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_volume.display = function(value)
+  return "Main Market Accumulated Trading Volume: "..value
 end
 
--- Dissect: Mainmarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_volume.size
+-- Dissect: Main Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_volume.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.mainmarket_accumulated_trading_volume, range, value, "Mainmarket Accumulated Trading Volume: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Mainmarket Accumulated Trading Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.main_market_accumulated_trading_volume, range, value, "Main Market Accumulated Trading Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Main Market Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.mainmarket_accumulated_trading_volume, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.main_market_accumulated_trading_volume, range, value, display)
 
   return offset + length, value
 end
@@ -7622,6 +7622,82 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.par_value_type_code.dissect = funct
   return offset + length, value
 end
 
+-- Pre Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_value = {}
+
+-- Size: Pre Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_value.size = 22
+
+-- Display: Pre Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_value.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Pre Market Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Pre Market Accumulated Trading Value: "..text.." (expected 3 places)"
+  end
+
+  return "Pre Market Accumulated Trading Value: "..text
+end
+
+-- Dissect: Pre Market Accumulated Trading Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_value.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.pre_market_accumulated_trading_value, range, value, "Pre Market Accumulated Trading Value: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Pre Market Accumulated Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.pre_market_accumulated_trading_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pre Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_volume = {}
+
+-- Size: Pre Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_volume.size = 12
+
+-- Display: Pre Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_volume.display = function(value)
+  return "Pre Market Accumulated Trading Volume: "..value
+end
+
+-- Dissect: Pre Market Accumulated Trading Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_volume.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.pre_market_accumulated_trading_volume, range, value, "Pre Market Accumulated Trading Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Pre Market Accumulated Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.pre_market_accumulated_trading_volume, range, value, display)
+
+  return offset + length, value
+end
+
 -- Preferred Stocks With Lesser Shares
 nextrade_nextrade_stockcommon_nxtascii_v2_12.preferred_stocks_with_lesser_shares = {}
 
@@ -7641,82 +7717,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.preferred_stocks_with_lesser_shares
   local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.preferred_stocks_with_lesser_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.preferred_stocks_with_lesser_shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Premarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value = {}
-
--- Size: Premarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value.size = 22
-
--- Display: Premarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Premarket Accumulated Trading Value: No Value"
-  end
-
-  local point = text:find(".", 1, true)
-  local places = point and (#text - point) or 0
-
-  if places ~= 3 then
-    return "Premarket Accumulated Trading Value: "..text.." (expected 3 places)"
-  end
-
-  return "Premarket Accumulated Trading Value: "..text
-end
-
--- Dissect: Premarket Accumulated Trading Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.premarket_accumulated_trading_value, range, value, "Premarket Accumulated Trading Value: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Premarket Accumulated Trading Value is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.premarket_accumulated_trading_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Premarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_volume = {}
-
--- Size: Premarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_volume.size = 12
-
--- Display: Premarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_volume.display = function(value)
-  return "Premarket Accumulated Trading Volume: "..value
-end
-
--- Dissect: Premarket Accumulated Trading Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.premarket_accumulated_trading_volume, range, value, "Premarket Accumulated Trading Volume: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Premarket Accumulated Trading Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.premarket_accumulated_trading_volume, range, value, display)
 
   return offset + length, value
 end
@@ -8024,278 +8024,278 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.segment_type_code.dissect = functio
   return offset + length, value
 end
 
--- Sellside Arbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_quantity = {}
+-- Sell Side Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_quantity = {}
 
--- Size: Sellside Arbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_quantity.size = 15
+-- Size: Sell Side Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_quantity.size = 15
 
--- Display: Sellside Arbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_quantity.display = function(value)
-  return "Sellside Arbitrage Quantity: "..value
+-- Display: Sell Side Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_quantity.display = function(value)
+  return "Sell Side Arbitrage Quantity: "..value
 end
 
--- Dissect: Sellside Arbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_quantity.size
+-- Dissect: Sell Side Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_quantity, range, value, "Sellside Arbitrage Quantity: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sellside Arbitrage Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_quantity, range, value, "Sell Side Arbitrage Quantity: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sell Side Arbitrage Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_quantity.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_quantity, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Arbitrage Trading Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_trading_remaining_quantity = {}
+-- Sell Side Arbitrage Trading Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_trading_remaining_quantity = {}
 
--- Size: Sellside Arbitrage Trading Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_trading_remaining_quantity.size = 15
+-- Size: Sell Side Arbitrage Trading Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_trading_remaining_quantity.size = 15
 
--- Display: Sellside Arbitrage Trading Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_trading_remaining_quantity.display = function(value)
-  return "Sellside Arbitrage Trading Remaining Quantity: "..value
+-- Display: Sell Side Arbitrage Trading Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_trading_remaining_quantity.display = function(value)
+  return "Sell Side Arbitrage Trading Remaining Quantity: "..value
 end
 
--- Dissect: Sellside Arbitrage Trading Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_trading_remaining_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_trading_remaining_quantity.size
+-- Dissect: Sell Side Arbitrage Trading Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_trading_remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_trading_remaining_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_trading_remaining_quantity, range, value, "Sellside Arbitrage Trading Remaining Quantity: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sellside Arbitrage Trading Remaining Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_trading_remaining_quantity, range, value, "Sell Side Arbitrage Trading Remaining Quantity: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sell Side Arbitrage Trading Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_trading_remaining_quantity.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_trading_remaining_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_trading_remaining_quantity, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_trading_remaining_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Arbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value = {}
+-- Sell Side Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_value = {}
 
--- Size: Sellside Arbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value.size = 22
+-- Size: Sell Side Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_value.size = 22
 
--- Display: Sellside Arbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value.size):string()
+-- Display: Sell Side Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_value.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Sellside Arbitrage Value: No Value"
+    return "Sell Side Arbitrage Value: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 3 then
-    return "Sellside Arbitrage Value: "..text.." (expected 3 places)"
+    return "Sell Side Arbitrage Value: "..text.." (expected 3 places)"
   end
 
-  return "Sellside Arbitrage Value: "..text
+  return "Sell Side Arbitrage Value: "..text
 end
 
--- Dissect: Sellside Arbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value.size
+-- Dissect: Sell Side Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_value.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_value, range, value, "Sellside Arbitrage Value: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sellside Arbitrage Value is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_value, range, value, "Sell Side Arbitrage Value: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sell Side Arbitrage Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_value, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Arbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_volume = {}
+-- Sell Side Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_volume = {}
 
--- Size: Sellside Arbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_volume.size = 15
+-- Size: Sell Side Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_volume.size = 15
 
--- Display: Sellside Arbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_volume.display = function(value)
-  return "Sellside Arbitrage Volume: "..value
+-- Display: Sell Side Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_volume.display = function(value)
+  return "Sell Side Arbitrage Volume: "..value
 end
 
--- Dissect: Sellside Arbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_volume.size
+-- Dissect: Sell Side Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_volume.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_volume, range, value, "Sellside Arbitrage Volume: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sellside Arbitrage Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_volume, range, value, "Sell Side Arbitrage Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sell Side Arbitrage Volume is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_volume.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_arbitrage_volume, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_arbitrage_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Nonarbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_quantity = {}
+-- Sell Side Non Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_quantity = {}
 
--- Size: Sellside Nonarbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_quantity.size = 15
+-- Size: Sell Side Non Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_quantity.size = 15
 
--- Display: Sellside Nonarbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_quantity.display = function(value)
-  return "Sellside Nonarbitrage Quantity: "..value
+-- Display: Sell Side Non Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_quantity.display = function(value)
+  return "Sell Side Non Arbitrage Quantity: "..value
 end
 
--- Dissect: Sellside Nonarbitrage Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_quantity.size
+-- Dissect: Sell Side Non Arbitrage Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_quantity, range, value, "Sellside Nonarbitrage Quantity: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sellside Nonarbitrage Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_quantity, range, value, "Sell Side Non Arbitrage Quantity: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sell Side Non Arbitrage Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_quantity.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_quantity, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Nonarbitrage Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_remaining_quantity = {}
+-- Sell Side Non Arbitrage Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_remaining_quantity = {}
 
--- Size: Sellside Nonarbitrage Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_remaining_quantity.size = 15
+-- Size: Sell Side Non Arbitrage Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_remaining_quantity.size = 15
 
--- Display: Sellside Nonarbitrage Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_remaining_quantity.display = function(value)
-  return "Sellside Nonarbitrage Remaining Quantity: "..value
+-- Display: Sell Side Non Arbitrage Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_remaining_quantity.display = function(value)
+  return "Sell Side Non Arbitrage Remaining Quantity: "..value
 end
 
--- Dissect: Sellside Nonarbitrage Remaining Quantity
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_remaining_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_remaining_quantity.size
+-- Dissect: Sell Side Non Arbitrage Remaining Quantity
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_remaining_quantity.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_remaining_quantity, range, value, "Sellside Nonarbitrage Remaining Quantity: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sellside Nonarbitrage Remaining Quantity is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_remaining_quantity, range, value, "Sell Side Non Arbitrage Remaining Quantity: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sell Side Non Arbitrage Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_remaining_quantity.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_remaining_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_remaining_quantity, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_remaining_quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Nonarbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value = {}
+-- Sell Side Non Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_value = {}
 
--- Size: Sellside Nonarbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value.size = 22
+-- Size: Sell Side Non Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_value.size = 22
 
--- Display: Sellside Nonarbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value.size):string()
+-- Display: Sell Side Non Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_value.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Sellside Nonarbitrage Value: No Value"
+    return "Sell Side Non Arbitrage Value: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 3 then
-    return "Sellside Nonarbitrage Value: "..text.." (expected 3 places)"
+    return "Sell Side Non Arbitrage Value: "..text.." (expected 3 places)"
   end
 
-  return "Sellside Nonarbitrage Value: "..text
+  return "Sell Side Non Arbitrage Value: "..text
 end
 
--- Dissect: Sellside Nonarbitrage Value
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value.size
+-- Dissect: Sell Side Non Arbitrage Value
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_value.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_value, range, value, "Sellside Nonarbitrage Value: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sellside Nonarbitrage Value is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_value, range, value, "Sell Side Non Arbitrage Value: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sell Side Non Arbitrage Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_value, range, value, display)
 
   return offset + length, value
 end
 
--- Sellside Nonarbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_volume = {}
+-- Sell Side Non Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_volume = {}
 
--- Size: Sellside Nonarbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_volume.size = 15
+-- Size: Sell Side Non Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_volume.size = 15
 
--- Display: Sellside Nonarbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_volume.display = function(value)
-  return "Sellside Nonarbitrage Volume: "..value
+-- Display: Sell Side Non Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_volume.display = function(value)
+  return "Sell Side Non Arbitrage Volume: "..value
 end
 
--- Dissect: Sellside Nonarbitrage Volume
-nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_volume.size
+-- Dissect: Sell Side Non Arbitrage Volume
+nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_volume.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_volume, range, value, "Sellside Nonarbitrage Volume: Not Applicable")
-    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sellside Nonarbitrage Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_volume, range, value, "Sell Side Non Arbitrage Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_stockcommon_nxtascii_v2_12.experts.not_a_number, "Sell Side Non Arbitrage Volume is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_volume.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sellside_nonarbitrage_volume, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.sell_side_non_arbitrage_volume, range, value, display)
 
   return offset + length, value
 end
@@ -8369,25 +8369,25 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.short_selling.dissect = function(bu
   return offset + length, value
 end
 
--- Shortterm Overheat Issue Type Code
-nextrade_nextrade_stockcommon_nxtascii_v2_12.shortterm_overheat_issue_type_code = {}
+-- Short Term Overheat Issue Type Code
+nextrade_nextrade_stockcommon_nxtascii_v2_12.short_term_overheat_issue_type_code = {}
 
--- Size: Shortterm Overheat Issue Type Code
-nextrade_nextrade_stockcommon_nxtascii_v2_12.shortterm_overheat_issue_type_code.size = 1
+-- Size: Short Term Overheat Issue Type Code
+nextrade_nextrade_stockcommon_nxtascii_v2_12.short_term_overheat_issue_type_code.size = 1
 
--- Display: Shortterm Overheat Issue Type Code
-nextrade_nextrade_stockcommon_nxtascii_v2_12.shortterm_overheat_issue_type_code.display = function(value)
-  return "Shortterm Overheat Issue Type Code: "..value
+-- Display: Short Term Overheat Issue Type Code
+nextrade_nextrade_stockcommon_nxtascii_v2_12.short_term_overheat_issue_type_code.display = function(value)
+  return "Short Term Overheat Issue Type Code: "..value
 end
 
--- Dissect: Shortterm Overheat Issue Type Code
-nextrade_nextrade_stockcommon_nxtascii_v2_12.shortterm_overheat_issue_type_code.dissect = function(buffer, offset, packet, parent)
-  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.shortterm_overheat_issue_type_code.size
+-- Dissect: Short Term Overheat Issue Type Code
+nextrade_nextrade_stockcommon_nxtascii_v2_12.short_term_overheat_issue_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.short_term_overheat_issue_type_code.size
   local range = buffer(offset, length)
   local value = range:string(nextrade_nextrade_stockcommon_nxtascii_v2_12.text_encoding)
-  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.shortterm_overheat_issue_type_code.display(value, buffer, offset, packet, parent)
+  local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.short_term_overheat_issue_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.shortterm_overheat_issue_type_code, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.short_term_overheat_issue_type_code, range, value, display)
 
   return offset + length, value
 end
@@ -9849,12 +9849,12 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.trading_activity_by_session_per_an_
 nextrade_nextrade_stockcommon_nxtascii_v2_12.trading_activity_by_session_per_an_issue_message.size =
   nextrade_nextrade_stockcommon_nxtascii_v2_12.isin_code.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.total_number_of_tradable_issues_on_competitive_trading.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_volume.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_volume.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_volume.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_volume.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_value.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_volume.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_value.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_volume.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_value.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.end_keyword.size
 
 -- Display: Trading Activity By Session Per An Issue Message
@@ -9872,23 +9872,23 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.trading_activity_by_session_per_an_
   -- Total Number Of Tradable Issues On Competitive Trading: Int
   index, total_number_of_tradable_issues_on_competitive_trading = nextrade_nextrade_stockcommon_nxtascii_v2_12.total_number_of_tradable_issues_on_competitive_trading.dissect(buffer, index, packet, parent)
 
-  -- Premarket Accumulated Trading Volume: Long
-  index, premarket_accumulated_trading_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Pre Market Accumulated Trading Volume: Long
+  index, pre_market_accumulated_trading_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Premarket Accumulated Trading Value: FLOAT128
-  index, premarket_accumulated_trading_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Pre Market Accumulated Trading Value: FLOAT128
+  index, pre_market_accumulated_trading_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.pre_market_accumulated_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Mainmarket Accumulated Trading Volume: Long
-  index, mainmarket_accumulated_trading_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Main Market Accumulated Trading Volume: Long
+  index, main_market_accumulated_trading_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Mainmarket Accumulated Trading Value: FLOAT128
-  index, mainmarket_accumulated_trading_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Main Market Accumulated Trading Value: FLOAT128
+  index, main_market_accumulated_trading_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.main_market_accumulated_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Aftermarket Accumulated Trading Volume: Long
-  index, aftermarket_accumulated_trading_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- After Market Accumulated Trading Volume: Long
+  index, after_market_accumulated_trading_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Aftermarket Accumulated Trading Value: FLOAT128
-  index, aftermarket_accumulated_trading_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- After Market Accumulated Trading Value: FLOAT128
+  index, after_market_accumulated_trading_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.after_market_accumulated_trading_value.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = nextrade_nextrade_stockcommon_nxtascii_v2_12.end_keyword.dissect(buffer, index, packet, parent)
@@ -10330,7 +10330,7 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.equities_batch_data_message.size =
   nextrade_nextrade_stockcommon_nxtascii_v2_12.korea_corporate_governance_stock_price_index_kogi.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.issue_for_administration.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.unfaithful_disclosure.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.backdoor_listing.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.back_door_listing.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.trading_halt.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.industry_id.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.small_medium_sized_business.size + 
@@ -10370,16 +10370,16 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.equities_batch_data_message.size =
   nextrade_nextrade_stockcommon_nxtascii_v2_12.lowest_order_price.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.highest_order_price.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.unit_of_volume_in_main_board.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_afterhours_trading.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_after_hours_trading.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.rei_ts_type_code.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.target_stock_isin_code.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.currency_iso_code.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.country_code.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.market_making_possibility.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_possibility_in_the_after_hours.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_preopening_market.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_preopening_market.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_preopening_market.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_pre_opening_market.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_pre_opening_market.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_pre_opening_market.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.announcement_of_estimated_trading_price.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.short_selling.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.etf_tracking_difference.size + 
@@ -10389,7 +10389,7 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.equities_batch_data_message.size =
   nextrade_nextrade_stockcommon_nxtascii_v2_12.appraisal_ratio_of_substitute_price.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.investment_caution_issue.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.delisting_date.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.shortterm_overheat_issue_type_code.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.short_term_overheat_issue_type_code.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.etf_replication_methods_type_code.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.expiration_date.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.distribution_type_code.size + 
@@ -10502,8 +10502,8 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.equities_batch_data_message.fields 
   -- Unfaithful Disclosure: String
   index, unfaithful_disclosure = nextrade_nextrade_stockcommon_nxtascii_v2_12.unfaithful_disclosure.dissect(buffer, index, packet, parent)
 
-  -- Backdoor Listing: String
-  index, backdoor_listing = nextrade_nextrade_stockcommon_nxtascii_v2_12.backdoor_listing.dissect(buffer, index, packet, parent)
+  -- Back Door Listing: String
+  index, back_door_listing = nextrade_nextrade_stockcommon_nxtascii_v2_12.back_door_listing.dissect(buffer, index, packet, parent)
 
   -- Trading Halt: String
   index, trading_halt = nextrade_nextrade_stockcommon_nxtascii_v2_12.trading_halt.dissect(buffer, index, packet, parent)
@@ -10622,8 +10622,8 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.equities_batch_data_message.fields 
   -- Unit Of Volume In Main Board: Long
   index, unit_of_volume_in_main_board = nextrade_nextrade_stockcommon_nxtascii_v2_12.unit_of_volume_in_main_board.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Afterhours Trading: Long
-  index, lot_size_afterhours_trading = nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_afterhours_trading.dissect(buffer, index, packet, parent)
+  -- Lot Size After Hours Trading: Long
+  index, lot_size_after_hours_trading = nextrade_nextrade_stockcommon_nxtascii_v2_12.lot_size_after_hours_trading.dissect(buffer, index, packet, parent)
 
   -- Rei Ts Type Code: String
   index, rei_ts_type_code = nextrade_nextrade_stockcommon_nxtascii_v2_12.rei_ts_type_code.dissect(buffer, index, packet, parent)
@@ -10643,14 +10643,14 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.equities_batch_data_message.fields 
   -- Closing Price Trading Possibility In The After Hours: String
   index, closing_price_trading_possibility_in_the_after_hours = nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_possibility_in_the_after_hours.dissect(buffer, index, packet, parent)
 
-  -- Closing Price Trading In The Preopening Market: String
-  index, closing_price_trading_in_the_preopening_market = nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Closing Price Trading In The Pre Opening Market: String
+  index, closing_price_trading_in_the_pre_opening_market = nextrade_nextrade_stockcommon_nxtascii_v2_12.closing_price_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
-  -- Block Trading In The Preopening Market: String
-  index, block_trading_in_the_preopening_market = nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Block Trading In The Pre Opening Market: String
+  index, block_trading_in_the_pre_opening_market = nextrade_nextrade_stockcommon_nxtascii_v2_12.block_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
-  -- Basket Trading In The Preopening Market: String
-  index, basket_trading_in_the_preopening_market = nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Basket Trading In The Pre Opening Market: String
+  index, basket_trading_in_the_pre_opening_market = nextrade_nextrade_stockcommon_nxtascii_v2_12.basket_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
   -- Announcement Of Estimated Trading Price: String
   index, announcement_of_estimated_trading_price = nextrade_nextrade_stockcommon_nxtascii_v2_12.announcement_of_estimated_trading_price.dissect(buffer, index, packet, parent)
@@ -10679,8 +10679,8 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.equities_batch_data_message.fields 
   -- Delisting Date: String
   index, delisting_date = nextrade_nextrade_stockcommon_nxtascii_v2_12.delisting_date.dissect(buffer, index, packet, parent)
 
-  -- Shortterm Overheat Issue Type Code: String
-  index, shortterm_overheat_issue_type_code = nextrade_nextrade_stockcommon_nxtascii_v2_12.shortterm_overheat_issue_type_code.dissect(buffer, index, packet, parent)
+  -- Short Term Overheat Issue Type Code: String
+  index, short_term_overheat_issue_type_code = nextrade_nextrade_stockcommon_nxtascii_v2_12.short_term_overheat_issue_type_code.dissect(buffer, index, packet, parent)
 
   -- Etf Replication Methods Type Code: String
   index, etf_replication_methods_type_code = nextrade_nextrade_stockcommon_nxtascii_v2_12.etf_replication_methods_type_code.dissect(buffer, index, packet, parent)
@@ -11139,14 +11139,14 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.program_trading_information_of_tota
 
 -- Size: Program Trading Information Of Total Aggregated Information Message
 nextrade_nextrade_stockcommon_nxtascii_v2_12.program_trading_information_of_total_aggregated_information_message.size =
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_trading_remaining_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_trading_remaining_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_remaining_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_remaining_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_trading_remaining_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_trading_remaining_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_remaining_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_remaining_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_quantity.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_trust_trading_volume.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_principal_trading_volume.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_bid_trust_trading_volume.size + 
@@ -11174,29 +11174,29 @@ end
 nextrade_nextrade_stockcommon_nxtascii_v2_12.program_trading_information_of_total_aggregated_information_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sellside Arbitrage Trading Remaining Quantity: Long
-  index, sellside_arbitrage_trading_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Trading Remaining Quantity: Long
+  index, sell_side_arbitrage_trading_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Trading Remaining Quantity: Long
-  index, buyside_arbitrage_trading_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Trading Remaining Quantity: Long
+  index, buy_side_arbitrage_trading_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Remaining Quantity: Long
-  index, sellside_nonarbitrage_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Remaining Quantity: Long
+  index, sell_side_non_arbitrage_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Remaining Quantity: Long
-  index, buyside_nonarbitrage_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Remaining Quantity: Long
+  index, buy_side_non_arbitrage_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Arbitrage Quantity: Long
-  index, sellside_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Quantity: Long
+  index, sell_side_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Quantity: Long
-  index, buyside_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Quantity: Long
+  index, buy_side_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Quantity: Long
-  index, sellside_nonarbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Quantity: Long
+  index, sell_side_non_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Quantity: Long
-  index, buyside_nonarbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Quantity: Long
+  index, buy_side_non_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
   -- Arbitrage Ask Trust Trading Volume: Long
   index, arbitrage_ask_trust_trading_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_trust_trading_volume.dissect(buffer, index, packet, parent)
@@ -11277,14 +11277,14 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.program_trading_information_per_iss
 nextrade_nextrade_stockcommon_nxtascii_v2_12.program_trading_information_per_issue_aggregated_information_message.size =
   nextrade_nextrade_stockcommon_nxtascii_v2_12.isin_code.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.a_designated_number_for_an_issue_from_krx.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_trading_remaining_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_trading_remaining_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_remaining_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_remaining_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_quantity.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_trading_remaining_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_trading_remaining_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_remaining_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_remaining_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_quantity.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_quantity.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_trust_trading_volume.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_principal_trading_volume.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_bid_trust_trading_volume.size + 
@@ -11318,29 +11318,29 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.program_trading_information_per_iss
   -- A Designated Number For An Issue From Krx: Int
   index, a_designated_number_for_an_issue_from_krx = nextrade_nextrade_stockcommon_nxtascii_v2_12.a_designated_number_for_an_issue_from_krx.dissect(buffer, index, packet, parent)
 
-  -- Sellside Arbitrage Trading Remaining Quantity: Long
-  index, sellside_arbitrage_trading_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Trading Remaining Quantity: Long
+  index, sell_side_arbitrage_trading_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Trading Remaining Quantity: Long
-  index, buyside_arbitrage_trading_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Trading Remaining Quantity: Long
+  index, buy_side_arbitrage_trading_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_trading_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Remaining Quantity: Long
-  index, sellside_nonarbitrage_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Remaining Quantity: Long
+  index, sell_side_non_arbitrage_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Remaining Quantity: Long
-  index, buyside_nonarbitrage_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Remaining Quantity: Long
+  index, buy_side_non_arbitrage_remaining_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Arbitrage Quantity: Long
-  index, sellside_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Quantity: Long
+  index, sell_side_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Quantity: Long
-  index, buyside_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Quantity: Long
+  index, buy_side_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Quantity: Long
-  index, sellside_nonarbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Quantity: Long
+  index, sell_side_non_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Quantity: Long
-  index, buyside_nonarbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_quantity.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Quantity: Long
+  index, buy_side_non_arbitrage_quantity = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_quantity.dissect(buffer, index, packet, parent)
 
   -- Arbitrage Ask Trust Trading Volume: Long
   index, arbitrage_ask_trust_trading_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_trust_trading_volume.dissect(buffer, index, packet, parent)
@@ -11421,14 +11421,14 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.program_trading_activity_per_invest
 nextrade_nextrade_stockcommon_nxtascii_v2_12.program_trading_activity_per_investor_message.size =
   nextrade_nextrade_stockcommon_nxtascii_v2_12.calculation_time.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.investor_code.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_volume.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_volume.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_volume.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_volume.size + 
-  nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_volume.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_value.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_volume.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_value.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_volume.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_value.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_volume.size + 
+  nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_value.size + 
   nextrade_nextrade_stockcommon_nxtascii_v2_12.end_keyword.size
 
 -- Display: Program Trading Activity Per Investor Message
@@ -11446,29 +11446,29 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.program_trading_activity_per_invest
   -- Investor Code: String
   index, investor_code = nextrade_nextrade_stockcommon_nxtascii_v2_12.investor_code.dissect(buffer, index, packet, parent)
 
-  -- Sellside Arbitrage Volume: Long
-  index, sellside_arbitrage_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_volume.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Volume: Long
+  index, sell_side_arbitrage_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_volume.dissect(buffer, index, packet, parent)
 
-  -- Sellside Arbitrage Value: FLOAT128
-  index, sellside_arbitrage_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value.dissect(buffer, index, packet, parent)
+  -- Sell Side Arbitrage Value: FLOAT128
+  index, sell_side_arbitrage_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_arbitrage_value.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Volume: Long
-  index, sellside_nonarbitrage_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_volume.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Volume: Long
+  index, sell_side_non_arbitrage_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_volume.dissect(buffer, index, packet, parent)
 
-  -- Sellside Nonarbitrage Value: FLOAT128
-  index, sellside_nonarbitrage_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value.dissect(buffer, index, packet, parent)
+  -- Sell Side Non Arbitrage Value: FLOAT128
+  index, sell_side_non_arbitrage_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.sell_side_non_arbitrage_value.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Volume: Long
-  index, buyside_arbitrage_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_volume.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Volume: Long
+  index, buy_side_arbitrage_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_volume.dissect(buffer, index, packet, parent)
 
-  -- Buyside Arbitrage Value: FLOAT128
-  index, buyside_arbitrage_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value.dissect(buffer, index, packet, parent)
+  -- Buy Side Arbitrage Value: FLOAT128
+  index, buy_side_arbitrage_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_arbitrage_value.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Volume: Long
-  index, buyside_nonarbitrage_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_volume.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Volume: Long
+  index, buy_side_non_arbitrage_volume = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_volume.dissect(buffer, index, packet, parent)
 
-  -- Buyside Nonarbitrage Value: FLOAT128
-  index, buyside_nonarbitrage_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value.dissect(buffer, index, packet, parent)
+  -- Buy Side Non Arbitrage Value: FLOAT128
+  index, buy_side_non_arbitrage_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.buy_side_non_arbitrage_value.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = nextrade_nextrade_stockcommon_nxtascii_v2_12.end_keyword.dissect(buffer, index, packet, parent)

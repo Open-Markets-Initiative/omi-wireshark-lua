@@ -44,7 +44,7 @@ omi_athex_athexsecurities_relaxed_ids_v5_2.fields.notional_amount = ProtoField.n
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.notional_currency = ProtoField.new("Notional Currency", "athex.athexsecurities.relaxed.ids.v5.2.notionalcurrency", ftypes.STRING, nil, nil, nil, "Currency the notional amount is expressed in. Conditionally required.")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.option_exercise_style = ProtoField.new("Option Exercise Style", "athex.athexsecurities.relaxed.ids.v5.2.optionexercisestyle", ftypes.STRING, nil, nil, nil, "Exercise style of the option. Conditionally required.")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.option_type = ProtoField.new("Option Type", "athex.athexsecurities.relaxed.ids.v5.2.optiontype", ftypes.STRING, nil, nil, nil, "Whether the option is a put or a call. Conditionally required.")
-omi_athex_athexsecurities_relaxed_ids_v5_2.fields.otc_posttrade_indicator = ProtoField.new("Otc Posttrade Indicator", "athex.athexsecurities.relaxed.ids.v5.2.otcposttradeindicator", ftypes.UINT16, nil, nil, nil, "Bitmap of one or more flags: bit 1 BENC benchmark, bit 2 ACTX agency cross, bit 3 LRGS large in scale, bit 4 ILQD illiquid instrument, bit 5 SIZE above specified size, bit 6 CANC cancellations, bit 7 AMND amendments, bit 8 SDIV special dividend, bit 9 RPRI price improvement, bit 10 DUPL duplicative, bit 11 TNCP not contributing to price discovery process, bit 12 TPAC package, bit 13 XFPH exchange for physical Conditionally required.")
+omi_athex_athexsecurities_relaxed_ids_v5_2.fields.otc_post_trade_indicator = ProtoField.new("Otc Post Trade Indicator", "athex.athexsecurities.relaxed.ids.v5.2.otcposttradeindicator", ftypes.UINT16, nil, nil, nil, "Bitmap of one or more flags: bit 1 BENC benchmark, bit 2 ACTX agency cross, bit 3 LRGS large in scale, bit 4 ILQD illiquid instrument, bit 5 SIZE above specified size, bit 6 CANC cancellations, bit 7 AMND amendments, bit 8 SDIV special dividend, bit 9 RPRI price improvement, bit 10 DUPL duplicative, bit 11 TNCP not contributing to price discovery process, bit 12 TPAC package, bit 13 XFPH exchange for physical Conditionally required.")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.price = ProtoField.new("Price", "athex.athexsecurities.relaxed.ids.v5.2.price", ftypes.DOUBLE, nil, nil, nil, "Eighteen digits of which thirteen may be fraction digits when the price is a monetary value, ten when it is a percentage or a yield, and seventeen when it is basis points")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.price_currency = ProtoField.new("Price Currency", "athex.athexsecurities.relaxed.ids.v5.2.pricecurrency", ftypes.STRING, nil, nil, nil, "Currency the price is expressed in. Conditionally required.")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.price_multiplier = ProtoField.new("Price Multiplier", "athex.athexsecurities.relaxed.ids.v5.2.pricemultiplier", ftypes.DOUBLE, nil, nil, nil, "Price multiplier of the instrument. Conditionally required.")
@@ -1030,33 +1030,33 @@ athex_athexsecurities_relaxed_ids_v5_2.option_type.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Otc Posttrade Indicator
-athex_athexsecurities_relaxed_ids_v5_2.otc_posttrade_indicator = {}
+-- Otc Post Trade Indicator
+athex_athexsecurities_relaxed_ids_v5_2.otc_post_trade_indicator = {}
 
--- Size: Otc Posttrade Indicator
-athex_athexsecurities_relaxed_ids_v5_2.otc_posttrade_indicator.size = 4
+-- Size: Otc Post Trade Indicator
+athex_athexsecurities_relaxed_ids_v5_2.otc_post_trade_indicator.size = 4
 
--- Display: Otc Posttrade Indicator
-athex_athexsecurities_relaxed_ids_v5_2.otc_posttrade_indicator.display = function(value)
-  return "Otc Posttrade Indicator: "..value
+-- Display: Otc Post Trade Indicator
+athex_athexsecurities_relaxed_ids_v5_2.otc_post_trade_indicator.display = function(value)
+  return "Otc Post Trade Indicator: "..value
 end
 
--- Dissect: Otc Posttrade Indicator
-athex_athexsecurities_relaxed_ids_v5_2.otc_posttrade_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = athex_athexsecurities_relaxed_ids_v5_2.otc_posttrade_indicator.size
+-- Dissect: Otc Post Trade Indicator
+athex_athexsecurities_relaxed_ids_v5_2.otc_post_trade_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = athex_athexsecurities_relaxed_ids_v5_2.otc_post_trade_indicator.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_athex_athexsecurities_relaxed_ids_v5_2.fields.otc_posttrade_indicator, range, value, "Otc Posttrade Indicator: Not Applicable")
-    item:add_proto_expert_info(athex_athexsecurities_relaxed_ids_v5_2.experts.not_a_number, "Otc Posttrade Indicator is not a number: '"..range:string().."'")
+    local item = parent:add(omi_athex_athexsecurities_relaxed_ids_v5_2.fields.otc_post_trade_indicator, range, value, "Otc Post Trade Indicator: Not Applicable")
+    item:add_proto_expert_info(athex_athexsecurities_relaxed_ids_v5_2.experts.not_a_number, "Otc Post Trade Indicator is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = athex_athexsecurities_relaxed_ids_v5_2.otc_posttrade_indicator.display(value, buffer, offset, packet, parent)
+  local display = athex_athexsecurities_relaxed_ids_v5_2.otc_post_trade_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_athex_athexsecurities_relaxed_ids_v5_2.fields.otc_posttrade_indicator, range, value, display)
+  parent:add(omi_athex_athexsecurities_relaxed_ids_v5_2.fields.otc_post_trade_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2175,7 +2175,7 @@ athex_athexsecurities_relaxed_ids_v5_2.apa_post_trade_message.size =
   athex_athexsecurities_relaxed_ids_v5_2.expiry_date.size + 
   athex_athexsecurities_relaxed_ids_v5_2.delivery_type.size + 
   athex_athexsecurities_relaxed_ids_v5_2.type_emission_allowance.size + 
-  athex_athexsecurities_relaxed_ids_v5_2.otc_posttrade_indicator.size + 
+  athex_athexsecurities_relaxed_ids_v5_2.otc_post_trade_indicator.size + 
   athex_athexsecurities_relaxed_ids_v5_2.deferral_indicator.size + 
   athex_athexsecurities_relaxed_ids_v5_2.lmtf.size + 
   athex_athexsecurities_relaxed_ids_v5_2.fulf.size + 
@@ -2294,8 +2294,8 @@ athex_athexsecurities_relaxed_ids_v5_2.apa_post_trade_message.fields = function(
   -- Type Emission Allowance: {ALPHANUM-4}
   index, type_emission_allowance = athex_athexsecurities_relaxed_ids_v5_2.type_emission_allowance.dissect(buffer, index, packet, parent)
 
-  -- Otc Posttrade Indicator: {INTEGER-4}
-  index, otc_posttrade_indicator = athex_athexsecurities_relaxed_ids_v5_2.otc_posttrade_indicator.dissect(buffer, index, packet, parent)
+  -- Otc Post Trade Indicator: {INTEGER-4}
+  index, otc_post_trade_indicator = athex_athexsecurities_relaxed_ids_v5_2.otc_post_trade_indicator.dissect(buffer, index, packet, parent)
 
   -- Deferral Indicator: {INTEGER-1}
   index, deferral_indicator = athex_athexsecurities_relaxed_ids_v5_2.deferral_indicator.dissect(buffer, index, packet, parent)

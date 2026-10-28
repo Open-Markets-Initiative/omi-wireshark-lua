@@ -1605,7 +1605,7 @@ tmx_mx_solamulticast_hsvf_v1_12_2.group_status.size = 1
 -- Display: Group Status
 tmx_mx_solamulticast_hsvf_v1_12_2.group_status.display = function(value)
   if value == "Y" then
-    return "Group Status: Preopening (Y)"
+    return "Group Status: Pre Opening (Y)"
   end
   if value == "O" then
     return "Group Status: Opening (O)"
@@ -1626,7 +1626,7 @@ tmx_mx_solamulticast_hsvf_v1_12_2.group_status.display = function(value)
     return "Group Status: Surveillance Intervention (A)"
   end
   if value == "C" then
-    return "Group Status: Endof Day Inquiries (C)"
+    return "Group Status: End Of Day Inquiries (C)"
   end
   if value == " " then
     return "Group Status: If Not Used (<whitespace>)"
@@ -4699,7 +4699,7 @@ tmx_mx_solamulticast_hsvf_v1_12_2.series_status.size = 1
 -- Display: Series Status
 tmx_mx_solamulticast_hsvf_v1_12_2.series_status.display = function(value)
   if value == "Y" then
-    return "Series Status: Preopening (Y)"
+    return "Series Status: Pre Opening (Y)"
   end
   if value == "O" then
     return "Series Status: Opening (O)"
@@ -4726,7 +4726,7 @@ tmx_mx_solamulticast_hsvf_v1_12_2.series_status.display = function(value)
     return "Series Status: Surveillance Intervention (A)"
   end
   if value == "C" then
-    return "Series Status: Endof Day Inquiries (C)"
+    return "Series Status: End Of Day Inquiries (C)"
   end
   if value == " " then
     return "Series Status: If Not Used (<whitespace>)"

@@ -287,7 +287,7 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.trading_unit = Pro
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.trading_volume = ProtoField.new("Trading Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.018.tradingvolume", ftypes.UINT32, nil, nil, nil, "Trading volume.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.transaction_status_type_code = ProtoField.new("Transaction Status Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.018.transactionstatustypecode", ftypes.STRING, nil, nil, nil, "Transaction Status Type Code 00: Data occurred on the previous day 01: Data occurred during the regular session 02: Confirmed Data E1: Transmission completed regular session data E2: Transmission comp.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.type_code_of_settlement_price_after_exercising_an_option = ProtoField.new("Type Code Of Settlement Price After Exercising An Option", "koscom.mdcsrealtime.nightderivatives.exture.v2.018.typecodeofsettlementpriceafterexercisinganoption", ftypes.STRING, nil, nil, nil, "Type Code of Settlement Price after Exercising an Option 1: KOSPI200 Closing Price Index 2: No KOSPI200 3: Sprecial Quotation 4: Adjusted closing price 5: closing price on the recent day.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.type_of_liquidityproviding_lp = ProtoField.new("Type Of Liquidityproviding Lp", "koscom.mdcsrealtime.nightderivatives.exture.v2.018.typeofliquidityprovidinglp", ftypes.STRING, nil, nil, nil, "0: An issue which is not designated as a subject to the LP until the effective date. 1: An issues which is designated as a subject to the LP on the effective date 2: An issues which had been designate.")
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.type_of_liquidity_providing_lp = ProtoField.new("Type Of Liquidity Providing Lp", "koscom.mdcsrealtime.nightderivatives.exture.v2.018.typeofliquidityprovidinglp", ftypes.STRING, nil, nil, nil, "0: An issue which is not designated as a subject to the LP until the effective date. 1: An issues which is designated as a subject to the LP on the effective date 2: An issues which had been designate.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.underlying_asset_id = ProtoField.new("Underlying Asset Id", "koscom.mdcsrealtime.nightderivatives.exture.v2.018.underlyingassetid", ftypes.STRING, nil, nil, nil, "Underlying Asset ID of Derivatives.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.underlying_asset_market_id = ProtoField.new("Underlying Asset Market Id", "koscom.mdcsrealtime.nightderivatives.exture.v2.018.underlyingassetmarketid", ftypes.STRING, nil, nil, nil, "Underlying Asset Market ID.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.underlying_asset_product_id = ProtoField.new("Underlying Asset Product Id", "koscom.mdcsrealtime.nightderivatives.exture.v2.018.underlyingassetproductid", ftypes.STRING, nil, nil, nil, "Underlying Asset_Product ID.")
@@ -9698,25 +9698,25 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_code_of_settlement_price
   return offset + length, value
 end
 
--- Type Of Liquidityproviding Lp
-koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidityproviding_lp = {}
+-- Type Of Liquidity Providing Lp
+koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidity_providing_lp = {}
 
--- Size: Type Of Liquidityproviding Lp
-koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidityproviding_lp.size = 1
+-- Size: Type Of Liquidity Providing Lp
+koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidity_providing_lp.size = 1
 
--- Display: Type Of Liquidityproviding Lp
-koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidityproviding_lp.display = function(value)
-  return "Type Of Liquidityproviding Lp: "..value
+-- Display: Type Of Liquidity Providing Lp
+koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidity_providing_lp.display = function(value)
+  return "Type Of Liquidity Providing Lp: "..value
 end
 
--- Dissect: Type Of Liquidityproviding Lp
-koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidityproviding_lp.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidityproviding_lp.size
+-- Dissect: Type Of Liquidity Providing Lp
+koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidity_providing_lp.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidity_providing_lp.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_nightderivatives_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidityproviding_lp.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidity_providing_lp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.type_of_liquidityproviding_lp, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.type_of_liquidity_providing_lp, range, value, display)
 
   return offset + length, value
 end
@@ -10964,7 +10964,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.derivatives_batch_data_messag
   koscom_mdcsrealtime_nightderivatives_exture_v2_018.base_price_adjustment_type_code.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_unit.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_multiplier.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidityproviding_lp.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidity_providing_lp.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_018.listing_type_code.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_018.atm.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_018.adjustment_reason_code.size + 
@@ -11173,8 +11173,8 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.derivatives_batch_data_messag
   -- Trading Multiplier: FLOAT128
   index, trading_multiplier = koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Type Of Liquidityproviding Lp: String
-  index, type_of_liquidityproviding_lp = koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidityproviding_lp.dissect(buffer, index, packet, parent)
+  -- Type Of Liquidity Providing Lp: String
+  index, type_of_liquidity_providing_lp = koscom_mdcsrealtime_nightderivatives_exture_v2_018.type_of_liquidity_providing_lp.dissect(buffer, index, packet, parent)
 
   -- Listing Type Code: String
   index, listing_type_code = koscom_mdcsrealtime_nightderivatives_exture_v2_018.listing_type_code.dissect(buffer, index, packet, parent)

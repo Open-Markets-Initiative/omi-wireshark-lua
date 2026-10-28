@@ -83,8 +83,8 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.mwcb_level_1 = ProtoField.new("Mwcb Lev
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "nasdaq.uqdf.output.utp.v3.0.c.mwcblevel2", ftypes.UINT64, nil, nil, nil, "MWCB Level 2 (13% decline) price")
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "nasdaq.uqdf.output.utp.v3.0.c.mwcblevel3", ftypes.UINT64, nil, nil, nil, "MWCB Level 3 (20% decline) price")
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.mwcb_status_level_indicator = ProtoField.new("Mwcb Status Level Indicator", "nasdaq.uqdf.output.utp.v3.0.c.mwcbstatuslevelindicator", ftypes.STRING)
-omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_bbo_appendage_longform = ProtoField.new("National Bbo Appendage Longform", "nasdaq.uqdf.output.utp.v3.0.c.nationalbboappendagelongform", ftypes.STRING, nil, nil, nil, "National BBO Appendage Long-form")
-omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_bbo_appendage_shortform = ProtoField.new("National Bbo Appendage Shortform", "nasdaq.uqdf.output.utp.v3.0.c.nationalbboappendageshortform", ftypes.STRING, nil, nil, nil, "National BBO Appendage Short-form")
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_bbo_appendage_long_form = ProtoField.new("National Bbo Appendage Long Form", "nasdaq.uqdf.output.utp.v3.0.c.nationalbboappendagelongform", ftypes.STRING, nil, nil, nil, "National BBO Appendage Long-form")
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_bbo_appendage_short_form = ProtoField.new("National Bbo Appendage Short Form", "nasdaq.uqdf.output.utp.v3.0.c.nationalbboappendageshortform", ftypes.STRING, nil, nil, nil, "National BBO Appendage Short-form")
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_best_ask_market_center = ProtoField.new("National Best Ask Market Center", "nasdaq.uqdf.output.utp.v3.0.c.nationalbestaskmarketcenter", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_best_ask_price_long = ProtoField.new("National Best Ask Price Long", "nasdaq.uqdf.output.utp.v3.0.c.nationalbestaskpricelong", ftypes.DOUBLE, nil, nil, nil, "National Best Ask Price")
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_best_ask_price_short = ProtoField.new("National Best Ask Price Short", "nasdaq.uqdf.output.utp.v3.0.c.nationalbestaskpriceshort", ftypes.DOUBLE, nil, nil, nil, "National Best Ask Price, 2 implied decimal places")
@@ -174,8 +174,8 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.quote_wipe_out_message = ProtoField.new
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.uqdf.output.utp.v3.0.c.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING, nil, nil, nil, "Reg SHO Restriction Indicator Message indicating the Rule 201 status for NASDAQ-listed securities")
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.session_close_recap_message = ProtoField.new("Session Close Recap Message", "nasdaq.uqdf.output.utp.v3.0.c.sessioncloserecapmessage", ftypes.STRING, nil, nil, nil, "Session Close Recap Message reflecting the National BBO quotation information at the close of the normal market session, with attachments for each UTP participant's most recent quote update")
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "nasdaq.uqdf.output.utp.v3.0.c.startofdaymessage", ftypes.STRING, nil, nil, nil, "Signifies the beginning of each operational cycle for SIP Processing")
-omi_nasdaq_uqdf_output_utp_v3_0_c.fields.utp_quote_longform_message = ProtoField.new("Utp Quote Longform Message", "nasdaq.uqdf.output.utp.v3.0.c.utpquotelongformmessage", ftypes.STRING, nil, nil, nil, "Long-format UTP Quotation Message. To be retired with the Odd Lot Release on April 27, 2026.")
-omi_nasdaq_uqdf_output_utp_v3_0_c.fields.utp_quote_shortform_message = ProtoField.new("Utp Quote Shortform Message", "nasdaq.uqdf.output.utp.v3.0.c.utpquoteshortformmessage", ftypes.STRING, nil, nil, nil, "Short-format UTP Quotation Message. Used to disseminate quotation data for NASDAQ listed securities. To be retired with the Odd Lot Release on April 27, 2026.")
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.utp_quote_long_form_message = ProtoField.new("Utp Quote Long Form Message", "nasdaq.uqdf.output.utp.v3.0.c.utpquotelongformmessage", ftypes.STRING, nil, nil, nil, "Long-format UTP Quotation Message. To be retired with the Odd Lot Release on April 27, 2026.")
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.utp_quote_short_form_message = ProtoField.new("Utp Quote Short Form Message", "nasdaq.uqdf.output.utp.v3.0.c.utpquoteshortformmessage", ftypes.STRING, nil, nil, nil, "Short-format UTP Quotation Message. Used to disseminate quotation data for NASDAQ listed securities. To be retired with the Odd Lot Release on April 27, 2026.")
 
 -- Nasdaq Uqdf Output 3.0.c Session Messages
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.uqdf.output.utp.v3.0.c.endofsession", ftypes.BYTES, nil, nil, nil, "Mold Udp64 end of session")
@@ -2681,10 +2681,10 @@ nasdaq_uqdf_output_utp_v3_0_c.quote_condition.labels = {
   ["H"] = "Quote Condition: Manual Bid And Ask (H)",
   ["I"] = "Quote Condition: Order Imbalance (I)",
   ["L"] = "Quote Condition: Closed Quote (L)",
-  ["N"] = "Quote Condition: Nonfirm Quote (N)",
+  ["N"] = "Quote Condition: Non Firm Quote (N)",
   ["O"] = "Quote Condition: Opening Quote Automated (O)",
-  ["R"] = "Quote Condition: Regular Twosided Open Quote Automated (R)",
-  ["U"] = "Quote Condition: Manual Bid And Ask Nonfirm (U)",
+  ["R"] = "Quote Condition: Regular Two Sided Open Quote Automated (R)",
+  ["U"] = "Quote Condition: Manual Bid And Ask Non Firm (U)",
   ["X"] = "Quote Condition: Order Influx (X)",
   ["Y"] = "Quote Condition: Automated Bid No Offer Or Automated Offer No Bid (Y)",
   ["Z"] = "Quote Condition: No Open No Resume (Z)",
@@ -3102,7 +3102,7 @@ nasdaq_uqdf_output_utp_v3_0_c.sip_generated_update_flag.display = function(value
     return "Sip Generated Update Flag: Transaction Originated From Market Participant (<whitespace>)"
   end
   if value == "E" then
-    return "Sip Generated Update Flag: Si Pgenerated Transaction Eg Price Band Change (E)"
+    return "Sip Generated Update Flag: Sip Generated Transaction Eg Price Band Change (E)"
   end
 
   return "Sip Generated Update Flag: Unknown("..value..")"
@@ -3153,7 +3153,7 @@ nasdaq_uqdf_output_utp_v3_0_c.special_condition.size = 1
 -- Display: Special Condition
 nasdaq_uqdf_output_utp_v3_0_c.special_condition.display = function(value)
   if value == "O" then
-    return "Special Condition: Onesided National Bbo At Market Close (O)"
+    return "Special Condition: One Sided National Bbo At Market Close (O)"
   end
   if value == "H" then
     return "Special Condition: Trading Halt In Effect At Market Close (H)"
@@ -5611,11 +5611,11 @@ nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.dissect = function(buffer
   end
 end
 
--- National Bbo Appendage Longform
-nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform = {}
+-- National Bbo Appendage Long Form
+nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form = {}
 
--- Size: National Bbo Appendage Longform
-nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.size =
+-- Size: National Bbo Appendage Long Form
+nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.size =
   nasdaq_uqdf_output_utp_v3_0_c.nbbo_quote_condition.size + 
   nasdaq_uqdf_output_utp_v3_0_c.national_best_bid_market_center.size + 
   nasdaq_uqdf_output_utp_v3_0_c.national_best_bid_price_long.size + 
@@ -5624,13 +5624,13 @@ nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.size =
   nasdaq_uqdf_output_utp_v3_0_c.national_best_ask_price_long.size + 
   nasdaq_uqdf_output_utp_v3_0_c.national_best_ask_size_long.size
 
--- Display: National Bbo Appendage Longform
-nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.display = function(packet, parent, length)
+-- Display: National Bbo Appendage Long Form
+nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: National Bbo Appendage Longform
-nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: National Bbo Appendage Long Form
+nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nbbo Quote Condition: byte
@@ -5657,29 +5657,29 @@ nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.fields = function(
   return index
 end
 
--- Dissect: National Bbo Appendage Longform
-nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.dissect = function(buffer, offset, packet, parent)
+-- Dissect: National Bbo Appendage Long Form
+nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_bbo_appendage_longform, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_bbo_appendage_long_form, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.display(packet, parent, length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.fields(buffer, offset, packet, parent)
   end
 end
 
--- National Bbo Appendage Shortform
-nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform = {}
+-- National Bbo Appendage Short Form
+nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form = {}
 
--- Size: National Bbo Appendage Shortform
-nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.size =
+-- Size: National Bbo Appendage Short Form
+nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.size =
   nasdaq_uqdf_output_utp_v3_0_c.nbbo_quote_condition.size + 
   nasdaq_uqdf_output_utp_v3_0_c.national_best_bid_market_center.size + 
   nasdaq_uqdf_output_utp_v3_0_c.national_best_bid_price_short.size + 
@@ -5688,13 +5688,13 @@ nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.size =
   nasdaq_uqdf_output_utp_v3_0_c.national_best_ask_price_short.size + 
   nasdaq_uqdf_output_utp_v3_0_c.national_best_ask_size_short.size
 
--- Display: National Bbo Appendage Shortform
-nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.display = function(packet, parent, length)
+-- Display: National Bbo Appendage Short Form
+nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: National Bbo Appendage Shortform
-nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: National Bbo Appendage Short Form
+nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nbbo Quote Condition: byte
@@ -5721,21 +5721,21 @@ nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.fields = function
   return index
 end
 
--- Dissect: National Bbo Appendage Shortform
-nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.dissect = function(buffer, offset, packet, parent)
+-- Dissect: National Bbo Appendage Short Form
+nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_bbo_appendage_shortform, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_bbo_appendage_short_form, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.display(packet, parent, length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5791,14 +5791,14 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_long_form_message.size = fu
   local nbbo_appendage_indicator = buffer(offset + 73, 1):string()
 
   if nbbo_appendage_indicator == "2" then
-    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.size
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.size
 
   end
 
   local nbbo_appendage_indicator = buffer(offset + 73, 1):string()
 
   if nbbo_appendage_indicator == "3" then
-    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.size
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.size
 
   end
 
@@ -5932,22 +5932,22 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_long_form_message.fields = 
   -- Odd Lot Attachment Count: short
   index, odd_lot_attachment_count = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field: National Bbo Appendage Shortform
-  local national_bbo_appendage_shortform = nil
+  -- Runtime optional field: National Bbo Appendage Short Form
+  local national_bbo_appendage_short_form = nil
 
-  local national_bbo_appendage_shortform_exists = nbbo_appendage_indicator == "2"
+  local national_bbo_appendage_short_form_exists = nbbo_appendage_indicator == "2"
 
-  if national_bbo_appendage_shortform_exists then
-    index, national_bbo_appendage_shortform = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.dissect(buffer, index, packet, parent)
+  if national_bbo_appendage_short_form_exists then
+    index, national_bbo_appendage_short_form = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: National Bbo Appendage Longform
-  local national_bbo_appendage_longform = nil
+  -- Runtime optional field: National Bbo Appendage Long Form
+  local national_bbo_appendage_long_form = nil
 
-  local national_bbo_appendage_longform_exists = nbbo_appendage_indicator == "3"
+  local national_bbo_appendage_long_form_exists = nbbo_appendage_indicator == "3"
 
-  if national_bbo_appendage_longform_exists then
-    index, national_bbo_appendage_longform = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.dissect(buffer, index, packet, parent)
+  if national_bbo_appendage_long_form_exists then
+    index, national_bbo_appendage_long_form = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Finra Adf Mpid Appendage
@@ -6094,14 +6094,14 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_short_form_message.size = f
   local nbbo_appendage_indicator = buffer(offset + 43, 1):string()
 
   if nbbo_appendage_indicator == "2" then
-    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.size
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.size
 
   end
 
   local nbbo_appendage_indicator = buffer(offset + 43, 1):string()
 
   if nbbo_appendage_indicator == "3" then
-    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.size
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.size
 
   end
 
@@ -6222,22 +6222,22 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_short_form_message.fields =
   -- Odd Lot Attachment Count: short
   index, odd_lot_attachment_count = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field: National Bbo Appendage Shortform
-  local national_bbo_appendage_shortform = nil
+  -- Runtime optional field: National Bbo Appendage Short Form
+  local national_bbo_appendage_short_form = nil
 
-  local national_bbo_appendage_shortform_exists = nbbo_appendage_indicator == "2"
+  local national_bbo_appendage_short_form_exists = nbbo_appendage_indicator == "2"
 
-  if national_bbo_appendage_shortform_exists then
-    index, national_bbo_appendage_shortform = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.dissect(buffer, index, packet, parent)
+  if national_bbo_appendage_short_form_exists then
+    index, national_bbo_appendage_short_form = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: National Bbo Appendage Longform
-  local national_bbo_appendage_longform = nil
+  -- Runtime optional field: National Bbo Appendage Long Form
+  local national_bbo_appendage_long_form = nil
 
-  local national_bbo_appendage_longform_exists = nbbo_appendage_indicator == "3"
+  local national_bbo_appendage_long_form_exists = nbbo_appendage_indicator == "3"
 
-  if national_bbo_appendage_longform_exists then
-    index, national_bbo_appendage_longform = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.dissect(buffer, index, packet, parent)
+  if national_bbo_appendage_long_form_exists then
+    index, national_bbo_appendage_long_form = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Bolo Appendage Short Form
@@ -6415,11 +6415,11 @@ nasdaq_uqdf_output_utp_v3_0_c.finra_adf_market_participant_quotation_message.dis
   end
 end
 
--- Utp Quote Longform Message
-nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message = {}
+-- Utp Quote Long Form Message
+nasdaq_uqdf_output_utp_v3_0_c.utp_quote_long_form_message = {}
 
--- Calculate size of: Utp Quote Longform Message
-nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.size = function(buffer, offset)
+-- Calculate size of: Utp Quote Long Form Message
+nasdaq_uqdf_output_utp_v3_0_c.utp_quote_long_form_message.size = function(buffer, offset)
   local index = 0
 
   index = index + nasdaq_uqdf_output_utp_v3_0_c.market_center_originator.size
@@ -6461,27 +6461,27 @@ nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.size = function(buffer,
   local nbbo_appendage_indicator = buffer(offset + 73, 1):string()
 
   if nbbo_appendage_indicator == "2" then
-    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.size
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.size
 
   end
 
   local nbbo_appendage_indicator = buffer(offset + 73, 1):string()
 
   if nbbo_appendage_indicator == "3" then
-    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.size
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.size
 
   end
 
   return index
 end
 
--- Display: Utp Quote Longform Message
-nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.display = function(packet, parent, length)
+-- Display: Utp Quote Long Form Message
+nasdaq_uqdf_output_utp_v3_0_c.utp_quote_long_form_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Utp Quote Longform Message
-nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Utp Quote Long Form Message
+nasdaq_uqdf_output_utp_v3_0_c.utp_quote_long_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Market Center Originator: byte
@@ -6538,50 +6538,50 @@ nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.fields = function(buffe
   -- Finra Adf Mpid Appendage Indicator: byte
   index, finra_adf_mpid_appendage_indicator = nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage_indicator.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field: National Bbo Appendage Shortform
-  local national_bbo_appendage_shortform = nil
+  -- Runtime optional field: National Bbo Appendage Short Form
+  local national_bbo_appendage_short_form = nil
 
-  local national_bbo_appendage_shortform_exists = nbbo_appendage_indicator == "2"
+  local national_bbo_appendage_short_form_exists = nbbo_appendage_indicator == "2"
 
-  if national_bbo_appendage_shortform_exists then
-    index, national_bbo_appendage_shortform = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.dissect(buffer, index, packet, parent)
+  if national_bbo_appendage_short_form_exists then
+    index, national_bbo_appendage_short_form = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: National Bbo Appendage Longform
-  local national_bbo_appendage_longform = nil
+  -- Runtime optional field: National Bbo Appendage Long Form
+  local national_bbo_appendage_long_form = nil
 
-  local national_bbo_appendage_longform_exists = nbbo_appendage_indicator == "3"
+  local national_bbo_appendage_long_form_exists = nbbo_appendage_indicator == "3"
 
-  if national_bbo_appendage_longform_exists then
-    index, national_bbo_appendage_longform = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.dissect(buffer, index, packet, parent)
+  if national_bbo_appendage_long_form_exists then
+    index, national_bbo_appendage_long_form = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.dissect(buffer, index, packet, parent)
   end
 
   return index
 end
 
--- Dissect: Utp Quote Longform Message
-nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Utp Quote Long Form Message
+nasdaq_uqdf_output_utp_v3_0_c.utp_quote_long_form_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.utp_quote_longform_message, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.utp_quote_long_form_message, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_long_form_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.display(packet, parent, length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_long_form_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v3_0_c.utp_quote_long_form_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Utp Quote Shortform Message
-nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message = {}
+-- Utp Quote Short Form Message
+nasdaq_uqdf_output_utp_v3_0_c.utp_quote_short_form_message = {}
 
--- Calculate size of: Utp Quote Shortform Message
-nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.size = function(buffer, offset)
+-- Calculate size of: Utp Quote Short Form Message
+nasdaq_uqdf_output_utp_v3_0_c.utp_quote_short_form_message.size = function(buffer, offset)
   local index = 0
 
   index = index + nasdaq_uqdf_output_utp_v3_0_c.market_center_originator.size
@@ -6619,27 +6619,27 @@ nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.size = function(buffer
   local nbbo_appendage_indicator = buffer(offset + 43, 1):string()
 
   if nbbo_appendage_indicator == "2" then
-    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.size
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.size
 
   end
 
   local nbbo_appendage_indicator = buffer(offset + 43, 1):string()
 
   if nbbo_appendage_indicator == "3" then
-    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.size
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.size
 
   end
 
   return index
 end
 
--- Display: Utp Quote Shortform Message
-nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.display = function(packet, parent, length)
+-- Display: Utp Quote Short Form Message
+nasdaq_uqdf_output_utp_v3_0_c.utp_quote_short_form_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Utp Quote Shortform Message
-nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Utp Quote Short Form Message
+nasdaq_uqdf_output_utp_v3_0_c.utp_quote_short_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Market Center Originator: byte
@@ -6690,42 +6690,42 @@ nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.fields = function(buff
   -- Luld National Bbo Indicator: byte
   index, luld_national_bbo_indicator = nasdaq_uqdf_output_utp_v3_0_c.luld_national_bbo_indicator.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field: National Bbo Appendage Shortform
-  local national_bbo_appendage_shortform = nil
+  -- Runtime optional field: National Bbo Appendage Short Form
+  local national_bbo_appendage_short_form = nil
 
-  local national_bbo_appendage_shortform_exists = nbbo_appendage_indicator == "2"
+  local national_bbo_appendage_short_form_exists = nbbo_appendage_indicator == "2"
 
-  if national_bbo_appendage_shortform_exists then
-    index, national_bbo_appendage_shortform = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.dissect(buffer, index, packet, parent)
+  if national_bbo_appendage_short_form_exists then
+    index, national_bbo_appendage_short_form = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_short_form.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: National Bbo Appendage Longform
-  local national_bbo_appendage_longform = nil
+  -- Runtime optional field: National Bbo Appendage Long Form
+  local national_bbo_appendage_long_form = nil
 
-  local national_bbo_appendage_longform_exists = nbbo_appendage_indicator == "3"
+  local national_bbo_appendage_long_form_exists = nbbo_appendage_indicator == "3"
 
-  if national_bbo_appendage_longform_exists then
-    index, national_bbo_appendage_longform = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.dissect(buffer, index, packet, parent)
+  if national_bbo_appendage_long_form_exists then
+    index, national_bbo_appendage_long_form = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_long_form.dissect(buffer, index, packet, parent)
   end
 
   return index
 end
 
--- Dissect: Utp Quote Shortform Message
-nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Utp Quote Short Form Message
+nasdaq_uqdf_output_utp_v3_0_c.utp_quote_short_form_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.utp_quote_shortform_message, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.utp_quote_short_form_message, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_short_form_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.display(packet, parent, length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_short_form_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v3_0_c.utp_quote_short_form_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6734,8 +6734,8 @@ nasdaq_uqdf_output_utp_v3_0_c.quote_message_payload = {}
 
 -- Dispatch: Quote Message Payload
 nasdaq_uqdf_output_utp_v3_0_c.quote_message_payload.dispatch = {
-  ["E"] = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.dissect,
-  ["F"] = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.dissect,
+  ["E"] = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_short_form_message.dissect,
+  ["F"] = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_long_form_message.dissect,
   ["M"] = nasdaq_uqdf_output_utp_v3_0_c.finra_adf_market_participant_quotation_message.dissect,
   ["C"] = nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_short_form_message.dissect,
   ["D"] = nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_long_form_message.dissect,

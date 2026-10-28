@@ -45,7 +45,7 @@ omi_bme_meff_marketandorder_bmegate_v1_6.fields.ask_size_4 = ProtoField.new("Ask
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.ask_size_5 = ProtoField.new("Ask Size 5", "bme.meff.marketandorder.bmegate.v1.6.asksize5", ftypes.UINT32, nil, nil, nil, "Sell volume level 5")
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.base_currency = ProtoField.new("Base Currency", "bme.meff.marketandorder.bmegate.v1.6.basecurrency", ftypes.STRING)
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.base_product = ProtoField.new("Base Product", "bme.meff.marketandorder.bmegate.v1.6.baseproduct", ftypes.STRING)
-omi_bme_meff_marketandorder_bmegate_v1_6.fields.bencrfpt_flag = ProtoField.new("Bencrfpt Flag", "bme.meff.marketandorder.bmegate.v1.6.bencrfptflag", ftypes.STRING, nil, nil, nil, "Benchmark or Reference Price Indicator MMT")
+omi_bme_meff_marketandorder_bmegate_v1_6.fields.benc_rfpt_flag = ProtoField.new("Benc Rfpt Flag", "bme.meff.marketandorder.bmegate.v1.6.bencrfptflag", ftypes.STRING, nil, nil, nil, "Benchmark or Reference Price Indicator MMT")
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.bid_orders_1 = ProtoField.new("Bid Orders 1", "bme.meff.marketandorder.bmegate.v1.6.bidorders1", ftypes.UINT16, nil, nil, nil, "Buy number of orders")
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.bid_orders_2 = ProtoField.new("Bid Orders 2", "bme.meff.marketandorder.bmegate.v1.6.bidorders2", ftypes.UINT16, nil, nil, nil, "Buy number of orders level 2")
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.bid_orders_3 = ProtoField.new("Bid Orders 3", "bme.meff.marketandorder.bmegate.v1.6.bidorders3", ftypes.UINT16, nil, nil, nil, "Buy number of orders level 3")
@@ -348,9 +348,9 @@ omi_bme_meff_marketandorder_bmegate_v1_6.fields.simple_order_modification_messag
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.simple_order_modification_with_client_data_message = ProtoField.new("Simple Order Modification With Client Data Message", "bme.meff.marketandorder.bmegate.v1.6.simpleordermodificationwithclientdatamessage", ftypes.STRING, nil, nil, nil, "Message sent by the client to modify an order. The field OrderID must contain the client reference of the order that is to be modified")
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.simple_order_status_message = ProtoField.new("Simple Order Status Message", "bme.meff.marketandorder.bmegate.v1.6.simpleorderstatusmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about the order status. Please note that the first fields of this message are the same as the ones for Order Market Pre- Transparency Information (Msg Type = 0x03) (see section 5.4.12)")
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.statistics_message = ProtoField.new("Statistics Message", "bme.meff.marketandorder.bmegate.v1.6.statisticsmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform about closing prices and other statistics")
-omi_bme_meff_marketandorder_bmegate_v1_6.fields.topofbook_message = ProtoField.new("Topofbook Message", "bme.meff.marketandorder.bmegate.v1.6.topofbookmessage", ftypes.STRING, nil, nil, nil, "Used by the UDP Servers to communicate Top-of-book price information during auctions. When there is an indicative match price, the fields BidPx1 and AskPx1 will have the same value")
+omi_bme_meff_marketandorder_bmegate_v1_6.fields.top_of_book_message = ProtoField.new("Top Of Book Message", "bme.meff.marketandorder.bmegate.v1.6.topofbookmessage", ftypes.STRING, nil, nil, nil, "Used by the UDP Servers to communicate Top-of-book price information during auctions. When there is an indicative match price, the fields BidPx1 and AskPx1 will have the same value")
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.trade_market_post_transparency_information_full_depth_message = ProtoField.new("Trade Market Post Transparency Information Full Depth Message", "bme.meff.marketandorder.bmegate.v1.6.trademarketposttransparencyinformationfulldepthmessage", ftypes.STRING, nil, nil, nil, "Used by the server to communicate trade information related to trades resulting from order matching. The message also contains the situation in which the relevant orders will remain in the books")
-omi_bme_meff_marketandorder_bmegate_v1_6.fields.trade_market_post_transparency_information_topofbook_message = ProtoField.new("Trade Market Post Transparency Information Topofbook Message", "bme.meff.marketandorder.bmegate.v1.6.trademarketposttransparencyinformationtopofbookmessage", ftypes.STRING, nil, nil, nil, "Used by the server to communicate trade information related to trades resulting from order matching in channels C/D and E/F. It is also used in channels A/B when the trade is the result of order matching at the end of an auction period (where only top-of-book information is shown)")
+omi_bme_meff_marketandorder_bmegate_v1_6.fields.trade_market_post_transparency_information_top_of_book_message = ProtoField.new("Trade Market Post Transparency Information Top Of Book Message", "bme.meff.marketandorder.bmegate.v1.6.trademarketposttransparencyinformationtopofbookmessage", ftypes.STRING, nil, nil, nil, "Used by the server to communicate trade information related to trades resulting from order matching in channels C/D and E/F. It is also used in channels A/B when the trade is the result of order matching at the end of an auction period (where only top-of-book information is shown)")
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.trade_trade_amendment_or_cancellation_1_leg_buy_private_information_message = ProtoField.new("Trade Trade Amendment Or Cancellation 1 Leg Buy Private Information Message", "bme.meff.marketandorder.bmegate.v1.6.tradetradeamendmentorcancellation1legbuyprivateinformationmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade produced due to any reason other than order matching, also to inform about trades produced due to order matching in a Dark pool. The user is involved in the trade as Buyer. It is also sent to inform about the amendment or cancellation of whatever origin trade where the user is involved as Buyer. Shares the same layout as the next message")
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.trade_trade_amendment_or_cancellation_1_leg_sell_private_information_message = ProtoField.new("Trade Trade Amendment Or Cancellation 1 Leg Sell Private Information Message", "bme.meff.marketandorder.bmegate.v1.6.tradetradeamendmentorcancellation1legsellprivateinformationmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade produced due to any reason other than order matching, also to inform about trades produced due to order matching in a Dark pool. The user is involved in the trade as Seller")
 omi_bme_meff_marketandorder_bmegate_v1_6.fields.trade_trade_amendment_or_cancellation_2_legs_private_information_message = ProtoField.new("Trade Trade Amendment Or Cancellation 2 Legs Private Information Message", "bme.meff.marketandorder.bmegate.v1.6.tradetradeamendmentorcancellation2legsprivateinformationmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade produced due to any reason other than order matching, also to inform about trades produced due to order matching in a Dark pool. The user is involved in the trade both as Buyer and Seller")
@@ -1382,32 +1382,32 @@ bme_meff_marketandorder_bmegate_v1_6.base_product.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Bencrfpt Flag
-bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag = {}
+-- Benc Rfpt Flag
+bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag = {}
 
--- Size: Bencrfpt Flag
-bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.size = 1
+-- Size: Benc Rfpt Flag
+bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.size = 1
 
--- Display: Bencrfpt Flag
-bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.display = function(value)
+-- Display: Benc Rfpt Flag
+bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.display = function(value)
   if value == " " then
-    return "Bencrfpt Flag: Normal Trade (<whitespace>)"
+    return "Benc Rfpt Flag: Normal Trade (<whitespace>)"
   end
   if value == "6" then
-    return "Bencrfpt Flag: Benchmark Trade Benc (6)"
+    return "Benc Rfpt Flag: Benchmark Trade Benc (6)"
   end
 
-  return "Bencrfpt Flag: Unknown("..value..")"
+  return "Benc Rfpt Flag: Unknown("..value..")"
 end
 
--- Dissect: Bencrfpt Flag
-bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.dissect = function(buffer, offset, packet, parent)
-  local length = bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.size
+-- Dissect: Benc Rfpt Flag
+bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.dissect = function(buffer, offset, packet, parent)
+  local length = bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.display(value, buffer, offset, packet, parent)
+  local display = bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bme_meff_marketandorder_bmegate_v1_6.fields.bencrfpt_flag, range, value, display)
+  parent:add(omi_bme_meff_marketandorder_bmegate_v1_6.fields.benc_rfpt_flag, range, value, display)
 
   return offset + length, value
 end
@@ -2205,44 +2205,44 @@ bme_meff_marketandorder_bmegate_v1_6.cfi_code.size = 6
 -- Display: Cfi Code
 bme_meff_marketandorder_bmegate_v1_6.cfi_code.labels = {
   ["FFICSX"] = "Cfi Code: Standard Financial Future On An Index Cash Settlement (FFICSX)",
-  ["FFICNX"] = "Cfi Code: Nonstandardized Financial Future On An Index Cash Settlement (FFICNX)",
+  ["FFICNX"] = "Cfi Code: Non Standardized Financial Future On An Index Cash Settlement (FFICNX)",
   ["KEXXXX"] = "Cfi Code: Strategies (KEXXXX)",
   ["OCEFCS"] = "Cfi Code: Standardized European Call Option On An Index Cash Settlement (OCEFCS)",
-  ["OCEFCN"] = "Cfi Code: Nonstandardized European Call Option On An Index Cash Settlement (OCEFCN)",
+  ["OCEFCN"] = "Cfi Code: Non Standardized European Call Option On An Index Cash Settlement (OCEFCN)",
   ["OPEFCS"] = "Cfi Code: Standardized European Put Option On An Index Cash Settlement (OPEFCS)",
-  ["OPEFCN"] = "Cfi Code: Nonstandardized European Put Option On An Index Cash Settlement (OPEFCN)",
+  ["OPEFCN"] = "Cfi Code: Non Standardized European Put Option On An Index Cash Settlement (OPEFCN)",
   ["TIECPX"] = "Cfi Code: Referential Instrument (TIECPX)",
   ["FFSPSX"] = "Cfi Code: Standardized Financial Future On Stocks Physical Delivery (FFSPSX)",
-  ["FFSPNX"] = "Cfi Code: Nonstandardized Financial Future On Stocks Physical Delivery (FFSPNX)",
+  ["FFSPNX"] = "Cfi Code: Non Standardized Financial Future On Stocks Physical Delivery (FFSPNX)",
   ["FFSCSX"] = "Cfi Code: Standardized Financial Future On Stocks Cash Settlement (FFSCSX)",
-  ["FFSCNX"] = "Cfi Code: Nonstandardized Financial Future On Stocks Cash Settlement (FFSCNX)",
+  ["FFSCNX"] = "Cfi Code: Non Standardized Financial Future On Stocks Cash Settlement (FFSCNX)",
   ["FFVCSX"] = "Cfi Code: Standardized Financial Future On Dividends Cash Settlement (FFVCSX)",
-  ["FFVCNX"] = "Cfi Code: Nonstandardized Financial Future On Dividends Cash Settlement (FFVCNX)",
+  ["FFVCNX"] = "Cfi Code: Non Standardized Financial Future On Dividends Cash Settlement (FFVCNX)",
   ["OCASPS"] = "Cfi Code: Standardized American Call Option On Stocks Physical Delivery (OCASPS)",
-  ["OCASPN"] = "Cfi Code: Nonstandardized American Call Option On Stocks Physical Delivery (OCASPN)",
+  ["OCASPN"] = "Cfi Code: Non Standardized American Call Option On Stocks Physical Delivery (OCASPN)",
   ["OPASPS"] = "Cfi Code: Standardized American Put Option On Stocks Physical Delivery (OPASPS)",
-  ["OPASPN"] = "Cfi Code: Nonstandardized American Put Option On Stocks Physical Delivery (OPASPN)",
+  ["OPASPN"] = "Cfi Code: Non Standardized American Put Option On Stocks Physical Delivery (OPASPN)",
   ["OCESPS"] = "Cfi Code: Standardized European Call Option On Stocks Physical Delivery (OCESPS)",
-  ["OCESPN"] = "Cfi Code: Nonstandardized European Call Option On Stocks Physical Delivery (OCESPN)",
+  ["OCESPN"] = "Cfi Code: Non Standardized European Call Option On Stocks Physical Delivery (OCESPN)",
   ["OPESPS"] = "Cfi Code: Standardized European Put Option On Stocks Physical Delivery (OPESPS)",
-  ["OPESPN"] = "Cfi Code: Nonstandardized European Put Option On Stocks Physical Delivery (OPESPN)",
+  ["OPESPN"] = "Cfi Code: Non Standardized European Put Option On Stocks Physical Delivery (OPESPN)",
   ["OCESCS"] = "Cfi Code: Standardized European Call Option On Stocks Cash Settlement (OCESCS)",
-  ["OCESCN"] = "Cfi Code: Nonstandardized European Call Option On Stocks Cash Settlement (OCESCN)",
+  ["OCESCN"] = "Cfi Code: Non Standardized European Call Option On Stocks Cash Settlement (OCESCN)",
   ["OPESCS"] = "Cfi Code: Standardized European Put Option On Stocks Cash Settlement (OPESCS)",
-  ["OPESCN"] = "Cfi Code: Nonstandardized European Put Option On Stocks Cash Settlement (OPESCN)",
+  ["OPESCN"] = "Cfi Code: Non Standardized European Put Option On Stocks Cash Settlement (OPESCN)",
   ["ESXXXX"] = "Cfi Code: Stocks Cash (ESXXXX)",
   ["TDSXXX"] = "Cfi Code: Referential Instrument Dividend (TDSXXX)",
   ["FFDPSX"] = "Cfi Code: Standardized Financial Future On Fixed Income Physical Delivery (FFDPSX)",
   ["FFDCSX"] = "Cfi Code: Standardized Financial Future On Fixed Income Cash Settlement (FFDCSX)",
-  ["KMXXXX"] = "Cfi Code: Timespread Of Futures On Fixed Income Physical Delivery (KMXXXX)",
+  ["KMXXXX"] = "Cfi Code: Time Spread Of Futures On Fixed Income Physical Delivery (KMXXXX)",
   ["OCEDPS"] = "Cfi Code: Standardized European Call Option On Fixed Income Physical Delivery (OCEDPS)",
   ["OPEDPS"] = "Cfi Code: Standardized European Put Option On Fixed Income Physical Delivery (OPEDPS)",
-  ["OCEDPN"] = "Cfi Code: Nonstandardized European Call Option On Fixed Income Physical Delivery (OCEDPN)",
-  ["OPEDPN"] = "Cfi Code: Nonstandardized European Put Option On Fixed Income Physical Delivery (OPEDPN)",
+  ["OCEDPN"] = "Cfi Code: Non Standardized European Call Option On Fixed Income Physical Delivery (OCEDPN)",
+  ["OPEDPN"] = "Cfi Code: Non Standardized European Put Option On Fixed Income Physical Delivery (OPEDPN)",
   ["OCEDCS"] = "Cfi Code: Standardized European Call Option On Fixed Income Cash Settlement (OCEDCS)",
   ["OPEDCS"] = "Cfi Code: Standardized European Put Option On Fixed Income Cash Settlement (OPEDCS)",
-  ["OCEDCN"] = "Cfi Code: Nonstandardized European Call Option On Fixed Income Cash Settlement (OCEDCN)",
-  ["OPEDCN"] = "Cfi Code: Nonstandardized European Put Option On Fixed Income Cash Settlement (OPEDCN)",
+  ["OCEDCN"] = "Cfi Code: Non Standardized European Call Option On Fixed Income Cash Settlement (OCEDCN)",
+  ["OPEDCN"] = "Cfi Code: Non Standardized European Put Option On Fixed Income Cash Settlement (OPEDCN)",
   ["FFCCSX"] = "Cfi Code: Standardized Financial Future Currency Cash Settlement (FFCCSX)",
   ["IFXXXP"] = "Cfi Code: Currency Spot (IFXXXP)",
   ["FCHCSX"] = "Cfi Code: Standardized Yearly Future On Energy Cash Settlement (FCHCSX)",
@@ -2601,7 +2601,7 @@ bme_meff_marketandorder_bmegate_v1_6.cxl_rej_reason.labels = {
   ["l"] = "Cxl Rej Reason: By Intraday Futures Trading Limit (l)",
   ["m"] = "Cxl Rej Reason: Kill Button (m)",
   ["n"] = "Cxl Rej Reason: By Hft Filter Limit Maximum Number Of Contracts Matched (n)",
-  ["o"] = "Cxl Rej Reason: By Selfmatch Prevention (o)",
+  ["o"] = "Cxl Rej Reason: By Self Match Prevention (o)",
   ["p"] = "Cxl Rej Reason: Auction Price Order Cancelled At The End Of The Auction (p)",
   ["x"] = "Cxl Rej Reason: Invalid Ork Fields (x)",
 }
@@ -3187,7 +3187,7 @@ bme_meff_marketandorder_bmegate_v1_6.exec_type.labels = {
   ["G"] = "Exec Type: Order Modification Deleting Intermediated Member (G)",
   ["F"] = "Exec Type: Order Modification Changing Intermediated Member (F)",
   ["R"] = "Exec Type: Order Refresh (R)",
-  ["D"] = "Exec Type: Stop Order Triggered Attheclose Order Activation (D)",
+  ["D"] = "Exec Type: Stop Order Triggered At The Close Order Activation (D)",
   ["8"] = "Exec Type: Order Rejection (8)",
   ["N"] = "Exec Type: Order Pending Validation (N)",
   ["P"] = "Exec Type: Order Modification Pending Validation (P)",
@@ -3459,14 +3459,14 @@ bme_meff_marketandorder_bmegate_v1_6.family_code.labels = {
   ["SENGQ"] = "Family Code: Swaps Ener Quarterly (SENGQ)",
   ["SENGW"] = "Family Code: Swaps Ener Weekly (SENGW)",
   ["SENGY"] = "Family Code: Swaps Ener Annual (SENGY)",
-  ["TBONO"] = "Family Code: Bono E 10 Timespread Rf (TBONO)",
-  ["TIBX"] = "Family Code: Timespread Ibex 35 (TIBX)",
-  ["TIBXD"] = "Family Code: Timespread Ibex Impacto Div (TIBXD)",
-  ["TIBXM"] = "Family Code: Timespread Mini Ibex 35 (TIBXM)",
-  ["TSTCD"] = "Family Code: Timespread On Stock Dividens (TSTCD)",
-  ["TSTCK"] = "Family Code: Timespread Single Stock (TSTCK)",
+  ["TBONO"] = "Family Code: Bono E 10 Time Spread Rf (TBONO)",
+  ["TIBX"] = "Family Code: Time Spread Ibex 35 (TIBX)",
+  ["TIBXD"] = "Family Code: Time Spread Ibex Impacto Div (TIBXD)",
+  ["TIBXM"] = "Family Code: Time Spread Mini Ibex 35 (TIBXM)",
+  ["TSTCD"] = "Family Code: Time Spread On Stock Dividens (TSTCD)",
+  ["TSTCK"] = "Family Code: Time Spread Single Stock (TSTCK)",
   ["TIBXS"] = "Family Code: Time Spread On Ibex Sector (TIBXS)",
-  ["TIBXC"] = "Family Code: Timespread On Micro Ibex 35 (TIBXC)",
+  ["TIBXC"] = "Family Code: Time Spread On Micro Ibex 35 (TIBXC)",
   ["00001"] = "Family Code: Ibex (00001)",
   ["00002"] = "Family Code: Latibex (00002)",
   ["00003"] = "Family Code: Ftse (00003)",
@@ -5475,7 +5475,7 @@ bme_meff_marketandorder_bmegate_v1_6.message_type.display = function(value)
     return "Message Type: Quote Cancellation Market Member Message (0x05)"
   end
   if value == 0x10 then
-    return "Message Type: Trade Market Post Transparency Information Topofbook Message (0x10)"
+    return "Message Type: Trade Market Post Transparency Information Top Of Book Message (0x10)"
   end
   if value == 0x18 then
     return "Message Type: Trade Trade Amendment Or Cancellation Message (0x18)"
@@ -5490,7 +5490,7 @@ bme_meff_marketandorder_bmegate_v1_6.message_type.display = function(value)
     return "Message Type: Rfq Market Pre Transparency Information Message (0x85)"
   end
   if value == 0x82 then
-    return "Message Type: Topofbook Message (0x82)"
+    return "Message Type: Top Of Book Message (0x82)"
   end
   if value == 0x6F then
     return "Message Type: Order And Quote Client Data Message (0x6F)"
@@ -5865,8 +5865,8 @@ bme_meff_marketandorder_bmegate_v1_6.non_availability_reason.labels = {
   [0] = "Non Availability Reason: Not Halted (0)",
   [100] = "Non Availability Reason: Halted By Regulator (100)",
   [101] = "Non Availability Reason: Halted By Market Surveillance (101)",
-  [102] = "Non Availability Reason: Knockout (102)",
-  [103] = "Non Availability Reason: Knockin Pending (103)",
+  [102] = "Non Availability Reason: Knock Out (102)",
+  [103] = "Non Availability Reason: Knock In Pending (103)",
 }
 
 bme_meff_marketandorder_bmegate_v1_6.non_availability_reason.display = function(value)
@@ -5973,7 +5973,7 @@ bme_meff_marketandorder_bmegate_v1_6.ord_rej_reason.labels = {
   ["l"] = "Ord Rej Reason: By Intraday Futures Trading Limit (l)",
   ["m"] = "Ord Rej Reason: Kill Button (m)",
   ["n"] = "Ord Rej Reason: By Hft Filter Limit Maximum Number Of Contracts Matched (n)",
-  ["o"] = "Ord Rej Reason: By Selfmatch Prevention (o)",
+  ["o"] = "Ord Rej Reason: By Self Match Prevention (o)",
   ["p"] = "Ord Rej Reason: Auction Price Order Cancelled At The End Of The Auction (p)",
   ["x"] = "Ord Rej Reason: Invalid Ork Fields (x)",
   ["L"] = "Ord Rej Reason: Priority Change Due To Change In Price (L)",
@@ -6047,7 +6047,7 @@ bme_meff_marketandorder_bmegate_v1_6.ord_rej_reason_2.labels = {
   ["l"] = "Ord Rej Reason 2: By Intraday Futures Trading Limit (l)",
   ["m"] = "Ord Rej Reason 2: Kill Button (m)",
   ["n"] = "Ord Rej Reason 2: By Hft Filter Limit Maximum Number Of Contracts Matched (n)",
-  ["o"] = "Ord Rej Reason 2: By Selfmatch Prevention (o)",
+  ["o"] = "Ord Rej Reason 2: By Self Match Prevention (o)",
   ["p"] = "Ord Rej Reason 2: Auction Price Order Cancelled At The End Of The Auction (p)",
   ["x"] = "Ord Rej Reason 2: Invalid Ork Fields (x)",
   ["L"] = "Ord Rej Reason 2: Priority Change Due To Change In Price (L)",
@@ -6093,8 +6093,8 @@ bme_meff_marketandorder_bmegate_v1_6.ord_status.labels = {
   ["2"] = "Ord Status: Totally Filled (2)",
   ["4"] = "Ord Status: Cancelled Not Filled (4)",
   ["P"] = "Ord Status: Cancelled Partially Filled (P)",
-  ["A"] = "Ord Status: Nonworking Order Pending Validation (A)",
-  ["S"] = "Ord Status: Nonworking Order Pending Activation (S)",
+  ["A"] = "Ord Status: Non Working Order Pending Validation (A)",
+  ["S"] = "Ord Status: Non Working Order Pending Activation (S)",
   ["C"] = "Ord Status: Expired (C)",
 }
 
@@ -6128,8 +6128,8 @@ bme_meff_marketandorder_bmegate_v1_6.ord_status_2.labels = {
   ["2"] = "Ord Status 2: Totally Filled (2)",
   ["4"] = "Ord Status 2: Cancelled Not Filled (4)",
   ["P"] = "Ord Status 2: Cancelled Partially Filled (P)",
-  ["A"] = "Ord Status 2: Nonworking Order Pending Validation (A)",
-  ["S"] = "Ord Status 2: Nonworking Order Pending Activation (S)",
+  ["A"] = "Ord Status 2: Non Working Order Pending Validation (A)",
+  ["S"] = "Ord Status 2: Non Working Order Pending Activation (S)",
 }
 
 bme_meff_marketandorder_bmegate_v1_6.ord_status_2.display = function(value)
@@ -7722,7 +7722,7 @@ bme_meff_marketandorder_bmegate_v1_6.security_trading_status.labels = {
   [19] = "Security Trading Status: Not Traded On This Segment (19)",
   [20] = "Security Trading Status: Unknown Or Invalid (20)",
   [21] = "Security Trading Status: Pre Open (21)",
-  [26] = "Security Trading Status: Postclose Ready To Trade In Tal (26)",
+  [26] = "Security Trading Status: Post Close Ready To Trade In Tal (26)",
   [23] = "Security Trading Status: Fast Market (23)",
   [100] = "Security Trading Status: Extraordinary Market Conditions (100)",
 }
@@ -10061,7 +10061,7 @@ bme_meff_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_2_leg
   bme_meff_marketandorder_bmegate_v1_6.transaction_category.size + 
   bme_meff_marketandorder_bmegate_v1_6.strategy_trd_match_id.size + 
   bme_meff_marketandorder_bmegate_v1_6.last_change_flag.size + 
-  bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.size + 
+  bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.size + 
   bme_meff_marketandorder_bmegate_v1_6.trade_price_condition.size + 
   bme_meff_marketandorder_bmegate_v1_6.pre_trade_transparency_waiver.size + 
   bme_meff_marketandorder_bmegate_v1_6.deferral_waiver.size + 
@@ -10204,8 +10204,8 @@ bme_meff_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_2_leg
   -- Last Change Flag: F
   index, last_change_flag = bme_meff_marketandorder_bmegate_v1_6.last_change_flag.dissect(buffer, index, packet, parent)
 
-  -- Bencrfpt Flag: C
-  index, bencrfpt_flag = bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.dissect(buffer, index, packet, parent)
+  -- Benc Rfpt Flag: C
+  index, benc_rfpt_flag = bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.dissect(buffer, index, packet, parent)
 
   -- Trade Price Condition: C
   index, trade_price_condition = bme_meff_marketandorder_bmegate_v1_6.trade_price_condition.dissect(buffer, index, packet, parent)
@@ -10501,7 +10501,7 @@ bme_meff_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg
   bme_meff_marketandorder_bmegate_v1_6.transaction_category.size + 
   bme_meff_marketandorder_bmegate_v1_6.strategy_trd_match_id.size + 
   bme_meff_marketandorder_bmegate_v1_6.last_change_flag.size + 
-  bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.size + 
+  bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.size + 
   bme_meff_marketandorder_bmegate_v1_6.trade_price_condition.size + 
   bme_meff_marketandorder_bmegate_v1_6.pre_trade_transparency_waiver.size + 
   bme_meff_marketandorder_bmegate_v1_6.deferral_waiver.size + 
@@ -10609,8 +10609,8 @@ bme_meff_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg
   -- Last Change Flag: F
   index, last_change_flag = bme_meff_marketandorder_bmegate_v1_6.last_change_flag.dissect(buffer, index, packet, parent)
 
-  -- Bencrfpt Flag: C
-  index, bencrfpt_flag = bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.dissect(buffer, index, packet, parent)
+  -- Benc Rfpt Flag: C
+  index, benc_rfpt_flag = bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.dissect(buffer, index, packet, parent)
 
   -- Trade Price Condition: C
   index, trade_price_condition = bme_meff_marketandorder_bmegate_v1_6.trade_price_condition.dissect(buffer, index, packet, parent)
@@ -10801,7 +10801,7 @@ bme_meff_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg
   bme_meff_marketandorder_bmegate_v1_6.transaction_category.size + 
   bme_meff_marketandorder_bmegate_v1_6.strategy_trd_match_id.size + 
   bme_meff_marketandorder_bmegate_v1_6.last_change_flag.size + 
-  bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.size + 
+  bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.size + 
   bme_meff_marketandorder_bmegate_v1_6.trade_price_condition.size + 
   bme_meff_marketandorder_bmegate_v1_6.pre_trade_transparency_waiver.size + 
   bme_meff_marketandorder_bmegate_v1_6.deferral_waiver.size + 
@@ -10909,8 +10909,8 @@ bme_meff_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg
   -- Last Change Flag: F
   index, last_change_flag = bme_meff_marketandorder_bmegate_v1_6.last_change_flag.dissect(buffer, index, packet, parent)
 
-  -- Bencrfpt Flag: C
-  index, bencrfpt_flag = bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.dissect(buffer, index, packet, parent)
+  -- Benc Rfpt Flag: C
+  index, benc_rfpt_flag = bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.dissect(buffer, index, packet, parent)
 
   -- Trade Price Condition: C
   index, trade_price_condition = bme_meff_marketandorder_bmegate_v1_6.trade_price_condition.dissect(buffer, index, packet, parent)
@@ -12744,11 +12744,11 @@ bme_meff_marketandorder_bmegate_v1_6.order_and_quote_client_data_message.dissect
   end
 end
 
--- Topofbook Message
-bme_meff_marketandorder_bmegate_v1_6.topofbook_message = {}
+-- Top Of Book Message
+bme_meff_marketandorder_bmegate_v1_6.top_of_book_message = {}
 
--- Size: Topofbook Message
-bme_meff_marketandorder_bmegate_v1_6.topofbook_message.size =
+-- Size: Top Of Book Message
+bme_meff_marketandorder_bmegate_v1_6.top_of_book_message.size =
   bme_meff_marketandorder_bmegate_v1_6.sequence_number.size + 
   bme_meff_marketandorder_bmegate_v1_6.security_code.size + 
   bme_meff_marketandorder_bmegate_v1_6.transaction_date_and_time.size + 
@@ -12761,13 +12761,13 @@ bme_meff_marketandorder_bmegate_v1_6.topofbook_message.size =
   bme_meff_marketandorder_bmegate_v1_6.ask_px_1.size + 
   bme_meff_marketandorder_bmegate_v1_6.retail_cl_ask_flag_1.size
 
--- Display: Topofbook Message
-bme_meff_marketandorder_bmegate_v1_6.topofbook_message.display = function(packet, parent, length)
+-- Display: Top Of Book Message
+bme_meff_marketandorder_bmegate_v1_6.top_of_book_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Topofbook Message
-bme_meff_marketandorder_bmegate_v1_6.topofbook_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Top Of Book Message
+bme_meff_marketandorder_bmegate_v1_6.top_of_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: U
@@ -12806,21 +12806,21 @@ bme_meff_marketandorder_bmegate_v1_6.topofbook_message.fields = function(buffer,
   return index
 end
 
--- Dissect: Topofbook Message
-bme_meff_marketandorder_bmegate_v1_6.topofbook_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Top Of Book Message
+bme_meff_marketandorder_bmegate_v1_6.top_of_book_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_bme_meff_marketandorder_bmegate_v1_6.fields.topofbook_message, buffer(offset, 0))
-    local index = bme_meff_marketandorder_bmegate_v1_6.topofbook_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_bme_meff_marketandorder_bmegate_v1_6.fields.top_of_book_message, buffer(offset, 0))
+    local index = bme_meff_marketandorder_bmegate_v1_6.top_of_book_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = bme_meff_marketandorder_bmegate_v1_6.topofbook_message.display(packet, parent, length)
+    local display = bme_meff_marketandorder_bmegate_v1_6.top_of_book_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return bme_meff_marketandorder_bmegate_v1_6.topofbook_message.fields(buffer, offset, packet, parent)
+    return bme_meff_marketandorder_bmegate_v1_6.top_of_book_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -13265,7 +13265,7 @@ bme_meff_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_messa
   bme_meff_marketandorder_bmegate_v1_6.transaction_category.size + 
   bme_meff_marketandorder_bmegate_v1_6.strategy_trd_match_id.size + 
   bme_meff_marketandorder_bmegate_v1_6.last_change_flag.size + 
-  bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.size + 
+  bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.size + 
   bme_meff_marketandorder_bmegate_v1_6.trade_price_condition.size + 
   bme_meff_marketandorder_bmegate_v1_6.pre_trade_transparency_waiver.size + 
   bme_meff_marketandorder_bmegate_v1_6.deferral_waiver.size + 
@@ -13334,8 +13334,8 @@ bme_meff_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_messa
   -- Last Change Flag: F
   index, last_change_flag = bme_meff_marketandorder_bmegate_v1_6.last_change_flag.dissect(buffer, index, packet, parent)
 
-  -- Bencrfpt Flag: C
-  index, bencrfpt_flag = bme_meff_marketandorder_bmegate_v1_6.bencrfpt_flag.dissect(buffer, index, packet, parent)
+  -- Benc Rfpt Flag: C
+  index, benc_rfpt_flag = bme_meff_marketandorder_bmegate_v1_6.benc_rfpt_flag.dissect(buffer, index, packet, parent)
 
   -- Trade Price Condition: C
   index, trade_price_condition = bme_meff_marketandorder_bmegate_v1_6.trade_price_condition.dissect(buffer, index, packet, parent)
@@ -13388,11 +13388,11 @@ bme_meff_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_messa
   end
 end
 
--- Trade Market Post Transparency Information Topofbook Message
-bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message = {}
+-- Trade Market Post Transparency Information Top Of Book Message
+bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message = {}
 
--- Size: Trade Market Post Transparency Information Topofbook Message
-bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.size =
+-- Size: Trade Market Post Transparency Information Top Of Book Message
+bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.size =
   bme_meff_marketandorder_bmegate_v1_6.sequence_number.size + 
   bme_meff_marketandorder_bmegate_v1_6.security_code.size + 
   bme_meff_marketandorder_bmegate_v1_6.transaction_date_and_time.size + 
@@ -13409,13 +13409,13 @@ bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_
   bme_meff_marketandorder_bmegate_v1_6.transaction_category.size + 
   bme_meff_marketandorder_bmegate_v1_6.strategy_trd_match_id.size
 
--- Display: Trade Market Post Transparency Information Topofbook Message
-bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.display = function(packet, parent, length)
+-- Display: Trade Market Post Transparency Information Top Of Book Message
+bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Trade Market Post Transparency Information Topofbook Message
-bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Market Post Transparency Information Top Of Book Message
+bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: U
@@ -13466,21 +13466,21 @@ bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_
   return index
 end
 
--- Dissect: Trade Market Post Transparency Information Topofbook Message
-bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Trade Market Post Transparency Information Top Of Book Message
+bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_bme_meff_marketandorder_bmegate_v1_6.fields.trade_market_post_transparency_information_topofbook_message, buffer(offset, 0))
-    local index = bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_bme_meff_marketandorder_bmegate_v1_6.fields.trade_market_post_transparency_information_top_of_book_message, buffer(offset, 0))
+    local index = bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.display(packet, parent, length)
+    local display = bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.fields(buffer, offset, packet, parent)
+    return bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -15389,9 +15389,9 @@ bme_meff_marketandorder_bmegate_v1_6.payload.dissect = function(buffer, offset, 
   if message_type == 0x05 then
     return bme_meff_marketandorder_bmegate_v1_6.quote_cancellation_market_member_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Trade Market Post Transparency Information Topofbook Message
+  -- Dissect Trade Market Post Transparency Information Top Of Book Message
   if message_type == 0x10 then
-    return bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.dissect(buffer, offset, packet, parent)
+    return bme_meff_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_top_of_book_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Trade Amendment Or Cancellation Message
   if message_type == 0x18 then
@@ -15409,9 +15409,9 @@ bme_meff_marketandorder_bmegate_v1_6.payload.dissect = function(buffer, offset, 
   if message_type == 0x85 then
     return bme_meff_marketandorder_bmegate_v1_6.rfq_market_pre_transparency_information_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Topofbook Message
+  -- Dissect Top Of Book Message
   if message_type == 0x82 then
-    return bme_meff_marketandorder_bmegate_v1_6.topofbook_message.dissect(buffer, offset, packet, parent)
+    return bme_meff_marketandorder_bmegate_v1_6.top_of_book_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order And Quote Client Data Message
   if message_type == 0x6F then
@@ -15768,7 +15768,7 @@ bme_meff_marketandorder_bmegate_v1_6.packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Trade Market Post Transparency Information Topofbook Message
+  -- Trade Market Post Transparency Information Top Of Book Message
   if message_type == 0x10 then
     return true
   end
@@ -15793,7 +15793,7 @@ bme_meff_marketandorder_bmegate_v1_6.packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Topofbook Message
+  -- Top Of Book Message
   if message_type == 0x82 then
     return true
   end

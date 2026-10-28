@@ -336,7 +336,7 @@ nasdaq_bxequities_drop_asciidrop_v2_1.liquidity_code.size = 1
 nasdaq_bxequities_drop_asciidrop_v2_1.liquidity_code.labels = {
   ["A"] = "Liquidity Code: Added Liquidity (A)",
   ["R"] = "Liquidity Code: Reduced Liquidity (R)",
-  ["J"] = "Liquidity Code: Nondisplayed And Added Liquidity (J)",
+  ["J"] = "Liquidity Code: Non Displayed And Added Liquidity (J)",
   ["X"] = "Liquidity Code: Routed (X)",
   ["D"] = "Liquidity Code: Dot Routed (D)",
   ["F"] = "Liquidity Code: Opening Trade On Nyse (F)",
@@ -353,11 +353,11 @@ nasdaq_bxequities_drop_asciidrop_v2_1.liquidity_code.labels = {
   ["k"] = "Liquidity Code: Added Liquidity Via A Midpoint Order (k)",
   ["j"] = "Liquidity Code: Rpi Retail Price Improving Order Provides Liquidity (j)",
   ["r"] = "Liquidity Code: Rmo Retail Order Removes Rpi Liquidity (r)",
-  ["t"] = "Liquidity Code: Rmo Retail Order Removes Price Improving Nondisplayed Liquidity Other Than Rpi Liquidity (t)",
+  ["t"] = "Liquidity Code: Rmo Retail Order Removes Price Improving Non Displayed Liquidity Other Than Rpi Liquidity (t)",
   ["q"] = "Liquidity Code: Rmo Retail Order Removes Non Rpi Midpoint Liquidity (q)",
-  ["7"] = "Liquidity Code: Displayed Liquidityadding Order Improves The Nbbo (7)",
-  ["8"] = "Liquidity Code: Displayed Liquidityadding Order Sets The Bxbbo While Joining The Nbbo (8)",
-  ["p"] = "Liquidity Code: Removed Price Improving Nondisplayed Liquidity (p)",
+  ["7"] = "Liquidity Code: Displayed Liquidity Adding Order Improves The Nbbo (7)",
+  ["8"] = "Liquidity Code: Displayed Liquidity Adding Order Sets The Bxbbo While Joining The Nbbo (8)",
+  ["p"] = "Liquidity Code: Removed Price Improving Non Displayed Liquidity (p)",
   ["N"] = "Liquidity Code: Passive Midpoint Execution (N)",
 }
 

@@ -31,7 +31,7 @@ omi_nasdaq_psxequities_rash_asciirash_v1_0.fields.discretion_price = ProtoField.
 omi_nasdaq_psxequities_rash_asciirash_v1_0.fields.display = ProtoField.new("Display", "nasdaq.psxequities.rash.asciirash.v1.0.display", ftypes.STRING, nil, nil, nil, "Display instruction; see the Display values.")
 omi_nasdaq_psxequities_rash_asciirash_v1_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.psxequities.rash.asciirash.v1.0.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes.")
 omi_nasdaq_psxequities_rash_asciirash_v1_0.fields.firm_client_id = ProtoField.new("Firm Client Id", "nasdaq.psxequities.rash.asciirash.v1.0.firmclientid", ftypes.STRING, nil, nil, nil, "MPID.")
-omi_nasdaq_psxequities_rash_asciirash_v1_0.fields.intermarket_sweep_eligibility = ProtoField.new("Intermarket Sweep Eligibility", "nasdaq.psxequities.rash.asciirash.v1.0.intermarketsweepeligibility", ftypes.STRING, nil, nil, nil, "Inter-market sweep eligibility.")
+omi_nasdaq_psxequities_rash_asciirash_v1_0.fields.inter_market_sweep_eligibility = ProtoField.new("Inter Market Sweep Eligibility", "nasdaq.psxequities.rash.asciirash.v1.0.intermarketsweepeligibility", ftypes.STRING, nil, nil, nil, "Inter-market sweep eligibility.")
 omi_nasdaq_psxequities_rash_asciirash_v1_0.fields.liquidity = ProtoField.new("Liquidity", "nasdaq.psxequities.rash.asciirash.v1.0.liquidity", ftypes.STRING, nil, nil, nil, "See Liquidity Flags.")
 omi_nasdaq_psxequities_rash_asciirash_v1_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.psxequities.rash.asciirash.v1.0.matchnumber", ftypes.UINT32, nil, nil, nil, "Assigned to each match executed. Each match consists of one buy and one sell; the matching buy and sell executions share the same match number.")
 omi_nasdaq_psxequities_rash_asciirash_v1_0.fields.max_floor = ProtoField.new("Max Floor", "nasdaq.psxequities.rash.asciirash.v1.0.maxfloor", ftypes.UINT24, nil, nil, nil, "Shares to display. If zero this field will default to the order quantity. Use the display field to specify a hidden order.")
@@ -791,31 +791,31 @@ nasdaq_psxequities_rash_asciirash_v1_0.firm_client_id.dissect = function(buffer,
   return offset + length, value
 end
 
--- Intermarket Sweep Eligibility
-nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility = {}
+-- Inter Market Sweep Eligibility
+nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility = {}
 
--- Size: Intermarket Sweep Eligibility
-nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility.size = 1
+-- Size: Inter Market Sweep Eligibility
+nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility.size = 1
 
--- Display: Intermarket Sweep Eligibility
-nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility.labels = {
-  ["Y"] = "Intermarket Sweep Eligibility: Eligible (Y)",
-  ["N"] = "Intermarket Sweep Eligibility: Not Eligible (N)",
-  ["y"] = "Intermarket Sweep Eligibility: Trade At Intermarket Sweep Order (y)",
+-- Display: Inter Market Sweep Eligibility
+nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility.labels = {
+  ["Y"] = "Inter Market Sweep Eligibility: Eligible (Y)",
+  ["N"] = "Inter Market Sweep Eligibility: Not Eligible (N)",
+  ["y"] = "Inter Market Sweep Eligibility: Trade At Intermarket Sweep Order (y)",
 }
 
-nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility.display = function(value)
-  return nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility.labels[value] or "Intermarket Sweep Eligibility: Unknown("..value..")"
+nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility.display = function(value)
+  return nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility.labels[value] or "Inter Market Sweep Eligibility: Unknown("..value..")"
 end
 
--- Dissect: Intermarket Sweep Eligibility
-nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility.size
+-- Dissect: Inter Market Sweep Eligibility
+nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_psxequities_rash_asciirash_v1_0.fields.intermarket_sweep_eligibility, range, value, display)
+  parent:add(omi_nasdaq_psxequities_rash_asciirash_v1_0.fields.inter_market_sweep_eligibility, range, value, display)
 
   return offset + length, value
 end
@@ -2041,7 +2041,7 @@ nasdaq_psxequities_rash_asciirash_v1_0.accepted_order_message_with_cross_functio
   nasdaq_psxequities_rash_asciirash_v1_0.random_reserve.size + 
   nasdaq_psxequities_rash_asciirash_v1_0.route_dest_exec_broker.size + 
   nasdaq_psxequities_rash_asciirash_v1_0.cust_terminal_id_sender_sub_id.size + 
-  nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility.size + 
+  nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility.size + 
   nasdaq_psxequities_rash_asciirash_v1_0.cross_type.size
 
 -- Display: Accepted Order Message With Cross Functionality
@@ -2119,8 +2119,8 @@ nasdaq_psxequities_rash_asciirash_v1_0.accepted_order_message_with_cross_functio
   -- Cust Terminal Id Sender Sub Id: Alphanumeric
   index, cust_terminal_id_sender_sub_id = nasdaq_psxequities_rash_asciirash_v1_0.cust_terminal_id_sender_sub_id.dissect(buffer, index, packet, parent)
 
-  -- Intermarket Sweep Eligibility: Alpha
-  index, intermarket_sweep_eligibility = nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility.dissect(buffer, index, packet, parent)
+  -- Inter Market Sweep Eligibility: Alpha
+  index, inter_market_sweep_eligibility = nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility.dissect(buffer, index, packet, parent)
 
   -- Cross Type: Alpha
   index, cross_type = nasdaq_psxequities_rash_asciirash_v1_0.cross_type.dissect(buffer, index, packet, parent)
@@ -2897,7 +2897,7 @@ nasdaq_psxequities_rash_asciirash_v1_0.enter_order_message_with_cross_functional
   nasdaq_psxequities_rash_asciirash_v1_0.random_reserve.size + 
   nasdaq_psxequities_rash_asciirash_v1_0.route_dest_exec_broker.size + 
   nasdaq_psxequities_rash_asciirash_v1_0.cust_terminal_id_sender_sub_id.size + 
-  nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility.size + 
+  nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility.size + 
   nasdaq_psxequities_rash_asciirash_v1_0.cross_type.size
 
 -- Display: Enter Order Message With Cross Functionality
@@ -2972,8 +2972,8 @@ nasdaq_psxequities_rash_asciirash_v1_0.enter_order_message_with_cross_functional
   -- Cust Terminal Id Sender Sub Id: Alphanumeric
   index, cust_terminal_id_sender_sub_id = nasdaq_psxequities_rash_asciirash_v1_0.cust_terminal_id_sender_sub_id.dissect(buffer, index, packet, parent)
 
-  -- Intermarket Sweep Eligibility: Alpha
-  index, intermarket_sweep_eligibility = nasdaq_psxequities_rash_asciirash_v1_0.intermarket_sweep_eligibility.dissect(buffer, index, packet, parent)
+  -- Inter Market Sweep Eligibility: Alpha
+  index, inter_market_sweep_eligibility = nasdaq_psxequities_rash_asciirash_v1_0.inter_market_sweep_eligibility.dissect(buffer, index, packet, parent)
 
   -- Cross Type: Alpha
   index, cross_type = nasdaq_psxequities_rash_asciirash_v1_0.cross_type.dissect(buffer, index, packet, parent)

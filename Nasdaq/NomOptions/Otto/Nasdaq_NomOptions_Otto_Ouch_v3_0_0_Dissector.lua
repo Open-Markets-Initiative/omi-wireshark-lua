@@ -141,7 +141,7 @@ omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.stock_leg_mpid = ProtoField.new("S
 omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.stock_leg_short_sale = ProtoField.new("Stock Leg Short Sale", "nasdaq.nomoptions.otto.ouch.v3.0.0.stocklegshortsale", ftypes.STRING, nil, nil, nil, "N=Not Applicable, H=Sell Short, E=Sell Short Exempt. If this is a multi-leg order for a stock combo where stock leg is on the Sell side StockLegShortSale may be set to H or E. In all other cases value N should be used.")
 omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.stock_venue = ProtoField.new("Stock Venue", "nasdaq.nomoptions.otto.ouch.v3.0.0.stockvenue", ftypes.STRING, nil, nil, nil, "See Stock Execution Venues")
 omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.nomoptions.otto.ouch.v3.0.0.strikeprice", ftypes.DOUBLE)
-omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.subversion = ProtoField.new("Subversion", "nasdaq.nomoptions.otto.ouch.v3.0.0.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of the interface. Currently set to 0.")
+omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.sub_version = ProtoField.new("Sub Version", "nasdaq.nomoptions.otto.ouch.v3.0.0.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of the interface. Currently set to 0.")
 omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.target_firm_id = ProtoField.new("Target Firm Id", "nasdaq.nomoptions.otto.ouch.v3.0.0.targetfirmid", ftypes.STRING, nil, nil, nil, "Firm ID being targeted by the Kill Switch Request")
 omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.tif = ProtoField.new("Tif", "nasdaq.nomoptions.otto.ouch.v3.0.0.tif", ftypes.STRING, nil, nil, nil, "See Time in Force Field (TIF)")
 omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nomoptions.otto.ouch.v3.0.0.timestamp", ftypes.UINT64, nil, nil, nil, "Nanoseconds since midnight")
@@ -3807,25 +3807,25 @@ nasdaq_nomoptions_otto_ouch_v3_0_0.strike_price.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Subversion
-nasdaq_nomoptions_otto_ouch_v3_0_0.subversion = {}
+-- Sub Version
+nasdaq_nomoptions_otto_ouch_v3_0_0.sub_version = {}
 
--- Size: Subversion
-nasdaq_nomoptions_otto_ouch_v3_0_0.subversion.size = 1
+-- Size: Sub Version
+nasdaq_nomoptions_otto_ouch_v3_0_0.sub_version.size = 1
 
--- Display: Subversion
-nasdaq_nomoptions_otto_ouch_v3_0_0.subversion.display = function(value)
-  return "Subversion: "..value
+-- Display: Sub Version
+nasdaq_nomoptions_otto_ouch_v3_0_0.sub_version.display = function(value)
+  return "Sub Version: "..value
 end
 
--- Dissect: Subversion
-nasdaq_nomoptions_otto_ouch_v3_0_0.subversion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_otto_ouch_v3_0_0.subversion.size
+-- Dissect: Sub Version
+nasdaq_nomoptions_otto_ouch_v3_0_0.sub_version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_otto_ouch_v3_0_0.sub_version.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nomoptions_otto_ouch_v3_0_0.subversion.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_otto_ouch_v3_0_0.sub_version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.subversion, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.sub_version, range, value, display)
 
   return offset + length, value
 end
@@ -5784,7 +5784,7 @@ nasdaq_nomoptions_otto_ouch_v3_0_0.system_event_message.size =
   nasdaq_nomoptions_otto_ouch_v3_0_0.timestamp.size + 
   nasdaq_nomoptions_otto_ouch_v3_0_0.event_code.size + 
   nasdaq_nomoptions_otto_ouch_v3_0_0.version.size + 
-  nasdaq_nomoptions_otto_ouch_v3_0_0.subversion.size
+  nasdaq_nomoptions_otto_ouch_v3_0_0.sub_version.size
 
 -- Display: System Event Message
 nasdaq_nomoptions_otto_ouch_v3_0_0.system_event_message.display = function(packet, parent, length)
@@ -5804,8 +5804,8 @@ nasdaq_nomoptions_otto_ouch_v3_0_0.system_event_message.fields = function(buffer
   -- Version: Integer
   index, version = nasdaq_nomoptions_otto_ouch_v3_0_0.version.dissect(buffer, index, packet, parent)
 
-  -- Subversion: Integer
-  index, subversion = nasdaq_nomoptions_otto_ouch_v3_0_0.subversion.dissect(buffer, index, packet, parent)
+  -- Sub Version: Integer
+  index, sub_version = nasdaq_nomoptions_otto_ouch_v3_0_0.sub_version.dissect(buffer, index, packet, parent)
 
   return index
 end

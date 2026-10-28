@@ -1223,7 +1223,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cust_order_handling_inst.display =
     return "Cust Order Handling Inst: Electronic (Y)"
   end
   if value == "C" then
-    return "Cust Order Handling Inst: Vendorprovided Platform Billed By (C)"
+    return "Cust Order Handling Inst: Vendor Provided Platform Billed By (C)"
   end
   if value == "G" then
     return "Cust Order Handling Inst: Sponsored Access Via Exchange Api (G)"
@@ -3694,11 +3694,11 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.risk_reset.size = 8
 
 -- Display: Risk Reset
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.risk_reset.labels = {
-  ["S"] = "Risk Reset: Productlevel (S)",
-  ["F"] = "Risk Reset: Firmlevel (F)",
+  ["S"] = "Risk Reset: Product Level (S)",
+  ["F"] = "Risk Reset: Firm Level (F)",
   ["C"] = "Risk Reset: Custom Group Id (C)",
-  ["R"] = "Risk Reset: Productlevel Options (R)",
-  ["I"] = "Risk Reset: Firmlevel Options (I)",
+  ["R"] = "Risk Reset: Product Level Options (R)",
+  ["I"] = "Risk Reset: Firm Level Options (I)",
   ["D"] = "Risk Reset: Custom Group Id Options (D)",
 }
 

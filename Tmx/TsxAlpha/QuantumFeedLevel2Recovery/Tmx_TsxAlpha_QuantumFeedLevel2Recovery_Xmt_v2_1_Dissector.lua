@@ -20,7 +20,7 @@ omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.admin_body = ProtoFie
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.admin_id = ProtoField.new("Admin Id", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.adminid", ftypes.UINT8, nil, nil, nil, "Admin ID for short window (1 to 255). Note: 0 is not allowed as a value.")
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.board_lot = ProtoField.new("Board Lot", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.boardlot", ftypes.UINT16, nil, nil, nil, "Contains The Board Lot Size")
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.broker_number = ProtoField.new("Broker Number", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.brokernumber", ftypes.UINT16, nil, nil, nil, "An Exchange Assigned Public Number Uniquely Identifying A Participating Organization")
-omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.buybrokernumber", ftypes.UINT16, nil, nil, nil, "An Exchangeassigned Public Number Uniquely Identifying A Participating Organization Associated With A Buy Order")
+omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.buybrokernumber", ftypes.UINT16, nil, nil, nil, "An Exchange Assigned Public Number Uniquely Identifying A Partici Pating Organization Associated With A Buy Order")
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.buy_display_volume = ProtoField.new("Buy Display Volume", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.buydisplayvolume", ftypes.UINT32, nil, nil, nil, "Public Remaining Display Volume For The Buy Order")
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.buy_order_id = ProtoField.new("Buy Order Id", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.buyorderid", ftypes.UINT64, nil, nil, nil, "Public Numeric Identifier Assigned To The Buy Order By The Trading System")
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.bypass = ProtoField.new("Bypass", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.bypass", ftypes.STRING, nil, nil, nil, "An Indicator For Bypass Crosses Which Can Be Printed Outside Of The Protected Nbbo And Are Not Subject To Cross Interference")
@@ -64,7 +64,7 @@ omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.replay_session_id = P
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.replay_win = ProtoField.new("Replay Win", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.replaywin", ftypes.UINT8, nil, nil, nil, "Replay window in seconds.")
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.replay_win_num = ProtoField.new("Replay Win Num", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.replaywinnum", ftypes.UINT16, nil, nil, nil, "Maximum number of replay requests allowed in the window.")
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.replay_win_size = ProtoField.new("Replay Win Size", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.replaywinsize", ftypes.UINT16, nil, nil, nil, "Maximum number of messages, in thousands, allowed in the replay window.")
-omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.sell_broker_number = ProtoField.new("Sell Broker Number", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.sellbrokernumber", ftypes.UINT16, nil, nil, nil, "An Exchangeassigned Number Uniquely Identifying A Participating Organization Associated With A Sell Order")
+omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.sell_broker_number = ProtoField.new("Sell Broker Number", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.sellbrokernumber", ftypes.UINT16, nil, nil, nil, "An Exchange Assigned Number Uniquely Identifying A Participating Organ Ization Associated With A Sell Order")
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.sell_display_volume = ProtoField.new("Sell Display Volume", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.selldisplayvolume", ftypes.UINT32, nil, nil, nil, "Public Remaining Volume For The Sell Order")
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.sell_order_id = ProtoField.new("Sell Order Id", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.sellorderid", ftypes.UINT64, nil, nil, nil, "Public Numeric Identifier Assigned To A Sell Order By The Trading System")
 omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.fields.sequence_0 = ProtoField.new("Sequence 0", "tmx.tsxalpha.quantumfeedlevel2recovery.xmt.v2.1.sequence0", ftypes.UINT8, nil, nil, nil, "Reserved for future expansion, Value is 0")
@@ -790,7 +790,7 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.market_state.size = 1
 
 -- Display: Market State
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.market_state.labels = {
-  ["P"] = "Market State: Preopen (P)",
+  ["P"] = "Market State: Pre Open (P)",
   ["O"] = "Market State: Opening (O)",
   ["S"] = "Market State: Open (S)",
   ["C"] = "Market State: Closed (C)",

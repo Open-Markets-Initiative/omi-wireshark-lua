@@ -1117,7 +1117,7 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_15.session_indicator
 -- Display: Session Indicator
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_15.session_indicator.labels = {
   ["R"] = "Session Indicator: Regular Trading Session (R)",
-  ["P"] = "Session Indicator: Pre Or Postmarket Session (P)",
+  ["P"] = "Session Indicator: Pre Or Post Market Session (P)",
 }
 
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_15.session_indicator.display = function(value)

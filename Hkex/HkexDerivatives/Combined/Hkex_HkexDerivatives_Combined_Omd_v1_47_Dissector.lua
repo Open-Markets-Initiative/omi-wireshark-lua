@@ -1694,11 +1694,11 @@ hkex_hkexderivatives_combined_omd_v1_47.market.size = 1
 -- Display: Market
 hkex_hkexderivatives_combined_omd_v1_47.market.labels = {
   [1] = "Market: Cesc Index Futures And Options (1)",
-  [2] = "Market: Stock Futures In Omdd Partition 1 (2)",
+  [2] = "Market: Stock Futures In Omd D Partition 1 (2)",
   [3] = "Market: Three Year Exchange Fund Note Futures (3)",
   [16] = "Market: Mini Hang Seng Index Futures And Options (16)",
-  [18] = "Market: Weekly Stock Options In Omdd Partition 1 (18)",
-  [20] = "Market: Stock Options In Omdd Partition 1 (20)",
+  [18] = "Market: Weekly Stock Options In Omd D Partition 1 (18)",
+  [20] = "Market: Stock Options In Omd D Partition 1 (20)",
   [24] = "Market: Hibor (24)",
   [27] = "Market: Dividend Futures (27)",
   [32] = "Market: Physically Settled Options On Futures Contracts On Hang Seng Index Futures (32)",

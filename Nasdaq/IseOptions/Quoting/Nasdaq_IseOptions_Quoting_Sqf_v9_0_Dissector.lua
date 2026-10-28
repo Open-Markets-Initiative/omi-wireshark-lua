@@ -112,8 +112,8 @@ omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.simple_quotes_long_form = ProtoFie
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.status_code = ProtoField.new("Status Code", "nasdaq.iseoptions.quoting.sqf.v9.0.statuscode", ftypes.STRING, nil, nil, nil, "See Status Code Appendix")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.stock_leg_short_sale = ProtoField.new("Stock Leg Short Sale", "nasdaq.iseoptions.quoting.sqf.v9.0.stocklegshortsale", ftypes.STRING, nil, nil, nil, "N=Not Applicable, H=Sell Short, E=Sell Short Exempt. If this is a quote for a stock combo StockLegShortSale may be set to H or E. In all other cases value N should be used")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.iseoptions.quoting.sqf.v9.0.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the explicit strike price of the option.")
+omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.sub_version = ProtoField.new("Sub Version", "nasdaq.iseoptions.quoting.sqf.v9.0.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of the SQF Quote Interface. Currently set to 0")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.subscription = ProtoField.new("Subscription", "nasdaq.iseoptions.quoting.sqf.v9.0.subscription", ftypes.STRING, nil, nil, nil, "A list of notification types to be included in the current session, 0 or more types padded with spaces on the right: U=Underlying Permission Notification, M=Opening Spread Multiplier Notification, F=MM Parameter Definition Notification, f=ActiveQP/Self-Replenishment Parameter Definition Notification, R=Rapid-Fire Configuration Notification (to be deprecated), H=Simple Instrument Trading Action, h=Complex Instrument Trading Action, A=Auction Notification, Z=Underlying and Instrument Purge Notifications (NU/ND), E=Market Reentry Notification, Q=Simple Quote Execution Notification, q=Complex Quote Execution Notification, e=Complex Quote Leg Execution Notification, O=Simple MSAR Notification, o=Complex MSAR Notification, L=Complex MSAR Leg Notification, I=Order Exposure Notification (Auction Notification for Order Exposure only)")
-omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.subversion = ProtoField.new("Subversion", "nasdaq.iseoptions.quoting.sqf.v9.0.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of the SQF Quote Interface. Currently set to 0")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.tradable = ProtoField.new("Tradable", "nasdaq.iseoptions.quoting.sqf.v9.0.tradable", ftypes.STRING, nil, nil, nil, "Y=Option is tradable, N=Option is not tradable")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.iseoptions.quoting.sqf.v9.0.tradingstate", ftypes.STRING, nil, nil, nil, "H=Halt in effect, T=Trading Resumed")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.underlying = ProtoField.new("Underlying", "nasdaq.iseoptions.quoting.sqf.v9.0.underlying", ftypes.STRING, nil, nil, nil, "Underlying Stock Symbol")
@@ -2989,6 +2989,29 @@ nasdaq_iseoptions_quoting_sqf_v9_0.strike_price.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Sub Version
+nasdaq_iseoptions_quoting_sqf_v9_0.sub_version = {}
+
+-- Size: Sub Version
+nasdaq_iseoptions_quoting_sqf_v9_0.sub_version.size = 1
+
+-- Display: Sub Version
+nasdaq_iseoptions_quoting_sqf_v9_0.sub_version.display = function(value)
+  return "Sub Version: "..value
+end
+
+-- Dissect: Sub Version
+nasdaq_iseoptions_quoting_sqf_v9_0.sub_version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_quoting_sqf_v9_0.sub_version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_quoting_sqf_v9_0.sub_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.sub_version, range, value, display)
+
+  return offset + length, value
+end
+
 -- Subscription
 nasdaq_iseoptions_quoting_sqf_v9_0.subscription = {}
 
@@ -3008,29 +3031,6 @@ nasdaq_iseoptions_quoting_sqf_v9_0.subscription.dissect = function(buffer, offse
   local display = nasdaq_iseoptions_quoting_sqf_v9_0.subscription.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.subscription, range, value, display)
-
-  return offset + length, value
-end
-
--- Subversion
-nasdaq_iseoptions_quoting_sqf_v9_0.subversion = {}
-
--- Size: Subversion
-nasdaq_iseoptions_quoting_sqf_v9_0.subversion.size = 1
-
--- Display: Subversion
-nasdaq_iseoptions_quoting_sqf_v9_0.subversion.display = function(value)
-  return "Subversion: "..value
-end
-
--- Dissect: Subversion
-nasdaq_iseoptions_quoting_sqf_v9_0.subversion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_quoting_sqf_v9_0.subversion.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_quoting_sqf_v9_0.subversion.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.subversion, range, value, display)
 
   return offset + length, value
 end
@@ -5380,7 +5380,7 @@ nasdaq_iseoptions_quoting_sqf_v9_0.system_event_message.size =
   nasdaq_iseoptions_quoting_sqf_v9_0.nanoseconds.size + 
   nasdaq_iseoptions_quoting_sqf_v9_0.event_code.size + 
   nasdaq_iseoptions_quoting_sqf_v9_0.version.size + 
-  nasdaq_iseoptions_quoting_sqf_v9_0.subversion.size
+  nasdaq_iseoptions_quoting_sqf_v9_0.sub_version.size
 
 -- Display: System Event Message
 nasdaq_iseoptions_quoting_sqf_v9_0.system_event_message.display = function(packet, parent, length)
@@ -5403,8 +5403,8 @@ nasdaq_iseoptions_quoting_sqf_v9_0.system_event_message.fields = function(buffer
   -- Version: Integer
   index, version = nasdaq_iseoptions_quoting_sqf_v9_0.version.dissect(buffer, index, packet, parent)
 
-  -- Subversion: Integer
-  index, subversion = nasdaq_iseoptions_quoting_sqf_v9_0.subversion.dissect(buffer, index, packet, parent)
+  -- Sub Version: Integer
+  index, sub_version = nasdaq_iseoptions_quoting_sqf_v9_0.sub_version.dissect(buffer, index, packet, parent)
 
   return index
 end

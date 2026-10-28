@@ -511,7 +511,7 @@ jpx_sseequities_marketbyorder_flex_v1_3.market_status.labels = {
   [19] = "Market Status: End Of Morning Session (19)",
   [21] = "Market Status: Afternoon Session Order Acceptance Time (21)",
   [22] = "Market Status: Afternoon Session Trading Hours (22)",
-  [23] = "Market Status: Afternoon Session Preclosing (23)",
+  [23] = "Market Status: Afternoon Session Pre Closing (23)",
   [29] = "Market Status: End Of Afternoon Session (29)",
 }
 
@@ -717,9 +717,9 @@ jpx_sseequities_marketbyorder_flex_v1_3.order_condition.size = 1
 
 -- Display: Order Condition
 jpx_sseequities_marketbyorder_flex_v1_3.order_condition.labels = {
-  [0] = "Order Condition: Nonconditional (0)",
-  [2] = "Order Condition: Onopen (2)",
-  [4] = "Order Condition: Onclose (4)",
+  [0] = "Order Condition: Non Conditional (0)",
+  [2] = "Order Condition: On Open (2)",
+  [4] = "Order Condition: On Close (4)",
   [6] = "Order Condition: Funari (6)",
 }
 

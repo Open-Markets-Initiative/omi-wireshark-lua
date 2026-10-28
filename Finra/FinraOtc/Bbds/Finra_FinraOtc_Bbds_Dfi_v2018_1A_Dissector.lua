@@ -840,7 +840,7 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition.labels = {
   ["O"] = "Market Participant Quote Condition: Open (O)",
   ["C"] = "Market Participant Quote Condition: Closed (C)",
   ["I"] = "Market Participant Quote Condition: Periodic Indicative Other Securities (I)",
-  ["K"] = "Market Participant Quote Condition: Realtime Quotes (K)",
+  ["K"] = "Market Participant Quote Condition: Real Time Quotes (K)",
   ["L"] = "Market Participant Quote Condition: Periodic Indicative Quotes (L)",
 }
 

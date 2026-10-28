@@ -325,7 +325,7 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.algorithmic_trade.size = 1
 -- Display: Algorithmic Trade
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.algorithmic_trade.labels = {
   ["H"] = "Algorithmic Trade: Algorithmic Trade (H)",
-  ["-"] = "Algorithmic Trade: Nonalgorithmic Trade (-)",
+  ["-"] = "Algorithmic Trade: Non Algorithmic Trade (-)",
 }
 
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.algorithmic_trade.display = function(value)

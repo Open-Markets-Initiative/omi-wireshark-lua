@@ -2813,8 +2813,8 @@ hkex_hkexsecurities_premiumretrans_omd_v1_44.short_sell_flag.size = 1
 
 -- Display: Short Sell Flag
 hkex_hkexsecurities_premiumretrans_omd_v1_44.short_sell_flag.labels = {
-  ["Y"] = "Short Sell Flag: Shortsell Allowed (Y)",
-  ["N"] = "Short Sell Flag: Shortsell Not Allowed (N)",
+  ["Y"] = "Short Sell Flag: Short Sell Allowed (Y)",
+  ["N"] = "Short Sell Flag: Short Sell Not Allowed (N)",
 }
 
 hkex_hkexsecurities_premiumretrans_omd_v1_44.short_sell_flag.display = function(value)
@@ -3318,10 +3318,10 @@ hkex_hkexsecurities_premiumretrans_omd_v1_44.trd_type.size = 2
 -- Display: Trd Type
 hkex_hkexsecurities_premiumretrans_omd_v1_44.trd_type.labels = {
   [0] = "Trd Type: Automatch Normal Public Trade Type Space (0)",
-  [4] = "Trd Type: Late Trade Offexchange Previous Day Public Trade Type P (4)",
-  [22] = "Trd Type: Nondirect Off Exchange Trade Public Trade Type M (22)",
+  [4] = "Trd Type: Late Trade Off Exchange Previous Day Public Trade Type P (4)",
+  [22] = "Trd Type: Non Direct Off Exchange Trade Public Trade Type M (22)",
   [100] = "Trd Type: Automatch Internalized Public Trade Type Y (100)",
-  [101] = "Trd Type: Direct Offexchange Trade Public Trade Type X (101)",
+  [101] = "Trd Type: Direct Off Exchange Trade Public Trade Type X (101)",
   [102] = "Trd Type: Odd Lot Trade Public Trade Type D (102)",
   [103] = "Trd Type: Auction Trade Public Trade Type U (103)",
   [104] = "Trd Type: Overseas Trade (104)",

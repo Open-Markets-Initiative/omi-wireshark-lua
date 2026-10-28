@@ -75,7 +75,7 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.data_small_category = ProtoFi
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.data_source_type = ProtoField.new("Data Source Type", "koscom.mdcsrealtime.koscom.exture.v1.20.datasourcetype", ftypes.STRING, nil, nil, nil, "SPACE set to FILLER.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.data_type = ProtoField.new("Data Type", "koscom.mdcsrealtime.koscom.exture.v1.20.datatype", ftypes.STRING, nil, nil, nil, "01: change of basis price and upper/lower limit price 02: temporary halt, 03: resumption after temporary halt.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.date = ProtoField.new("Date", "koscom.mdcsrealtime.koscom.exture.v1.20.date", ftypes.STRING, nil, nil, nil, "YYYMMDD:Last business day.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.day_before_previous_days_nontaxable_base_price_for_overseas_stocks = ProtoField.new("Day Before Previous Days Nontaxable Base Price For Overseas Stocks", "koscom.mdcsrealtime.koscom.exture.v1.20.daybeforepreviousdaysnontaxablebasepriceforoverseasstocks", ftypes.DOUBLE, nil, nil, nil, "9999999V99.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.day_before_previous_days_non_taxable_base_price_for_overseas_stocks = ProtoField.new("Day Before Previous Days Non Taxable Base Price For Overseas Stocks", "koscom.mdcsrealtime.koscom.exture.v1.20.daybeforepreviousdaysnontaxablebasepriceforoverseasstocks", ftypes.DOUBLE, nil, nil, nil, "9999999V99.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.disparate_ratio = ProtoField.new("Disparate Ratio", "koscom.mdcsrealtime.koscom.exture.v1.20.disparateratio", ftypes.DOUBLE, nil, nil, nil, "9(7)V9(2), Unit:%.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.disparate_ratio_sign = ProtoField.new("Disparate Ratio Sign", "koscom.mdcsrealtime.koscom.exture.v1.20.disparateratiosign", ftypes.STRING, nil, nil, nil, "SPACE:0, '+':>0, '-':<0.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.during_market_hours_final_iv = ProtoField.new("During Market Hours Final Iv", "koscom.mdcsrealtime.koscom.exture.v1.20.duringmarkethoursfinaliv", ftypes.DOUBLE, nil, nil, nil, "9(7)V9(2).")
@@ -128,7 +128,7 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.market_data_type = ProtoField
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.market_price_index = ProtoField.new("Market Price Index", "koscom.mdcsrealtime.koscom.exture.v1.20.marketpriceindex", ftypes.DOUBLE, nil, nil, nil, "Market price index (10 ASCII digits with 4 implied decimal places). Standard 10,000.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.name_of_counterparty = ProtoField.new("Name Of Counterparty", "koscom.mdcsrealtime.koscom.exture.v1.20.nameofcounterparty", ftypes.STRING, nil, nil, nil, "Name of counterparty.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.net_assets_amount = ProtoField.new("Net Assets Amount", "koscom.mdcsrealtime.koscom.exture.v1.20.netassetsamount", ftypes.UINT64, nil, nil, nil, "Unit:Won.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_freefloating_etf_shares = ProtoField.new("Number Of Freefloating Etf Shares", "koscom.mdcsrealtime.koscom.exture.v1.20.numberoffreefloatingetfshares", ftypes.UINT64, nil, nil, nil, "Information Category 03S: Fund unit, 05S: TU unit.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_free_floating_etf_shares = ProtoField.new("Number Of Free Floating Etf Shares", "koscom.mdcsrealtime.koscom.exture.v1.20.numberoffreefloatingetfshares", ftypes.UINT64, nil, nil, nil, "Information Category 03S: Fund unit, 05S: TU unit.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.office_consignment_companys_registration_number = ProtoField.new("Office Consignment Companys Registration Number", "koscom.mdcsrealtime.koscom.exture.v1.20.officeconsignmentcompanysregistrationnumber", ftypes.STRING, nil, nil, nil, "049: Korea Fund Partners ← Mirae Asset Fund Services 905: Shinhan Fund Partners ← Shinhanaitas 906: WOORI FUND SERVICES 2023.04.10 new 907: HANA FUND SERVICES 2024.09.09 new 909: KB FUND PARTNERS 2024.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.operator_abbreviated_name_english = ProtoField.new("Operator Abbreviated Name English", "koscom.mdcsrealtime.koscom.exture.v1.20.operatorabbreviatednameenglish", ftypes.STRING, nil, nil, nil, "Operator Abbreviated Name (English).")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.operator_abbreviated_name_korean = ProtoField.new("Operator Abbreviated Name Korean", "koscom.mdcsrealtime.koscom.exture.v1.20.operatorabbreviatednamekorean", ftypes.STRING, nil, nil, nil, "Operator Abbreviated Name (Korean).")
@@ -145,8 +145,8 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.pretax_unit_price = ProtoFiel
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.pretax_yield = ProtoField.new("Pretax Yield", "koscom.mdcsrealtime.koscom.exture.v1.20.pretaxyield", ftypes.DOUBLE, nil, nil, nil, "999V99999.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_cash_dividend_amount = ProtoField.new("Previous Days Cash Dividend Amount", "koscom.mdcsrealtime.koscom.exture.v1.20.previousdayscashdividendamount", ftypes.DOUBLE, nil, nil, nil, "9999999999V99 Information Category 03S: Fund unit, 05S: TU unit.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_iv = ProtoField.new("Previous Days Iv", "koscom.mdcsrealtime.koscom.exture.v1.20.previousdaysiv", ftypes.DOUBLE, nil, nil, nil, "9(7)V9(2).")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks = ProtoField.new("Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks", "koscom.mdcsrealtime.koscom.exture.v1.20.previousdaysnontaxablebasepricebeforedividendforoverseasstocks", ftypes.DOUBLE, nil, nil, nil, "9999999V99.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_nontaxable_base_price_for_overseas_stocks = ProtoField.new("Previous Days Nontaxable Base Price For Overseas Stocks", "koscom.mdcsrealtime.koscom.exture.v1.20.previousdaysnontaxablebasepriceforoverseasstocks", ftypes.DOUBLE, nil, nil, nil, "9999999V99.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks = ProtoField.new("Previous Days Non Taxable Base Price Before Dividend For Overseas Stocks", "koscom.mdcsrealtime.koscom.exture.v1.20.previousdaysnontaxablebasepricebeforedividendforoverseasstocks", ftypes.DOUBLE, nil, nil, nil, "9999999V99.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_non_taxable_base_price_for_overseas_stocks = ProtoField.new("Previous Days Non Taxable Base Price For Overseas Stocks", "koscom.mdcsrealtime.koscom.exture.v1.20.previousdaysnontaxablebasepriceforoverseasstocks", ftypes.DOUBLE, nil, nil, nil, "9999999V99.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_tax_base_nav = ProtoField.new("Previous Days Tax Base Nav", "koscom.mdcsrealtime.koscom.exture.v1.20.previousdaystaxbasenav", ftypes.DOUBLE, nil, nil, nil, "9999999V99 Information Category 03S: Fund unit, 05S: TU unit.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_tax_base_nav_before_dividend = ProtoField.new("Previous Days Tax Base Nav Before Dividend", "koscom.mdcsrealtime.koscom.exture.v1.20.previousdaystaxbasenavbeforedividend", ftypes.DOUBLE, nil, nil, nil, "9999999V99 Information Category 03S: Fund unit, 05S: TU unit.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_isin_of_replacement = ProtoField.new("Previous Isin Of Replacement", "koscom.mdcsrealtime.koscom.exture.v1.20.previousisinofreplacement", ftypes.UINT32, nil, nil, nil, "Except for the second price of replacement order : 00000000.")
@@ -2277,40 +2277,40 @@ koscom_mdcsrealtime_koscom_exture_v1_20.date.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Day Before Previous Days Nontaxable Base Price For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks = {}
+-- Day Before Previous Days Non Taxable Base Price For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_non_taxable_base_price_for_overseas_stocks = {}
 
--- Size: Day Before Previous Days Nontaxable Base Price For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.size = 9
+-- Size: Day Before Previous Days Non Taxable Base Price For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_non_taxable_base_price_for_overseas_stocks.size = 9
 
--- Display: Day Before Previous Days Nontaxable Base Price For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.size):string(), 2)
+-- Display: Day Before Previous Days Non Taxable Base Price For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_non_taxable_base_price_for_overseas_stocks.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_non_taxable_base_price_for_overseas_stocks.size):string(), 2)
 
   if text == nil then
-    return "Day Before Previous Days Nontaxable Base Price For Overseas Stocks: "..tostring(value)
+    return "Day Before Previous Days Non Taxable Base Price For Overseas Stocks: "..tostring(value)
   end
 
-  return "Day Before Previous Days Nontaxable Base Price For Overseas Stocks: "..text
+  return "Day Before Previous Days Non Taxable Base Price For Overseas Stocks: "..text
 end
 
--- Dissect: Day Before Previous Days Nontaxable Base Price For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.size
+-- Dissect: Day Before Previous Days Non Taxable Base Price For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_non_taxable_base_price_for_overseas_stocks.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_non_taxable_base_price_for_overseas_stocks.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.day_before_previous_days_nontaxable_base_price_for_overseas_stocks, range, value, "Day Before Previous Days Nontaxable Base Price For Overseas Stocks: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Day Before Previous Days Nontaxable Base Price For Overseas Stocks is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.day_before_previous_days_non_taxable_base_price_for_overseas_stocks, range, value, "Day Before Previous Days Non Taxable Base Price For Overseas Stocks: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Day Before Previous Days Non Taxable Base Price For Overseas Stocks is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/100
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_non_taxable_base_price_for_overseas_stocks.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.day_before_previous_days_nontaxable_base_price_for_overseas_stocks, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.day_before_previous_days_non_taxable_base_price_for_overseas_stocks, range, value, display)
 
   return offset + length, value
 end
@@ -3815,33 +3815,33 @@ koscom_mdcsrealtime_koscom_exture_v1_20.net_assets_amount.dissect = function(buf
   return offset + length, value
 end
 
--- Number Of Freefloating Etf Shares
-koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares = {}
+-- Number Of Free Floating Etf Shares
+koscom_mdcsrealtime_koscom_exture_v1_20.number_of_free_floating_etf_shares = {}
 
--- Size: Number Of Freefloating Etf Shares
-koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares.size = 16
+-- Size: Number Of Free Floating Etf Shares
+koscom_mdcsrealtime_koscom_exture_v1_20.number_of_free_floating_etf_shares.size = 16
 
--- Display: Number Of Freefloating Etf Shares
-koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares.display = function(value)
-  return "Number Of Freefloating Etf Shares: "..value
+-- Display: Number Of Free Floating Etf Shares
+koscom_mdcsrealtime_koscom_exture_v1_20.number_of_free_floating_etf_shares.display = function(value)
+  return "Number Of Free Floating Etf Shares: "..value
 end
 
--- Dissect: Number Of Freefloating Etf Shares
-koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares.size
+-- Dissect: Number Of Free Floating Etf Shares
+koscom_mdcsrealtime_koscom_exture_v1_20.number_of_free_floating_etf_shares.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_free_floating_etf_shares.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_freefloating_etf_shares, range, value, "Number Of Freefloating Etf Shares: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Number Of Freefloating Etf Shares is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_free_floating_etf_shares, range, value, "Number Of Free Floating Etf Shares: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Number Of Free Floating Etf Shares is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_free_floating_etf_shares.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_freefloating_etf_shares, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_free_floating_etf_shares, range, value, display)
 
   return offset + length, value
 end
@@ -4321,78 +4321,78 @@ koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_iv.dissect = function(buff
   return offset + length, value
 end
 
--- Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks = {}
+-- Previous Days Non Taxable Base Price Before Dividend For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks = {}
 
--- Size: Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.size = 9
+-- Size: Previous Days Non Taxable Base Price Before Dividend For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks.size = 9
 
--- Display: Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.size):string(), 2)
+-- Display: Previous Days Non Taxable Base Price Before Dividend For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks.size):string(), 2)
 
   if text == nil then
-    return "Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks: "..tostring(value)
+    return "Previous Days Non Taxable Base Price Before Dividend For Overseas Stocks: "..tostring(value)
   end
 
-  return "Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks: "..text
+  return "Previous Days Non Taxable Base Price Before Dividend For Overseas Stocks: "..text
 end
 
--- Dissect: Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.size
+-- Dissect: Previous Days Non Taxable Base Price Before Dividend For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks, range, value, "Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks, range, value, "Previous Days Non Taxable Base Price Before Dividend For Overseas Stocks: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Previous Days Non Taxable Base Price Before Dividend For Overseas Stocks is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/100
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks, range, value, display)
 
   return offset + length, value
 end
 
--- Previous Days Nontaxable Base Price For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks = {}
+-- Previous Days Non Taxable Base Price For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_for_overseas_stocks = {}
 
--- Size: Previous Days Nontaxable Base Price For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.size = 9
+-- Size: Previous Days Non Taxable Base Price For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_for_overseas_stocks.size = 9
 
--- Display: Previous Days Nontaxable Base Price For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.size):string(), 2)
+-- Display: Previous Days Non Taxable Base Price For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_for_overseas_stocks.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_for_overseas_stocks.size):string(), 2)
 
   if text == nil then
-    return "Previous Days Nontaxable Base Price For Overseas Stocks: "..tostring(value)
+    return "Previous Days Non Taxable Base Price For Overseas Stocks: "..tostring(value)
   end
 
-  return "Previous Days Nontaxable Base Price For Overseas Stocks: "..text
+  return "Previous Days Non Taxable Base Price For Overseas Stocks: "..text
 end
 
--- Dissect: Previous Days Nontaxable Base Price For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.size
+-- Dissect: Previous Days Non Taxable Base Price For Overseas Stocks
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_for_overseas_stocks.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_for_overseas_stocks.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_nontaxable_base_price_for_overseas_stocks, range, value, "Previous Days Nontaxable Base Price For Overseas Stocks: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Previous Days Nontaxable Base Price For Overseas Stocks is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_non_taxable_base_price_for_overseas_stocks, range, value, "Previous Days Non Taxable Base Price For Overseas Stocks: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Previous Days Non Taxable Base Price For Overseas Stocks is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/100
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_for_overseas_stocks.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_nontaxable_base_price_for_overseas_stocks, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.previous_days_non_taxable_base_price_for_overseas_stocks, range, value, display)
 
   return offset + length, value
 end
@@ -7193,10 +7193,10 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etp_transfer_agent_batch_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_tax_base_nav_before_dividend.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_cash_dividend_amount.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.tax_base_nav_as_of_the_day_before_the_previous_day.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_for_overseas_stocks.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_non_taxable_base_price_for_overseas_stocks.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.number_of_free_floating_etf_shares.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.size
 
@@ -7251,17 +7251,17 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etp_transfer_agent_batch_message.fields 
   -- Tax Base Nav As Of The Day Before The Previous Day: Double
   index, tax_base_nav_as_of_the_day_before_the_previous_day = koscom_mdcsrealtime_koscom_exture_v1_20.tax_base_nav_as_of_the_day_before_the_previous_day.dissect(buffer, index, packet, parent)
 
-  -- Previous Days Nontaxable Base Price For Overseas Stocks: Double
-  index, previous_days_nontaxable_base_price_for_overseas_stocks = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.dissect(buffer, index, packet, parent)
+  -- Previous Days Non Taxable Base Price For Overseas Stocks: Double
+  index, previous_days_non_taxable_base_price_for_overseas_stocks = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_for_overseas_stocks.dissect(buffer, index, packet, parent)
 
-  -- Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks: Double
-  index, previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.dissect(buffer, index, packet, parent)
+  -- Previous Days Non Taxable Base Price Before Dividend For Overseas Stocks: Double
+  index, previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks = koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_non_taxable_base_price_before_dividend_for_overseas_stocks.dissect(buffer, index, packet, parent)
 
-  -- Day Before Previous Days Nontaxable Base Price For Overseas Stocks: Double
-  index, day_before_previous_days_nontaxable_base_price_for_overseas_stocks = koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.dissect(buffer, index, packet, parent)
+  -- Day Before Previous Days Non Taxable Base Price For Overseas Stocks: Double
+  index, day_before_previous_days_non_taxable_base_price_for_overseas_stocks = koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_non_taxable_base_price_for_overseas_stocks.dissect(buffer, index, packet, parent)
 
-  -- Number Of Freefloating Etf Shares: Long
-  index, number_of_freefloating_etf_shares = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares.dissect(buffer, index, packet, parent)
+  -- Number Of Free Floating Etf Shares: Long
+  index, number_of_free_floating_etf_shares = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_free_floating_etf_shares.dissect(buffer, index, packet, parent)
 
   -- Filler 46: String
   index, filler_46 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.dissect(buffer, index, packet, parent)

@@ -42,7 +42,7 @@ omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.message_count = ProtoField.new("Me
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.message_length = ProtoField.new("Message Length", "lseg.lse.analyticsreplay.gtp.v26.2.messagelength", ftypes.UINT16, nil, nil, nil, "Length of message including this field")
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.message_type = ProtoField.new("Message Type", "lseg.lse.analyticsreplay.gtp.v26.2.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.new_end_time = ProtoField.new("New End Time", "lseg.lse.analyticsreplay.gtp.v26.2.newendtime", ftypes.STRING, nil, nil, nil, "New time the session will end. The field will contain only spaces if Session Change Reason is '0' or the Session Change Reason is not present. New End Time will be in terms of the local time on the server (i.e., not UTC).")
-omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.offbook = ProtoField.new("Offbook", "lseg.lse.analyticsreplay.gtp.v26.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Off-book")
+omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.off_book = ProtoField.new("Off Book", "lseg.lse.analyticsreplay.gtp.v26.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Off-book")
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.lse.analyticsreplay.gtp.v26.2.orderbooktype", ftypes.UINT8, nil, nil, nil, "Order book the status applies to.")
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.partition_id = ProtoField.new("Partition Id", "lseg.lse.analyticsreplay.gtp.v26.2.partitionid", ftypes.STRING, nil, nil, nil, "Trading System's partition in which the instrument is traded.")
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.private_rfq = ProtoField.new("Private Rfq", "lseg.lse.analyticsreplay.gtp.v26.2.privaterfq", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
@@ -840,7 +840,7 @@ lseg_lse_analyticsreplay_gtp_v26_2.order_book_type.size = 1
 -- Display: Order Book Type
 lseg_lse_analyticsreplay_gtp_v26_2.order_book_type.labels = {
   [1] = "Order Book Type: Firm Quote Book (1)",
-  [2] = "Order Book Type: Offbook (2)",
+  [2] = "Order Book Type: Off Book (2)",
   [3] = "Order Book Type: Electronic Order Book (3)",
   [4] = "Order Book Type: Private Rfq (4)",
 }
@@ -1881,9 +1881,9 @@ lseg_lse_analyticsreplay_gtp_v26_2.allowed_book_types.display = function(range, 
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Firm Quote Book"
   end
-  -- Is Offbook flag set?
+  -- Is Off Book flag set?
   if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Offbook"
+    flags[#flags + 1] = "Off Book"
   end
   -- Is Electronic Order Book flag set?
   if bit.band(value, 0x08) ~= 0 then
@@ -1906,8 +1906,8 @@ lseg_lse_analyticsreplay_gtp_v26_2.allowed_book_types.bits = function(range, val
   -- Firm Quote Book: 1 Bit
   parent:add(omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.firm_quote_book, range, value)
 
-  -- Offbook: 1 Bit
-  parent:add(omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.offbook, range, value)
+  -- Off Book: 1 Bit
+  parent:add(omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.off_book, range, value)
 
   -- Electronic Order Book: 1 Bit
   parent:add(omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.electronic_order_book, range, value)

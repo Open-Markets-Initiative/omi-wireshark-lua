@@ -44,16 +44,16 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.average_spread_si
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.average_yld = ProtoField.new("Average Yld", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.averageyld", ftypes.DOUBLE, nil, nil, nil, "Average yield across the index constituents (16 ASCII digits with 6 implied decimal places). Unit: percent.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.average_ytm = ProtoField.new("Average Ytm", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.averageytm", ftypes.DOUBLE, nil, nil, nil, "Average yield to maturity (7 ASCII digits with 3 implied decimal places). Unit: percent.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.baby_bonds_type_code = ProtoField.new("Baby Bonds Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.babybondstypecode", ftypes.STRING, nil, nil, nil, "Baby Bonds Type Code.")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.backdoor_listing = ProtoField.new("Backdoor Listing", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.backdoorlisting", ftypes.STRING, nil, nil, nil, "Y/N to Back-door Listing.")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.back_door_listing = ProtoField.new("Back Door Listing", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.backdoorlisting", ftypes.STRING, nil, nil, nil, "Y/N to Back-door Listing.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.base_date = ProtoField.new("Base Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.basedate", ftypes.STRING, nil, nil, nil, "Base date for the index calculation in YYYYMMDD format.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.base_price = ProtoField.new("Base Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.baseprice", ftypes.DOUBLE, nil, nil, nil, "A base price of a day. A base price to calculate a upper/lower price.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.base_price_change = ProtoField.new("Base Price Change", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.basepricechange", ftypes.STRING, nil, nil, nil, "Y/N to change of base price due to par-value change or increase of capital.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.base_time = ProtoField.new("Base Time", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.basetime", ftypes.STRING, nil, nil, nil, "Base time for the index calculation in HHMMSS format.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.basis_price = ProtoField.new("Basis Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.basisprice", ftypes.DOUBLE, nil, nil, nil, "Basis price of the constituent (10 ASCII digits with 2 implied decimal places).")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.basket_trading_in_the_preopening_market = ProtoField.new("Basket Trading In The Preopening Market", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.baskettradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Basket Trading in the Pre-opening Market.")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.basket_trading_in_the_pre_opening_market = ProtoField.new("Basket Trading In The Pre Opening Market", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.baskettradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Basket Trading in the Pre-opening Market.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.best_favorable_order_permission_type_code = ProtoField.new("Best Favorable Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.bestfavorableorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.bid_ask_spread_unit_code = ProtoField.new("Bid Ask Spread Unit Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.bidaskspreadunitcode", ftypes.STRING, nil, nil, nil, "R: Price Ratio Y: Yield Ratio T: Tick.")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.block_trading_in_the_preopening_market = ProtoField.new("Block Trading In The Preopening Market", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.blocktradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Block Trading in the Pre-opening Market.")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.block_trading_in_the_pre_opening_market = ProtoField.new("Block Trading In The Pre Opening Market", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.blocktradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Block Trading in the Pre-opening Market.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.board_id = ProtoField.new("Board Id", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.boardid", ftypes.STRING, nil, nil, nil, "The Board ID refers to each Board in which an issue is traded under different trading schedules and rules. Individual issue can be traded on more than two Boards under each Board's schedule and with d.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.bond_category_code = ProtoField.new("Bond Category Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.bondcategorycode", ftypes.STRING, nil, nil, nil, "Category code.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.bond_guaranteed_type_code = ProtoField.new("Bond Guaranteed Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.bondguaranteedtypecode", ftypes.STRING, nil, nil, nil, "Bond_Guaranteed Type Code 1:Guaranteed 2:Partial Guaranteed 3:Collateral-backed 4:Non-Guaranteed 5:Government Guaranteed 6:Covered Bond.")
@@ -63,7 +63,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.bond_listing_type
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.bps = ProtoField.new("Bps", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.bps", ftypes.DOUBLE, nil, nil, nil, "Book-value Per Share.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.bps_calculation = ProtoField.new("Bps Calculation", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.bpscalculation", ftypes.STRING, nil, nil, nil, "BPS Calculation.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.business_date = ProtoField.new("Business Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.businessdate", ftypes.STRING, nil, nil, nil, "Business Date.")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.buying_volume_block_trading_in_offhours_session = ProtoField.new("Buying Volume Block Trading In Offhours Session", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.buyingvolumeblocktradinginoffhourssession", ftypes.UINT64, nil, nil, nil, "An amount of treasury stock that a company plans to buy during off-hours session.")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.buying_volume_block_trading_in_off_hours_session = ProtoField.new("Buying Volume Block Trading In Off Hours Session", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.buyingvolumeblocktradinginoffhourssession", ftypes.UINT64, nil, nil, nil, "An amount of treasury stock that a company plans to buy during off-hours session.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.buying_volume_open_single_price_session = ProtoField.new("Buying Volume Open Single Price Session", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.buyingvolumeopensinglepricesession", ftypes.UINT64, nil, nil, nil, "An amount of treasury stock that a company plans to buy during the opening single price session.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.buying_volume_regular_session = ProtoField.new("Buying Volume Regular Session", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.buyingvolumeregularsession", ftypes.UINT64, nil, nil, nil, "An amount of treasury stock that a company plans to buy during the regular session.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.calculating_date = ProtoField.new("Calculating Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.calculatingdate", ftypes.STRING, nil, nil, nil, "Calculation date in YYYYMMDD format.")
@@ -82,7 +82,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.clean_price_index
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.clean_price_index_ktb = ProtoField.new("Clean Price Index Ktb", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.cleanpriceindexktb", ftypes.DOUBLE, nil, nil, nil, "Clean price index (11 ASCII digits with 4 implied decimal places).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.clean_price_index_weight = ProtoField.new("Clean Price Index Weight", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.cleanpriceindexweight", ftypes.DOUBLE, nil, nil, nil, "Weighted clean price index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.closing_date = ProtoField.new("Closing Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.closingdate", ftypes.STRING, nil, nil, nil, "Closing date of a listed company (Dec 31, June 30, Mar 31).")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.closing_price_trading_in_the_preopening_market = ProtoField.new("Closing Price Trading In The Preopening Market", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.closingpricetradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Y/N to a Closing Price Trading in the Pre-opening Market.")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.closing_price_trading_in_the_pre_opening_market = ProtoField.new("Closing Price Trading In The Pre Opening Market", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.closingpricetradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Y/N to a Closing Price Trading in the Pre-opening Market.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.closing_price_trading_possibility_in_the_after_hours = ProtoField.new("Closing Price Trading Possibility In The After Hours", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.closingpricetradingpossibilityintheafterhours", ftypes.STRING, nil, nil, nil, "Closing PriceTrading Possibility in the After Hours.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.closingpricetypecode", ftypes.STRING, nil, nil, nil, "1: Closing price 2: Quotation 3: No Trades 4: Quotation of an Issue of which base price is settled with a today's single price.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.conditioned_order_permission_type_code = ProtoField.new("Conditioned Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.conditionedorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
@@ -163,7 +163,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.issued_amount_wei
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.issuing_amount = ProtoField.new("Issuing Amount", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.issuingamount", ftypes.DOUBLE, nil, nil, nil, "Issuing Amount.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.issuing_price = ProtoField.new("Issuing Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.issuingprice", ftypes.DOUBLE, nil, nil, nil, "Issuing price.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.korea_corporate_governance_stock_price_index_kogi = ProtoField.new("Korea Corporate Governance Stock Price Index Kogi", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.koreacorporategovernancestockpriceindexkogi", ftypes.STRING, nil, nil, nil, "Y/N to whether an issuer has a good governance (only for KOSDAQ).")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.korea_valueup_index = ProtoField.new("Korea Valueup Index", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.koreavalueupindex", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of Korea Value-up Index).")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.korea_value_up_index = ProtoField.new("Korea Value Up Index", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.koreavalueupindex", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of Korea Value-up Index).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.kosdaq = ProtoField.new("Kosdaq", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.kosdaq", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of KOSDAQ).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.kosdaq_150 = ProtoField.new("Kosdaq 150", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.kosdaq150", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of KOSDAQ 150).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.kospi = ProtoField.new("Kospi", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.kospi", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of KOSPI).")
@@ -182,7 +182,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.liquidation_trade
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.listed_amount = ProtoField.new("Listed Amount", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.listedamount", ftypes.DOUBLE, nil, nil, nil, "Listed Amount.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.listing_date = ProtoField.new("Listing Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.listingdate", ftypes.STRING, nil, nil, nil, "Listing Date of derivatives(CLASS) or issues.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.loss_category = ProtoField.new("Loss Category", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.losscategory", ftypes.STRING, nil, nil, nil, "Y/N to Loss(whether a value of EPS is positive or negative).")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.lot_size_afterhours_trading = ProtoField.new("Lot Size Afterhours Trading", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.lotsizeafterhourstrading", ftypes.UINT64, nil, nil, nil, "Lot Size(After-hours Trading).")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.lot_size_after_hours_trading = ProtoField.new("Lot Size After Hours Trading", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.lotsizeafterhourstrading", ftypes.UINT64, nil, nil, nil, "Lot Size(After-hours Trading).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.low_liquidity = ProtoField.new("Low Liquidity", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.lowliquidity", ftypes.STRING, nil, nil, nil, "Low Liquidity.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.lower_limit_price = ProtoField.new("Lower Limit Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.lowerlimitprice", ftypes.DOUBLE, nil, nil, nil, "A price subtracting the price limit from the base price.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.lowest_order_price = ProtoField.new("Lowest Order Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.lowestorderprice", ftypes.DOUBLE, nil, nil, nil, "An lower limit price of an issue of which base price is settled with today's single price.")
@@ -264,7 +264,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.security_group_id
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.segment_type_code = ProtoField.new("Segment Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.segmenttypecode", ftypes.STRING, nil, nil, nil, "KOSDAQ Market Segment type code.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.session_id = ProtoField.new("Session Id", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.sessionid", ftypes.STRING, nil, nil, nil, "A Session is a subordinate concept of a Board and each session follows different trading methods and rules.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.short_selling = ProtoField.new("Short Selling", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.shortselling", ftypes.STRING, nil, nil, nil, "Y/N to Short Selling.")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.shortterm_overheat_issue_type_code = ProtoField.new("Shortterm Overheat Issue Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.shorttermoverheatissuetypecode", ftypes.STRING, nil, nil, nil, "0: N/A 1: Designation Alert 2: Designation 3: Extension of Designation(Delay in lifting).")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.short_term_overheat_issue_type_code = ProtoField.new("Short Term Overheat Issue Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.shorttermoverheatissuetypecode", ftypes.STRING, nil, nil, nil, "0: N/A 1: Designation Alert 2: Designation 3: Extension of Designation(Delay in lifting).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.small_medium_sized_business = ProtoField.new("Small Medium Sized Business", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.smallmediumsizedbusiness", ftypes.STRING, nil, nil, nil, "Small & Medium Sized Business (only for KOSDAQ).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.spac = ProtoField.new("Spac", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.spac", ftypes.STRING, nil, nil, nil, "Y/N to SPAC (Special Purpose Acquisition Company).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.spac_merger = ProtoField.new("Spac Merger", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.spacmerger", ftypes.STRING, nil, nil, nil, "Y/N.")
@@ -1477,25 +1477,25 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.baby_bonds_type_code.dissect
   return offset + length, value
 end
 
--- Backdoor Listing
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.backdoor_listing = {}
+-- Back Door Listing
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.back_door_listing = {}
 
--- Size: Backdoor Listing
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.backdoor_listing.size = 1
+-- Size: Back Door Listing
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.back_door_listing.size = 1
 
--- Display: Backdoor Listing
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.backdoor_listing.display = function(value)
-  return "Backdoor Listing: "..value
+-- Display: Back Door Listing
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.back_door_listing.display = function(value)
+  return "Back Door Listing: "..value
 end
 
--- Dissect: Backdoor Listing
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.backdoor_listing.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.backdoor_listing.size
+-- Dissect: Back Door Listing
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.back_door_listing.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.back_door_listing.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.backdoor_listing.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.back_door_listing.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.backdoor_listing, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.back_door_listing, range, value, display)
 
   return offset + length, value
 end
@@ -1660,25 +1660,25 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.basis_price.dissect = functi
   return offset + length, value
 end
 
--- Basket Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_preopening_market = {}
+-- Basket Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_pre_opening_market = {}
 
--- Size: Basket Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_preopening_market.size = 1
+-- Size: Basket Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_pre_opening_market.size = 1
 
--- Display: Basket Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_preopening_market.display = function(value)
-  return "Basket Trading In The Preopening Market: "..value
+-- Display: Basket Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_pre_opening_market.display = function(value)
+  return "Basket Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Basket Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_preopening_market.size
+-- Dissect: Basket Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.basket_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.basket_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -1737,25 +1737,25 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.bid_ask_spread_unit_code.dis
   return offset + length, value
 end
 
--- Block Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_preopening_market = {}
+-- Block Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_pre_opening_market = {}
 
--- Size: Block Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_preopening_market.size = 1
+-- Size: Block Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_pre_opening_market.size = 1
 
--- Display: Block Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_preopening_market.display = function(value)
-  return "Block Trading In The Preopening Market: "..value
+-- Display: Block Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_pre_opening_market.display = function(value)
+  return "Block Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Block Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_preopening_market.size
+-- Dissect: Block Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.block_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.block_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -2024,33 +2024,33 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.business_date.dissect = func
   return offset + length, value
 end
 
--- Buying Volume Block Trading In Offhours Session
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_offhours_session = {}
+-- Buying Volume Block Trading In Off Hours Session
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_off_hours_session = {}
 
--- Size: Buying Volume Block Trading In Offhours Session
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_offhours_session.size = 12
+-- Size: Buying Volume Block Trading In Off Hours Session
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_off_hours_session.size = 12
 
--- Display: Buying Volume Block Trading In Offhours Session
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_offhours_session.display = function(value)
-  return "Buying Volume Block Trading In Offhours Session: "..value
+-- Display: Buying Volume Block Trading In Off Hours Session
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_off_hours_session.display = function(value)
+  return "Buying Volume Block Trading In Off Hours Session: "..value
 end
 
--- Dissect: Buying Volume Block Trading In Offhours Session
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_offhours_session.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_offhours_session.size
+-- Dissect: Buying Volume Block Trading In Off Hours Session
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_off_hours_session.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_off_hours_session.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.buying_volume_block_trading_in_offhours_session, range, value, "Buying Volume Block Trading In Offhours Session: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Buying Volume Block Trading In Offhours Session is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.buying_volume_block_trading_in_off_hours_session, range, value, "Buying Volume Block Trading In Off Hours Session: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Buying Volume Block Trading In Off Hours Session is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_offhours_session.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_off_hours_session.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.buying_volume_block_trading_in_offhours_session, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.buying_volume_block_trading_in_off_hours_session, range, value, display)
 
   return offset + length, value
 end
@@ -2695,25 +2695,25 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_date.dissect = funct
   return offset + length, value
 end
 
--- Closing Price Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_preopening_market = {}
+-- Closing Price Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_pre_opening_market = {}
 
--- Size: Closing Price Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_preopening_market.size = 1
+-- Size: Closing Price Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_pre_opening_market.size = 1
 
--- Display: Closing Price Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_preopening_market.display = function(value)
-  return "Closing Price Trading In The Preopening Market: "..value
+-- Display: Closing Price Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_pre_opening_market.display = function(value)
+  return "Closing Price Trading In The Pre Opening Market: "..value
 end
 
--- Dissect: Closing Price Trading In The Preopening Market
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_preopening_market.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_preopening_market.size
+-- Dissect: Closing Price Trading In The Pre Opening Market
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_pre_opening_market.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_pre_opening_market.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_preopening_market.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_pre_opening_market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.closing_price_trading_in_the_preopening_market, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.closing_price_trading_in_the_pre_opening_market, range, value, display)
 
   return offset + length, value
 end
@@ -5062,25 +5062,25 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_corporate_governance_s
   return offset + length, value
 end
 
--- Korea Valueup Index
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_valueup_index = {}
+-- Korea Value Up Index
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_value_up_index = {}
 
--- Size: Korea Valueup Index
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_valueup_index.size = 1
+-- Size: Korea Value Up Index
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_value_up_index.size = 1
 
--- Display: Korea Valueup Index
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_valueup_index.display = function(value)
-  return "Korea Valueup Index: "..value
+-- Display: Korea Value Up Index
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_value_up_index.display = function(value)
+  return "Korea Value Up Index: "..value
 end
 
--- Dissect: Korea Valueup Index
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_valueup_index.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_valueup_index.size
+-- Dissect: Korea Value Up Index
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_value_up_index.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_value_up_index.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_valueup_index.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_value_up_index.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.korea_valueup_index, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.korea_value_up_index, range, value, display)
 
   return offset + length, value
 end
@@ -5529,33 +5529,33 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.loss_category.dissect = func
   return offset + length, value
 end
 
--- Lot Size Afterhours Trading
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_afterhours_trading = {}
+-- Lot Size After Hours Trading
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_after_hours_trading = {}
 
--- Size: Lot Size Afterhours Trading
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_afterhours_trading.size = 11
+-- Size: Lot Size After Hours Trading
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_after_hours_trading.size = 11
 
--- Display: Lot Size Afterhours Trading
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_afterhours_trading.display = function(value)
-  return "Lot Size Afterhours Trading: "..value
+-- Display: Lot Size After Hours Trading
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_after_hours_trading.display = function(value)
+  return "Lot Size After Hours Trading: "..value
 end
 
--- Dissect: Lot Size Afterhours Trading
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_afterhours_trading.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_afterhours_trading.size
+-- Dissect: Lot Size After Hours Trading
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_after_hours_trading.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_after_hours_trading.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.lot_size_afterhours_trading, range, value, "Lot Size Afterhours Trading: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Lot Size Afterhours Trading is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.lot_size_after_hours_trading, range, value, "Lot Size After Hours Trading: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Lot Size After Hours Trading is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_afterhours_trading.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_after_hours_trading.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.lot_size_afterhours_trading, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.lot_size_after_hours_trading, range, value, display)
 
   return offset + length, value
 end
@@ -7944,25 +7944,25 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.short_selling.dissect = func
   return offset + length, value
 end
 
--- Shortterm Overheat Issue Type Code
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.shortterm_overheat_issue_type_code = {}
+-- Short Term Overheat Issue Type Code
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.short_term_overheat_issue_type_code = {}
 
--- Size: Shortterm Overheat Issue Type Code
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.shortterm_overheat_issue_type_code.size = 1
+-- Size: Short Term Overheat Issue Type Code
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.short_term_overheat_issue_type_code.size = 1
 
--- Display: Shortterm Overheat Issue Type Code
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.shortterm_overheat_issue_type_code.display = function(value)
-  return "Shortterm Overheat Issue Type Code: "..value
+-- Display: Short Term Overheat Issue Type Code
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.short_term_overheat_issue_type_code.display = function(value)
+  return "Short Term Overheat Issue Type Code: "..value
 end
 
--- Dissect: Shortterm Overheat Issue Type Code
-koscom_mdcsrealtime_equityderivatives_exture_v2_018.shortterm_overheat_issue_type_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.shortterm_overheat_issue_type_code.size
+-- Dissect: Short Term Overheat Issue Type Code
+koscom_mdcsrealtime_equityderivatives_exture_v2_018.short_term_overheat_issue_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.short_term_overheat_issue_type_code.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.shortterm_overheat_issue_type_code.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.short_term_overheat_issue_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.shortterm_overheat_issue_type_code, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.short_term_overheat_issue_type_code, range, value, display)
 
   return offset + length, value
 end
@@ -10420,7 +10420,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.securities_equity_index_indi
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.krx_bbig_index.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.krx_secondary_battery_top_10_index.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.krx_bio_top_10_index.size + 
-  koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_valueup_index.size + 
+  koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_value_up_index.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.filler_8.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.end_keyword.size
 
@@ -10529,8 +10529,8 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.securities_equity_index_indi
   -- Krx Bio Top 10 Index: String
   index, krx_bio_top_10_index = koscom_mdcsrealtime_equityderivatives_exture_v2_018.krx_bio_top_10_index.dissect(buffer, index, packet, parent)
 
-  -- Korea Valueup Index: String
-  index, korea_valueup_index = koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_valueup_index.dissect(buffer, index, packet, parent)
+  -- Korea Value Up Index: String
+  index, korea_value_up_index = koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_value_up_index.dissect(buffer, index, packet, parent)
 
   -- Filler 8: String
   index, filler_8 = koscom_mdcsrealtime_equityderivatives_exture_v2_018.filler_8.dissect(buffer, index, packet, parent)
@@ -10575,7 +10575,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.securities_treasury_stocks_b
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.market_participant_number.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_open_single_price_session.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_regular_session.size + 
-  koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_offhours_session.size + 
+  koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_off_hours_session.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.accumulated_trading_quantity.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.accumulated_trading_value.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.end_keyword.size
@@ -10622,8 +10622,8 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.securities_treasury_stocks_b
   -- Buying Volume Regular Session: Long
   index, buying_volume_regular_session = koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_regular_session.dissect(buffer, index, packet, parent)
 
-  -- Buying Volume Block Trading In Offhours Session: Long
-  index, buying_volume_block_trading_in_offhours_session = koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_offhours_session.dissect(buffer, index, packet, parent)
+  -- Buying Volume Block Trading In Off Hours Session: Long
+  index, buying_volume_block_trading_in_off_hours_session = koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_in_off_hours_session.dissect(buffer, index, packet, parent)
 
   -- Accumulated Trading Quantity: Long
   index, accumulated_trading_quantity = koscom_mdcsrealtime_equityderivatives_exture_v2_018.accumulated_trading_quantity.dissect(buffer, index, packet, parent)
@@ -10899,7 +10899,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.securities_equities_batch_da
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.korea_corporate_governance_stock_price_index_kogi.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.issue_for_administration.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.unfaithful_disclosure.size + 
-  koscom_mdcsrealtime_equityderivatives_exture_v2_018.backdoor_listing.size + 
+  koscom_mdcsrealtime_equityderivatives_exture_v2_018.back_door_listing.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.trading_halt.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.industry_id.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.small_medium_sized_business.size + 
@@ -10939,16 +10939,16 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.securities_equities_batch_da
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.lowest_order_price.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.highest_order_price.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.unit_of_volume_in_main_board.size + 
-  koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_afterhours_trading.size + 
+  koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_after_hours_trading.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.rei_ts_type_code.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.target_stock_isin_code.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.currency_iso_code.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.country_code.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.market_making_possibility.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_possibility_in_the_after_hours.size + 
-  koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_preopening_market.size + 
-  koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_preopening_market.size + 
-  koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_preopening_market.size + 
+  koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_pre_opening_market.size + 
+  koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_pre_opening_market.size + 
+  koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_pre_opening_market.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.announcement_of_estimated_trading_price.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.short_selling.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.etf_tracking_difference.size + 
@@ -10958,7 +10958,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.securities_equities_batch_da
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.appraisal_ratio_of_substitute_price.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.investment_caution_issue.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.delisting_date.size + 
-  koscom_mdcsrealtime_equityderivatives_exture_v2_018.shortterm_overheat_issue_type_code.size + 
+  koscom_mdcsrealtime_equityderivatives_exture_v2_018.short_term_overheat_issue_type_code.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.etf_replication_methods_type_code.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.expiration_date.size + 
   koscom_mdcsrealtime_equityderivatives_exture_v2_018.distribution_type_code.size + 
@@ -11063,8 +11063,8 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.securities_equities_batch_da
   -- Unfaithful Disclosure: String
   index, unfaithful_disclosure = koscom_mdcsrealtime_equityderivatives_exture_v2_018.unfaithful_disclosure.dissect(buffer, index, packet, parent)
 
-  -- Backdoor Listing: String
-  index, backdoor_listing = koscom_mdcsrealtime_equityderivatives_exture_v2_018.backdoor_listing.dissect(buffer, index, packet, parent)
+  -- Back Door Listing: String
+  index, back_door_listing = koscom_mdcsrealtime_equityderivatives_exture_v2_018.back_door_listing.dissect(buffer, index, packet, parent)
 
   -- Trading Halt: String
   index, trading_halt = koscom_mdcsrealtime_equityderivatives_exture_v2_018.trading_halt.dissect(buffer, index, packet, parent)
@@ -11183,8 +11183,8 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.securities_equities_batch_da
   -- Unit Of Volume In Main Board: Long
   index, unit_of_volume_in_main_board = koscom_mdcsrealtime_equityderivatives_exture_v2_018.unit_of_volume_in_main_board.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Afterhours Trading: Long
-  index, lot_size_afterhours_trading = koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_afterhours_trading.dissect(buffer, index, packet, parent)
+  -- Lot Size After Hours Trading: Long
+  index, lot_size_after_hours_trading = koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_after_hours_trading.dissect(buffer, index, packet, parent)
 
   -- Rei Ts Type Code: String
   index, rei_ts_type_code = koscom_mdcsrealtime_equityderivatives_exture_v2_018.rei_ts_type_code.dissect(buffer, index, packet, parent)
@@ -11204,14 +11204,14 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.securities_equities_batch_da
   -- Closing Price Trading Possibility In The After Hours: String
   index, closing_price_trading_possibility_in_the_after_hours = koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_possibility_in_the_after_hours.dissect(buffer, index, packet, parent)
 
-  -- Closing Price Trading In The Preopening Market: String
-  index, closing_price_trading_in_the_preopening_market = koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Closing Price Trading In The Pre Opening Market: String
+  index, closing_price_trading_in_the_pre_opening_market = koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_price_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
-  -- Block Trading In The Preopening Market: String
-  index, block_trading_in_the_preopening_market = koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Block Trading In The Pre Opening Market: String
+  index, block_trading_in_the_pre_opening_market = koscom_mdcsrealtime_equityderivatives_exture_v2_018.block_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
-  -- Basket Trading In The Preopening Market: String
-  index, basket_trading_in_the_preopening_market = koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_preopening_market.dissect(buffer, index, packet, parent)
+  -- Basket Trading In The Pre Opening Market: String
+  index, basket_trading_in_the_pre_opening_market = koscom_mdcsrealtime_equityderivatives_exture_v2_018.basket_trading_in_the_pre_opening_market.dissect(buffer, index, packet, parent)
 
   -- Announcement Of Estimated Trading Price: String
   index, announcement_of_estimated_trading_price = koscom_mdcsrealtime_equityderivatives_exture_v2_018.announcement_of_estimated_trading_price.dissect(buffer, index, packet, parent)
@@ -11240,8 +11240,8 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.securities_equities_batch_da
   -- Delisting Date: String
   index, delisting_date = koscom_mdcsrealtime_equityderivatives_exture_v2_018.delisting_date.dissect(buffer, index, packet, parent)
 
-  -- Shortterm Overheat Issue Type Code: String
-  index, shortterm_overheat_issue_type_code = koscom_mdcsrealtime_equityderivatives_exture_v2_018.shortterm_overheat_issue_type_code.dissect(buffer, index, packet, parent)
+  -- Short Term Overheat Issue Type Code: String
+  index, short_term_overheat_issue_type_code = koscom_mdcsrealtime_equityderivatives_exture_v2_018.short_term_overheat_issue_type_code.dissect(buffer, index, packet, parent)
 
   -- Etf Replication Methods Type Code: String
   index, etf_replication_methods_type_code = koscom_mdcsrealtime_equityderivatives_exture_v2_018.etf_replication_methods_type_code.dissect(buffer, index, packet, parent)

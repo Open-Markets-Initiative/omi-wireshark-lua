@@ -829,7 +829,7 @@ jpx_tseequities_standard_flex_v19_5.issue_status.labels = {
   ["10"] = "Issue Status: Accepting Order Input (10)",
   ["20"] = "Issue Status: During Trading Session (20)",
   ["30"] = "Issue Status: Not Accepting Order Input (30)",
-  ["35"] = "Issue Status: Preclosing (35)",
+  ["35"] = "Issue Status: Pre Closing (35)",
   ["40"] = "Issue Status: Close Of Session (40)",
 }
 

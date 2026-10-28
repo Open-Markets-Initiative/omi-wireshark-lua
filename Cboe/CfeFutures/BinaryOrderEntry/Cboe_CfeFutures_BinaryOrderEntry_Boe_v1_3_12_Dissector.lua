@@ -3022,7 +3022,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.cust_order_handling_inst.display = 
     return "Cust Order Handling Inst: Electronic (Y)"
   end
   if value == "C" then
-    return "Cust Order Handling Inst: Vendorprovided Platform Billed By Executing Broker (C)"
+    return "Cust Order Handling Inst: Vendor Provided Platform Billed By Executing Broker (C)"
   end
   if value == "G" then
     return "Cust Order Handling Inst: Sponsored Access Via Exchange Api Or Fix Provided By (G)"
@@ -3031,7 +3031,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.cust_order_handling_inst.display = 
     return "Cust Order Handling Inst: Premium Algorithmic Trading Provider Billed By Executing (H)"
   end
   if value == "D" then
-    return "Cust Order Handling Inst: Other Including Otherprovided Screen (D)"
+    return "Cust Order Handling Inst: Other Including Other Provided Screen (D)"
   end
 
   return "Cust Order Handling Inst: Unknown("..value..")"

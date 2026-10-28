@@ -1335,7 +1335,7 @@ nyse_nyseequities_bbo_pillar_v2_5_b.security_status.display = function(value)
     return "Security Status: Short Sale Restriction Deactivated (D)"
   end
   if value == "P" then
-    return "Security Status: Preopening (P)"
+    return "Security Status: Pre Opening (P)"
   end
   if value == "E" then
     return "Security Status: Early Session (E)"

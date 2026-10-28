@@ -55,7 +55,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.executed_trading_se
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.amexequities.binarygateway.pillarstream.v6.0.extendedexecinst", ftypes.UINT64, {[0]="None", [1]="Alo", [3]="No Ioi Route", [5]="Retail Type 1", [6]="Retail Type 2", [7]="Retail Provider", [8]="Imbalance Offset", [9]="Discretionary Peg", [10]="Dark Primary Peg", [14]="Ido"}, base.DEC, 0x000F000000000000, "ExtendedExecInst")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.amexequities.binarygateway.pillarstream.v6.0.imbalanceside", ftypes.UINT8, nil, nil, nil, "Imbalance side enum")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nyse.amexequities.binarygateway.pillarstream.v6.0.imbalancevolume", ftypes.UINT32, nil, nil, nil, "Unpaired better-priced shares relative to Price, excluding DMM.")
-omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.interest_type = ProtoField.new("Interest Type", "nyse.amexequities.binarygateway.pillarstream.v6.0.interesttype", ftypes.UINT64, {[0]="No Interest Type", [4]="Q Order", [5]="Cco", [6]="Cco Partial Fill Contraside"}, base.DEC, 0x000000000E000000, "InterestType")
+omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.interest_type = ProtoField.new("Interest Type", "nyse.amexequities.binarygateway.pillarstream.v6.0.interesttype", ftypes.UINT64, {[0]="No Interest Type", [4]="Q Order", [5]="Cco", [6]="Cco Partial Fill Contra Side"}, base.DEC, 0x000000000E000000, "InterestType")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.intraday_sell_short_qty = ProtoField.new("Intraday Sell Short Qty", "nyse.amexequities.binarygateway.pillarstream.v6.0.intradaysellshortqty", ftypes.UINT32, nil, nil, nil, "Number of shares to mark as Sell Short for applicable ManualActionTypes. Populate 0 when not applicable.")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.introducing_badge_id = ProtoField.new("Introducing Badge Id", "nyse.amexequities.binarygateway.pillarstream.v6.0.introducingbadgeid", ftypes.STRING, nil, nil, nil, "NYSE Floor DMM supervisor badge when ManualOverride is 1 or 2.")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.ioc_attribution = ProtoField.new("Ioc Attribution", "nyse.amexequities.binarygateway.pillarstream.v6.0.iocattribution", ftypes.UINT8, nil, nil, nil, "IOC Attribution enum")
@@ -165,7 +165,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.settlement_type = P
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.side = ProtoField.new("Side", "nyse.amexequities.binarygateway.pillarstream.v6.0.side", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.side_bits = ProtoField.new("Side Bits", "nyse.amexequities.binarygateway.pillarstream.v6.0.sidebits", ftypes.UINT64, {[1]="Buy", [2]="Sell", [3]="Sell Short", [4]="Sell Short Exempt", [5]="Cross", [6]="Cross Short", [7]="Cross Short Exempt"}, base.DEC, UInt64(0x00000000, 0xF0000000), "Side")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.side_of_unpaired_qty = ProtoField.new("Side Of Unpaired Qty", "nyse.amexequities.binarygateway.pillarstream.v6.0.sideofunpairedqty", ftypes.UINT8, nil, nil, nil, "SideOfUnpairedQty enum")
-omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.amexequities.binarygateway.pillarstream.v6.0.specialordtype", ftypes.UINT64, {[0]="No Special Ord Type", [1]="Dmm Auction Aoc", [2]="Dmm Preauction", [3]="Dmm Afterauction", [4]="Qct", [8]="Reserved"}, base.DEC, 0x000000000001E000, "SpecialOrdType")
+omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.amexequities.binarygateway.pillarstream.v6.0.specialordtype", ftypes.UINT64, {[0]="No Special Ord Type", [1]="Dmm Auction Aoc", [2]="Dmm Pre Auction", [3]="Dmm After Auction", [4]="Qct", [8]="Reserved"}, base.DEC, 0x000000000001E000, "SpecialOrdType")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.amexequities.binarygateway.pillarstream.v6.0.ssrfilingprice", ftypes.DOUBLE, nil, nil, nil, "Sell Short Restriction Filing Price used for the auction; set to 0 if not available.")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.start_seq = ProtoField.new("Start Seq", "nyse.amexequities.binarygateway.pillarstream.v6.0.startseq", ftypes.UINT64, nil, nil, nil, "Start sequence number")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.status = ProtoField.new("Status", "nyse.amexequities.binarygateway.pillarstream.v6.0.status", ftypes.UINT8, nil, nil, nil, "Pillar Status Code")
@@ -2805,7 +2805,7 @@ nyse_amexequities_binarygateway_pillarstream_v6_0.reason_code.labels = {
   [74] = "Reason Code: Invalid Attributed Quote (74)",
   [75] = "Reason Code: Invalid Proactive If Locked (75)",
   [76] = "Reason Code: System Not Available (76)",
-  [77] = "Reason Code: System Full Mengrateexceeded (77)",
+  [77] = "Reason Code: System Full Meng Rate Exceeded (77)",
   [78] = "Reason Code: Throttle Reject (78)",
   [79] = "Reason Code: Symbol Series Halted (79)",
   [80] = "Reason Code: No Symbolseries Permission (80)",
@@ -2875,7 +2875,7 @@ nyse_amexequities_binarygateway_pillarstream_v6_0.reason_code.labels = {
   [144] = "Reason Code: Pending Imbalance Freeze (144)",
   [145] = "Reason Code: No Rlp Permission (145)",
   [146] = "Reason Code: Invalid Instruction For Io Cs (146)",
-  [147] = "Reason Code: System Full Cgrateexceeded (147)",
+  [147] = "Reason Code: System Full Cg Rate Exceeded (147)",
   [148] = "Reason Code: Pending Cancel Auction Running (148)",
   [149] = "Reason Code: Pending Modify Auction Running (149)",
   [150] = "Reason Code: Pending Replace Auction Running (150)",

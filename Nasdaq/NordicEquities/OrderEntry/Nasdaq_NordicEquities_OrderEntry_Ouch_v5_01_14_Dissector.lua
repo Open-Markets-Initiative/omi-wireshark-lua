@@ -1559,8 +1559,8 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_condition_value.size = 1
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_condition_value.labels = {
   ["W"] = "Order Condition Value: Market Maker Order (W)",
   ["U"] = "Order Condition Value: Market Maker Order Refresh (U)",
-  ["P"] = "Order Condition Value: Topof Book (P)",
-  ["Q"] = "Order Condition Value: Darklit Sweep (Q)",
+  ["P"] = "Order Condition Value: Top Of Book (P)",
+  ["Q"] = "Order Condition Value: Dark Lit Sweep (Q)",
   ["T"] = "Order Condition Value: Trade Now (T)",
 }
 

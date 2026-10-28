@@ -274,7 +274,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.algorithmic_trade.size = 1
 -- Display: Algorithmic Trade
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.algorithmic_trade.labels = {
   ["H"] = "Algorithmic Trade: Algorithmic Trade (H)",
-  ["-"] = "Algorithmic Trade: Nonalgorithmic Trade (-)",
+  ["-"] = "Algorithmic Trade: Non Algorithmic Trade (-)",
 }
 
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.algorithmic_trade.display = function(value)

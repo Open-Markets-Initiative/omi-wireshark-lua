@@ -821,7 +821,7 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.size = 1
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.labels = {
   ["C"] = "Customer Firm Indicator: Customer (C)",
   ["F"] = "Customer Firm Indicator: Firm Joint (F)",
-  ["M"] = "Customer Firm Indicator: Onfloor (M)",
+  ["M"] = "Customer Firm Indicator: On Floor (M)",
   ["P"] = "Customer Firm Indicator: Professional (P)",
   ["B"] = "Customer Firm Indicator: Broker Dealer Non Registered (B)",
 }
@@ -1581,7 +1581,7 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.printable.size = 1
 
 -- Display: Printable
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.printable.labels = {
-  ["N"] = "Printable: Nonprintable (N)",
+  ["N"] = "Printable: Non Printable (N)",
   ["Y"] = "Printable: Printable (Y)",
 }
 

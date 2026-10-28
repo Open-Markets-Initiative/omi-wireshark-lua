@@ -467,8 +467,8 @@ asx_asxsecurities_trade_ouch_v3_6.deal_source.size = 2
 
 -- Display: Deal Source
 asx_asxsecurities_trade_ouch_v3_6.deal_source.labels = {
-  [1] = "Deal Source: Continuous Automatch (1)",
-  [20] = "Deal Source: Auction Automatch (20)",
+  [1] = "Deal Source: Continuous Auto Match (1)",
+  [20] = "Deal Source: Auction Auto Match (20)",
   [36] = "Deal Source: Tailor Made Combination Match (36)",
   [10] = "Deal Source: Deleted By Asx (10)",
   [44] = "Deal Source: Booked Ucp Transaction (44)",
@@ -861,7 +861,7 @@ asx_asxsecurities_trade_ouch_v3_6.ouch_order_type.labels = {
   ["N"] = "Ouch Order Type: Centre Point Order (N)",
   ["D"] = "Ouch Order Type: Centre Point Order (D)",
   ["S"] = "Ouch Order Type: Sweep Order (S)",
-  ["P"] = "Ouch Order Type: Dualposted Sweep Order (P)",
+  ["P"] = "Ouch Order Type: Dual Posted Sweep Order (P)",
   ["B"] = "Ouch Order Type: Centre Point Block Order With Single Fill Maq (B)",
   ["F"] = "Ouch Order Type: Centre Point Order With Single Fill Maq (F)",
   ["T"] = "Ouch Order Type: Limit Sweep Order With Single Fill Maq (T)",

@@ -616,7 +616,7 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_6.customer_indicator.size = 1
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.customer_indicator.labels = {
   ["C"] = "Customer Indicator: Customer (C)",
   ["F"] = "Customer Indicator: Firm (F)",
-  ["M"] = "Customer Indicator: Onfloor (M)",
+  ["M"] = "Customer Indicator: On Floor (M)",
   ["P"] = "Customer Indicator: Professional (P)",
   ["B"] = "Customer Indicator: Non Phlx (B)",
 }
@@ -1407,7 +1407,7 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_6.printable.size = 1
 
 -- Display: Printable
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.printable.labels = {
-  ["N"] = "Printable: Nonprintable (N)",
+  ["N"] = "Printable: Non Printable (N)",
   ["Y"] = "Printable: Printable (Y)",
 }
 

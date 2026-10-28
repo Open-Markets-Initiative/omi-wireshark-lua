@@ -380,7 +380,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.display = function(v
     return "Customer Firm Indicator: Firm Order (F)"
   end
   if value == "M" then
-    return "Customer Firm Indicator: Onfloor Market Maker (M)"
+    return "Customer Firm Indicator: On Floor Market Maker (M)"
   end
   if value == "B" then
     return "Customer Firm Indicator: Broker Dealer Order (B)"

@@ -52,7 +52,7 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.size = ProtoField.new("Size",
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.size_long = ProtoField.new("Size Long", "nasdaq.ntxoptions.topofmarket.itch.v1.2.sizelong", ftypes.UINT32, nil, nil, nil, "Aggregated number of contracts on the bid or ask side being displayed in the options market at the current time.")
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.source = ProtoField.new("Source", "nasdaq.ntxoptions.topofmarket.itch.v1.2.source", ftypes.UINT8, nil, nil, nil, "Identifies the source of the option, valid for the trading day.")
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.ntxoptions.topofmarket.itch.v1.2.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Explicit strike price. Refer to Data Types for field processing notes.")
-omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.subversion = ProtoField.new("Subversion", "nasdaq.ntxoptions.topofmarket.itch.v1.2.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of this interface. Currently set to 0.")
+omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.sub_version = ProtoField.new("Sub Version", "nasdaq.ntxoptions.topofmarket.itch.v1.2.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of this interface. Currently set to 0.")
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.tradable = ProtoField.new("Tradable", "nasdaq.ntxoptions.topofmarket.itch.v1.2.tradable", ftypes.STRING, nil, nil, nil, "Denotes whether or not this option is tradable at the exchange:")
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.ntxoptions.topofmarket.itch.v1.2.tradecondition", ftypes.STRING, nil, nil, nil, "The Trade Condition is the same as defined in the OPRA specification. Either “Last Sale” or “Transaction”")
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.ntxoptions.topofmarket.itch.v1.2.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Denotes the unique symbol assigned to the underlying security within the Exchange System.")
@@ -956,7 +956,7 @@ nasdaq_ntxoptions_topofmarket_itch_v1_2.quote_condition.size = 1
 -- Display: Quote Condition
 nasdaq_ntxoptions_topofmarket_itch_v1_2.quote_condition.display = function(value)
   if value == "F" then
-    return "Quote Condition: Nonfirm Quote (F)"
+    return "Quote Condition: Non Firm Quote (F)"
   end
   if value == "R" then
     return "Quote Condition: Rotational Quote (R)"
@@ -1202,25 +1202,25 @@ nasdaq_ntxoptions_topofmarket_itch_v1_2.strike_price.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Subversion
-nasdaq_ntxoptions_topofmarket_itch_v1_2.subversion = {}
+-- Sub Version
+nasdaq_ntxoptions_topofmarket_itch_v1_2.sub_version = {}
 
--- Size: Subversion
-nasdaq_ntxoptions_topofmarket_itch_v1_2.subversion.size = 1
+-- Size: Sub Version
+nasdaq_ntxoptions_topofmarket_itch_v1_2.sub_version.size = 1
 
--- Display: Subversion
-nasdaq_ntxoptions_topofmarket_itch_v1_2.subversion.display = function(value)
-  return "Subversion: "..value
+-- Display: Sub Version
+nasdaq_ntxoptions_topofmarket_itch_v1_2.sub_version.display = function(value)
+  return "Sub Version: "..value
 end
 
--- Dissect: Subversion
-nasdaq_ntxoptions_topofmarket_itch_v1_2.subversion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxoptions_topofmarket_itch_v1_2.subversion.size
+-- Dissect: Sub Version
+nasdaq_ntxoptions_topofmarket_itch_v1_2.sub_version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxoptions_topofmarket_itch_v1_2.sub_version.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_ntxoptions_topofmarket_itch_v1_2.subversion.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_ntxoptions_topofmarket_itch_v1_2.sub_version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.subversion, range, value, display)
+  parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.sub_version, range, value, display)
 
   return offset + length, value
 end
@@ -2069,7 +2069,7 @@ nasdaq_ntxoptions_topofmarket_itch_v1_2.system_event_message.size =
   nasdaq_ntxoptions_topofmarket_itch_v1_2.nanoseconds.size + 
   nasdaq_ntxoptions_topofmarket_itch_v1_2.event_code.size + 
   nasdaq_ntxoptions_topofmarket_itch_v1_2.version.size + 
-  nasdaq_ntxoptions_topofmarket_itch_v1_2.subversion.size
+  nasdaq_ntxoptions_topofmarket_itch_v1_2.sub_version.size
 
 -- Display: System Event Message
 nasdaq_ntxoptions_topofmarket_itch_v1_2.system_event_message.display = function(packet, parent, length)
@@ -2089,8 +2089,8 @@ nasdaq_ntxoptions_topofmarket_itch_v1_2.system_event_message.fields = function(b
   -- Version: Integer
   index, version = nasdaq_ntxoptions_topofmarket_itch_v1_2.version.dissect(buffer, index, packet, parent)
 
-  -- Subversion: Integer
-  index, subversion = nasdaq_ntxoptions_topofmarket_itch_v1_2.subversion.dissect(buffer, index, packet, parent)
+  -- Sub Version: Integer
+  index, sub_version = nasdaq_ntxoptions_topofmarket_itch_v1_2.sub_version.dissect(buffer, index, packet, parent)
 
   return index
 end

@@ -612,7 +612,7 @@ cboe_byxequities_binaryorderentry_boe_v2_4_55.base_liquidity_indicator.display =
     return "Base Liquidity Indicator: Removed Liquidity (R)"
   end
   if value == "W" then
-    return "Base Liquidity Indicator: Waiting For Execution At Premarket Time (W)"
+    return "Base Liquidity Indicator: Waiting For Execution At Pre Market Time (W)"
   end
   if value == "X" then
     return "Base Liquidity Indicator: Routed To Another Market (X)"

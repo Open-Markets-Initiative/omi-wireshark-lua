@@ -600,7 +600,7 @@ nasdaq_psxequities_orders_ouch_v4_2.display.labels = {
   ["Y"] = "Display: Anonymous Price (Y)",
   ["N"] = "Display: Non Display (N)",
   ["P"] = "Display: Post Only (P)",
-  ["Z"] = "Display: Changed To Nondisplayed (Z)",
+  ["Z"] = "Display: Changed To Non Displayed (Z)",
   ["I"] = "Display: Imbalance Only (I)",
   ["M"] = "Display: Mid Point (M)",
   ["W"] = "Display: Mid Point (W)",
@@ -758,7 +758,7 @@ nasdaq_psxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size = 1
 nasdaq_psxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.labels = {
   ["Y"] = "Intermarket Sweep Eligibility: Eligible (Y)",
   ["N"] = "Intermarket Sweep Eligibility: Not Eligible (N)",
-  ["y"] = "Intermarket Sweep Eligibility: Tradeat (y)",
+  ["y"] = "Intermarket Sweep Eligibility: Trade At (y)",
 }
 
 nasdaq_psxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.display = function(value)
@@ -793,7 +793,7 @@ nasdaq_psxequities_orders_ouch_v4_2.liquidity_flag.labels = {
   ["L"] = "Liquidity Flag: Closing Cross (L)",
   ["H"] = "Liquidity Flag: Halt Ipo (H)",
   ["K"] = "Liquidity Flag: Halt (K)",
-  ["J"] = "Liquidity Flag: Nondisplayed (J)",
+  ["J"] = "Liquidity Flag: Non Displayed (J)",
   ["m"] = "Liquidity Flag: Removed (m)",
   ["k"] = "Liquidity Flag: Added (k)",
   ["V"] = "Liquidity Flag: Displayed Added Liquidity (V)",

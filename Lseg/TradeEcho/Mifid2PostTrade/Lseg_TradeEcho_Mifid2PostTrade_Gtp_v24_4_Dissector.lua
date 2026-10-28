@@ -67,7 +67,7 @@ omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.nt_liquidity_flag = ProtoFie
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.nt_pre_trade_transparency_flag = ProtoField.new("Nt Pre Trade Transparency Flag", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.ntpretradetransparencyflag", ftypes.STRING, nil, nil, nil, "NT Pre-Trade Transparency Flag")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.nt_price_conditions_flag = ProtoField.new("Nt Price Conditions Flag", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.ntpriceconditionsflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.number_of_trades = ProtoField.new("Number Of Trades", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.numberoftrades", ftypes.UINT32, nil, nil, nil, "Count of all trades for the day.")
-omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.number_of_trades_onbook_only = ProtoField.new("Number Of Trades Onbook Only", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.numberoftradesonbookonly", ftypes.UINT32, nil, nil, nil, "Count of trades for the day excluding off-book trades.")
+omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.number_of_trades_on_book_only = ProtoField.new("Number Of Trades On Book Only", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.numberoftradesonbookonly", ftypes.UINT32, nil, nil, nil, "Count of trades for the day excluding off-book trades.")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.off_book = ProtoField.new("Off Book", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "SI Quote Book")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.offbookautomatedindicator", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.orderbooktype", ftypes.UINT8)
@@ -100,8 +100,8 @@ omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.source_venue = ProtoField.ne
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.special_dividend_flag = ProtoField.new("Special Dividend Flag", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.specialdividendflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.special_dividend_indicator = ProtoField.new("Special Dividend Indicator", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.specialdividendindicator", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
+omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.third_country_trading_venue_of_execution = ProtoField.new("Third Country Trading Venue Of Execution", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.thirdcountrytradingvenueofexecution", ftypes.STRING, nil, nil, nil, "Identification of the third-country trading venue where the transaction was executed.")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
-omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.thirdcountry_trading_venue_of_execution = ProtoField.new("Thirdcountry Trading Venue Of Execution", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.thirdcountrytradingvenueofexecution", ftypes.STRING, nil, nil, nil, "Identification of the third-country trading venue where the transaction was executed.")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.tickid", ftypes.STRING, nil, nil, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated")
@@ -112,7 +112,7 @@ omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.transaction_category = Proto
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.transactionidentificationcode", ftypes.STRING, nil, nil, nil, "A unique trade identifier.")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.transaction_to_be_cleared = ProtoField.new("Transaction To Be Cleared", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.transactiontobecleared", ftypes.STRING, nil, nil, nil, "Identifies if the firm intends to clear the transaction. ESMA field for derivatives.")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.turnover = ProtoField.new("Turnover", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.turnover", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
-omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
+omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.turnover_on_book_only = ProtoField.new("Turnover On Book Only", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.unused_1 = ProtoField.new("Unused 1", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Unused")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Unused")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.venue_book_definition_id = ProtoField.new("Venue Book Definition Id", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.venuebookdefinitionid", ftypes.UINT8, nil, nil, nil, "Book Definition ID sent by the venue.")
@@ -125,9 +125,9 @@ omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.vo_full_details_flag = Proto
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.volume = ProtoField.new("Volume", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.volume", ftypes.DOUBLE, nil, nil, nil, "Cumulative volume of all trades for the trading day.")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.volume_omission_flag = ProtoField.new("Volume Omission Flag", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.volumeomissionflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.volume_omission_for_sovereign_debt_flag = ProtoField.new("Volume Omission For Sovereign Debt Flag", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.volumeomissionforsovereigndebtflag", ftypes.STRING)
-omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.volume_onbook_only = ProtoField.new("Volume Onbook Only", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.volumeonbookonly", ftypes.DOUBLE, nil, nil, nil, "Cumulative volume for the trading day excluding off-book trades.")
+omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.volume_on_book_only = ProtoField.new("Volume On Book Only", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.volumeonbookonly", ftypes.DOUBLE, nil, nil, nil, "Cumulative volume for the trading day excluding off-book trades.")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.vwap", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
-omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
+omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.vwap_on_book_only = ProtoField.new("Vwap On Book Only", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
 
 -- Lseg TradeEcho Mifid2PostTrade Gtp 24.4 Framing
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.message", ftypes.STRING)
@@ -1510,7 +1510,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.negotiation_indicator.display = functio
     return "Negotiation Indicator: Negotiated Trade Larger Than Lis Brought Onto A Venue (7)"
   end
   if value == "8" then
-    return "Negotiation Indicator: Negotiated Trade With Pretrade Transparency Waiver (8)"
+    return "Negotiation Indicator: Negotiated Trade With Pre Trade Transparency Waiver (8)"
   end
   if value == "-" then
     return "Negotiation Indicator: Not A Negotiated Trade (-)"
@@ -1828,25 +1828,25 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades.dissect = function(buf
   return offset + length, value
 end
 
--- Number Of Trades Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_onbook_only = {}
+-- Number Of Trades On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_on_book_only = {}
 
--- Size: Number Of Trades Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_onbook_only.size = 4
+-- Size: Number Of Trades On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_on_book_only.size = 4
 
--- Display: Number Of Trades Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_onbook_only.display = function(value)
-  return "Number Of Trades Onbook Only: "..value
+-- Display: Number Of Trades On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_on_book_only.display = function(value)
+  return "Number Of Trades On Book Only: "..value
 end
 
--- Dissect: Number Of Trades Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_onbook_only.size
+-- Dissect: Number Of Trades On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_on_book_only.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_onbook_only.display(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.number_of_trades_onbook_only, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.number_of_trades_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -2703,6 +2703,34 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.static_circuit_breaker_tolerances.disse
   return offset + length, value
 end
 
+-- Third Country Trading Venue Of Execution
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.third_country_trading_venue_of_execution = {}
+
+-- Size: Third Country Trading Venue Of Execution
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.third_country_trading_venue_of_execution.size = 4
+
+-- Display: Third Country Trading Venue Of Execution
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.third_country_trading_venue_of_execution.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Third Country Trading Venue Of Execution: No Value"
+  end
+
+  return "Third Country Trading Venue Of Execution: "..value
+end
+
+-- Dissect: Third Country Trading Venue Of Execution
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.third_country_trading_venue_of_execution.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.third_country_trading_venue_of_execution.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.third_country_trading_venue_of_execution.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.third_country_trading_venue_of_execution, range, value, display)
+
+  return offset + length, value
+end
+
 -- Third Reserved 8
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.third_reserved_8 = {}
 
@@ -2722,34 +2750,6 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.third_reserved_8.dissect = function(buf
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.third_reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.third_reserved_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Thirdcountry Trading Venue Of Execution
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.thirdcountry_trading_venue_of_execution = {}
-
--- Size: Thirdcountry Trading Venue Of Execution
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.thirdcountry_trading_venue_of_execution.size = 4
-
--- Display: Thirdcountry Trading Venue Of Execution
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.thirdcountry_trading_venue_of_execution.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Thirdcountry Trading Venue Of Execution: No Value"
-  end
-
-  return "Thirdcountry Trading Venue Of Execution: "..value
-end
-
--- Dissect: Thirdcountry Trading Venue Of Execution
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.thirdcountry_trading_venue_of_execution.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.thirdcountry_trading_venue_of_execution.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
-  local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.thirdcountry_trading_venue_of_execution.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.thirdcountry_trading_venue_of_execution, range, value, display)
 
   return offset + length, value
 end
@@ -3079,31 +3079,31 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Turnover Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_onbook_only = {}
+-- Turnover On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_on_book_only = {}
 
--- Size: Turnover Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_onbook_only.size = 8
+-- Size: Turnover On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_on_book_only.size = 8
 
--- Display: Turnover Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_onbook_only.display = function(value)
-  return "Turnover Onbook Only: "..value
+-- Display: Turnover On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_on_book_only.display = function(value)
+  return "Turnover On Book Only: "..value
 end
 
--- Translate: Turnover Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_onbook_only.translate = function(raw)
+-- Translate: Turnover On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_on_book_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Turnover Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_onbook_only.size
+-- Dissect: Turnover On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_on_book_only.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_onbook_only.translate(raw)
-  local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_onbook_only.display(value, buffer, offset, packet, parent)
+  local value = lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_on_book_only.translate(raw)
+  local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.turnover_onbook_only, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.turnover_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -3391,31 +3391,31 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_omission_for_sovereign_debt_flag
   return offset + length, value
 end
 
--- Volume Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_onbook_only = {}
+-- Volume On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_on_book_only = {}
 
--- Size: Volume Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_onbook_only.size = 8
+-- Size: Volume On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_on_book_only.size = 8
 
--- Display: Volume Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_onbook_only.display = function(value)
-  return "Volume Onbook Only: "..value
+-- Display: Volume On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_on_book_only.display = function(value)
+  return "Volume On Book Only: "..value
 end
 
--- Translate: Volume Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_onbook_only.translate = function(raw)
+-- Translate: Volume On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_on_book_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Volume Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_onbook_only.size
+-- Dissect: Volume On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_on_book_only.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_onbook_only.translate(raw)
-  local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_onbook_only.display(value, buffer, offset, packet, parent)
+  local value = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_on_book_only.translate(raw)
+  local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.volume_onbook_only, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.volume_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -3449,31 +3449,31 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Vwap Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_onbook_only = {}
+-- Vwap On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_on_book_only = {}
 
--- Size: Vwap Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_onbook_only.size = 8
+-- Size: Vwap On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_on_book_only.size = 8
 
--- Display: Vwap Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_onbook_only.display = function(value)
-  return "Vwap Onbook Only: "..value
+-- Display: Vwap On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_on_book_only.display = function(value)
+  return "Vwap On Book Only: "..value
 end
 
--- Translate: Vwap Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_onbook_only.translate = function(raw)
+-- Translate: Vwap On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_on_book_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Vwap Onbook Only
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_onbook_only.size
+-- Dissect: Vwap On Book Only
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_on_book_only.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_onbook_only.translate(raw)
-  local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_onbook_only.display(value, buffer, offset, packet, parent)
+  local value = lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_on_book_only.translate(raw)
+  local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.vwap_onbook_only, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.vwap_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -3554,7 +3554,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.mifid_ii_trade_report_message.size =
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.post_trade_deferral_reason.size + 
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.deferral_enrichment_type.size + 
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.duplicative_indicator.size + 
-  lseg_tradeecho_mifid2posttrade_gtp_v24_4.thirdcountry_trading_venue_of_execution.size + 
+  lseg_tradeecho_mifid2posttrade_gtp_v24_4.third_country_trading_venue_of_execution.size + 
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.portfolio_transaction_flag.size + 
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.contingent_transaction_flag.size + 
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_conditions.size + 
@@ -3769,8 +3769,8 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.mifid_ii_trade_report_message.fields = 
   -- Duplicative Indicator: Byte
   index, duplicative_indicator = lseg_tradeecho_mifid2posttrade_gtp_v24_4.duplicative_indicator.dissect(buffer, index, packet, parent)
 
-  -- Thirdcountry Trading Venue Of Execution: Alpha
-  index, thirdcountry_trading_venue_of_execution = lseg_tradeecho_mifid2posttrade_gtp_v24_4.thirdcountry_trading_venue_of_execution.dissect(buffer, index, packet, parent)
+  -- Third Country Trading Venue Of Execution: Alpha
+  index, third_country_trading_venue_of_execution = lseg_tradeecho_mifid2posttrade_gtp_v24_4.third_country_trading_venue_of_execution.dissect(buffer, index, packet, parent)
 
   -- Portfolio Transaction Flag: Alpha
   index, portfolio_transaction_flag = lseg_tradeecho_mifid2posttrade_gtp_v24_4.portfolio_transaction_flag.dissect(buffer, index, packet, parent)
@@ -3820,13 +3820,13 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.statistics_message.size =
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.instrument.size + 
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.source_venue.size + 
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume.size + 
-  lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_onbook_only.size + 
+  lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_on_book_only.size + 
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap.size + 
-  lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_onbook_only.size + 
+  lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_on_book_only.size + 
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades.size + 
-  lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_onbook_only.size + 
+  lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_on_book_only.size + 
   lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover.size + 
-  lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_onbook_only.size
+  lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_on_book_only.size
 
 -- Display: Statistics Message
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.statistics_message.display = function(packet, parent, length)
@@ -3849,26 +3849,26 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.statistics_message.fields = function(bu
   -- Volume: Size4
   index, volume = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume.dissect(buffer, index, packet, parent)
 
-  -- Volume Onbook Only: Size4
-  index, volume_onbook_only = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_onbook_only.dissect(buffer, index, packet, parent)
+  -- Volume On Book Only: Size4
+  index, volume_on_book_only = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_on_book_only.dissect(buffer, index, packet, parent)
 
   -- Vwap: Price4
   index, vwap = lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap.dissect(buffer, index, packet, parent)
 
-  -- Vwap Onbook Only: Price4
-  index, vwap_onbook_only = lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_onbook_only.dissect(buffer, index, packet, parent)
+  -- Vwap On Book Only: Price4
+  index, vwap_on_book_only = lseg_tradeecho_mifid2posttrade_gtp_v24_4.vwap_on_book_only.dissect(buffer, index, packet, parent)
 
   -- Number Of Trades: UInt32
   index, number_of_trades = lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades.dissect(buffer, index, packet, parent)
 
-  -- Number Of Trades Onbook Only: UInt32
-  index, number_of_trades_onbook_only = lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_onbook_only.dissect(buffer, index, packet, parent)
+  -- Number Of Trades On Book Only: UInt32
+  index, number_of_trades_on_book_only = lseg_tradeecho_mifid2posttrade_gtp_v24_4.number_of_trades_on_book_only.dissect(buffer, index, packet, parent)
 
   -- Turnover: Price4
   index, turnover = lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover.dissect(buffer, index, packet, parent)
 
-  -- Turnover Onbook Only: Price4
-  index, turnover_onbook_only = lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_onbook_only.dissect(buffer, index, packet, parent)
+  -- Turnover On Book Only: Price4
+  index, turnover_on_book_only = lseg_tradeecho_mifid2posttrade_gtp_v24_4.turnover_on_book_only.dissect(buffer, index, packet, parent)
 
   return index
 end

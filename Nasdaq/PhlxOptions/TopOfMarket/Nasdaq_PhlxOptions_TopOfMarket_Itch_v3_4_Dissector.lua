@@ -64,7 +64,7 @@ omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.size_2 = ProtoField.new("Siz
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.size_4 = ProtoField.new("Size 4", "nasdaq.phlxoptions.topofmarket.itch.v3.4.size4", ftypes.UINT32, nil, nil, nil, "Aggregated number of contracts on the bid side being displayed in the options market at the current time.")
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.source = ProtoField.new("Source", "nasdaq.phlxoptions.topofmarket.itch.v3.4.source", ftypes.UINT8, nil, nil, nil, "Identifies the source of the option, valid for the trading day.")
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.phlxoptions.topofmarket.itch.v3.4.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Explicit strike price. Refer to Data Types for field processing notes.")
-omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.subversion = ProtoField.new("Subversion", "nasdaq.phlxoptions.topofmarket.itch.v3.4.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of this interface. Currently set to 0.")
+omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.sub_version = ProtoField.new("Sub Version", "nasdaq.phlxoptions.topofmarket.itch.v3.4.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of this interface. Currently set to 0.")
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.tradable = ProtoField.new("Tradable", "nasdaq.phlxoptions.topofmarket.itch.v3.4.tradable", ftypes.STRING, nil, nil, nil, "Denotes whether or not this option is tradable at the exchange:")
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.phlxoptions.topofmarket.itch.v3.4.tradecondition", ftypes.STRING, nil, nil, nil, "To obtain a list of Trade Conditions, refer to the NOTE below.")
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.topofmarket.itch.v3.4.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Denotes the unique symbol assigned to the underlying security within the Exchange System.")
@@ -1630,25 +1630,25 @@ nasdaq_phlxoptions_topofmarket_itch_v3_4.strike_price.dissect = function(buffer,
   return offset + length, value
 end
 
--- Subversion
-nasdaq_phlxoptions_topofmarket_itch_v3_4.subversion = {}
+-- Sub Version
+nasdaq_phlxoptions_topofmarket_itch_v3_4.sub_version = {}
 
--- Size: Subversion
-nasdaq_phlxoptions_topofmarket_itch_v3_4.subversion.size = 1
+-- Size: Sub Version
+nasdaq_phlxoptions_topofmarket_itch_v3_4.sub_version.size = 1
 
--- Display: Subversion
-nasdaq_phlxoptions_topofmarket_itch_v3_4.subversion.display = function(value)
-  return "Subversion: "..value
+-- Display: Sub Version
+nasdaq_phlxoptions_topofmarket_itch_v3_4.sub_version.display = function(value)
+  return "Sub Version: "..value
 end
 
--- Dissect: Subversion
-nasdaq_phlxoptions_topofmarket_itch_v3_4.subversion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_topofmarket_itch_v3_4.subversion.size
+-- Dissect: Sub Version
+nasdaq_phlxoptions_topofmarket_itch_v3_4.sub_version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_topofmarket_itch_v3_4.sub_version.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_topofmarket_itch_v3_4.subversion.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_topofmarket_itch_v3_4.sub_version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.subversion, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.sub_version, range, value, display)
 
   return offset + length, value
 end
@@ -2562,7 +2562,7 @@ nasdaq_phlxoptions_topofmarket_itch_v3_4.system_event_message.size =
   nasdaq_phlxoptions_topofmarket_itch_v3_4.nanoseconds.size + 
   nasdaq_phlxoptions_topofmarket_itch_v3_4.event_code.size + 
   nasdaq_phlxoptions_topofmarket_itch_v3_4.version.size + 
-  nasdaq_phlxoptions_topofmarket_itch_v3_4.subversion.size
+  nasdaq_phlxoptions_topofmarket_itch_v3_4.sub_version.size
 
 -- Display: System Event Message
 nasdaq_phlxoptions_topofmarket_itch_v3_4.system_event_message.display = function(packet, parent, length)
@@ -2582,8 +2582,8 @@ nasdaq_phlxoptions_topofmarket_itch_v3_4.system_event_message.fields = function(
   -- Version: Integer
   index, version = nasdaq_phlxoptions_topofmarket_itch_v3_4.version.dissect(buffer, index, packet, parent)
 
-  -- Subversion: Integer
-  index, subversion = nasdaq_phlxoptions_topofmarket_itch_v3_4.subversion.dissect(buffer, index, packet, parent)
+  -- Sub Version: Integer
+  index, sub_version = nasdaq_phlxoptions_topofmarket_itch_v3_4.sub_version.dissect(buffer, index, packet, parent)
 
   return index
 end

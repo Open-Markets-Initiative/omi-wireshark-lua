@@ -1484,10 +1484,10 @@ box_boxoptions_solaorderentry_sail_v2_25.group_state.labels = {
   ["C"] = "Group State: Consultation Start (C)",
   ["F"] = "Group State: Consultation End (F)",
   ["I"] = "Group State: Prohibited (I)",
-  ["M"] = "Group State: Minibatch (M)",
+  ["M"] = "Group State: Mini Batch (M)",
   ["N"] = "Group State: Market Operation Center Intervention (N)",
   ["O"] = "Group State: Opening (O)",
-  ["P"] = "Group State: Preopening (P)",
+  ["P"] = "Group State: Pre Opening (P)",
   ["S"] = "Group State: Continuous Trading Session (S)",
   ["Z"] = "Group State: Interrupted (Z)",
 }

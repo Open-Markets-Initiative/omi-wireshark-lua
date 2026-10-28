@@ -67,7 +67,7 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.size = ProtoField.new("
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.source = ProtoField.new("Source", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.source", ftypes.UINT8, nil, nil, nil, "Identifies the source of the Strategy, valid for the trading day")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.strategyid", ftypes.UINT32, nil, nil, nil, "ISE’s Strategy ID assigned daily, valid while there are any open complex orders for the day")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_type = ProtoField.new("Strategy Type", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.strategytype", ftypes.STRING, nil, nil, nil, "StrategyType value")
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.subversion = ProtoField.new("Subversion", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of this interface. Currently set to 0.")
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.sub_version = ProtoField.new("Sub Version", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.subversion", ftypes.UINT8, nil, nil, nil, "Sub-version of this interface. Currently set to 0.")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.timestamp", ftypes.UINT64, nil, nil, nil, "The time, expressed as the number of nanoseconds after midnight.")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.tradecondition", ftypes.STRING, nil, nil, nil, "Same value as the Trade Condition sent to OPRA for this trade. To obtain a list of Trade Conditions, refer to the NOTES below.")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying Symbol for the strategy. All legs in this strategy belong to this Underlying")
@@ -1483,25 +1483,25 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.dissect = function(b
   return offset + length, value
 end
 
--- Subversion
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion = {}
+-- Sub Version
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sub_version = {}
 
--- Size: Subversion
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.size = 1
+-- Size: Sub Version
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sub_version.size = 1
 
--- Display: Subversion
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.display = function(value)
-  return "Subversion: "..value
+-- Display: Sub Version
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sub_version.display = function(value)
+  return "Sub Version: "..value
 end
 
--- Dissect: Subversion
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.size
+-- Dissect: Sub Version
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sub_version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sub_version.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sub_version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.subversion, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.sub_version, range, value, display)
 
   return offset + length, value
 end
@@ -2242,7 +2242,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.size =
   nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.size + 
   nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.size + 
   nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.size + 
-  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.size
+  nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sub_version.size
 
 -- Display: System Event Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.display = function(packet, parent, length)
@@ -2271,8 +2271,8 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.fields = func
   -- Version: Integer
   index, version = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.dissect(buffer, index, packet, parent)
 
-  -- Subversion: Integer
-  index, subversion = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.dissect(buffer, index, packet, parent)
+  -- Sub Version: Integer
+  index, sub_version = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sub_version.dissect(buffer, index, packet, parent)
 
   return index
 end

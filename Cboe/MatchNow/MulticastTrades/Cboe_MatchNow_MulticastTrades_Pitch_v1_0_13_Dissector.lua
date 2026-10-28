@@ -218,7 +218,7 @@ cboe_matchnow_multicasttrades_pitch_v1_0_13.listing_exchange.labels = {
   ["TSX"] = "Listing Exchange: Toronto Stock Exchange (TSX)",
   ["TSXV"] = "Listing Exchange: Tsx Venture Exchange (TSXV)",
   ["CSE"] = "Listing Exchange: Canadian Securities Exchange (CSE)",
-  ["NEOL"] = "Listing Exchange: Cboe Canada Neol (NEOL)",
+  ["NEOL"] = "Listing Exchange: Cboe Canada Neo L (NEOL)",
 }
 
 cboe_matchnow_multicasttrades_pitch_v1_0_13.listing_exchange.display = function(value)

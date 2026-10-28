@@ -237,8 +237,8 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.els_condition_1 = ProtoField.
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.els_condition_2 = ProtoField.new("Els Condition 2", "koscom.mdcsrealtime.bonda.exture.v2.018.elscondition2", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.end_keyword = ProtoField.new("End Keyword", "koscom.mdcsrealtime.bonda.exture.v2.018.endkeyword", ftypes.UINT8, nil, nil, nil, "A keyword indicating the end of a message. (%HFF)")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.english_issue_name = ProtoField.new("English Issue Name", "koscom.mdcsrealtime.bonda.exture.v2.018.englishissuename", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.equitylinked_bond_exercise_price = ProtoField.new("Equitylinked Bond Exercise Price", "koscom.mdcsrealtime.bonda.exture.v2.018.equitylinkedbondexerciseprice", ftypes.DOUBLE, nil, nil, nil, "Equity-linked Bond Exercise Price")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.equitylinked_bond_rights_type_code = ProtoField.new("Equitylinked Bond Rights Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.equitylinkedbondrightstypecode", ftypes.STRING, nil, nil, nil, "10: Convertible 11: Coverting debt to stock (Conditional) 21: Newly Issued Underwriting (Separable) 22: Newly Issued Underwriting (Non-separable) 31: Exchangeable (Separable) 32: Exchangeable(Non-s")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.equity_linked_bond_exercise_price = ProtoField.new("Equity Linked Bond Exercise Price", "koscom.mdcsrealtime.bonda.exture.v2.018.equitylinkedbondexerciseprice", ftypes.DOUBLE, nil, nil, nil, "Equity-linked Bond Exercise Price")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.equity_linked_bond_rights_type_code = ProtoField.new("Equity Linked Bond Rights Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.equitylinkedbondrightstypecode", ftypes.STRING, nil, nil, nil, "10: Convertible 11: Coverting debt to stock (Conditional) 21: Newly Issued Underwriting (Separable) 22: Newly Issued Underwriting (Non-separable) 31: Exchangeable (Separable) 32: Exchangeable(Non-s")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.event_end_date = ProtoField.new("Event End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.eventenddate", ftypes.STRING, nil, nil, nil, "End date of Issue Event.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.event_reason_code = ProtoField.new("Event Reason Code", "koscom.mdcsrealtime.bonda.exture.v2.018.eventreasoncode", ftypes.STRING, nil, nil, nil, "When Event Type Code is 01(Trading Halt), 02(Oversight Issues), 05(Backdoor Listing), please refer to the below for more details. \"0000\" is N/A. 01: (Designation Alert) Application for restoration pro.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.event_start_date = ProtoField.new("Event Start Date", "koscom.mdcsrealtime.bonda.exture.v2.018.eventstartdate", ftypes.STRING, nil, nil, nil, "Start date of Issue Event.")
@@ -275,7 +275,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.investor_code = ProtoField.ne
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.isin = ProtoField.new("Isin", "koscom.mdcsrealtime.bonda.exture.v2.018.isin", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.isin_code = ProtoField.new("Isin Code", "koscom.mdcsrealtime.bonda.exture.v2.018.isincode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.isin_code_of_a_common_stock = ProtoField.new("Isin Code Of A Common Stock", "koscom.mdcsrealtime.bonda.exture.v2.018.isincodeofacommonstock", ftypes.STRING, nil, nil, nil, "ISIN code of a Common Stock.")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_code_of_postexercise = ProtoField.new("Issue Code Of Postexercise", "koscom.mdcsrealtime.bonda.exture.v2.018.issuecodeofpostexercise", ftypes.STRING, nil, nil, nil, "Issue Code of Post-exercise")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_code_of_post_exercise = ProtoField.new("Issue Code Of Post Exercise", "koscom.mdcsrealtime.bonda.exture.v2.018.issuecodeofpostexercise", ftypes.STRING, nil, nil, nil, "Issue Code of Post-exercise")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_date = ProtoField.new("Issue Date", "koscom.mdcsrealtime.bonda.exture.v2.018.issuedate", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_name = ProtoField.new("Issue Name", "koscom.mdcsrealtime.bonda.exture.v2.018.issuename", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issued_amount = ProtoField.new("Issued Amount", "koscom.mdcsrealtime.bonda.exture.v2.018.issuedamount", ftypes.UINT64, nil, nil, nil, "Total issued amount across constituents (20 ASCII digits). Unit: KRW.")
@@ -309,7 +309,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.number_of_months_for_grace = 
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.number_of_months_to_pay_interest = ProtoField.new("Number Of Months To Pay Interest", "koscom.mdcsrealtime.bonda.exture.v2.018.numberofmonthstopayinterest", ftypes.UINT16, nil, nil, nil, "Used if it is Coupon Bond, Compounding Interest Bond, or Amortized Bond (Coupon Bond:3-month paid afterwards, 3-month, Compounding Interest Bond:Actual coupon is paid on maturity date. In this case,")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.number_of_repo_trade_periods = ProtoField.new("Number Of Repo Trade Periods", "koscom.mdcsrealtime.bonda.exture.v2.018.numberofrepotradeperiods", ftypes.UINT16, nil, nil, nil, "Acutal number of Repo trade periods in Spec.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.bonda.exture.v2.018.openingprice", ftypes.DOUBLE, nil, nil, nil, "The first price that a security traded upon the opening of the regular session")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.optionembedded_type_code = ProtoField.new("Optionembedded Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.optionembeddedtypecode", ftypes.STRING, nil, nil, nil, "Option-embedded_Type Code 1:Call(Call) 2:Put(Put) 3:CallandPut(Call and Put)")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.option_embedded_type_code = ProtoField.new("Option Embedded Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.optionembeddedtypecode", ftypes.STRING, nil, nil, nil, "Option-embedded_Type Code 1:Call(Call) 2:Put(Put) 3:CallandPut(Call and Put)")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.original_bond_type_code_subjec_to_strip = ProtoField.new("Original Bond Type Code Subjec To Strip", "koscom.mdcsrealtime.bonda.exture.v2.018.originalbondtypecodesubjectostrip", ftypes.STRING, nil, nil, nil, "Original Bond Type Code (Subjec to strip)")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.other_funds = ProtoField.new("Other Funds", "koscom.mdcsrealtime.bonda.exture.v2.018.otherfunds", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.other_types_of_bond = ProtoField.new("Other Types Of Bond", "koscom.mdcsrealtime.bonda.exture.v2.018.othertypesofbond", ftypes.STRING, nil, nil, nil, "Other Types of Bond 1:Regular Bond 2:Equity Related Bond 3:ELS/ELB 4:DLS/DLB 5:Electronic Short-term (For the code 3 and 4; in Bond market, only ELB and DLB can be listed while ELS, DLS cannot.")
@@ -371,13 +371,13 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.sf_ratings_1 = ProtoField.new
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.sf_ratings_2 = ProtoField.new("Sf Ratings 2", "koscom.mdcsrealtime.bonda.exture.v2.018.sfratings2", ftypes.STRING, nil, nil, nil, "SF Ratings 2.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.sf_ratings_3 = ProtoField.new("Sf Ratings 3", "koscom.mdcsrealtime.bonda.exture.v2.018.sfratings3", ftypes.STRING, nil, nil, nil, "SF Ratings 3.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.sf_ratings_4 = ProtoField.new("Sf Ratings 4", "koscom.mdcsrealtime.bonda.exture.v2.018.sfratings4", ftypes.STRING, nil, nil, nil, "SF Ratings 4.")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.shortterm_interest_rates_type_code = ProtoField.new("Shortterm Interest Rates Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.shortterminterestratestypecode", ftypes.STRING, nil, nil, nil, "Short-term Interest Rates Type Code.")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.shortterm_yield = ProtoField.new("Shortterm Yield", "koscom.mdcsrealtime.bonda.exture.v2.018.shorttermyield", ftypes.DOUBLE, nil, nil, nil, "Short-term Yield.")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.short_term_interest_rates_type_code = ProtoField.new("Short Term Interest Rates Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.shortterminterestratestypecode", ftypes.STRING, nil, nil, nil, "Short-term Interest Rates Type Code.")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.short_term_yield = ProtoField.new("Short Term Yield", "koscom.mdcsrealtime.bonda.exture.v2.018.shorttermyield", ftypes.DOUBLE, nil, nil, nil, "Short-term Yield.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.special_bond_issue_code = ProtoField.new("Special Bond Issue Code", "koscom.mdcsrealtime.bonda.exture.v2.018.specialbondissuecode", ftypes.STRING, nil, nil, nil, "Special Bond_Issue Code")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.spread = ProtoField.new("Spread", "koscom.mdcsrealtime.bonda.exture.v2.018.spread", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.start_time_of_a_board_event = ProtoField.new("Start Time Of A Board Event", "koscom.mdcsrealtime.bonda.exture.v2.018.starttimeofaboardevent", ftypes.STRING, nil, nil, nil, "The time when a Board Event occurs.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.step_applied = ProtoField.new("Step Applied", "koscom.mdcsrealtime.bonda.exture.v2.018.stepapplied", ftypes.UINT8, nil, nil, nil, "Managing steps to be applied.")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.stopout_rate = ProtoField.new("Stopout Rate", "koscom.mdcsrealtime.bonda.exture.v2.018.stopoutrate", ftypes.DOUBLE, nil, nil, nil, "Stop-out Rate")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.stop_out_rate = ProtoField.new("Stop Out Rate", "koscom.mdcsrealtime.bonda.exture.v2.018.stopoutrate", ftypes.DOUBLE, nil, nil, nil, "Stop-out Rate")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.strip_bond_type_code = ProtoField.new("Strip Bond Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.stripbondtypecode", ftypes.STRING, nil, nil, nil, "Strip Bond Type Code 1: General bond 2: Separation of Principal 3: Separation of Interest")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.substitute_price_of_securities = ProtoField.new("Substitute Price Of Securities", "koscom.mdcsrealtime.bonda.exture.v2.018.substitutepriceofsecurities", ftypes.DOUBLE, nil, nil, nil, "Substitute price of securities as a consignment guarantee money.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.taxation = ProtoField.new("Taxation", "koscom.mdcsrealtime.bonda.exture.v2.018.taxation", ftypes.STRING)
@@ -8184,70 +8184,70 @@ koscom_mdcsrealtime_bonda_exture_v2_018.english_issue_name.dissect = function(bu
   return offset + length, value
 end
 
--- Equitylinked Bond Exercise Price
-koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price = {}
+-- Equity Linked Bond Exercise Price
+koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_exercise_price = {}
 
--- Size: Equitylinked Bond Exercise Price
-koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.size = 11
+-- Size: Equity Linked Bond Exercise Price
+koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_exercise_price.size = 11
 
--- Display: Equitylinked Bond Exercise Price
-koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.size):string()
+-- Display: Equity Linked Bond Exercise Price
+koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_exercise_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_exercise_price.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Equitylinked Bond Exercise Price: No Value"
+    return "Equity Linked Bond Exercise Price: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 3 then
-    return "Equitylinked Bond Exercise Price: "..text.." (expected 3 places)"
+    return "Equity Linked Bond Exercise Price: "..text.." (expected 3 places)"
   end
 
-  return "Equitylinked Bond Exercise Price: "..text
+  return "Equity Linked Bond Exercise Price: "..text
 end
 
--- Dissect: Equitylinked Bond Exercise Price
-koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.size
+-- Dissect: Equity Linked Bond Exercise Price
+koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_exercise_price.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_exercise_price.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.equitylinked_bond_exercise_price, range, value, "Equitylinked Bond Exercise Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Equitylinked Bond Exercise Price is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.equity_linked_bond_exercise_price, range, value, "Equity Linked Bond Exercise Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Equity Linked Bond Exercise Price is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_exercise_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.equitylinked_bond_exercise_price, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.equity_linked_bond_exercise_price, range, value, display)
 
   return offset + length, value
 end
 
--- Equitylinked Bond Rights Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_rights_type_code = {}
+-- Equity Linked Bond Rights Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_rights_type_code = {}
 
--- Size: Equitylinked Bond Rights Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_rights_type_code.size = 2
+-- Size: Equity Linked Bond Rights Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_rights_type_code.size = 2
 
--- Display: Equitylinked Bond Rights Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_rights_type_code.display = function(value)
-  return "Equitylinked Bond Rights Type Code: "..value
+-- Display: Equity Linked Bond Rights Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_rights_type_code.display = function(value)
+  return "Equity Linked Bond Rights Type Code: "..value
 end
 
--- Dissect: Equitylinked Bond Rights Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_rights_type_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_rights_type_code.size
+-- Dissect: Equity Linked Bond Rights Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_rights_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_rights_type_code.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_rights_type_code.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_rights_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.equitylinked_bond_rights_type_code, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.equity_linked_bond_rights_type_code, range, value, display)
 
   return offset + length, value
 end
@@ -9269,25 +9269,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.isin_code_of_a_common_stock.dissect = fu
   return offset + length, value
 end
 
--- Issue Code Of Postexercise
-koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_postexercise = {}
+-- Issue Code Of Post Exercise
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_post_exercise = {}
 
--- Size: Issue Code Of Postexercise
-koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_postexercise.size = 12
+-- Size: Issue Code Of Post Exercise
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_post_exercise.size = 12
 
--- Display: Issue Code Of Postexercise
-koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_postexercise.display = function(value)
-  return "Issue Code Of Postexercise: "..value
+-- Display: Issue Code Of Post Exercise
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_post_exercise.display = function(value)
+  return "Issue Code Of Post Exercise: "..value
 end
 
--- Dissect: Issue Code Of Postexercise
-koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_postexercise.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_postexercise.size
+-- Dissect: Issue Code Of Post Exercise
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_post_exercise.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_post_exercise.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_postexercise.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_post_exercise.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_code_of_postexercise, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_code_of_post_exercise, range, value, display)
 
   return offset + length, value
 end
@@ -10427,25 +10427,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.opening_price.dissect = function(buffer,
   return offset + length, value
 end
 
--- Optionembedded Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.optionembedded_type_code = {}
+-- Option Embedded Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.option_embedded_type_code = {}
 
--- Size: Optionembedded Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.optionembedded_type_code.size = 1
+-- Size: Option Embedded Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.option_embedded_type_code.size = 1
 
--- Display: Optionembedded Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.optionembedded_type_code.display = function(value)
-  return "Optionembedded Type Code: "..value
+-- Display: Option Embedded Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.option_embedded_type_code.display = function(value)
+  return "Option Embedded Type Code: "..value
 end
 
--- Dissect: Optionembedded Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.optionembedded_type_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.optionembedded_type_code.size
+-- Dissect: Option Embedded Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.option_embedded_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.option_embedded_type_code.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.optionembedded_type_code.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.option_embedded_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.optionembedded_type_code, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.option_embedded_type_code, range, value, display)
 
   return offset + length, value
 end
@@ -12209,70 +12209,70 @@ koscom_mdcsrealtime_bonda_exture_v2_018.sf_ratings_4.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Shortterm Interest Rates Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_interest_rates_type_code = {}
+-- Short Term Interest Rates Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code = {}
 
--- Size: Shortterm Interest Rates Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_interest_rates_type_code.size = 1
+-- Size: Short Term Interest Rates Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.size = 1
 
--- Display: Shortterm Interest Rates Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_interest_rates_type_code.display = function(value)
-  return "Shortterm Interest Rates Type Code: "..value
+-- Display: Short Term Interest Rates Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.display = function(value)
+  return "Short Term Interest Rates Type Code: "..value
 end
 
--- Dissect: Shortterm Interest Rates Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_interest_rates_type_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_interest_rates_type_code.size
+-- Dissect: Short Term Interest Rates Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_interest_rates_type_code.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.shortterm_interest_rates_type_code, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.short_term_interest_rates_type_code, range, value, display)
 
   return offset + length, value
 end
 
--- Shortterm Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield = {}
+-- Short Term Yield
+koscom_mdcsrealtime_bonda_exture_v2_018.short_term_yield = {}
 
--- Size: Shortterm Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.size = 13
+-- Size: Short Term Yield
+koscom_mdcsrealtime_bonda_exture_v2_018.short_term_yield.size = 13
 
--- Display: Shortterm Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.size):string()
+-- Display: Short Term Yield
+koscom_mdcsrealtime_bonda_exture_v2_018.short_term_yield.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.short_term_yield.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Shortterm Yield: No Value"
+    return "Short Term Yield: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 6 then
-    return "Shortterm Yield: "..text.." (expected 6 places)"
+    return "Short Term Yield: "..text.." (expected 6 places)"
   end
 
-  return "Shortterm Yield: "..text
+  return "Short Term Yield: "..text
 end
 
--- Dissect: Shortterm Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.size
+-- Dissect: Short Term Yield
+koscom_mdcsrealtime_bonda_exture_v2_018.short_term_yield.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.short_term_yield.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.shortterm_yield, range, value, "Shortterm Yield: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Shortterm Yield is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.short_term_yield, range, value, "Short Term Yield: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Short Term Yield is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.short_term_yield.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.shortterm_yield, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.short_term_yield, range, value, display)
 
   return offset + length, value
 end
@@ -12404,47 +12404,47 @@ koscom_mdcsrealtime_bonda_exture_v2_018.step_applied.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Stopout Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate = {}
+-- Stop Out Rate
+koscom_mdcsrealtime_bonda_exture_v2_018.stop_out_rate = {}
 
--- Size: Stopout Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.size = 14
+-- Size: Stop Out Rate
+koscom_mdcsrealtime_bonda_exture_v2_018.stop_out_rate.size = 14
 
--- Display: Stopout Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.size):string()
+-- Display: Stop Out Rate
+koscom_mdcsrealtime_bonda_exture_v2_018.stop_out_rate.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.stop_out_rate.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Stopout Rate: No Value"
+    return "Stop Out Rate: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 5 then
-    return "Stopout Rate: "..text.." (expected 5 places)"
+    return "Stop Out Rate: "..text.." (expected 5 places)"
   end
 
-  return "Stopout Rate: "..text
+  return "Stop Out Rate: "..text
 end
 
--- Dissect: Stopout Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.size
+-- Dissect: Stop Out Rate
+koscom_mdcsrealtime_bonda_exture_v2_018.stop_out_rate.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.stop_out_rate.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.stopout_rate, range, value, "Stopout Rate: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Stopout Rate is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.stop_out_rate, range, value, "Stop Out Rate: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Stop Out Rate is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.stop_out_rate.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.stopout_rate, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.stop_out_rate, range, value, display)
 
   return offset + length, value
 end
@@ -16131,7 +16131,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.siz
   koscom_mdcsrealtime_bonda_exture_v2_018.bond_guaranteed_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.other_types_of_bond.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.optionembedded_type_code.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.option_embedded_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.risk_bond_redemption_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_type_code.size + 
@@ -16175,17 +16175,17 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.siz
   koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.bond_delisting_reason_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.bond_delisted_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_rights_type_code.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_rights_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.isin.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_exercise_price.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.date_to_start_exercising.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.date_to_end_exercising.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.institution_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.record_date_of_dividend_payout.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.profit_participating_accum_status.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_postexercise.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_post_exercise.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.amortization_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.number_of_months_for_grace.size + 
@@ -16224,7 +16224,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.siz
   koscom_mdcsrealtime_bonda_exture_v2_018.principal_payment_methods_on_bank_holidays_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.principal_base_rate_on_bank_holidays_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.stop_out_rate.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.crowdfunding.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
@@ -16285,8 +16285,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.fie
   -- Other Types Of Bond: String
   index, other_types_of_bond = koscom_mdcsrealtime_bonda_exture_v2_018.other_types_of_bond.dissect(buffer, index, packet, parent)
 
-  -- Optionembedded Type Code: String
-  index, optionembedded_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.optionembedded_type_code.dissect(buffer, index, packet, parent)
+  -- Option Embedded Type Code: String
+  index, option_embedded_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.option_embedded_type_code.dissect(buffer, index, packet, parent)
 
   -- Coupon Payment Type Code: String
   index, coupon_payment_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.dissect(buffer, index, packet, parent)
@@ -16417,8 +16417,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.fie
   -- Bond Delisted Date: String
   index, bond_delisted_date = koscom_mdcsrealtime_bonda_exture_v2_018.bond_delisted_date.dissect(buffer, index, packet, parent)
 
-  -- Equitylinked Bond Rights Type Code: String
-  index, equitylinked_bond_rights_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_rights_type_code.dissect(buffer, index, packet, parent)
+  -- Equity Linked Bond Rights Type Code: String
+  index, equity_linked_bond_rights_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_rights_type_code.dissect(buffer, index, packet, parent)
 
   -- Isin: String
   index, isin = koscom_mdcsrealtime_bonda_exture_v2_018.isin.dissect(buffer, index, packet, parent)
@@ -16426,8 +16426,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.fie
   -- Issue Name: String
   index, issue_name = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.dissect(buffer, index, packet, parent)
 
-  -- Equitylinked Bond Exercise Price: Double
-  index, equitylinked_bond_exercise_price = koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.dissect(buffer, index, packet, parent)
+  -- Equity Linked Bond Exercise Price: Double
+  index, equity_linked_bond_exercise_price = koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_exercise_price.dissect(buffer, index, packet, parent)
 
   -- Exercise Ratio: Double
   index, exercise_ratio = koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.dissect(buffer, index, packet, parent)
@@ -16447,8 +16447,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.fie
   -- Profit Participating Accum Status: String
   index, profit_participating_accum_status = koscom_mdcsrealtime_bonda_exture_v2_018.profit_participating_accum_status.dissect(buffer, index, packet, parent)
 
-  -- Issue Code Of Postexercise: String
-  index, issue_code_of_postexercise = koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_postexercise.dissect(buffer, index, packet, parent)
+  -- Issue Code Of Post Exercise: String
+  index, issue_code_of_post_exercise = koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_post_exercise.dissect(buffer, index, packet, parent)
 
   -- Amortization Type Code: String
   index, amortization_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.amortization_type_code.dissect(buffer, index, packet, parent)
@@ -16564,8 +16564,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.fie
   -- Principal Accrued Interest Rate On Bank Holidays Type Code: Double
   index, principal_accrued_interest_rate_on_bank_holidays_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.dissect(buffer, index, packet, parent)
 
-  -- Stopout Rate: Double
-  index, stopout_rate = koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.dissect(buffer, index, packet, parent)
+  -- Stop Out Rate: Double
+  index, stop_out_rate = koscom_mdcsrealtime_bonda_exture_v2_018.stop_out_rate.dissect(buffer, index, packet, parent)
 
   -- Crowdfunding: String
   index, crowdfunding = koscom_mdcsrealtime_bonda_exture_v2_018.crowdfunding.dissect(buffer, index, packet, parent)
@@ -16821,7 +16821,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ktb_average_yield_message = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ktb_average_yield_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_interest_rates_type_code.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
@@ -16840,8 +16840,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ktb_average_yield_message.fields = funct
   -- Calculation Time: String
   index, calculation_time = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.dissect(buffer, index, packet, parent)
 
-  -- Shortterm Interest Rates Type Code: String
-  index, shortterm_interest_rates_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_interest_rates_type_code.dissect(buffer, index, packet, parent)
+  -- Short Term Interest Rates Type Code: String
+  index, short_term_interest_rates_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.dissect(buffer, index, packet, parent)
 
   -- Average Yield: Double
   index, average_yield = koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.dissect(buffer, index, packet, parent)
@@ -16877,8 +16877,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ktb_short_term_yield_message = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ktb_short_term_yield_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_interest_rates_type_code.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.short_term_yield.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
 -- Display: Ktb Short Term Yield Message
@@ -16896,11 +16896,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ktb_short_term_yield_message.fields = fu
   -- Calculation Time: String
   index, calculation_time = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.dissect(buffer, index, packet, parent)
 
-  -- Shortterm Interest Rates Type Code: String
-  index, shortterm_interest_rates_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_interest_rates_type_code.dissect(buffer, index, packet, parent)
+  -- Short Term Interest Rates Type Code: String
+  index, short_term_interest_rates_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.dissect(buffer, index, packet, parent)
 
-  -- Shortterm Yield: Double
-  index, shortterm_yield = koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.dissect(buffer, index, packet, parent)
+  -- Short Term Yield: Double
+  index, short_term_yield = koscom_mdcsrealtime_bonda_exture_v2_018.short_term_yield.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)

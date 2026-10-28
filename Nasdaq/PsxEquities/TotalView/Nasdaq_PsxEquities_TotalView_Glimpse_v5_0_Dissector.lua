@@ -1359,7 +1359,7 @@ nasdaq_psxequities_totalview_glimpse_v5_0.trading_state.size = 1
 -- Display: Trading State
 nasdaq_psxequities_totalview_glimpse_v5_0.trading_state.labels = {
   ["H"] = "Trading State: Halted Paused Across All Us Equity Markets (H)",
-  ["Q"] = "Trading State: Quotation Only Period For Crossmarket Halt Or Pause (Q)",
+  ["Q"] = "Trading State: Quotation Only Period For Cross Market Halt Or Pause (Q)",
   ["T"] = "Trading State: Trading On Psx (T)",
 }
 

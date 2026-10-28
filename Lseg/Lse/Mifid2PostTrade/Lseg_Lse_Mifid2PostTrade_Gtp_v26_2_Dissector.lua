@@ -47,8 +47,8 @@ omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.negotiation_indicator = ProtoField
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.new_end_time = ProtoField.new("New End Time", "lseg.lse.mifid2posttrade.gtp.v26.2.newendtime", ftypes.STRING, nil, nil, nil, "New time the session will end. The field will contain only spaces if Session Change Reason is '0' or the Session Change Reason is not present. New End Time will be in terms of the local time on the server (i.e., not UTC).")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.lse.mifid2posttrade.gtp.v26.2.notionalamount", ftypes.DOUBLE, nil, nil, nil, "Notional value relevant to the security. {DECIMAL-18/5} Only relevant for non-equity instruments.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.notional_currency = ProtoField.new("Notional Currency", "lseg.lse.mifid2posttrade.gtp.v26.2.notionalcurrency", ftypes.STRING, nil, nil, nil, "Major Currency in which the notional amount is denominated. Only relevant for non-equity instruments.")
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.off_book = ProtoField.new("Off Book", "lseg.lse.mifid2posttrade.gtp.v26.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Off-book")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.lse.mifid2posttrade.gtp.v26.2.offbookautomatedindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the off book trade was automated.")
-omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.offbook = ProtoField.new("Offbook", "lseg.lse.mifid2posttrade.gtp.v26.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Off-book")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.lse.mifid2posttrade.gtp.v26.2.orderbooktype", ftypes.UINT8, nil, nil, nil, "Order book the status applies to.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.partition_id = ProtoField.new("Partition Id", "lseg.lse.mifid2posttrade.gtp.v26.2.partitionid", ftypes.STRING, nil, nil, nil, "Trading System's partition in which the instrument is traded.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.lse.mifid2posttrade.gtp.v26.2.posttradedeferralreason", ftypes.STRING, nil, nil, nil, "Reason publication of the trade was deferred.")
@@ -1252,7 +1252,7 @@ lseg_lse_mifid2posttrade_gtp_v26_2.order_book_type.size = 1
 -- Display: Order Book Type
 lseg_lse_mifid2posttrade_gtp_v26_2.order_book_type.labels = {
   [1] = "Order Book Type: Firm Quote Book (1)",
-  [2] = "Order Book Type: Offbook (2)",
+  [2] = "Order Book Type: Off Book (2)",
   [3] = "Order Book Type: Electronic Order Book (3)",
   [4] = "Order Book Type: Private Rfq (4)",
 }
@@ -2730,9 +2730,9 @@ lseg_lse_mifid2posttrade_gtp_v26_2.allowed_book_types.display = function(range, 
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Firm Quote Book"
   end
-  -- Is Offbook flag set?
+  -- Is Off Book flag set?
   if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Offbook"
+    flags[#flags + 1] = "Off Book"
   end
   -- Is Electronic Order Book flag set?
   if bit.band(value, 0x08) ~= 0 then
@@ -2755,8 +2755,8 @@ lseg_lse_mifid2posttrade_gtp_v26_2.allowed_book_types.bits = function(range, val
   -- Firm Quote Book: 1 Bit
   parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.firm_quote_book, range, value)
 
-  -- Offbook: 1 Bit
-  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.offbook, range, value)
+  -- Off Book: 1 Bit
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.off_book, range, value)
 
   -- Electronic Order Book: 1 Bit
   parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.electronic_order_book, range, value)

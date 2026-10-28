@@ -84,7 +84,7 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.bid_level_8_volume = Pr
 omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.bid_level_9_price = ProtoField.new("Bid Level 9 Price", "koscom.mdcsrealtime.commodities.exture.v2.020.bidlevel9price", ftypes.DOUBLE, nil, nil, nil, "The ninth lowest bid price.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.bid_level_9_volume = ProtoField.new("Bid Level 9 Volume", "koscom.mdcsrealtime.commodities.exture.v2.020.bidlevel9volume", ftypes.UINT64, nil, nil, nil, "The ninth lowest bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.bid_quote = ProtoField.new("Bid Quote", "koscom.mdcsrealtime.commodities.exture.v2.020.bidquote", ftypes.STRING, nil, nil, nil, "999999V999 ex) : \" 1209855\".")
-omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.bidtocover_ratio = ProtoField.new("Bidtocover Ratio", "koscom.mdcsrealtime.commodities.exture.v2.020.bidtocoverratio", ftypes.DOUBLE, nil, nil, nil, "Bid-to-cover Ratio.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.bid_to_cover_ratio = ProtoField.new("Bid To Cover Ratio", "koscom.mdcsrealtime.commodities.exture.v2.020.bidtocoverratio", ftypes.DOUBLE, nil, nil, nil, "Bid-to-cover Ratio.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.block_trading_lower_limit_price = ProtoField.new("Block Trading Lower Limit Price", "koscom.mdcsrealtime.commodities.exture.v2.020.blocktradinglowerlimitprice", ftypes.DOUBLE, nil, nil, nil, "Lower Limit Price of Block Trading After hours.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.block_trading_upper_limit_price = ProtoField.new("Block Trading Upper Limit Price", "koscom.mdcsrealtime.commodities.exture.v2.020.blocktradingupperlimitprice", ftypes.DOUBLE, nil, nil, nil, "Upper Limit Price of Block Trading After hours.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.board_event_group_code = ProtoField.new("Board Event Group Code", "koscom.mdcsrealtime.commodities.exture.v2.020.boardeventgroupcode", ftypes.UINT24, nil, nil, nil, "Board Event Group Code (Bitwise operation) ▦▦ Code ▦▦ 1: A regular Issue (Not an issue on the last trading day) 2: An issue on the Last trading day 4: A regular issue (Not a discrete-time traded issue.")
@@ -2810,47 +2810,47 @@ koscom_mdcsrealtime_commodities_exture_v2_020.bid_quote.dissect = function(buffe
   return offset + length, value
 end
 
--- Bidtocover Ratio
-koscom_mdcsrealtime_commodities_exture_v2_020.bidtocover_ratio = {}
+-- Bid To Cover Ratio
+koscom_mdcsrealtime_commodities_exture_v2_020.bid_to_cover_ratio = {}
 
--- Size: Bidtocover Ratio
-koscom_mdcsrealtime_commodities_exture_v2_020.bidtocover_ratio.size = 11
+-- Size: Bid To Cover Ratio
+koscom_mdcsrealtime_commodities_exture_v2_020.bid_to_cover_ratio.size = 11
 
--- Display: Bidtocover Ratio
-koscom_mdcsrealtime_commodities_exture_v2_020.bidtocover_ratio.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_commodities_exture_v2_020.bidtocover_ratio.size):string()
+-- Display: Bid To Cover Ratio
+koscom_mdcsrealtime_commodities_exture_v2_020.bid_to_cover_ratio.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_commodities_exture_v2_020.bid_to_cover_ratio.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Bidtocover Ratio: No Value"
+    return "Bid To Cover Ratio: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 2 then
-    return "Bidtocover Ratio: "..text.." (expected 2 places)"
+    return "Bid To Cover Ratio: "..text.." (expected 2 places)"
   end
 
-  return "Bidtocover Ratio: "..text
+  return "Bid To Cover Ratio: "..text
 end
 
--- Dissect: Bidtocover Ratio
-koscom_mdcsrealtime_commodities_exture_v2_020.bidtocover_ratio.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_commodities_exture_v2_020.bidtocover_ratio.size
+-- Dissect: Bid To Cover Ratio
+koscom_mdcsrealtime_commodities_exture_v2_020.bid_to_cover_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_commodities_exture_v2_020.bid_to_cover_ratio.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.bidtocover_ratio, range, value, "Bidtocover Ratio: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_020.experts.not_a_number, "Bidtocover Ratio is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.bid_to_cover_ratio, range, value, "Bid To Cover Ratio: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_020.experts.not_a_number, "Bid To Cover Ratio is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_commodities_exture_v2_020.bidtocover_ratio.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_commodities_exture_v2_020.bid_to_cover_ratio.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.bidtocover_ratio, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.bid_to_cover_ratio, range, value, display)
 
   return offset + length, value
 end
@@ -8614,7 +8614,7 @@ koscom_mdcsrealtime_commodities_exture_v2_020.emissions_auction_results_message.
   koscom_mdcsrealtime_commodities_exture_v2_020.auction_volume.size + 
   koscom_mdcsrealtime_commodities_exture_v2_020.volume_in_the_bid_invitation.size + 
   koscom_mdcsrealtime_commodities_exture_v2_020.number_of_bidders.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_020.bidtocover_ratio.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_020.bid_to_cover_ratio.size + 
   koscom_mdcsrealtime_commodities_exture_v2_020.end_keyword.size
 
 -- Display: Emissions Auction Results Message
@@ -8647,8 +8647,8 @@ koscom_mdcsrealtime_commodities_exture_v2_020.emissions_auction_results_message.
   -- Number Of Bidders: Long
   index, number_of_bidders = koscom_mdcsrealtime_commodities_exture_v2_020.number_of_bidders.dissect(buffer, index, packet, parent)
 
-  -- Bidtocover Ratio: Double
-  index, bidtocover_ratio = koscom_mdcsrealtime_commodities_exture_v2_020.bidtocover_ratio.dissect(buffer, index, packet, parent)
+  -- Bid To Cover Ratio: Double
+  index, bid_to_cover_ratio = koscom_mdcsrealtime_commodities_exture_v2_020.bid_to_cover_ratio.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_commodities_exture_v2_020.end_keyword.dissect(buffer, index, packet, parent)

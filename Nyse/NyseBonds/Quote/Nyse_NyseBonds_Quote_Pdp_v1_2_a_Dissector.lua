@@ -656,7 +656,7 @@ nyse_nysebonds_quote_pdp_v1_2_a.quote_condition.display = function(value)
     return "Quote Condition: Slow On Both Ask And Bid (H)"
   end
   if value == "N" then
-    return "Quote Condition: Nonfirm Quote (N)"
+    return "Quote Condition: Non Firm Quote (N)"
   end
   if value == "O" then
     return "Quote Condition: Opening Quote (O)"
@@ -918,7 +918,7 @@ nyse_nysebonds_quote_pdp_v1_2_a.trading_action.size = 1
 nyse_nysebonds_quote_pdp_v1_2_a.trading_action.labels = {
   [1] = "Trading Action: Called (1)",
   [2] = "Trading Action: Delisted (2)",
-  [3] = "Trading Action: Exinterest (3)",
+  [3] = "Trading Action: Ex Interest (3)",
   [4] = "Trading Action: Missed An Interest Payment (4)",
   [5] = "Trading Action: Bankrupt (5)",
   [6] = "Trading Action: Late Filing (6)",

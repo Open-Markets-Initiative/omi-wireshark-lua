@@ -564,7 +564,7 @@ jpx_tseequities_tostnet_flex_v19_5.market_identification_flag.size = 1
 
 -- Display: Market Identification Flag
 jpx_tseequities_tostnet_flex_v19_5.market_identification_flag.labels = {
-  ["1"] = "Market Identification Flag: Singleissue Transaction (1)",
+  ["1"] = "Market Identification Flag: Single Issue Transaction (1)",
   ["2"] = "Market Identification Flag: Basket Transaction (2)",
   ["3"] = "Market Identification Flag: Closing Price Transaction (3)",
 }
@@ -737,25 +737,25 @@ jpx_tseequities_tostnet_flex_v19_5.price_code.size = 2
 -- Display: Price Code
 jpx_tseequities_tostnet_flex_v19_5.price_code.display = function(value)
   if value == "01" then
-    return "Price Code: Previousday Closing Price (01)"
+    return "Price Code: Previous Day Closing Price (01)"
   end
   if value == "05" then
-    return "Price Code: Previousday Vwap (05)"
+    return "Price Code: Previous Day Vwap (05)"
   end
   if value == "11" then
-    return "Price Code: Morningsession Closing Price (11)"
+    return "Price Code: Morning Session Closing Price (11)"
   end
   if value == "15" then
-    return "Price Code: Morningsession Vwap (15)"
+    return "Price Code: Morning Session Vwap (15)"
   end
   if value == "31" then
     return "Price Code: Todays Closing Price (31)"
   end
   if value == "25" then
-    return "Price Code: Afternoonsession Vwap (25)"
+    return "Price Code: Afternoon Session Vwap (25)"
   end
   if value == "35" then
-    return "Price Code: Allday Vwap (35)"
+    return "Price Code: All Day Vwap (35)"
   end
   if value == "  " then
     return "Price Code: No Price Code (<whitespace>)"

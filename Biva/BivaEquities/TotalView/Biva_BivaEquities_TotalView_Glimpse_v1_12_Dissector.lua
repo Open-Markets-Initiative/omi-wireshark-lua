@@ -429,7 +429,7 @@ biva_bivaequities_totalview_glimpse_v1_12.cross_type.size = 1
 
 -- Display: Cross Type
 biva_bivaequities_totalview_glimpse_v1_12.cross_type.labels = {
-  ["O"] = "Cross Type: Preopening Session (O)",
+  ["O"] = "Cross Type: Pre Opening Session (O)",
   ["I"] = "Cross Type: Intraday Auction (I)",
 }
 

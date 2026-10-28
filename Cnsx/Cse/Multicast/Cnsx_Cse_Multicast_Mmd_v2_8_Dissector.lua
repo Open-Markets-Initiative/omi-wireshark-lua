@@ -598,7 +598,7 @@ cnsx_cse_multicast_mmd_v2_8.cross_type.display = function(value)
     return "Cross Type: Vwap (V)"
   end
   if value == "D" then
-    return "Cross Type: Derivativerelated (D)"
+    return "Cross Type: Derivative Related (D)"
   end
   if value == " " then
     return "Cross Type: Otherwise Empty String Not Specified (<whitespace>)"
@@ -681,8 +681,8 @@ cnsx_cse_multicast_mmd_v2_8.event_code.size = 1
 cnsx_cse_multicast_mmd_v2_8.event_code.labels = {
   ["O"] = "Event Code: Start Of Messages The First Message Is Sent (O)",
   ["S"] = "Event Code: Start Of System Hours (S)",
-  ["V"] = "Event Code: Preopen Auction Period Begins The Exchange Is Open And Ready To Start Accepting Orders (V)",
-  ["Q"] = "Event Code: Start Of Market Hours The Preopen Auction Is Concluded And Continuous Trading Begins (Q)",
+  ["V"] = "Event Code: Pre Open Auction Period Begins The Exchange Is Open And Ready To Start Accepting Orders (V)",
+  ["Q"] = "Event Code: Start Of Market Hours The Pre Open Auction Is Concluded And Continuous Trading Begins (Q)",
   ["M"] = "Event Code: End Of Market Hours Indicates The End Of Continuous Trading (M)",
   ["E"] = "Event Code: End Of System Hours Indicates The Exchange Is Closed (E)",
   ["C"] = "Event Code: End Of Messages The Last Message Sent (C)",

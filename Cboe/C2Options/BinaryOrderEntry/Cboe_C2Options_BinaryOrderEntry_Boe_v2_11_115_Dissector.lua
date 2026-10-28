@@ -7819,16 +7819,16 @@ cboe_c2options_binaryorderentry_boe_v2_11_115.multileg_reporting_type.display = 
   end
 
   if value == "1" then
-    return "Multileg Reporting Type: Singleleg Instrument (1)"
+    return "Multileg Reporting Type: Single Leg Instrument (1)"
   end
   if value == "2" then
-    return "Multileg Reporting Type: Individual Leg Of Multileg Instrument (2)"
+    return "Multileg Reporting Type: Individual Leg Of Multi Leg Instrument (2)"
   end
   if value == "3" then
-    return "Multileg Reporting Type: Entire Multileg Instrument Package (3)"
+    return "Multileg Reporting Type: Entire Multi Leg Instrument Package (3)"
   end
   if value == "4" then
-    return "Multileg Reporting Type: Last Individual Leg Of Multileg Instrument (4)"
+    return "Multileg Reporting Type: Last Individual Leg Of Multi Leg Instrument (4)"
   end
 
   return "Multileg Reporting Type: Unknown("..value..")"

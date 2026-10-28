@@ -80,9 +80,9 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.new_end_time = ProtoField.
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.notionalamount", ftypes.DOUBLE, nil, nil, nil, "Notional value relevant to the security. {DECIMAL-18/5} Only relevant for non-equity instruments.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.notional_currency = ProtoField.new("Notional Currency", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.notionalcurrency", ftypes.STRING, nil, nil, nil, "Major Currency in which the notional amount is denominated. Only relevant for non-equity instruments.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.number_of_trades = ProtoField.new("Number Of Trades", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.numberoftrades", ftypes.UINT32, nil, nil, nil, "Count of all trades for the day.")
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.number_of_trades_onbook_only = ProtoField.new("Number Of Trades Onbook Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.numberoftradesonbookonly", ftypes.UINT32, nil, nil, nil, "Count of trades for the day excluding off-book trades.")
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.number_of_trades_on_book_only = ProtoField.new("Number Of Trades On Book Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.numberoftradesonbookonly", ftypes.UINT32, nil, nil, nil, "Count of trades for the day excluding off-book trades.")
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.off_book = ProtoField.new("Off Book", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Off-book")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.offbookautomatedindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the off book trade was automated.")
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.offbook = ProtoField.new("Offbook", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Off-book")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.official_closing_price = ProtoField.new("Official Closing Price", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.officialclosingprice", ftypes.DOUBLE, nil, nil, nil, "Official Closing Price for the instrument. If the Closing Price is cleared manually by the venue '-1' will be stamped.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.official_opening_price = ProtoField.new("Official Opening Price", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.officialopeningprice", ftypes.DOUBLE, nil, nil, nil, "Official Opening Price for the instrument. If the Opening Price is cleared manually by the venue '-1' will be stamped.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.opening_price_indicator = ProtoField.new("Opening Price Indicator", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.openingpriceindicator", ftypes.STRING, nil, nil, nil, "Please refer to Description in Statistics Update message for valid values. This will be blank if no Opening Price is contained within the snapshot.")
@@ -137,9 +137,9 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.tick_id = ProtoField.new("
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_high = ProtoField.new("Trade High", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradehigh", ftypes.DOUBLE, nil, nil, nil, "Current trading day high price of all trades.")
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_high_onbook_only = ProtoField.new("Trade High Onbook Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradehighonbookonly", ftypes.DOUBLE, nil, nil, nil, "Current trading day high price excluding off-book trades.")
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_high_on_book_only = ProtoField.new("Trade High On Book Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradehighonbookonly", ftypes.DOUBLE, nil, nil, nil, "Current trading day high price excluding off-book trades.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_low = ProtoField.new("Trade Low", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradelow", ftypes.DOUBLE, nil, nil, nil, "Current trading day low price of all trades.")
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_low_onbook_only = ProtoField.new("Trade Low Onbook Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradelowonbookonly", ftypes.DOUBLE, nil, nil, nil, "Current trading day low price excluding off-book trades.")
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_low_on_book_only = ProtoField.new("Trade Low On Book Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradelowonbookonly", ftypes.DOUBLE, nil, nil, nil, "Current trading day low price excluding off-book trades.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradequalifier", ftypes.STRING, nil, nil, nil, "Qualifier of the trade.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trading_date_and_time = ProtoField.new("Trading Date And Time", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradingdateandtime", ftypes.STRING, nil, nil, nil, "Date and time when the transaction was executed/agreed upon. If a trade is cancelled or amended, this field will contain the Trading Date and Time of the original trade.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trading_mode = ProtoField.new("Trading Mode", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradingmode", ftypes.STRING, nil, nil, nil, "Trading mode the trade was executed under.")
@@ -147,16 +147,16 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trading_status = ProtoFiel
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.transaction_category = ProtoField.new("Transaction Category", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.transactioncategory", ftypes.STRING, nil, nil, nil, "Category of the transaction.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.transactionidentificationcode", ftypes.STRING, nil, nil, nil, "A unique trade identifier. The value will be right aligned.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.turnover = ProtoField.new("Turnover", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.turnover", ftypes.DOUBLE, nil, nil, nil, "Turnover of all trades for the day.")
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Turnover for the day excluding off-book trades.")
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.turnover_on_book_only = ProtoField.new("Turnover On Book Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Turnover for the day excluding off-book trades.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.unused_1 = ProtoField.new("Unused 1", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.unused_3 = ProtoField.new("Unused 3", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.unused3", ftypes.UINT8, nil, base.DEC, 0xE0, "Reserved")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.username = ProtoField.new("Username", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.username", ftypes.STRING, nil, nil, nil, "CompID assigned to the client.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.venueinstrumentid", ftypes.STRING, nil, nil, nil, "Instrument identifier used by the source venue.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.venueofexecution", ftypes.STRING, nil, nil, nil, "Identification of the venue where the transaction was executed.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.volume = ProtoField.new("Volume", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.volume", ftypes.DOUBLE, nil, nil, nil, "Cumulative volume of all trades for the trading day.")
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.volume_onbook_only = ProtoField.new("Volume Onbook Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.volumeonbookonly", ftypes.DOUBLE, nil, nil, nil, "Cumulative volume for the trading day excluding off-book trades.")
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.volume_on_book_only = ProtoField.new("Volume On Book Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.volumeonbookonly", ftypes.DOUBLE, nil, nil, nil, "Cumulative volume for the trading day excluding off-book trades.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.vwap = ProtoField.new("Vwap", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.vwap", ftypes.DOUBLE, nil, nil, nil, "Volume weighted average price for the day for all trades.")
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.vwaponbookonly", ftypes.DOUBLE, nil, nil, nil, "Volume weighted average price for the day excluding off-book trades.")
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.vwap_on_book_only = ProtoField.new("Vwap On Book Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.vwaponbookonly", ftypes.DOUBLE, nil, nil, nil, "Volume weighted average price for the day excluding off-book trades.")
 
 -- Lseg Lse Mifid2PostTradeRecovery Gtp 26.2 Framing
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.message", ftypes.STRING, nil, nil, nil, "Gtp Tcp Message")
@@ -2271,25 +2271,25 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades.dissect = function(b
   return offset + length, value
 end
 
--- Number Of Trades Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_onbook_only = {}
+-- Number Of Trades On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_on_book_only = {}
 
--- Size: Number Of Trades Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_onbook_only.size = 4
+-- Size: Number Of Trades On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_on_book_only.size = 4
 
--- Display: Number Of Trades Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_onbook_only.display = function(value)
-  return "Number Of Trades Onbook Only: "..value
+-- Display: Number Of Trades On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_on_book_only.display = function(value)
+  return "Number Of Trades On Book Only: "..value
 end
 
--- Dissect: Number Of Trades Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_onbook_only.size
+-- Dissect: Number Of Trades On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_on_book_only.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_onbook_only.display(value, buffer, offset, packet, parent)
+  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.number_of_trades_onbook_only, range, value, display)
+  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.number_of_trades_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -2459,7 +2459,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.order_book_type.size = 1
 -- Display: Order Book Type
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.order_book_type.labels = {
   [1] = "Order Book Type: Firm Quote Book (1)",
-  [2] = "Order Book Type: Offbook (2)",
+  [2] = "Order Book Type: Off Book (2)",
   [3] = "Order Book Type: Electronic Order Book (3)",
   [4] = "Order Book Type: Private Rfq (4)",
 }
@@ -3014,7 +3014,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.request_order_book_type.size = 1
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.request_order_book_type.labels = {
   [0] = "Request Order Book Type: All Books (0)",
   [1] = "Request Order Book Type: Firm Quote Book (1)",
-  [2] = "Request Order Book Type: Offbook (2)",
+  [2] = "Request Order Book Type: Off Book (2)",
   [3] = "Request Order Book Type: Electronic Order Book (3)",
   [4] = "Request Order Book Type: Private Rfq (4)",
 }
@@ -3831,31 +3831,31 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high.dissect = function(buffer,
   return offset + length, value
 end
 
--- Trade High Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_onbook_only = {}
+-- Trade High On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_on_book_only = {}
 
--- Size: Trade High Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_onbook_only.size = 8
+-- Size: Trade High On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_on_book_only.size = 8
 
--- Display: Trade High Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_onbook_only.display = function(value)
-  return "Trade High Onbook Only: "..value
+-- Display: Trade High On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_on_book_only.display = function(value)
+  return "Trade High On Book Only: "..value
 end
 
--- Translate: Trade High Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_onbook_only.translate = function(raw)
+-- Translate: Trade High On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_on_book_only.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
--- Dissect: Trade High Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_onbook_only.size
+-- Dissect: Trade High On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_on_book_only.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_onbook_only.translate(raw)
-  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_onbook_only.display(value, buffer, offset, packet, parent)
+  local value = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_on_book_only.translate(raw)
+  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_high_onbook_only, range, value, display)
+  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_high_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -3889,31 +3889,31 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Trade Low Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_onbook_only = {}
+-- Trade Low On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_on_book_only = {}
 
--- Size: Trade Low Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_onbook_only.size = 8
+-- Size: Trade Low On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_on_book_only.size = 8
 
--- Display: Trade Low Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_onbook_only.display = function(value)
-  return "Trade Low Onbook Only: "..value
+-- Display: Trade Low On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_on_book_only.display = function(value)
+  return "Trade Low On Book Only: "..value
 end
 
--- Translate: Trade Low Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_onbook_only.translate = function(raw)
+-- Translate: Trade Low On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_on_book_only.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
--- Dissect: Trade Low Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_onbook_only.size
+-- Dissect: Trade Low On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_on_book_only.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_onbook_only.translate(raw)
-  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_onbook_only.display(value, buffer, offset, packet, parent)
+  local value = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_on_book_only.translate(raw)
+  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_low_onbook_only, range, value, display)
+  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_low_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -4247,31 +4247,31 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Turnover Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_onbook_only = {}
+-- Turnover On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_on_book_only = {}
 
--- Size: Turnover Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_onbook_only.size = 8
+-- Size: Turnover On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_on_book_only.size = 8
 
--- Display: Turnover Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_onbook_only.display = function(value)
-  return "Turnover Onbook Only: "..value
+-- Display: Turnover On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_on_book_only.display = function(value)
+  return "Turnover On Book Only: "..value
 end
 
--- Translate: Turnover Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_onbook_only.translate = function(raw)
+-- Translate: Turnover On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_on_book_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Turnover Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_onbook_only.size
+-- Dissect: Turnover On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_on_book_only.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_onbook_only.translate(raw)
-  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_onbook_only.display(value, buffer, offset, packet, parent)
+  local value = lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_on_book_only.translate(raw)
+  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.turnover_onbook_only, range, value, display)
+  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.turnover_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -4389,31 +4389,31 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Volume Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_onbook_only = {}
+-- Volume On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_on_book_only = {}
 
--- Size: Volume Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_onbook_only.size = 8
+-- Size: Volume On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_on_book_only.size = 8
 
--- Display: Volume Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_onbook_only.display = function(value)
-  return "Volume Onbook Only: "..value
+-- Display: Volume On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_on_book_only.display = function(value)
+  return "Volume On Book Only: "..value
 end
 
--- Translate: Volume Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_onbook_only.translate = function(raw)
+-- Translate: Volume On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_on_book_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Volume Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_onbook_only.size
+-- Dissect: Volume On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_on_book_only.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_onbook_only.translate(raw)
-  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_onbook_only.display(value, buffer, offset, packet, parent)
+  local value = lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_on_book_only.translate(raw)
+  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.volume_onbook_only, range, value, display)
+  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.volume_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -4447,31 +4447,31 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Vwap Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_onbook_only = {}
+-- Vwap On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_on_book_only = {}
 
--- Size: Vwap Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_onbook_only.size = 8
+-- Size: Vwap On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_on_book_only.size = 8
 
--- Display: Vwap Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_onbook_only.display = function(value)
-  return "Vwap Onbook Only: "..value
+-- Display: Vwap On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_on_book_only.display = function(value)
+  return "Vwap On Book Only: "..value
 end
 
--- Translate: Vwap Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_onbook_only.translate = function(raw)
+-- Translate: Vwap On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_on_book_only.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Vwap Onbook Only
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_onbook_only.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_onbook_only.size
+-- Dissect: Vwap On Book Only
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_on_book_only.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_on_book_only.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_onbook_only.translate(raw)
-  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_onbook_only.display(value, buffer, offset, packet, parent)
+  local value = lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_on_book_only.translate(raw)
+  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_on_book_only.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.vwap_onbook_only, range, value, display)
+  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.vwap_on_book_only, range, value, display)
 
   return offset + length, value
 end
@@ -4490,17 +4490,17 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.statistics_snapshot_message.size =
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.instrument.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.source_venue.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume.size + 
-  lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_onbook_only.size + 
+  lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_on_book_only.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap.size + 
-  lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_onbook_only.size + 
+  lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_on_book_only.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades.size + 
-  lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_onbook_only.size + 
+  lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_on_book_only.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover.size + 
-  lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_onbook_only.size + 
+  lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_on_book_only.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.official_opening_price.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.official_closing_price.size + 
-  lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_onbook_only.size + 
-  lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_onbook_only.size + 
+  lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_on_book_only.size + 
+  lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_on_book_only.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.fifty_two_week_trade_high.size + 
@@ -4547,26 +4547,26 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.statistics_snapshot_message.fields = 
   -- Volume: Size4
   index, volume = lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Volume Onbook Only: Size4
-  index, volume_onbook_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_onbook_only.dissect(buffer, index, packet, parent)
+  -- Volume On Book Only: Size4
+  index, volume_on_book_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.volume_on_book_only.dissect(buffer, index, packet, parent)
 
   -- Vwap: Price4
   index, vwap = lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap.dissect(buffer, index, packet, parent)
 
-  -- Vwap Onbook Only: Price4
-  index, vwap_onbook_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_onbook_only.dissect(buffer, index, packet, parent)
+  -- Vwap On Book Only: Price4
+  index, vwap_on_book_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.vwap_on_book_only.dissect(buffer, index, packet, parent)
 
   -- Number Of Trades: UInt32
   index, number_of_trades = lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades.dissect(buffer, index, packet, parent)
 
-  -- Number Of Trades Onbook Only: UInt32
-  index, number_of_trades_onbook_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_onbook_only.dissect(buffer, index, packet, parent)
+  -- Number Of Trades On Book Only: UInt32
+  index, number_of_trades_on_book_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.number_of_trades_on_book_only.dissect(buffer, index, packet, parent)
 
   -- Turnover: Price4
   index, turnover = lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover.dissect(buffer, index, packet, parent)
 
-  -- Turnover Onbook Only: Price4
-  index, turnover_onbook_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_onbook_only.dissect(buffer, index, packet, parent)
+  -- Turnover On Book Only: Price4
+  index, turnover_on_book_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.turnover_on_book_only.dissect(buffer, index, packet, parent)
 
   -- Official Opening Price: Price
   index, official_opening_price = lseg_lse_mifid2posttraderecovery_gtp_v26_2.official_opening_price.dissect(buffer, index, packet, parent)
@@ -4574,11 +4574,11 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.statistics_snapshot_message.fields = 
   -- Official Closing Price: Price
   index, official_closing_price = lseg_lse_mifid2posttraderecovery_gtp_v26_2.official_closing_price.dissect(buffer, index, packet, parent)
 
-  -- Trade High Onbook Only: Price
-  index, trade_high_onbook_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_onbook_only.dissect(buffer, index, packet, parent)
+  -- Trade High On Book Only: Price
+  index, trade_high_on_book_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high_on_book_only.dissect(buffer, index, packet, parent)
 
-  -- Trade Low Onbook Only: Price
-  index, trade_low_onbook_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_onbook_only.dissect(buffer, index, packet, parent)
+  -- Trade Low On Book Only: Price
+  index, trade_low_on_book_only = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_low_on_book_only.dissect(buffer, index, packet, parent)
 
   -- Trade High: Price
   index, trade_high = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_high.dissect(buffer, index, packet, parent)
@@ -4687,9 +4687,9 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.allowed_book_types.display = function
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Firm Quote Book"
   end
-  -- Is Offbook flag set?
+  -- Is Off Book flag set?
   if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Offbook"
+    flags[#flags + 1] = "Off Book"
   end
   -- Is Electronic Order Book flag set?
   if bit.band(value, 0x08) ~= 0 then
@@ -4712,8 +4712,8 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.allowed_book_types.bits = function(ra
   -- Firm Quote Book: 1 Bit
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.firm_quote_book, range, value)
 
-  -- Offbook: 1 Bit
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.offbook, range, value)
+  -- Off Book: 1 Bit
+  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.off_book, range, value)
 
   -- Electronic Order Book: 1 Bit
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.electronic_order_book, range, value)

@@ -1068,7 +1068,7 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.market_state.displa
   end
 
   if value == "P" then
-    return "Market State: Preopening (P)"
+    return "Market State: Pre Opening (P)"
   end
   if value == "N" then
     return "Market State: Overnight Session (N)"
@@ -1847,7 +1847,7 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.security_status.dis
     return "Security Status: Short Sale Restriction Deactivated (D)"
   end
   if value == "P" then
-    return "Security Status: Preopening (P)"
+    return "Security Status: Pre Opening (P)"
   end
   if value == "B" then
     return "Security Status: Begin Accepting Orders (B)"
