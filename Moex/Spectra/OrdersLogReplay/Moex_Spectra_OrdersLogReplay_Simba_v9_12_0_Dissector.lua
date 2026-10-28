@@ -2990,11 +2990,11 @@ end
 
 -- Fingerprint of Server Packet: would its message dispatch accept this frame?
 moex_spectra_orderslogreplay_simba_v9_12_0.server_packet.fingerprint = function(buffer)
-  if buffer:len() < 7 then
+  if buffer:len() < 8 then
     return false
   end
 
-  local incremental_packet = buffer(6, 1):le_uint()
+  local msg_flags = buffer(6, 2):le_uint()
 
   -- Server Session: carries the application messages, which tell this protocol from others sharing the session framing
   if bit.rshift(bit.band(msg_flags, 0x0008), 3) == 0 then
