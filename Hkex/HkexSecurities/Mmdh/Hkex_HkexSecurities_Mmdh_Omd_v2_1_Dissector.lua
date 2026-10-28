@@ -5803,7 +5803,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.entitlement_composite.fields = function(buffer
   index, decimals_in_entitlement = hkex_hkexsecurities_mmdh_omd_v2_1.decimals_in_entitlement.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local entitlement_composite = entitlement * 10 ^ decimals_in_entitlement
+  local entitlement_composite = entitlement / 10 ^ decimals_in_entitlement
 
   return index, entitlement_composite
 end
@@ -5854,7 +5854,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.call_price_composite.fields = function(buffer,
   index, decimals_in_call_price = hkex_hkexsecurities_mmdh_omd_v2_1.decimals_in_call_price.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local call_price_composite = call_price * 10 ^ decimals_in_call_price
+  local call_price_composite = call_price / 10 ^ decimals_in_call_price
 
   return index, call_price_composite
 end
@@ -5905,7 +5905,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.face_value_composite.fields = function(buffer,
   index, decimals_in_face_value = hkex_hkexsecurities_mmdh_omd_v2_1.decimals_in_face_value.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local face_value_composite = face_value * 10 ^ decimals_in_face_value
+  local face_value_composite = face_value / 10 ^ decimals_in_face_value
 
   return index, face_value_composite
 end
