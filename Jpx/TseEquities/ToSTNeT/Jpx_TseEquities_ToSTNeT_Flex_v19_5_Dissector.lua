@@ -2034,22 +2034,21 @@ end
 -- Issue Code
 jpx_tseequities_tostnet_flex_v19_5.issue_code = {}
 
+-- Dispatch: Issue Code
+jpx_tseequities_tostnet_flex_v19_5.issue_code.dispatch = {
+  ["01"] = jpx_tseequities_tostnet_flex_v19_5.stock_issue_code.dissect,
+  ["02"] = jpx_tseequities_tostnet_flex_v19_5.cb_issue_code.dissect,
+}
+
 -- Dissect: Issue Code
 jpx_tseequities_tostnet_flex_v19_5.issue_code.dissect = function(buffer, offset, packet, parent, issue_classification_large_classification)
-  -- Dissect Stock Issue Code
-  if issue_classification_large_classification == "01" then
-    return jpx_tseequities_tostnet_flex_v19_5.stock_issue_code.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect CB Issue Code
-  if issue_classification_large_classification == "02" then
-    return jpx_tseequities_tostnet_flex_v19_5.cb_issue_code.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Blank Issue Code
-  if issue_classification_large_classification ~= "01" then
-    return jpx_tseequities_tostnet_flex_v19_5.blank_issue_code.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_tseequities_tostnet_flex_v19_5.issue_code.dispatch[issue_classification_large_classification]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
-  return offset
+  -- Dissect Blank Issue Code
+  return jpx_tseequities_tostnet_flex_v19_5.blank_issue_code.dissect(buffer, offset, packet, parent)
 end
 
 -- Issue Classification
