@@ -5635,6 +5635,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.dissect = function(buffe
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local ask_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -5702,6 +5703,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.dissect = function(buffe
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_quote_numeric.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local ask_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -5769,6 +5771,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.dissect = function(buffe
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local bid_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -5836,6 +5839,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.dissect = function(buffe
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_quote_numeric.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local bid_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -5903,6 +5907,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.dissect = function(buff
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.high_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local high_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.high_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -5970,6 +5975,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.dissect = func
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local initial_order_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -6037,6 +6043,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.dissect = function(buff
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.last_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local last_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.last_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -6104,6 +6111,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.dissect
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local limit_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.limit_fraction_indicator.size):string()
 
   local value
   local display
@@ -6171,6 +6179,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.dissect = function(buffe
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.low_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local low_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.low_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -6238,6 +6247,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.dissect = func
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.max_threshold_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local max_threshold_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.max_threshold_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -6305,6 +6315,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.dissect = 
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_threshold_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local maximum_threshold_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_threshold_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -6372,6 +6383,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.dissect = func
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.min_threshold_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local min_threshold_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.min_threshold_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -6439,6 +6451,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.dissect = 
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_threshold_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local minimum_threshold_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_threshold_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -6506,6 +6519,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.dissect = function(buff
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local net_change_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_fraction_indicator.size):string()
 
   local value
   local display
@@ -6573,6 +6587,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.dissect = function(buff
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.open_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local open_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.open_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -6640,6 +6655,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.dissect = function
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.reference_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local reference_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.reference_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -6707,6 +6723,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.dissect = function(bu
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local strike_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -6774,6 +6791,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.dissect = function(
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local tick_increment_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment_fraction_indicator.size):string()
 
   local value
   local display
@@ -6841,6 +6859,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.dissect = function(buf
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local trade_price_fraction_indicator = buffer(offset + length, box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price_fraction_indicator.size):string()
 
   local value
   local display

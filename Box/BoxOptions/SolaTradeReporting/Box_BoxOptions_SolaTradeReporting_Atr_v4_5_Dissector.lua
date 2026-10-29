@@ -1691,6 +1691,7 @@ box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect = functio
   local length = box_boxoptions_solatradereporting_atr_v4_5.strike_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local strike_price_fraction_indicator = buffer(offset + length, box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.size):string()
 
   local value
   local display
