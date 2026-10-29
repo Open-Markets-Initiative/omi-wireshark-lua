@@ -1564,7 +1564,7 @@ nasdaq_nordicequities_totalview_itch_v3_04_5.reason.display = function(value)
   if value == "ET" then
     return "Reason: Early Termination (ET)"
   end
-  if value == "    " then
+  if value == "" then
     return "Reason: Reason Not Available (<whitespace>)"
   end
 

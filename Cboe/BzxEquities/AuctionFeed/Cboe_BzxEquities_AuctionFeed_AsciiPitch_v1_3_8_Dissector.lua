@@ -975,7 +975,7 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.unsequenced_data_packet.fields = 
   local index = offset
 
   -- Runtime Size Of: Unsequenced Message
-  local size_of_unsequenced_message = buffer:len() - index
+  local size_of_unsequenced_message = buffer:len() - index - 1
 
   -- Unsequenced Message: 0 Byte
   index, unsequenced_message = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)

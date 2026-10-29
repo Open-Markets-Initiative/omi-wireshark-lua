@@ -2018,7 +2018,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.reason.display = func
   if value == "IPOE" then
     return "Reason: Ipo Security Positioning Window Extension Nasdaq Securities Only (IPOE)"
   end
-  if value == " " then
+  if value == "" then
     return "Reason: Reason Not Available (<whitespace>)"
   end
 

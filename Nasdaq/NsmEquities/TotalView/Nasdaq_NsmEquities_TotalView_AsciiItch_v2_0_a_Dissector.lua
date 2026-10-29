@@ -2043,7 +2043,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.debug_packet.fields = function(buf
   local index = offset
 
   -- Runtime Size Of: Text
-  local size_of_text = buffer:len() - index
+  local size_of_text = buffer:len() - index - 1
 
   -- Text: 0 Byte Ascii String
   index, text = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.text.dissect(buffer, index, packet, parent, size_of_text)
@@ -2262,7 +2262,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.unsequenced_data_packet.fields = f
   local index = offset
 
   -- Runtime Size Of: Unsequenced Message
-  local size_of_unsequenced_message = buffer:len() - index
+  local size_of_unsequenced_message = buffer:len() - index - 1
 
   -- Unsequenced Message: 0 Byte
   index, unsequenced_message = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)

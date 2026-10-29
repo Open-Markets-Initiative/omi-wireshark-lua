@@ -2237,7 +2237,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.reason_code.display = function(value
   if value == "IPOQ" then
     return "Reason Code: Ipo Security Released (IPOQ)"
   end
-  if value == "    " then
+  if value == "" then
     return "Reason Code: Reason Not Available (<whitespace>)"
   end
   if value == "IPOE" then

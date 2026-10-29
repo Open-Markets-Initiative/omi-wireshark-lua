@@ -1593,7 +1593,7 @@ tmx_mx_solamulticast_hsvf_v1_11.currency.display = function(value)
   if value == "CAD" then
     return "Currency: Canadian (CAD)"
   end
-  if value == "   " then
+  if value == "" then
     return "Currency: Not Provided (<whitespace>)"
   end
 
@@ -6907,7 +6907,7 @@ tmx_mx_solamulticast_hsvf_v1_11.strike_price_currency.display = function(value)
   if value == "CAD" then
     return "Strike Price Currency: Canadian (CAD)"
   end
-  if value == "   " then
+  if value == "" then
     return "Strike Price Currency: Not Provided (<whitespace>)"
   end
 

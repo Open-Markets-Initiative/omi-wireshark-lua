@@ -1804,7 +1804,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.debug_packet.fields = function(buffer,
   local index = offset
 
   -- Runtime Size Of: Text
-  local size_of_text = buffer:len() - index
+  local size_of_text = buffer:len() - index - 1
 
   -- Text: 0 Byte Ascii String
   index, text = nasdaq_psxequities_totalview_glimpse_v3_2.text.dissect(buffer, index, packet, parent, size_of_text)
@@ -2023,7 +2023,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.unsequenced_data_packet.fields = funct
   local index = offset
 
   -- Runtime Size Of: Unsequenced Message
-  local size_of_unsequenced_message = buffer:len() - index
+  local size_of_unsequenced_message = buffer:len() - index - 1
 
   -- Unsequenced Message: 0 Byte
   index, unsequenced_message = nasdaq_psxequities_totalview_glimpse_v3_2.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)

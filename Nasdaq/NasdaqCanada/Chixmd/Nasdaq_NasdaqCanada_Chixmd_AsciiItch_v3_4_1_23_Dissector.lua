@@ -2337,7 +2337,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.debug_packet.fields = function(bu
   local index = offset
 
   -- Runtime Size Of: Text
-  local size_of_text = buffer:len() - index
+  local size_of_text = buffer:len() - index - 1
 
   -- Text: 0 Byte Ascii String
   index, text = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.text.dissect(buffer, index, packet, parent, size_of_text)

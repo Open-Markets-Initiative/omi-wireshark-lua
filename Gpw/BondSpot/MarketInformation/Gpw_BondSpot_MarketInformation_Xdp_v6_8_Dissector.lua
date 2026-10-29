@@ -101,6 +101,7 @@ omi_gpw_bondspot_marketinformation_xdp_v6_8.fields.maximum_block_price = ProtoFi
 omi_gpw_bondspot_marketinformation_xdp_v6_8.fields.maximum_block_price_scale_code = ProtoField.new("Maximum Block Price Scale Code", "gpw.bondspot.marketinformation.xdp.v6.8.maximumblockpricescalecode", ftypes.UINT8, nil, nil, nil, "Applicable to the maximum block price")
 omi_gpw_bondspot_marketinformation_xdp_v6_8.fields.maximum_price = ProtoField.new("Maximum Price", "gpw.bondspot.marketinformation.xdp.v6.8.maximumprice", ftypes.UINT32, nil, nil, nil, "Single-price quotation: The maximum single-price during the current stock exchange session")
 omi_gpw_bondspot_marketinformation_xdp_v6_8.fields.maximum_price_scale_code = ProtoField.new("Maximum Price Scale Code", "gpw.bondspot.marketinformation.xdp.v6.8.maximumpricescalecode", ftypes.UINT8, nil, nil, nil, "Applicable to the maximum price")
+omi_gpw_bondspot_marketinformation_xdp_v6_8.fields.message_buffer = ProtoField.new("Message Buffer", "gpw.bondspot.marketinformation.xdp.v6.8.messagebuffer", ftypes.STRING, nil, nil, nil, "The packet's message area: the messages it counts, or one ZliB block holding them")
 omi_gpw_bondspot_marketinformation_xdp_v6_8.fields.message_size = ProtoField.new("Message Size", "gpw.bondspot.marketinformation.xdp.v6.8.messagesize", ftypes.UINT16, nil, nil, nil, "Length of the message body, excluding the 2 byte MsgSize field")
 omi_gpw_bondspot_marketinformation_xdp_v6_8.fields.message_type = ProtoField.new("Message Type", "gpw.bondspot.marketinformation.xdp.v6.8.messagetype", ftypes.UINT16, nil, nil, nil, "The type of this message")
 omi_gpw_bondspot_marketinformation_xdp_v6_8.fields.mic = ProtoField.new("Mic", "gpw.bondspot.marketinformation.xdp.v6.8.mic", ftypes.STRING, nil, nil, nil, "Identifies the market to which an instrument belongs to by its MIC (Market Identification code), according to ISO 10383")
@@ -620,7 +621,7 @@ gpw_bondspot_marketinformation_xdp_v6_8.class_state.display = function(value)
   if value == "CLSD" then
     return "Class State: Closed (CLSD)"
   end
-  if value == "    " then
+  if value == "" then
     return "Class State: Inactive Class Phase Listed For The Class State Of The 539 Session Timetable Message (<whitespace>)"
   end
 
@@ -7051,6 +7052,62 @@ gpw_bondspot_marketinformation_xdp_v6_8.message.dissect = function(buffer, offse
   end
 end
 
+-- Message Buffer
+gpw_bondspot_marketinformation_xdp_v6_8.message_buffer = {}
+
+-- Size: Message Buffer
+gpw_bondspot_marketinformation_xdp_v6_8.message_buffer.size = function(buffer, offset)
+  return buffer:len() - offset
+end
+
+-- Display: Message Buffer
+gpw_bondspot_marketinformation_xdp_v6_8.message_buffer.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Buffer
+gpw_bondspot_marketinformation_xdp_v6_8.message_buffer.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Message Size
+    local message_size = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_size + 2
+
+    -- Message: Struct of 2 fields
+    index, message = gpw_bondspot_marketinformation_xdp_v6_8.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
+  end
+
+  return index
+end
+
+-- Dissect: Message Buffer
+gpw_bondspot_marketinformation_xdp_v6_8.message_buffer.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_gpw_bondspot_marketinformation_xdp_v6_8.fields.message_buffer, buffer(offset, 0))
+    local index = gpw_bondspot_marketinformation_xdp_v6_8.message_buffer.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = gpw_bondspot_marketinformation_xdp_v6_8.message_buffer.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return gpw_bondspot_marketinformation_xdp_v6_8.message_buffer.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet Header
 gpw_bondspot_marketinformation_xdp_v6_8.packet_header = {}
 
@@ -7133,30 +7190,18 @@ gpw_bondspot_marketinformation_xdp_v6_8.packet.dissect = function(buffer, packet
   -- Dependency element: Delivery Flag
   local delivery_flag = buffer(index - 2, 1):uint()
 
-  local message_conversion = delivery_flag > 15
+  local message_buffer_conversion = delivery_flag > 15
 
-  if message_conversion then
+  if message_buffer_conversion then
     buffer = zlib_decompress(buffer(index, buffer:len() - index))
     index = 0
   end
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Runtime Size Of: Message Buffer
+  local size_of_message_buffer = buffer:len() - index
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = message_size + 2
-
-    -- Message: Struct of 2 fields
-    index, message = gpw_bondspot_marketinformation_xdp_v6_8.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
-  end
+  -- Message Buffer: Struct of 1 fields
+  index, message_buffer = gpw_bondspot_marketinformation_xdp_v6_8.message_buffer.dissect(buffer, index, packet, parent, size_of_message_buffer)
 
   return index
 end

@@ -757,7 +757,7 @@ jpx_tseequities_tostnet_flex_v19_5.price_code.display = function(value)
   if value == "35" then
     return "Price Code: All Day Vwap (35)"
   end
-  if value == "  " then
+  if value == "" then
     return "Price Code: No Price Code (<whitespace>)"
   end
 
@@ -890,7 +890,7 @@ jpx_tseequities_tostnet_flex_v19_5.session_distinction.display = function(value)
   if value == "00" then
     return "Session Distinction: Out Of Service (00)"
   end
-  if value == "  " then
+  if value == "" then
     return "Session Distinction: Not Applicable (<whitespace>)"
   end
 
@@ -1009,7 +1009,7 @@ jpx_tseequities_tostnet_flex_v19_5.state_flag.display = function(value)
   if value == "A1" then
     return "State Flag: Release From Trading Halt (A1)"
   end
-  if value == "  " then
+  if value == "" then
     return "State Flag: Other Than The Above (<whitespace>)"
   end
 

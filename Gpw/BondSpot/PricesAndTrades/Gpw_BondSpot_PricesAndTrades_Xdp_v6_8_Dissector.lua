@@ -22,6 +22,7 @@ omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.instrument_id_code = ProtoField
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.instrument_id_code_type = ProtoField.new("Instrument Id Code Type", "gpw.bondspot.pricesandtrades.xdp.v6.8.instrumentidcodetype", ftypes.STRING, nil, nil, nil, "Code type used to identify the financial instrument Always equal to 'ISIN'")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.last_trade_indicator = ProtoField.new("Last Trade Indicator", "gpw.bondspot.pricesandtrades.xdp.v6.8.lasttradeindicator", ftypes.STRING, nil, nil, nil, "Last trade at same price indicator")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.lowest_price = ProtoField.new("Lowest Price", "gpw.bondspot.pricesandtrades.xdp.v6.8.lowestprice", ftypes.UINT32, nil, nil, nil, "Lowest Price traded during the day(To be calculated with the PriceScaleCode)")
+omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.message_buffer = ProtoField.new("Message Buffer", "gpw.bondspot.pricesandtrades.xdp.v6.8.messagebuffer", ftypes.STRING, nil, nil, nil, "The packet's message area: the messages it counts, or one ZliB block holding them")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.message_size = ProtoField.new("Message Size", "gpw.bondspot.pricesandtrades.xdp.v6.8.messagesize", ftypes.UINT16, nil, nil, nil, "Length of the message body, excluding the 2 byte MsgSize field")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.message_type = ProtoField.new("Message Type", "gpw.bondspot.pricesandtrades.xdp.v6.8.messagetype", ftypes.UINT16, nil, nil, nil, "The type of this message")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.mmt_algorithmic_indicator = ProtoField.new("Mmt Algorithmic Indicator", "gpw.bondspot.pricesandtrades.xdp.v6.8.mmtalgorithmicindicator", ftypes.STRING, nil, nil, nil, "Defines the algorithmic indicator following MMT level 3.9")
@@ -1820,6 +1821,62 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.message.dissect = function(buffer, offset,
   end
 end
 
+-- Message Buffer
+gpw_bondspot_pricesandtrades_xdp_v6_8.message_buffer = {}
+
+-- Size: Message Buffer
+gpw_bondspot_pricesandtrades_xdp_v6_8.message_buffer.size = function(buffer, offset)
+  return buffer:len() - offset
+end
+
+-- Display: Message Buffer
+gpw_bondspot_pricesandtrades_xdp_v6_8.message_buffer.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Buffer
+gpw_bondspot_pricesandtrades_xdp_v6_8.message_buffer.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Message Size
+    local message_size = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_size + 2
+
+    -- Message: Struct of 2 fields
+    index, message = gpw_bondspot_pricesandtrades_xdp_v6_8.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
+  end
+
+  return index
+end
+
+-- Dissect: Message Buffer
+gpw_bondspot_pricesandtrades_xdp_v6_8.message_buffer.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.message_buffer, buffer(offset, 0))
+    local index = gpw_bondspot_pricesandtrades_xdp_v6_8.message_buffer.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = gpw_bondspot_pricesandtrades_xdp_v6_8.message_buffer.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return gpw_bondspot_pricesandtrades_xdp_v6_8.message_buffer.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet Header
 gpw_bondspot_pricesandtrades_xdp_v6_8.packet_header = {}
 
@@ -1902,30 +1959,18 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.packet.dissect = function(buffer, packet, 
   -- Dependency element: Delivery Flag
   local delivery_flag = buffer(index - 2, 1):uint()
 
-  local message_conversion = delivery_flag > 15
+  local message_buffer_conversion = delivery_flag > 15
 
-  if message_conversion then
+  if message_buffer_conversion then
     buffer = zlib_decompress(buffer(index, buffer:len() - index))
     index = 0
   end
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Runtime Size Of: Message Buffer
+  local size_of_message_buffer = buffer:len() - index
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = message_size + 2
-
-    -- Message: Struct of 2 fields
-    index, message = gpw_bondspot_pricesandtrades_xdp_v6_8.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
-  end
+  -- Message Buffer: Struct of 1 fields
+  index, message_buffer = gpw_bondspot_pricesandtrades_xdp_v6_8.message_buffer.dissect(buffer, index, packet, parent, size_of_message_buffer)
 
   return index
 end

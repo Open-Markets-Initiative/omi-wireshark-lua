@@ -1168,7 +1168,7 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.reason.display = function(value)
   if value == "IPOE" then
     return "Reason: Ipo Security Positioning Window Extension (IPOE)"
   end
-  if value == " " then
+  if value == "" then
     return "Reason: Reason Not Available (<whitespace>)"
   end
 

@@ -514,7 +514,11 @@ asx_asxderivatives_ntp_itch_v1_05.buyer_participant_id.size = 3
 
 -- Display: Buyer Participant Id
 asx_asxderivatives_ntp_itch_v1_05.buyer_participant_id.display = function(value)
-  return "Buyer Participant Id: "..value
+  if value == "" then
+    return "Buyer Participant Id: Anonymous (<whitespace>)"
+  end
+
+  return "Buyer Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: Buyer Participant Id
@@ -634,7 +638,11 @@ asx_asxderivatives_ntp_itch_v1_05.counter_party_id.size = 3
 
 -- Display: Counter Party Id
 asx_asxderivatives_ntp_itch_v1_05.counter_party_id.display = function(value)
-  return "Counter Party Id: "..value
+  if value == "" then
+    return "Counter Party Id: Anonymous (<whitespace>)"
+  end
+
+  return "Counter Party Id: Unknown("..value..")"
 end
 
 -- Dissect: Counter Party Id
@@ -913,9 +921,224 @@ asx_asxderivatives_ntp_itch_v1_05.expiry_date = {}
 -- Size: Expiry Date
 asx_asxderivatives_ntp_itch_v1_05.expiry_date.size = 4
 
+-- Australia/Sydney, the utc offsets it keeps and the instants it changes them at
+asx_asxderivatives_ntp_itch_v1_05.expiry_date.offsets = {
+  { at = 0, offset = 39600 },
+  { at = 7488000, offset = 36000 },
+  { at = 25632000, offset = 39600 },
+  { at = 38937600, offset = 36000 },
+  { at = 57686400, offset = 39600 },
+  { at = 70387200, offset = 36000 },
+  { at = 89136000, offset = 39600 },
+  { at = 101836800, offset = 36000 },
+  { at = 120585600, offset = 39600 },
+  { at = 133891200, offset = 36000 },
+  { at = 152035200, offset = 39600 },
+  { at = 165340800, offset = 36000 },
+  { at = 183484800, offset = 39600 },
+  { at = 196790400, offset = 36000 },
+  { at = 215539200, offset = 39600 },
+  { at = 228240000, offset = 36000 },
+  { at = 246988800, offset = 39600 },
+  { at = 259689600, offset = 36000 },
+  { at = 278438400, offset = 39600 },
+  { at = 291139200, offset = 36000 },
+  { at = 309888000, offset = 39600 },
+  { at = 323193600, offset = 36000 },
+  { at = 341337600, offset = 39600 },
+  { at = 354643200, offset = 36000 },
+  { at = 372787200, offset = 39600 },
+  { at = 386092800, offset = 36000 },
+  { at = 404841600, offset = 39600 },
+  { at = 417542400, offset = 36000 },
+  { at = 436291200, offset = 39600 },
+  { at = 448992000, offset = 36000 },
+  { at = 467740800, offset = 39600 },
+  { at = 481046400, offset = 36000 },
+  { at = 499190400, offset = 39600 },
+  { at = 512496000, offset = 36000 },
+  { at = 530640000, offset = 39600 },
+  { at = 543945600, offset = 36000 },
+  { at = 562089600, offset = 39600 },
+  { at = 575395200, offset = 36000 },
+  { at = 594144000, offset = 39600 },
+  { at = 606844800, offset = 36000 },
+  { at = 625593600, offset = 39600 },
+  { at = 638294400, offset = 36000 },
+  { at = 657043200, offset = 39600 },
+  { at = 670348800, offset = 36000 },
+  { at = 688492800, offset = 39600 },
+  { at = 701798400, offset = 36000 },
+  { at = 719942400, offset = 39600 },
+  { at = 733248000, offset = 36000 },
+  { at = 751996800, offset = 39600 },
+  { at = 764697600, offset = 36000 },
+  { at = 783446400, offset = 39600 },
+  { at = 796147200, offset = 36000 },
+  { at = 814896000, offset = 39600 },
+  { at = 828201600, offset = 36000 },
+  { at = 846345600, offset = 39600 },
+  { at = 859651200, offset = 36000 },
+  { at = 877795200, offset = 39600 },
+  { at = 891100800, offset = 36000 },
+  { at = 909244800, offset = 39600 },
+  { at = 922550400, offset = 36000 },
+  { at = 941299200, offset = 39600 },
+  { at = 954000000, offset = 36000 },
+  { at = 972748800, offset = 39600 },
+  { at = 985449600, offset = 36000 },
+  { at = 1004198400, offset = 39600 },
+  { at = 1017504000, offset = 36000 },
+  { at = 1035648000, offset = 39600 },
+  { at = 1048953600, offset = 36000 },
+  { at = 1067097600, offset = 39600 },
+  { at = 1080403200, offset = 36000 },
+  { at = 1099152000, offset = 39600 },
+  { at = 1111852800, offset = 36000 },
+  { at = 1130601600, offset = 39600 },
+  { at = 1143302400, offset = 36000 },
+  { at = 1162051200, offset = 39600 },
+  { at = 1174752000, offset = 36000 },
+  { at = 1193500800, offset = 39600 },
+  { at = 1207411200, offset = 36000 },
+  { at = 1223136000, offset = 39600 },
+  { at = 1238860800, offset = 36000 },
+  { at = 1254585600, offset = 39600 },
+  { at = 1270310400, offset = 36000 },
+  { at = 1286035200, offset = 39600 },
+  { at = 1301760000, offset = 36000 },
+  { at = 1317484800, offset = 39600 },
+  { at = 1333209600, offset = 36000 },
+  { at = 1349539200, offset = 39600 },
+  { at = 1365264000, offset = 36000 },
+  { at = 1380988800, offset = 39600 },
+  { at = 1396713600, offset = 36000 },
+  { at = 1412438400, offset = 39600 },
+  { at = 1428163200, offset = 36000 },
+  { at = 1443888000, offset = 39600 },
+  { at = 1459612800, offset = 36000 },
+  { at = 1475337600, offset = 39600 },
+  { at = 1491062400, offset = 36000 },
+  { at = 1506787200, offset = 39600 },
+  { at = 1522512000, offset = 36000 },
+  { at = 1538841600, offset = 39600 },
+  { at = 1554566400, offset = 36000 },
+  { at = 1570291200, offset = 39600 },
+  { at = 1586016000, offset = 36000 },
+  { at = 1601740800, offset = 39600 },
+  { at = 1617465600, offset = 36000 },
+  { at = 1633190400, offset = 39600 },
+  { at = 1648915200, offset = 36000 },
+  { at = 1664640000, offset = 39600 },
+  { at = 1680364800, offset = 36000 },
+  { at = 1696089600, offset = 39600 },
+  { at = 1712419200, offset = 36000 },
+  { at = 1728144000, offset = 39600 },
+  { at = 1743868800, offset = 36000 },
+  { at = 1759593600, offset = 39600 },
+  { at = 1775318400, offset = 36000 },
+  { at = 1791043200, offset = 39600 },
+  { at = 1806768000, offset = 36000 },
+  { at = 1822492800, offset = 39600 },
+  { at = 1838217600, offset = 36000 },
+  { at = 1853942400, offset = 39600 },
+  { at = 1869667200, offset = 36000 },
+  { at = 1885996800, offset = 39600 },
+  { at = 1901721600, offset = 36000 },
+  { at = 1917446400, offset = 39600 },
+  { at = 1933171200, offset = 36000 },
+  { at = 1948896000, offset = 39600 },
+  { at = 1964620800, offset = 36000 },
+  { at = 1980345600, offset = 39600 },
+  { at = 1996070400, offset = 36000 },
+  { at = 2011795200, offset = 39600 },
+  { at = 2027520000, offset = 36000 },
+  { at = 2043244800, offset = 39600 },
+  { at = 2058969600, offset = 36000 },
+  { at = 2075299200, offset = 39600 },
+  { at = 2091024000, offset = 36000 },
+  { at = 2106748800, offset = 39600 },
+  { at = 2122473600, offset = 36000 },
+  { at = 2138198400, offset = 39600 },
+  { at = 2153923200, offset = 36000 },
+  { at = 2169648000, offset = 39600 },
+  { at = 2185372800, offset = 36000 },
+  { at = 2201097600, offset = 39600 },
+  { at = 2216822400, offset = 36000 },
+  { at = 2233152000, offset = 39600 },
+  { at = 2248876800, offset = 36000 },
+  { at = 2264601600, offset = 39600 },
+  { at = 2280326400, offset = 36000 },
+  { at = 2296051200, offset = 39600 },
+  { at = 2311776000, offset = 36000 },
+  { at = 2327500800, offset = 39600 },
+  { at = 2343225600, offset = 36000 },
+  { at = 2358950400, offset = 39600 },
+  { at = 2374675200, offset = 36000 },
+  { at = 2390400000, offset = 39600 },
+  { at = 2406124800, offset = 36000 },
+  { at = 2422454400, offset = 39600 },
+  { at = 2438179200, offset = 36000 },
+  { at = 2453904000, offset = 39600 },
+  { at = 2469628800, offset = 36000 },
+  { at = 2485353600, offset = 39600 },
+  { at = 2501078400, offset = 36000 },
+  { at = 2516803200, offset = 39600 },
+  { at = 2532528000, offset = 36000 },
+  { at = 2548252800, offset = 39600 },
+  { at = 2563977600, offset = 36000 },
+  { at = 2579702400, offset = 39600 },
+  { at = 2596032000, offset = 36000 },
+  { at = 2611756800, offset = 39600 },
+  { at = 2627481600, offset = 36000 },
+  { at = 2643206400, offset = 39600 },
+  { at = 2658931200, offset = 36000 },
+  { at = 2674656000, offset = 39600 },
+  { at = 2690380800, offset = 36000 },
+  { at = 2706105600, offset = 39600 },
+  { at = 2721830400, offset = 36000 },
+  { at = 2737555200, offset = 39600 },
+  { at = 2753280000, offset = 36000 },
+  { at = 2769609600, offset = 39600 },
+  { at = 2785334400, offset = 36000 },
+  { at = 2801059200, offset = 39600 },
+  { at = 2816784000, offset = 36000 },
+  { at = 2832508800, offset = 39600 },
+  { at = 2848233600, offset = 36000 },
+  { at = 2863958400, offset = 39600 },
+  { at = 2879683200, offset = 36000 },
+  { at = 2895408000, offset = 39600 },
+  { at = 2911132800, offset = 36000 },
+  { at = 2926857600, offset = 39600 },
+  { at = 2942582400, offset = 36000 },
+  { at = 2958912000, offset = 39600 },
+  { at = 2974636800, offset = 36000 },
+  { at = 2990361600, offset = 39600 },
+  { at = 3006086400, offset = 36000 },
+  { at = 3021811200, offset = 39600 },
+  { at = 3037536000, offset = 36000 },
+  { at = 3053260800, offset = 39600 },
+  { at = 3068985600, offset = 36000 },
+  { at = 3084710400, offset = 39600 },
+  { at = 3100435200, offset = 36000 },
+  { at = 3116764800, offset = 39600 },
+  { at = 3132489600, offset = 36000 },
+  { at = 3148214400, offset = 39600 },
+}
+
 -- Display: Expiry Date
 asx_asxderivatives_ntp_itch_v1_05.expiry_date.display = function(value)
-  return "Expiry Date: "..value
+  local seconds = value
+  local offset = asx_asxderivatives_ntp_itch_v1_05.expiry_date.offsets[1].offset
+
+  for index = 2, #asx_asxderivatives_ntp_itch_v1_05.expiry_date.offsets do
+    if seconds < asx_asxderivatives_ntp_itch_v1_05.expiry_date.offsets[index].at then
+      break
+    end
+    offset = asx_asxderivatives_ntp_itch_v1_05.expiry_date.offsets[index].offset
+  end
+
+  return string.format("Expiry Date: %s", os.date("!%Y-%m-%d", seconds + offset))
 end
 
 -- Dissect: Expiry Date
@@ -1106,9 +1329,224 @@ asx_asxderivatives_ntp_itch_v1_05.last_trading_date = {}
 -- Size: Last Trading Date
 asx_asxderivatives_ntp_itch_v1_05.last_trading_date.size = 4
 
+-- Australia/Sydney, the utc offsets it keeps and the instants it changes them at
+asx_asxderivatives_ntp_itch_v1_05.last_trading_date.offsets = {
+  { at = 0, offset = 39600 },
+  { at = 7488000, offset = 36000 },
+  { at = 25632000, offset = 39600 },
+  { at = 38937600, offset = 36000 },
+  { at = 57686400, offset = 39600 },
+  { at = 70387200, offset = 36000 },
+  { at = 89136000, offset = 39600 },
+  { at = 101836800, offset = 36000 },
+  { at = 120585600, offset = 39600 },
+  { at = 133891200, offset = 36000 },
+  { at = 152035200, offset = 39600 },
+  { at = 165340800, offset = 36000 },
+  { at = 183484800, offset = 39600 },
+  { at = 196790400, offset = 36000 },
+  { at = 215539200, offset = 39600 },
+  { at = 228240000, offset = 36000 },
+  { at = 246988800, offset = 39600 },
+  { at = 259689600, offset = 36000 },
+  { at = 278438400, offset = 39600 },
+  { at = 291139200, offset = 36000 },
+  { at = 309888000, offset = 39600 },
+  { at = 323193600, offset = 36000 },
+  { at = 341337600, offset = 39600 },
+  { at = 354643200, offset = 36000 },
+  { at = 372787200, offset = 39600 },
+  { at = 386092800, offset = 36000 },
+  { at = 404841600, offset = 39600 },
+  { at = 417542400, offset = 36000 },
+  { at = 436291200, offset = 39600 },
+  { at = 448992000, offset = 36000 },
+  { at = 467740800, offset = 39600 },
+  { at = 481046400, offset = 36000 },
+  { at = 499190400, offset = 39600 },
+  { at = 512496000, offset = 36000 },
+  { at = 530640000, offset = 39600 },
+  { at = 543945600, offset = 36000 },
+  { at = 562089600, offset = 39600 },
+  { at = 575395200, offset = 36000 },
+  { at = 594144000, offset = 39600 },
+  { at = 606844800, offset = 36000 },
+  { at = 625593600, offset = 39600 },
+  { at = 638294400, offset = 36000 },
+  { at = 657043200, offset = 39600 },
+  { at = 670348800, offset = 36000 },
+  { at = 688492800, offset = 39600 },
+  { at = 701798400, offset = 36000 },
+  { at = 719942400, offset = 39600 },
+  { at = 733248000, offset = 36000 },
+  { at = 751996800, offset = 39600 },
+  { at = 764697600, offset = 36000 },
+  { at = 783446400, offset = 39600 },
+  { at = 796147200, offset = 36000 },
+  { at = 814896000, offset = 39600 },
+  { at = 828201600, offset = 36000 },
+  { at = 846345600, offset = 39600 },
+  { at = 859651200, offset = 36000 },
+  { at = 877795200, offset = 39600 },
+  { at = 891100800, offset = 36000 },
+  { at = 909244800, offset = 39600 },
+  { at = 922550400, offset = 36000 },
+  { at = 941299200, offset = 39600 },
+  { at = 954000000, offset = 36000 },
+  { at = 972748800, offset = 39600 },
+  { at = 985449600, offset = 36000 },
+  { at = 1004198400, offset = 39600 },
+  { at = 1017504000, offset = 36000 },
+  { at = 1035648000, offset = 39600 },
+  { at = 1048953600, offset = 36000 },
+  { at = 1067097600, offset = 39600 },
+  { at = 1080403200, offset = 36000 },
+  { at = 1099152000, offset = 39600 },
+  { at = 1111852800, offset = 36000 },
+  { at = 1130601600, offset = 39600 },
+  { at = 1143302400, offset = 36000 },
+  { at = 1162051200, offset = 39600 },
+  { at = 1174752000, offset = 36000 },
+  { at = 1193500800, offset = 39600 },
+  { at = 1207411200, offset = 36000 },
+  { at = 1223136000, offset = 39600 },
+  { at = 1238860800, offset = 36000 },
+  { at = 1254585600, offset = 39600 },
+  { at = 1270310400, offset = 36000 },
+  { at = 1286035200, offset = 39600 },
+  { at = 1301760000, offset = 36000 },
+  { at = 1317484800, offset = 39600 },
+  { at = 1333209600, offset = 36000 },
+  { at = 1349539200, offset = 39600 },
+  { at = 1365264000, offset = 36000 },
+  { at = 1380988800, offset = 39600 },
+  { at = 1396713600, offset = 36000 },
+  { at = 1412438400, offset = 39600 },
+  { at = 1428163200, offset = 36000 },
+  { at = 1443888000, offset = 39600 },
+  { at = 1459612800, offset = 36000 },
+  { at = 1475337600, offset = 39600 },
+  { at = 1491062400, offset = 36000 },
+  { at = 1506787200, offset = 39600 },
+  { at = 1522512000, offset = 36000 },
+  { at = 1538841600, offset = 39600 },
+  { at = 1554566400, offset = 36000 },
+  { at = 1570291200, offset = 39600 },
+  { at = 1586016000, offset = 36000 },
+  { at = 1601740800, offset = 39600 },
+  { at = 1617465600, offset = 36000 },
+  { at = 1633190400, offset = 39600 },
+  { at = 1648915200, offset = 36000 },
+  { at = 1664640000, offset = 39600 },
+  { at = 1680364800, offset = 36000 },
+  { at = 1696089600, offset = 39600 },
+  { at = 1712419200, offset = 36000 },
+  { at = 1728144000, offset = 39600 },
+  { at = 1743868800, offset = 36000 },
+  { at = 1759593600, offset = 39600 },
+  { at = 1775318400, offset = 36000 },
+  { at = 1791043200, offset = 39600 },
+  { at = 1806768000, offset = 36000 },
+  { at = 1822492800, offset = 39600 },
+  { at = 1838217600, offset = 36000 },
+  { at = 1853942400, offset = 39600 },
+  { at = 1869667200, offset = 36000 },
+  { at = 1885996800, offset = 39600 },
+  { at = 1901721600, offset = 36000 },
+  { at = 1917446400, offset = 39600 },
+  { at = 1933171200, offset = 36000 },
+  { at = 1948896000, offset = 39600 },
+  { at = 1964620800, offset = 36000 },
+  { at = 1980345600, offset = 39600 },
+  { at = 1996070400, offset = 36000 },
+  { at = 2011795200, offset = 39600 },
+  { at = 2027520000, offset = 36000 },
+  { at = 2043244800, offset = 39600 },
+  { at = 2058969600, offset = 36000 },
+  { at = 2075299200, offset = 39600 },
+  { at = 2091024000, offset = 36000 },
+  { at = 2106748800, offset = 39600 },
+  { at = 2122473600, offset = 36000 },
+  { at = 2138198400, offset = 39600 },
+  { at = 2153923200, offset = 36000 },
+  { at = 2169648000, offset = 39600 },
+  { at = 2185372800, offset = 36000 },
+  { at = 2201097600, offset = 39600 },
+  { at = 2216822400, offset = 36000 },
+  { at = 2233152000, offset = 39600 },
+  { at = 2248876800, offset = 36000 },
+  { at = 2264601600, offset = 39600 },
+  { at = 2280326400, offset = 36000 },
+  { at = 2296051200, offset = 39600 },
+  { at = 2311776000, offset = 36000 },
+  { at = 2327500800, offset = 39600 },
+  { at = 2343225600, offset = 36000 },
+  { at = 2358950400, offset = 39600 },
+  { at = 2374675200, offset = 36000 },
+  { at = 2390400000, offset = 39600 },
+  { at = 2406124800, offset = 36000 },
+  { at = 2422454400, offset = 39600 },
+  { at = 2438179200, offset = 36000 },
+  { at = 2453904000, offset = 39600 },
+  { at = 2469628800, offset = 36000 },
+  { at = 2485353600, offset = 39600 },
+  { at = 2501078400, offset = 36000 },
+  { at = 2516803200, offset = 39600 },
+  { at = 2532528000, offset = 36000 },
+  { at = 2548252800, offset = 39600 },
+  { at = 2563977600, offset = 36000 },
+  { at = 2579702400, offset = 39600 },
+  { at = 2596032000, offset = 36000 },
+  { at = 2611756800, offset = 39600 },
+  { at = 2627481600, offset = 36000 },
+  { at = 2643206400, offset = 39600 },
+  { at = 2658931200, offset = 36000 },
+  { at = 2674656000, offset = 39600 },
+  { at = 2690380800, offset = 36000 },
+  { at = 2706105600, offset = 39600 },
+  { at = 2721830400, offset = 36000 },
+  { at = 2737555200, offset = 39600 },
+  { at = 2753280000, offset = 36000 },
+  { at = 2769609600, offset = 39600 },
+  { at = 2785334400, offset = 36000 },
+  { at = 2801059200, offset = 39600 },
+  { at = 2816784000, offset = 36000 },
+  { at = 2832508800, offset = 39600 },
+  { at = 2848233600, offset = 36000 },
+  { at = 2863958400, offset = 39600 },
+  { at = 2879683200, offset = 36000 },
+  { at = 2895408000, offset = 39600 },
+  { at = 2911132800, offset = 36000 },
+  { at = 2926857600, offset = 39600 },
+  { at = 2942582400, offset = 36000 },
+  { at = 2958912000, offset = 39600 },
+  { at = 2974636800, offset = 36000 },
+  { at = 2990361600, offset = 39600 },
+  { at = 3006086400, offset = 36000 },
+  { at = 3021811200, offset = 39600 },
+  { at = 3037536000, offset = 36000 },
+  { at = 3053260800, offset = 39600 },
+  { at = 3068985600, offset = 36000 },
+  { at = 3084710400, offset = 39600 },
+  { at = 3100435200, offset = 36000 },
+  { at = 3116764800, offset = 39600 },
+  { at = 3132489600, offset = 36000 },
+  { at = 3148214400, offset = 39600 },
+}
+
 -- Display: Last Trading Date
 asx_asxderivatives_ntp_itch_v1_05.last_trading_date.display = function(value)
-  return "Last Trading Date: "..value
+  local seconds = value
+  local offset = asx_asxderivatives_ntp_itch_v1_05.last_trading_date.offsets[1].offset
+
+  for index = 2, #asx_asxderivatives_ntp_itch_v1_05.last_trading_date.offsets do
+    if seconds < asx_asxderivatives_ntp_itch_v1_05.last_trading_date.offsets[index].at then
+      break
+    end
+    offset = asx_asxderivatives_ntp_itch_v1_05.last_trading_date.offsets[index].offset
+  end
+
+  return string.format("Last Trading Date: %s", os.date("!%Y-%m-%d", seconds + offset))
 end
 
 -- Dissect: Last Trading Date
@@ -1619,7 +2057,11 @@ asx_asxderivatives_ntp_itch_v1_05.participant_id_buyer.size = 3
 
 -- Display: Participant Id Buyer
 asx_asxderivatives_ntp_itch_v1_05.participant_id_buyer.display = function(value)
-  return "Participant Id Buyer: "..value
+  if value == "" then
+    return "Participant Id Buyer: Anonymous (<whitespace>)"
+  end
+
+  return "Participant Id Buyer: Unknown("..value..")"
 end
 
 -- Dissect: Participant Id Buyer
@@ -1642,7 +2084,11 @@ asx_asxderivatives_ntp_itch_v1_05.participant_id_seller.size = 3
 
 -- Display: Participant Id Seller
 asx_asxderivatives_ntp_itch_v1_05.participant_id_seller.display = function(value)
-  return "Participant Id Seller: "..value
+  if value == "" then
+    return "Participant Id Seller: Anonymous (<whitespace>)"
+  end
+
+  return "Participant Id Seller: Unknown("..value..")"
 end
 
 -- Dissect: Participant Id Seller
@@ -2056,7 +2502,11 @@ asx_asxderivatives_ntp_itch_v1_05.seller_participant_id.size = 3
 
 -- Display: Seller Participant Id
 asx_asxderivatives_ntp_itch_v1_05.seller_participant_id.display = function(value)
-  return "Seller Participant Id: "..value
+  if value == "" then
+    return "Seller Participant Id: Anonymous (<whitespace>)"
+  end
+
+  return "Seller Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: Seller Participant Id

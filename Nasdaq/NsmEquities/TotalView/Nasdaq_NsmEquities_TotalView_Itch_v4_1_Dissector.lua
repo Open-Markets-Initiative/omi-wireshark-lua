@@ -1494,7 +1494,7 @@ nasdaq_nsmequities_totalview_itch_v4_1.reason.display = function(value)
   if value == "IPOE" then
     return "Reason: Ipo Security Positioning Window Extension (IPOE)"
   end
-  if value == "    " then
+  if value == "" then
     return "Reason: Reason Not Available (<whitespace>)"
   end
 

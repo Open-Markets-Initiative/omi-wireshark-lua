@@ -864,7 +864,7 @@ finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_reason_code.display = f
   if value == "C14" then
     return "Market Wide Circuit Breaker Reason Code: Quote And Trade Resume For Emc Or Mwcb (C14)"
   end
-  if value == " " then
+  if value == "" then
     return "Market Wide Circuit Breaker Reason Code: Reason Code Not Available (<whitespace>)"
   end
 
@@ -1797,7 +1797,7 @@ finra_finraorf_tdds_dfi_v2_0.trading_action_reason_code.display = function(value
   if value == "T3" then
     return "Trading Action Reason Code: Halt News And Resumption Times (T3)"
   end
-  if value == " " then
+  if value == "" then
     return "Trading Action Reason Code: Reason Code Not Available (<whitespace>)"
   end
 

@@ -2042,7 +2042,7 @@ udp_table:add_for_decode_as(omi_cboe_edgxequities_summarydepth_csdp_v1_0_7)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.7
 --   Date: Wednesday, January 15, 2025
---   Specification: Cboe_US_Equities_Summary_Depth_Feed_Specification.pdf
+--   Specification: technical-specifications-cboe-titanium-u-s-equities-summary-depth-feed-specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

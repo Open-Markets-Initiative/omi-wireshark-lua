@@ -975,7 +975,7 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_9.unsequenced_data_packet.fields = 
   local index = offset
 
   -- Runtime Size Of: Unsequenced Message
-  local size_of_unsequenced_message = buffer:len() - index
+  local size_of_unsequenced_message = buffer:len() - index - 1
 
   -- Unsequenced Message: 0 Byte
   index, unsequenced_message = cboe_bzxequities_auctionfeed_asciipitch_v1_3_9.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
@@ -1711,7 +1711,7 @@ tcp_table:add_for_decode_as(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_9)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.3.9
 --   Date: Wednesday, September 9, 2026
---   Specification: Cboe_US_Equities_Auction_Feed_Specification.pdf
+--   Specification: technical-specifications-cboe-titanium-bzx-equities-auction-feed-specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

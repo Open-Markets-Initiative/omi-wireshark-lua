@@ -2365,7 +2365,7 @@ nasdaq_ntxequities_totalview_itch_v5_0.trading_action_reason.display = function(
   if value == "M2" then
     return "Trading Action Reason: Quotation Not Available (M2)"
   end
-  if value == " " then
+  if value == "" then
     return "Trading Action Reason: Reason Not Available (<whitespace>)"
   end
   if value == "T3" then

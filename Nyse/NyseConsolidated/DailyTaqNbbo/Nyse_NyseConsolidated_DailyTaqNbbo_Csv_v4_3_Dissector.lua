@@ -1176,13 +1176,17 @@ end
 -- Dissect: Best Bid Exchange
 nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_bid_exchange.dissect = function(buffer, offset, packet, parent, length)
   if offset == nil or offset > #nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current then
-    return nil, "the line stops before Best Bid Exchange"
+    -- the line stops before it: optional, it has no value
+    return offset
   end
   local index = nil
   if length == nil then
     length, index = nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.scan(offset, nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_bid_exchange.delimiter)
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current, offset + 1, offset + length)
+  if text == "" then
+    return index
+  end
   if parent ~= nil then
     -- Ascii: the line's own bytes
     parent:add(omi_nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.fields.best_bid_exchange, buffer(offset, length), text, nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_bid_exchange.display(text))
@@ -1386,13 +1390,17 @@ end
 -- Dissect: Best Offer Exchange
 nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_offer_exchange.dissect = function(buffer, offset, packet, parent, length)
   if offset == nil or offset > #nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current then
-    return nil, "the line stops before Best Offer Exchange"
+    -- the line stops before it: optional, it has no value
+    return offset
   end
   local index = nil
   if length == nil then
     length, index = nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.scan(offset, nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_offer_exchange.delimiter)
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current, offset + 1, offset + length)
+  if text == "" then
+    return index
+  end
   if parent ~= nil then
     -- Ascii: the line's own bytes
     parent:add(omi_nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.fields.best_offer_exchange, buffer(offset, length), text, nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_offer_exchange.display(text))
@@ -1602,6 +1610,7 @@ nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.sip_generated_message_identifier.enc
 -- Display: Sip Generated Message Identifier
 nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.sip_generated_message_identifier.labels = {
   ["E"] = "Sip Generated Message Identifier: originated from a SIP (CTA or UTP) (E)",
+  ["S"] = "Sip Generated Message Identifier: Undocumented S (S)",
 }
 
 nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.sip_generated_message_identifier.display = function(value)

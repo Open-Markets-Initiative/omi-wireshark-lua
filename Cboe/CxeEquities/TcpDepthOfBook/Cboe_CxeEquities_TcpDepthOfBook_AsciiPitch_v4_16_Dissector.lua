@@ -1669,7 +1669,7 @@ cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.unsequenced_data_packet.fields 
   local index = offset
 
   -- Runtime Size Of: Unsequenced Message
-  local size_of_unsequenced_message = buffer:len() - index
+  local size_of_unsequenced_message = buffer:len() - index - 1
 
   -- Unsequenced Message: 0 Byte
   index, unsequenced_message = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)

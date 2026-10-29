@@ -1162,7 +1162,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_0_2010.reason.display =
   if value == "IPOE" then
     return "Reason: Ipo Security Positioning Window Extension Nasdaq Securities Only (IPOE)"
   end
-  if value == " " then
+  if value == "" then
     return "Reason: Reason Not Available (<whitespace>)"
   end
 

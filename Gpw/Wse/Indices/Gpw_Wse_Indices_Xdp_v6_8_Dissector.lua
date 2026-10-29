@@ -49,6 +49,7 @@ omi_gpw_wse_indices_xdp_v6_8.fields.marker_pct_chg_index_val_prev_sess = ProtoFi
 omi_gpw_wse_indices_xdp_v6_8.fields.marker_pct_chg_index_val_prev_year = ProtoField.new("Marker Pct Chg Index Val Prev Year", "gpw.wse.indices.xdp.v6.8.markerpctchgindexvalprevyear", ftypes.STRING, nil, nil, nil, "Marker for the percentage change of the index value in relation to its value at the end of the previous year")
 omi_gpw_wse_indices_xdp_v6_8.fields.marker_percent_change_toi = ProtoField.new("Marker Percent Change Toi", "gpw.wse.indices.xdp.v6.8.markerpercentchangetoi", ftypes.STRING, nil, nil, nil, "Marker for the percentage change of TOI in relation to the value of the closing index from the previous session")
 omi_gpw_wse_indices_xdp_v6_8.fields.marker_point_change = ProtoField.new("Marker Point Change", "gpw.wse.indices.xdp.v6.8.markerpointchange", ftypes.STRING, nil, nil, nil, "Marker for the point change of the index to the current value of the index")
+omi_gpw_wse_indices_xdp_v6_8.fields.message_buffer = ProtoField.new("Message Buffer", "gpw.wse.indices.xdp.v6.8.messagebuffer", ftypes.STRING, nil, nil, nil, "The packet's message area: the messages it counts, or one ZliB block holding them")
 omi_gpw_wse_indices_xdp_v6_8.fields.message_continuation = ProtoField.new("Message Continuation", "gpw.wse.indices.xdp.v6.8.messagecontinuation", ftypes.STRING, nil, nil, nil, "Message Continuation Marker")
 omi_gpw_wse_indices_xdp_v6_8.fields.message_size = ProtoField.new("Message Size", "gpw.wse.indices.xdp.v6.8.messagesize", ftypes.UINT16, nil, nil, nil, "Length of the message body, excluding the 2 byte MsgSize field")
 omi_gpw_wse_indices_xdp_v6_8.fields.message_type = ProtoField.new("Message Type", "gpw.wse.indices.xdp.v6.8.messagetype", ftypes.UINT16, nil, nil, nil, "The type of this message")
@@ -2885,6 +2886,62 @@ gpw_wse_indices_xdp_v6_8.message.dissect = function(buffer, offset, packet, pare
   end
 end
 
+-- Message Buffer
+gpw_wse_indices_xdp_v6_8.message_buffer = {}
+
+-- Size: Message Buffer
+gpw_wse_indices_xdp_v6_8.message_buffer.size = function(buffer, offset)
+  return buffer:len() - offset
+end
+
+-- Display: Message Buffer
+gpw_wse_indices_xdp_v6_8.message_buffer.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Buffer
+gpw_wse_indices_xdp_v6_8.message_buffer.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Message Size
+    local message_size = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_size + 2
+
+    -- Message: Struct of 2 fields
+    index, message = gpw_wse_indices_xdp_v6_8.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
+  end
+
+  return index
+end
+
+-- Dissect: Message Buffer
+gpw_wse_indices_xdp_v6_8.message_buffer.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_gpw_wse_indices_xdp_v6_8.fields.message_buffer, buffer(offset, 0))
+    local index = gpw_wse_indices_xdp_v6_8.message_buffer.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = gpw_wse_indices_xdp_v6_8.message_buffer.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return gpw_wse_indices_xdp_v6_8.message_buffer.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet Header
 gpw_wse_indices_xdp_v6_8.packet_header = {}
 
@@ -2967,30 +3024,18 @@ gpw_wse_indices_xdp_v6_8.packet.dissect = function(buffer, packet, parent)
   -- Dependency element: Delivery Flag
   local delivery_flag = buffer(index - 2, 1):uint()
 
-  local message_conversion = delivery_flag > 15
+  local message_buffer_conversion = delivery_flag > 15
 
-  if message_conversion then
+  if message_buffer_conversion then
     buffer = zlib_decompress(buffer(index, buffer:len() - index))
     index = 0
   end
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Runtime Size Of: Message Buffer
+  local size_of_message_buffer = buffer:len() - index
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = message_size + 2
-
-    -- Message: Struct of 2 fields
-    index, message = gpw_wse_indices_xdp_v6_8.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
-  end
+  -- Message Buffer: Struct of 1 fields
+  index, message_buffer = gpw_wse_indices_xdp_v6_8.message_buffer.dissect(buffer, index, packet, parent, size_of_message_buffer)
 
   return index
 end

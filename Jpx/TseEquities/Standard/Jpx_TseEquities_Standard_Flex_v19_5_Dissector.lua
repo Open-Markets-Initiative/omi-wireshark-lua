@@ -1364,7 +1364,7 @@ jpx_tseequities_standard_flex_v19_5.session_distinction.display = function(value
   if value == "00" then
     return "Session Distinction: Out Of Service (00)"
   end
-  if value == "  " then
+  if value == "" then
     return "Session Distinction: Not Applicable (<whitespace>)"
   end
 
@@ -1553,7 +1553,7 @@ jpx_tseequities_standard_flex_v19_5.status_flag.display = function(value)
   if value == "D0" then
     return "Status Flag: Trading Halt Not Accepting Order Input (D0)"
   end
-  if value == "  " then
+  if value == "" then
     return "Status Flag: Other Than The Above (<whitespace>)"
   end
 

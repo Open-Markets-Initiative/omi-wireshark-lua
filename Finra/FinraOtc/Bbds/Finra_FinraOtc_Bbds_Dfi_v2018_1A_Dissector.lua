@@ -1148,7 +1148,7 @@ finra_finraotc_bbds_dfi_v2018_1a.reason_code.display = function(value)
   if value == "C11" then
     return "Reason Code: Trade Halt Concluded By Other Regulatory Auth Quotes Trades To Resume (C11)"
   end
-  if value == " " then
+  if value == "" then
     return "Reason Code: Reason Code Not Available (<whitespace>)"
   end
 

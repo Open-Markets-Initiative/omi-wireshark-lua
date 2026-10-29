@@ -1805,7 +1805,7 @@ nasdaq_nsmequities_aggregated_itch_v2_0_2026.reason.display = function(value)
   if value == "M2" then
     return "Reason: Quotation Not Available (M2)"
   end
-  if value == " " then
+  if value == "" then
     return "Reason: Reason Not Available (<whitespace>)"
   end
   if value == "T3" then

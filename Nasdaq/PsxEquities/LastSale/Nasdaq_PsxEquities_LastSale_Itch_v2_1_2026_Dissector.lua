@@ -1956,7 +1956,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.trading_action_reason.display = funct
   if value == "IPOE" then
     return "Trading Action Reason: Ipo Security Positioning Window Extension (IPOE)"
   end
-  if value == " " then
+  if value == "" then
     return "Trading Action Reason: Reason Not Available (<whitespace>)"
   end
 

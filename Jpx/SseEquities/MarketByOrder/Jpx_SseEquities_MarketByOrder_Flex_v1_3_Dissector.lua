@@ -1157,7 +1157,7 @@ jpx_sseequities_marketbyorder_flex_v1_3.status_flag.display = function(value)
   if value == "D0" then
     return "Status Flag: Trading Halted Not Accepting Orders (D0)"
   end
-  if value == "  " then
+  if value == "" then
     return "Status Flag: Other Than The Above (<whitespace>)"
   end
 

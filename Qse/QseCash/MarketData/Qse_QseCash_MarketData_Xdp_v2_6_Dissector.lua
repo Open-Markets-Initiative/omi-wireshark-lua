@@ -111,6 +111,7 @@ omi_qse_qsecash_marketdata_xdp_v2_6.fields.main_depositary = ProtoField.new("Mai
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.market_feed_code = ProtoField.new("Market Feed Code", "qse.qsecash.marketdata.xdp.v2.6.marketfeedcode", ftypes.STRING, nil, nil, nil, "\"Market data flow\" to which the instrument belongs")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.market_indicator = ProtoField.new("Market Indicator", "qse.qsecash.marketdata.xdp.v2.6.marketindicator", ftypes.UINT8, nil, nil, nil, "Indicates the market regulations governing the market on which the security is traded")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.market_segment = ProtoField.new("Market Segment", "qse.qsecash.marketdata.xdp.v2.6.marketsegment", ftypes.STRING, nil, nil, nil, "Qatar Exchange only: Market segment")
+omi_qse_qsecash_marketdata_xdp_v2_6.fields.message_buffer = ProtoField.new("Message Buffer", "qse.qsecash.marketdata.xdp.v2.6.messagebuffer", ftypes.STRING, nil, nil, nil, "The packet's message area: the messages it counts, or one ZliB block holding them")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.message_size = ProtoField.new("Message Size", "qse.qsecash.marketdata.xdp.v2.6.messagesize", ftypes.UINT16, nil, nil, nil, "Length of the message body, excluding the 2 byte MsgSize field")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.message_type = ProtoField.new("Message Type", "qse.qsecash.marketdata.xdp.v2.6.messagetype", ftypes.UINT16, nil, nil, nil, "The type of this message")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.mic = ProtoField.new("Mic", "qse.qsecash.marketdata.xdp.v2.6.mic", ftypes.STRING, nil, nil, nil, "Identifies the market to which an instrument y belongs by its MIC (Market Identification code), according to ISO 10383")
@@ -9047,6 +9048,62 @@ qse_qsecash_marketdata_xdp_v2_6.message.dissect = function(buffer, offset, packe
   end
 end
 
+-- Message Buffer
+qse_qsecash_marketdata_xdp_v2_6.message_buffer = {}
+
+-- Size: Message Buffer
+qse_qsecash_marketdata_xdp_v2_6.message_buffer.size = function(buffer, offset)
+  return buffer:len() - offset
+end
+
+-- Display: Message Buffer
+qse_qsecash_marketdata_xdp_v2_6.message_buffer.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Buffer
+qse_qsecash_marketdata_xdp_v2_6.message_buffer.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Message Size
+    local message_size = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_size + 2
+
+    -- Message: Struct of 2 fields
+    index, message = qse_qsecash_marketdata_xdp_v2_6.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
+  end
+
+  return index
+end
+
+-- Dissect: Message Buffer
+qse_qsecash_marketdata_xdp_v2_6.message_buffer.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.message_buffer, buffer(offset, 0))
+    local index = qse_qsecash_marketdata_xdp_v2_6.message_buffer.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = qse_qsecash_marketdata_xdp_v2_6.message_buffer.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return qse_qsecash_marketdata_xdp_v2_6.message_buffer.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet Header
 qse_qsecash_marketdata_xdp_v2_6.packet_header = {}
 
@@ -9129,30 +9186,18 @@ qse_qsecash_marketdata_xdp_v2_6.packet.dissect = function(buffer, packet, parent
   -- Dependency element: Delivery Flag
   local delivery_flag = buffer(index - 2, 1):uint()
 
-  local message_conversion = delivery_flag == 17
+  local message_buffer_conversion = delivery_flag == 17
 
-  if message_conversion then
+  if message_buffer_conversion then
     buffer = zlib_decompress(buffer(index, buffer:len() - index))
     index = 0
   end
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Runtime Size Of: Message Buffer
+  local size_of_message_buffer = buffer:len() - index
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = message_size + 2
-
-    -- Message: Struct of 2 fields
-    index, message = qse_qsecash_marketdata_xdp_v2_6.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
-  end
+  -- Message Buffer: Struct of 1 fields
+  index, message_buffer = qse_qsecash_marketdata_xdp_v2_6.message_buffer.dissect(buffer, index, packet, parent, size_of_message_buffer)
 
   return index
 end

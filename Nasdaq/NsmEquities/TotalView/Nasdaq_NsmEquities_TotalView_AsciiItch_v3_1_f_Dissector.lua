@@ -1565,7 +1565,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.reason.display = function(value)
   if value == "IPOE" then
     return "Reason: Ipo Security Positioning Window Extension (IPOE)"
   end
-  if value == "    " then
+  if value == "" then
     return "Reason: Reason Not Available (<whitespace>)"
   end
 
@@ -3644,7 +3644,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.debug_packet.fields = function(buf
   local index = offset
 
   -- Runtime Size Of: Text
-  local size_of_text = buffer:len() - index
+  local size_of_text = buffer:len() - index - 1
 
   -- Text: 0 Byte Ascii String
   index, text = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.text.dissect(buffer, index, packet, parent, size_of_text)
@@ -3871,7 +3871,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.unsequenced_data_packet.fields = f
   local index = offset
 
   -- Runtime Size Of: Unsequenced Message
-  local size_of_unsequenced_message = buffer:len() - index
+  local size_of_unsequenced_message = buffer:len() - index - 1
 
   -- Unsequenced Message: 0 Byte
   index, unsequenced_message = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)

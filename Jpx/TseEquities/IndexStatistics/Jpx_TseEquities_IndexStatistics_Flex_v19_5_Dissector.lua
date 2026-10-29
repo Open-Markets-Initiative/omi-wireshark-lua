@@ -1607,7 +1607,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.other_classification_code.display = f
   if value == "21" then
     return "Other Classification Code: Total Of Cb (21)"
   end
-  if value == "  " then
+  if value == "" then
     return "Other Classification Code: Not Applicable (<whitespace>)"
   end
 
@@ -1646,7 +1646,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.other_classification_flag.display = f
   if value == "22" then
     return "Other Classification Flag: ToSTNeT CB (22)"
   end
-  if value == "  " then
+  if value == "" then
     return "Other Classification Flag: Not Applicable (<whitespace>)"
   end
 
@@ -2090,7 +2090,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.session_distinction.display = functio
   if value == "00" then
     return "Session Distinction: Out Of Service (00)"
   end
-  if value == "  " then
+  if value == "" then
     return "Session Distinction: Not Applicable (<whitespace>)"
   end
 

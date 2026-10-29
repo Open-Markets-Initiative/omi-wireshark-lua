@@ -2414,7 +2414,7 @@ nasdaq_utp_snapshot_utp_v5_0.reason_for_the_trading_action.display = function(va
   if value == "MWCQ" then
     return "Reason For The Trading Action: Market Wide Circuit Breaker Resumption (MWCQ)"
   end
-  if value == " " then
+  if value == "" then
     return "Reason For The Trading Action: Reason Not Available (<whitespace>)"
   end
 

@@ -39,7 +39,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1778 | 11,938,051 |
+| 1778 | 11,935,038 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -165,11 +165,12 @@ Enjoy.
 [Omi.Encoding.Sqf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Sqf.md "Sqf Encoding"
 [Omi.Encoding.AsciiItch]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/AsciiItch.md "AsciiItch Encoding"
 [Omi.Encoding.GeniumAmd]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/GeniumAmd.md "GeniumAmd Encoding"
-[Omi.Encoding.Binary]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Binary.md "Binary Encoding"
+[Omi.Encoding.Prm]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Prm.md "Prm Encoding"
 [Omi.Encoding.Utp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Utp.md "Utp Encoding"
 [Omi.Encoding.NxtAscii]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NxtAscii.md "NxtAscii Encoding"
 [Omi.Encoding.NxtBinary]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NxtBinary.md "NxtBinary Encoding"
 [Omi.Encoding.NnfDirect]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NnfDirect.md "NnfDirect Encoding"
+[Omi.Encoding.Mtbt]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Mtbt.md "Mtbt Encoding"
 [Omi.Encoding.Nnf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Nnf.md "Nnf Encoding"
 [Omi.Encoding.NnfBcast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NnfBcast.md "NnfBcast Encoding"
 [Omi.Encoding.NnfDc]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NnfDc.md "NnfDc Encoding"

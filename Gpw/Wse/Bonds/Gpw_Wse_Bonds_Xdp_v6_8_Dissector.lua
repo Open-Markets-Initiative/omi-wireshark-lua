@@ -23,6 +23,7 @@ omi_gpw_wse_bonds_xdp_v6_8.fields.date = ProtoField.new("Date", "gpw.wse.bonds.x
 omi_gpw_wse_bonds_xdp_v6_8.fields.delivery_flag = ProtoField.new("Delivery Flag", "gpw.wse.bonds.xdp.v6.8.deliveryflag", ftypes.UINT8, nil, nil, nil, "Indicates delivery method, and a client reads it to determine whether the packet is ZliB compressed")
 omi_gpw_wse_bonds_xdp_v6_8.fields.interest = ProtoField.new("Interest", "gpw.wse.bonds.xdp.v6.8.interest", ftypes.UINT32, nil, nil, nil, "Interest for the settlement day defined by field \"SettlementDate\". Provided with 0 if settlement date is not significant")
 omi_gpw_wse_bonds_xdp_v6_8.fields.interest_scale_code = ProtoField.new("Interest Scale Code", "gpw.wse.bonds.xdp.v6.8.interestscalecode", ftypes.UINT8, nil, nil, nil, "Applicable to the interest for the settlement day")
+omi_gpw_wse_bonds_xdp_v6_8.fields.message_buffer = ProtoField.new("Message Buffer", "gpw.wse.bonds.xdp.v6.8.messagebuffer", ftypes.STRING, nil, nil, nil, "The packet's message area: the messages it counts, or one ZliB block holding them")
 omi_gpw_wse_bonds_xdp_v6_8.fields.message_size = ProtoField.new("Message Size", "gpw.wse.bonds.xdp.v6.8.messagesize", ftypes.UINT16, nil, nil, nil, "Length of the message body, excluding the 2 byte MsgSize field")
 omi_gpw_wse_bonds_xdp_v6_8.fields.message_type = ProtoField.new("Message Type", "gpw.wse.bonds.xdp.v6.8.messagetype", ftypes.UINT16, nil, nil, nil, "The type of this message")
 omi_gpw_wse_bonds_xdp_v6_8.fields.number_days = ProtoField.new("Number Days", "gpw.wse.bonds.xdp.v6.8.numberdays", ftypes.UINT16, nil, nil, nil, "Number of days for which accrued interest is provided")
@@ -1057,6 +1058,62 @@ gpw_wse_bonds_xdp_v6_8.message.dissect = function(buffer, offset, packet, parent
   end
 end
 
+-- Message Buffer
+gpw_wse_bonds_xdp_v6_8.message_buffer = {}
+
+-- Size: Message Buffer
+gpw_wse_bonds_xdp_v6_8.message_buffer.size = function(buffer, offset)
+  return buffer:len() - offset
+end
+
+-- Display: Message Buffer
+gpw_wse_bonds_xdp_v6_8.message_buffer.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Buffer
+gpw_wse_bonds_xdp_v6_8.message_buffer.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Message Size
+    local message_size = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_size + 2
+
+    -- Message: Struct of 2 fields
+    index, message = gpw_wse_bonds_xdp_v6_8.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
+  end
+
+  return index
+end
+
+-- Dissect: Message Buffer
+gpw_wse_bonds_xdp_v6_8.message_buffer.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_gpw_wse_bonds_xdp_v6_8.fields.message_buffer, buffer(offset, 0))
+    local index = gpw_wse_bonds_xdp_v6_8.message_buffer.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = gpw_wse_bonds_xdp_v6_8.message_buffer.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return gpw_wse_bonds_xdp_v6_8.message_buffer.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet Header
 gpw_wse_bonds_xdp_v6_8.packet_header = {}
 
@@ -1139,30 +1196,18 @@ gpw_wse_bonds_xdp_v6_8.packet.dissect = function(buffer, packet, parent)
   -- Dependency element: Delivery Flag
   local delivery_flag = buffer(index - 2, 1):uint()
 
-  local message_conversion = delivery_flag > 15
+  local message_buffer_conversion = delivery_flag > 15
 
-  if message_conversion then
+  if message_buffer_conversion then
     buffer = zlib_decompress(buffer(index, buffer:len() - index))
     index = 0
   end
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Runtime Size Of: Message Buffer
+  local size_of_message_buffer = buffer:len() - index
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = message_size + 2
-
-    -- Message: Struct of 2 fields
-    index, message = gpw_wse_bonds_xdp_v6_8.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
-  end
+  -- Message Buffer: Struct of 1 fields
+  index, message_buffer = gpw_wse_bonds_xdp_v6_8.message_buffer.dissect(buffer, index, packet, parent, size_of_message_buffer)
 
   return index
 end

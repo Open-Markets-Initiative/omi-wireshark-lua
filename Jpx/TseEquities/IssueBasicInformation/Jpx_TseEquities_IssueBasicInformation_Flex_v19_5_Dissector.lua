@@ -1843,7 +1843,7 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.session_distinction.display = f
   if value == "00" then
     return "Session Distinction: Out Of Service (00)"
   end
-  if value == "  " then
+  if value == "" then
     return "Session Distinction: Not Applicable (<whitespace>)"
   end
 

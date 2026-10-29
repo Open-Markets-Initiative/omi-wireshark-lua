@@ -2042,7 +2042,7 @@ nasdaq_nsmequities_lastsale_itch_v3_0_2025.reason.display = function(value)
   if value == "IPOE" then
     return "Reason: Ipo Security Positioning Window Extension Nasdaq Securities Only (IPOE)"
   end
-  if value == " " then
+  if value == "" then
     return "Reason: Reason Not Available (<whitespace>)"
   end
 
