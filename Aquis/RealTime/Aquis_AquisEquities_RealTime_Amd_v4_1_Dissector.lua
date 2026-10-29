@@ -28,9 +28,10 @@ omi_aquis_aquisequities_realtime_amd_v4_1.fields.deferral_type = ProtoField.new(
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.dividend = ProtoField.new("Dividend", "aquis.aquisequities.realtime.amd.v4.1.dividend", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00040000)
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "aquis.aquisequities.realtime.amd.v4.1.duplicativeindicator", ftypes.UINT32, {[0]="Unique", [1]="Duplicative"}, base.DEC, 0x20000000)
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.illiquid = ProtoField.new("Illiquid", "aquis.aquisequities.realtime.amd.v4.1.illiquid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "0 = Liquid, 1 = Illiquid")
-omi_aquis_aquisequities_realtime_amd_v4_1.fields.indicative_price = ProtoField.new("Indicative Price", "aquis.aquisequities.realtime.amd.v4.1.indicativeprice", ftypes.UINT64, nil, nil, nil, "Indicative auction price")
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.indicative_price = ProtoField.new("Indicative Price", "aquis.aquisequities.realtime.amd.v4.1.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Indicative auction price")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.isin = ProtoField.new("Isin", "aquis.aquisequities.realtime.amd.v4.1.isin", ftypes.STRING, nil, nil, nil, "ISIN for the security")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.lot_size = ProtoField.new("Lot Size", "aquis.aquisequities.realtime.amd.v4.1.lotsize", ftypes.UINT64, nil, nil, nil, "Lot size for the security; always set to 1,000,000,000 to represent a lot size of 1")
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.lot_size_composite = ProtoField.new("Lot Size Composite", "aquis.aquisequities.realtime.amd.v4.1.lotsizecomposite", ftypes.STRING, nil, nil, nil, "Lot size scaled at runtime by lotSizeDecimal")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.lot_size_decimal = ProtoField.new("Lot Size Decimal", "aquis.aquisequities.realtime.amd.v4.1.lotsizedecimal", ftypes.UINT8, nil, nil, nil, "Number of decimals implied in lotSize; always set to 9")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.mac_enabled = ProtoField.new("Mac Enabled", "aquis.aquisequities.realtime.amd.v4.1.macenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "0 = Not enabled for MaC, 1 = Enabled for MaC")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.mac_open = ProtoField.new("Mac Open", "aquis.aquisequities.realtime.amd.v4.1.macopen", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "MaC status; 0 = Closed, 1 = Open")
@@ -48,7 +49,7 @@ omi_aquis_aquisequities_realtime_amd_v4_1.fields.name = ProtoField.new("Name", "
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.negotiation_indicator_or_pre_trade_transparency_waiver = ProtoField.new("Negotiation Indicator Or Pre Trade Transparency Waiver", "aquis.aquisequities.realtime.amd.v4.1.negotiationindicatororpretradetransparencywaiver", ftypes.UINT32, {[0]="Negotiated Trade", [1]="Negotiated Trade In Liquid Instruments", [2]="Negotiated Trade In Illiquid Instruments", [3]="Negotiated Trade Other Than Current Market Price", [4]="No Negotiated Trade", [5]="Si Illiquid Instruments", [6]="Si Above Standard Market Size", [7]="Ilqd And Size"}, base.DEC, 0x00001C00, "Negotiation indicator or pre-trade transparency waiver")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.off_book_automation = ProtoField.new("Off Book Automation", "aquis.aquisequities.realtime.amd.v4.1.offbookautomation", ftypes.UINT32, {[1]="Unspecified", [2]="Off Book Non Automated", [3]="Off Book Automated"}, base.DEC, 0x00180000)
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.order_ref = ProtoField.new("Order Ref", "aquis.aquisequities.realtime.amd.v4.1.orderref", ftypes.UINT32, nil, nil, nil, "Unique order reference number for the day")
-omi_aquis_aquisequities_realtime_amd_v4_1.fields.price = ProtoField.new("Price", "aquis.aquisequities.realtime.amd.v4.1.price", ftypes.UINT64, nil, nil, nil, "The price of the order")
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.price = ProtoField.new("Price", "aquis.aquisequities.realtime.amd.v4.1.price", ftypes.DOUBLE, nil, nil, nil, "The price of the order")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.price_formation_discovery_process = ProtoField.new("Price Formation Discovery Process", "aquis.aquisequities.realtime.amd.v4.1.priceformationdiscoveryprocess", ftypes.UINT32, {[1]="Plain Vanilla", [2]="Non Price Forming", [3]="Trade Not Contributing To Price Discovery", [4]="Price Not Currently Available But Pending"}, base.DEC, 0x00E00000, "Price formation or discovery process")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.publication_mode_post_trade_deferral = ProtoField.new("Publication Mode Post Trade Deferral", "aquis.aquisequities.realtime.amd.v4.1.publicationmodeposttradedeferral", ftypes.UINT32, {[1]="Immediate Publication", [2]="Non Immediate Publication", [3]="Lrgs", [4]="Ilqd", [5]="Size", [6]="Ilqd And Size", [7]="Ilqd And Lrgs"}, base.DEC, 0x0E000000, "Publication mode or post-trade deferral")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.quantity = ProtoField.new("Quantity", "aquis.aquisequities.realtime.amd.v4.1.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book")
@@ -58,10 +59,11 @@ omi_aquis_aquisequities_realtime_amd_v4_1.fields.security_id = ProtoField.new("S
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.realtime.amd.v4.1.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.side = ProtoField.new("Side", "aquis.aquisequities.realtime.amd.v4.1.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.test_stock = ProtoField.new("Test Stock", "aquis.aquisequities.realtime.amd.v4.1.teststock", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "0 = Not a test stock, 1 = Test stock")
-omi_aquis_aquisequities_realtime_amd_v4_1.fields.threshold = ProtoField.new("Threshold", "aquis.aquisequities.realtime.amd.v4.1.threshold", ftypes.UINT64, nil, nil, nil, "The price threshold at which this tick data applies")
-omi_aquis_aquisequities_realtime_amd_v4_1.fields.tick_size = ProtoField.new("Tick Size", "aquis.aquisequities.realtime.amd.v4.1.ticksize", ftypes.UINT64, nil, nil, nil, "The tick size (price increment)")
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.threshold = ProtoField.new("Threshold", "aquis.aquisequities.realtime.amd.v4.1.threshold", ftypes.DOUBLE, nil, nil, nil, "The price threshold at which this tick data applies")
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.tick_size = ProtoField.new("Tick Size", "aquis.aquisequities.realtime.amd.v4.1.ticksize", ftypes.DOUBLE, nil, nil, nil, "The tick size (price increment)")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.tick_table_id = ProtoField.new("Tick Table Id", "aquis.aquisequities.realtime.amd.v4.1.ticktableid", ftypes.UINT8, nil, nil, nil, "Numeric identifier for this tick table or static tick")
-omi_aquis_aquisequities_realtime_amd_v4_1.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.realtime.amd.v4.1.timestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of this market data event")
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.realtime.amd.v4.1.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this market data event")
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisequities.realtime.amd.v4.1.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this market data event")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.trade_ref = ProtoField.new("Trade Ref", "aquis.aquisequities.realtime.amd.v4.1.traderef", ftypes.UINT32, nil, nil, nil, "Trade reference number")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.trade_type = ProtoField.new("Trade Type", "aquis.aquisequities.realtime.amd.v4.1.tradetype", ftypes.UINT8, nil, nil, nil, "Code identifying type of trade")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.trading = ProtoField.new("Trading", "aquis.aquisequities.realtime.amd.v4.1.trading", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Continuous trading status; 0 = Closed, 1 = Open")
@@ -99,6 +101,20 @@ omi_aquis_aquisequities_realtime_amd_v4_1.fields.trade_bust_message = ProtoField
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.message_index = ProtoField.new("Message Index", "aquis.aquisequities.realtime.amd.v4.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Aquis AquisEquities RealTime Amd 4.1 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+aquis_aquisequities_realtime_amd_v4_1.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -116,6 +132,8 @@ omi_aquis_aquisequities_realtime_amd_v4_1.prefs.show_structs = Pref.bool("Show S
 omi_aquis_aquisequities_realtime_amd_v4_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_aquis_aquisequities_realtime_amd_v4_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_aquis_aquisequities_realtime_amd_v4_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_aquis_aquisequities_realtime_amd_v4_1.prefs_changed()
 
@@ -131,6 +149,9 @@ function omi_aquis_aquisequities_realtime_amd_v4_1.prefs_changed()
   end
   if show.indexes ~= omi_aquis_aquisequities_realtime_amd_v4_1.prefs.show_indexes then
     show.indexes = omi_aquis_aquisequities_realtime_amd_v4_1.prefs.show_indexes
+  end
+  if aquis_aquisequities_realtime_amd_v4_1.absolute_time_base ~= omi_aquis_aquisequities_realtime_amd_v4_1.prefs.absolute_time_base then
+    aquis_aquisequities_realtime_amd_v4_1.absolute_time_base = omi_aquis_aquisequities_realtime_amd_v4_1.prefs.absolute_time_base
   end
 end
 
@@ -235,11 +256,17 @@ aquis_aquisequities_realtime_amd_v4_1.indicative_price.display = function(value)
   return "Indicative Price: "..value
 end
 
+-- Translate: Indicative Price
+aquis_aquisequities_realtime_amd_v4_1.indicative_price.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Indicative Price
 aquis_aquisequities_realtime_amd_v4_1.indicative_price.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_realtime_amd_v4_1.indicative_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = aquis_aquisequities_realtime_amd_v4_1.indicative_price.translate(raw)
   local display = aquis_aquisequities_realtime_amd_v4_1.indicative_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.indicative_price, range, value, display)
@@ -549,11 +576,17 @@ aquis_aquisequities_realtime_amd_v4_1.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+aquis_aquisequities_realtime_amd_v4_1.price.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Price
 aquis_aquisequities_realtime_amd_v4_1.price.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_realtime_amd_v4_1.price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = aquis_aquisequities_realtime_amd_v4_1.price.translate(raw)
   local display = aquis_aquisequities_realtime_amd_v4_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.price, range, value, display)
@@ -708,11 +741,17 @@ aquis_aquisequities_realtime_amd_v4_1.threshold.display = function(value)
   return "Threshold: "..value
 end
 
+-- Translate: Threshold
+aquis_aquisequities_realtime_amd_v4_1.threshold.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Threshold
 aquis_aquisequities_realtime_amd_v4_1.threshold.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_realtime_amd_v4_1.threshold.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = aquis_aquisequities_realtime_amd_v4_1.threshold.translate(raw)
   local display = aquis_aquisequities_realtime_amd_v4_1.threshold.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.threshold, range, value, display)
@@ -731,11 +770,17 @@ aquis_aquisequities_realtime_amd_v4_1.tick_size.display = function(value)
   return "Tick Size: "..value
 end
 
+-- Translate: Tick Size
+aquis_aquisequities_realtime_amd_v4_1.tick_size.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Tick Size
 aquis_aquisequities_realtime_amd_v4_1.tick_size.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_realtime_amd_v4_1.tick_size.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = aquis_aquisequities_realtime_amd_v4_1.tick_size.translate(raw)
   local display = aquis_aquisequities_realtime_amd_v4_1.tick_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.tick_size, range, value, display)
@@ -772,19 +817,20 @@ aquis_aquisequities_realtime_amd_v4_1.timestamp = {}
 -- Size: Timestamp
 aquis_aquisequities_realtime_amd_v4_1.timestamp.size = 8
 
--- Display: Timestamp
-aquis_aquisequities_realtime_amd_v4_1.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
 -- Dissect: Timestamp
 aquis_aquisequities_realtime_amd_v4_1.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_realtime_amd_v4_1.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = aquis_aquisequities_realtime_amd_v4_1.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_aquis_aquisequities_realtime_amd_v4_1.fields.timestamp
+  if aquis_aquisequities_realtime_amd_v4_1.absolute_time_base == 1 then field = omi_aquis_aquisequities_realtime_amd_v4_1.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1169,6 +1215,57 @@ aquis_aquisequities_realtime_amd_v4_1.security_status_message.dissect = function
   end
 end
 
+-- Lot Size Composite
+aquis_aquisequities_realtime_amd_v4_1.lot_size_composite = {}
+
+-- Size: Lot Size Composite
+aquis_aquisequities_realtime_amd_v4_1.lot_size_composite.size =
+  aquis_aquisequities_realtime_amd_v4_1.lot_size.size + 
+  aquis_aquisequities_realtime_amd_v4_1.lot_size_decimal.size
+
+-- Display: Lot Size Composite
+aquis_aquisequities_realtime_amd_v4_1.lot_size_composite.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return tostring(value)
+end
+
+-- Dissect Fields: Lot Size Composite
+aquis_aquisequities_realtime_amd_v4_1.lot_size_composite.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Lot Size: u64
+  index, lot_size = aquis_aquisequities_realtime_amd_v4_1.lot_size.dissect(buffer, index, packet, parent)
+
+  -- Lot Size Decimal: u8
+  index, lot_size_decimal = aquis_aquisequities_realtime_amd_v4_1.lot_size_decimal.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local lot_size_composite = lot_size:tonumber() / 10 ^ lot_size_decimal
+
+  return index, lot_size_composite
+end
+
+-- Dissect: Lot Size Composite
+aquis_aquisequities_realtime_amd_v4_1.lot_size_composite.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.lot_size_composite, buffer(offset, 0))
+    local index, value = aquis_aquisequities_realtime_amd_v4_1.lot_size_composite.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = aquis_aquisequities_realtime_amd_v4_1.lot_size_composite.display(packet, parent, value, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return aquis_aquisequities_realtime_amd_v4_1.lot_size_composite.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Security Definition Flags
 aquis_aquisequities_realtime_amd_v4_1.security_definition_flags = {}
 
@@ -1259,8 +1356,7 @@ aquis_aquisequities_realtime_amd_v4_1.security_definition_message.size =
   aquis_aquisequities_realtime_amd_v4_1.tick_table_id.size + 
   aquis_aquisequities_realtime_amd_v4_1.security_definition_flags.size + 
   aquis_aquisequities_realtime_amd_v4_1.reserved_20.size + 
-  aquis_aquisequities_realtime_amd_v4_1.lot_size.size + 
-  aquis_aquisequities_realtime_amd_v4_1.lot_size_decimal.size
+  aquis_aquisequities_realtime_amd_v4_1.lot_size_composite.size
 
 -- Display: Security Definition Message
 aquis_aquisequities_realtime_amd_v4_1.security_definition_message.display = function(packet, parent, length)
@@ -1295,11 +1391,8 @@ aquis_aquisequities_realtime_amd_v4_1.security_definition_message.fields = funct
   -- Reserved 20: char(20)
   index, reserved_20 = aquis_aquisequities_realtime_amd_v4_1.reserved_20.dissect(buffer, index, packet, parent)
 
-  -- Lot Size: u64
-  index, lot_size = aquis_aquisequities_realtime_amd_v4_1.lot_size.dissect(buffer, index, packet, parent)
-
-  -- Lot Size Decimal: u8
-  index, lot_size_decimal = aquis_aquisequities_realtime_amd_v4_1.lot_size_decimal.dissect(buffer, index, packet, parent)
+  -- Lot Size Composite: Struct of 2 fields
+  index, lot_size_composite = aquis_aquisequities_realtime_amd_v4_1.lot_size_composite.dissect(buffer, index, packet, parent)
 
   return index
 end

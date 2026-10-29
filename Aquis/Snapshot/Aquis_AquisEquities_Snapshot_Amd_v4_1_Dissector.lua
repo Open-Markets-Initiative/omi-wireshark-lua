@@ -18,7 +18,7 @@ local aquis_aquisequities_snapshot_amd_v4_1 = {}
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "aquis.aquisequities.snapshot.amd.v4.1.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during the closing market; otherwise 0")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "aquis.aquisequities.snapshot.amd.v4.1.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during the closing market; otherwise 0")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.entries = ProtoField.new("Entries", "aquis.aquisequities.snapshot.amd.v4.1.entries", ftypes.UINT16, nil, nil, nil, "Number of open orders in the book for this security")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.indicative_price = ProtoField.new("Indicative Price", "aquis.aquisequities.snapshot.amd.v4.1.indicativeprice", ftypes.UINT64, nil, nil, nil, "Indicative auction price")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.indicative_price = ProtoField.new("Indicative Price", "aquis.aquisequities.snapshot.amd.v4.1.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Indicative auction price")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.mac_open = ProtoField.new("Mac Open", "aquis.aquisequities.snapshot.amd.v4.1.macopen", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "MaC status; 0 = Closed, 1 = Open")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.mac_run = ProtoField.new("Mac Run", "aquis.aquisequities.snapshot.amd.v4.1.macrun", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "MaC lockdown status; 0 = Not locked down, 1 = Locked down")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.market_flags = ProtoField.new("Market Flags", "aquis.aquisequities.snapshot.amd.v4.1.marketflags", ftypes.STRING, nil, nil, nil, "Market status flags")
@@ -26,14 +26,15 @@ omi_aquis_aquisequities_snapshot_amd_v4_1.fields.message_count = ProtoField.new(
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.snapshot.amd.v4.1.msglength", ftypes.UINT8, nil, nil, nil, "Length of market data message, including header")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.snapshot.amd.v4.1.msgtype", ftypes.UINT8, nil, nil, nil, "Message type identifier")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.order_ref = ProtoField.new("Order Ref", "aquis.aquisequities.snapshot.amd.v4.1.orderref", ftypes.UINT32, nil, nil, nil, "Unique order reference number for the day")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.price = ProtoField.new("Price", "aquis.aquisequities.snapshot.amd.v4.1.price", ftypes.UINT64, nil, nil, nil, "The price of the order")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.price = ProtoField.new("Price", "aquis.aquisequities.snapshot.amd.v4.1.price", ftypes.DOUBLE, nil, nil, nil, "The price of the order")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.quantity = ProtoField.new("Quantity", "aquis.aquisequities.snapshot.amd.v4.1.quantity", ftypes.UINT32, nil, nil, nil, "Number of open shares")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.security_count = ProtoField.new("Security Count", "aquis.aquisequities.snapshot.amd.v4.1.securitycount", ftypes.UINT16, nil, nil, nil, "Number of securities reported in this snapshot")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.security_id = ProtoField.new("Security Id", "aquis.aquisequities.snapshot.amd.v4.1.securityid", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the relevant security")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.snapshot.amd.v4.1.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.side = ProtoField.new("Side", "aquis.aquisequities.snapshot.amd.v4.1.side", ftypes.UINT8, nil, nil, nil, "1 = Buy Order, 2 = Sell Order")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.stream_seq_no = ProtoField.new("Stream Seq No", "aquis.aquisequities.snapshot.amd.v4.1.streamseqno", ftypes.UINT32, nil, nil, nil, "Sequence number of the last message in the continuous stream which relates to this snapshot")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.snapshot.amd.v4.1.timestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of this snapshot")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.snapshot.amd.v4.1.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this snapshot")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisequities.snapshot.amd.v4.1.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this snapshot")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.trading = ProtoField.new("Trading", "aquis.aquisequities.snapshot.amd.v4.1.trading", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Continuous trading status; 0 = Closed, 1 = Open")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.trading_status = ProtoField.new("Trading Status", "aquis.aquisequities.snapshot.amd.v4.1.tradingstatus", ftypes.UINT8, nil, nil, nil, "Trading status of the security")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.unused_5 = ProtoField.new("Unused 5", "aquis.aquisequities.snapshot.amd.v4.1.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved")
@@ -54,6 +55,20 @@ omi_aquis_aquisequities_snapshot_amd_v4_1.fields.snapshot_start_message = ProtoF
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.message_index = ProtoField.new("Message Index", "aquis.aquisequities.snapshot.amd.v4.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Aquis AquisEquities Snapshot Amd 4.1 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+aquis_aquisequities_snapshot_amd_v4_1.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -71,6 +86,8 @@ omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.show_structs = Pref.bool("Show S
 omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_aquis_aquisequities_snapshot_amd_v4_1.prefs_changed()
 
@@ -86,6 +103,9 @@ function omi_aquis_aquisequities_snapshot_amd_v4_1.prefs_changed()
   end
   if show.indexes ~= omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.show_indexes then
     show.indexes = omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.show_indexes
+  end
+  if aquis_aquisequities_snapshot_amd_v4_1.absolute_time_base ~= omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.absolute_time_base then
+    aquis_aquisequities_snapshot_amd_v4_1.absolute_time_base = omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.absolute_time_base
   end
 end
 
@@ -174,11 +194,17 @@ aquis_aquisequities_snapshot_amd_v4_1.indicative_price.display = function(value)
   return "Indicative Price: "..value
 end
 
+-- Translate: Indicative Price
+aquis_aquisequities_snapshot_amd_v4_1.indicative_price.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Indicative Price
 aquis_aquisequities_snapshot_amd_v4_1.indicative_price.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_snapshot_amd_v4_1.indicative_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = aquis_aquisequities_snapshot_amd_v4_1.indicative_price.translate(raw)
   local display = aquis_aquisequities_snapshot_amd_v4_1.indicative_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_snapshot_amd_v4_1.fields.indicative_price, range, value, display)
@@ -296,11 +322,17 @@ aquis_aquisequities_snapshot_amd_v4_1.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+aquis_aquisequities_snapshot_amd_v4_1.price.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Price
 aquis_aquisequities_snapshot_amd_v4_1.price.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_snapshot_amd_v4_1.price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = aquis_aquisequities_snapshot_amd_v4_1.price.translate(raw)
   local display = aquis_aquisequities_snapshot_amd_v4_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_snapshot_amd_v4_1.fields.price, range, value, display)
@@ -457,19 +489,20 @@ aquis_aquisequities_snapshot_amd_v4_1.timestamp = {}
 -- Size: Timestamp
 aquis_aquisequities_snapshot_amd_v4_1.timestamp.size = 8
 
--- Display: Timestamp
-aquis_aquisequities_snapshot_amd_v4_1.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
 -- Dissect: Timestamp
 aquis_aquisequities_snapshot_amd_v4_1.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_snapshot_amd_v4_1.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = aquis_aquisequities_snapshot_amd_v4_1.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_snapshot_amd_v4_1.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_aquis_aquisequities_snapshot_amd_v4_1.fields.timestamp
+  if aquis_aquisequities_snapshot_amd_v4_1.absolute_time_base == 1 then field = omi_aquis_aquisequities_snapshot_amd_v4_1.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
