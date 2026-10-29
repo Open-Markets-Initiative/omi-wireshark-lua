@@ -363,6 +363,18 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
+venue_midnight = function(packet, utc_offset_seconds)
+  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+  -- no capture date: a frame with no instant of its own reads as the epoch
+  if capture_time < 86400 then
+    return nil
+  end
+
+  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
+end
+
 
 -- Zlib decompression: wireshark built in inflate (uncompress_zlib from 4.4, uncompress before)
 local function zlib_decompress(range)
@@ -5066,16 +5078,15 @@ gpw_wse_marketinformation_xdp_v6_8.source_time.display = function(value, buffer,
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if gpw_wse_marketinformation_xdp_v6_8.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = gpw_wse_marketinformation_xdp_v6_8.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -gpw_wse_marketinformation_xdp_v6_8.utc_offset_hours * 3600)
 
-    return "Source Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+    if midnight then
+      return "Source Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+    end
   end
 
   -- Time of day mode
-  return "Source Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Source Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Source Time

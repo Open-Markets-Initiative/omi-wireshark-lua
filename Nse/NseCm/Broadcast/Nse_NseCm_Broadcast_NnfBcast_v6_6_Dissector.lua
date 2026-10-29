@@ -268,7 +268,6 @@ omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.call_auction_order_cancel_update_me
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.cas_end_message = ProtoField.new("Cas End Message", "nse.nsecm.broadcast.nnfbcast.v6.6.casendmessage", ftypes.STRING, nil, nil, nil, "Sent when the closing auction session has ended.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.cas_reference_price_message = ProtoField.new("Cas Reference Price Message", "nse.nsecm.broadcast.nnfbcast.v6.6.casreferencepricemessage", ftypes.STRING, nil, nil, nil, "Sent for CAS enabled securities at the conclusion of the continuous trading session and before the CAS session starts")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.cas_start_message = ProtoField.new("Cas Start Message", "nse.nsecm.broadcast.nnfbcast.v6.6.casstartmessage", ftypes.STRING, nil, nil, nil, "Sent when the closing auction session has started.")
-omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.circuit_check_message = ProtoField.new("Circuit Check Message", "nse.nsecm.broadcast.nnfbcast.v6.6.circuitcheckmessage", ftypes.BYTES)
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.closing_end_message = ProtoField.new("Closing End Message", "nse.nsecm.broadcast.nnfbcast.v6.6.closingendmessage", ftypes.STRING, nil, nil, nil, "Sent when the closing session is closed.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.closing_start_message = ProtoField.new("Closing Start Message", "nse.nsecm.broadcast.nnfbcast.v6.6.closingstartmessage", ftypes.STRING, nil, nil, nil, "Sent when the closing session is opened.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.cts_close_for_cas_message = ProtoField.new("Cts Close For Cas Message", "nse.nsecm.broadcast.nnfbcast.v6.6.ctscloseforcasmessage", ftypes.STRING, nil, nil, nil, "Sent when the normal market has closed for securities participating in the closing auction session.")
@@ -294,6 +293,9 @@ omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.security_status_change_preopen_mess
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.symbol_status_change_action_message = ProtoField.new("Symbol Status Change Action Message", "nse.nsecm.broadcast.nnfbcast.v6.6.symbolstatuschangeactionmessage", ftypes.STRING, nil, nil, nil, "Carries a security level trading or market status change")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.ticker_and_market_index_message = ProtoField.new("Ticker And Market Index Message", "nse.nsecm.broadcast.nnfbcast.v6.6.tickerandmarketindexmessage", ftypes.STRING, nil, nil, nil, "Carries ticker and market index information")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.turnover_exceeded_message = ProtoField.new("Turnover Exceeded Message", "nse.nsecm.broadcast.nnfbcast.v6.6.turnoverexceededmessage", ftypes.STRING, nil, nil, nil, "Sent when a broker turnover is about to exceed or has already exceeded the limit, deactivating the broker")
+
+-- Nse NseCm Broadcast 6.6 Session Messages
+omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.circuit_check_message = ProtoField.new("Circuit Check Message", "nse.nsecm.broadcast.nnfbcast.v6.6.circuitcheckmessage", ftypes.BYTES, nil, nil, nil, "Pulse stating the broadcast circuit is alive when it has carried no data")
 
 -- Nse NseCm Broadcast NnfBcast 6.6 Generated Fields
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.buybackdata_index = ProtoField.new("Buybackdata Index", "nse.nsecm.broadcast.nnfbcast.v6.6.buybackdataindex", ftypes.UINT16)
@@ -5552,6 +5554,23 @@ nse_nsecm_broadcast_nnfbcast_v6_6.indices_message.dissect = function(buffer, off
   end
 end
 
+-- Circuit Check Message
+nse_nsecm_broadcast_nnfbcast_v6_6.circuit_check_message = {}
+
+-- Display: Circuit Check Message
+nse_nsecm_broadcast_nnfbcast_v6_6.circuit_check_message.display = function(packet, parent, length)
+  return "Circuit Check Message"
+end
+
+
+-- Dissect: Circuit Check Message
+nse_nsecm_broadcast_nnfbcast_v6_6.circuit_check_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsecm_broadcast_nnfbcast_v6_6.circuit_check_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Security Open Price Message
 nse_nsecm_broadcast_nnfbcast_v6_6.security_open_price_message = {}
 
@@ -8688,155 +8707,52 @@ end
 -- Message Payload
 nse_nsecm_broadcast_nnfbcast_v6_6.message_payload = {}
 
+-- Dispatch: Message Payload
+nse_nsecm_broadcast_nnfbcast_v6_6.message_payload.dispatch = {
+  [6501] = nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_journal_vct_message.dissect,
+  [18720] = nse_nsecm_broadcast_nnfbcast_v6_6.security_master_change_message.dissect,
+  [7306] = nse_nsecm_broadcast_nnfbcast_v6_6.participant_master_change_message.dissect,
+  [18130] = nse_nsecm_broadcast_nnfbcast_v6_6.security_status_change_message.dissect,
+  [18707] = nse_nsecm_broadcast_nnfbcast_v6_6.security_status_change_preopen_message.dissect,
+  [9010] = nse_nsecm_broadcast_nnfbcast_v6_6.turnover_exceeded_message.dissect,
+  [9011] = nse_nsecm_broadcast_nnfbcast_v6_6.broker_reactivated_message.dissect,
+  [18700] = nse_nsecm_broadcast_nnfbcast_v6_6.auction_inquiry_message.dissect,
+  [6581] = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_change_message.dissect,
+  [6531] = nse_nsecm_broadcast_nnfbcast_v6_6.preopen_shutdown_message.dissect,
+  [6664] = nse_nsecm_broadcast_nnfbcast_v6_6.preopen_market_order_restricted_message.dissect,
+  [6571] = nse_nsecm_broadcast_nnfbcast_v6_6.normal_market_preopen_ended_message.dissect,
+  [6511] = nse_nsecm_broadcast_nnfbcast_v6_6.market_open_message.dissect,
+  [6651] = nse_nsecm_broadcast_nnfbcast_v6_6.cts_close_for_cas_message.dissect,
+  [6652] = nse_nsecm_broadcast_nnfbcast_v6_6.revised_price_band_completed_message.dissect,
+  [6653] = nse_nsecm_broadcast_nnfbcast_v6_6.cas_start_message.dissect,
+  [6654] = nse_nsecm_broadcast_nnfbcast_v6_6.market_order_restricted_message.dissect,
+  [6655] = nse_nsecm_broadcast_nnfbcast_v6_6.cas_end_message.dissect,
+  [6521] = nse_nsecm_broadcast_nnfbcast_v6_6.market_close_message.dissect,
+  [6583] = nse_nsecm_broadcast_nnfbcast_v6_6.closing_start_message.dissect,
+  [6584] = nse_nsecm_broadcast_nnfbcast_v6_6.closing_end_message.dissect,
+  [7764] = nse_nsecm_broadcast_nnfbcast_v6_6.symbol_status_change_action_message.dissect,
+  [18703] = nse_nsecm_broadcast_nnfbcast_v6_6.ticker_and_market_index_message.dissect,
+  [7200] = nse_nsecm_broadcast_nnfbcast_v6_6.market_by_order_and_market_by_price_message.dissect,
+  [7208] = nse_nsecm_broadcast_nnfbcast_v6_6.only_market_by_price_message.dissect,
+  [7201] = nse_nsecm_broadcast_nnfbcast_v6_6.market_watch_round_robin_message.dissect,
+  [7214] = nse_nsecm_broadcast_nnfbcast_v6_6.call_auction_market_by_price_message.dissect,
+  [7215] = nse_nsecm_broadcast_nnfbcast_v6_6.call_auction_market_watch_message.dissect,
+  [6013] = nse_nsecm_broadcast_nnfbcast_v6_6.security_open_price_message.dissect,
+  [6541] = nse_nsecm_broadcast_nnfbcast_v6_6.circuit_check_message.dissect,
+  [7207] = nse_nsecm_broadcast_nnfbcast_v6_6.indices_message.dissect,
+  [8207] = nse_nsecm_broadcast_nnfbcast_v6_6.indicative_indices_message.dissect,
+  [7216] = nse_nsecm_broadcast_nnfbcast_v6_6.indices_vix_message.dissect,
+  [7203] = nse_nsecm_broadcast_nnfbcast_v6_6.industry_indices_message.dissect,
+  [18708] = nse_nsecm_broadcast_nnfbcast_v6_6.buy_back_message.dissect,
+  [7210] = nse_nsecm_broadcast_nnfbcast_v6_6.call_auction_order_cancel_update_message.dissect,
+  [7338] = nse_nsecm_broadcast_nnfbcast_v6_6.cas_reference_price_message.dissect,
+}
+
 -- Dissect: Message Payload
 nse_nsecm_broadcast_nnfbcast_v6_6.message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
-  -- Dissect Broadcast Journal Vct Message
-  if transaction_code == 6501 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_journal_vct_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Master Change Message
-  if transaction_code == 18720 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.security_master_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Participant Master Change Message
-  if transaction_code == 7306 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.participant_master_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Change Message
-  if transaction_code == 18130 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.security_status_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Change Preopen Message
-  if transaction_code == 18707 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.security_status_change_preopen_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Turnover Exceeded Message
-  if transaction_code == 9010 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.turnover_exceeded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broker Reactivated Message
-  if transaction_code == 9011 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.broker_reactivated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Inquiry Message
-  if transaction_code == 18700 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.auction_inquiry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Status Change Message
-  if transaction_code == 6581 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Preopen Shutdown Message
-  if transaction_code == 6531 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.preopen_shutdown_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Preopen Market Order Restricted Message
-  if transaction_code == 6664 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.preopen_market_order_restricted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Normal Market Preopen Ended Message
-  if transaction_code == 6571 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.normal_market_preopen_ended_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Open Message
-  if transaction_code == 6511 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.market_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cts Close For Cas Message
-  if transaction_code == 6651 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.cts_close_for_cas_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Revised Price Band Completed Message
-  if transaction_code == 6652 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.revised_price_band_completed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cas Start Message
-  if transaction_code == 6653 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.cas_start_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Order Restricted Message
-  if transaction_code == 6654 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.market_order_restricted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cas End Message
-  if transaction_code == 6655 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.cas_end_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Close Message
-  if transaction_code == 6521 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.market_close_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Start Message
-  if transaction_code == 6583 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.closing_start_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing End Message
-  if transaction_code == 6584 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.closing_end_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Status Change Action Message
-  if transaction_code == 7764 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.symbol_status_change_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ticker And Market Index Message
-  if transaction_code == 18703 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.ticker_and_market_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market By Order And Market By Price Message
-  if transaction_code == 7200 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.market_by_order_and_market_by_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Only Market By Price Message
-  if transaction_code == 7208 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.only_market_by_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Watch Round Robin Message
-  if transaction_code == 7201 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.market_watch_round_robin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Call Auction Market By Price Message
-  if transaction_code == 7214 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.call_auction_market_by_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Call Auction Market Watch Message
-  if transaction_code == 7215 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.call_auction_market_watch_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Open Price Message
-  if transaction_code == 6013 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.security_open_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Circuit Check Message
-  if transaction_code == 6541 then
-    return offset
-  end
-  -- Dissect Indices Message
-  if transaction_code == 7207 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.indices_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Indices Message
-  if transaction_code == 8207 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.indicative_indices_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indices Vix Message
-  if transaction_code == 7216 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.indices_vix_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Industry Indices Message
-  if transaction_code == 7203 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.industry_indices_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Buy Back Message
-  if transaction_code == 18708 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.buy_back_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Call Auction Order Cancel Update Message
-  if transaction_code == 7210 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.call_auction_order_cancel_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cas Reference Price Message
-  if transaction_code == 7338 then
-    return nse_nsecm_broadcast_nnfbcast_v6_6.cas_reference_price_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsecm_broadcast_nnfbcast_v6_6.message_payload.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

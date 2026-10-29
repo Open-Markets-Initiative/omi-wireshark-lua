@@ -152,8 +152,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.giveup_flag = ProtoField.new("Gi
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.good_till_date = ProtoField.new("Good Till Date", "nse.nsefo.orderentry.nnfdirect.v9.50.goodtilldate", ftypes.INT32, nil, nil, nil, "Number of days a good till date order remains, from two to the maximum the market allows")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.good_till_date_1 = ProtoField.new("Good Till Date 1", "nse.nsefo.orderentry.nnfdirect.v9.50.goodtilldate1", ftypes.INT32, nil, nil, nil, "Number of days a good till date order remains, from two to the maximum the market allows")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.gtc = ProtoField.new("Gtc", "nse.nsefo.orderentry.nnfdirect.v9.50.gtc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Good till cancelled order")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.header_timestamp = ProtoField.new("Header Timestamp", "nse.nsefo.orderentry.nnfdirect.v9.50.headertimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.header_timestamp_utc = ProtoField.new("Header Timestamp", "nse.nsefo.orderentry.nnfdirect.v9.50.headertimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.header_timestamp = ProtoField.new("Header Timestamp", "nse.nsefo.orderentry.nnfdirect.v9.50.headertimestamp", ftypes.INT64, nil, nil, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.high = ProtoField.new("High", "nse.nsefo.orderentry.nnfdirect.v9.50.high", ftypes.INT32, nil, nil, nil, "Highest index")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.high_price = ProtoField.new("High Price", "nse.nsefo.orderentry.nnfdirect.v9.50.highprice", ftypes.DOUBLE, nil, nil, nil, "Highest price")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.hipd = ProtoField.new("Hipd", "nse.nsefo.orderentry.nnfdirect.v9.50.hipd", ftypes.INT32, nil, nil, nil, "Highest price difference")
@@ -532,6 +531,13 @@ local absolute_time_base_enum = {
 -- 0=Local, 1=Utc
 nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base = 0
 
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -546,6 +552,9 @@ show.headers = true
 show.indexes = true
 
 -- Register Nse NseFo OrderEntry NnfDirect 9.50 Show Options
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
@@ -3485,20 +3494,19 @@ nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp = {}
 -- Size: Header Timestamp
 nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.size = 8
 
+-- Display: Header Timestamp
+nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.display = function(value)
+  return "Header Timestamp: "..value
+end
+
 -- Dissect: Header Timestamp
 nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.size
   local range = buffer(offset, length)
   local value = range:int64()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.display(value, buffer, offset, packet, parent)
 
-  -- A field's absolute time base is fixed when it is declared, so the
-  -- protocol declares one per base and the preference picks between them
-  local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.header_timestamp
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.header_timestamp_utc end
-
-  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
-  local nanos = (value % UInt64(1000000000)):tonumber()
-  parent:add(field, range, NSTime.new(seconds, nanos))
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.header_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -15486,6 +15494,84 @@ end
 function omi_nse_nsefo_orderentry_nnfdirect_v9_50.init()
 end
 
+-- Connection roles for Nse NseFo OrderEntry NnfDirect 9.50: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+nse_nsefo_orderentry_nnfdirect_v9_50.role = function(packet)
+  if omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nse_nsefo_orderentry_nnfdirect_v9_50.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Nse NseFo OrderEntry NnfDirect 9.50
 function omi_nse_nsefo_orderentry_nnfdirect_v9_50.dissector(buffer, packet, parent)
   -- Set protocol name
@@ -15493,7 +15579,13 @@ function omi_nse_nsefo_orderentry_nnfdirect_v9_50.dissector(buffer, packet, pare
 
   -- Dissect protocol
   local protocol = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50, buffer(), omi_nse_nsefo_orderentry_nnfdirect_v9_50.description, "("..buffer:len().." Bytes)")
-  return nse_nsefo_orderentry_nnfdirect_v9_50.client_packet.dissect(buffer, packet, protocol)
+  local role = nse_nsefo_orderentry_nnfdirect_v9_50.role(packet)
+
+  if role == "initiator" then
+    return nse_nsefo_orderentry_nnfdirect_v9_50.client_packet.dissect(buffer, packet, protocol)
+  end
+
+  return nse_nsefo_orderentry_nnfdirect_v9_50.server_packet.dissect(buffer, packet, protocol)
 end
 
 
@@ -15825,9 +15917,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.server_packet.fingerprint = function(buffer
     return true
   end
 
-  -- Gateway Router Response Message
+  -- Gateway Router Response Message: carries the application messages, which tell this protocol from others sharing the session framing
   if transaction_code == 2401 then
-    return true
+    if buffer:len() < 62 then
+      return false
+    end
+
+    local message_length = buffer(60, 2):int()
+
+    -- Existing Encryption Tail
+    if message_length == 124 then
+      return true
+    end
+
+    -- New Encryption Tail
+    if message_length == 136 then
+      return true
+    end
+
+    return false
   end
 
   -- Update Local Database Header Message
@@ -15910,9 +16018,60 @@ nse_nsefo_orderentry_nnfdirect_v9_50.server_packet.fingerprint = function(buffer
     return true
   end
 
-  -- Market Statistics Report Message
+  -- Market Statistics Report Message: carries the application messages, which tell this protocol from others sharing the session framing
   if transaction_code == 1833 then
-    return true
+    if buffer:len() < 63 then
+      return false
+    end
+
+    local message_type = buffer(62, 1):string()
+
+    -- Report Header Body
+    if message_type == "H" then
+      return true
+    end
+
+    -- Report Header Body
+    if message_type == "X" then
+      return true
+    end
+
+    -- Report Header Body
+    if message_type == "L" then
+      return true
+    end
+
+    -- Report Statistics Body
+    if message_type == "R" then
+      return true
+    end
+
+    -- Report Statistics Body
+    if message_type == "Y" then
+      return true
+    end
+
+    -- Report Statistics Body
+    if message_type == "M" then
+      return true
+    end
+
+    -- Report Trailer Body
+    if message_type == "T" then
+      return true
+    end
+
+    -- Report Trailer Body
+    if message_type == "Z" then
+      return true
+    end
+
+    -- Report Trailer Body
+    if message_type == "N" then
+      return true
+    end
+
+    return false
   end
 
   -- Enhanced Market Statistics Report Message
@@ -15935,9 +16094,60 @@ nse_nsefo_orderentry_nnfdirect_v9_50.server_packet.fingerprint = function(buffer
     return true
   end
 
-  -- Spread Bhavcopy Message
+  -- Spread Bhavcopy Message: carries the application messages, which tell this protocol from others sharing the session framing
   if transaction_code == 1862 then
-    return true
+    if buffer:len() < 63 then
+      return false
+    end
+
+    local message_type = buffer(62, 1):string()
+
+    -- Spread Report Header Body
+    if message_type == "H" then
+      return true
+    end
+
+    -- Spread Report Header Body
+    if message_type == "X" then
+      return true
+    end
+
+    -- Spread Report Header Body
+    if message_type == "L" then
+      return true
+    end
+
+    -- Spread Report Statistics Body
+    if message_type == "R" then
+      return true
+    end
+
+    -- Spread Report Statistics Body
+    if message_type == "Y" then
+      return true
+    end
+
+    -- Spread Report Statistics Body
+    if message_type == "M" then
+      return true
+    end
+
+    -- Report Trailer Body
+    if message_type == "T" then
+      return true
+    end
+
+    -- Report Trailer Body
+    if message_type == "Z" then
+      return true
+    end
+
+    -- Report Trailer Body
+    if message_type == "N" then
+      return true
+    end
+
+    return false
   end
 
   -- Global Indices Message
@@ -15995,9 +16205,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.server_packet.fingerprint = function(buffer
     return true
   end
 
-  -- Order Cancellation Confirmation Message
+  -- Order Cancellation Confirmation Message: carries the application messages, which tell this protocol from others sharing the session framing
   if transaction_code == 2075 then
-    return true
+    if buffer:len() < 62 then
+      return false
+    end
+
+    local message_length = buffer(60, 2):int()
+
+    -- Order Entry Body
+    if message_length == 316 then
+      return true
+    end
+
+    -- Spread Order Body
+    if message_length == 480 then
+      return true
+    end
+
+    return false
   end
 
   return false
@@ -16009,7 +16235,7 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Nse NseFo OrderEntry NnfDirect 9.50 (Tcp)
-local function omi_nse_nsefo_orderentry_nnfdirect_v9_50_tcp_heuristic(buffer, packet, parent)
+local function omi_nse_nsefo_orderentry_nnfdirect_v9_50_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nse_nsefo_orderentry_nnfdirect_v9_50.client_packet.requiredsize(buffer) then return false end
 
@@ -16024,7 +16250,7 @@ local function omi_nse_nsefo_orderentry_nnfdirect_v9_50_tcp_heuristic(buffer, pa
 end
 
 -- Dissector Heuristic for Nse NseFo OrderEntry NnfDirect 9.50 (Tcp)
-local function omi_nse_nsefo_orderentry_nnfdirect_v9_50_tcp_heuristic(buffer, packet, parent)
+local function omi_nse_nsefo_orderentry_nnfdirect_v9_50_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nse_nsefo_orderentry_nnfdirect_v9_50.server_packet.requiredsize(buffer) then return false end
 
@@ -16036,6 +16262,34 @@ local function omi_nse_nsefo_orderentry_nnfdirect_v9_50_tcp_heuristic(buffer, pa
   omi_nse_nsefo_orderentry_nnfdirect_v9_50.dissector(buffer, packet, parent)
 
   return true
+end
+
+-- Dissector Heuristic for Nse NseFo OrderEntry NnfDirect 9.50 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nse_nsefo_orderentry_nnfdirect_v9_50_tcp_heuristic(buffer, packet, parent)
+  local role = nse_nsefo_orderentry_nnfdirect_v9_50.role(packet)
+  local initiator = omi_nse_nsefo_orderentry_nnfdirect_v9_50_tcp_initiator_heuristic
+  local acceptor = omi_nse_nsefo_orderentry_nnfdirect_v9_50_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nse_nsefo_orderentry_nnfdirect_v9_50.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  nse_nsefo_orderentry_nnfdirect_v9_50.swap(packet)
+
+  return false
 end
 
 -- Register Heuristics for Nse NseFo OrderEntry NnfDirect 9.50

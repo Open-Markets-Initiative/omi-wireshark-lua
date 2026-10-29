@@ -109,8 +109,7 @@ omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.frozen = ProtoField.new("Frozen",
 omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.good_till_date = ProtoField.new("Good Till Date", "nse.nsecm.orderentry.nnfdirect.v6.6.goodtilldate", ftypes.INT32, nil, nil, nil, "This field should contain the number of days for a GTD order")
 omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.gtc = ProtoField.new("Gtc", "nse.nsecm.orderentry.nnfdirect.v6.6.gtc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0800, "Good till cancelled order")
 omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.gtd = ProtoField.new("Gtd", "nse.nsecm.orderentry.nnfdirect.v6.6.gtd", ftypes.INT32, nil, nil, nil, "This field contains the number of days for a GTD Order")
-omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.header_timestamp = ProtoField.new("Header Timestamp", "nse.nsecm.orderentry.nnfdirect.v6.6.headertimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
-omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.header_timestamp_utc = ProtoField.new("Header Timestamp", "nse.nsecm.orderentry.nnfdirect.v6.6.headertimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
+omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.header_timestamp = ProtoField.new("Header Timestamp", "nse.nsecm.orderentry.nnfdirect.v6.6.headertimestamp", ftypes.INT64, nil, nil, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
 omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.initiator_type = ProtoField.new("Initiator Type", "nse.nsecm.orderentry.nnfdirect.v6.6.initiatortype", ftypes.INT16, nil, nil, nil, "Whether the auction was initiated by control or by a trader")
 omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.inner_alpha_char = ProtoField.new("Inner Alpha Char", "nse.nsecm.orderentry.nnfdirect.v6.6.inneralphachar", ftypes.STRING, nil, nil, nil, "First two characters of Symbol when the record carries one")
 omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.inner_error_code = ProtoField.new("Inner Error Code", "nse.nsecm.orderentry.nnfdirect.v6.6.innererrorcode", ftypes.INT16, nil, nil, nil, "Type of error")
@@ -373,6 +372,13 @@ local absolute_time_base_enum = {
 -- 0=Local, 1=Utc
 nse_nsecm_orderentry_nnfdirect_v6_6.absolute_time_base = 0
 
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -387,6 +393,9 @@ show.headers = true
 show.indexes = true
 
 -- Register Nse NseCm OrderEntry NnfDirect 6.6 Show Options
+omi_nse_nsecm_orderentry_nnfdirect_v6_6.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nse_nsecm_orderentry_nnfdirect_v6_6.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nse_nsecm_orderentry_nnfdirect_v6_6.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nse_nsecm_orderentry_nnfdirect_v6_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsecm_orderentry_nnfdirect_v6_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsecm_orderentry_nnfdirect_v6_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
@@ -2039,20 +2048,19 @@ nse_nsecm_orderentry_nnfdirect_v6_6.header_timestamp = {}
 -- Size: Header Timestamp
 nse_nsecm_orderentry_nnfdirect_v6_6.header_timestamp.size = 8
 
+-- Display: Header Timestamp
+nse_nsecm_orderentry_nnfdirect_v6_6.header_timestamp.display = function(value)
+  return "Header Timestamp: "..value
+end
+
 -- Dissect: Header Timestamp
 nse_nsecm_orderentry_nnfdirect_v6_6.header_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnfdirect_v6_6.header_timestamp.size
   local range = buffer(offset, length)
   local value = range:int64()
+  local display = nse_nsecm_orderentry_nnfdirect_v6_6.header_timestamp.display(value, buffer, offset, packet, parent)
 
-  -- A field's absolute time base is fixed when it is declared, so the
-  -- protocol declares one per base and the preference picks between them
-  local field = omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.header_timestamp
-  if nse_nsecm_orderentry_nnfdirect_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.header_timestamp_utc end
-
-  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
-  local nanos = (value % UInt64(1000000000)):tonumber()
-  parent:add(field, range, NSTime.new(seconds, nanos))
+  parent:add(omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.header_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -10351,6 +10359,84 @@ end
 function omi_nse_nsecm_orderentry_nnfdirect_v6_6.init()
 end
 
+-- Connection roles for Nse NseCm OrderEntry NnfDirect 6.6: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+nse_nsecm_orderentry_nnfdirect_v6_6.role = function(packet)
+  if omi_nse_nsecm_orderentry_nnfdirect_v6_6.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_nse_nsecm_orderentry_nnfdirect_v6_6.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_nse_nsecm_orderentry_nnfdirect_v6_6.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_nse_nsecm_orderentry_nnfdirect_v6_6.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nse_nsecm_orderentry_nnfdirect_v6_6.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Nse NseCm OrderEntry NnfDirect 6.6
 function omi_nse_nsecm_orderentry_nnfdirect_v6_6.dissector(buffer, packet, parent)
   -- Set protocol name
@@ -10358,7 +10444,13 @@ function omi_nse_nsecm_orderentry_nnfdirect_v6_6.dissector(buffer, packet, paren
 
   -- Dissect protocol
   local protocol = parent:add(omi_nse_nsecm_orderentry_nnfdirect_v6_6, buffer(), omi_nse_nsecm_orderentry_nnfdirect_v6_6.description, "("..buffer:len().." Bytes)")
-  return nse_nsecm_orderentry_nnfdirect_v6_6.client_packet.dissect(buffer, packet, protocol)
+  local role = nse_nsecm_orderentry_nnfdirect_v6_6.role(packet)
+
+  if role == "initiator" then
+    return nse_nsecm_orderentry_nnfdirect_v6_6.client_packet.dissect(buffer, packet, protocol)
+  end
+
+  return nse_nsecm_orderentry_nnfdirect_v6_6.server_packet.dissect(buffer, packet, protocol)
 end
 
 
@@ -10525,9 +10617,25 @@ nse_nsecm_orderentry_nnfdirect_v6_6.server_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Gateway Router Response Message
+  -- Gateway Router Response Message: carries the application messages, which tell this protocol from others sharing the session framing
   if transaction_code == 2401 then
-    return true
+    if buffer:len() < 62 then
+      return false
+    end
+
+    local message_length = buffer(60, 2):int()
+
+    -- Existing Encryption Tail
+    if message_length == 124 then
+      return true
+    end
+
+    -- New Encryption Tail
+    if message_length == 136 then
+      return true
+    end
+
+    return false
   end
 
   -- Control Message To Trader Message
@@ -10749,7 +10857,7 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Nse NseCm OrderEntry NnfDirect 6.6 (Tcp)
-local function omi_nse_nsecm_orderentry_nnfdirect_v6_6_tcp_heuristic(buffer, packet, parent)
+local function omi_nse_nsecm_orderentry_nnfdirect_v6_6_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nse_nsecm_orderentry_nnfdirect_v6_6.client_packet.requiredsize(buffer) then return false end
 
@@ -10764,7 +10872,7 @@ local function omi_nse_nsecm_orderentry_nnfdirect_v6_6_tcp_heuristic(buffer, pac
 end
 
 -- Dissector Heuristic for Nse NseCm OrderEntry NnfDirect 6.6 (Tcp)
-local function omi_nse_nsecm_orderentry_nnfdirect_v6_6_tcp_heuristic(buffer, packet, parent)
+local function omi_nse_nsecm_orderentry_nnfdirect_v6_6_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nse_nsecm_orderentry_nnfdirect_v6_6.server_packet.requiredsize(buffer) then return false end
 
@@ -10776,6 +10884,34 @@ local function omi_nse_nsecm_orderentry_nnfdirect_v6_6_tcp_heuristic(buffer, pac
   omi_nse_nsecm_orderentry_nnfdirect_v6_6.dissector(buffer, packet, parent)
 
   return true
+end
+
+-- Dissector Heuristic for Nse NseCm OrderEntry NnfDirect 6.6 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nse_nsecm_orderentry_nnfdirect_v6_6_tcp_heuristic(buffer, packet, parent)
+  local role = nse_nsecm_orderentry_nnfdirect_v6_6.role(packet)
+  local initiator = omi_nse_nsecm_orderentry_nnfdirect_v6_6_tcp_initiator_heuristic
+  local acceptor = omi_nse_nsecm_orderentry_nnfdirect_v6_6_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nse_nsecm_orderentry_nnfdirect_v6_6.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  nse_nsecm_orderentry_nnfdirect_v6_6.swap(packet)
+
+  return false
 end
 
 -- Register Heuristics for Nse NseCm OrderEntry NnfDirect 6.6

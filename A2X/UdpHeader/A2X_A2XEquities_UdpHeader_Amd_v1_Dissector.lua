@@ -172,7 +172,7 @@ end
 a2x_a2xequities_udpheader_amd_v1.seq_no.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_udpheader_amd_v1.seq_no.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = a2x_a2xequities_udpheader_amd_v1.seq_no.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_udpheader_amd_v1.fields.seq_no, range, value, display)

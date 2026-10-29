@@ -311,6 +311,18 @@ ascii_to_uint64 = function(str)
   return value
 end
 
+-- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
+venue_midnight = function(packet, utc_offset_seconds)
+  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+  -- no capture date: a frame with no instant of its own reads as the epoch
+  if capture_time < 86400 then
+    return nil
+  end
+
+  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq PhlxOptions Orders Itch 1.92 Fields

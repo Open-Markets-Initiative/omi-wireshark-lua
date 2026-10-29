@@ -249,6 +249,18 @@ ascii_to_uint64 = function(str)
   return value
 end
 
+-- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
+venue_midnight = function(packet, utc_offset_seconds)
+  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+  -- no capture date: a frame with no instant of its own reads as the epoch
+  if capture_time < 86400 then
+    return nil
+  end
+
+  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
+end
+
 
 -----------------------------------------------------------------------
 -- Tradelogiq OmegaAts SnapshotRecovery Itch 1.09 Fields
@@ -1102,16 +1114,15 @@ tradelogiq_omegaats_snapshotrecovery_itch_v1_09.timestamp.display = function(val
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if tradelogiq_omegaats_snapshotrecovery_itch_v1_09.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = tradelogiq_omegaats_snapshotrecovery_itch_v1_09.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -tradelogiq_omegaats_snapshotrecovery_itch_v1_09.utc_offset_hours * 3600)
 
-    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+    if midnight then
+      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%09d", nanoseconds)
+    end
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp

@@ -286,6 +286,21 @@ jobs:
       - name: Run Nyse NyseBonds DepthOfBook Abp 4.01.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseBonds-DepthOfBook-Abp-v4-01-b-Test.sh
 
+      - name: Run Nyse NyseConsolidated DailyTaqMaster Csv 4.3 Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseConsolidated-DailyTaqMaster-Csv-v4-3-Test.sh
+
+      - name: Run Nyse NyseConsolidated DailyTaqQuoteLuld Csv 4.3 Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseConsolidated-DailyTaqQuoteLuld-Csv-v4-3-Test.sh
+
+      - name: Run Nyse NyseConsolidated DailyTaqQuotes Csv 4.3 Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseConsolidated-DailyTaqQuotes-Csv-v4-3-Test.sh
+
+      - name: Run Nyse NyseConsolidated DailyTaqTradeLuld Csv 4.3 Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseConsolidated-DailyTaqTradeLuld-Csv-v4-3-Test.sh
+
+      - name: Run Nyse NyseConsolidated DailyTaqTrades Csv 4.3 Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseConsolidated-DailyTaqTrades-Csv-v4-3-Test.sh
+
       - name: Run Nyse NyseEquities Bbo Pillar 2.5.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-Bbo-Pillar-v2-5-b-Test.sh
 

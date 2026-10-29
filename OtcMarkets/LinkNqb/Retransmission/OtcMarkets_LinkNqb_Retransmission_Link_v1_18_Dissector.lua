@@ -164,6 +164,23 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
+venue_midnight = function(packet, utc_offset_seconds)
+  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+  -- no capture date: a frame with no instant of its own reads as the epoch
+  if capture_time < 86400 then
+    return nil
+  end
+
+  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
+end
+
+
+-----------------------------------------------------------------------
 -- OtcMarkets LinkNqb Retransmission Link 1.18 Fields
 -----------------------------------------------------------------------
 
@@ -1523,16 +1540,15 @@ otcmarkets_linknqb_retransmission_link_v1_18.time.display = function(value, buff
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if otcmarkets_linknqb_retransmission_link_v1_18.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = otcmarkets_linknqb_retransmission_link_v1_18.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -otcmarkets_linknqb_retransmission_link_v1_18.utc_offset_hours * 3600)
 
-    return "Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+    if midnight then
+      return "Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+    end
   end
 
   -- Time of day mode
-  return "Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Time

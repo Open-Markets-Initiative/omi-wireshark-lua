@@ -338,6 +338,18 @@ ascii_to_uint64 = function(str)
   return value
 end
 
+-- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
+venue_midnight = function(packet, utc_offset_seconds)
+  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+  -- no capture date: a frame with no instant of its own reads as the epoch
+  if capture_time < 86400 then
+    return nil
+  end
+
+  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq NasdaqCanada OrderEntry Ouch 5.0.1.4 Fields
@@ -2379,12 +2391,12 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason.labels = {
   ["SMEB"] = "Reject Reason: Short Marker Exempt Not Supported For Value (SMEB)",
   ["LMTP"] = "Reject Reason: Invalid Order Price (LMTP)",
   ["MCLO"] = "Reject Reason: Market Not Open (MCLO)",
-  ["ODDB"] = "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit (ODDB)",
-  ["ODDD"] = "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit No Oddlot Dealer (ODDD)",
-  ["ODDI"] = "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit Tif Not Ioc Or Day (ODDI)",
-  ["ODDP"] = "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit No Prim Peg (ODDP)",
-  ["ODDM"] = "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit Min Qty Specified (ODDM)",
-  ["ODDR"] = "Reject Reason: Invalid Ordqty Cannot Replace Oddlot To Roundmixed Lot Or Vice Versa (ODDR)",
+  ["ODDB"] = "Reject Reason: Invalid Ord Qty Must Be A Multiple Of Standard Trading Unit (ODDB)",
+  ["ODDD"] = "Reject Reason: Invalid Ord Qty Must Be A Multiple Of Standard Trading Unit No Oddlot Dealer (ODDD)",
+  ["ODDI"] = "Reject Reason: Invalid Ord Qty Must Be A Multiple Of Standard Trading Unit Tif Not Ioc Or Day (ODDI)",
+  ["ODDP"] = "Reject Reason: Invalid Ord Qty Must Be A Multiple Of Standard Trading Unit No Prim Peg (ODDP)",
+  ["ODDM"] = "Reject Reason: Invalid Ord Qty Must Be A Multiple Of Standard Trading Unit Min Qty Specified (ODDM)",
+  ["ODDR"] = "Reject Reason: Invalid Ord Qty Cannot Replace Oddlot To Round Mixed Lot Or Vice Versa (ODDR)",
   ["OSTP"] = "Reject Reason: Rejected Ostp (OSTP)",
   ["NORD"] = "Reject Reason: Order Not Found (NORD)",
   ["PENR"] = "Reject Reason: Pending Replace (PENR)",
@@ -2401,8 +2413,8 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason.labels = {
   ["DCDT"] = "Reject Reason: User Not Permissioned On Destination (DCDT)",
   ["MPIB"] = "Reject Reason: Mpi Orders Only For Cxd (MPIB)",
   ["ACSO"] = "Reject Reason: At Close Orders Only For Sor Orders (ACSO)",
-  ["INVM"] = "Reject Reason: Displayed Quantity Must Be Of Standard Trading Unitstu (INVM)",
-  ["INVD"] = "Reject Reason: Display Range Must Be Of Standard Trading Unitstu (INVD)",
+  ["INVM"] = "Reject Reason: Displayed Quantity Must Be Of Standard Trading Unit Stu (INVM)",
+  ["INVD"] = "Reject Reason: Display Range Must Be Of Standard Trading Unit Stu (INVD)",
   ["MINB"] = "Reject Reason: Min Qty Must Be Of Standard Trading Unit Stu (MINB)",
   ["OFFB"] = "Reject Reason: Invalid Pegoffset For Peg Type (OFFB)",
   ["STRM"] = "Reject Reason: Rejected Strm (STRM)",
@@ -3062,16 +3074,15 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.timestamp.display = function(value,
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.utc_offset_hours * 3600)
 
-    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+    if midnight then
+      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%09d", nanoseconds)
+    end
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp

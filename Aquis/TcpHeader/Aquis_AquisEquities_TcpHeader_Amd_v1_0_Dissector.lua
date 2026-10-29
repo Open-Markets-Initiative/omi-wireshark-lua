@@ -140,7 +140,7 @@ end
 aquis_aquisequities_tcpheader_amd_v1_0.seq_no.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tcpheader_amd_v1_0.seq_no.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = aquis_aquisequities_tcpheader_amd_v1_0.seq_no.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.seq_no, range, value, display)

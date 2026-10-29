@@ -244,6 +244,18 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
+venue_midnight = function(packet, utc_offset_seconds)
+  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+  -- no capture date: a frame with no instant of its own reads as the epoch
+  if capture_time < 86400 then
+    return nil
+  end
+
+  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
+end
+
 
 -----------------------------------------------------------------------
 -- Cnsx Cse2 Retransmission Mmd 1.6 Fields
@@ -1909,12 +1921,11 @@ cnsx_cse2_retransmission_mmd_v1_6.timestamp.display = function(time_offset, stor
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if cnsx_cse2_retransmission_mmd_v1_6.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = cnsx_cse2_retransmission_mmd_v1_6.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400
-    local full_seconds = local_midnight + stored_second
+    local midnight = venue_midnight(packet, -cnsx_cse2_retransmission_mmd_v1_6.utc_offset_hours * 3600)
 
-    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", time_offset)
+    if midnight then
+      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_second)..string.format("%09d", time_offset)
+    end
   end
 
   -- Time of day mode

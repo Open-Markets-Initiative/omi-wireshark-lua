@@ -309,6 +309,18 @@ end
 -- Protocol Functions
 -----------------------------------------------------------------------
 
+-- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
+venue_midnight = function(packet, utc_offset_seconds)
+  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+  -- no capture date: a frame with no instant of its own reads as the epoch
+  if capture_time < 86400 then
+    return nil
+  end
+
+  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
+end
+
 
 -- Zlib decompression: wireshark built in inflate (uncompress_zlib from 4.4, uncompress before)
 local function zlib_decompress(range)
@@ -806,16 +818,15 @@ qse_qsecash_marketdata_xdp_v2_6.clearing_time.display = function(value, buffer, 
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600)
 
-    return "Clearing Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+    if midnight then
+      return "Clearing Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+    end
   end
 
   -- Time of day mode
-  return "Clearing Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Clearing Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Clearing Time
@@ -918,16 +929,15 @@ qse_qsecash_marketdata_xdp_v2_6.closing_reference_time.display = function(value,
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600)
 
-    return "Closing Reference Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+    if midnight then
+      return "Closing Reference Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+    end
   end
 
   -- Time of day mode
-  return "Closing Reference Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Closing Reference Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Closing Reference Time
@@ -1513,16 +1523,15 @@ qse_qsecash_marketdata_xdp_v2_6.first_time.display = function(value, buffer, off
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600)
 
-    return "First Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+    if midnight then
+      return "First Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+    end
   end
 
   -- Time of day mode
-  return "First Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "First Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: First Time
@@ -1747,16 +1756,15 @@ qse_qsecash_marketdata_xdp_v2_6.high_time.display = function(value, buffer, offs
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600)
 
-    return "High Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+    if midnight then
+      return "High Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+    end
   end
 
   -- Time of day mode
-  return "High Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "High Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: High Time
@@ -2712,16 +2720,15 @@ qse_qsecash_marketdata_xdp_v2_6.liquidation_time.display = function(value, buffe
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600)
 
-    return "Liquidation Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+    if midnight then
+      return "Liquidation Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+    end
   end
 
   -- Time of day mode
-  return "Liquidation Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Liquidation Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Liquidation Time
@@ -2909,16 +2916,15 @@ qse_qsecash_marketdata_xdp_v2_6.low_time.display = function(value, buffer, offse
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600)
 
-    return "Low Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+    if midnight then
+      return "Low Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+    end
   end
 
   -- Time of day mode
-  return "Low Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Low Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Low Time
@@ -3587,16 +3593,15 @@ qse_qsecash_marketdata_xdp_v2_6.opening_reference_time.display = function(value,
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600)
 
-    return "Opening Reference Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+    if midnight then
+      return "Opening Reference Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+    end
   end
 
   -- Time of day mode
-  return "Opening Reference Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Opening Reference Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Opening Reference Time
@@ -4110,16 +4115,15 @@ qse_qsecash_marketdata_xdp_v2_6.preliminary_opening_time.display = function(valu
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600)
 
-    return "Preliminary Opening Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+    if midnight then
+      return "Preliminary Opening Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+    end
   end
 
   -- Time of day mode
-  return "Preliminary Opening Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Preliminary Opening Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Preliminary Opening Time
@@ -4915,16 +4919,15 @@ qse_qsecash_marketdata_xdp_v2_6.source_time.display = function(value, buffer, of
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
+    local midnight = venue_midnight(packet, -qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600)
 
-    return "Source Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+    if midnight then
+      return "Source Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+    end
   end
 
   -- Time of day mode
-  return "Source Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Source Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Source Time

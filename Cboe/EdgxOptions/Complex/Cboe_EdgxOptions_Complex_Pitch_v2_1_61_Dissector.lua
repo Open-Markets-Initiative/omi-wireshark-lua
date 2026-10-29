@@ -238,6 +238,18 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
+venue_midnight = function(packet, utc_offset_seconds)
+  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+  -- no capture date: a frame with no instant of its own reads as the epoch
+  if capture_time < 86400 then
+    return nil
+  end
+
+  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
+end
+
 
 -----------------------------------------------------------------------
 -- Cboe EdgxOptions Complex Pitch 2.1.61 Fields
@@ -1743,12 +1755,11 @@ cboe_edgxoptions_complex_pitch_v2_1_61.timestamp.display = function(time_offset,
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if cboe_edgxoptions_complex_pitch_v2_1_61.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = cboe_edgxoptions_complex_pitch_v2_1_61.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400
-    local full_seconds = local_midnight + stored_time
+    local midnight = venue_midnight(packet, -cboe_edgxoptions_complex_pitch_v2_1_61.utc_offset_hours * 3600)
 
-    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", time_offset)
+    if midnight then
+      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_time)..string.format("%09d", time_offset)
+    end
   end
 
   -- Time of day mode

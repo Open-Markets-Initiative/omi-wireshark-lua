@@ -190,6 +190,18 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
+venue_midnight = function(packet, utc_offset_seconds)
+  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+  -- no capture date: a frame with no instant of its own reads as the epoch
+  if capture_time < 86400 then
+    return nil
+  end
+
+  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
+end
+
 
 -----------------------------------------------------------------------
 -- Jnx JnxBonds Pts Itch 1.2 Fields
@@ -918,12 +930,11 @@ jnx_jnxbonds_pts_itch_v1_2.timestamp.display = function(nanoseconds, stored_seco
 
   -- Full datetime mode (calculate from capture date + UTC offset)
   if jnx_jnxbonds_pts_itch_v1_2.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
-    local full_seconds = local_midnight + stored_seconds
+    local midnight = venue_midnight(packet, jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours * 3600)
 
-    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+    if midnight then
+      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_seconds)..string.format("%09d", nanoseconds)
+    end
   end
 
   -- Time of day mode
