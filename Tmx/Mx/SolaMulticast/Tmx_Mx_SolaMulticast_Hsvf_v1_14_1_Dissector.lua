@@ -9275,6 +9275,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_ask_price_futures_depth.dissect = funct
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_futures_depth_numeric.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local ask_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -9360,6 +9361,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_ask_price_quote.dissect = function(buff
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_numeric.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local ask_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -9445,6 +9447,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_ask_price_summary.dissect = function(bu
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_summary.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local ask_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -9530,6 +9533,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_bid_price_quote.dissect = function(buff
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_numeric.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local bid_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -9615,6 +9619,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_bid_price_summary.dissect = function(bu
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_summary.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local bid_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -9700,6 +9705,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_closing_price.dissect = function(buffer
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.closing_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local closing_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.closing_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -9785,6 +9791,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_conversion_factor.dissect = function(bu
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.conversion_factor.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local conversion_factor_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.conversion_factor_fraction_indicator.size):string()
 
   local value
   local display
@@ -9870,6 +9877,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_coupon.dissect = function(buffer, offse
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.coupon.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local coupon_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.coupon_fraction_indicator.size):string()
 
   local value
   local display
@@ -9955,6 +9963,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_external_price_at_source.dissect = func
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.external_price_at_source.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local external_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.external_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -10040,6 +10049,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_high_price.dissect = function(buffer, o
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.high_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local high_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.high_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -10125,6 +10135,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_initial_order_price.dissect = function(
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.initial_order_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local initial_order_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.initial_order_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -10210,6 +10221,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_last_price.dissect = function(buffer, o
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.last_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local last_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.last_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -10295,6 +10307,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_leg_price.dissect = function(buffer, of
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.leg_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local leg_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.leg_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -10380,6 +10393,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_leg_ratio_or_delta.dissect = function(b
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.leg_ratio_or_delta.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local leg_ratio_or_delta_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.leg_ratio_or_delta_fraction_indicator.size):string()
 
   local value
   local display
@@ -10465,6 +10479,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_low_price.dissect = function(buffer, of
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.low_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local low_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.low_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -10550,6 +10565,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_maximum_threshold_price.dissect = funct
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.maximum_threshold_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local maximum_threshold_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.maximum_threshold_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -10635,6 +10651,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.dissect
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.maximum_threshold_price_futures.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local maximum_threshold_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.maximum_threshold_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -10720,6 +10737,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_min_price.dissect = function(buffer, of
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.min_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local min_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.min_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -10805,6 +10823,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.dissect
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.minimum_threshold_price_futures.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local minimum_threshold_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.minimum_threshold_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -10890,6 +10909,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.diss
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.minimum_threshold_price_instrument.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local minimum_threshold_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.minimum_threshold_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -10975,6 +10995,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.dissec
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.minimum_threshold_price_strategy.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local minimum_threshold_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.minimum_threshold_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -11060,6 +11081,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_net_change.dissect = function(buffer, o
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.net_change.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local net_change_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.net_change_fraction_indicator.size):string()
 
   local value
   local display
@@ -11145,6 +11167,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_open_price.dissect = function(buffer, o
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.open_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local open_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.open_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -11230,6 +11253,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_opening_price.dissect = function(buffer
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.opening_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local opening_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.opening_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -11315,6 +11339,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_order_price.dissect = function(buffer, 
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.order_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local order_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.order_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -11400,6 +11425,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_previous_closing_price.dissect = functi
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.previous_closing_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local previous_closing_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.previous_closing_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -11485,6 +11511,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_previous_settlement.dissect = function(
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.previous_settlement.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local previous_settlement_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.previous_settlement_fraction_indicator.size):string()
 
   local value
   local display
@@ -11570,6 +11597,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_previous_settlement_price.dissect = fun
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.previous_settlement_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local previous_settlement_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.previous_settlement_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -11655,6 +11683,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_settlement_price.dissect = function(buf
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.settlement_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local settlement_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.settlement_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -11740,6 +11769,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_strike_price.dissect = function(buffer,
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.strike_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local strike_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.strike_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -11825,6 +11855,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_strike_price_schedule_notice.dissect = 
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.strike_price_schedule_notice.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local strike_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.strike_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -11910,6 +11941,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_tick_increment.dissect = function(buffe
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.tick_increment_numeric.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local tick_increment_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.tick_increment_fraction_indicator.size):string()
 
   local value
   local display
@@ -11995,6 +12027,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_tick_price.dissect = function(buffer, o
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.tick_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local tick_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.tick_price_fraction_indicator.size):string()
 
   local value
   local display
@@ -12080,6 +12113,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_tick_value.dissect = function(buffer, o
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.tick_value.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local tick_value_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.tick_value_fraction_indicator.size):string()
 
   local value
   local display
@@ -12165,6 +12199,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.scaled_trade_price.dissect = function(buffer, 
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.trade_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
+  local trade_price_fraction_indicator = buffer(offset + length, tmx_mx_solamulticast_hsvf_v1_14_1.trade_price_fraction_indicator.size):string()
 
   local value
   local display
