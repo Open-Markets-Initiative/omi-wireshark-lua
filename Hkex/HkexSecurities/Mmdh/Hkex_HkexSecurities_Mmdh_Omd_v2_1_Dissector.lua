@@ -5786,10 +5786,10 @@ hkex_hkexsecurities_mmdh_omd_v2_1.entitlement_composite.size =
 -- Display: Entitlement Composite
 hkex_hkexsecurities_mmdh_omd_v2_1.entitlement_composite.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Entitlement Composite
@@ -5837,10 +5837,10 @@ hkex_hkexsecurities_mmdh_omd_v2_1.call_price_composite.size =
 -- Display: Call Price Composite
 hkex_hkexsecurities_mmdh_omd_v2_1.call_price_composite.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Call Price Composite
@@ -5888,10 +5888,10 @@ hkex_hkexsecurities_mmdh_omd_v2_1.face_value_composite.size =
 -- Display: Face Value Composite
 hkex_hkexsecurities_mmdh_omd_v2_1.face_value_composite.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Face Value Composite
@@ -5905,7 +5905,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.face_value_composite.fields = function(buffer,
   index, decimals_in_face_value = hkex_hkexsecurities_mmdh_omd_v2_1.decimals_in_face_value.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local face_value_composite = face_value / 10 ^ decimals_in_face_value
+  local face_value_composite = face_value:tonumber() / 10 ^ decimals_in_face_value
 
   return index, face_value_composite
 end
