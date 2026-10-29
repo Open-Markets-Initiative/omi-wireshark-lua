@@ -7,7 +7,7 @@
 
 | Division | [Protocol][Omi.Qse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Qse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [QseCash][QseCash.Exchange] | [MarketData][Qse.QseCash.MarketData] | [Xdp][Omi.Encoding.Xdp] | [2.6][Qse.QseCash.MarketData.Xdp.v2.6.Dissector] | 3/1/2010 | 9330 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Qse.QseCash.MarketData.Xdp.v2.6.Url] - [pdf][Qse.QseCash.MarketData.Xdp.v2.6.Pdf] |
+| [QseCash][QseCash.Exchange] | [MarketData][Qse.QseCash.MarketData] | [Xdp][Omi.Encoding.Xdp] | [2.6][Qse.QseCash.MarketData.Xdp.v2.6.Dissector] | 3/1/2010 | 9372 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Qse.QseCash.MarketData.Xdp.v2.6.Url] |
 
 
 <p align="center"><a href="https://www.qe.com.qa" title="Qatar Stock Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Qatar_Stock_Exchange" title="Qatar Stock Exchange on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>
@@ -35,4 +35,3 @@
 
 [Qse.QseCash.MarketData.Xdp.v2.6.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Qse/QseCash/MarketData/Qse_QseCash_MarketData_Xdp_v2_6_Dissector.lua "Qse QseCash MarketData Xdp v2.6 Wireshark Dissector"
 [Qse.QseCash.MarketData.Xdp.v2.6.Url]: https://www.qe.com.qa/real-time-data "Qatar Stock Exchange 2.6 Url"
-[Qse.QseCash.MarketData.Xdp.v2.6.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Qse/Specifications/ "Qatar Stock Exchange 2.6 Pdf"

@@ -130,7 +130,6 @@ omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.server_packet = ProtoField.new("Se
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.dc_download_request_message = ProtoField.new("Dc Download Request Message", "nse.nsecom.dropcopy.nnfdirect.v1.5.dcdownloadrequestmessage", ftypes.STRING, nil, nil, nil, "Requests the trade download for one stream, named in the first byte of Alpha Char, from the time given in Sequence Number")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.giveup_app_confirm_tm_message = ProtoField.new("Giveup App Confirm Tm Message", "nse.nsecom.dropcopy.nnfdirect.v1.5.giveupappconfirmtmmessage", ftypes.STRING, nil, nil, nil, "Approves a give up")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.giveup_rej_confirm_tm_message = ProtoField.new("Giveup Rej Confirm Tm Message", "nse.nsecom.dropcopy.nnfdirect.v1.5.giveuprejconfirmtmmessage", ftypes.STRING, nil, nil, nil, "Rejects a give up")
-omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nse.nsecom.dropcopy.nnfdirect.v1.5.heartbeatmessage", ftypes.BYTES)
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.sign_on_out_message = ProtoField.new("Sign On Out Message", "nse.nsecom.dropcopy.nnfdirect.v1.5.signonoutmessage", ftypes.STRING, nil, nil, nil, "Confirms the logon. Alpha Char carries the number of streams the drop copy feed is sent from, one download request being needed per stream. On an error the same transaction code carries the Error Response layout instead, distinguished only by a non zero Error Code")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.signon_in_message = ProtoField.new("Signon In Message", "nse.nsecom.dropcopy.nnfdirect.v1.5.signoninmessage", ftypes.STRING, nil, nil, nil, "Logs the user on to the drop copy feed")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.trade_cancel_confirm_message = ProtoField.new("Trade Cancel Confirm Message", "nse.nsecom.dropcopy.nnfdirect.v1.5.tradecancelconfirmmessage", ftypes.STRING, nil, nil, nil, "Confirms the cancellation of a trade")
@@ -138,6 +137,9 @@ omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.trade_cancel_reject_message = Prot
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.trade_confirmation_message = ProtoField.new("Trade Confirmation Message", "nse.nsecom.dropcopy.nnfdirect.v1.5.tradeconfirmationmessage", ftypes.STRING, nil, nil, nil, "Confirms a trade")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.trade_modify_confirm_message = ProtoField.new("Trade Modify Confirm Message", "nse.nsecom.dropcopy.nnfdirect.v1.5.trademodifyconfirmmessage", ftypes.STRING, nil, nil, nil, "Confirms the modification of a trade")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.trade_modify_reject_message = ProtoField.new("Trade Modify Reject Message", "nse.nsecom.dropcopy.nnfdirect.v1.5.trademodifyrejectmessage", ftypes.STRING, nil, nil, nil, "Rejects a trade modification")
+
+-- Nse NseCom DropCopy 1.5 Session Messages
+omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nse.nsecom.dropcopy.nnfdirect.v1.5.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "Keeps the connection alive during periods of inactivity")
 
 -----------------------------------------------------------------------
 -- Nse NseCom DropCopy NnfDirect 1.5 Formatting
@@ -3971,6 +3973,23 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.dc_download_request_message.dissect = functio
   end
 end
 
+-- Heartbeat Message
+nse_nsecom_dropcopy_nnfdirect_v1_5.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+nse_nsecom_dropcopy_nnfdirect_v1_5.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+nse_nsecom_dropcopy_nnfdirect_v1_5.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsecom_dropcopy_nnfdirect_v1_5.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Signon In Message
 nse_nsecom_dropcopy_nnfdirect_v1_5.signon_in_message = {}
 
@@ -4050,19 +4069,18 @@ end
 -- Client Message Payload
 nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_payload = {}
 
+-- Dispatch: Client Message Payload
+nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_payload.dispatch = {
+  [2300] = nse_nsecom_dropcopy_nnfdirect_v1_5.signon_in_message.dissect,
+  [23506] = nse_nsecom_dropcopy_nnfdirect_v1_5.heartbeat_message.dissect,
+  [8000] = nse_nsecom_dropcopy_nnfdirect_v1_5.dc_download_request_message.dissect,
+}
+
 -- Dissect: Client Message Payload
 nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
-  -- Dissect Signon In Message
-  if transaction_code == 2300 then
-    return nse_nsecom_dropcopy_nnfdirect_v1_5.signon_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if transaction_code == 23506 then
-    return offset
-  end
-  -- Dissect Dc Download Request Message
-  if transaction_code == 8000 then
-    return nse_nsecom_dropcopy_nnfdirect_v1_5.dc_download_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_payload.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

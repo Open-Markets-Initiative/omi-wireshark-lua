@@ -145,11 +145,7 @@ omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.dc_trd_subscription_request_message = P
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.freeze_to_control_message = ProtoField.new("Freeze To Control Message", "nse.nsefo.dropcopy.nnfdc.v3.0.freezetocontrolmessage", ftypes.STRING, nil, nil, nil, "Reports an order frozen and referred to Nse Control")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.giveup_app_confirm_message = ProtoField.new("Giveup App Confirm Message", "nse.nsefo.dropcopy.nnfdc.v3.0.giveupappconfirmmessage", ftypes.STRING, nil, nil, nil, "Approves a give up, with 'A' in Giveup Flag")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.giveup_rej_confirm_message = ProtoField.new("Giveup Rej Confirm Message", "nse.nsefo.dropcopy.nnfdc.v3.0.giveuprejconfirmmessage", ftypes.STRING, nil, nil, nil, "Rejects a give up")
-omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.gr_request_message = ProtoField.new("Gr Request Message", "nse.nsefo.dropcopy.nnfdc.v3.0.grrequestmessage", ftypes.BYTES)
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.gr_response_message = ProtoField.new("Gr Response Message", "nse.nsefo.dropcopy.nnfdc.v3.0.grresponsemessage", ftypes.STRING, nil, nil, nil, "Returns the addresses of every partition the member must connect to, together with the session key and the cryptographic material for those connections")
-omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.gr_secure_user_registration_request_message = ProtoField.new("Gr Secure User Registration Request Message", "nse.nsefo.dropcopy.nnfdc.v3.0.grsecureuserregistrationrequestmessage", ftypes.BYTES)
-omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.gr_secure_user_registration_response_message = ProtoField.new("Gr Secure User Registration Response Message", "nse.nsefo.dropcopy.nnfdc.v3.0.grsecureuserregistrationresponsemessage", ftypes.BYTES)
-omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nse.nsefo.dropcopy.nnfdc.v3.0.heartbeatmessage", ftypes.BYTES)
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.on_stop_notification_message = ProtoField.new("On Stop Notification Message", "nse.nsefo.dropcopy.nnfdc.v3.0.onstopnotificationmessage", ftypes.STRING, nil, nil, nil, "Reports a stop loss order triggered and brought to the market")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.order_cancel_confirmation_message = ProtoField.new("Order Cancel Confirmation Message", "nse.nsefo.dropcopy.nnfdc.v3.0.ordercancelconfirmationmessage", ftypes.STRING, nil, nil, nil, "Confirms an order cancellation")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.order_cancel_reject_message = ProtoField.new("Order Cancel Reject Message", "nse.nsefo.dropcopy.nnfdc.v3.0.ordercancelrejectmessage", ftypes.STRING, nil, nil, nil, "Rejects an order cancellation")
@@ -175,6 +171,12 @@ omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.trade_modify_rejected_message = ProtoFi
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.twol_order_confirmation_message = ProtoField.new("Twol Order Confirmation Message", "nse.nsefo.dropcopy.nnfdc.v3.0.twolorderconfirmationmessage", ftypes.STRING, nil, nil, nil, "Confirms a two leg order")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.twol_order_cxl_confirmation_message = ProtoField.new("Twol Order Cxl Confirmation Message", "nse.nsefo.dropcopy.nnfdc.v3.0.twolordercxlconfirmationmessage", ftypes.STRING, nil, nil, nil, "Confirms a two leg order cancellation")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.twol_order_error_message = ProtoField.new("Twol Order Error Message", "nse.nsefo.dropcopy.nnfdc.v3.0.twolordererrormessage", ftypes.STRING, nil, nil, nil, "Reports an error on a two leg order")
+
+-- Nse NseFo DropCopy 3.0 Session Messages
+omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.gr_request_message = ProtoField.new("Gr Request Message", "nse.nsefo.dropcopy.nnfdc.v3.0.grrequestmessage", ftypes.BYTES, nil, nil, nil, "Asks the gateway router for the member's partition list, with Partition Id sent as zero")
+omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.gr_secure_user_registration_request_message = ProtoField.new("Gr Secure User Registration Request Message", "nse.nsefo.dropcopy.nnfdc.v3.0.grsecureuserregistrationrequestmessage", ftypes.BYTES, nil, nil, nil, "Declares to an allocated gateway server that the member application is using encryption, sent unencrypted as the first message on each partition connection")
+omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.gr_secure_user_registration_response_message = ProtoField.new("Gr Secure User Registration Response Message", "nse.nsefo.dropcopy.nnfdc.v3.0.grsecureuserregistrationresponsemessage", ftypes.BYTES, nil, nil, nil, "Acknowledges the registration, its Error Code terminating the connection when set")
+omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nse.nsefo.dropcopy.nnfdc.v3.0.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "Keeps the connection alive, sent after thirty seconds of inactivity; the host disconnects the socket after two missed in succession")
 
 -----------------------------------------------------------------------
 -- Nse NseFo DropCopy NnfDc 3.0 Formatting
@@ -7061,6 +7063,23 @@ nse_nsefo_dropcopy_nnfdc_v3_0.dc_signon_out_message.dissect = function(buffer, o
   end
 end
 
+-- Gr Secure User Registration Response Message
+nse_nsefo_dropcopy_nnfdc_v3_0.gr_secure_user_registration_response_message = {}
+
+-- Display: Gr Secure User Registration Response Message
+nse_nsefo_dropcopy_nnfdc_v3_0.gr_secure_user_registration_response_message.display = function(packet, parent, length)
+  return "Gr Secure User Registration Response Message"
+end
+
+
+-- Dissect: Gr Secure User Registration Response Message
+nse_nsefo_dropcopy_nnfdc_v3_0.gr_secure_user_registration_response_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_dropcopy_nnfdc_v3_0.gr_secure_user_registration_response_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Ip Details Partition Wise
 nse_nsefo_dropcopy_nnfdc_v3_0.ip_details_partition_wise = {}
 
@@ -7197,151 +7216,51 @@ end
 -- Server Message Payload
 nse_nsefo_dropcopy_nnfdc_v3_0.server_message_payload = {}
 
+-- Dispatch: Server Message Payload
+nse_nsefo_dropcopy_nnfdc_v3_0.server_message_payload.dispatch = {
+  [2401] = nse_nsefo_dropcopy_nnfdc_v3_0.gr_response_message.dissect,
+  [23009] = nse_nsefo_dropcopy_nnfdc_v3_0.gr_secure_user_registration_response_message.dissect,
+  [2501] = nse_nsefo_dropcopy_nnfdc_v3_0.dc_signon_out_message.dissect,
+  [2320] = nse_nsefo_dropcopy_nnfdc_v3_0.dc_sign_off_message.dissect,
+  [8006] = nse_nsefo_dropcopy_nnfdc_v3_0.dc_error_response_trade_message.dissect,
+  [9006] = nse_nsefo_dropcopy_nnfdc_v3_0.dc_error_response_order_message.dissect,
+  [2222] = nse_nsefo_dropcopy_nnfdc_v3_0.trade_confirmation_message.dissect,
+  [2282] = nse_nsefo_dropcopy_nnfdc_v3_0.trade_cancel_confirm_message.dissect,
+  [2286] = nse_nsefo_dropcopy_nnfdc_v3_0.trade_cancel_reject_message.dissect,
+  [2287] = nse_nsefo_dropcopy_nnfdc_v3_0.trade_modify_confirm_message.dissect,
+  [2288] = nse_nsefo_dropcopy_nnfdc_v3_0.trade_modify_rejected_message.dissect,
+  [4506] = nse_nsefo_dropcopy_nnfdc_v3_0.giveup_app_confirm_message.dissect,
+  [4507] = nse_nsefo_dropcopy_nnfdc_v3_0.giveup_rej_confirm_message.dissect,
+  [2012] = nse_nsefo_dropcopy_nnfdc_v3_0.price_confirmation_message.dissect,
+  [2042] = nse_nsefo_dropcopy_nnfdc_v3_0.order_mod_reject_message.dissect,
+  [2072] = nse_nsefo_dropcopy_nnfdc_v3_0.order_cancel_reject_message.dissect,
+  [2073] = nse_nsefo_dropcopy_nnfdc_v3_0.order_confirmation_message.dissect,
+  [2074] = nse_nsefo_dropcopy_nnfdc_v3_0.order_mod_confirmation_message.dissect,
+  [2075] = nse_nsefo_dropcopy_nnfdc_v3_0.order_cancel_confirmation_message.dissect,
+  [2170] = nse_nsefo_dropcopy_nnfdc_v3_0.freeze_to_control_message.dissect,
+  [2212] = nse_nsefo_dropcopy_nnfdc_v3_0.on_stop_notification_message.dissect,
+  [2231] = nse_nsefo_dropcopy_nnfdc_v3_0.order_error_message.dissect,
+  [9002] = nse_nsefo_dropcopy_nnfdc_v3_0.batch_order_cancel_message.dissect,
+  [2124] = nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_confirmation_message.dissect,
+  [2125] = nse_nsefo_dropcopy_nnfdc_v3_0.twol_order_confirmation_message.dissect,
+  [2126] = nse_nsefo_dropcopy_nnfdc_v3_0.thrl_order_confirmation_message.dissect,
+  [2127] = nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_cxl_rejected_message.dissect,
+  [2130] = nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_cxl_confirmation_message.dissect,
+  [2131] = nse_nsefo_dropcopy_nnfdc_v3_0.twol_order_cxl_confirmation_message.dissect,
+  [2132] = nse_nsefo_dropcopy_nnfdc_v3_0.thrl_order_cxl_confirmation_message.dissect,
+  [2133] = nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_mod_reject_message.dissect,
+  [2136] = nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_mod_confirmation_message.dissect,
+  [2154] = nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_rejected_message.dissect,
+  [2155] = nse_nsefo_dropcopy_nnfdc_v3_0.twol_order_error_message.dissect,
+  [2156] = nse_nsefo_dropcopy_nnfdc_v3_0.thrl_order_error_message.dissect,
+  [9004] = nse_nsefo_dropcopy_nnfdc_v3_0.batch_spread_cxl_out_message.dissect,
+}
+
 -- Dissect: Server Message Payload
 nse_nsefo_dropcopy_nnfdc_v3_0.server_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
-  -- Dissect Gr Response Message
-  if transaction_code == 2401 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.gr_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gr Secure User Registration Response Message
-  if transaction_code == 23009 then
-    return offset
-  end
-  -- Dissect Dc Signon Out Message
-  if transaction_code == 2501 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.dc_signon_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Sign Off Message
-  if transaction_code == 2320 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.dc_sign_off_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Error Response Trade Message
-  if transaction_code == 8006 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.dc_error_response_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Error Response Order Message
-  if transaction_code == 9006 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.dc_error_response_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2222 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Confirm Message
-  if transaction_code == 2282 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.trade_cancel_confirm_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Reject Message
-  if transaction_code == 2286 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.trade_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Modify Confirm Message
-  if transaction_code == 2287 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.trade_modify_confirm_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Modify Rejected Message
-  if transaction_code == 2288 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.trade_modify_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Giveup App Confirm Message
-  if transaction_code == 4506 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.giveup_app_confirm_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Giveup Rej Confirm Message
-  if transaction_code == 4507 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.giveup_rej_confirm_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Confirmation Message
-  if transaction_code == 2012 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.price_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mod Reject Message
-  if transaction_code == 2042 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.order_mod_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Reject Message
-  if transaction_code == 2072 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.order_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Confirmation Message
-  if transaction_code == 2073 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.order_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mod Confirmation Message
-  if transaction_code == 2074 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.order_mod_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Confirmation Message
-  if transaction_code == 2075 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.order_cancel_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Freeze To Control Message
-  if transaction_code == 2170 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.freeze_to_control_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect On Stop Notification Message
-  if transaction_code == 2212 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.on_stop_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Error Message
-  if transaction_code == 2231 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.order_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Batch Order Cancel Message
-  if transaction_code == 9002 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.batch_order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Confirmation Message
-  if transaction_code == 2124 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Twol Order Confirmation Message
-  if transaction_code == 2125 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.twol_order_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Thrl Order Confirmation Message
-  if transaction_code == 2126 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.thrl_order_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Cxl Rejected Message
-  if transaction_code == 2127 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_cxl_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Cxl Confirmation Message
-  if transaction_code == 2130 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_cxl_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Twol Order Cxl Confirmation Message
-  if transaction_code == 2131 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.twol_order_cxl_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Thrl Order Cxl Confirmation Message
-  if transaction_code == 2132 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.thrl_order_cxl_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Mod Reject Message
-  if transaction_code == 2133 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_mod_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Mod Confirmation Message
-  if transaction_code == 2136 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_mod_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Rejected Message
-  if transaction_code == 2154 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Twol Order Error Message
-  if transaction_code == 2155 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.twol_order_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Thrl Order Error Message
-  if transaction_code == 2156 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.thrl_order_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Batch Spread Cxl Out Message
-  if transaction_code == 9004 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.batch_spread_cxl_out_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_dropcopy_nnfdc_v3_0.server_message_payload.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7828,34 +7747,75 @@ nse_nsefo_dropcopy_nnfdc_v3_0.dc_signon_in_message.dissect = function(buffer, of
   end
 end
 
+-- Heartbeat Message
+nse_nsefo_dropcopy_nnfdc_v3_0.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+nse_nsefo_dropcopy_nnfdc_v3_0.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+nse_nsefo_dropcopy_nnfdc_v3_0.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_dropcopy_nnfdc_v3_0.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Gr Secure User Registration Request Message
+nse_nsefo_dropcopy_nnfdc_v3_0.gr_secure_user_registration_request_message = {}
+
+-- Display: Gr Secure User Registration Request Message
+nse_nsefo_dropcopy_nnfdc_v3_0.gr_secure_user_registration_request_message.display = function(packet, parent, length)
+  return "Gr Secure User Registration Request Message"
+end
+
+
+-- Dissect: Gr Secure User Registration Request Message
+nse_nsefo_dropcopy_nnfdc_v3_0.gr_secure_user_registration_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_dropcopy_nnfdc_v3_0.gr_secure_user_registration_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Gr Request Message
+nse_nsefo_dropcopy_nnfdc_v3_0.gr_request_message = {}
+
+-- Display: Gr Request Message
+nse_nsefo_dropcopy_nnfdc_v3_0.gr_request_message.display = function(packet, parent, length)
+  return "Gr Request Message"
+end
+
+
+-- Dissect: Gr Request Message
+nse_nsefo_dropcopy_nnfdc_v3_0.gr_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_dropcopy_nnfdc_v3_0.gr_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Client Message Payload
 nse_nsefo_dropcopy_nnfdc_v3_0.client_message_payload = {}
 
+-- Dispatch: Client Message Payload
+nse_nsefo_dropcopy_nnfdc_v3_0.client_message_payload.dispatch = {
+  [2400] = nse_nsefo_dropcopy_nnfdc_v3_0.gr_request_message.dissect,
+  [23008] = nse_nsefo_dropcopy_nnfdc_v3_0.gr_secure_user_registration_request_message.dissect,
+  [23506] = nse_nsefo_dropcopy_nnfdc_v3_0.heartbeat_message.dissect,
+  [2500] = nse_nsefo_dropcopy_nnfdc_v3_0.dc_signon_in_message.dissect,
+  [8000] = nse_nsefo_dropcopy_nnfdc_v3_0.dc_trd_subscription_request_message.dissect,
+  [9000] = nse_nsefo_dropcopy_nnfdc_v3_0.dc_ont_subscription_request_message.dissect,
+}
+
 -- Dissect: Client Message Payload
 nse_nsefo_dropcopy_nnfdc_v3_0.client_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
-  -- Dissect Gr Request Message
-  if transaction_code == 2400 then
-    return offset
-  end
-  -- Dissect Gr Secure User Registration Request Message
-  if transaction_code == 23008 then
-    return offset
-  end
-  -- Dissect Heartbeat Message
-  if transaction_code == 23506 then
-    return offset
-  end
-  -- Dissect Dc Signon In Message
-  if transaction_code == 2500 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.dc_signon_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Trd Subscription Request Message
-  if transaction_code == 8000 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.dc_trd_subscription_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Ont Subscription Request Message
-  if transaction_code == 9000 then
-    return nse_nsefo_dropcopy_nnfdc_v3_0.dc_ont_subscription_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_dropcopy_nnfdc_v3_0.client_message_payload.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

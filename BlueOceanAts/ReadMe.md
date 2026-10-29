@@ -7,24 +7,24 @@
 
 | [Protocol][Omi.BlueOceanAts.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.BlueOceanAts.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [CommonHeader][BlueOceanAts.CommonHeader] | [Udp][Omi.Encoding.Udp] | [1.1][BlueOceanAts.CommonHeader.Udp.v1.1.Dissector] | 1/1/2024 | 790 | [Header][Omi.Glossary.Deployment.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][BlueOceanAts.CommonHeader.Udp.v1.1.Url] - [pdf][BlueOceanAts.CommonHeader.Udp.v1.1.Pdf] |
+| [CommonHeader][BlueOceanAts.CommonHeader] | [Udp][Omi.Encoding.Udp] | [1.1][BlueOceanAts.CommonHeader.Udp.v1.1.Dissector] | 1/1/2024 | 790 | [Header][Omi.Glossary.Deployment.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][BlueOceanAts.CommonHeader.Udp.v1.1.Url] |
 
 
 ### Market Data
 
 | [Protocol][Omi.BlueOceanAts.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.BlueOceanAts.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [MemoirDepthFeed][BlueOceanAts.BlueEquities.MemoirDepthFeed] | [Sbe][Omi.Encoding.Sbe] | [1.3][BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 9/1/2025 | 2245 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Url] - [pdf][BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Pdf] - [xml][BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Xml] |
-| [MemoirLastSale][BlueOceanAts.BlueEquities.MemoirLastSale] | [Sbe][Omi.Encoding.Sbe] | [1.3][BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.Dissector] | 1/1/2024 | 2430 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.Url] - [pdf][BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.Pdf] - [xml][BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.Xml] |
-| [MemoirTopOfBook][BlueOceanAts.BlueEquities.MemoirTopOfBook] | [Sbe][Omi.Encoding.Sbe] | [1.3][BlueOceanAts.BlueEquities.MemoirTopOfBook.Sbe.v1.3.Dissector] | 1/1/2024 | 2045 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][BlueOceanAts.BlueEquities.MemoirTopOfBook.Sbe.v1.3.Url] - [pdf][BlueOceanAts.BlueEquities.MemoirTopOfBook.Sbe.v1.3.Pdf] - [xml][BlueOceanAts.BlueEquities.MemoirTopOfBook.Sbe.v1.3.Xml] |
+| [MemoirDepthFeed][BlueOceanAts.BlueEquities.MemoirDepthFeed] | [Sbe][Omi.Encoding.Sbe] | [1.3][BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 9/1/2025 | 2245 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Url] |
+| [MemoirLastSale][BlueOceanAts.BlueEquities.MemoirLastSale] | [Sbe][Omi.Encoding.Sbe] | [1.3][BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.Dissector] | 1/1/2024 | 2430 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.Url] |
+| [MemoirTopOfBook][BlueOceanAts.BlueEquities.MemoirTopOfBook] | [Sbe][Omi.Encoding.Sbe] | [1.3][BlueOceanAts.BlueEquities.MemoirTopOfBook.Sbe.v1.3.Dissector] | 1/1/2024 | 2045 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][BlueOceanAts.BlueEquities.MemoirTopOfBook.Sbe.v1.3.Url] |
 
 
 ### Order Entry
 
 | [Protocol][Omi.BlueOceanAts.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.BlueOceanAts.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Memo][BlueOceanAts.BlueEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 6853 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Url] - [pdf][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Pdf] - [xml][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Xml] |
-| [Memo][BlueOceanAts.BlueEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.14][BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Dissector] | 12/8/2025 | 6853 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Url] - [pdf][BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Pdf] |
+| [Memo][BlueOceanAts.BlueEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 6853 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Url] |
+| [Memo][BlueOceanAts.BlueEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.14][BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Dissector] | 12/8/2025 | 6853 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Url] |
 
 
 <p align="center"><a href="https://blueocean-tech.io/" title="Blue Ocean Technologies Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/blue-ocean-technologies-llc-an-overnight-trading-company" title="Blue Ocean Technologies on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a></p>
@@ -57,23 +57,13 @@
 
 [BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/Memo/BlueOceanAts_BlueEquities_Memo_Sbe_v1_13_Dissector.lua "BlueOceanAts Memo Sbe v1.13 Wireshark Dissector"
 [BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.13 Url"
-[BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/ "Blue Ocean Technologies 1.13 Pdf"
-[BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/ "Blue Ocean Technologies 1.13 Xml"
 [BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/Memo/BlueOceanAts_BlueEquities_Memo_Sbe_v1_14_Dissector.lua "BlueOceanAts Memo Sbe v1.14 Wireshark Dissector"
 [BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.14 Url"
-[BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/ "Blue Ocean Technologies 1.14 Pdf"
 [BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/MemoirDepthFeed/BlueOceanAts_BlueEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua "BlueOceanAts MemoirDepthFeed Sbe v1.3 Wireshark Dissector"
 [BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.3 Url"
-[BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/ "Blue Ocean Technologies 1.3 Pdf"
-[BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/ "Blue Ocean Technologies 1.3 Xml"
 [BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/MemoirLastSale/BlueOceanAts_BlueEquities_MemoirLastSale_Sbe_v1_3_Dissector.lua "BlueOceanAts MemoirLastSale Sbe v1.3 Wireshark Dissector"
 [BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.3 Url"
-[BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/ "Blue Ocean Technologies 1.3 Pdf"
-[BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/ "Blue Ocean Technologies 1.3 Xml"
 [BlueOceanAts.BlueEquities.MemoirTopOfBook.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/MemoirTopOfBook/BlueOceanAts_BlueEquities_MemoirTopOfBook_Sbe_v1_3_Dissector.lua "BlueOceanAts MemoirTopOfBook Sbe v1.3 Wireshark Dissector"
 [BlueOceanAts.BlueEquities.MemoirTopOfBook.Sbe.v1.3.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.3 Url"
-[BlueOceanAts.BlueEquities.MemoirTopOfBook.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/ "Blue Ocean Technologies 1.3 Pdf"
-[BlueOceanAts.BlueEquities.MemoirTopOfBook.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/ "Blue Ocean Technologies 1.3 Xml"
 [BlueOceanAts.CommonHeader.Udp.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/CommonHeader/BlueOceanAts_CommonHeader_Udp_v1_1_Dissector.lua "BlueOceanAts CommonHeader Udp v1.1 Wireshark Dissector"
 [BlueOceanAts.CommonHeader.Udp.v1.1.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.1 Url"
-[BlueOceanAts.CommonHeader.Udp.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/ "Blue Ocean Technologies 1.1 Pdf"

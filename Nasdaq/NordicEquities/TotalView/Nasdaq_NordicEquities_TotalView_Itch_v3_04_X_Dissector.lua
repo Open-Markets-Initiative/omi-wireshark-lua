@@ -171,9 +171,6 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 nasdaq_nordicequities_totalview_itch_v3_04_x.timestamp_format = 2
 
--- Hours behind UTC (UTC) for midnight calculation
-nasdaq_nordicequities_totalview_itch_v3_04_x.utc_offset_hours = 0
-
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -196,7 +193,6 @@ omi_nasdaq_nordicequities_totalview_itch_v3_04_x.prefs.show_indexes = Pref.bool(
 omi_nasdaq_nordicequities_totalview_itch_v3_04_x.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_nordicequities_totalview_itch_v3_04_x.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
-omi_nasdaq_nordicequities_totalview_itch_v3_04_x.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 0, "Hours behind UTC (UTC) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_nordicequities_totalview_itch_v3_04_x.prefs_changed()
@@ -220,9 +216,6 @@ function omi_nasdaq_nordicequities_totalview_itch_v3_04_x.prefs_changed()
   if nasdaq_nordicequities_totalview_itch_v3_04_x.timestamp_format ~= omi_nasdaq_nordicequities_totalview_itch_v3_04_x.prefs.timestamp_format then
     nasdaq_nordicequities_totalview_itch_v3_04_x.timestamp_format = omi_nasdaq_nordicequities_totalview_itch_v3_04_x.prefs.timestamp_format
   end
-  if nasdaq_nordicequities_totalview_itch_v3_04_x.utc_offset_hours ~= omi_nasdaq_nordicequities_totalview_itch_v3_04_x.prefs.utc_offset_hours then
-    nasdaq_nordicequities_totalview_itch_v3_04_x.utc_offset_hours = omi_nasdaq_nordicequities_totalview_itch_v3_04_x.prefs.utc_offset_hours
-  end
 end
 
 
@@ -239,18 +232,6 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
-end
-
--- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
-venue_midnight = function(packet, utc_offset_seconds)
-  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-
-  -- no capture date: a frame with no instant of its own reads as the epoch
-  if capture_time < 86400 then
-    return nil
-  end
-
-  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
 end
 
 
@@ -1810,11 +1791,17 @@ nasdaq_nordicequities_totalview_itch_v3_04_x.timestamp.display = function(value,
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  -- Full datetime mode (calculate from capture date + UTC offset)
+  -- Full datetime mode (the day the frame that carried it settled on)
   if nasdaq_nordicequities_totalview_itch_v3_04_x.timestamp_format == 2 and packet then
-    local midnight = venue_midnight(packet, -nasdaq_nordicequities_totalview_itch_v3_04_x.utc_offset_hours * 3600)
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
-    if midnight then
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
       return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%09d", nanoseconds)
     end
   end

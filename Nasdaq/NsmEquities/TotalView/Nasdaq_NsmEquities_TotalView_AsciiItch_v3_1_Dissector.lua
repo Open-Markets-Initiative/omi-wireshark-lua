@@ -137,9 +137,6 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp_format = 2
 
--- Hours behind UTC (America/New_York) for midnight calculation
-nasdaq_nsmequities_totalview_asciiitch_v3_1.utc_offset_hours = 5
-
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 nasdaq_nsmequities_totalview_asciiitch_v3_1.format_timestamp = true
 
@@ -178,7 +175,6 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.show_sequences = Pref.bool
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.timestamp_format = Pref.enum("Millisecond Format", 2, "Millisecond display format", timestamp_format_enum, false)
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (America/New_York) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs_changed()
@@ -207,9 +203,6 @@ function omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs_changed()
   end
   if nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp_format ~= omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.timestamp_format then
     nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp_format = omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.timestamp_format
-  end
-  if nasdaq_nsmequities_totalview_asciiitch_v3_1.utc_offset_hours ~= omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.utc_offset_hours then
-    nasdaq_nsmequities_totalview_asciiitch_v3_1.utc_offset_hours = omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.utc_offset_hours
   end
 end
 
@@ -344,18 +337,6 @@ ascii_to_uint64 = function(str)
   end
 
   return value
-end
-
--- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
-venue_midnight = function(packet, utc_offset_seconds)
-  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-
-  -- no capture date: a frame with no instant of its own reads as the epoch
-  if capture_time < 86400 then
-    return nil
-  end
-
-  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
 end
 
 
@@ -2131,11 +2112,17 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp.display = function(millise
     return "Timestamp: "..(stored_second * 1000000000 + millisecond)
   end
 
-  -- Full datetime mode (calculate from capture date + UTC offset)
+  -- Full datetime mode (the day the frame that carried it settled on)
   if nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp_format == 2 and packet then
-    local midnight = venue_midnight(packet, -nasdaq_nsmequities_totalview_asciiitch_v3_1.utc_offset_hours * 3600)
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
-    if midnight then
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - stored_second) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
       return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_second)..string.format("%09d", millisecond)
     end
   end
