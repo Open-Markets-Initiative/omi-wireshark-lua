@@ -8,7 +8,9 @@
 | [Protocol][Omi.A2X.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.A2X.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [Rtmdf][A2X.A2XEquities.Rtmdf] | [Amd][Omi.Encoding.Amd] | [1.3.2][A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Dissector] | 9/15/2022 | 1813 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Url] - [pdf][A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Pdf] |
+| [Rtmdf][A2X.A2XEquities.Rtmdf] | [Amd][Omi.Encoding.Amd] | [2.5][A2X.A2XEquities.Rtmdf.Amd.v2.5.Dissector] | 8/1/2026 | 1920 | [Pending][Omi.Glossary.Deployment.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][A2X.A2XEquities.Rtmdf.Amd.v2.5.Url] |
 | [Snapshot][A2X.A2XEquities.Snapshot] | [Amd][Omi.Encoding.Amd] | [1.3.2][A2X.A2XEquities.Snapshot.Amd.v1.3.2.Dissector] | 9/15/2022 | 1033 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.A2XEquities.Snapshot.Amd.v1.3.2.Url] - [pdf][A2X.A2XEquities.Snapshot.Amd.v1.3.2.Pdf] |
+| [Snapshot][A2X.A2XEquities.Snapshot] | [Amd][Omi.Encoding.Amd] | [2.5][A2X.A2XEquities.Snapshot.Amd.v2.5.Dissector] | 8/1/2026 | 1111 | [Pending][Omi.Glossary.Deployment.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][A2X.A2XEquities.Snapshot.Amd.v2.5.Url] |
 
 
 ### Order  Data
@@ -46,8 +48,12 @@
 [A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/A2X/Rtmdf/A2X_A2XEquities_Rtmdf_Amd_v1_3_2_Dissector.lua "A2X Rtmdf Amd v1.3.2 Wireshark Dissector"
 [A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Url]: https://www.a2x.co.za/?page_id=531 "A2X Markets 1.3.2 Url"
 [A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Specifications/A2X.A2XEquities.MarketDataTechnicalSpecification.Amd.v1.3.2.pdf "A2X Markets 1.3.2 Pdf"
+[A2X.A2XEquities.Rtmdf.Amd.v2.5.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/A2X/Rtmdf/A2X_A2XEquities_Rtmdf_Amd_v2_5_Dissector.lua "A2X Rtmdf Amd v2.5 Wireshark Dissector"
+[A2X.A2XEquities.Rtmdf.Amd.v2.5.Url]: https://www.a2x.co.za/?page_id=531 "A2X Markets 2.5 Url"
 [A2X.A2XEquities.Snapshot.Amd.v1.3.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/A2X/Snapshot/A2X_A2XEquities_Snapshot_Amd_v1_3_2_Dissector.lua "A2X Snapshot Amd v1.3.2 Wireshark Dissector"
 [A2X.A2XEquities.Snapshot.Amd.v1.3.2.Url]: https://www.a2x.co.za/?page_id=531 "A2X Markets 1.3.2 Url"
 [A2X.A2XEquities.Snapshot.Amd.v1.3.2.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Specifications/A2X.A2XEquities.MarketDataTechnicalSpecification.Amd.v1.3.2.pdf "A2X Markets 1.3.2 Pdf"
+[A2X.A2XEquities.Snapshot.Amd.v2.5.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/A2X/Snapshot/A2X_A2XEquities_Snapshot_Amd_v2_5_Dissector.lua "A2X Snapshot Amd v2.5 Wireshark Dissector"
+[A2X.A2XEquities.Snapshot.Amd.v2.5.Url]: https://www.a2x.co.za/?page_id=531 "A2X Markets 2.5 Url"
 [A2X.A2XEquities.UdpHeader.Amd.v1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/A2X/UdpHeader/A2X_A2XEquities_UdpHeader_Amd_v1_Dissector.lua "A2X UdpHeader Amd v1 Wireshark Dissector"
 [A2X.A2XEquities.UdpHeader.Amd.v1.Url]: https://www.a2x.co.za/?page_id=734/#a2xtech "A2X Markets 1 Url"
