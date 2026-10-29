@@ -7,18 +7,18 @@
 
 | Division | [Protocol][Omi.Asx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Asx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [2.0][Asx.AsxSecurities.Trade.Itch.v2.0.Dissector] | 4/1/2015 | 3174 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Asx.AsxSecurities.Trade.Itch.v2.0.Pdf] |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [3.1][Asx.AsxSecurities.Trade.Itch.v3.1.Dissector] | 3/1/2023 | 3117 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Asx.AsxSecurities.Trade.Itch.v3.1.Url] - [pdf][Asx.AsxSecurities.Trade.Itch.v3.1.Pdf] |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [2.0][Asx.AsxSecurities.Trade.Ouch.v2.0.Dissector] | 4/1/2015 | 3316 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Asx.AsxSecurities.Trade.Ouch.v2.0.Pdf] |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [3.6][Asx.AsxSecurities.Trade.Ouch.v3.6.Dissector] | 2/1/2023 | 3312 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Asx.AsxSecurities.Trade.Ouch.v3.6.Url] - [pdf][Asx.AsxSecurities.Trade.Ouch.v3.6.Pdf] |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [2.0][Asx.AsxSecurities.Trade.Itch.v2.0.Dissector] | 4/1/2015 | 3174 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] |  |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [3.1][Asx.AsxSecurities.Trade.Itch.v3.1.Dissector] | 3/1/2023 | 3117 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Asx.AsxSecurities.Trade.Itch.v3.1.Url] |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [2.0][Asx.AsxSecurities.Trade.Ouch.v2.0.Dissector] | 4/1/2015 | 3316 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] |  |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [3.6][Asx.AsxSecurities.Trade.Ouch.v3.6.Dissector] | 2/1/2023 | 3312 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Asx.AsxSecurities.Trade.Ouch.v3.6.Url] |
 
 
 ### Market Data
 
 | Division | [Protocol][Omi.Asx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Asx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [AsxDerivatives][AsxDerivatives.Exchange] | [Ntp][Asx.AsxDerivatives.Ntp] | [Itch][Omi.Encoding.Itch] | [1.05][Asx.AsxDerivatives.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | 5149 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Asx.AsxDerivatives.Ntp.Itch.v1.05.Url] - [pdf][Asx.AsxDerivatives.Ntp.Itch.v1.05.Pdf] |
-| [AsxDerivatives][AsxDerivatives.Exchange] | [T24][Asx.AsxDerivatives.T24] | [Itch][Omi.Encoding.Itch] | [1.13][Asx.AsxDerivatives.T24.Itch.v1.13.Dissector] | 7/15/2014 | 5490 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Asx.AsxDerivatives.T24.Itch.v1.13.Pdf] |
+| [AsxDerivatives][AsxDerivatives.Exchange] | [Ntp][Asx.AsxDerivatives.Ntp] | [Itch][Omi.Encoding.Itch] | [1.05][Asx.AsxDerivatives.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | 5159 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Asx.AsxDerivatives.Ntp.Itch.v1.05.Url] |
+| [AsxDerivatives][AsxDerivatives.Exchange] | [T24][Asx.AsxDerivatives.T24] | [Itch][Omi.Encoding.Itch] | [1.13][Asx.AsxDerivatives.T24.Itch.v1.13.Dissector] | 7/15/2014 | 5490 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] |  |
 
 
 <p align="center"><a href="https://www.asx.com.au" title="Australian Securities Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/asx" title="Australian Securities Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Australian_Securities_Exchange" title="Australian Securities Exchange on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>
@@ -50,16 +50,10 @@
 
 [Asx.AsxDerivatives.Ntp.Itch.v1.05.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua "Asx AsxDerivatives Ntp Itch v1.05 Wireshark Dissector"
 [Asx.AsxDerivatives.Ntp.Itch.v1.05.Url]: https://asxonline.com/public/landing-pages/ntp-document-library.html "Australian Securities Exchange 1.05 Url"
-[Asx.AsxDerivatives.Ntp.Itch.v1.05.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Asx/Specifications/ "Australian Securities Exchange 1.05 Pdf"
 [Asx.AsxDerivatives.T24.Itch.v1.13.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Asx/AsxDerivatives/T24/Asx_AsxDerivatives_T24_Itch_v1_13_Dissector.lua "Asx AsxDerivatives T24 Itch v1.13 Wireshark Dissector"
-[Asx.AsxDerivatives.T24.Itch.v1.13.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Asx/Specifications/ "Australian Securities Exchange 1.13 Pdf"
 [Asx.AsxSecurities.Trade.Itch.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Asx/AsxSecurities/Trade/Asx_AsxSecurities_Trade_Itch_v2_0_Dissector.lua "Asx AsxSecurities Trade Itch v2.0 Wireshark Dissector"
-[Asx.AsxSecurities.Trade.Itch.v2.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Asx/Specifications/ "Australian Securities Exchange 2.0 Pdf"
 [Asx.AsxSecurities.Trade.Itch.v3.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Asx/AsxSecurities/Trade/Asx_AsxSecurities_Trade_Itch_v3_1_Dissector.lua "Asx AsxSecurities Trade Itch v3.1 Wireshark Dissector"
 [Asx.AsxSecurities.Trade.Itch.v3.1.Url]: https://asxonline.com/public/documents/asx-trade-technical-library.html "Australian Securities Exchange 3.1 Url"
-[Asx.AsxSecurities.Trade.Itch.v3.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Asx/Specifications/ "Australian Securities Exchange 3.1 Pdf"
 [Asx.AsxSecurities.Trade.Ouch.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Asx/AsxSecurities/Trade/Asx_AsxSecurities_Trade_Ouch_v2_0_Dissector.lua "Asx AsxSecurities Trade Ouch v2.0 Wireshark Dissector"
-[Asx.AsxSecurities.Trade.Ouch.v2.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Asx/Specifications/ "Australian Securities Exchange 2.0 Pdf"
 [Asx.AsxSecurities.Trade.Ouch.v3.6.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Asx/AsxSecurities/Trade/Asx_AsxSecurities_Trade_Ouch_v3_6_Dissector.lua "Asx AsxSecurities Trade Ouch v3.6 Wireshark Dissector"
 [Asx.AsxSecurities.Trade.Ouch.v3.6.Url]: https://asxonline.com/public/documents/asx-trade-technical-library.html "Australian Securities Exchange 3.6 Url"
-[Asx.AsxSecurities.Trade.Ouch.v3.6.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Asx/Specifications/ "Australian Securities Exchange 3.6 Pdf"

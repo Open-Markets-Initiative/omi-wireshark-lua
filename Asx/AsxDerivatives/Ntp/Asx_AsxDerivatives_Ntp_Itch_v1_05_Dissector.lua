@@ -394,6 +394,11 @@ asx_asxderivatives_ntp_itch_v1_05.basis_of_quotation.size = 10
 
 -- Display: Basis Of Quotation
 asx_asxderivatives_ntp_itch_v1_05.basis_of_quotation.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Basis Of Quotation: No Value"
+  end
+
   return "Basis Of Quotation: "..value
 end
 
@@ -1046,6 +1051,11 @@ asx_asxderivatives_ntp_itch_v1_05.isin.size = 12
 
 -- Display: Isin
 asx_asxderivatives_ntp_itch_v1_05.isin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Isin: No Value"
+  end
+
   return "Isin: "..value
 end
 
@@ -2465,7 +2475,7 @@ asx_asxderivatives_ntp_itch_v1_05.trade_date.size = 2
 
 -- Display: Trade Date
 asx_asxderivatives_ntp_itch_v1_05.trade_date.display = function(value)
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date
@@ -2647,7 +2657,7 @@ asx_asxderivatives_ntp_itch_v1_05.voi_trade_date.size = 2
 
 -- Display: Voi Trade Date
 asx_asxderivatives_ntp_itch_v1_05.voi_trade_date.display = function(value)
-  return "Voi Trade Date: "..value
+  return string.format("Voi Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Voi Trade Date

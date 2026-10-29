@@ -2423,7 +2423,7 @@ asx_asxderivatives_t24_itch_v1_13.trade_date.size = 2
 
 -- Display: Trade Date
 asx_asxderivatives_t24_itch_v1_13.trade_date.display = function(value)
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date
@@ -2669,7 +2669,7 @@ asx_asxderivatives_t24_itch_v1_13.voi_trade_date.size = 2
 
 -- Display: Voi Trade Date
 asx_asxderivatives_t24_itch_v1_13.voi_trade_date.display = function(value)
-  return "Voi Trade Date: "..value
+  return string.format("Voi Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Voi Trade Date
