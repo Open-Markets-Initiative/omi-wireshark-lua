@@ -5238,10 +5238,10 @@ cme_globex_streamlined_sbe_v5_8.interpolation_factor.size =
 -- Display: Interpolation Factor
 cme_globex_streamlined_sbe_v5_8.interpolation_factor.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Interpolation Factor
@@ -5255,7 +5255,7 @@ cme_globex_streamlined_sbe_v5_8.interpolation_factor.fields = function(buffer, o
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local interpolation_factor = mantissa * 10 ^ exponent
+  local interpolation_factor = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then interpolation_factor = nil end
@@ -5292,10 +5292,10 @@ cme_globex_streamlined_sbe_v5_8.previous_fixing_rate.size =
 -- Display: Previous Fixing Rate
 cme_globex_streamlined_sbe_v5_8.previous_fixing_rate.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Previous Fixing Rate
@@ -5309,7 +5309,7 @@ cme_globex_streamlined_sbe_v5_8.previous_fixing_rate.fields = function(buffer, o
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local previous_fixing_rate = mantissa * 10 ^ exponent
+  local previous_fixing_rate = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then previous_fixing_rate = nil end
@@ -5734,10 +5734,10 @@ cme_globex_streamlined_sbe_v5_8.min_price_increment.size =
 -- Display: Min Price Increment
 cme_globex_streamlined_sbe_v5_8.min_price_increment.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Min Price Increment
@@ -5751,7 +5751,7 @@ cme_globex_streamlined_sbe_v5_8.min_price_increment.fields = function(buffer, of
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local min_price_increment = mantissa * 10 ^ exponent
+  local min_price_increment = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then min_price_increment = nil end
@@ -6187,10 +6187,10 @@ cme_globex_streamlined_sbe_v5_8.unit_of_measure_qty_decimal.size =
 -- Display: Unit Of Measure Qty Decimal
 cme_globex_streamlined_sbe_v5_8.unit_of_measure_qty_decimal.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Unit Of Measure Qty Decimal
@@ -6204,7 +6204,7 @@ cme_globex_streamlined_sbe_v5_8.unit_of_measure_qty_decimal.fields = function(bu
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local unit_of_measure_qty_decimal = mantissa * 10 ^ exponent
+  local unit_of_measure_qty_decimal = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then unit_of_measure_qty_decimal = nil end
@@ -6241,10 +6241,10 @@ cme_globex_streamlined_sbe_v5_8.strike_price_decimal.size =
 -- Display: Strike Price Decimal
 cme_globex_streamlined_sbe_v5_8.strike_price_decimal.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Strike Price Decimal
@@ -6258,7 +6258,7 @@ cme_globex_streamlined_sbe_v5_8.strike_price_decimal.fields = function(buffer, o
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local strike_price_decimal = mantissa * 10 ^ exponent
+  local strike_price_decimal = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then strike_price_decimal = nil end
@@ -6347,10 +6347,10 @@ cme_globex_streamlined_sbe_v5_8.md_entry_size.size =
 -- Display: Md Entry Size
 cme_globex_streamlined_sbe_v5_8.md_entry_size.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Md Entry Size
@@ -6364,7 +6364,7 @@ cme_globex_streamlined_sbe_v5_8.md_entry_size.fields = function(buffer, offset, 
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local md_entry_size = mantissa * 10 ^ exponent
+  local md_entry_size = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then md_entry_size = nil end
@@ -6829,10 +6829,10 @@ cme_globex_streamlined_sbe_v5_8.cal_fut_px.size =
 -- Display: Cal Fut Px
 cme_globex_streamlined_sbe_v5_8.cal_fut_px.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Cal Fut Px
@@ -6846,7 +6846,7 @@ cme_globex_streamlined_sbe_v5_8.cal_fut_px.fields = function(buffer, offset, pac
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local cal_fut_px = mantissa * 10 ^ exponent
+  local cal_fut_px = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then cal_fut_px = nil end
@@ -6883,10 +6883,10 @@ cme_globex_streamlined_sbe_v5_8.md_entry_px_decimal.size =
 -- Display: Md Entry Px Decimal
 cme_globex_streamlined_sbe_v5_8.md_entry_px_decimal.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Md Entry Px Decimal
@@ -6900,7 +6900,7 @@ cme_globex_streamlined_sbe_v5_8.md_entry_px_decimal.fields = function(buffer, of
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local md_entry_px_decimal = mantissa * 10 ^ exponent
+  local md_entry_px_decimal = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then md_entry_px_decimal = nil end
@@ -8222,10 +8222,10 @@ cme_globex_streamlined_sbe_v5_8.percent_trading.size =
 -- Display: Percent Trading
 cme_globex_streamlined_sbe_v5_8.percent_trading.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Percent Trading
@@ -8239,7 +8239,7 @@ cme_globex_streamlined_sbe_v5_8.percent_trading.fields = function(buffer, offset
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local percent_trading = mantissa * 10 ^ exponent
+  local percent_trading = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then percent_trading = nil end
@@ -8276,10 +8276,10 @@ cme_globex_streamlined_sbe_v5_8.net_pct_chg.size =
 -- Display: Net Pct Chg
 cme_globex_streamlined_sbe_v5_8.net_pct_chg.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Net Pct Chg
@@ -8293,7 +8293,7 @@ cme_globex_streamlined_sbe_v5_8.net_pct_chg.fields = function(buffer, offset, pa
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local net_pct_chg = mantissa * 10 ^ exponent
+  local net_pct_chg = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then net_pct_chg = nil end
@@ -8330,10 +8330,10 @@ cme_globex_streamlined_sbe_v5_8.net_chg_prev_day.size =
 -- Display: Net Chg Prev Day
 cme_globex_streamlined_sbe_v5_8.net_chg_prev_day.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Net Chg Prev Day
@@ -8347,7 +8347,7 @@ cme_globex_streamlined_sbe_v5_8.net_chg_prev_day.fields = function(buffer, offse
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local net_chg_prev_day = mantissa * 10 ^ exponent
+  local net_chg_prev_day = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then net_chg_prev_day = nil end
@@ -8384,10 +8384,10 @@ cme_globex_streamlined_sbe_v5_8.yield.size =
 -- Display: Yield
 cme_globex_streamlined_sbe_v5_8.yield.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Yield
@@ -8401,7 +8401,7 @@ cme_globex_streamlined_sbe_v5_8.yield.fields = function(buffer, offset, packet, 
   index, exponent = cme_globex_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local yield = mantissa * 10 ^ exponent
+  local yield = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then yield = nil end
@@ -9818,10 +9818,10 @@ cme_globex_streamlined_sbe_v5_8.final_settlement_futures_price.size =
 -- Display: Final Settlement Futures Price
 cme_globex_streamlined_sbe_v5_8.final_settlement_futures_price.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Final Settlement Futures Price
@@ -9835,7 +9835,7 @@ cme_globex_streamlined_sbe_v5_8.final_settlement_futures_price.fields = function
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local final_settlement_futures_price = mantissa * 10 ^ exponent_optional
+  local final_settlement_futures_price = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then final_settlement_futures_price = nil end
@@ -9872,10 +9872,10 @@ cme_globex_streamlined_sbe_v5_8.settlement_npv.size =
 -- Display: Settlement Npv
 cme_globex_streamlined_sbe_v5_8.settlement_npv.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Settlement Npv
@@ -9889,7 +9889,7 @@ cme_globex_streamlined_sbe_v5_8.settlement_npv.fields = function(buffer, offset,
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local settlement_npv = mantissa * 10 ^ exponent_optional
+  local settlement_npv = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then settlement_npv = nil end
@@ -9926,10 +9926,10 @@ cme_globex_streamlined_sbe_v5_8.d_v_01.size =
 -- Display: D V 01
 cme_globex_streamlined_sbe_v5_8.d_v_01.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: D V 01
@@ -9943,7 +9943,7 @@ cme_globex_streamlined_sbe_v5_8.d_v_01.fields = function(buffer, offset, packet,
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local d_v_01 = mantissa * 10 ^ exponent_optional
+  local d_v_01 = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then d_v_01 = nil end
@@ -9980,10 +9980,10 @@ cme_globex_streamlined_sbe_v5_8.p_v_01.size =
 -- Display: P V 01
 cme_globex_streamlined_sbe_v5_8.p_v_01.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: P V 01
@@ -9997,7 +9997,7 @@ cme_globex_streamlined_sbe_v5_8.p_v_01.fields = function(buffer, offset, packet,
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local p_v_01 = mantissa * 10 ^ exponent_optional
+  local p_v_01 = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then p_v_01 = nil end
@@ -10034,10 +10034,10 @@ cme_globex_streamlined_sbe_v5_8.leg_contract_multiplier.size =
 -- Display: Leg Contract Multiplier
 cme_globex_streamlined_sbe_v5_8.leg_contract_multiplier.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Leg Contract Multiplier
@@ -10051,7 +10051,7 @@ cme_globex_streamlined_sbe_v5_8.leg_contract_multiplier.fields = function(buffer
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local leg_contract_multiplier = mantissa * 10 ^ exponent_optional
+  local leg_contract_multiplier = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then leg_contract_multiplier = nil end
@@ -10088,10 +10088,10 @@ cme_globex_streamlined_sbe_v5_8.previous_eris_pai.size =
 -- Display: Previous Eris Pai
 cme_globex_streamlined_sbe_v5_8.previous_eris_pai.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Previous Eris Pai
@@ -10105,7 +10105,7 @@ cme_globex_streamlined_sbe_v5_8.previous_eris_pai.fields = function(buffer, offs
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local previous_eris_pai = mantissa * 10 ^ exponent_optional
+  local previous_eris_pai = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then previous_eris_pai = nil end
@@ -10142,10 +10142,10 @@ cme_globex_streamlined_sbe_v5_8.next_floating_payment_amount.size =
 -- Display: Next Floating Payment Amount
 cme_globex_streamlined_sbe_v5_8.next_floating_payment_amount.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Next Floating Payment Amount
@@ -10159,7 +10159,7 @@ cme_globex_streamlined_sbe_v5_8.next_floating_payment_amount.fields = function(b
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local next_floating_payment_amount = mantissa * 10 ^ exponent_optional
+  local next_floating_payment_amount = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then next_floating_payment_amount = nil end
@@ -10196,10 +10196,10 @@ cme_globex_streamlined_sbe_v5_8.next_fixed_payment_amount.size =
 -- Display: Next Fixed Payment Amount
 cme_globex_streamlined_sbe_v5_8.next_fixed_payment_amount.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Next Fixed Payment Amount
@@ -10213,7 +10213,7 @@ cme_globex_streamlined_sbe_v5_8.next_fixed_payment_amount.fields = function(buff
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local next_fixed_payment_amount = mantissa * 10 ^ exponent_optional
+  local next_fixed_payment_amount = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then next_fixed_payment_amount = nil end
@@ -10250,10 +10250,10 @@ cme_globex_streamlined_sbe_v5_8.floating_payment.size =
 -- Display: Floating Payment
 cme_globex_streamlined_sbe_v5_8.floating_payment.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Floating Payment
@@ -10267,7 +10267,7 @@ cme_globex_streamlined_sbe_v5_8.floating_payment.fields = function(buffer, offse
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local floating_payment = mantissa * 10 ^ exponent_optional
+  local floating_payment = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then floating_payment = nil end
@@ -10304,10 +10304,10 @@ cme_globex_streamlined_sbe_v5_8.fixed_payment.size =
 -- Display: Fixed Payment
 cme_globex_streamlined_sbe_v5_8.fixed_payment.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Fixed Payment
@@ -10321,7 +10321,7 @@ cme_globex_streamlined_sbe_v5_8.fixed_payment.fields = function(buffer, offset, 
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fixed_payment = mantissa * 10 ^ exponent_optional
+  local fixed_payment = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fixed_payment = nil end
@@ -10358,10 +10358,10 @@ cme_globex_streamlined_sbe_v5_8.min_price_increment_optional.size =
 -- Display: Min Price Increment Optional
 cme_globex_streamlined_sbe_v5_8.min_price_increment_optional.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Min Price Increment Optional
@@ -10375,7 +10375,7 @@ cme_globex_streamlined_sbe_v5_8.min_price_increment_optional.fields = function(b
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local min_price_increment_optional = mantissa * 10 ^ exponent_optional
+  local min_price_increment_optional = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then min_price_increment_optional = nil end
@@ -10412,10 +10412,10 @@ cme_globex_streamlined_sbe_v5_8.fed_funds_rate.size =
 -- Display: Fed Funds Rate
 cme_globex_streamlined_sbe_v5_8.fed_funds_rate.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Fed Funds Rate
@@ -10429,7 +10429,7 @@ cme_globex_streamlined_sbe_v5_8.fed_funds_rate.fields = function(buffer, offset,
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fed_funds_rate = mantissa * 10 ^ exponent_optional
+  local fed_funds_rate = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fed_funds_rate = nil end
@@ -10466,10 +10466,10 @@ cme_globex_streamlined_sbe_v5_8.eris_pai.size =
 -- Display: Eris Pai
 cme_globex_streamlined_sbe_v5_8.eris_pai.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Eris Pai
@@ -10483,7 +10483,7 @@ cme_globex_streamlined_sbe_v5_8.eris_pai.fields = function(buffer, offset, packe
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local eris_pai = mantissa * 10 ^ exponent_optional
+  local eris_pai = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then eris_pai = nil end
@@ -10520,10 +10520,10 @@ cme_globex_streamlined_sbe_v5_8.daily_incremental_eris_pai.size =
 -- Display: Daily Incremental Eris Pai
 cme_globex_streamlined_sbe_v5_8.daily_incremental_eris_pai.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Daily Incremental Eris Pai
@@ -10537,7 +10537,7 @@ cme_globex_streamlined_sbe_v5_8.daily_incremental_eris_pai.fields = function(buf
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local daily_incremental_eris_pai = mantissa * 10 ^ exponent_optional
+  local daily_incremental_eris_pai = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then daily_incremental_eris_pai = nil end
@@ -10574,10 +10574,10 @@ cme_globex_streamlined_sbe_v5_8.accrued_coupons.size =
 -- Display: Accrued Coupons
 cme_globex_streamlined_sbe_v5_8.accrued_coupons.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Accrued Coupons
@@ -10591,7 +10591,7 @@ cme_globex_streamlined_sbe_v5_8.accrued_coupons.fields = function(buffer, offset
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local accrued_coupons = mantissa * 10 ^ exponent_optional
+  local accrued_coupons = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then accrued_coupons = nil end
@@ -10628,10 +10628,10 @@ cme_globex_streamlined_sbe_v5_8.npv.size =
 -- Display: Npv
 cme_globex_streamlined_sbe_v5_8.npv.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Npv
@@ -10645,7 +10645,7 @@ cme_globex_streamlined_sbe_v5_8.npv.fields = function(buffer, offset, packet, pa
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local npv = mantissa * 10 ^ exponent_optional
+  local npv = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then npv = nil end
@@ -10682,10 +10682,10 @@ cme_globex_streamlined_sbe_v5_8.float_npv.size =
 -- Display: Float Npv
 cme_globex_streamlined_sbe_v5_8.float_npv.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Float Npv
@@ -10699,7 +10699,7 @@ cme_globex_streamlined_sbe_v5_8.float_npv.fields = function(buffer, offset, pack
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local float_npv = mantissa * 10 ^ exponent_optional
+  local float_npv = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then float_npv = nil end
@@ -10736,10 +10736,10 @@ cme_globex_streamlined_sbe_v5_8.fixed_npv.size =
 -- Display: Fixed Npv
 cme_globex_streamlined_sbe_v5_8.fixed_npv.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Fixed Npv
@@ -10753,7 +10753,7 @@ cme_globex_streamlined_sbe_v5_8.fixed_npv.fields = function(buffer, offset, pack
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fixed_npv = mantissa * 10 ^ exponent_optional
+  local fixed_npv = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fixed_npv = nil end
@@ -10790,10 +10790,10 @@ cme_globex_streamlined_sbe_v5_8.leg_purchase_rate.size =
 -- Display: Leg Purchase Rate
 cme_globex_streamlined_sbe_v5_8.leg_purchase_rate.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Leg Purchase Rate
@@ -10807,7 +10807,7 @@ cme_globex_streamlined_sbe_v5_8.leg_purchase_rate.fields = function(buffer, offs
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local leg_purchase_rate = mantissa * 10 ^ exponent_optional
+  local leg_purchase_rate = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then leg_purchase_rate = nil end
@@ -10844,10 +10844,10 @@ cme_globex_streamlined_sbe_v5_8.fair_coupon_pct.size =
 -- Display: Fair Coupon Pct
 cme_globex_streamlined_sbe_v5_8.fair_coupon_pct.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Fair Coupon Pct
@@ -10861,7 +10861,7 @@ cme_globex_streamlined_sbe_v5_8.fair_coupon_pct.fields = function(buffer, offset
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fair_coupon_pct = mantissa * 10 ^ exponent_optional
+  local fair_coupon_pct = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fair_coupon_pct = nil end
@@ -10898,10 +10898,10 @@ cme_globex_streamlined_sbe_v5_8.coupon_rate_optional.size =
 -- Display: Coupon Rate Optional
 cme_globex_streamlined_sbe_v5_8.coupon_rate_optional.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Coupon Rate Optional
@@ -10952,10 +10952,10 @@ cme_globex_streamlined_sbe_v5_8.cal_fut_px_optional.size =
 -- Display: Cal Fut Px Optional
 cme_globex_streamlined_sbe_v5_8.cal_fut_px_optional.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Cal Fut Px Optional
@@ -10969,7 +10969,7 @@ cme_globex_streamlined_sbe_v5_8.cal_fut_px_optional.fields = function(buffer, of
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local cal_fut_px_optional = mantissa * 10 ^ exponent_optional
+  local cal_fut_px_optional = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then cal_fut_px_optional = nil end
@@ -11095,10 +11095,10 @@ cme_globex_streamlined_sbe_v5_8.md_entry_px_decimal_optional.size =
 -- Display: Md Entry Px Decimal Optional
 cme_globex_streamlined_sbe_v5_8.md_entry_px_decimal_optional.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Md Entry Px Decimal Optional
@@ -11112,7 +11112,7 @@ cme_globex_streamlined_sbe_v5_8.md_entry_px_decimal_optional.fields = function(b
   index, exponent_optional = cme_globex_streamlined_sbe_v5_8.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local md_entry_px_decimal_optional = mantissa * 10 ^ exponent_optional
+  local md_entry_px_decimal_optional = mantissa:tonumber() * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then md_entry_px_decimal_optional = nil end

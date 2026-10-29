@@ -962,10 +962,10 @@ cme_brokertec_ustreasury_sbe_v10_1.coupon_rate.size =
 -- Display: Coupon Rate
 cme_brokertec_ustreasury_sbe_v10_1.coupon_rate.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Coupon Rate
@@ -1016,10 +1016,10 @@ cme_brokertec_ustreasury_sbe_v10_1.md_entry_px.size =
 -- Display: Md Entry Px
 cme_brokertec_ustreasury_sbe_v10_1.md_entry_px.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Md Entry Px
@@ -1033,7 +1033,7 @@ cme_brokertec_ustreasury_sbe_v10_1.md_entry_px.fields = function(buffer, offset,
   index, exponent = cme_brokertec_ustreasury_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local md_entry_px = mantissa * 10 ^ exponent
+  local md_entry_px = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0x00000000, 0x80000000) then md_entry_px = nil end

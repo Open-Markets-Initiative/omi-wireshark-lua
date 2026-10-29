@@ -1430,10 +1430,10 @@ cme_globex_settlements_sbe_v7_0.high_px.size =
 -- Display: High Px
 cme_globex_settlements_sbe_v7_0.high_px.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: High Px
@@ -1447,7 +1447,7 @@ cme_globex_settlements_sbe_v7_0.high_px.fields = function(buffer, offset, packet
   index, exponent = cme_globex_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local high_px = mantissa * 10 ^ exponent
+  local high_px = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0x00000000, 0x80000000) then high_px = nil end
@@ -1484,10 +1484,10 @@ cme_globex_settlements_sbe_v7_0.low_px.size =
 -- Display: Low Px
 cme_globex_settlements_sbe_v7_0.low_px.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Low Px
@@ -1501,7 +1501,7 @@ cme_globex_settlements_sbe_v7_0.low_px.fields = function(buffer, offset, packet,
   index, exponent = cme_globex_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local low_px = mantissa * 10 ^ exponent
+  local low_px = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0x00000000, 0x80000000) then low_px = nil end
@@ -1590,10 +1590,10 @@ cme_globex_settlements_sbe_v7_0.strike_price.size =
 -- Display: Strike Price
 cme_globex_settlements_sbe_v7_0.strike_price.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Strike Price
@@ -1607,7 +1607,7 @@ cme_globex_settlements_sbe_v7_0.strike_price.fields = function(buffer, offset, p
   index, exponent = cme_globex_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local strike_price = mantissa * 10 ^ exponent
+  local strike_price = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0x00000000, 0x80000000) then strike_price = nil end
@@ -2283,10 +2283,10 @@ cme_globex_settlements_sbe_v7_0.formatted_last_px.size =
 -- Display: Formatted Last Px
 cme_globex_settlements_sbe_v7_0.formatted_last_px.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Formatted Last Px
@@ -2300,7 +2300,7 @@ cme_globex_settlements_sbe_v7_0.formatted_last_px.fields = function(buffer, offs
   index, exponent = cme_globex_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local formatted_last_px = mantissa * 10 ^ exponent
+  local formatted_last_px = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0x00000000, 0x80000000) then formatted_last_px = nil end

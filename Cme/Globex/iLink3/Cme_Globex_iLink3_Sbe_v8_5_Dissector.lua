@@ -8134,10 +8134,10 @@ cme_globex_ilink3_sbe_v8_5.leg_option_delta.size =
 -- Display: Leg Option Delta
 cme_globex_ilink3_sbe_v8_5.leg_option_delta.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Leg Option Delta
@@ -11463,10 +11463,10 @@ cme_globex_ilink3_sbe_v8_5.risk_free_rate.size =
 -- Display: Risk Free Rate
 cme_globex_ilink3_sbe_v8_5.risk_free_rate.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Risk Free Rate
@@ -11517,10 +11517,10 @@ cme_globex_ilink3_sbe_v8_5.time_to_expiration.size =
 -- Display: Time To Expiration
 cme_globex_ilink3_sbe_v8_5.time_to_expiration.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Time To Expiration
@@ -11571,10 +11571,10 @@ cme_globex_ilink3_sbe_v8_5.option_delta.size =
 -- Display: Option Delta
 cme_globex_ilink3_sbe_v8_5.option_delta.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Option Delta
@@ -11625,10 +11625,10 @@ cme_globex_ilink3_sbe_v8_5.volatility.size =
 -- Display: Volatility
 cme_globex_ilink3_sbe_v8_5.volatility.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Volatility
@@ -11642,7 +11642,7 @@ cme_globex_ilink3_sbe_v8_5.volatility.fields = function(buffer, offset, packet, 
   index, exponent = cme_globex_ilink3_sbe_v8_5.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local volatility = mantissa * 10 ^ exponent
+  local volatility = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then volatility = nil end

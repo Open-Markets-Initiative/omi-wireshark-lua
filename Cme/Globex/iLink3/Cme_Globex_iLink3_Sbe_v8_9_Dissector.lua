@@ -9510,10 +9510,10 @@ cme_globex_ilink3_sbe_v8_9.leg_option_delta.size =
 -- Display: Leg Option Delta
 cme_globex_ilink3_sbe_v8_9.leg_option_delta.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Leg Option Delta
@@ -9930,10 +9930,10 @@ cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.size =
 -- Display: Contra Calculated Ccy Last Qty
 cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Contra Calculated Ccy Last Qty
@@ -9947,7 +9947,7 @@ cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.fields = function(buff
   index, exponent = cme_globex_ilink3_sbe_v8_9.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local contra_calculated_ccy_last_qty = mantissa * 10 ^ exponent
+  local contra_calculated_ccy_last_qty = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then contra_calculated_ccy_last_qty = nil end
@@ -9984,10 +9984,10 @@ cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.size =
 -- Display: Contra Gross Trade Amt
 cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Contra Gross Trade Amt
@@ -10001,7 +10001,7 @@ cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.fields = function(buffer, offs
   index, exponent = cme_globex_ilink3_sbe_v8_9.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local contra_gross_trade_amt = mantissa * 10 ^ exponent
+  local contra_gross_trade_amt = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then contra_gross_trade_amt = nil end
@@ -10288,10 +10288,10 @@ cme_globex_ilink3_sbe_v8_9.gross_trade_amt.size =
 -- Display: Gross Trade Amt
 cme_globex_ilink3_sbe_v8_9.gross_trade_amt.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Gross Trade Amt
@@ -10305,7 +10305,7 @@ cme_globex_ilink3_sbe_v8_9.gross_trade_amt.fields = function(buffer, offset, pac
   index, exponent = cme_globex_ilink3_sbe_v8_9.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local gross_trade_amt = mantissa * 10 ^ exponent
+  local gross_trade_amt = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then gross_trade_amt = nil end
@@ -10342,10 +10342,10 @@ cme_globex_ilink3_sbe_v8_9.calculated_ccy_last_qty.size =
 -- Display: Calculated Ccy Last Qty
 cme_globex_ilink3_sbe_v8_9.calculated_ccy_last_qty.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Calculated Ccy Last Qty
@@ -10359,7 +10359,7 @@ cme_globex_ilink3_sbe_v8_9.calculated_ccy_last_qty.fields = function(buffer, off
   index, exponent = cme_globex_ilink3_sbe_v8_9.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local calculated_ccy_last_qty = mantissa * 10 ^ exponent
+  local calculated_ccy_last_qty = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then calculated_ccy_last_qty = nil end
@@ -13222,10 +13222,10 @@ cme_globex_ilink3_sbe_v8_9.risk_free_rate.size =
 -- Display: Risk Free Rate
 cme_globex_ilink3_sbe_v8_9.risk_free_rate.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Risk Free Rate
@@ -13276,10 +13276,10 @@ cme_globex_ilink3_sbe_v8_9.time_to_expiration.size =
 -- Display: Time To Expiration
 cme_globex_ilink3_sbe_v8_9.time_to_expiration.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Time To Expiration
@@ -13330,10 +13330,10 @@ cme_globex_ilink3_sbe_v8_9.option_delta.size =
 -- Display: Option Delta
 cme_globex_ilink3_sbe_v8_9.option_delta.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Option Delta
@@ -13384,10 +13384,10 @@ cme_globex_ilink3_sbe_v8_9.volatility.size =
 -- Display: Volatility
 cme_globex_ilink3_sbe_v8_9.volatility.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Volatility
@@ -13401,7 +13401,7 @@ cme_globex_ilink3_sbe_v8_9.volatility.fields = function(buffer, offset, packet, 
   index, exponent = cme_globex_ilink3_sbe_v8_9.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local volatility = mantissa * 10 ^ exponent
+  local volatility = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then volatility = nil end

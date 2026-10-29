@@ -6766,10 +6766,10 @@ cme_ebs_ilink3_sbe_v8_2.leg_option_delta.size =
 -- Display: Leg Option Delta
 cme_ebs_ilink3_sbe_v8_2.leg_option_delta.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Leg Option Delta
@@ -10205,10 +10205,10 @@ cme_ebs_ilink3_sbe_v8_2.risk_free_rate.size =
 -- Display: Risk Free Rate
 cme_ebs_ilink3_sbe_v8_2.risk_free_rate.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Risk Free Rate
@@ -10259,10 +10259,10 @@ cme_ebs_ilink3_sbe_v8_2.time_to_expiration.size =
 -- Display: Time To Expiration
 cme_ebs_ilink3_sbe_v8_2.time_to_expiration.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Time To Expiration
@@ -10313,10 +10313,10 @@ cme_ebs_ilink3_sbe_v8_2.option_delta.size =
 -- Display: Option Delta
 cme_ebs_ilink3_sbe_v8_2.option_delta.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Option Delta
@@ -10367,10 +10367,10 @@ cme_ebs_ilink3_sbe_v8_2.volatility.size =
 -- Display: Volatility
 cme_ebs_ilink3_sbe_v8_2.volatility.display = function(packet, parent, value, length)
   if value == nil then
-    return ": No Value"
+    return "No Value"
   end
 
-  return ": " .. tostring(value)
+  return tostring(value)
 end
 
 -- Dissect Fields: Volatility
@@ -10384,7 +10384,7 @@ cme_ebs_ilink3_sbe_v8_2.volatility.fields = function(buffer, offset, packet, par
   index, exponent = cme_ebs_ilink3_sbe_v8_2.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local volatility = mantissa * 10 ^ exponent
+  local volatility = mantissa:tonumber() * 10 ^ exponent
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then volatility = nil end
