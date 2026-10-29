@@ -114,9 +114,6 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 cnsx_cse2_multicast_mmd_v1_6.timestamp_format = 2
 
--- Hours behind UTC (America/Toronto) for midnight calculation
-cnsx_cse2_multicast_mmd_v1_6.utc_offset_hours = 5
-
 -- absolute time base
 local absolute_time_base_enum = {
   { 1, "Local", 0 },
@@ -152,7 +149,6 @@ omi_cnsx_cse2_multicast_mmd_v1_6.prefs.show_sequences = Pref.bool("Show Sequence
 omi_cnsx_cse2_multicast_mmd_v1_6.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_cnsx_cse2_multicast_mmd_v1_6.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
-omi_cnsx_cse2_multicast_mmd_v1_6.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (America/Toronto) for midnight calculation")
 omi_cnsx_cse2_multicast_mmd_v1_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
 -- Handle changed preferences
@@ -179,9 +175,6 @@ function omi_cnsx_cse2_multicast_mmd_v1_6.prefs_changed()
   end
   if cnsx_cse2_multicast_mmd_v1_6.timestamp_format ~= omi_cnsx_cse2_multicast_mmd_v1_6.prefs.timestamp_format then
     cnsx_cse2_multicast_mmd_v1_6.timestamp_format = omi_cnsx_cse2_multicast_mmd_v1_6.prefs.timestamp_format
-  end
-  if cnsx_cse2_multicast_mmd_v1_6.utc_offset_hours ~= omi_cnsx_cse2_multicast_mmd_v1_6.prefs.utc_offset_hours then
-    cnsx_cse2_multicast_mmd_v1_6.utc_offset_hours = omi_cnsx_cse2_multicast_mmd_v1_6.prefs.utc_offset_hours
   end
   if cnsx_cse2_multicast_mmd_v1_6.absolute_time_base ~= omi_cnsx_cse2_multicast_mmd_v1_6.prefs.absolute_time_base then
     cnsx_cse2_multicast_mmd_v1_6.absolute_time_base = omi_cnsx_cse2_multicast_mmd_v1_6.prefs.absolute_time_base
@@ -232,18 +225,6 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
-end
-
--- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
-venue_midnight = function(packet, utc_offset_seconds)
-  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-
-  -- no capture date: a frame with no instant of its own reads as the epoch
-  if capture_time < 86400 then
-    return nil
-  end
-
-  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
 end
 
 
@@ -1704,11 +1685,17 @@ cnsx_cse2_multicast_mmd_v1_6.timestamp.display = function(time_offset, stored_se
     return "Timestamp: "..(stored_second * 1000000000 + time_offset)
   end
 
-  -- Full datetime mode (calculate from capture date + UTC offset)
+  -- Full datetime mode (the day the frame that carried it settled on)
   if cnsx_cse2_multicast_mmd_v1_6.timestamp_format == 2 and packet then
-    local midnight = venue_midnight(packet, -cnsx_cse2_multicast_mmd_v1_6.utc_offset_hours * 3600)
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
-    if midnight then
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - stored_second) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
       return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_second)..string.format("%09d", time_offset)
     end
   end
