@@ -85,9 +85,6 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 odx_odxequities_pts_itch_v2_2.timestamp_format = 2
 
--- Hours ahead of UTC (Asia/Tokyo) for midnight calculation
-odx_odxequities_pts_itch_v2_2.utc_offset_hours = 9
-
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 odx_odxequities_pts_itch_v2_2.format_timestamp = true
 
@@ -114,7 +111,6 @@ omi_odx_odxequities_pts_itch_v2_2.prefs.show_sequences = Pref.bool("Show Sequenc
 omi_odx_odxequities_pts_itch_v2_2.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_odx_odxequities_pts_itch_v2_2.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
-omi_odx_odxequities_pts_itch_v2_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (Asia/Tokyo) for midnight calculation")
 
 -- Handle changed preferences
 function omi_odx_odxequities_pts_itch_v2_2.prefs_changed()
@@ -140,9 +136,6 @@ function omi_odx_odxequities_pts_itch_v2_2.prefs_changed()
   end
   if odx_odxequities_pts_itch_v2_2.timestamp_format ~= omi_odx_odxequities_pts_itch_v2_2.prefs.timestamp_format then
     odx_odxequities_pts_itch_v2_2.timestamp_format = omi_odx_odxequities_pts_itch_v2_2.prefs.timestamp_format
-  end
-  if odx_odxequities_pts_itch_v2_2.utc_offset_hours ~= omi_odx_odxequities_pts_itch_v2_2.prefs.utc_offset_hours then
-    odx_odxequities_pts_itch_v2_2.utc_offset_hours = omi_odx_odxequities_pts_itch_v2_2.prefs.utc_offset_hours
   end
 end
 
@@ -190,18 +183,6 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
-end
-
--- the midnight a frame's time of day is counted from, as a utc instant; none for a frame stating no instant
-venue_midnight = function(packet, utc_offset_seconds)
-  local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-
-  -- no capture date: a frame with no instant of its own reads as the epoch
-  if capture_time < 86400 then
-    return nil
-  end
-
-  return math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
 end
 
 
@@ -961,11 +942,17 @@ odx_odxequities_pts_itch_v2_2.timestamp.display = function(nanoseconds, stored_s
     return "Timestamp: "..(stored_seconds * 1000000000 + nanoseconds)
   end
 
-  -- Full datetime mode (calculate from capture date + UTC offset)
+  -- Full datetime mode (the day the frame that carried it settled on)
   if odx_odxequities_pts_itch_v2_2.timestamp_format == 2 and packet then
-    local midnight = venue_midnight(packet, odx_odxequities_pts_itch_v2_2.utc_offset_hours * 3600)
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
-    if midnight then
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - stored_seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
       return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_seconds)..string.format("%09d", nanoseconds)
     end
   end
