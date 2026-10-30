@@ -39,7 +39,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1778 | 11,935,038 |
+| 1778 | 11,954,189 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -170,7 +170,7 @@ Enjoy.
 [Omi.Encoding.NxtAscii]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NxtAscii.md "NxtAscii Encoding"
 [Omi.Encoding.NxtBinary]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NxtBinary.md "NxtBinary Encoding"
 [Omi.Encoding.NnfDirect]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NnfDirect.md "NnfDirect Encoding"
-[Omi.Encoding.Mtbt]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Mtbt.md "Mtbt Encoding"
+[Omi.Encoding.Tbt]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Tbt.md "Tbt Encoding"
 [Omi.Encoding.Nnf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Nnf.md "Nnf Encoding"
 [Omi.Encoding.NnfBcast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NnfBcast.md "NnfBcast Encoding"
 [Omi.Encoding.NnfDc]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NnfDc.md "NnfDc Encoding"

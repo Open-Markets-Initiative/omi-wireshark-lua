@@ -681,6 +681,9 @@ nyse_nyseconsolidated_dailytaqbolo_csv_v4_3.bolo_indicator.dissect = function(bu
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqbolo_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Bolo Indicator: No Value")
+    end
     return index
   end
   if parent ~= nil then

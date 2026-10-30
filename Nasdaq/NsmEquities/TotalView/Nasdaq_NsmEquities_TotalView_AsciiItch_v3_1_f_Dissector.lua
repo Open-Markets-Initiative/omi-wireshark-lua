@@ -3629,7 +3629,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.debug_packet.size = function(buffe
   local index = 0
 
   -- Remaining size of: Text
-  index = index + (buffer:len() - (offset + index))
+  index = index + ((buffer:len() - (offset + index)) - 1)
 
   return index
 end
@@ -3856,7 +3856,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.unsequenced_data_packet.size = fun
   local index = 0
 
   -- Remaining size of: Unsequenced Message
-  index = index + (buffer:len() - (offset + index))
+  index = index + ((buffer:len() - (offset + index)) - 1)
 
   return index
 end

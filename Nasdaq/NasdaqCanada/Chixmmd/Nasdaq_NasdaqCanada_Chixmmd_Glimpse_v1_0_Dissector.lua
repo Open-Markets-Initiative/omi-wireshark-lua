@@ -1536,7 +1536,7 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.debug_packet.size = function(buffer, of
   local index = 0
 
   -- Remaining size of: Text
-  index = index + (buffer:len() - (offset + index))
+  index = index + ((buffer:len() - (offset + index)) - 1)
 
   return index
 end
@@ -1755,7 +1755,7 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.unsequenced_data_packet.size = function
   local index = 0
 
   -- Remaining size of: Unsequenced Message
-  index = index + (buffer:len() - (offset + index))
+  index = index + ((buffer:len() - (offset + index)) - 1)
 
   return index
 end

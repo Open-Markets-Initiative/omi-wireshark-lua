@@ -30,8 +30,8 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control_message = ProtoField.new("Co
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control_message_type = ProtoField.new("Control Message Type", "finra.finraotc.bbds.dfi.v2018.1a.controlmessagetype", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.currency = ProtoField.new("Currency", "finra.finraotc.bbds.dfi.v2018.1a.currency", ftypes.STRING, nil, nil, nil, "This field indicates the currency in which the trade transaction was reported")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.datetime = ProtoField.new("Datetime", "finra.finraotc.bbds.dfi.v2018.1a.datetime", ftypes.STRING)
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.day = ProtoField.new("Day", "finra.finraotc.bbds.dfi.v2018.1a.day", ftypes.STRING, nil, nil, nil, "The day of the month the transaction occurred")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.hour = ProtoField.new("Hour", "finra.finraotc.bbds.dfi.v2018.1a.hour", ftypes.STRING, nil, nil, nil, "The hour of the day the transaction occurred in military time")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.day = ProtoField.new("Day", "finra.finraotc.bbds.dfi.v2018.1a.day", ftypes.UINT8, nil, nil, nil, "The day of the month the transaction occurred")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.hour = ProtoField.new("Hour", "finra.finraotc.bbds.dfi.v2018.1a.hour", ftypes.UINT8, nil, nil, nil, "The hour of the day the transaction occurred in military time")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_appendage = ProtoField.new("Inside Appendage", "finra.finraotc.bbds.dfi.v2018.1a.insideappendage", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_appendage_indicator = ProtoField.new("Inside Appendage Indicator", "finra.finraotc.bbds.dfi.v2018.1a.insideappendageindicator", ftypes.UINT8, nil, nil, nil, "The Inside Appendage Indicator field indicates how the Inside quote for the OTCBB issue is impacted by the current Market Participant update")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_price = ProtoField.new("Inside Ask Price", "finra.finraotc.bbds.dfi.v2018.1a.insideaskprice", ftypes.UINT64, nil, nil, nil, "The Inside Ask Price indicates the best ask price available in the OTCBB system for the issue")
@@ -50,22 +50,22 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_category = ProtoField.new("M
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_header = ProtoField.new("Message Header", "finra.finraotc.bbds.dfi.v2018.1a.messageheader", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_separator = ProtoField.new("Message Separator", "finra.finraotc.bbds.dfi.v2018.1a.messageseparator", ftypes.UINT8)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "finra.finraotc.bbds.dfi.v2018.1a.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "Message Sequence Number, at the beginning of each operational cycle, this number will be set to 00000000 of each data channel")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.minute = ProtoField.new("Minute", "finra.finraotc.bbds.dfi.v2018.1a.minute", ftypes.STRING, nil, nil, nil, "The minute of the hour the transaction occurred.")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.month = ProtoField.new("Month", "finra.finraotc.bbds.dfi.v2018.1a.month", ftypes.STRING, nil, nil, nil, "The month the transaction occurred")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.minute = ProtoField.new("Minute", "finra.finraotc.bbds.dfi.v2018.1a.minute", ftypes.UINT8, nil, nil, nil, "The minute of the hour the transaction occurred.")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.month = ProtoField.new("Month", "finra.finraotc.bbds.dfi.v2018.1a.month", ftypes.UINT8, nil, nil, nil, "The month the transaction occurred")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.otcbb_symbol = ProtoField.new("Otcbb Symbol", "finra.finraotc.bbds.dfi.v2018.1a.otcbbsymbol", ftypes.STRING, nil, nil, nil, "This alphanumeric field indicates the issue symbol for the OTCBB security being quoted")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.otcbb_type = ProtoField.new("Otcbb Type", "finra.finraotc.bbds.dfi.v2018.1a.otcbbtype", ftypes.STRING, nil, nil, nil, "This alphanumeric field indicates if the OTCBB issue being quoted is eligible for real-time or indicative updates")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.quotation_message = ProtoField.new("Quotation Message", "finra.finraotc.bbds.dfi.v2018.1a.quotationmessage", ftypes.STRING, nil, nil, nil, "Quotation Messages Header")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.quotation_message_type = ProtoField.new("Quotation Message Type", "finra.finraotc.bbds.dfi.v2018.1a.quotationmessagetype", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reason_code = ProtoField.new("Reason Code", "finra.finraotc.bbds.dfi.v2018.1a.reasoncode", ftypes.STRING, nil, nil, nil, "The Reason Code indicates the reason for the current trading action status.")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reserved_1 = ProtoField.new("Reserved 1", "finra.finraotc.bbds.dfi.v2018.1a.reserved1", ftypes.STRING, nil, nil, nil, "This field will be space filled")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reserved_1 = ProtoField.new("Reserved 1", "finra.finraotc.bbds.dfi.v2018.1a.reserved1", ftypes.BYTES, nil, nil, nil, "This field will be space filled")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.retransmission_requester = ProtoField.new("Retransmission Requester", "finra.finraotc.bbds.dfi.v2018.1a.retransmissionrequester", ftypes.STRING, nil, nil, nil, "This field indicates if the message is an original transmission or retransmission")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.second = ProtoField.new("Second", "finra.finraotc.bbds.dfi.v2018.1a.second", ftypes.STRING, nil, nil, nil, "The second of the minute the transaction occurred")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.second = ProtoField.new("Second", "finra.finraotc.bbds.dfi.v2018.1a.second", ftypes.UINT8, nil, nil, nil, "The second of the minute the transaction occurred")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.session_identifier = ProtoField.new("Session Identifier", "finra.finraotc.bbds.dfi.v2018.1a.sessionidentifier", ftypes.STRING, nil, nil, nil, "This field indicates the market session of the message")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.stock_symbol = ProtoField.new("Stock Symbol", "finra.finraotc.bbds.dfi.v2018.1a.stocksymbol", ftypes.STRING, nil, nil, nil, "This alphanumeric field indicates the issue symbol for the OTCBB security that is impacted by the FINRA Trading Action")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.text = ProtoField.new("Text", "finra.finraotc.bbds.dfi.v2018.1a.text", ftypes.STRING, nil, nil, nil, "Free-form text is used to notify data feed subscribers of corporate actions or special trading situations")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.unsolicited_indicator = ProtoField.new("Unsolicited Indicator", "finra.finraotc.bbds.dfi.v2018.1a.unsolicitedindicator", ftypes.STRING, nil, nil, nil, "The Unsolicited Indicator field indicates if the Market Participant is entering an unsolicited quote in a given security")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.wanted_indicator = ProtoField.new("Wanted Indicator", "finra.finraotc.bbds.dfi.v2018.1a.wantedindicator", ftypes.STRING, nil, nil, nil, "The Offer Wanted/Bid Wanted Indicator field indicates a special, unpriced OTCBB quotation from a market participant")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.year = ProtoField.new("Year", "finra.finraotc.bbds.dfi.v2018.1a.year", ftypes.STRING, nil, nil, nil, "The year the transaction occurred")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.year = ProtoField.new("Year", "finra.finraotc.bbds.dfi.v2018.1a.year", ftypes.UINT8, nil, nil, nil, "The year the transaction occurred")
 
 -- Finra FinraOtc Bbds Dfi 2018.1A Framing
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message = ProtoField.new("Message", "finra.finraotc.bbds.dfi.v2018.1a.message", ftypes.STRING)
@@ -480,15 +480,49 @@ finra_finraotc_bbds_dfi_v2018_1a.day = {}
 finra_finraotc_bbds_dfi_v2018_1a.day.size = 1
 
 -- Display: Day
+finra_finraotc_bbds_dfi_v2018_1a.day.labels = {
+  [49] = "Day: 1 (49)",
+  [50] = "Day: 2 (50)",
+  [51] = "Day: 3 (51)",
+  [52] = "Day: 4 (52)",
+  [53] = "Day: 5 (53)",
+  [54] = "Day: 6 (54)",
+  [55] = "Day: 7 (55)",
+  [56] = "Day: 8 (56)",
+  [57] = "Day: 9 (57)",
+  [58] = "Day: 10 (58)",
+  [59] = "Day: 11 (59)",
+  [60] = "Day: 12 (60)",
+  [61] = "Day: 13 (61)",
+  [62] = "Day: 14 (62)",
+  [63] = "Day: 15 (63)",
+  [64] = "Day: 16 (64)",
+  [65] = "Day: 17 (65)",
+  [66] = "Day: 18 (66)",
+  [67] = "Day: 19 (67)",
+  [68] = "Day: 20 (68)",
+  [69] = "Day: 21 (69)",
+  [70] = "Day: 22 (70)",
+  [71] = "Day: 23 (71)",
+  [72] = "Day: 24 (72)",
+  [73] = "Day: 25 (73)",
+  [74] = "Day: 26 (74)",
+  [75] = "Day: 27 (75)",
+  [76] = "Day: 28 (76)",
+  [77] = "Day: 29 (77)",
+  [78] = "Day: 30 (78)",
+  [79] = "Day: 31 (79)",
+}
+
 finra_finraotc_bbds_dfi_v2018_1a.day.display = function(value)
-  return "Day: "..value
+  return finra_finraotc_bbds_dfi_v2018_1a.day.labels[value] or "Day: Unknown("..value..")"
 end
 
 -- Dissect: Day
 finra_finraotc_bbds_dfi_v2018_1a.day.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.day.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = finra_finraotc_bbds_dfi_v2018_1a.day.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.day, range, value, display)
@@ -503,15 +537,42 @@ finra_finraotc_bbds_dfi_v2018_1a.hour = {}
 finra_finraotc_bbds_dfi_v2018_1a.hour.size = 1
 
 -- Display: Hour
+finra_finraotc_bbds_dfi_v2018_1a.hour.labels = {
+  [48] = "Hour: 0 (48)",
+  [49] = "Hour: 1 (49)",
+  [50] = "Hour: 2 (50)",
+  [51] = "Hour: 3 (51)",
+  [52] = "Hour: 4 (52)",
+  [53] = "Hour: 5 (53)",
+  [54] = "Hour: 6 (54)",
+  [55] = "Hour: 7 (55)",
+  [56] = "Hour: 8 (56)",
+  [57] = "Hour: 9 (57)",
+  [58] = "Hour: 10 (58)",
+  [59] = "Hour: 11 (59)",
+  [60] = "Hour: 12 (60)",
+  [61] = "Hour: 13 (61)",
+  [62] = "Hour: 14 (62)",
+  [63] = "Hour: 15 (63)",
+  [64] = "Hour: 16 (64)",
+  [65] = "Hour: 17 (65)",
+  [66] = "Hour: 18 (66)",
+  [67] = "Hour: 19 (67)",
+  [68] = "Hour: 20 (68)",
+  [69] = "Hour: 21 (69)",
+  [70] = "Hour: 22 (70)",
+  [71] = "Hour: 23 (71)",
+}
+
 finra_finraotc_bbds_dfi_v2018_1a.hour.display = function(value)
-  return "Hour: "..value
+  return finra_finraotc_bbds_dfi_v2018_1a.hour.labels[value] or "Hour: Unknown("..value..")"
 end
 
 -- Dissect: Hour
 finra_finraotc_bbds_dfi_v2018_1a.hour.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.hour.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = finra_finraotc_bbds_dfi_v2018_1a.hour.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.hour, range, value, display)
@@ -986,15 +1047,78 @@ finra_finraotc_bbds_dfi_v2018_1a.minute = {}
 finra_finraotc_bbds_dfi_v2018_1a.minute.size = 1
 
 -- Display: Minute
+finra_finraotc_bbds_dfi_v2018_1a.minute.labels = {
+  [48] = "Minute: 0 (48)",
+  [49] = "Minute: 1 (49)",
+  [50] = "Minute: 2 (50)",
+  [51] = "Minute: 3 (51)",
+  [52] = "Minute: 4 (52)",
+  [53] = "Minute: 5 (53)",
+  [54] = "Minute: 6 (54)",
+  [55] = "Minute: 7 (55)",
+  [56] = "Minute: 8 (56)",
+  [57] = "Minute: 9 (57)",
+  [58] = "Minute: 10 (58)",
+  [59] = "Minute: 11 (59)",
+  [60] = "Minute: 12 (60)",
+  [61] = "Minute: 13 (61)",
+  [62] = "Minute: 14 (62)",
+  [63] = "Minute: 15 (63)",
+  [64] = "Minute: 16 (64)",
+  [65] = "Minute: 17 (65)",
+  [66] = "Minute: 18 (66)",
+  [67] = "Minute: 19 (67)",
+  [68] = "Minute: 20 (68)",
+  [69] = "Minute: 21 (69)",
+  [70] = "Minute: 22 (70)",
+  [71] = "Minute: 23 (71)",
+  [72] = "Minute: 24 (72)",
+  [73] = "Minute: 25 (73)",
+  [74] = "Minute: 26 (74)",
+  [75] = "Minute: 27 (75)",
+  [76] = "Minute: 28 (76)",
+  [77] = "Minute: 29 (77)",
+  [78] = "Minute: 30 (78)",
+  [79] = "Minute: 31 (79)",
+  [80] = "Minute: 32 (80)",
+  [81] = "Minute: 33 (81)",
+  [82] = "Minute: 34 (82)",
+  [83] = "Minute: 35 (83)",
+  [84] = "Minute: 36 (84)",
+  [85] = "Minute: 37 (85)",
+  [86] = "Minute: 38 (86)",
+  [87] = "Minute: 39 (87)",
+  [88] = "Minute: 40 (88)",
+  [89] = "Minute: 41 (89)",
+  [90] = "Minute: 42 (90)",
+  [91] = "Minute: 43 (91)",
+  [92] = "Minute: 44 (92)",
+  [93] = "Minute: 45 (93)",
+  [94] = "Minute: 46 (94)",
+  [95] = "Minute: 47 (95)",
+  [96] = "Minute: 48 (96)",
+  [97] = "Minute: 49 (97)",
+  [98] = "Minute: 50 (98)",
+  [99] = "Minute: 51 (99)",
+  [100] = "Minute: 52 (100)",
+  [101] = "Minute: 53 (101)",
+  [102] = "Minute: 54 (102)",
+  [103] = "Minute: 55 (103)",
+  [104] = "Minute: 56 (104)",
+  [105] = "Minute: 57 (105)",
+  [106] = "Minute: 58 (106)",
+  [107] = "Minute: 59 (107)",
+}
+
 finra_finraotc_bbds_dfi_v2018_1a.minute.display = function(value)
-  return "Minute: "..value
+  return finra_finraotc_bbds_dfi_v2018_1a.minute.labels[value] or "Minute: Unknown("..value..")"
 end
 
 -- Dissect: Minute
 finra_finraotc_bbds_dfi_v2018_1a.minute.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.minute.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = finra_finraotc_bbds_dfi_v2018_1a.minute.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.minute, range, value, display)
@@ -1009,15 +1133,30 @@ finra_finraotc_bbds_dfi_v2018_1a.month = {}
 finra_finraotc_bbds_dfi_v2018_1a.month.size = 1
 
 -- Display: Month
+finra_finraotc_bbds_dfi_v2018_1a.month.labels = {
+  [49] = "Month: 1 (49)",
+  [50] = "Month: 2 (50)",
+  [51] = "Month: 3 (51)",
+  [52] = "Month: 4 (52)",
+  [53] = "Month: 5 (53)",
+  [54] = "Month: 6 (54)",
+  [55] = "Month: 7 (55)",
+  [56] = "Month: 8 (56)",
+  [57] = "Month: 9 (57)",
+  [58] = "Month: 10 (58)",
+  [59] = "Month: 11 (59)",
+  [60] = "Month: 12 (60)",
+}
+
 finra_finraotc_bbds_dfi_v2018_1a.month.display = function(value)
-  return "Month: "..value
+  return finra_finraotc_bbds_dfi_v2018_1a.month.labels[value] or "Month: Unknown("..value..")"
 end
 
 -- Dissect: Month
 finra_finraotc_bbds_dfi_v2018_1a.month.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.month.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = finra_finraotc_bbds_dfi_v2018_1a.month.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.month, range, value, display)
@@ -1182,7 +1321,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = finra_finraotc_bbds_dfi_v2018_1a.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reserved_1, range, value, display)
@@ -1220,15 +1359,78 @@ finra_finraotc_bbds_dfi_v2018_1a.second = {}
 finra_finraotc_bbds_dfi_v2018_1a.second.size = 1
 
 -- Display: Second
+finra_finraotc_bbds_dfi_v2018_1a.second.labels = {
+  [48] = "Second: 0 (48)",
+  [49] = "Second: 1 (49)",
+  [50] = "Second: 2 (50)",
+  [51] = "Second: 3 (51)",
+  [52] = "Second: 4 (52)",
+  [53] = "Second: 5 (53)",
+  [54] = "Second: 6 (54)",
+  [55] = "Second: 7 (55)",
+  [56] = "Second: 8 (56)",
+  [57] = "Second: 9 (57)",
+  [58] = "Second: 10 (58)",
+  [59] = "Second: 11 (59)",
+  [60] = "Second: 12 (60)",
+  [61] = "Second: 13 (61)",
+  [62] = "Second: 14 (62)",
+  [63] = "Second: 15 (63)",
+  [64] = "Second: 16 (64)",
+  [65] = "Second: 17 (65)",
+  [66] = "Second: 18 (66)",
+  [67] = "Second: 19 (67)",
+  [68] = "Second: 20 (68)",
+  [69] = "Second: 21 (69)",
+  [70] = "Second: 22 (70)",
+  [71] = "Second: 23 (71)",
+  [72] = "Second: 24 (72)",
+  [73] = "Second: 25 (73)",
+  [74] = "Second: 26 (74)",
+  [75] = "Second: 27 (75)",
+  [76] = "Second: 28 (76)",
+  [77] = "Second: 29 (77)",
+  [78] = "Second: 30 (78)",
+  [79] = "Second: 31 (79)",
+  [80] = "Second: 32 (80)",
+  [81] = "Second: 33 (81)",
+  [82] = "Second: 34 (82)",
+  [83] = "Second: 35 (83)",
+  [84] = "Second: 36 (84)",
+  [85] = "Second: 37 (85)",
+  [86] = "Second: 38 (86)",
+  [87] = "Second: 39 (87)",
+  [88] = "Second: 40 (88)",
+  [89] = "Second: 41 (89)",
+  [90] = "Second: 42 (90)",
+  [91] = "Second: 43 (91)",
+  [92] = "Second: 44 (92)",
+  [93] = "Second: 45 (93)",
+  [94] = "Second: 46 (94)",
+  [95] = "Second: 47 (95)",
+  [96] = "Second: 48 (96)",
+  [97] = "Second: 49 (97)",
+  [98] = "Second: 50 (98)",
+  [99] = "Second: 51 (99)",
+  [100] = "Second: 52 (100)",
+  [101] = "Second: 53 (101)",
+  [102] = "Second: 54 (102)",
+  [103] = "Second: 55 (103)",
+  [104] = "Second: 56 (104)",
+  [105] = "Second: 57 (105)",
+  [106] = "Second: 58 (106)",
+  [107] = "Second: 59 (107)",
+}
+
 finra_finraotc_bbds_dfi_v2018_1a.second.display = function(value)
-  return "Second: "..value
+  return finra_finraotc_bbds_dfi_v2018_1a.second.labels[value] or "Second: Unknown("..value..")"
 end
 
 -- Dissect: Second
 finra_finraotc_bbds_dfi_v2018_1a.second.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.second.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = finra_finraotc_bbds_dfi_v2018_1a.second.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.second, range, value, display)
@@ -1290,20 +1492,41 @@ end
 -- Text
 finra_finraotc_bbds_dfi_v2018_1a.text = {}
 
+-- Size: Text
+finra_finraotc_bbds_dfi_v2018_1a.text.size = function(buffer, offset)
+  local maximum = math.min(300, buffer:len() - offset)
+  local length = 0
+  while length < maximum do
+    local byte = buffer(offset + length, 1):uint()
+    if byte == 31 or byte == 3 then
+      break
+    end
+    length = length + 1
+  end
+
+  return length
+end
+
 -- Display: Text
 finra_finraotc_bbds_dfi_v2018_1a.text.display = function(value)
+  -- Check if field has value
+  if value == "" then
+    return "Text: No Value"
+  end
+
   return "Text: "..value
 end
 
--- Dissect runtime sized field: Text
-finra_finraotc_bbds_dfi_v2018_1a.text.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
+-- Dissect: Text
+finra_finraotc_bbds_dfi_v2018_1a.text.dissect = function(buffer, offset, packet, parent)
+  local length = finra_finraotc_bbds_dfi_v2018_1a.text.size(buffer, offset)
+  local range = buffer(offset, length)
   local value = range:string()
-  local display = finra_finraotc_bbds_dfi_v2018_1a.text.display(value, packet, parent, size)
+  local display = finra_finraotc_bbds_dfi_v2018_1a.text.display(value, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.text, range, value, display)
 
-  return offset + size, value
+  return offset + length, value
 end
 
 -- Unsolicited Indicator
@@ -1380,14 +1603,22 @@ finra_finraotc_bbds_dfi_v2018_1a.year.size = 2
 
 -- Display: Year
 finra_finraotc_bbds_dfi_v2018_1a.year.display = function(value)
-  return "Year: "..value
+  return "Year: "..(2000 + value)
 end
 
 -- Dissect: Year
 finra_finraotc_bbds_dfi_v2018_1a.year.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.year.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.year, range, value, "Year: Not Applicable")
+    item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Year is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = finra_finraotc_bbds_dfi_v2018_1a.year.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.year, range, value, display)
@@ -1413,15 +1644,24 @@ finra_finraotc_bbds_dfi_v2018_1a.datetime.size =
   finra_finraotc_bbds_dfi_v2018_1a.second.size
 
 -- Display: Datetime
-finra_finraotc_bbds_dfi_v2018_1a.datetime.display = function(packet, parent, length)
-  return ""
+finra_finraotc_bbds_dfi_v2018_1a.datetime.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+  end
+
+  -- Packed YYMMDDHHMMSS digits, the year counted from 2000
+  local digits = tostring(value)
+  digits = string.rep("0", 12 - #digits)..digits
+
+  return string.format("%04d-%s-%s %s:%s:%s", 2000 + tonumber(digits:sub(1, 2)), digits:sub(3, 4), digits:sub(5, 6), digits:sub(7, 8), digits:sub(9, 10), digits:sub(11, 12))
 end
 
 -- Dissect Fields: Datetime
 finra_finraotc_bbds_dfi_v2018_1a.datetime.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: alphanumeric
+  -- Year: numeric
   index, year = finra_finraotc_bbds_dfi_v2018_1a.year.dissect(buffer, index, packet, parent)
 
   -- Month: alphanumeric
@@ -1439,7 +1679,10 @@ finra_finraotc_bbds_dfi_v2018_1a.datetime.fields = function(buffer, offset, pack
   -- Second: alphanumeric
   index, second = finra_finraotc_bbds_dfi_v2018_1a.second.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local datetime = UInt64.new(year * 10000000000 + month * 100000000 + day * 1000000 + hour * 10000 + minute * 100 + second - 4848484848)
+
+  return index, datetime
 end
 
 -- Dissect: Datetime
@@ -1447,10 +1690,10 @@ finra_finraotc_bbds_dfi_v2018_1a.datetime.dissect = function(buffer, offset, pac
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.datetime, buffer(offset, 0))
-    local index = finra_finraotc_bbds_dfi_v2018_1a.datetime.fields(buffer, offset, packet, parent)
+    local index, value = finra_finraotc_bbds_dfi_v2018_1a.datetime.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = finra_finraotc_bbds_dfi_v2018_1a.datetime.display(packet, parent, length)
+    local display = finra_finraotc_bbds_dfi_v2018_1a.datetime.display(packet, parent, value, length)
     parent:append_text(display)
 
     return index, parent
@@ -1972,15 +2215,24 @@ finra_finraotc_bbds_dfi_v2018_1a.action_datetime.size =
   finra_finraotc_bbds_dfi_v2018_1a.second.size
 
 -- Display: Action Datetime
-finra_finraotc_bbds_dfi_v2018_1a.action_datetime.display = function(packet, parent, length)
-  return ""
+finra_finraotc_bbds_dfi_v2018_1a.action_datetime.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+  end
+
+  -- Packed YYMMDDHHMMSS digits, the year counted from 2000
+  local digits = tostring(value)
+  digits = string.rep("0", 12 - #digits)..digits
+
+  return string.format("%04d-%s-%s %s:%s:%s", 2000 + tonumber(digits:sub(1, 2)), digits:sub(3, 4), digits:sub(5, 6), digits:sub(7, 8), digits:sub(9, 10), digits:sub(11, 12))
 end
 
 -- Dissect Fields: Action Datetime
 finra_finraotc_bbds_dfi_v2018_1a.action_datetime.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: alphanumeric
+  -- Year: numeric
   index, year = finra_finraotc_bbds_dfi_v2018_1a.year.dissect(buffer, index, packet, parent)
 
   -- Month: alphanumeric
@@ -1998,7 +2250,13 @@ finra_finraotc_bbds_dfi_v2018_1a.action_datetime.fields = function(buffer, offse
   -- Second: alphanumeric
   index, second = finra_finraotc_bbds_dfi_v2018_1a.second.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local action_datetime = UInt64.new(year * 10000000000 + month * 100000000 + day * 1000000 + hour * 10000 + minute * 100 + second - 4848484848)
+
+  -- Null check (composite is null when its bytes are all fill)
+  if buffer(offset, index - offset):string() == string.rep(" ", index - offset) then action_datetime = nil end
+
+  return index, action_datetime
 end
 
 -- Dissect: Action Datetime
@@ -2006,10 +2264,10 @@ finra_finraotc_bbds_dfi_v2018_1a.action_datetime.dissect = function(buffer, offs
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.action_datetime, buffer(offset, 0))
-    local index = finra_finraotc_bbds_dfi_v2018_1a.action_datetime.fields(buffer, offset, packet, parent)
+    local index, value = finra_finraotc_bbds_dfi_v2018_1a.action_datetime.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = finra_finraotc_bbds_dfi_v2018_1a.action_datetime.display(packet, parent, length)
+    local display = finra_finraotc_bbds_dfi_v2018_1a.action_datetime.display(packet, parent, value, length)
     parent:append_text(display)
 
     return index, parent
@@ -2084,8 +2342,7 @@ finra_finraotc_bbds_dfi_v2018_1a.general_administrative_message.size = function(
 
   index = index + finra_finraotc_bbds_dfi_v2018_1a.message_header.size
 
-  -- Remaining size of: Text
-  index = index + math.min(buffer:len() - (offset + index), 300)
+  index = index + finra_finraotc_bbds_dfi_v2018_1a.text.size(buffer, offset + index)
 
   return index
 end
@@ -2102,11 +2359,8 @@ finra_finraotc_bbds_dfi_v2018_1a.general_administrative_message.fields = functio
   -- Message Header: Struct of 6 fields
   index, message_header = finra_finraotc_bbds_dfi_v2018_1a.message_header.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Text
-  local size_of_text = math.min(buffer:len() - index, 300)
-
   -- Text: Alphanumeric
-  index, text = finra_finraotc_bbds_dfi_v2018_1a.text.dissect(buffer, index, packet, parent, size_of_text)
+  index, text = finra_finraotc_bbds_dfi_v2018_1a.text.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2272,6 +2526,8 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message = {}
 finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.size = function(buffer, offset)
   local index = 0
 
+  index = index + finra_finraotc_bbds_dfi_v2018_1a.message_header.size
+
   index = index + finra_finraotc_bbds_dfi_v2018_1a.otcbb_symbol.size
 
   index = index + finra_finraotc_bbds_dfi_v2018_1a.otcbb_type.size
@@ -2306,9 +2562,9 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.size = 
 
   index = index + finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.size
 
-  local inside_appendage_indicator = buffer(offset + 62, 1):string()
+  local inside_appendage_indicator = tonumber(buffer(offset + 82, 1):string())
 
-  if inside_appendage_indicator == "3" then
+  if inside_appendage_indicator == 3 then
     index = index + finra_finraotc_bbds_dfi_v2018_1a.inside_appendage.size
 
   end
@@ -2324,6 +2580,9 @@ end
 -- Dissect Fields: Market Participant Quote Update Message
 finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Message Header: Struct of 6 fields
+  index, message_header = finra_finraotc_bbds_dfi_v2018_1a.message_header.dissect(buffer, index, packet, parent)
 
   -- Otcbb Symbol: Alphanumeric
   index, otcbb_symbol = finra_finraotc_bbds_dfi_v2018_1a.otcbb_symbol.dissect(buffer, index, packet, parent)
@@ -2379,7 +2638,7 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.fields 
   -- Runtime optional field: Inside Appendage
   local inside_appendage = nil
 
-  local inside_appendage_exists = inside_appendage_indicator == "3"
+  local inside_appendage_exists = inside_appendage_indicator == 3
 
   if inside_appendage_exists then
     index, inside_appendage = finra_finraotc_bbds_dfi_v2018_1a.inside_appendage.dissect(buffer, index, packet, parent)

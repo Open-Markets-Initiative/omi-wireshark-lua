@@ -950,6 +950,9 @@ nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.finra_bbo_indicator.dissect = functi
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Finra Bbo Indicator: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -990,6 +993,9 @@ nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.finra_adf_mpid_indicator.dissect = f
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Finra Adf Mpid Indicator: No Value")
+    end
     return index
   end
   local value, failure = nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.signed(text)
@@ -1125,6 +1131,9 @@ nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_bid_quote_condition.dissect = f
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Best Bid Quote Condition: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -1185,6 +1194,9 @@ nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_bid_exchange.dissect = function
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Best Bid Exchange: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -1284,6 +1296,9 @@ nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_bid_finra_market_maker_id.disse
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Best Bid Finra Market Maker Id: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -1339,6 +1354,9 @@ nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_offer_quote_condition.dissect =
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Best Offer Quote Condition: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -1399,6 +1417,9 @@ nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_offer_exchange.dissect = functi
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Best Offer Exchange: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -1498,6 +1519,9 @@ nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.best_offer_finra_market_maker_id.dis
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqnbbo_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Best Offer Finra Market Maker Id: No Value")
+    end
     return index
   end
   if parent ~= nil then

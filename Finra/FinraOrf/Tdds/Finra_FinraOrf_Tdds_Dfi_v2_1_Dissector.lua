@@ -60,7 +60,7 @@ omi_finra_finraorf_tdds_dfi_v2_1.fields.price_change_indicator = ProtoField.new(
 omi_finra_finraorf_tdds_dfi_v2_1.fields.report_function = ProtoField.new("Report Function", "finra.finraorf.tdds.dfi.v2.1.reportfunction", ftypes.STRING, nil, nil, nil, "This Function field denotes if the original trade report is being cancelled or was reported in error")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.report_volume = ProtoField.new("Report Volume", "finra.finraorf.tdds.dfi.v2.1.reportvolume", ftypes.UINT32, nil, nil, nil, "This field denotes the number of shares reported in the current Trade Report")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.report_volume_short = ProtoField.new("Report Volume Short", "finra.finraorf.tdds.dfi.v2.1.reportvolumeshort", ftypes.UINT24, nil, nil, nil, "This field denotes the number of shares reported in the current Trade Report")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.reserved_1 = ProtoField.new("Reserved 1", "finra.finraorf.tdds.dfi.v2.1.reserved1", ftypes.STRING, nil, nil, nil, "This field will be space filled")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.reserved_1 = ProtoField.new("Reserved 1", "finra.finraorf.tdds.dfi.v2.1.reserved1", ftypes.BYTES, nil, nil, nil, "This field will be space filled")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.sale_condition_level_1 = ProtoField.new("Sale Condition Level 1", "finra.finraorf.tdds.dfi.v2.1.saleconditionlevel1", ftypes.STRING, nil, nil, nil, "This field is used to denote the sale condition associated with a trade transaction")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.sale_condition_level_2 = ProtoField.new("Sale Condition Level 2", "finra.finraorf.tdds.dfi.v2.1.saleconditionlevel2", ftypes.STRING, nil, nil, nil, "This field is reserved and may be used in the future.")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.sale_condition_level_3 = ProtoField.new("Sale Condition Level 3", "finra.finraorf.tdds.dfi.v2.1.saleconditionlevel3", ftypes.STRING, nil, nil, nil, "This field is used to denote the sale condition associated with a trade transaction")
@@ -1257,7 +1257,7 @@ end
 finra_finraorf_tdds_dfi_v2_1.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_1.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = finra_finraorf_tdds_dfi_v2_1.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.reserved_1, range, value, display)

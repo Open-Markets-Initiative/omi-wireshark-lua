@@ -823,6 +823,9 @@ nyse_nyseconsolidated_dailytaqoddlotquotes_csv_v4_3.clear_prior_odd_lot_quotes.d
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqoddlotquotes_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Clear Prior Odd Lot Quotes: No Value")
+    end
     return index
   end
   if parent ~= nil then

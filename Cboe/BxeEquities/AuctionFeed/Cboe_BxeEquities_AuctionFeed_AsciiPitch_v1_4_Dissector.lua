@@ -851,7 +851,7 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.unsequenced_data_packet.size = func
   local index = 0
 
   -- Remaining size of: Unsequenced Message
-  index = index + (buffer:len() - (offset + index))
+  index = index + ((buffer:len() - (offset + index)) - 1)
 
   return index
 end

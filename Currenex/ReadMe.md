@@ -45,10 +45,10 @@
 
 [Currenex.CurrenexForex.Esp.Cbp.v9.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Currenex/Esp/Currenex_CurrenexForex_Esp_Cbp_v9_Dissector.lua "Currenex Esp Cbp v9 Wireshark Dissector"
 [Currenex.CurrenexForex.Esp.Cbp.v9.Url]: https://www.currenex.com/support "Currenex 9 Url"
-[Currenex.CurrenexForex.Esp.Cbp.v9.Pdf]: https://www.currenex.com/support/documentation/currenex/ITCH-Spec.pdf "Currenex 9 Pdf"
+[Currenex.CurrenexForex.Esp.Cbp.v9.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Currenex/Specifications/Itch/Esp/Currenex.CurrenexForex.Esp.Cbp.v9.pdf "Currenex 9 Pdf"
 [Currenex.CurrenexForex.Now.Cbp.v10.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Currenex/Now/Currenex_CurrenexForex_Now_Cbp_v10_Dissector.lua "Currenex Now Cbp v10 Wireshark Dissector"
 [Currenex.CurrenexForex.Now.Cbp.v10.Url]: https://www.currenex.com/support "Currenex 10 Url"
-[Currenex.CurrenexForex.Now.Cbp.v10.Pdf]: https://www.currenex.com/support/documentation/currenexnow/Currenex_NOW_Itch_Specification.pdf "Currenex 10 Pdf"
+[Currenex.CurrenexForex.Now.Cbp.v10.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Currenex/Specifications/Itch/Now/Currenex.CurrenexForex.Now.Cbp.v10.pdf "Currenex 10 Pdf"
 [Currenex.CurrenexForex.OrderService.Cbp.v26.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Currenex/OrderService/Currenex_CurrenexForex_OrderService_Cbp_v26_Dissector.lua "Currenex OrderService Cbp v26 Wireshark Dissector"
 [Currenex.CurrenexForex.OrderService.Cbp.v26.Url]: https://www.currenex.com/support "Currenex 26 Url"
-[Currenex.CurrenexForex.OrderService.Cbp.v26.Pdf]: https://www.currenex.com/support/documentation/currenex/OUCH-Spec.pdf "Currenex 26 Pdf"
+[Currenex.CurrenexForex.OrderService.Cbp.v26.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Currenex/Specifications/Ouch/Currenex.CurrenexForex.OrderService.Cbp.v26.pdf "Currenex 26 Pdf"

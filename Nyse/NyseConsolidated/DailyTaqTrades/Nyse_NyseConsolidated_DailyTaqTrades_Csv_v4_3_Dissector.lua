@@ -1078,6 +1078,9 @@ nyse_nyseconsolidated_dailytaqtrades_csv_v4_3.trade_reporting_facility_trf_times
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqtrades_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Trade Reporting Facility Trf Timestamp: No Value")
+    end
     return index
   end
   local seconds, nanoseconds, value = nyse_nyseconsolidated_dailytaqtrades_csv_v4_3.lines.time(text, nyse_nyseconsolidated_dailytaqtrades_csv_v4_3.trade_reporting_facility_trf_timestamp.fraction)

@@ -2322,7 +2322,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.debug_packet.size = function(buff
   local index = 0
 
   -- Remaining size of: Text
-  index = index + (buffer:len() - (offset + index))
+  index = index + ((buffer:len() - (offset + index)) - 1)
 
   return index
 end

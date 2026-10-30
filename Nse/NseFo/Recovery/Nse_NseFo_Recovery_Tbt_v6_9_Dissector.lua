@@ -1,0 +1,1890 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Nse NseFo Recovery Tbt 6.9 Protocol
+local omi_nse_nsefo_recovery_tbt_v6_9 = Proto("Omi.Nse.NseFo.Recovery.Tbt.v6.9", "Nse NseFo Recovery Tbt 6.9")
+
+-- Protocol table
+local nse_nsefo_recovery_tbt_v6_9 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Nse NseFo Recovery Tbt 6.9 Fields
+omi_nse_nsefo_recovery_tbt_v6_9.fields.buy_order_id = ProtoField.new("Buy Order Id", "nse.nsefo.recovery.tbt.v6.9.buyorderid", ftypes.DOUBLE, nil, nil, nil, "Day Unique Order Reference Number for Buy-Side Order")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.client_message_type = ProtoField.new("Client Message Type", "nse.nsefo.recovery.tbt.v6.9.clientmessagetype", ftypes.STRING, nil, nil, nil, "cMsgType. Code identifying message type [1, Char]")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.end_sequence_number = ProtoField.new("End Sequence Number", "nse.nsefo.recovery.tbt.v6.9.endsequencenumber", ftypes.UINT32, nil, nil, nil, "Requested Message Sequence Number")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.last_sequence_no = ProtoField.new("Last Sequence No", "nse.nsefo.recovery.tbt.v6.9.lastsequenceno", ftypes.UINT32, nil, nil, nil, "Last sent data sequence no. of the Stream")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.message_length = ProtoField.new("Message Length", "nse.nsefo.recovery.tbt.v6.9.messagelength", ftypes.INT16, nil, nil, nil, "Total size of the packet including Stream Header and Stream Data [2, Short]")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.message_type = ProtoField.new("Message Type", "nse.nsefo.recovery.tbt.v6.9.messagetype", ftypes.STRING, nil, nil, nil, "cMsgType. Code identifying message type [1, Char]")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.order_id = ProtoField.new("Order Id", "nse.nsefo.recovery.tbt.v6.9.orderid", ftypes.DOUBLE, nil, nil, nil, "Day Unique Order Reference Number")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.order_type = ProtoField.new("Order Type", "nse.nsefo.recovery.tbt.v6.9.ordertype", ftypes.STRING, nil, nil, nil, "Order Type Values")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.price = ProtoField.new("Price", "nse.nsefo.recovery.tbt.v6.9.price", ftypes.DOUBLE, nil, nil, nil, "Price of the order (In Paise)")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.quantity = ProtoField.new("Quantity", "nse.nsefo.recovery.tbt.v6.9.quantity", ftypes.INT32, nil, nil, nil, "Quantity of the order")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.request_status = ProtoField.new("Request Status", "nse.nsefo.recovery.tbt.v6.9.requeststatus", ftypes.STRING)
+omi_nse_nsefo_recovery_tbt_v6_9.fields.sell_order_id = ProtoField.new("Sell Order Id", "nse.nsefo.recovery.tbt.v6.9.sellorderid", ftypes.DOUBLE, nil, nil, nil, "Day Unique Order Reference Number for Sell-Side Order")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.sequence_number = ProtoField.new("Sequence Number", "nse.nsefo.recovery.tbt.v6.9.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the packet for this Stream Id. For Equity Derivative (FO) segment, this field is unsigned int [4, Uint]")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "nse.nsefo.recovery.tbt.v6.9.startsequencenumber", ftypes.UINT32, nil, nil, nil, "Requested Message Sequence Number")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.stream_id = ProtoField.new("Stream Id", "nse.nsefo.recovery.tbt.v6.9.streamid", ftypes.INT16, nil, nil, nil, "Unique Stream Reference")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.timestamp = ProtoField.new("Timestamp", "nse.nsefo.recovery.tbt.v6.9.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.timestamp_utc = ProtoField.new("Timestamp", "nse.nsefo.recovery.tbt.v6.9.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.token = ProtoField.new("Token", "nse.nsefo.recovery.tbt.v6.9.token", ftypes.INT32, nil, nil, nil, "Unique Contract Identifier")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.trade_price = ProtoField.new("Trade Price", "nse.nsefo.recovery.tbt.v6.9.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Trade Price (In Paise)")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.trade_quantity = ProtoField.new("Trade Quantity", "nse.nsefo.recovery.tbt.v6.9.tradequantity", ftypes.INT32)
+
+-- Nse NseFo Recovery Tbt 6.9 Framing
+omi_nse_nsefo_recovery_tbt_v6_9.fields.client_message = ProtoField.new("Client Message", "nse.nsefo.recovery.tbt.v6.9.clientmessage", ftypes.STRING, nil, nil, nil, "Client request. First field is always Message Type and must be read/interpreted first.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.client_packet = ProtoField.new("Client Packet", "nse.nsefo.recovery.tbt.v6.9.clientpacket", ftypes.STRING, nil, nil, nil, "Recovery request sent by the client. No header is required for this message.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.message = ProtoField.new("Message", "nse.nsefo.recovery.tbt.v6.9.message", ftypes.STRING, nil, nil, nil, "STREAM_DATA. First field is always Message Type and must be read/interpreted first.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.packet = ProtoField.new("Packet", "nse.nsefo.recovery.tbt.v6.9.packet", ftypes.STRING, nil, nil, nil, "Mtbt Tcp Recovery root. The stream carries Stream-Header framed packets back to back.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.stream_header = ProtoField.new("Stream Header", "nse.nsefo.recovery.tbt.v6.9.streamheader", ftypes.STRING, nil, nil, nil, "STREAM_HEADER")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.stream_packet = ProtoField.new("Stream Packet", "nse.nsefo.recovery.tbt.v6.9.streampacket", ftypes.STRING, nil, nil, nil, "Mtbt Tcp Packet. One STREAM_DATA message per packet, same framing as the multicast feed.")
+
+-- Nse NseFo Recovery 6.9 Application Messages
+omi_nse_nsefo_recovery_tbt_v6_9.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nse.nsefo.recovery.tbt.v6.9.heartbeatmessage", ftypes.STRING, nil, nil, nil, "Heartbeat message will be sent when there is no data available for a few seconds. Only applicable for UDP TBT multicast channels.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.new_order_message = ProtoField.new("New Order Message", "nse.nsefo.recovery.tbt.v6.9.newordermessage", ftypes.STRING, nil, nil, nil, "For every new order request, this message is sent.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.new_spread_order_message = ProtoField.new("New Spread Order Message", "nse.nsefo.recovery.tbt.v6.9.newspreadordermessage", ftypes.STRING, nil, nil, nil, "FO and CD segments only. For every new spread order request, this message is sent.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.order_cancellation_message = ProtoField.new("Order Cancellation Message", "nse.nsefo.recovery.tbt.v6.9.ordercancellationmessage", ftypes.STRING, nil, nil, nil, "For every order cancellation request, this message is sent.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.order_modification_message = ProtoField.new("Order Modification Message", "nse.nsefo.recovery.tbt.v6.9.ordermodificationmessage", ftypes.STRING, nil, nil, nil, "For every order modification request, this message is sent.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.spread_order_cancellation_message = ProtoField.new("Spread Order Cancellation Message", "nse.nsefo.recovery.tbt.v6.9.spreadordercancellationmessage", ftypes.STRING, nil, nil, nil, "FO and CD segments only. For every spread order cancellation request, this message is sent.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.spread_order_modification_message = ProtoField.new("Spread Order Modification Message", "nse.nsefo.recovery.tbt.v6.9.spreadordermodificationmessage", ftypes.STRING, nil, nil, nil, "FO and CD segments only. For every spread order modification request, this message is sent.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.spread_trade_message = ProtoField.new("Spread Trade Message", "nse.nsefo.recovery.tbt.v6.9.spreadtrademessage", ftypes.STRING, nil, nil, nil, "FO and CD segments only. This message is sent whenever a spread order in the order book gets executed fully or partially.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.tick_data_recovery_request_message = ProtoField.new("Tick Data Recovery Request Message", "nse.nsefo.recovery.tbt.v6.9.tickdatarecoveryrequestmessage", ftypes.STRING, nil, nil, nil, "Sent to the Recovery Server whenever tick data is missed.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.tick_data_recovery_response_message = ProtoField.new("Tick Data Recovery Response Message", "nse.nsefo.recovery.tbt.v6.9.tickdatarecoveryresponsemessage", ftypes.STRING, nil, nil, nil, "First message sent by the Recovery Server, indicating whether the request was processed successfully.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "nse.nsefo.recovery.tbt.v6.9.tradecancelmessage", ftypes.STRING, nil, nil, nil, "For CM and FO segments only. This message is sent whenever a Trade gets cancelled.")
+omi_nse_nsefo_recovery_tbt_v6_9.fields.trade_message = ProtoField.new("Trade Message", "nse.nsefo.recovery.tbt.v6.9.trademessage", ftypes.STRING, nil, nil, nil, "This message is sent whenever an order in the order book gets executed fully or partially.")
+
+-----------------------------------------------------------------------
+-- Nse NseFo Recovery Tbt 6.9 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nse_nsefo_recovery_tbt_v6_9.absolute_time_base = 0
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Nse NseFo Recovery Tbt 6.9 Element Dissection Options
+show.structs = true
+show.application_messages = true
+show.headers = true
+
+-- Register Nse NseFo Recovery Tbt 6.9 Show Options
+omi_nse_nsefo_recovery_tbt_v6_9.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nse_nsefo_recovery_tbt_v6_9.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nse_nsefo_recovery_tbt_v6_9.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
+omi_nse_nsefo_recovery_tbt_v6_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nse_nsefo_recovery_tbt_v6_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nse_nsefo_recovery_tbt_v6_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+
+omi_nse_nsefo_recovery_tbt_v6_9.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
+-- Handle changed preferences
+function omi_nse_nsefo_recovery_tbt_v6_9.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_nse_nsefo_recovery_tbt_v6_9.prefs.show_application_messages then
+    show.application_messages = omi_nse_nsefo_recovery_tbt_v6_9.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nse_nsefo_recovery_tbt_v6_9.prefs.show_headers then
+    show.headers = omi_nse_nsefo_recovery_tbt_v6_9.prefs.show_headers
+  end
+  if show.structs ~= omi_nse_nsefo_recovery_tbt_v6_9.prefs.show_structs then
+    show.structs = omi_nse_nsefo_recovery_tbt_v6_9.prefs.show_structs
+  end
+  if nse_nsefo_recovery_tbt_v6_9.absolute_time_base ~= omi_nse_nsefo_recovery_tbt_v6_9.prefs.absolute_time_base then
+    nse_nsefo_recovery_tbt_v6_9.absolute_time_base = omi_nse_nsefo_recovery_tbt_v6_9.prefs.absolute_time_base
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Nse NseFo Recovery Tbt 6.9 Fields
+-----------------------------------------------------------------------
+
+-- Buy Order Id
+nse_nsefo_recovery_tbt_v6_9.buy_order_id = {}
+
+-- Size: Buy Order Id
+nse_nsefo_recovery_tbt_v6_9.buy_order_id.size = 8
+
+-- Display: Buy Order Id
+nse_nsefo_recovery_tbt_v6_9.buy_order_id.display = function(value)
+  return "Buy Order Id: "..string.format("%.0f", value)
+end
+
+-- Dissect: Buy Order Id
+nse_nsefo_recovery_tbt_v6_9.buy_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.buy_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = nse_nsefo_recovery_tbt_v6_9.buy_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.buy_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Message Type
+nse_nsefo_recovery_tbt_v6_9.client_message_type = {}
+
+-- Size: Client Message Type
+nse_nsefo_recovery_tbt_v6_9.client_message_type.size = 1
+
+-- Display: Client Message Type
+nse_nsefo_recovery_tbt_v6_9.client_message_type.labels = {
+  ["R"] = "Client Message Type: Tick Data Recovery Request Message (R)",
+}
+
+nse_nsefo_recovery_tbt_v6_9.client_message_type.display = function(value)
+  return nse_nsefo_recovery_tbt_v6_9.client_message_type.labels[value] or "Client Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Message Type
+nse_nsefo_recovery_tbt_v6_9.client_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.client_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_recovery_tbt_v6_9.client_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.client_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Sequence Number
+nse_nsefo_recovery_tbt_v6_9.end_sequence_number = {}
+
+-- Size: End Sequence Number
+nse_nsefo_recovery_tbt_v6_9.end_sequence_number.size = 4
+
+-- Display: End Sequence Number
+nse_nsefo_recovery_tbt_v6_9.end_sequence_number.display = function(value)
+  return "End Sequence Number: "..value
+end
+
+-- Dissect: End Sequence Number
+nse_nsefo_recovery_tbt_v6_9.end_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.end_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nse_nsefo_recovery_tbt_v6_9.end_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.end_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Sequence No
+nse_nsefo_recovery_tbt_v6_9.last_sequence_no = {}
+
+-- Size: Last Sequence No
+nse_nsefo_recovery_tbt_v6_9.last_sequence_no.size = 4
+
+-- Display: Last Sequence No
+nse_nsefo_recovery_tbt_v6_9.last_sequence_no.display = function(value)
+  return "Last Sequence No: "..value
+end
+
+-- Dissect: Last Sequence No
+nse_nsefo_recovery_tbt_v6_9.last_sequence_no.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.last_sequence_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nse_nsefo_recovery_tbt_v6_9.last_sequence_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.last_sequence_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nse_nsefo_recovery_tbt_v6_9.message_length = {}
+
+-- Size: Message Length
+nse_nsefo_recovery_tbt_v6_9.message_length.size = 2
+
+-- Display: Message Length
+nse_nsefo_recovery_tbt_v6_9.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nse_nsefo_recovery_tbt_v6_9.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nse_nsefo_recovery_tbt_v6_9.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nse_nsefo_recovery_tbt_v6_9.message_type = {}
+
+-- Size: Message Type
+nse_nsefo_recovery_tbt_v6_9.message_type.size = 1
+
+-- Display: Message Type
+nse_nsefo_recovery_tbt_v6_9.message_type.labels = {
+  ["N"] = "Message Type: New Order Message (N)",
+  ["M"] = "Message Type: Order Modification Message (M)",
+  ["X"] = "Message Type: Order Cancellation Message (X)",
+  ["T"] = "Message Type: Trade Message (T)",
+  ["G"] = "Message Type: New Spread Order Message (G)",
+  ["H"] = "Message Type: Spread Order Modification Message (H)",
+  ["J"] = "Message Type: Spread Order Cancellation Message (J)",
+  ["K"] = "Message Type: Spread Trade Message (K)",
+  ["C"] = "Message Type: Trade Cancel Message (C)",
+  ["Z"] = "Message Type: Heartbeat Message (Z)",
+  ["Y"] = "Message Type: Tick Data Recovery Response Message (Y)",
+}
+
+nse_nsefo_recovery_tbt_v6_9.message_type.display = function(value)
+  return nse_nsefo_recovery_tbt_v6_9.message_type.labels[value] or "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nse_nsefo_recovery_tbt_v6_9.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_recovery_tbt_v6_9.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+nse_nsefo_recovery_tbt_v6_9.order_id = {}
+
+-- Size: Order Id
+nse_nsefo_recovery_tbt_v6_9.order_id.size = 8
+
+-- Display: Order Id
+nse_nsefo_recovery_tbt_v6_9.order_id.display = function(value)
+  return "Order Id: "..string.format("%.0f", value)
+end
+
+-- Dissect: Order Id
+nse_nsefo_recovery_tbt_v6_9.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = nse_nsefo_recovery_tbt_v6_9.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+nse_nsefo_recovery_tbt_v6_9.order_type = {}
+
+-- Size: Order Type
+nse_nsefo_recovery_tbt_v6_9.order_type.size = 1
+
+-- Display: Order Type
+nse_nsefo_recovery_tbt_v6_9.order_type.labels = {
+  ["B"] = "Order Type: Buy Order (B)",
+  ["S"] = "Order Type: Sell Order (S)",
+}
+
+nse_nsefo_recovery_tbt_v6_9.order_type.display = function(value)
+  return nse_nsefo_recovery_tbt_v6_9.order_type.labels[value] or "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+nse_nsefo_recovery_tbt_v6_9.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.order_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_recovery_tbt_v6_9.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+nse_nsefo_recovery_tbt_v6_9.price = {}
+
+-- Size: Price
+nse_nsefo_recovery_tbt_v6_9.price.size = 4
+
+-- Display: Price
+nse_nsefo_recovery_tbt_v6_9.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+nse_nsefo_recovery_tbt_v6_9.price.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Price
+nse_nsefo_recovery_tbt_v6_9.price.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int()
+  local value = nse_nsefo_recovery_tbt_v6_9.price.translate(raw)
+  local display = nse_nsefo_recovery_tbt_v6_9.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+nse_nsefo_recovery_tbt_v6_9.quantity = {}
+
+-- Size: Quantity
+nse_nsefo_recovery_tbt_v6_9.quantity.size = 4
+
+-- Display: Quantity
+nse_nsefo_recovery_tbt_v6_9.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+nse_nsefo_recovery_tbt_v6_9.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nse_nsefo_recovery_tbt_v6_9.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Status
+nse_nsefo_recovery_tbt_v6_9.request_status = {}
+
+-- Size: Request Status
+nse_nsefo_recovery_tbt_v6_9.request_status.size = 1
+
+-- Display: Request Status
+nse_nsefo_recovery_tbt_v6_9.request_status.labels = {
+  ["S"] = "Request Status: Success (S)",
+  ["E"] = "Request Status: Error (E)",
+}
+
+nse_nsefo_recovery_tbt_v6_9.request_status.display = function(value)
+  return nse_nsefo_recovery_tbt_v6_9.request_status.labels[value] or "Request Status: Unknown("..value..")"
+end
+
+-- Dissect: Request Status
+nse_nsefo_recovery_tbt_v6_9.request_status.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.request_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_recovery_tbt_v6_9.request_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.request_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Order Id
+nse_nsefo_recovery_tbt_v6_9.sell_order_id = {}
+
+-- Size: Sell Order Id
+nse_nsefo_recovery_tbt_v6_9.sell_order_id.size = 8
+
+-- Display: Sell Order Id
+nse_nsefo_recovery_tbt_v6_9.sell_order_id.display = function(value)
+  return "Sell Order Id: "..string.format("%.0f", value)
+end
+
+-- Dissect: Sell Order Id
+nse_nsefo_recovery_tbt_v6_9.sell_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.sell_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = nse_nsefo_recovery_tbt_v6_9.sell_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.sell_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nse_nsefo_recovery_tbt_v6_9.sequence_number = {}
+
+-- Size: Sequence Number
+nse_nsefo_recovery_tbt_v6_9.sequence_number.size = 4
+
+-- Display: Sequence Number
+nse_nsefo_recovery_tbt_v6_9.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nse_nsefo_recovery_tbt_v6_9.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nse_nsefo_recovery_tbt_v6_9.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Start Sequence Number
+nse_nsefo_recovery_tbt_v6_9.start_sequence_number = {}
+
+-- Size: Start Sequence Number
+nse_nsefo_recovery_tbt_v6_9.start_sequence_number.size = 4
+
+-- Display: Start Sequence Number
+nse_nsefo_recovery_tbt_v6_9.start_sequence_number.display = function(value)
+  return "Start Sequence Number: "..value
+end
+
+-- Dissect: Start Sequence Number
+nse_nsefo_recovery_tbt_v6_9.start_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.start_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nse_nsefo_recovery_tbt_v6_9.start_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.start_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stream Id
+nse_nsefo_recovery_tbt_v6_9.stream_id = {}
+
+-- Size: Stream Id
+nse_nsefo_recovery_tbt_v6_9.stream_id.size = 2
+
+-- Display: Stream Id
+nse_nsefo_recovery_tbt_v6_9.stream_id.display = function(value)
+  return "Stream Id: "..value
+end
+
+-- Dissect: Stream Id
+nse_nsefo_recovery_tbt_v6_9.stream_id.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.stream_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nse_nsefo_recovery_tbt_v6_9.stream_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.stream_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+nse_nsefo_recovery_tbt_v6_9.timestamp = {}
+
+-- Size: Timestamp
+nse_nsefo_recovery_tbt_v6_9.timestamp.size = 8
+
+-- Dissect: Timestamp
+nse_nsefo_recovery_tbt_v6_9.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_recovery_tbt_v6_9.fields.timestamp
+  if nse_nsefo_recovery_tbt_v6_9.absolute_time_base == 1 then field = omi_nse_nsefo_recovery_tbt_v6_9.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Token
+nse_nsefo_recovery_tbt_v6_9.token = {}
+
+-- Size: Token
+nse_nsefo_recovery_tbt_v6_9.token.size = 4
+
+-- Display: Token
+nse_nsefo_recovery_tbt_v6_9.token.display = function(value)
+  return "Token: "..value
+end
+
+-- Dissect: Token
+nse_nsefo_recovery_tbt_v6_9.token.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.token.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nse_nsefo_recovery_tbt_v6_9.token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Price
+nse_nsefo_recovery_tbt_v6_9.trade_price = {}
+
+-- Size: Trade Price
+nse_nsefo_recovery_tbt_v6_9.trade_price.size = 4
+
+-- Display: Trade Price
+nse_nsefo_recovery_tbt_v6_9.trade_price.display = function(value)
+  return "Trade Price: "..value
+end
+
+-- Translate: Trade Price
+nse_nsefo_recovery_tbt_v6_9.trade_price.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Trade Price
+nse_nsefo_recovery_tbt_v6_9.trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.trade_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int()
+  local value = nse_nsefo_recovery_tbt_v6_9.trade_price.translate(raw)
+  local display = nse_nsefo_recovery_tbt_v6_9.trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Quantity
+nse_nsefo_recovery_tbt_v6_9.trade_quantity = {}
+
+-- Size: Trade Quantity
+nse_nsefo_recovery_tbt_v6_9.trade_quantity.size = 4
+
+-- Display: Trade Quantity
+nse_nsefo_recovery_tbt_v6_9.trade_quantity.display = function(value)
+  return "Trade Quantity: "..value
+end
+
+-- Dissect: Trade Quantity
+nse_nsefo_recovery_tbt_v6_9.trade_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_recovery_tbt_v6_9.trade_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nse_nsefo_recovery_tbt_v6_9.trade_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.trade_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nse NseFo Recovery Tbt 6.9
+-----------------------------------------------------------------------
+
+-- Tick Data Recovery Request Message
+nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_request_message = {}
+
+-- Size: Tick Data Recovery Request Message
+nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_request_message.size =
+  nse_nsefo_recovery_tbt_v6_9.stream_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.start_sequence_number.size + 
+  nse_nsefo_recovery_tbt_v6_9.end_sequence_number.size
+
+-- Display: Tick Data Recovery Request Message
+nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Tick Data Recovery Request Message
+nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stream Id: SHORT
+  index, stream_id = nse_nsefo_recovery_tbt_v6_9.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Start Sequence Number: UINT
+  index, start_sequence_number = nse_nsefo_recovery_tbt_v6_9.start_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- End Sequence Number: UINT
+  index, end_sequence_number = nse_nsefo_recovery_tbt_v6_9.end_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Tick Data Recovery Request Message
+nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.tick_data_recovery_request_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+nse_nsefo_recovery_tbt_v6_9.client_payload = {}
+
+-- Dispatch: Client Payload
+nse_nsefo_recovery_tbt_v6_9.client_payload.dispatch = {
+  ["R"] = nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_request_message.dissect,
+}
+
+-- Dissect: Client Payload
+nse_nsefo_recovery_tbt_v6_9.client_payload.dissect = function(buffer, offset, packet, parent, client_message_type)
+  local dissect = nse_nsefo_recovery_tbt_v6_9.client_payload.dispatch[client_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Message
+nse_nsefo_recovery_tbt_v6_9.client_message = {}
+
+-- Size: Client Message
+nse_nsefo_recovery_tbt_v6_9.client_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index)
+end
+
+-- Display: Client Message
+nse_nsefo_recovery_tbt_v6_9.client_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Message
+nse_nsefo_recovery_tbt_v6_9.client_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Client Message Type: Char
+  index, client_message_type = nse_nsefo_recovery_tbt_v6_9.client_message_type.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Client Payload
+  local end_of_payload = buffer:len()
+
+  -- Client Payload: Runtime Type with 1 branches
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Client Payload: Runtime Type with 1 branches
+    index = nse_nsefo_recovery_tbt_v6_9.client_payload.dissect(buffer, index, packet, parent, client_message_type)
+  end
+
+  return index
+end
+
+-- Dissect: Client Message
+nse_nsefo_recovery_tbt_v6_9.client_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.client_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.client_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.client_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.client_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Packet
+nse_nsefo_recovery_tbt_v6_9.client_packet = {}
+
+-- Verify required size of Tcp packet
+nse_nsefo_recovery_tbt_v6_9.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= nse_nsefo_recovery_tbt_v6_9.client_message_type.size
+end
+
+-- Dissect Client Packet
+nse_nsefo_recovery_tbt_v6_9.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Client Message: Struct of 2 fields
+  index, client_message = nse_nsefo_recovery_tbt_v6_9.client_message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Tick Data Recovery Response Message
+nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_response_message = {}
+
+-- Size: Tick Data Recovery Response Message
+nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_response_message.size =
+  nse_nsefo_recovery_tbt_v6_9.request_status.size
+
+-- Display: Tick Data Recovery Response Message
+nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Tick Data Recovery Response Message
+nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Request Status: CHAR
+  index, request_status = nse_nsefo_recovery_tbt_v6_9.request_status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Tick Data Recovery Response Message
+nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.tick_data_recovery_response_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Heartbeat Message
+nse_nsefo_recovery_tbt_v6_9.heartbeat_message = {}
+
+-- Size: Heartbeat Message
+nse_nsefo_recovery_tbt_v6_9.heartbeat_message.size =
+  nse_nsefo_recovery_tbt_v6_9.last_sequence_no.size
+
+-- Display: Heartbeat Message
+nse_nsefo_recovery_tbt_v6_9.heartbeat_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Heartbeat Message
+nse_nsefo_recovery_tbt_v6_9.heartbeat_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Sequence No: UINT
+  index, last_sequence_no = nse_nsefo_recovery_tbt_v6_9.last_sequence_no.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Heartbeat Message
+nse_nsefo_recovery_tbt_v6_9.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.heartbeat_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.heartbeat_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.heartbeat_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.heartbeat_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trade Cancel Message
+nse_nsefo_recovery_tbt_v6_9.trade_cancel_message = {}
+
+-- Size: Trade Cancel Message
+nse_nsefo_recovery_tbt_v6_9.trade_cancel_message.size =
+  nse_nsefo_recovery_tbt_v6_9.timestamp.size + 
+  nse_nsefo_recovery_tbt_v6_9.buy_order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.sell_order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.token.size + 
+  nse_nsefo_recovery_tbt_v6_9.trade_price.size + 
+  nse_nsefo_recovery_tbt_v6_9.trade_quantity.size
+
+-- Display: Trade Cancel Message
+nse_nsefo_recovery_tbt_v6_9.trade_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Cancel Message
+nse_nsefo_recovery_tbt_v6_9.trade_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_recovery_tbt_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Buy Order Id: DOUBLE
+  index, buy_order_id = nse_nsefo_recovery_tbt_v6_9.buy_order_id.dissect(buffer, index, packet, parent)
+
+  -- Sell Order Id: DOUBLE
+  index, sell_order_id = nse_nsefo_recovery_tbt_v6_9.sell_order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_recovery_tbt_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Trade Price: INT
+  index, trade_price = nse_nsefo_recovery_tbt_v6_9.trade_price.dissect(buffer, index, packet, parent)
+
+  -- Trade Quantity: INT
+  index, trade_quantity = nse_nsefo_recovery_tbt_v6_9.trade_quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Cancel Message
+nse_nsefo_recovery_tbt_v6_9.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.trade_cancel_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.trade_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.trade_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.trade_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Spread Trade Message
+nse_nsefo_recovery_tbt_v6_9.spread_trade_message = {}
+
+-- Size: Spread Trade Message
+nse_nsefo_recovery_tbt_v6_9.spread_trade_message.size =
+  nse_nsefo_recovery_tbt_v6_9.timestamp.size + 
+  nse_nsefo_recovery_tbt_v6_9.buy_order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.sell_order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.token.size + 
+  nse_nsefo_recovery_tbt_v6_9.trade_price.size + 
+  nse_nsefo_recovery_tbt_v6_9.quantity.size
+
+-- Display: Spread Trade Message
+nse_nsefo_recovery_tbt_v6_9.spread_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Spread Trade Message
+nse_nsefo_recovery_tbt_v6_9.spread_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_recovery_tbt_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Buy Order Id: DOUBLE
+  index, buy_order_id = nse_nsefo_recovery_tbt_v6_9.buy_order_id.dissect(buffer, index, packet, parent)
+
+  -- Sell Order Id: DOUBLE
+  index, sell_order_id = nse_nsefo_recovery_tbt_v6_9.sell_order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_recovery_tbt_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Trade Price: INT
+  index, trade_price = nse_nsefo_recovery_tbt_v6_9.trade_price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: INT
+  index, quantity = nse_nsefo_recovery_tbt_v6_9.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Spread Trade Message
+nse_nsefo_recovery_tbt_v6_9.spread_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.spread_trade_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.spread_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.spread_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.spread_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Spread Order Cancellation Message
+nse_nsefo_recovery_tbt_v6_9.spread_order_cancellation_message = {}
+
+-- Size: Spread Order Cancellation Message
+nse_nsefo_recovery_tbt_v6_9.spread_order_cancellation_message.size =
+  nse_nsefo_recovery_tbt_v6_9.timestamp.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.token.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_type.size + 
+  nse_nsefo_recovery_tbt_v6_9.price.size + 
+  nse_nsefo_recovery_tbt_v6_9.quantity.size
+
+-- Display: Spread Order Cancellation Message
+nse_nsefo_recovery_tbt_v6_9.spread_order_cancellation_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Spread Order Cancellation Message
+nse_nsefo_recovery_tbt_v6_9.spread_order_cancellation_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_recovery_tbt_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: DOUBLE
+  index, order_id = nse_nsefo_recovery_tbt_v6_9.order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_recovery_tbt_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Order Type: CHAR
+  index, order_type = nse_nsefo_recovery_tbt_v6_9.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: INT
+  index, price = nse_nsefo_recovery_tbt_v6_9.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: INT
+  index, quantity = nse_nsefo_recovery_tbt_v6_9.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Spread Order Cancellation Message
+nse_nsefo_recovery_tbt_v6_9.spread_order_cancellation_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.spread_order_cancellation_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.spread_order_cancellation_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.spread_order_cancellation_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.spread_order_cancellation_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Spread Order Modification Message
+nse_nsefo_recovery_tbt_v6_9.spread_order_modification_message = {}
+
+-- Size: Spread Order Modification Message
+nse_nsefo_recovery_tbt_v6_9.spread_order_modification_message.size =
+  nse_nsefo_recovery_tbt_v6_9.timestamp.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.token.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_type.size + 
+  nse_nsefo_recovery_tbt_v6_9.price.size + 
+  nse_nsefo_recovery_tbt_v6_9.quantity.size
+
+-- Display: Spread Order Modification Message
+nse_nsefo_recovery_tbt_v6_9.spread_order_modification_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Spread Order Modification Message
+nse_nsefo_recovery_tbt_v6_9.spread_order_modification_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_recovery_tbt_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: DOUBLE
+  index, order_id = nse_nsefo_recovery_tbt_v6_9.order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_recovery_tbt_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Order Type: CHAR
+  index, order_type = nse_nsefo_recovery_tbt_v6_9.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: INT
+  index, price = nse_nsefo_recovery_tbt_v6_9.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: INT
+  index, quantity = nse_nsefo_recovery_tbt_v6_9.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Spread Order Modification Message
+nse_nsefo_recovery_tbt_v6_9.spread_order_modification_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.spread_order_modification_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.spread_order_modification_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.spread_order_modification_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.spread_order_modification_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Spread Order Message
+nse_nsefo_recovery_tbt_v6_9.new_spread_order_message = {}
+
+-- Size: New Spread Order Message
+nse_nsefo_recovery_tbt_v6_9.new_spread_order_message.size =
+  nse_nsefo_recovery_tbt_v6_9.timestamp.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.token.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_type.size + 
+  nse_nsefo_recovery_tbt_v6_9.price.size + 
+  nse_nsefo_recovery_tbt_v6_9.quantity.size
+
+-- Display: New Spread Order Message
+nse_nsefo_recovery_tbt_v6_9.new_spread_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Spread Order Message
+nse_nsefo_recovery_tbt_v6_9.new_spread_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_recovery_tbt_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: DOUBLE
+  index, order_id = nse_nsefo_recovery_tbt_v6_9.order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_recovery_tbt_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Order Type: CHAR
+  index, order_type = nse_nsefo_recovery_tbt_v6_9.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: INT
+  index, price = nse_nsefo_recovery_tbt_v6_9.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: INT
+  index, quantity = nse_nsefo_recovery_tbt_v6_9.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Spread Order Message
+nse_nsefo_recovery_tbt_v6_9.new_spread_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.new_spread_order_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.new_spread_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.new_spread_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.new_spread_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trade Message
+nse_nsefo_recovery_tbt_v6_9.trade_message = {}
+
+-- Size: Trade Message
+nse_nsefo_recovery_tbt_v6_9.trade_message.size =
+  nse_nsefo_recovery_tbt_v6_9.timestamp.size + 
+  nse_nsefo_recovery_tbt_v6_9.buy_order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.sell_order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.token.size + 
+  nse_nsefo_recovery_tbt_v6_9.trade_price.size + 
+  nse_nsefo_recovery_tbt_v6_9.trade_quantity.size
+
+-- Display: Trade Message
+nse_nsefo_recovery_tbt_v6_9.trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Message
+nse_nsefo_recovery_tbt_v6_9.trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_recovery_tbt_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Buy Order Id: DOUBLE
+  index, buy_order_id = nse_nsefo_recovery_tbt_v6_9.buy_order_id.dissect(buffer, index, packet, parent)
+
+  -- Sell Order Id: DOUBLE
+  index, sell_order_id = nse_nsefo_recovery_tbt_v6_9.sell_order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_recovery_tbt_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Trade Price: INT
+  index, trade_price = nse_nsefo_recovery_tbt_v6_9.trade_price.dissect(buffer, index, packet, parent)
+
+  -- Trade Quantity: INT
+  index, trade_quantity = nse_nsefo_recovery_tbt_v6_9.trade_quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Message
+nse_nsefo_recovery_tbt_v6_9.trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.trade_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Cancellation Message
+nse_nsefo_recovery_tbt_v6_9.order_cancellation_message = {}
+
+-- Size: Order Cancellation Message
+nse_nsefo_recovery_tbt_v6_9.order_cancellation_message.size =
+  nse_nsefo_recovery_tbt_v6_9.timestamp.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.token.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_type.size + 
+  nse_nsefo_recovery_tbt_v6_9.price.size + 
+  nse_nsefo_recovery_tbt_v6_9.quantity.size
+
+-- Display: Order Cancellation Message
+nse_nsefo_recovery_tbt_v6_9.order_cancellation_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Cancellation Message
+nse_nsefo_recovery_tbt_v6_9.order_cancellation_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_recovery_tbt_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: DOUBLE
+  index, order_id = nse_nsefo_recovery_tbt_v6_9.order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_recovery_tbt_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Order Type: CHAR
+  index, order_type = nse_nsefo_recovery_tbt_v6_9.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: INT
+  index, price = nse_nsefo_recovery_tbt_v6_9.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: INT
+  index, quantity = nse_nsefo_recovery_tbt_v6_9.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Cancellation Message
+nse_nsefo_recovery_tbt_v6_9.order_cancellation_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.order_cancellation_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.order_cancellation_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.order_cancellation_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.order_cancellation_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Modification Message
+nse_nsefo_recovery_tbt_v6_9.order_modification_message = {}
+
+-- Size: Order Modification Message
+nse_nsefo_recovery_tbt_v6_9.order_modification_message.size =
+  nse_nsefo_recovery_tbt_v6_9.timestamp.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.token.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_type.size + 
+  nse_nsefo_recovery_tbt_v6_9.price.size + 
+  nse_nsefo_recovery_tbt_v6_9.quantity.size
+
+-- Display: Order Modification Message
+nse_nsefo_recovery_tbt_v6_9.order_modification_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Modification Message
+nse_nsefo_recovery_tbt_v6_9.order_modification_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_recovery_tbt_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: DOUBLE
+  index, order_id = nse_nsefo_recovery_tbt_v6_9.order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_recovery_tbt_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Order Type: CHAR
+  index, order_type = nse_nsefo_recovery_tbt_v6_9.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: INT
+  index, price = nse_nsefo_recovery_tbt_v6_9.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: INT
+  index, quantity = nse_nsefo_recovery_tbt_v6_9.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Modification Message
+nse_nsefo_recovery_tbt_v6_9.order_modification_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.order_modification_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.order_modification_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.order_modification_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.order_modification_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Order Message
+nse_nsefo_recovery_tbt_v6_9.new_order_message = {}
+
+-- Size: New Order Message
+nse_nsefo_recovery_tbt_v6_9.new_order_message.size =
+  nse_nsefo_recovery_tbt_v6_9.timestamp.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.token.size + 
+  nse_nsefo_recovery_tbt_v6_9.order_type.size + 
+  nse_nsefo_recovery_tbt_v6_9.price.size + 
+  nse_nsefo_recovery_tbt_v6_9.quantity.size
+
+-- Display: New Order Message
+nse_nsefo_recovery_tbt_v6_9.new_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Message
+nse_nsefo_recovery_tbt_v6_9.new_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_recovery_tbt_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: DOUBLE
+  index, order_id = nse_nsefo_recovery_tbt_v6_9.order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_recovery_tbt_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Order Type: CHAR
+  index, order_type = nse_nsefo_recovery_tbt_v6_9.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: INT
+  index, price = nse_nsefo_recovery_tbt_v6_9.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: INT
+  index, quantity = nse_nsefo_recovery_tbt_v6_9.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Order Message
+nse_nsefo_recovery_tbt_v6_9.new_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.new_order_message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.new_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.new_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.new_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+nse_nsefo_recovery_tbt_v6_9.payload = {}
+
+-- Dispatch: Payload
+nse_nsefo_recovery_tbt_v6_9.payload.dispatch = {
+  ["N"] = nse_nsefo_recovery_tbt_v6_9.new_order_message.dissect,
+  ["M"] = nse_nsefo_recovery_tbt_v6_9.order_modification_message.dissect,
+  ["X"] = nse_nsefo_recovery_tbt_v6_9.order_cancellation_message.dissect,
+  ["T"] = nse_nsefo_recovery_tbt_v6_9.trade_message.dissect,
+  ["G"] = nse_nsefo_recovery_tbt_v6_9.new_spread_order_message.dissect,
+  ["H"] = nse_nsefo_recovery_tbt_v6_9.spread_order_modification_message.dissect,
+  ["J"] = nse_nsefo_recovery_tbt_v6_9.spread_order_cancellation_message.dissect,
+  ["K"] = nse_nsefo_recovery_tbt_v6_9.spread_trade_message.dissect,
+  ["C"] = nse_nsefo_recovery_tbt_v6_9.trade_cancel_message.dissect,
+  ["Z"] = nse_nsefo_recovery_tbt_v6_9.heartbeat_message.dissect,
+  ["Y"] = nse_nsefo_recovery_tbt_v6_9.tick_data_recovery_response_message.dissect,
+}
+
+-- Dissect: Payload
+nse_nsefo_recovery_tbt_v6_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  local dissect = nse_nsefo_recovery_tbt_v6_9.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message
+nse_nsefo_recovery_tbt_v6_9.message = {}
+
+-- Size: Message
+nse_nsefo_recovery_tbt_v6_9.message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index)
+end
+
+-- Display: Message
+nse_nsefo_recovery_tbt_v6_9.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+nse_nsefo_recovery_tbt_v6_9.message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: Char
+  index, message_type = nse_nsefo_recovery_tbt_v6_9.message_type.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Payload
+  local end_of_payload = buffer:len()
+
+  -- Payload: Runtime Type with 11 branches
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Payload: Runtime Type with 11 branches
+    index = nse_nsefo_recovery_tbt_v6_9.payload.dissect(buffer, index, packet, parent, message_type)
+  end
+
+  return index
+end
+
+-- Dissect: Message
+nse_nsefo_recovery_tbt_v6_9.message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.message, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Header
+nse_nsefo_recovery_tbt_v6_9.stream_header = {}
+
+-- Size: Stream Header
+nse_nsefo_recovery_tbt_v6_9.stream_header.size =
+  nse_nsefo_recovery_tbt_v6_9.message_length.size + 
+  nse_nsefo_recovery_tbt_v6_9.stream_id.size + 
+  nse_nsefo_recovery_tbt_v6_9.sequence_number.size
+
+-- Display: Stream Header
+nse_nsefo_recovery_tbt_v6_9.stream_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Header
+nse_nsefo_recovery_tbt_v6_9.stream_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: Short
+  index, message_length = nse_nsefo_recovery_tbt_v6_9.message_length.dissect(buffer, index, packet, parent)
+
+  -- Stream Id: SHORT
+  index, stream_id = nse_nsefo_recovery_tbt_v6_9.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: Uint
+  index, sequence_number = nse_nsefo_recovery_tbt_v6_9.sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Header
+nse_nsefo_recovery_tbt_v6_9.stream_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.stream_header, buffer(offset, 0))
+    local index = nse_nsefo_recovery_tbt_v6_9.stream_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_recovery_tbt_v6_9.stream_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_recovery_tbt_v6_9.stream_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Packet
+nse_nsefo_recovery_tbt_v6_9.stream_packet = {}
+
+-- Display: Stream Packet
+nse_nsefo_recovery_tbt_v6_9.stream_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Packet
+nse_nsefo_recovery_tbt_v6_9.stream_packet.fields = function(buffer, offset, packet, parent, size_of_stream_packet)
+  local index = offset
+
+  -- Stream Header: Struct of 3 fields
+  index, stream_header = nse_nsefo_recovery_tbt_v6_9.stream_header.dissect(buffer, index, packet, parent)
+
+  -- Message: Struct of 2 fields
+  index, message = nse_nsefo_recovery_tbt_v6_9.message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Packet
+nse_nsefo_recovery_tbt_v6_9.stream_packet.dissect = function(buffer, offset, packet, parent, size_of_stream_packet)
+  local index = offset + size_of_stream_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.stream_packet, buffer(offset, 0))
+    local current = nse_nsefo_recovery_tbt_v6_9.stream_packet.fields(buffer, offset, packet, parent, size_of_stream_packet)
+    parent:set_len(size_of_stream_packet)
+    local display = nse_nsefo_recovery_tbt_v6_9.stream_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nse_nsefo_recovery_tbt_v6_9.stream_packet.fields(buffer, offset, packet, parent, size_of_stream_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Stream Packet
+local stream_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < nse_nsefo_recovery_tbt_v6_9.stream_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_int()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Packet
+nse_nsefo_recovery_tbt_v6_9.packet = {}
+
+-- Verify required size of Tcp packet
+nse_nsefo_recovery_tbt_v6_9.packet.requiredsize = function(buffer)
+  return buffer:len() >= nse_nsefo_recovery_tbt_v6_9.stream_header.size + nse_nsefo_recovery_tbt_v6_9.message_type.size
+end
+
+-- Dissect Packet
+nse_nsefo_recovery_tbt_v6_9.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Stream Packet
+  local end_of_payload = buffer:len()
+
+  -- Stream Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_stream_packet = stream_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_stream_packet):tvb()
+      index = nse_nsefo_recovery_tbt_v6_9.stream_packet.dissect(frame, index, packet, parent, size_of_stream_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_nse_nsefo_recovery_tbt_v6_9.init()
+end
+
+-- Connection roles for Nse NseFo Recovery Tbt 6.9: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+nse_nsefo_recovery_tbt_v6_9.role = function(packet)
+  if omi_nse_nsefo_recovery_tbt_v6_9.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_nse_nsefo_recovery_tbt_v6_9.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_nse_nsefo_recovery_tbt_v6_9.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_nse_nsefo_recovery_tbt_v6_9.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nse_nsefo_recovery_tbt_v6_9.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
+-- Dissector for Nse NseFo Recovery Tbt 6.9
+function omi_nse_nsefo_recovery_tbt_v6_9.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_nse_nsefo_recovery_tbt_v6_9.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_nse_nsefo_recovery_tbt_v6_9, buffer(), omi_nse_nsefo_recovery_tbt_v6_9.description, "("..buffer:len().." Bytes)")
+  local role = nse_nsefo_recovery_tbt_v6_9.role(packet)
+
+  if role == "initiator" then
+    return nse_nsefo_recovery_tbt_v6_9.client_packet.dissect(buffer, packet, protocol)
+  end
+
+  return nse_nsefo_recovery_tbt_v6_9.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nse_nsefo_recovery_tbt_v6_9.packet.fingerprint = function(buffer)
+  if buffer:len() < 9 then
+    return false
+  end
+
+  local message_type = buffer(8, 1):string()
+
+  -- New Order Message
+  if message_type == "N" then
+    return true
+  end
+
+  -- Order Modification Message
+  if message_type == "M" then
+    return true
+  end
+
+  -- Order Cancellation Message
+  if message_type == "X" then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == "T" then
+    return true
+  end
+
+  -- New Spread Order Message
+  if message_type == "G" then
+    return true
+  end
+
+  -- Spread Order Modification Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Spread Order Cancellation Message
+  if message_type == "J" then
+    return true
+  end
+
+  -- Spread Trade Message
+  if message_type == "K" then
+    return true
+  end
+
+  -- Trade Cancel Message
+  if message_type == "C" then
+    return true
+  end
+
+  -- Heartbeat Message
+  if message_type == "Z" then
+    return true
+  end
+
+  -- Tick Data Recovery Response Message
+  if message_type == "Y" then
+    return true
+  end
+
+  return false
+end
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+nse_nsefo_recovery_tbt_v6_9.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local client_message_type = buffer(0, 1):string()
+
+  -- Tick Data Recovery Request Message
+  if client_message_type == "R" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Nse NseFo Recovery Tbt 6.9 (Tcp)
+local function omi_nse_nsefo_recovery_tbt_v6_9_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nse_nsefo_recovery_tbt_v6_9.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not nse_nsefo_recovery_tbt_v6_9.packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nse_nsefo_recovery_tbt_v6_9
+  omi_nse_nsefo_recovery_tbt_v6_9.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nse NseFo Recovery Tbt 6.9 (Tcp)
+local function omi_nse_nsefo_recovery_tbt_v6_9_tcp_initiator_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nse_nsefo_recovery_tbt_v6_9.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp client packet message dispatch
+  if not nse_nsefo_recovery_tbt_v6_9.client_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nse_nsefo_recovery_tbt_v6_9
+  omi_nse_nsefo_recovery_tbt_v6_9.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nse NseFo Recovery Tbt 6.9 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nse_nsefo_recovery_tbt_v6_9_tcp_heuristic(buffer, packet, parent)
+  local role = nse_nsefo_recovery_tbt_v6_9.role(packet)
+  local initiator = omi_nse_nsefo_recovery_tbt_v6_9_tcp_initiator_heuristic
+  local acceptor = omi_nse_nsefo_recovery_tbt_v6_9_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nse_nsefo_recovery_tbt_v6_9.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  nse_nsefo_recovery_tbt_v6_9.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Nse NseFo Recovery Tbt 6.9
+omi_nse_nsefo_recovery_tbt_v6_9:register_heuristic("tcp", omi_nse_nsefo_recovery_tbt_v6_9_tcp_heuristic)
+
+-- Register Nse NseFo Recovery Tbt 6.9 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nse_nsefo_recovery_tbt_v6_9)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: National Stock Exchange of India Ltd
+--   Version: 6.9
+--   Date: Wednesday, April 1, 2026
+--   Specification: MTBT_FO_NNF_PROTOCOL_6_9_20260717161139.pdf
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------

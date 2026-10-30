@@ -2407,7 +2407,7 @@ nasdaq_ntxequities_drop_asciidrop_v2_3.debug_packet.size = function(buffer, offs
   local index = 0
 
   -- Remaining size of: Text
-  index = index + (buffer:len() - (offset + index))
+  index = index + ((buffer:len() - (offset + index)) - 1)
 
   return index
 end
@@ -2626,7 +2626,7 @@ nasdaq_ntxequities_drop_asciidrop_v2_3.unsequenced_data_packet.size = function(b
   local index = 0
 
   -- Remaining size of: Unsequenced Message
-  index = index + (buffer:len() - (offset + index))
+  index = index + ((buffer:len() - (offset + index)) - 1)
 
   return index
 end

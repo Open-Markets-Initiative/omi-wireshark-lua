@@ -576,6 +576,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.symbol.dissect = function(buffer
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Symbol: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -839,6 +842,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.participant_timestamp.dissect = 
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Participant Timestamp: No Value")
+    end
     return index
   end
   local seconds, nanoseconds, value = nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.time(text, nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.participant_timestamp.fraction)
@@ -978,6 +984,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.short_sale_restriction_indicator
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Short Sale Restriction Indicator: No Value")
+    end
     return index
   end
   local value, failure = nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.signed(text)
@@ -1059,6 +1068,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.trading_action_sequence_number.d
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Trading Action Sequence Number: No Value")
+    end
     return index
   end
   local value, failure = nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.unsigned(text)
@@ -1098,6 +1110,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.trading_action_timestamp.dissect
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Trading Action Timestamp: No Value")
+    end
     return index
   end
   local seconds, nanoseconds, value = nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.time(text, nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.trading_action_timestamp.fraction)
@@ -1221,6 +1236,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.luld_lower_limit_price_band.diss
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Luld Lower Limit Price Band: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.luld_lower_limit_price_band.places)
@@ -1258,6 +1276,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.luld_upper_limit_price_band.diss
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Luld Upper Limit Price Band: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.luld_upper_limit_price_band.places)
@@ -1341,6 +1362,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.market_wide_circuit_breaker_decl
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Market Wide Circuit Breaker Decline Level 1: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.market_wide_circuit_breaker_decline_level_1.places)
@@ -1378,6 +1402,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.market_wide_circuit_breaker_decl
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Market Wide Circuit Breaker Decline Level 2: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.market_wide_circuit_breaker_decline_level_2.places)
@@ -1415,6 +1442,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.market_wide_circuit_breaker_decl
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Market Wide Circuit Breaker Decline Level 3: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.market_wide_circuit_breaker_decline_level_3.places)
@@ -1457,6 +1487,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.market_wide_circuit_breaker_stat
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Market Wide Circuit Breaker Status: No Value")
+    end
     return index
   end
   local value, failure = nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.signed(text)
@@ -1494,6 +1527,9 @@ nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.message_text.dissect = function(
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqutpadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Message Text: No Value")
+    end
     return index
   end
   if parent ~= nil then

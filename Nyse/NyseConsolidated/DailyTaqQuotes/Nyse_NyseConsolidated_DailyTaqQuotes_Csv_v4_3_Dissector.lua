@@ -943,6 +943,9 @@ nyse_nyseconsolidated_dailytaqquotes_csv_v4_3.finra_bbo_indicator.dissect = func
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqquotes_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Finra Bbo Indicator: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -983,6 +986,9 @@ nyse_nyseconsolidated_dailytaqquotes_csv_v4_3.finra_adf_mpid_indicator.dissect =
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqquotes_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Finra Adf Mpid Indicator: No Value")
+    end
     return index
   end
   local value, failure = nyse_nyseconsolidated_dailytaqquotes_csv_v4_3.lines.signed(text)

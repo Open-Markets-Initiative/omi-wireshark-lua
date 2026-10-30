@@ -820,6 +820,9 @@ nyse_nyseconsolidated_dailytaqquoteluld_csv_v4_3.reference_price.dissect = funct
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqquoteluld_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Reference Price: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqquoteluld_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqquoteluld_csv_v4_3.reference_price.places)
@@ -856,6 +859,9 @@ nyse_nyseconsolidated_dailytaqquoteluld_csv_v4_3.num_extentions.dissect = functi
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqquoteluld_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Num Extentions: No Value")
+    end
     return index
   end
   local value, failure = nyse_nyseconsolidated_dailytaqquoteluld_csv_v4_3.lines.signed(text)

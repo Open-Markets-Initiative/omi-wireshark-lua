@@ -1654,7 +1654,7 @@ cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.unsequenced_data_packet.size = 
   local index = 0
 
   -- Remaining size of: Unsequenced Message
-  index = index + (buffer:len() - (offset + index))
+  index = index + ((buffer:len() - (offset + index)) - 1)
 
   return index
 end

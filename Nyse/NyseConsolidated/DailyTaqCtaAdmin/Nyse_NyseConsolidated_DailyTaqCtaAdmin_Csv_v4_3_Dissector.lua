@@ -556,6 +556,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.symbol.dissect = function(buffer
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Symbol: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -804,6 +807,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.financial_status.dissect = funct
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Financial Status: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -838,6 +844,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.currency_indicator.dissect = fun
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Currency Indicator: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -888,6 +897,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.security_status.dissect = functi
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Security Status: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -942,6 +954,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.halt_reason.dissect = function(b
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Halt Reason: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -976,6 +991,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.related_security_indicator.disse
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Related Security Indicator: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -1010,6 +1028,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.common_indicator.dissect = funct
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Common Indicator: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -1044,6 +1065,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.last_price.dissect = function(bu
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Last Price: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.last_price.places)
@@ -1081,6 +1105,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.status_indicator.dissect = funct
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Status Indicator: No Value")
+    end
     return index
   end
   if parent ~= nil then
@@ -1115,6 +1142,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.high_indication_price_upper_limi
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "High Indication Price Upper Limit Price Band: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.high_indication_price_upper_limit_price_band.places)
@@ -1152,6 +1182,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.low_indication_price_lower_l_imi
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Low Indication Price Lower L Imit Price Band: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.low_indication_price_lower_l_imit_price_band.places)
@@ -1188,6 +1221,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.buy_volume.dissect = function(bu
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Buy Volume: No Value")
+    end
     return index
   end
   local value, failure = nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.unsigned(text)
@@ -1224,6 +1260,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.sell_volume.dissect = function(b
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Sell Volume: No Value")
+    end
     return index
   end
   local value, failure = nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.unsigned(text)
@@ -1355,6 +1394,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.market_wide_circuit_breaker_decl
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Market Wide Circuit Breaker Decline Level 1: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.market_wide_circuit_breaker_decline_level_1.places)
@@ -1392,6 +1434,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.market_wide_circuit_breaker_decl
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Market Wide Circuit Breaker Decline Level 2: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.market_wide_circuit_breaker_decline_level_2.places)
@@ -1429,6 +1474,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.market_wide_circuit_breaker_decl
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Market Wide Circuit Breaker Decline Level 3: No Value")
+    end
     return index
   end
   local exact, failure = nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.places(text, nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.market_wide_circuit_breaker_decline_level_3.places)
@@ -1503,6 +1551,9 @@ nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.message_text.dissect = function(
   end
   local text = string.sub(nyse_nyseconsolidated_dailytaqctaadmin_csv_v4_3.lines.current, offset + 1, offset + length)
   if text == "" then
+    if parent ~= nil then
+      parent:add(buffer(offset, length), "Message Text: No Value")
+    end
     return index
   end
   if parent ~= nil then

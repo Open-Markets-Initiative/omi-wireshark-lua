@@ -62,7 +62,7 @@ omi_finra_finraorf_tdds_dfi_v2_0.fields.price_change_indicator = ProtoField.new(
 omi_finra_finraorf_tdds_dfi_v2_0.fields.report_function = ProtoField.new("Report Function", "finra.finraorf.tdds.dfi.v2.0.reportfunction", ftypes.STRING, nil, nil, nil, "This Function field denotes if the original trade report is being cancelled or was reported in error")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.report_volume = ProtoField.new("Report Volume", "finra.finraorf.tdds.dfi.v2.0.reportvolume", ftypes.UINT32, nil, nil, nil, "This field denotes the number of shares reported in the current Trade Report")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.report_volume_short = ProtoField.new("Report Volume Short", "finra.finraorf.tdds.dfi.v2.0.reportvolumeshort", ftypes.UINT24, nil, nil, nil, "This field denotes the number of shares reported in the current Trade Report")
-omi_finra_finraorf_tdds_dfi_v2_0.fields.reserved_1 = ProtoField.new("Reserved 1", "finra.finraorf.tdds.dfi.v2.0.reserved1", ftypes.STRING, nil, nil, nil, "This field will be space filled")
+omi_finra_finraorf_tdds_dfi_v2_0.fields.reserved_1 = ProtoField.new("Reserved 1", "finra.finraorf.tdds.dfi.v2.0.reserved1", ftypes.BYTES, nil, nil, nil, "This field will be space filled")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.retransmission_requester = ProtoField.new("Retransmission Requester", "finra.finraorf.tdds.dfi.v2.0.retransmissionrequester", ftypes.STRING, nil, nil, nil, "This field indicates if the message is an original transmission or retransmission")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.sale_condition_level_1 = ProtoField.new("Sale Condition Level 1", "finra.finraorf.tdds.dfi.v2.0.saleconditionlevel1", ftypes.STRING, nil, nil, nil, "This field is used to denote the sale condition associated with a trade transaction")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.sale_condition_level_2 = ProtoField.new("Sale Condition Level 2", "finra.finraorf.tdds.dfi.v2.0.saleconditionlevel2", ftypes.STRING, nil, nil, nil, "This field is reserved and may be used in the future.")
@@ -1322,7 +1322,7 @@ end
 finra_finraorf_tdds_dfi_v2_0.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = finra_finraorf_tdds_dfi_v2_0.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.reserved_1, range, value, display)
@@ -1617,20 +1617,41 @@ end
 -- Text
 finra_finraorf_tdds_dfi_v2_0.text = {}
 
+-- Size: Text
+finra_finraorf_tdds_dfi_v2_0.text.size = function(buffer, offset)
+  local maximum = math.min(300, buffer:len() - offset)
+  local length = 0
+  while length < maximum do
+    local byte = buffer(offset + length, 1):uint()
+    if byte == 31 or byte == 3 then
+      break
+    end
+    length = length + 1
+  end
+
+  return length
+end
+
 -- Display: Text
 finra_finraorf_tdds_dfi_v2_0.text.display = function(value)
+  -- Check if field has value
+  if value == "" then
+    return "Text: No Value"
+  end
+
   return "Text: "..value
 end
 
--- Dissect runtime sized field: Text
-finra_finraorf_tdds_dfi_v2_0.text.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
+-- Dissect: Text
+finra_finraorf_tdds_dfi_v2_0.text.dissect = function(buffer, offset, packet, parent)
+  local length = finra_finraorf_tdds_dfi_v2_0.text.size(buffer, offset)
+  local range = buffer(offset, length)
   local value = range:string()
-  local display = finra_finraorf_tdds_dfi_v2_0.text.display(value, packet, parent, size)
+  local display = finra_finraorf_tdds_dfi_v2_0.text.display(value, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.text, range, value, display)
 
-  return offset + size, value
+  return offset + length, value
 end
 
 -- Total Security Volume
@@ -2688,8 +2709,7 @@ finra_finraorf_tdds_dfi_v2_0.general_administrative_message.size = function(buff
 
   index = index + finra_finraorf_tdds_dfi_v2_0.message_header.size
 
-  -- Remaining size of: Text
-  index = index + math.min(buffer:len() - (offset + index), 300)
+  index = index + finra_finraorf_tdds_dfi_v2_0.text.size(buffer, offset + index)
 
   return index
 end
@@ -2706,11 +2726,8 @@ finra_finraorf_tdds_dfi_v2_0.general_administrative_message.fields = function(bu
   -- Message Header: Struct of 5 fields
   index, message_header = finra_finraorf_tdds_dfi_v2_0.message_header.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Text
-  local size_of_text = math.min(buffer:len() - index, 300)
-
   -- Text: Alphanumeric
-  index, text = finra_finraorf_tdds_dfi_v2_0.text.dissect(buffer, index, packet, parent, size_of_text)
+  index, text = finra_finraorf_tdds_dfi_v2_0.text.dissect(buffer, index, packet, parent)
 
   return index
 end

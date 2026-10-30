@@ -673,7 +673,7 @@ cboe_bzxequities_lastsale_asciipitch_v1_2_4.unsequenced_data_packet.size = funct
   local index = 0
 
   -- Remaining size of: Unsequenced Message
-  index = index + (buffer:len() - (offset + index))
+  index = index + ((buffer:len() - (offset + index)) - 1)
 
   return index
 end

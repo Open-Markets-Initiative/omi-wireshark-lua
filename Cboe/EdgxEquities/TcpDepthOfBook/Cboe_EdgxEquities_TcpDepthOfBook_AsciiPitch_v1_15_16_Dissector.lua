@@ -1556,7 +1556,7 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.unsequenced_data_packet.siz
   local index = 0
 
   -- Remaining size of: Unsequenced Message
-  index = index + (buffer:len() - (offset + index))
+  index = index + ((buffer:len() - (offset + index)) - 1)
 
   return index
 end
