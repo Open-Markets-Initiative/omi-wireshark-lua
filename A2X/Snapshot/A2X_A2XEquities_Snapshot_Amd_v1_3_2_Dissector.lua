@@ -15,42 +15,58 @@ local a2x_a2xequities_snapshot_amd_v1_3_2 = {}
 -----------------------------------------------------------------------
 
 -- A2X A2XEquities Snapshot Amd 1.3.2 Fields
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.snapshot.amd.v1.3.2.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.a2xequities.snapshot.amd.v1.3.2.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.entries = ProtoField.new("Entries", "a2x.a2xequities.snapshot.amd.v1.3.2.entries", ftypes.UINT16, nil, nil, nil, "Number of open orders in the book for this")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.a2xequities.snapshot.amd.v1.3.2.indicativeprice", ftypes.UINT64, nil, nil, nil, "Indicative auction price")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.a2xequities.snapshot.amd.v1.3.2.macopen", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "Open")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.a2xequities.snapshot.amd.v1.3.2.macrun", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "Locked")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.market_flags = ProtoField.new("Market Flags", "a2x.a2xequities.snapshot.amd.v1.3.2.marketflags", ftypes.STRING, nil, nil, nil, "Market Flagss")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.snapshot.amd.v1.3.2.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during the closing market")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.a2xequities.snapshot.amd.v1.3.2.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during the closing market")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.entries = ProtoField.new("Entries", "a2x.a2xequities.snapshot.amd.v1.3.2.entries", ftypes.UINT16, nil, nil, nil, "Number of open orders in the book for this security")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.a2xequities.snapshot.amd.v1.3.2.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Indicative auction price")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.a2xequities.snapshot.amd.v1.3.2.macopen", ftypes.UINT8, {[0]="Mac Is Closed", [1]="Mac Is Open"}, base.DEC, 0x02, "MaC open or closed")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.a2xequities.snapshot.amd.v1.3.2.macrun", ftypes.UINT8, {[0]="Mac Is Not Locked Down", [1]="Mac Is Locked Down"}, base.DEC, 0x04, "MaC locked down or not")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.market_flags = ProtoField.new("Market Flags", "a2x.a2xequities.snapshot.amd.v1.3.2.marketflags", ftypes.STRING)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message_count = ProtoField.new("Message Count", "a2x.a2xequities.snapshot.amd.v1.3.2.messagecount", ftypes.UINT8, nil, nil, nil, "number of messages in this packet")
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.msg_length = ProtoField.new("Msg Length", "a2x.a2xequities.snapshot.amd.v1.3.2.msglength", ftypes.UINT8, nil, nil, nil, "Length of market data message, including header")
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.msg_type = ProtoField.new("Msg Type", "a2x.a2xequities.snapshot.amd.v1.3.2.msgtype", ftypes.UINT8, nil, nil, nil, "Message type identifier")
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.order_ref = ProtoField.new("Order Ref", "a2x.a2xequities.snapshot.amd.v1.3.2.orderref", ftypes.UINT32, nil, nil, nil, "Order reference number")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.price = ProtoField.new("Price", "a2x.a2xequities.snapshot.amd.v1.3.2.price", ftypes.UINT64, nil, nil, nil, "The price of the order")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.price = ProtoField.new("Price", "a2x.a2xequities.snapshot.amd.v1.3.2.price", ftypes.DOUBLE, nil, nil, nil, "The price of the order")
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.quantity = ProtoField.new("Quantity", "a2x.a2xequities.snapshot.amd.v1.3.2.quantity", ftypes.UINT32, nil, nil, nil, "Number of open shares")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.security_count = ProtoField.new("Security Count", "a2x.a2xequities.snapshot.amd.v1.3.2.securitycount", ftypes.UINT16, nil, nil, nil, "Number of securities reported in this")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.security_count = ProtoField.new("Security Count", "a2x.a2xequities.snapshot.amd.v1.3.2.securitycount", ftypes.UINT16, nil, nil, nil, "Number of securities reported in this snapshot")
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.security_id = ProtoField.new("Security Id", "a2x.a2xequities.snapshot.amd.v1.3.2.securityid", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the relevant security")
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.seq_no = ProtoField.new("Seq No", "a2x.a2xequities.snapshot.amd.v1.3.2.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.stream_seq_no = ProtoField.new("Stream Seq No", "a2x.a2xequities.snapshot.amd.v1.3.2.streamseqno", ftypes.UINT32, nil, nil, nil, "The sequence number of the last message")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.snapshot.amd.v1.3.2.timestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of this snapshot")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.a2xequities.snapshot.amd.v1.3.2.trading", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Continuous Trading")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.a2xequities.snapshot.amd.v1.3.2.tradingstatus", ftypes.UINT8)
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.a2xequities.snapshot.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0x1F, "Reserved for future use")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.side = ProtoField.new("Side", "a2x.a2xequities.snapshot.amd.v1.3.2.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.stream_seq_no = ProtoField.new("Stream Seq No", "a2x.a2xequities.snapshot.amd.v1.3.2.streamseqno", ftypes.UINT32, nil, nil, nil, "The sequence number of the last message in the continuous stream which relates to this snapshot")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.snapshot.amd.v1.3.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this snapshot")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.snapshot.amd.v1.3.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this snapshot")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.a2xequities.snapshot.amd.v1.3.2.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "Continuous trading open or closed")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.a2xequities.snapshot.amd.v1.3.2.tradingstatus", ftypes.UINT8, nil, nil, nil, "Trading status of the security")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.a2xequities.snapshot.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved")
 
 -- A2X A2XEquities Snapshot Amd 1.3.2 Framing
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.a2xequities.snapshot.amd.v1.3.2.message", ftypes.STRING)
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.a2xequities.snapshot.amd.v1.3.2.message", ftypes.STRING, nil, nil, nil, "A2X Amd Message")
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.snapshot.amd.v1.3.2.messageheader", ftypes.STRING, nil, nil, nil, "A2X message header")
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.snapshot.amd.v1.3.2.packet", ftypes.STRING, nil, nil, nil, "A2X Udp Packet")
 
 -- A2X A2XEquities Snapshot 1.3.2 Application Messages
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.book_entry_message = ProtoField.new("Book Entry Message", "a2x.a2xequities.snapshot.amd.v1.3.2.bookentrymessage", ftypes.STRING, nil, nil, nil, "An appropriate number of Book Entry messages is published after each Book Status message to provide details of each order and allow the book to be built")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.book_status_message = ProtoField.new("Book Status Message", "a2x.a2xequities.snapshot.amd.v1.3.2.bookstatusmessage", ftypes.STRING, nil, nil, nil, "A Book Status message is published to report the trading and market status of each security and the number of open orders on the order book for the security at the time of the snapshot")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "a2x.a2xequities.snapshot.amd.v1.3.2.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "The Heartbeat message carries no data")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.market_at_close_book_entry_message = ProtoField.new("Market At Close Book Entry Message", "a2x.a2xequities.snapshot.amd.v1.3.2.marketatclosebookentrymessage", ftypes.STRING, nil, nil, nil, "A2X will publish the volume of the 5 best bid and offer orders per security in chronological order")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.snapshot_start_message = ProtoField.new("Snapshot Start Message", "a2x.a2xequities.snapshot.amd.v1.3.2.snapshotstartmessage", ftypes.STRING, nil, nil, nil, "A Snapshot Start message is published as the first message in a snapshot to identify the continous stream")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.book_entry_message = ProtoField.new("Book Entry Message", "a2x.a2xequities.snapshot.amd.v1.3.2.bookentrymessage", ftypes.STRING, nil, nil, nil, "An appropriate number of Book Entry messages is published after each Book Status message to provide details of each order and allow the book to be built.")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.book_status_message = ProtoField.new("Book Status Message", "a2x.a2xequities.snapshot.amd.v1.3.2.bookstatusmessage", ftypes.STRING, nil, nil, nil, "A Book Status message is published to report the trading and market status of each security and the number of open orders on the order book for the security at the time of the snapshot.")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "a2x.a2xequities.snapshot.amd.v1.3.2.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "The Heartbeat message carries no data; it is simply a message header with msgType of 1.")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.mac_book_entry_message = ProtoField.new("Mac Book Entry Message", "a2x.a2xequities.snapshot.amd.v1.3.2.macbookentrymessage", ftypes.STRING, nil, nil, nil, "During the MaC phase, A2X will publish the volume of the 5 best bid and offer orders per security in chronological order using the MaC Book Entry Message.")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.snapshot_start_message = ProtoField.new("Snapshot Start Message", "a2x.a2xequities.snapshot.amd.v1.3.2.snapshotstartmessage", ftypes.STRING, nil, nil, nil, "A Snapshot Start message is published as the first message in a snapshot to identify the sequence number in the continuous stream that this snapshot relates to.")
 
 -- A2X A2XEquities Snapshot Amd 1.3.2 Generated Fields
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message_index = ProtoField.new("Message Index", "a2x.a2xequities.snapshot.amd.v1.3.2.messageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- A2X A2XEquities Snapshot Amd 1.3.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+a2x_a2xequities_snapshot_amd_v1_3_2.absolute_time_base = 0
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -70,6 +86,8 @@ omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_structs = Pref.bool("Show Str
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs_changed()
 
@@ -86,6 +104,9 @@ function omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs_changed()
   if show.indexes ~= omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_indexes then
     show.indexes = omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_indexes
   end
+  if a2x_a2xequities_snapshot_amd_v1_3_2.absolute_time_base ~= omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.absolute_time_base then
+    a2x_a2xequities_snapshot_amd_v1_3_2.absolute_time_base = omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.absolute_time_base
+  end
 end
 
 
@@ -101,6 +122,11 @@ a2x_a2xequities_snapshot_amd_v1_3_2.closing_buy_qty.size = 4
 
 -- Display: Closing Buy Qty
 a2x_a2xequities_snapshot_amd_v1_3_2.closing_buy_qty.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Closing Buy Qty: No Value"
+  end
+
   return "Closing Buy Qty: "..value
 end
 
@@ -124,6 +150,11 @@ a2x_a2xequities_snapshot_amd_v1_3_2.closing_sell_qty.size = 4
 
 -- Display: Closing Sell Qty
 a2x_a2xequities_snapshot_amd_v1_3_2.closing_sell_qty.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Closing Sell Qty: No Value"
+  end
+
   return "Closing Sell Qty: "..value
 end
 
@@ -173,11 +204,17 @@ a2x_a2xequities_snapshot_amd_v1_3_2.indicative_price.display = function(value)
   return "Indicative Price: "..value
 end
 
+-- Translate: Indicative Price
+a2x_a2xequities_snapshot_amd_v1_3_2.indicative_price.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Indicative Price
 a2x_a2xequities_snapshot_amd_v1_3_2.indicative_price.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_snapshot_amd_v1_3_2.indicative_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = a2x_a2xequities_snapshot_amd_v1_3_2.indicative_price.translate(raw)
   local display = a2x_a2xequities_snapshot_amd_v1_3_2.indicative_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.indicative_price, range, value, display)
@@ -243,7 +280,7 @@ a2x_a2xequities_snapshot_amd_v1_3_2.msg_type.labels = {
   [10] = "Msg Type: Snapshot Start Message (10)",
   [11] = "Msg Type: Book Status Message (11)",
   [12] = "Msg Type: Book Entry Message (12)",
-  [18] = "Msg Type: Market At Close Book Entry Message (18)",
+  [18] = "Msg Type: Mac Book Entry Message (18)",
 }
 
 a2x_a2xequities_snapshot_amd_v1_3_2.msg_type.display = function(value)
@@ -296,11 +333,17 @@ a2x_a2xequities_snapshot_amd_v1_3_2.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+a2x_a2xequities_snapshot_amd_v1_3_2.price.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Price
 a2x_a2xequities_snapshot_amd_v1_3_2.price.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_snapshot_amd_v1_3_2.price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = a2x_a2xequities_snapshot_amd_v1_3_2.price.translate(raw)
   local display = a2x_a2xequities_snapshot_amd_v1_3_2.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.price, range, value, display)
@@ -400,6 +443,34 @@ a2x_a2xequities_snapshot_amd_v1_3_2.seq_no.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Side
+a2x_a2xequities_snapshot_amd_v1_3_2.side = {}
+
+-- Size: Side
+a2x_a2xequities_snapshot_amd_v1_3_2.side.size = 1
+
+-- Display: Side
+a2x_a2xequities_snapshot_amd_v1_3_2.side.labels = {
+  [1] = "Side: Buy Order (1)",
+  [2] = "Side: Sell Order (2)",
+}
+
+a2x_a2xequities_snapshot_amd_v1_3_2.side.display = function(value)
+  return a2x_a2xequities_snapshot_amd_v1_3_2.side.labels[value] or "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+a2x_a2xequities_snapshot_amd_v1_3_2.side.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_a2xequities_snapshot_amd_v1_3_2.side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = a2x_a2xequities_snapshot_amd_v1_3_2.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
 -- Stream Seq No
 a2x_a2xequities_snapshot_amd_v1_3_2.stream_seq_no = {}
 
@@ -429,19 +500,20 @@ a2x_a2xequities_snapshot_amd_v1_3_2.timestamp = {}
 -- Size: Timestamp
 a2x_a2xequities_snapshot_amd_v1_3_2.timestamp.size = 8
 
--- Display: Timestamp
-a2x_a2xequities_snapshot_amd_v1_3_2.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
 -- Dissect: Timestamp
 a2x_a2xequities_snapshot_amd_v1_3_2.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_snapshot_amd_v1_3_2.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = a2x_a2xequities_snapshot_amd_v1_3_2.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.timestamp
+  if a2x_a2xequities_snapshot_amd_v1_3_2.absolute_time_base == 1 then field = omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -453,8 +525,16 @@ a2x_a2xequities_snapshot_amd_v1_3_2.trading_status = {}
 a2x_a2xequities_snapshot_amd_v1_3_2.trading_status.size = 1
 
 -- Display: Trading Status
+a2x_a2xequities_snapshot_amd_v1_3_2.trading_status.labels = {
+  [1] = "Trading Status: Active (1)",
+  [2] = "Trading Status: Halted (2)",
+  [3] = "Trading Status: Suspended (3)",
+  [8] = "Trading Status: Aod Start (8)",
+  [24] = "Trading Status: Aod End (24)",
+}
+
 a2x_a2xequities_snapshot_amd_v1_3_2.trading_status.display = function(value)
-  return "Trading Status: "..value
+  return a2x_a2xequities_snapshot_amd_v1_3_2.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -474,27 +554,31 @@ end
 -- Dissect A2X A2XEquities Snapshot Amd 1.3.2
 -----------------------------------------------------------------------
 
--- Market At Close Book Entry Message
-a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message = {}
+-- Mac Book Entry Message
+a2x_a2xequities_snapshot_amd_v1_3_2.mac_book_entry_message = {}
 
--- Size: Market At Close Book Entry Message
-a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.size =
+-- Size: Mac Book Entry Message
+a2x_a2xequities_snapshot_amd_v1_3_2.mac_book_entry_message.size =
   a2x_a2xequities_snapshot_amd_v1_3_2.security_id.size + 
+  a2x_a2xequities_snapshot_amd_v1_3_2.side.size + 
   a2x_a2xequities_snapshot_amd_v1_3_2.quantity.size + 
   a2x_a2xequities_snapshot_amd_v1_3_2.price.size + 
   a2x_a2xequities_snapshot_amd_v1_3_2.order_ref.size
 
--- Display: Market At Close Book Entry Message
-a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.display = function(packet, parent, length)
+-- Display: Mac Book Entry Message
+a2x_a2xequities_snapshot_amd_v1_3_2.mac_book_entry_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Market At Close Book Entry Message
-a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mac Book Entry Message
+a2x_a2xequities_snapshot_amd_v1_3_2.mac_book_entry_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: u16
   index, security_id = a2x_a2xequities_snapshot_amd_v1_3_2.security_id.dissect(buffer, index, packet, parent)
+
+  -- Side: u8
+  index, side = a2x_a2xequities_snapshot_amd_v1_3_2.side.dissect(buffer, index, packet, parent)
 
   -- Quantity: u32
   index, quantity = a2x_a2xequities_snapshot_amd_v1_3_2.quantity.dissect(buffer, index, packet, parent)
@@ -508,21 +592,21 @@ a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.fields = 
   return index
 end
 
--- Dissect: Market At Close Book Entry Message
-a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Mac Book Entry Message
+a2x_a2xequities_snapshot_amd_v1_3_2.mac_book_entry_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.market_at_close_book_entry_message, buffer(offset, 0))
-    local index = a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.mac_book_entry_message, buffer(offset, 0))
+    local index = a2x_a2xequities_snapshot_amd_v1_3_2.mac_book_entry_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.display(packet, parent, length)
+    local display = a2x_a2xequities_snapshot_amd_v1_3_2.mac_book_entry_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.fields(buffer, offset, packet, parent)
+    return a2x_a2xequities_snapshot_amd_v1_3_2.mac_book_entry_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -532,6 +616,7 @@ a2x_a2xequities_snapshot_amd_v1_3_2.book_entry_message = {}
 -- Size: Book Entry Message
 a2x_a2xequities_snapshot_amd_v1_3_2.book_entry_message.size =
   a2x_a2xequities_snapshot_amd_v1_3_2.security_id.size + 
+  a2x_a2xequities_snapshot_amd_v1_3_2.side.size + 
   a2x_a2xequities_snapshot_amd_v1_3_2.quantity.size + 
   a2x_a2xequities_snapshot_amd_v1_3_2.price.size + 
   a2x_a2xequities_snapshot_amd_v1_3_2.order_ref.size
@@ -547,6 +632,9 @@ a2x_a2xequities_snapshot_amd_v1_3_2.book_entry_message.fields = function(buffer,
 
   -- Security Id: u16
   index, security_id = a2x_a2xequities_snapshot_amd_v1_3_2.security_id.dissect(buffer, index, packet, parent)
+
+  -- Side: u8
+  index, side = a2x_a2xequities_snapshot_amd_v1_3_2.side.dissect(buffer, index, packet, parent)
 
   -- Quantity: u32
   index, quantity = a2x_a2xequities_snapshot_amd_v1_3_2.quantity.dissect(buffer, index, packet, parent)
@@ -588,17 +676,17 @@ a2x_a2xequities_snapshot_amd_v1_3_2.market_flags.size = 1
 a2x_a2xequities_snapshot_amd_v1_3_2.market_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Mac Run flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Mac Run"
+  -- Is Trading flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Trading"
   end
   -- Is Mac Open flag set?
-  if bit.band(value, 0x40) ~= 0 then
+  if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Mac Open"
   end
-  -- Is Trading flag set?
-  if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Trading"
+  -- Is Mac Run flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Mac Run"
   end
 
   return table.concat(flags, "|")
@@ -607,17 +695,17 @@ end
 -- Dissect Bit Fields: Market Flags
 a2x_a2xequities_snapshot_amd_v1_3_2.market_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 5: 5 Bit
-  parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.unused_5, range, value)
+  -- Trading: 1 Bit Enum with 2 values
+  parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.trading, range, value)
 
-  -- Mac Run: 1 Bit
-  parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.mac_run, range, value)
-
-  -- Mac Open: 1 Bit
+  -- Mac Open: 1 Bit Enum with 2 values
   parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.mac_open, range, value)
 
-  -- Trading: 1 Bit
-  parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.trading, range, value)
+  -- Mac Run: 1 Bit Enum with 2 values
+  parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.mac_run, range, value)
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.unused_5, range, value)
 end
 
 -- Dissect: Market Flags
@@ -773,7 +861,7 @@ a2x_a2xequities_snapshot_amd_v1_3_2.payload.dispatch = {
   [10] = a2x_a2xequities_snapshot_amd_v1_3_2.snapshot_start_message.dissect,
   [11] = a2x_a2xequities_snapshot_amd_v1_3_2.book_status_message.dissect,
   [12] = a2x_a2xequities_snapshot_amd_v1_3_2.book_entry_message.dissect,
-  [18] = a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.dissect,
+  [18] = a2x_a2xequities_snapshot_amd_v1_3_2.mac_book_entry_message.dissect,
 }
 
 -- Dissect: Payload
@@ -965,7 +1053,7 @@ a2x_a2xequities_snapshot_amd_v1_3_2.packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Market At Close Book Entry Message
+  -- Mac Book Entry Message
   if msg_type == 18 then
     return true
   end
@@ -1008,7 +1096,7 @@ udp_table:add_for_decode_as(omi_a2x_a2xequities_snapshot_amd_v1_3_2)
 -- Protocol:
 --   Organization: A2X Markets
 --   Version: 1.3.2
---   Date: Thursday, September 15, 2022
+--   Date: Monday, August 15, 2022
 --   Specification: A2X712-Market-Data-Techincal-Specification-v1.3.2.pdf
 --
 -- Script:

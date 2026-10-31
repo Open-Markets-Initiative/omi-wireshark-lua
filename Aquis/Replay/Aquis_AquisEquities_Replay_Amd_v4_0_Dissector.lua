@@ -20,7 +20,7 @@ omi_aquis_aquisequities_replay_amd_v4_0.fields.end_seq_no = ProtoField.new("End 
 omi_aquis_aquisequities_replay_amd_v4_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.replay.amd.v4.0.msglength", ftypes.UINT8, nil, nil, nil, "Length of market data message, including header")
 omi_aquis_aquisequities_replay_amd_v4_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.replay.amd.v4.0.msgtype", ftypes.UINT8, nil, nil, nil, "Message type identifier")
 omi_aquis_aquisequities_replay_amd_v4_0.fields.password = ProtoField.new("Password", "aquis.aquisequities.replay.amd.v4.0.password", ftypes.STRING, nil, nil, nil, "As assigned by Aquis for the recipient")
-omi_aquis_aquisequities_replay_amd_v4_0.fields.response_code = ProtoField.new("Response Code", "aquis.aquisequities.replay.amd.v4.0.responsecode", ftypes.UINT8)
+omi_aquis_aquisequities_replay_amd_v4_0.fields.response_code = ProtoField.new("Response Code", "aquis.aquisequities.replay.amd.v4.0.responsecode", ftypes.UINT8, nil, nil, nil, "Replay response code")
 omi_aquis_aquisequities_replay_amd_v4_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.replay.amd.v4.0.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
 omi_aquis_aquisequities_replay_amd_v4_0.fields.username = ProtoField.new("Username", "aquis.aquisequities.replay.amd.v4.0.username", ftypes.STRING, nil, nil, nil, "As assigned by Aquis for the recipient")
 
@@ -30,9 +30,9 @@ omi_aquis_aquisequities_replay_amd_v4_0.fields.message_header = ProtoField.new("
 omi_aquis_aquisequities_replay_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.replay.amd.v4.0.packet", ftypes.STRING, nil, nil, nil, "Aquis Tcp Packet")
 
 -- Aquis AquisEquities Replay 4.0 Application Messages
-omi_aquis_aquisequities_replay_amd_v4_0.fields.login_message = ProtoField.new("Login Message", "aquis.aquisequities.replay.amd.v4.0.loginmessage", ftypes.STRING, nil, nil, nil, "Sent to authenticate with the replay server before using the message replay service.")
-omi_aquis_aquisequities_replay_amd_v4_0.fields.replay_request_message = ProtoField.new("Replay Request Message", "aquis.aquisequities.replay.amd.v4.0.replayrequestmessage", ftypes.STRING, nil, nil, nil, "Sent to request a particular message or range of messages from the replay server.")
-omi_aquis_aquisequities_replay_amd_v4_0.fields.replay_response_message = ProtoField.new("Replay Response Message", "aquis.aquisequities.replay.amd.v4.0.replayresponsemessage", ftypes.STRING, nil, nil, nil, "Sent by Aquis to acknowledge a successful login or report problems with a Resend Request.")
+omi_aquis_aquisequities_replay_amd_v4_0.fields.login_message = ProtoField.new("Login Message", "aquis.aquisequities.replay.amd.v4.0.loginmessage", ftypes.STRING, nil, nil, nil, "If a recipient wishes to use the message replay service, they must first be authenticated by sending a Login message to the relevant replay server.")
+omi_aquis_aquisequities_replay_amd_v4_0.fields.replay_request_message = ProtoField.new("Replay Request Message", "aquis.aquisequities.replay.amd.v4.0.replayrequestmessage", ftypes.STRING, nil, nil, nil, "The recipient sends a Replay Request message to request a particular message or range of messages from the replay server.")
+omi_aquis_aquisequities_replay_amd_v4_0.fields.replay_response_message = ProtoField.new("Replay Response Message", "aquis.aquisequities.replay.amd.v4.0.replayresponsemessage", ftypes.STRING, nil, nil, nil, "Aquis will send a Replay Response message to the recipient to acknowledge a successful Login or to report problems with a Resend Request.")
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -469,13 +469,13 @@ end
 aquis_aquisequities_replay_amd_v4_0.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Msg Type: u8
   index, msg_type = aquis_aquisequities_replay_amd_v4_0.msg_type.dissect(buffer, index, packet, parent)
 
-  -- Msg Length: 1 Byte Unsigned Fixed Width Integer
+  -- Msg Length: u8
   index, msg_length = aquis_aquisequities_replay_amd_v4_0.msg_length.dissect(buffer, index, packet, parent)
 
-  -- Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Seq No: u32
   index, seq_no = aquis_aquisequities_replay_amd_v4_0.seq_no.dissect(buffer, index, packet, parent)
 
   return index
@@ -570,15 +570,12 @@ aquis_aquisequities_replay_amd_v4_0.packet = {}
 
 -- Verify required size of Tcp packet
 aquis_aquisequities_replay_amd_v4_0.packet.requiredsize = function(buffer)
-  return buffer:len() >= aquis_aquisequities_replay_amd_v4_0.message_count.size + aquis_aquisequities_replay_amd_v4_0.message_header.size
+  return buffer:len() >= aquis_aquisequities_replay_amd_v4_0.message_header.size
 end
 
 -- Dissect Packet
 aquis_aquisequities_replay_amd_v4_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
-
-  -- Message Count
-  index, message_count = aquis_aquisequities_replay_amd_v4_0.message_count.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
@@ -691,7 +688,8 @@ tcp_table:add_for_decode_as(omi_aquis_aquisequities_replay_amd_v4_0)
 -- Protocol:
 --   Organization: Aquis Exchange
 --   Version: 4.0
---   Date: Friday, August 1, 2025
+--   Date: Friday, August 15, 2025
+--   Specification: Aquis Market Data Technical Specification v4.0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

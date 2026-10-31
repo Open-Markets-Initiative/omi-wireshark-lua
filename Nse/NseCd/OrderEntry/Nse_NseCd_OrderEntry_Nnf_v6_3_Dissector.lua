@@ -349,8 +349,6 @@ omi_nse_nsecd_orderentry_nnf_v6_3.fields.giveup_app_confirm_tm_message = ProtoFi
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.giveup_rej_confirm_tm_message = ProtoField.new("Giveup Rej Confirm Tm Message", "nse.nsecd.orderentry.nnf.v6.3.giveuprejconfirmtmmessage", ftypes.STRING, nil, nil, nil, "4507 GIVEUP_RESPONSE 122 I, carried in the GIVEUP_RESPONSE structure")
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.gr_request_message = ProtoField.new("Gr Request Message", "nse.nsecd.orderentry.nnf.v6.3.grrequestmessage", ftypes.STRING, nil, nil, nil, "2400 MS_GR_REQUEST 48 I, carried in the MS_GR_REQUEST structure")
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.gr_response_message = ProtoField.new("Gr Response Message", "nse.nsecd.orderentry.nnf.v6.3.grresponsemessage", ftypes.STRING, nil, nil, nil, "2401 MS_GR_RESPONSE 124 I, carried in the MS_GR_RESPONSE structure")
-omi_nse_nsecd_orderentry_nnf_v6_3.fields.header_record_message = ProtoField.new("Header Record Message", "nse.nsecd.orderentry.nnf.v6.3.headerrecordmessage", ftypes.BYTES)
-omi_nse_nsecd_orderentry_nnf_v6_3.fields.message_record_message = ProtoField.new("Message Record Message", "nse.nsecd.orderentry.nnf.v6.3.messagerecordmessage", ftypes.BYTES)
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.neg_order_to_bl_message = ProtoField.new("Neg Order To Bl Message", "nse.nsecd.orderentry.nnf.v6.3.negordertoblmessage", ftypes.STRING, nil, nil, nil, "2008 MS_OE_REQUEST 316 I, carried in the MS_OE_REQUEST structure")
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.normal_ord_limit_update_in_message = ProtoField.new("Normal Ord Limit Update In Message", "nse.nsecd.orderentry.nnf.v6.3.normalordlimitupdateinmessage", ftypes.STRING, nil, nil, nil, "Normal Ord Limit Update In, carried in the NORMAL_ORD_LIMIT_UPDATE_REQ structure")
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.on_stop_notification_message = ProtoField.new("On Stop Notification Message", "nse.nsecd.orderentry.nnf.v6.3.onstopnotificationmessage", ftypes.STRING, nil, nil, nil, "2212 MS_TRADE_CONFIRM 296 I, carried in the MS_TRADE_CONFIRM structure")
@@ -405,7 +403,6 @@ omi_nse_nsecd_orderentry_nnf_v6_3.fields.trade_error_message = ProtoField.new("T
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.trade_mod_in_message = ProtoField.new("Trade Mod In Message", "nse.nsecd.orderentry.nnf.v6.3.trademodinmessage", ftypes.STRING, nil, nil, nil, "5445 MS_TRADE_INQ_DATA 234 I, carried in the MS_TRADE_INQ_DATA structure")
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.trade_modify_confirm_message = ProtoField.new("Trade Modify Confirm Message", "nse.nsecd.orderentry.nnf.v6.3.trademodifyconfirmmessage", ftypes.STRING, nil, nil, nil, "2287 MS_TRADE_MODIFY_CONFIRM 296 I, carried in the MS_TRADE_MODIFY_CONFIRM structure")
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.trade_modify_reject_message = ProtoField.new("Trade Modify Reject Message", "nse.nsecd.orderentry.nnf.v6.3.trademodifyrejectmessage", ftypes.STRING, nil, nil, nil, "2288 MS_TRADE_CONFIRM 296 I, carried in the MS_TRADE_CONFIRM structure")
-omi_nse_nsecd_orderentry_nnf_v6_3.fields.trailer_record_message = ProtoField.new("Trailer Record Message", "nse.nsecd.orderentry.nnf.v6.3.trailerrecordmessage", ftypes.BYTES)
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.twol_board_lot_in_message = ProtoField.new("Twol Board Lot In Message", "nse.nsecd.orderentry.nnf.v6.3.twolboardlotinmessage", ftypes.STRING, nil, nil, nil, "2102 MS_SPD_OE_REQUEST 480 I, carried in the MS_SPD_OE_REQUEST structure")
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.twol_board_lot_out_message = ProtoField.new("Twol Board Lot Out Message", "nse.nsecd.orderentry.nnf.v6.3.twolboardlotoutmessage", ftypes.STRING, nil, nil, nil, "2103 MS_SPD_OE_REQUEST 480 I, carried in the MS_SPD_OE_REQUEST structure")
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.twol_order_confirmation_message = ProtoField.new("Twol Order Confirmation Message", "nse.nsecd.orderentry.nnf.v6.3.twolorderconfirmationmessage", ftypes.STRING, nil, nil, nil, "2125 MS_SPD_OE_REQUEST 480 I, carried in the MS_SPD_OE_REQUEST structure")
@@ -420,6 +417,11 @@ omi_nse_nsecd_orderentry_nnf_v6_3.fields.user_addr_unlock_in_message = ProtoFiel
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.user_addr_unlock_reject_o_message = ProtoField.new("User Addr Unlock Reject O Message", "nse.nsecd.orderentry.nnf.v6.3.useraddrunlockrejectomessage", ftypes.STRING, nil, nil, nil, "5484 USER_ADDR_UNLOCK_APPROVE 76 I, carried in the USER_ADDR_UNLOCK_APPROVE_FO structure")
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.user_ord_val_limit_update_in_message = ProtoField.new("User Ord Val Limit Update In Message", "nse.nsecd.orderentry.nnf.v6.3.userordvallimitupdateinmessage", ftypes.STRING, nil, nil, nil, "User Ord Val Limit Update In, carried in the USER_ORD_VAL_LIMIT_UPDATE_REQ structure")
 omi_nse_nsecd_orderentry_nnf_v6_3.fields.user_order_limit_update_out_message = ProtoField.new("User Order Limit Update Out Message", "nse.nsecd.orderentry.nnf.v6.3.userorderlimitupdateoutmessage", ftypes.STRING, nil, nil, nil, "User Order Limit Update Out, carried in the MS_ORDER_VAL_LIMIT_DATA structure")
+
+-- Nse NseCd OrderEntry 6.3 Session Messages
+omi_nse_nsecd_orderentry_nnf_v6_3.fields.header_record_message = ProtoField.new("Header Record Message", "nse.nsecd.orderentry.nnf.v6.3.headerrecordmessage", ftypes.BYTES, nil, nil, nil, "Opens the message download for a stream")
+omi_nse_nsecd_orderentry_nnf_v6_3.fields.message_record_message = ProtoField.new("Message Record Message", "nse.nsecd.orderentry.nnf.v6.3.messagerecordmessage", ftypes.BYTES, nil, nil, nil, "One record of the message download, which carries no body of its own")
+omi_nse_nsecd_orderentry_nnf_v6_3.fields.trailer_record_message = ProtoField.new("Trailer Record Message", "nse.nsecd.orderentry.nnf.v6.3.trailerrecordmessage", ftypes.BYTES, nil, nil, nil, "Signals the message download is complete for a stream")
 
 -----------------------------------------------------------------------
 -- Nse NseCd OrderEntry Nnf 6.3 Formatting
@@ -6597,6 +6599,57 @@ nse_nsecd_orderentry_nnf_v6_3.update_localdb_header_message.dissect = function(b
     -- Skip element, add fields directly
     return nse_nsecd_orderentry_nnf_v6_3.update_localdb_header_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Trailer Record Message
+nse_nsecd_orderentry_nnf_v6_3.trailer_record_message = {}
+
+-- Display: Trailer Record Message
+nse_nsecd_orderentry_nnf_v6_3.trailer_record_message.display = function(packet, parent, length)
+  return "Trailer Record Message"
+end
+
+
+-- Dissect: Trailer Record Message
+nse_nsecd_orderentry_nnf_v6_3.trailer_record_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsecd_orderentry_nnf_v6_3.trailer_record_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Message Record Message
+nse_nsecd_orderentry_nnf_v6_3.message_record_message = {}
+
+-- Display: Message Record Message
+nse_nsecd_orderentry_nnf_v6_3.message_record_message.display = function(packet, parent, length)
+  return "Message Record Message"
+end
+
+
+-- Dissect: Message Record Message
+nse_nsecd_orderentry_nnf_v6_3.message_record_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsecd_orderentry_nnf_v6_3.message_record_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Header Record Message
+nse_nsecd_orderentry_nnf_v6_3.header_record_message = {}
+
+-- Display: Header Record Message
+nse_nsecd_orderentry_nnf_v6_3.header_record_message.display = function(packet, parent, length)
+  return "Header Record Message"
+end
+
+
+-- Dissect: Header Record Message
+nse_nsecd_orderentry_nnf_v6_3.header_record_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsecd_orderentry_nnf_v6_3.header_record_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Spd Ord Limit Update Out Message
@@ -17657,275 +17710,82 @@ end
 -- Server Message Payload
 nse_nsecd_orderentry_nnf_v6_3.server_message_payload = {}
 
+-- Dispatch: Server Message Payload
+nse_nsecd_orderentry_nnf_v6_3.server_message_payload.dispatch = {
+  [1601] = nse_nsecd_orderentry_nnf_v6_3.system_information_out_message.dissect,
+  [7321] = nse_nsecd_orderentry_nnf_v6_3.partial_system_information_message.dissect,
+  [1821] = nse_nsecd_orderentry_nnf_v6_3.open_order_report_message.dissect,
+  [1992] = nse_nsecd_orderentry_nnf_v6_3.spread_order_log_report_message.dissect,
+  [1993] = nse_nsecd_orderentry_nnf_v6_3.spread_trade_report_message.dissect,
+  [2001] = nse_nsecd_orderentry_nnf_v6_3.board_lot_out_message.dissect,
+  [2008] = nse_nsecd_orderentry_nnf_v6_3.neg_order_to_bl_message.dissect,
+  [2041] = nse_nsecd_orderentry_nnf_v6_3.order_mod_out_message.dissect,
+  [2042] = nse_nsecd_orderentry_nnf_v6_3.order_mod_reject_message.dissect,
+  [2071] = nse_nsecd_orderentry_nnf_v6_3.order_cancel_out_message.dissect,
+  [2072] = nse_nsecd_orderentry_nnf_v6_3.order_cancel_reject_message.dissect,
+  [2073] = nse_nsecd_orderentry_nnf_v6_3.order_confirmation_message.dissect,
+  [2074] = nse_nsecd_orderentry_nnf_v6_3.order_mod_confirmation_message.dissect,
+  [2075] = nse_nsecd_orderentry_nnf_v6_3.order_cancel_confirmation_message.dissect,
+  [2076] = nse_nsecd_orderentry_nnf_v6_3.cancel_neg_order_message.dissect,
+  [2170] = nse_nsecd_orderentry_nnf_v6_3.freeze_to_control_message.dissect,
+  [2231] = nse_nsecd_orderentry_nnf_v6_3.order_error_message.dissect,
+  [9002] = nse_nsecd_orderentry_nnf_v6_3.batch_order_cancel_message.dissect,
+  [2101] = nse_nsecd_orderentry_nnf_v6_3.sp_board_lot_out_message.dissect,
+  [2103] = nse_nsecd_orderentry_nnf_v6_3.twol_board_lot_out_message.dissect,
+  [2105] = nse_nsecd_orderentry_nnf_v6_3.thrl_board_lot_out_message.dissect,
+  [2107] = nse_nsecd_orderentry_nnf_v6_3.sp_order_cancel_out_message.dissect,
+  [2119] = nse_nsecd_orderentry_nnf_v6_3.sp_order_mod_out_message.dissect,
+  [2124] = nse_nsecd_orderentry_nnf_v6_3.sp_order_confirmation_message.dissect,
+  [2125] = nse_nsecd_orderentry_nnf_v6_3.twol_order_confirmation_message.dissect,
+  [2126] = nse_nsecd_orderentry_nnf_v6_3.thrl_order_confirmation_message.dissect,
+  [2127] = nse_nsecd_orderentry_nnf_v6_3.sp_order_cxl_rej_out_message.dissect,
+  [2130] = nse_nsecd_orderentry_nnf_v6_3.sp_order_cxl_confirmation_message.dissect,
+  [2131] = nse_nsecd_orderentry_nnf_v6_3.twol_order_cxl_confirmati_message.dissect,
+  [2132] = nse_nsecd_orderentry_nnf_v6_3.thrl_order_cxl_confirmati_message.dissect,
+  [2133] = nse_nsecd_orderentry_nnf_v6_3.sp_order_mod_rej_out_message.dissect,
+  [2136] = nse_nsecd_orderentry_nnf_v6_3.sp_order_mod_con_out_message.dissect,
+  [2155] = nse_nsecd_orderentry_nnf_v6_3.twol_order_error_message.dissect,
+  [2156] = nse_nsecd_orderentry_nnf_v6_3.thrl_order_error_message.dissect,
+  [2212] = nse_nsecd_orderentry_nnf_v6_3.on_stop_notification_message.dissect,
+  [2222] = nse_nsecd_orderentry_nnf_v6_3.trade_confirmation_message.dissect,
+  [2282] = nse_nsecd_orderentry_nnf_v6_3.trade_cancel_confirm_message.dissect,
+  [2286] = nse_nsecd_orderentry_nnf_v6_3.trade_cancel_reject_message.dissect,
+  [2288] = nse_nsecd_orderentry_nnf_v6_3.trade_modify_reject_message.dissect,
+  [2223] = nse_nsecd_orderentry_nnf_v6_3.trade_error_message.dissect,
+  [5441] = nse_nsecd_orderentry_nnf_v6_3.trade_cancel_out_message.dissect,
+  [2287] = nse_nsecd_orderentry_nnf_v6_3.trade_modify_confirm_message.dissect,
+  [2301] = nse_nsecd_orderentry_nnf_v6_3.sign_on_request_out_message.dissect,
+  [5585] = nse_nsecd_orderentry_nnf_v6_3.sign_off_trader_out_message.dissect,
+  [2302] = nse_nsecd_orderentry_nnf_v6_3.error_response_out_message.dissect,
+  [2401] = nse_nsecd_orderentry_nnf_v6_3.gr_response_message.dissect,
+  [4506] = nse_nsecd_orderentry_nnf_v6_3.giveup_app_confirm_tm_message.dissect,
+  [4507] = nse_nsecd_orderentry_nnf_v6_3.giveup_rej_confirm_tm_message.dissect,
+  [5428] = nse_nsecd_orderentry_nnf_v6_3.user_addr_unlock_confirm_out_message.dissect,
+  [5483] = nse_nsecd_orderentry_nnf_v6_3.user_addr_unlock_approve_out_message.dissect,
+  [5484] = nse_nsecd_orderentry_nnf_v6_3.user_addr_unlock_reject_o_message.dissect,
+  [5717] = nse_nsecd_orderentry_nnf_v6_3.branch_ord_val_limit_upda_message.dissect,
+  [5731] = nse_nsecd_orderentry_nnf_v6_3.user_order_limit_update_out_message.dissect,
+  [5733] = nse_nsecd_orderentry_nnf_v6_3.dealer_limit_update_out_message.dissect,
+  [5741] = nse_nsecd_orderentry_nnf_v6_3.reset_user_password_out_message.dissect,
+  [5745] = nse_nsecd_orderentry_nnf_v6_3.col_user_status_change_out_message.dissect,
+  [5772] = nse_nsecd_orderentry_nnf_v6_3.spd_ord_limit_update_out_message.dissect,
+  [7011] = nse_nsecd_orderentry_nnf_v6_3.header_record_message.dissect,
+  [7021] = nse_nsecd_orderentry_nnf_v6_3.message_record_message.dissect,
+  [7031] = nse_nsecd_orderentry_nnf_v6_3.trailer_record_message.dissect,
+  [7307] = nse_nsecd_orderentry_nnf_v6_3.update_localdb_header_message.dissect,
+  [7308] = nse_nsecd_orderentry_nnf_v6_3.update_localdb_trailer_message.dissect,
+  [7325] = nse_nsecd_orderentry_nnf_v6_3.bcast_asset_mstr_chg_message.dissect,
+  [23001] = nse_nsecd_orderentry_nnf_v6_3.box_sign_on_request_out_message.dissect,
+  [20322] = nse_nsecd_orderentry_nnf_v6_3.box_sign_off_message.dissect,
+  [23008] = nse_nsecd_orderentry_nnf_v6_3.secure_box_registration_re_message.dissect,
+  [23009] = nse_nsecd_orderentry_nnf_v6_3.secure_box_registration_re_message.dissect,
+}
+
 -- Dissect: Server Message Payload
 nse_nsecd_orderentry_nnf_v6_3.server_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
-  -- Dissect System Information Out Message
-  if transaction_code == 1601 then
-    return nse_nsecd_orderentry_nnf_v6_3.system_information_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Partial System Information Message
-  if transaction_code == 7321 then
-    return nse_nsecd_orderentry_nnf_v6_3.partial_system_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Order Report Message
-  if transaction_code == 1821 then
-    return nse_nsecd_orderentry_nnf_v6_3.open_order_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Log Report Message
-  if transaction_code == 1992 then
-    return nse_nsecd_orderentry_nnf_v6_3.spread_order_log_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Trade Report Message
-  if transaction_code == 1993 then
-    return nse_nsecd_orderentry_nnf_v6_3.spread_trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Board Lot Out Message
-  if transaction_code == 2001 then
-    return nse_nsecd_orderentry_nnf_v6_3.board_lot_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Neg Order To Bl Message
-  if transaction_code == 2008 then
-    return nse_nsecd_orderentry_nnf_v6_3.neg_order_to_bl_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mod Out Message
-  if transaction_code == 2041 then
-    return nse_nsecd_orderentry_nnf_v6_3.order_mod_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mod Reject Message
-  if transaction_code == 2042 then
-    return nse_nsecd_orderentry_nnf_v6_3.order_mod_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Out Message
-  if transaction_code == 2071 then
-    return nse_nsecd_orderentry_nnf_v6_3.order_cancel_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Reject Message
-  if transaction_code == 2072 then
-    return nse_nsecd_orderentry_nnf_v6_3.order_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Confirmation Message
-  if transaction_code == 2073 then
-    return nse_nsecd_orderentry_nnf_v6_3.order_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mod Confirmation Message
-  if transaction_code == 2074 then
-    return nse_nsecd_orderentry_nnf_v6_3.order_mod_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Confirmation Message
-  if transaction_code == 2075 then
-    return nse_nsecd_orderentry_nnf_v6_3.order_cancel_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Neg Order Message
-  if transaction_code == 2076 then
-    return nse_nsecd_orderentry_nnf_v6_3.cancel_neg_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Freeze To Control Message
-  if transaction_code == 2170 then
-    return nse_nsecd_orderentry_nnf_v6_3.freeze_to_control_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Error Message
-  if transaction_code == 2231 then
-    return nse_nsecd_orderentry_nnf_v6_3.order_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Batch Order Cancel Message
-  if transaction_code == 9002 then
-    return nse_nsecd_orderentry_nnf_v6_3.batch_order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Board Lot Out Message
-  if transaction_code == 2101 then
-    return nse_nsecd_orderentry_nnf_v6_3.sp_board_lot_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Twol Board Lot Out Message
-  if transaction_code == 2103 then
-    return nse_nsecd_orderentry_nnf_v6_3.twol_board_lot_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Thrl Board Lot Out Message
-  if transaction_code == 2105 then
-    return nse_nsecd_orderentry_nnf_v6_3.thrl_board_lot_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Cancel Out Message
-  if transaction_code == 2107 then
-    return nse_nsecd_orderentry_nnf_v6_3.sp_order_cancel_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Mod Out Message
-  if transaction_code == 2119 then
-    return nse_nsecd_orderentry_nnf_v6_3.sp_order_mod_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Confirmation Message
-  if transaction_code == 2124 then
-    return nse_nsecd_orderentry_nnf_v6_3.sp_order_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Twol Order Confirmation Message
-  if transaction_code == 2125 then
-    return nse_nsecd_orderentry_nnf_v6_3.twol_order_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Thrl Order Confirmation Message
-  if transaction_code == 2126 then
-    return nse_nsecd_orderentry_nnf_v6_3.thrl_order_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Cxl Rej Out Message
-  if transaction_code == 2127 then
-    return nse_nsecd_orderentry_nnf_v6_3.sp_order_cxl_rej_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Cxl Confirmation Message
-  if transaction_code == 2130 then
-    return nse_nsecd_orderentry_nnf_v6_3.sp_order_cxl_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Twol Order Cxl Confirmati Message
-  if transaction_code == 2131 then
-    return nse_nsecd_orderentry_nnf_v6_3.twol_order_cxl_confirmati_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Thrl Order Cxl Confirmati Message
-  if transaction_code == 2132 then
-    return nse_nsecd_orderentry_nnf_v6_3.thrl_order_cxl_confirmati_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Mod Rej Out Message
-  if transaction_code == 2133 then
-    return nse_nsecd_orderentry_nnf_v6_3.sp_order_mod_rej_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sp Order Mod Con Out Message
-  if transaction_code == 2136 then
-    return nse_nsecd_orderentry_nnf_v6_3.sp_order_mod_con_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Twol Order Error Message
-  if transaction_code == 2155 then
-    return nse_nsecd_orderentry_nnf_v6_3.twol_order_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Thrl Order Error Message
-  if transaction_code == 2156 then
-    return nse_nsecd_orderentry_nnf_v6_3.thrl_order_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect On Stop Notification Message
-  if transaction_code == 2212 then
-    return nse_nsecd_orderentry_nnf_v6_3.on_stop_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2222 then
-    return nse_nsecd_orderentry_nnf_v6_3.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Confirm Message
-  if transaction_code == 2282 then
-    return nse_nsecd_orderentry_nnf_v6_3.trade_cancel_confirm_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Reject Message
-  if transaction_code == 2286 then
-    return nse_nsecd_orderentry_nnf_v6_3.trade_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Modify Reject Message
-  if transaction_code == 2288 then
-    return nse_nsecd_orderentry_nnf_v6_3.trade_modify_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Error Message
-  if transaction_code == 2223 then
-    return nse_nsecd_orderentry_nnf_v6_3.trade_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Out Message
-  if transaction_code == 5441 then
-    return nse_nsecd_orderentry_nnf_v6_3.trade_cancel_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Modify Confirm Message
-  if transaction_code == 2287 then
-    return nse_nsecd_orderentry_nnf_v6_3.trade_modify_confirm_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sign On Request Out Message
-  if transaction_code == 2301 then
-    return nse_nsecd_orderentry_nnf_v6_3.sign_on_request_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sign Off Trader Out Message
-  if transaction_code == 5585 then
-    return nse_nsecd_orderentry_nnf_v6_3.sign_off_trader_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Error Response Out Message
-  if transaction_code == 2302 then
-    return nse_nsecd_orderentry_nnf_v6_3.error_response_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gr Response Message
-  if transaction_code == 2401 then
-    return nse_nsecd_orderentry_nnf_v6_3.gr_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Giveup App Confirm Tm Message
-  if transaction_code == 4506 then
-    return nse_nsecd_orderentry_nnf_v6_3.giveup_app_confirm_tm_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Giveup Rej Confirm Tm Message
-  if transaction_code == 4507 then
-    return nse_nsecd_orderentry_nnf_v6_3.giveup_rej_confirm_tm_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Addr Unlock Confirm Out Message
-  if transaction_code == 5428 then
-    return nse_nsecd_orderentry_nnf_v6_3.user_addr_unlock_confirm_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Addr Unlock Approve Out Message
-  if transaction_code == 5483 then
-    return nse_nsecd_orderentry_nnf_v6_3.user_addr_unlock_approve_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Addr Unlock Reject O Message
-  if transaction_code == 5484 then
-    return nse_nsecd_orderentry_nnf_v6_3.user_addr_unlock_reject_o_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Branch Ord Val Limit Upda Message
-  if transaction_code == 5717 then
-    return nse_nsecd_orderentry_nnf_v6_3.branch_ord_val_limit_upda_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Order Limit Update Out Message
-  if transaction_code == 5731 then
-    return nse_nsecd_orderentry_nnf_v6_3.user_order_limit_update_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dealer Limit Update Out Message
-  if transaction_code == 5733 then
-    return nse_nsecd_orderentry_nnf_v6_3.dealer_limit_update_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset User Password Out Message
-  if transaction_code == 5741 then
-    return nse_nsecd_orderentry_nnf_v6_3.reset_user_password_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Col User Status Change Out Message
-  if transaction_code == 5745 then
-    return nse_nsecd_orderentry_nnf_v6_3.col_user_status_change_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spd Ord Limit Update Out Message
-  if transaction_code == 5772 then
-    return nse_nsecd_orderentry_nnf_v6_3.spd_ord_limit_update_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Header Record Message
-  if transaction_code == 7011 then
-    return offset
-  end
-  -- Dissect Message Record Message
-  if transaction_code == 7021 then
-    return offset
-  end
-  -- Dissect Trailer Record Message
-  if transaction_code == 7031 then
-    return offset
-  end
-  -- Dissect Update Localdb Header Message
-  if transaction_code == 7307 then
-    return nse_nsecd_orderentry_nnf_v6_3.update_localdb_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Localdb Trailer Message
-  if transaction_code == 7308 then
-    return nse_nsecd_orderentry_nnf_v6_3.update_localdb_trailer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bcast Asset Mstr Chg Message
-  if transaction_code == 7325 then
-    return nse_nsecd_orderentry_nnf_v6_3.bcast_asset_mstr_chg_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Box Sign On Request Out Message
-  if transaction_code == 23001 then
-    return nse_nsecd_orderentry_nnf_v6_3.box_sign_on_request_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Box Sign Off Message
-  if transaction_code == 20322 then
-    return nse_nsecd_orderentry_nnf_v6_3.box_sign_off_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Secure Box Registration Re Message
-  if transaction_code == 23008 then
-    return nse_nsecd_orderentry_nnf_v6_3.secure_box_registration_re_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Secure Box Registration Re Message
-  if transaction_code == 23009 then
-    return nse_nsecd_orderentry_nnf_v6_3.secure_box_registration_re_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsecd_orderentry_nnf_v6_3.server_message_payload.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

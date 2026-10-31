@@ -15,17 +15,18 @@ local a2x_a2xequities_rtmdf_amd_v1_3_2 = {}
 -----------------------------------------------------------------------
 
 -- A2X A2XEquities Rtmdf Amd 1.3.2 Fields
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.aod_enabled = ProtoField.new("Aod Enabled", "a2x.a2xequities.rtmdf.amd.v1.3.2.aodenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Security is not enabled for the AoD")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.rtmdf.amd.v1.3.2.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.a2xequities.rtmdf.amd.v1.3.2.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.aod_enabled = ProtoField.new("Aod Enabled", "a2x.a2xequities.rtmdf.amd.v1.3.2.aodenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010, "Security is enabled for the AoD")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.rtmdf.amd.v1.3.2.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during the closing market")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.a2xequities.rtmdf.amd.v1.3.2.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during the closing market")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.currency = ProtoField.new("Currency", "a2x.a2xequities.rtmdf.amd.v1.3.2.currency", ftypes.STRING, nil, nil, nil, "Trading currency for the security")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.illiquid = ProtoField.new("Illiquid", "a2x.a2xequities.rtmdf.amd.v1.3.2.illiquid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x1000, "Security is illiquid")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.a2xequities.rtmdf.amd.v1.3.2.indicativeprice", ftypes.UINT64, nil, nil, nil, "Indicative auction price")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.flags = ProtoField.new("Flags", "a2x.a2xequities.rtmdf.amd.v1.3.2.flags", ftypes.STRING, nil, nil, nil, "Security flags")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.illiquid = ProtoField.new("Illiquid", "a2x.a2xequities.rtmdf.amd.v1.3.2.illiquid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "Security is illiquid")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.a2xequities.rtmdf.amd.v1.3.2.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Indicative auction price")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.isin = ProtoField.new("Isin", "a2x.a2xequities.rtmdf.amd.v1.3.2.isin", ftypes.STRING, nil, nil, nil, "ISIN for the security")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_enabled = ProtoField.new("Mac Enabled", "a2x.a2xequities.rtmdf.amd.v1.3.2.macenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000)
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.a2xequities.rtmdf.amd.v1.3.2.macopen", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "Open")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.a2xequities.rtmdf.amd.v1.3.2.macrun", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "Locked")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.market_flags = ProtoField.new("Market Flags", "a2x.a2xequities.rtmdf.amd.v1.3.2.marketflags", ftypes.STRING, nil, nil, nil, "Market Flagss")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_enabled = ProtoField.new("Mac Enabled", "a2x.a2xequities.rtmdf.amd.v1.3.2.macenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Security is enabled for the MaC")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.a2xequities.rtmdf.amd.v1.3.2.macopen", ftypes.UINT8, {[0]="Mac Is Closed", [1]="Mac Is Open"}, base.DEC, 0x02, "MaC open or closed")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.a2xequities.rtmdf.amd.v1.3.2.macrun", ftypes.UINT8, {[0]="Mac Is Not Locked Down", [1]="Mac Is Locked Down"}, base.DEC, 0x04, "MaC locked down or not")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.market_flags = ProtoField.new("Market Flags", "a2x.a2xequities.rtmdf.amd.v1.3.2.marketflags", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.match_vol = ProtoField.new("Match Vol", "a2x.a2xequities.rtmdf.amd.v1.3.2.matchvol", ftypes.UINT32, nil, nil, nil, "Indicative matched volume")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_count = ProtoField.new("Message Count", "a2x.a2xequities.rtmdf.amd.v1.3.2.messagecount", ftypes.UINT8, nil, nil, nil, "number of messages in this packet")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mic = ProtoField.new("Mic", "a2x.a2xequities.rtmdf.amd.v1.3.2.mic", ftypes.STRING, nil, nil, nil, "MIC for the security's market of listing")
@@ -33,46 +34,60 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.msg_length = ProtoField.new("Msg Len
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.msg_type = ProtoField.new("Msg Type", "a2x.a2xequities.rtmdf.amd.v1.3.2.msgtype", ftypes.UINT8, nil, nil, nil, "Message type identifier")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.name = ProtoField.new("Name", "a2x.a2xequities.rtmdf.amd.v1.3.2.name", ftypes.STRING, nil, nil, nil, "Short name")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.order_ref = ProtoField.new("Order Ref", "a2x.a2xequities.rtmdf.amd.v1.3.2.orderref", ftypes.UINT32, nil, nil, nil, "Order reference number")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.price = ProtoField.new("Price", "a2x.a2xequities.rtmdf.amd.v1.3.2.price", ftypes.UINT64, nil, nil, nil, "The price of the order")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.price = ProtoField.new("Price", "a2x.a2xequities.rtmdf.amd.v1.3.2.price", ftypes.DOUBLE, nil, nil, nil, "The price of the order")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.quantity = ProtoField.new("Quantity", "a2x.a2xequities.rtmdf.amd.v1.3.2.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.security_flags = ProtoField.new("Security Flags", "a2x.a2xequities.rtmdf.amd.v1.3.2.securityflags", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.security_id = ProtoField.new("Security Id", "a2x.a2xequities.rtmdf.amd.v1.3.2.securityid", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the relevant security")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.seq_no = ProtoField.new("Seq No", "a2x.a2xequities.rtmdf.amd.v1.3.2.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.side = ProtoField.new("Side", "a2x.a2xequities.rtmdf.amd.v1.3.2.side", ftypes.UINT8, nil, nil, nil, "Order Side")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.test_stock = ProtoField.new("Test Stock", "a2x.a2xequities.rtmdf.amd.v1.3.2.teststock", ftypes.UINT16, nil, base.DEC, 0x6000)
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.threshold = ProtoField.new("Threshold", "a2x.a2xequities.rtmdf.amd.v1.3.2.threshold", ftypes.UINT64, nil, nil, nil, "The price threshold at which this tick")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.tick_size = ProtoField.new("Tick Size", "a2x.a2xequities.rtmdf.amd.v1.3.2.ticksize", ftypes.UINT64, nil, nil, nil, "The tick size (price increment)")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.tick_table_id = ProtoField.new("Tick Table Id", "a2x.a2xequities.rtmdf.amd.v1.3.2.ticktableid", ftypes.UINT8, nil, nil, nil, "Numeric identifier for this tick table or")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.rtmdf.amd.v1.3.2.timestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of this market data event")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.side = ProtoField.new("Side", "a2x.a2xequities.rtmdf.amd.v1.3.2.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.test_stock = ProtoField.new("Test Stock", "a2x.a2xequities.rtmdf.amd.v1.3.2.teststock", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Security is a test stock")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.threshold = ProtoField.new("Threshold", "a2x.a2xequities.rtmdf.amd.v1.3.2.threshold", ftypes.DOUBLE, nil, nil, nil, "The price threshold at which this tick data applies")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.tick_size = ProtoField.new("Tick Size", "a2x.a2xequities.rtmdf.amd.v1.3.2.ticksize", ftypes.DOUBLE, nil, nil, nil, "The tick size (price increment)")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.tick_table_id = ProtoField.new("Tick Table Id", "a2x.a2xequities.rtmdf.amd.v1.3.2.ticktableid", ftypes.UINT8, nil, nil, nil, "Numeric identifier for this tick table or static tick")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.rtmdf.amd.v1.3.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this market data event")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.rtmdf.amd.v1.3.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this market data event")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_ref = ProtoField.new("Trade Ref", "a2x.a2xequities.rtmdf.amd.v1.3.2.traderef", ftypes.UINT32, nil, nil, nil, "Trade reference number")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_type = ProtoField.new("Trade Type", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradetype", ftypes.UINT8, nil, nil, nil, "Code identifying type of trade (see below)")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.a2xequities.rtmdf.amd.v1.3.2.trading", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Continuous Trading")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradingstatus", ftypes.UINT8)
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_type = ProtoField.new("Trade Type", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradetype", ftypes.UINT8, nil, nil, nil, "Code identifying type of trade")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.a2xequities.rtmdf.amd.v1.3.2.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "Continuous trading open or closed")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradingstatus", ftypes.UINT8, nil, nil, nil, "Trading status of the security")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.umtf = ProtoField.new("Umtf", "a2x.a2xequities.rtmdf.amd.v1.3.2.umtf", ftypes.STRING, nil, nil, nil, "Uniform MTF code for the security")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_1 = ProtoField.new("Unused 1", "a2x.a2xequities.rtmdf.amd.v1.3.2.unused1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0800, "Reserved for future use")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_10 = ProtoField.new("Unused 10", "a2x.a2xequities.rtmdf.amd.v1.3.2.unused10", ftypes.UINT16, nil, base.DEC, 0x03FF, "Reserved for future use")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.a2xequities.rtmdf.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0x1F, "Reserved for future use")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_1 = ProtoField.new("Unused 1", "a2x.a2xequities.rtmdf.amd.v1.3.2.unused1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "Reserved")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_11 = ProtoField.new("Unused 11", "a2x.a2xequities.rtmdf.amd.v1.3.2.unused11", ftypes.UINT16, nil, base.DEC, 0xFFE0, "Reserved")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.a2xequities.rtmdf.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved")
 
 -- A2X A2XEquities Rtmdf Amd 1.3.2 Framing
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.message", ftypes.STRING)
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.message", ftypes.STRING, nil, nil, nil, "A2X Amd Message")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.rtmdf.amd.v1.3.2.messageheader", ftypes.STRING, nil, nil, nil, "A2X message header")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.rtmdf.amd.v1.3.2.packet", ftypes.STRING, nil, nil, nil, "A2X Udp Packet")
 
 -- A2X A2XEquities Rtmdf 1.3.2 Application Messages
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message = ProtoField.new("Auction On Demand Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.auctionondemandmessage", ftypes.STRING, nil, nil, nil, "During the AoD this message is used to publish the indicative price and indicative matched volume")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "The Heartbeat message carries no data")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.market_at_close = ProtoField.new("Market At Close", "a2x.a2xequities.rtmdf.amd.v1.3.2.marketatclose", ftypes.STRING, nil, nil, nil, "During the MaC this message is used to publish the indicative price from the buy and sell order totals")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.order_add_message = ProtoField.new("Order Add Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.orderaddmessage", ftypes.STRING, nil, nil, nil, "The Order Add message is published when order quantity is posted to the order book for a particular security")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.ordercancelmessage", ftypes.STRING, nil, nil, nil, "The Order Cancel message is published when a visible order is removed from the book")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.order_modify_message = ProtoField.new("Order Modify Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.ordermodifymessage", ftypes.STRING, nil, nil, nil, "The Order Modify message is published when a visible order is modified by the client")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.security_definition_message = ProtoField.new("Security Definition Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.securitydefinitionmessage", ftypes.STRING, nil, nil, nil, "A series of Security Definition messages are published pre-market to identify the securities traded on A2X")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.security_status_message = ProtoField.new("Security Status Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.securitystatusmessage", ftypes.STRING, nil, nil, nil, "The Security Status message is published when the trading status of a security changes or when there is a change to the status of the market on A2X to which the security belongs")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.tick_table_data_message = ProtoField.new("Tick Table Data Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.ticktabledatamessage", ftypes.STRING, nil, nil, nil, "A series of Tick Table Data messages are published pre-market to specify the dynamic tick tables and static ticks that apply to the securities traded on A2X")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_bust_message = ProtoField.new("Trade Bust Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradebustmessage", ftypes.STRING, nil, nil, nil, "If a trade has been declared erroneous by A2X then a Trade Bust message is published")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_message = ProtoField.new("Trade Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.trademessage", ftypes.STRING, nil, nil, nil, "Whenever an order trades, partially or fully, a Trade message is published")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.aod_update_message = ProtoField.new("Aod Update Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.aodupdatemessage", ftypes.STRING, nil, nil, nil, "During the AoD this message is used to publish the indicative price and indicative matched volume.")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "The Heartbeat message carries no data; it is simply a message header with msgType of 1.")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_update_message = ProtoField.new("Mac Update Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.macupdatemessage", ftypes.STRING, nil, nil, nil, "During the MaC this message is used to publish the indicative price from the buy and sell order totals.")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.order_add_message = ProtoField.new("Order Add Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.orderaddmessage", ftypes.STRING, nil, nil, nil, "The Order Add message is published when order quantity is posted to the order book for a particular security.")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.ordercancelmessage", ftypes.STRING, nil, nil, nil, "The Order Cancel message is published when a visible order is removed from the book.")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.order_modify_message = ProtoField.new("Order Modify Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.ordermodifymessage", ftypes.STRING, nil, nil, nil, "The Order Modify message is published when a visible order is modified by the client (change of price and/or quantity).")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.security_definition_message = ProtoField.new("Security Definition Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.securitydefinitionmessage", ftypes.STRING, nil, nil, nil, "A series of Security Definition messages are published pre-market to identify the securities traded on A2X (those relevant to the particular feed e.g. Euronext securities).")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.security_status_message = ProtoField.new("Security Status Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.securitystatusmessage", ftypes.STRING, nil, nil, nil, "The Security Status message is published when the trading status of a security changes or when there is a change to the status of the market on A2X to which the security belongs.")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.tick_table_data_message = ProtoField.new("Tick Table Data Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.ticktabledatamessage", ftypes.STRING, nil, nil, nil, "A series of Tick Table Data messages are published pre-market to specify the dynamic tick tables and static ticks that apply to the securities traded on A2X.")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_bust_message = ProtoField.new("Trade Bust Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradebustmessage", ftypes.STRING, nil, nil, nil, "If a trade has been declared erroneous by A2X then a Trade Bust message is published.")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_message = ProtoField.new("Trade Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.trademessage", ftypes.STRING, nil, nil, nil, "Whenever an order trades, partially or fully, a Trade message is published.")
 
 -- A2X A2XEquities Rtmdf Amd 1.3.2 Generated Fields
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_index = ProtoField.new("Message Index", "a2x.a2xequities.rtmdf.amd.v1.3.2.messageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- A2X A2XEquities Rtmdf Amd 1.3.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+a2x_a2xequities_rtmdf_amd_v1_3_2.absolute_time_base = 0
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -92,6 +107,8 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_structs = Pref.bool("Show Struct
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs_changed()
 
@@ -108,6 +125,9 @@ function omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs_changed()
   if show.indexes ~= omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_indexes then
     show.indexes = omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_indexes
   end
+  if a2x_a2xequities_rtmdf_amd_v1_3_2.absolute_time_base ~= omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.absolute_time_base then
+    a2x_a2xequities_rtmdf_amd_v1_3_2.absolute_time_base = omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.absolute_time_base
+  end
 end
 
 
@@ -123,6 +143,11 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.closing_buy_qty.size = 4
 
 -- Display: Closing Buy Qty
 a2x_a2xequities_rtmdf_amd_v1_3_2.closing_buy_qty.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Closing Buy Qty: No Value"
+  end
+
   return "Closing Buy Qty: "..value
 end
 
@@ -146,6 +171,11 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.closing_sell_qty.size = 4
 
 -- Display: Closing Sell Qty
 a2x_a2xequities_rtmdf_amd_v1_3_2.closing_sell_qty.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Closing Sell Qty: No Value"
+  end
+
   return "Closing Sell Qty: "..value
 end
 
@@ -211,11 +241,17 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.indicative_price.display = function(value)
   return "Indicative Price: "..value
 end
 
+-- Translate: Indicative Price
+a2x_a2xequities_rtmdf_amd_v1_3_2.indicative_price.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Indicative Price
 a2x_a2xequities_rtmdf_amd_v1_3_2.indicative_price.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_rtmdf_amd_v1_3_2.indicative_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = a2x_a2xequities_rtmdf_amd_v1_3_2.indicative_price.translate(raw)
   local display = a2x_a2xequities_rtmdf_amd_v1_3_2.indicative_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.indicative_price, range, value, display)
@@ -387,8 +423,8 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.msg_type.labels = {
   [7] = "Msg Type: Tick Table Data Message (7)",
   [8] = "Msg Type: Security Definition Message (8)",
   [9] = "Msg Type: Security Status Message (9)",
-  [17] = "Msg Type: Auction On Demand Message (17)",
-  [16] = "Msg Type: Market At Close (16)",
+  [16] = "Msg Type: Mac Update Message (16)",
+  [17] = "Msg Type: Aod Update Message (17)",
 }
 
 a2x_a2xequities_rtmdf_amd_v1_3_2.msg_type.display = function(value)
@@ -454,6 +490,11 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.order_ref.size = 4
 
 -- Display: Order Ref
 a2x_a2xequities_rtmdf_amd_v1_3_2.order_ref.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Order Ref: No Value"
+  end
+
   return "Order Ref: "..value
 end
 
@@ -480,11 +521,17 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+a2x_a2xequities_rtmdf_amd_v1_3_2.price.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Price
 a2x_a2xequities_rtmdf_amd_v1_3_2.price.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_rtmdf_amd_v1_3_2.price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = a2x_a2xequities_rtmdf_amd_v1_3_2.price.translate(raw)
   local display = a2x_a2xequities_rtmdf_amd_v1_3_2.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.price, range, value, display)
@@ -600,11 +647,17 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.threshold.display = function(value)
   return "Threshold: "..value
 end
 
+-- Translate: Threshold
+a2x_a2xequities_rtmdf_amd_v1_3_2.threshold.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Threshold
 a2x_a2xequities_rtmdf_amd_v1_3_2.threshold.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_rtmdf_amd_v1_3_2.threshold.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = a2x_a2xequities_rtmdf_amd_v1_3_2.threshold.translate(raw)
   local display = a2x_a2xequities_rtmdf_amd_v1_3_2.threshold.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.threshold, range, value, display)
@@ -623,11 +676,17 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.tick_size.display = function(value)
   return "Tick Size: "..value
 end
 
+-- Translate: Tick Size
+a2x_a2xequities_rtmdf_amd_v1_3_2.tick_size.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
 -- Dissect: Tick Size
 a2x_a2xequities_rtmdf_amd_v1_3_2.tick_size.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_rtmdf_amd_v1_3_2.tick_size.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = a2x_a2xequities_rtmdf_amd_v1_3_2.tick_size.translate(raw)
   local display = a2x_a2xequities_rtmdf_amd_v1_3_2.tick_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.tick_size, range, value, display)
@@ -664,19 +723,20 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp = {}
 -- Size: Timestamp
 a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.size = 8
 
--- Display: Timestamp
-a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
 -- Dissect: Timestamp
 a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.timestamp
+  if a2x_a2xequities_rtmdf_amd_v1_3_2.absolute_time_base == 1 then field = omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -714,10 +774,10 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.size = 1
 a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.labels = {
   [1] = "Trade Type: Visible (1)",
   [2] = "Trade Type: Hidden Or Reserve (2)",
-  [3] = "Trade Type: Market At Close (3)",
-  [4] = "Trade Type: Large In Scale Cross (4)",
-  [5] = "Trade Type: Benchmark Cross (5)",
-  [6] = "Trade Type: Auction On Demand (6)",
+  [3] = "Trade Type: Market At Close Trade (3)",
+  [4] = "Trade Type: Large In Scale Cross Trade (4)",
+  [5] = "Trade Type: Benchmark Cross Trade (5)",
+  [6] = "Trade Type: Auction On Demand Trade (6)",
 }
 
 a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.display = function(value)
@@ -811,24 +871,76 @@ end
 -- Dissect A2X A2XEquities Rtmdf Amd 1.3.2
 -----------------------------------------------------------------------
 
--- Market At Close
-a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close = {}
+-- Aod Update Message
+a2x_a2xequities_rtmdf_amd_v1_3_2.aod_update_message = {}
 
--- Size: Market At Close
-a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.size =
+-- Size: Aod Update Message
+a2x_a2xequities_rtmdf_amd_v1_3_2.aod_update_message.size =
+  a2x_a2xequities_rtmdf_amd_v1_3_2.security_id.size + 
+  a2x_a2xequities_rtmdf_amd_v1_3_2.indicative_price.size + 
+  a2x_a2xequities_rtmdf_amd_v1_3_2.match_vol.size + 
+  a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.size
+
+-- Display: Aod Update Message
+a2x_a2xequities_rtmdf_amd_v1_3_2.aod_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Aod Update Message
+a2x_a2xequities_rtmdf_amd_v1_3_2.aod_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Security Id: u16
+  index, security_id = a2x_a2xequities_rtmdf_amd_v1_3_2.security_id.dissect(buffer, index, packet, parent)
+
+  -- Indicative Price: u64
+  index, indicative_price = a2x_a2xequities_rtmdf_amd_v1_3_2.indicative_price.dissect(buffer, index, packet, parent)
+
+  -- Match Vol: u32
+  index, match_vol = a2x_a2xequities_rtmdf_amd_v1_3_2.match_vol.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: u64
+  index, timestamp = a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Aod Update Message
+a2x_a2xequities_rtmdf_amd_v1_3_2.aod_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.aod_update_message, buffer(offset, 0))
+    local index = a2x_a2xequities_rtmdf_amd_v1_3_2.aod_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_a2xequities_rtmdf_amd_v1_3_2.aod_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return a2x_a2xequities_rtmdf_amd_v1_3_2.aod_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mac Update Message
+a2x_a2xequities_rtmdf_amd_v1_3_2.mac_update_message = {}
+
+-- Size: Mac Update Message
+a2x_a2xequities_rtmdf_amd_v1_3_2.mac_update_message.size =
   a2x_a2xequities_rtmdf_amd_v1_3_2.security_id.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.indicative_price.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.closing_buy_qty.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.closing_sell_qty.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.size
 
--- Display: Market At Close
-a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.display = function(packet, parent, length)
+-- Display: Mac Update Message
+a2x_a2xequities_rtmdf_amd_v1_3_2.mac_update_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Market At Close
-a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mac Update Message
+a2x_a2xequities_rtmdf_amd_v1_3_2.mac_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: u16
@@ -849,73 +961,21 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.fields = function(buffer, offse
   return index
 end
 
--- Dissect: Market At Close
-a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Mac Update Message
+a2x_a2xequities_rtmdf_amd_v1_3_2.mac_update_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.market_at_close, buffer(offset, 0))
-    local index = a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_update_message, buffer(offset, 0))
+    local index = a2x_a2xequities_rtmdf_amd_v1_3_2.mac_update_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.display(packet, parent, length)
+    local display = a2x_a2xequities_rtmdf_amd_v1_3_2.mac_update_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Auction On Demand Message
-a2x_a2xequities_rtmdf_amd_v1_3_2.auction_on_demand_message = {}
-
--- Size: Auction On Demand Message
-a2x_a2xequities_rtmdf_amd_v1_3_2.auction_on_demand_message.size =
-  a2x_a2xequities_rtmdf_amd_v1_3_2.security_id.size + 
-  a2x_a2xequities_rtmdf_amd_v1_3_2.indicative_price.size + 
-  a2x_a2xequities_rtmdf_amd_v1_3_2.match_vol.size + 
-  a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.size
-
--- Display: Auction On Demand Message
-a2x_a2xequities_rtmdf_amd_v1_3_2.auction_on_demand_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Auction On Demand Message
-a2x_a2xequities_rtmdf_amd_v1_3_2.auction_on_demand_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Id: u16
-  index, security_id = a2x_a2xequities_rtmdf_amd_v1_3_2.security_id.dissect(buffer, index, packet, parent)
-
-  -- Indicative Price: u64
-  index, indicative_price = a2x_a2xequities_rtmdf_amd_v1_3_2.indicative_price.dissect(buffer, index, packet, parent)
-
-  -- Match Vol: u32
-  index, match_vol = a2x_a2xequities_rtmdf_amd_v1_3_2.match_vol.dissect(buffer, index, packet, parent)
-
-  -- Timestamp: u64
-  index, timestamp = a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Auction On Demand Message
-a2x_a2xequities_rtmdf_amd_v1_3_2.auction_on_demand_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message, buffer(offset, 0))
-    local index = a2x_a2xequities_rtmdf_amd_v1_3_2.auction_on_demand_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = a2x_a2xequities_rtmdf_amd_v1_3_2.auction_on_demand_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.auction_on_demand_message.fields(buffer, offset, packet, parent)
+    return a2x_a2xequities_rtmdf_amd_v1_3_2.mac_update_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -929,17 +989,17 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.market_flags.size = 1
 a2x_a2xequities_rtmdf_amd_v1_3_2.market_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Mac Run flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Mac Run"
+  -- Is Trading flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Trading"
   end
   -- Is Mac Open flag set?
-  if bit.band(value, 0x40) ~= 0 then
+  if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Mac Open"
   end
-  -- Is Trading flag set?
-  if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Trading"
+  -- Is Mac Run flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Mac Run"
   end
 
   return table.concat(flags, "|")
@@ -948,17 +1008,17 @@ end
 -- Dissect Bit Fields: Market Flags
 a2x_a2xequities_rtmdf_amd_v1_3_2.market_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 5: 5 Bit
-  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_5, range, value)
+  -- Trading: 1 Bit Enum with 2 values
+  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trading, range, value)
 
-  -- Mac Run: 1 Bit
-  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_run, range, value)
-
-  -- Mac Open: 1 Bit
+  -- Mac Open: 1 Bit Enum with 2 values
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_open, range, value)
 
-  -- Trading: 1 Bit
-  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trading, range, value)
+  -- Mac Run: 1 Bit Enum with 2 values
+  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_run, range, value)
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_5, range, value)
 end
 
 -- Dissect: Market Flags
@@ -1028,64 +1088,68 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.security_status_message.dissect = function(buff
   end
 end
 
--- Security Flags
-a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags = {}
+-- Flags
+a2x_a2xequities_rtmdf_amd_v1_3_2.flags = {}
 
--- Size: Security Flags
-a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.size = 2
+-- Size: Flags
+a2x_a2xequities_rtmdf_amd_v1_3_2.flags.size = 2
 
--- Display: Security Flags
-a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.display = function(range, value, packet, parent)
+-- Display: Flags
+a2x_a2xequities_rtmdf_amd_v1_3_2.flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Aod Enabled flag set?
-  if bit.band(value, 0x0400) ~= 0 then
-    flags[#flags + 1] = "Aod Enabled"
+  -- Is Mac Enabled flag set?
+  if bit.band(value, 0x0001) ~= 0 then
+    flags[#flags + 1] = "Mac Enabled"
+  end
+  -- Is Test Stock flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    flags[#flags + 1] = "Test Stock"
   end
   -- Is Illiquid flag set?
-  if bit.band(value, 0x1000) ~= 0 then
+  if bit.band(value, 0x0004) ~= 0 then
     flags[#flags + 1] = "Illiquid"
   end
-  -- Is Mac Enabled flag set?
-  if bit.band(value, 0x8000) ~= 0 then
-    flags[#flags + 1] = "Mac Enabled"
+  -- Is Aod Enabled flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    flags[#flags + 1] = "Aod Enabled"
   end
 
   return table.concat(flags, "|")
 end
 
--- Dissect Bit Fields: Security Flags
-a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.bits = function(range, value, packet, parent)
+-- Dissect Bit Fields: Flags
+a2x_a2xequities_rtmdf_amd_v1_3_2.flags.bits = function(range, value, packet, parent)
 
-  -- Unused 10: 10 Bit
-  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_10, range, value)
+  -- Mac Enabled: 1 Bit
+  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_enabled, range, value)
 
-  -- Aod Enabled: 1 Bit
-  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.aod_enabled, range, value)
-
-  -- Unused 1: 1 Bit
-  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_1, range, value)
+  -- Test Stock: 1 Bit
+  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.test_stock, range, value)
 
   -- Illiquid: 1 Bit
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.illiquid, range, value)
 
-  -- Test Stock: 2 Bit Unsigned Fixed Width Integer
-  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.test_stock, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_1, range, value)
 
-  -- Mac Enabled: 1 Bit
-  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_enabled, range, value)
+  -- Aod Enabled: 1 Bit
+  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.aod_enabled, range, value)
+
+  -- Unused 11: 11 Bit
+  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_11, range, value)
 end
 
--- Dissect: Security Flags
-a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.dissect = function(buffer, offset, packet, parent)
-  local size = a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.size
+-- Dissect: Flags
+a2x_a2xequities_rtmdf_amd_v1_3_2.flags.dissect = function(buffer, offset, packet, parent)
+  local size = a2x_a2xequities_rtmdf_amd_v1_3_2.flags.size
   local range = buffer(offset, size)
   local value = range:le_uint()
-  local display = a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.display(range, value, packet, parent)
-  local element = parent:add_le(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.security_flags, range, display)
+  local display = a2x_a2xequities_rtmdf_amd_v1_3_2.flags.display(range, value, packet, parent)
+  local element = parent:add_le(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.flags, range, display)
 
   if show.structs then
-    a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.bits(range, value, packet, element)
+    a2x_a2xequities_rtmdf_amd_v1_3_2.flags.bits(range, value, packet, element)
   end
 
   return offset + size, value
@@ -1102,7 +1166,7 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.security_definition_message.size =
   a2x_a2xequities_rtmdf_amd_v1_3_2.currency.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.mic.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.tick_table_id.size + 
-  a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.size
+  a2x_a2xequities_rtmdf_amd_v1_3_2.flags.size
 
 -- Display: Security Definition Message
 a2x_a2xequities_rtmdf_amd_v1_3_2.security_definition_message.display = function(packet, parent, length)
@@ -1131,8 +1195,8 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.security_definition_message.fields = function(b
   -- Tick Table Id: u8
   index, tick_table_id = a2x_a2xequities_rtmdf_amd_v1_3_2.tick_table_id.dissect(buffer, index, packet, parent)
 
-  -- Security Flags: Struct of 6 fields
-  index, security_flags = a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.dissect(buffer, index, packet, parent)
+  -- Flags: Struct of 6 fields
+  index, flags = a2x_a2xequities_rtmdf_amd_v1_3_2.flags.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1522,8 +1586,8 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.payload.dispatch = {
   [7] = a2x_a2xequities_rtmdf_amd_v1_3_2.tick_table_data_message.dissect,
   [8] = a2x_a2xequities_rtmdf_amd_v1_3_2.security_definition_message.dissect,
   [9] = a2x_a2xequities_rtmdf_amd_v1_3_2.security_status_message.dissect,
-  [17] = a2x_a2xequities_rtmdf_amd_v1_3_2.auction_on_demand_message.dissect,
-  [16] = a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.dissect,
+  [16] = a2x_a2xequities_rtmdf_amd_v1_3_2.mac_update_message.dissect,
+  [17] = a2x_a2xequities_rtmdf_amd_v1_3_2.aod_update_message.dissect,
 }
 
 -- Dissect: Payload
@@ -1740,13 +1804,13 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Auction On Demand Message
-  if msg_type == 17 then
+  -- Mac Update Message
+  if msg_type == 16 then
     return true
   end
 
-  -- Market At Close
-  if msg_type == 16 then
+  -- Aod Update Message
+  if msg_type == 17 then
     return true
   end
 
@@ -1788,7 +1852,7 @@ udp_table:add_for_decode_as(omi_a2x_a2xequities_rtmdf_amd_v1_3_2)
 -- Protocol:
 --   Organization: A2X Markets
 --   Version: 1.3.2
---   Date: Thursday, September 15, 2022
+--   Date: Monday, August 15, 2022
 --   Specification: A2X712-Market-Data-Techincal-Specification-v1.3.2.pdf
 --
 -- Script:

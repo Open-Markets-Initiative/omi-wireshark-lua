@@ -7,30 +7,30 @@
 
 | [Protocol][Omi.Aquis.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Aquis.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [RealTime][Aquis.AquisEquities.RealTime] | [Amd][Omi.Encoding.Amd] | [4.0][Aquis.AquisEquities.RealTime.Amd.v4.0.Dissector] | 8/1/2025 | 2259 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.RealTime.Amd.v4.0.Url] |
-| [RealTime][Aquis.AquisEquities.RealTime] | [Amd][Omi.Encoding.Amd] | [4.1][Aquis.AquisEquities.RealTime.Amd.v4.1.Dissector] | 1/1/2026 | 2263 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.RealTime.Amd.v4.1.Url] |
-| [Replay][Aquis.AquisEquities.Replay] | [Amd][Omi.Encoding.Amd] | [4.0][Aquis.AquisEquities.Replay.Amd.v4.0.Dissector] | 8/1/2025 | 715 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.Replay.Amd.v4.0.Url] |
-| [Replay][Aquis.AquisEquities.Replay] | [Amd][Omi.Encoding.Amd] | [4.1][Aquis.AquisEquities.Replay.Amd.v4.1.Dissector] | 1/1/2026 | 715 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.Replay.Amd.v4.1.Url] |
-| [Snapshot][Aquis.AquisEquities.Snapshot] | [Amd][Omi.Encoding.Amd] | [4.0][Aquis.AquisEquities.Snapshot.Amd.v4.0.Dissector] | 8/1/2025 | 1131 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.Snapshot.Amd.v4.0.Url] |
-| [Snapshot][Aquis.AquisEquities.Snapshot] | [Amd][Omi.Encoding.Amd] | [4.1][Aquis.AquisEquities.Snapshot.Amd.v4.1.Dissector] | 1/1/2026 | 1131 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.Snapshot.Amd.v4.1.Url] |
+| [RealTime][Aquis.AquisEquities.RealTime] | [Amd][Omi.Encoding.Amd] | [4.0][Aquis.AquisEquities.RealTime.Amd.v4.0.Dissector] | 8/15/2025 | 2300 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.RealTime.Amd.v4.0.Url] - [pdf][Aquis.AquisEquities.RealTime.Amd.v4.0.Pdf] |
+| [RealTime][Aquis.AquisEquities.RealTime] | [Amd][Omi.Encoding.Amd] | [4.1][Aquis.AquisEquities.RealTime.Amd.v4.1.Dissector] | 1/1/2026 | 2344 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.RealTime.Amd.v4.1.Url] - [pdf][Aquis.AquisEquities.RealTime.Amd.v4.1.Pdf] |
+| [Replay][Aquis.AquisEquities.Replay] | [Amd][Omi.Encoding.Amd] | [4.0][Aquis.AquisEquities.Replay.Amd.v4.0.Dissector] | 8/15/2025 | 713 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.Replay.Amd.v4.0.Url] - [pdf][Aquis.AquisEquities.Replay.Amd.v4.0.Pdf] |
+| [Replay][Aquis.AquisEquities.Replay] | [Amd][Omi.Encoding.Amd] | [4.1][Aquis.AquisEquities.Replay.Amd.v4.1.Dissector] | 1/1/2026 | 713 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.Replay.Amd.v4.1.Url] - [pdf][Aquis.AquisEquities.Replay.Amd.v4.1.Pdf] |
+| [Snapshot][Aquis.AquisEquities.Snapshot] | [Amd][Omi.Encoding.Amd] | [4.0][Aquis.AquisEquities.Snapshot.Amd.v4.0.Dissector] | 8/15/2025 | 1142 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.Snapshot.Amd.v4.0.Url] - [pdf][Aquis.AquisEquities.Snapshot.Amd.v4.0.Pdf] |
+| [Snapshot][Aquis.AquisEquities.Snapshot] | [Amd][Omi.Encoding.Amd] | [4.1][Aquis.AquisEquities.Snapshot.Amd.v4.1.Dissector] | 1/1/2026 | 1142 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.Snapshot.Amd.v4.1.Url] - [pdf][Aquis.AquisEquities.Snapshot.Amd.v4.1.Pdf] |
+| [UdpHeader][Aquis.AquisEquities.UdpHeader] | [Amd][Omi.Encoding.Amd] | [1.0][Aquis.AquisEquities.UdpHeader.Amd.v1.0.Dissector] | 8/1/2025 | 430 | [Header][Omi.Glossary.Deployment.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.UdpHeader.Amd.v1.0.Url] |
 
 
 ### Order  Data
 
 | [Protocol][Omi.Aquis.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Aquis.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TcpHeader][Aquis.AquisEquities.TcpHeader] | [Amd][Omi.Encoding.Amd] | [1.0][Aquis.AquisEquities.TcpHeader.Amd.v1.0.Dissector] | 8/1/2025 | 380 | [Header][Omi.Glossary.Deployment.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.TcpHeader.Amd.v1.0.Url] |
+| [TcpHeader][Aquis.AquisEquities.TcpHeader] | [Amd][Omi.Encoding.Amd] | [1.0][Aquis.AquisEquities.TcpHeader.Amd.v1.0.Dissector] | 8/1/2025 | 377 | [Header][Omi.Glossary.Deployment.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.TcpHeader.Amd.v1.0.Url] |
 | [TcpHeader][Aquis.AquisEquities.TcpHeader] | [Atp][Omi.Encoding.Atp] | [1.0][Aquis.AquisEquities.TcpHeader.Atp.v1.0.Dissector] | 8/1/2025 | 379 | [Header][Omi.Glossary.Deployment.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.TcpHeader.Atp.v1.0.Url] |
 | [TcpHeader][Aquis.AquisEquities.TcpHeader] | [Atp][Omi.Encoding.Atp] | [2.0][Aquis.AquisEquities.TcpHeader.Atp.v2.0.Dissector] | 8/1/2025 | 377 | [Header][Omi.Glossary.Deployment.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.TcpHeader.Atp.v2.0.Url] |
-| [UdpHeader][Aquis.AquisEquities.UdpHeader] | [Amd][Omi.Encoding.Amd] | [1.0][Aquis.AquisEquities.UdpHeader.Amd.v1.0.Dissector] | 8/1/2025 | 430 | [Header][Omi.Glossary.Deployment.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.UdpHeader.Amd.v1.0.Url] |
 
 
 ### Orders
 
 | [Protocol][Omi.Aquis.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Aquis.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.0][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Dissector] | 8/1/2025 | 3672 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Pdf] |
-| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.5][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Dissector] | 8/1/2026 | 3826 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Pdf] |
+| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.0][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Dissector] | 8/1/2025 | 3741 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Pdf] |
+| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.5][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Dissector] | 8/1/2026 | 3874 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Pdf] |
 
 
 <p align="center"><a href="https://www.aquis.eu" title="Aquis Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/aquis-exchange-plc" title="Aquis Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a></p>
@@ -64,16 +64,22 @@
 
 [Aquis.AquisEquities.RealTime.Amd.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Aquis/RealTime/Aquis_AquisEquities_RealTime_Amd_v4_0_Dissector.lua "Aquis RealTime Amd v4.0 Wireshark Dissector"
 [Aquis.AquisEquities.RealTime.Amd.v4.0.Url]: https://www.aquis.eu/markets/documents "Aquis Exchange 4.0 Url"
+[Aquis.AquisEquities.RealTime.Amd.v4.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Specifications/Documentation/Aquis.AquisEquities.MarketData.Amd.v4.0.pdf "Aquis Exchange 4.0 Pdf"
 [Aquis.AquisEquities.RealTime.Amd.v4.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Aquis/RealTime/Aquis_AquisEquities_RealTime_Amd_v4_1_Dissector.lua "Aquis RealTime Amd v4.1 Wireshark Dissector"
 [Aquis.AquisEquities.RealTime.Amd.v4.1.Url]: https://www.aquis.eu/markets/documents "Aquis Exchange 4.1 Url"
+[Aquis.AquisEquities.RealTime.Amd.v4.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Specifications/Documentation/Aquis.AquisEquities.MarketData.Amd.v4.1.pdf "Aquis Exchange 4.1 Pdf"
 [Aquis.AquisEquities.Replay.Amd.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Aquis/Replay/Aquis_AquisEquities_Replay_Amd_v4_0_Dissector.lua "Aquis Replay Amd v4.0 Wireshark Dissector"
 [Aquis.AquisEquities.Replay.Amd.v4.0.Url]: https://www.aquis.eu/markets/documents "Aquis Exchange 4.0 Url"
+[Aquis.AquisEquities.Replay.Amd.v4.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Specifications/Documentation/Aquis.AquisEquities.MarketData.Amd.v4.0.pdf "Aquis Exchange 4.0 Pdf"
 [Aquis.AquisEquities.Replay.Amd.v4.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Aquis/Replay/Aquis_AquisEquities_Replay_Amd_v4_1_Dissector.lua "Aquis Replay Amd v4.1 Wireshark Dissector"
 [Aquis.AquisEquities.Replay.Amd.v4.1.Url]: https://www.aquis.eu/markets/documents "Aquis Exchange 4.1 Url"
+[Aquis.AquisEquities.Replay.Amd.v4.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Specifications/Documentation/Aquis.AquisEquities.MarketData.Amd.v4.1.pdf "Aquis Exchange 4.1 Pdf"
 [Aquis.AquisEquities.Snapshot.Amd.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Aquis/Snapshot/Aquis_AquisEquities_Snapshot_Amd_v4_0_Dissector.lua "Aquis Snapshot Amd v4.0 Wireshark Dissector"
 [Aquis.AquisEquities.Snapshot.Amd.v4.0.Url]: https://www.aquis.eu/markets/documents "Aquis Exchange 4.0 Url"
+[Aquis.AquisEquities.Snapshot.Amd.v4.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Specifications/Documentation/Aquis.AquisEquities.MarketData.Amd.v4.0.pdf "Aquis Exchange 4.0 Pdf"
 [Aquis.AquisEquities.Snapshot.Amd.v4.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Aquis/Snapshot/Aquis_AquisEquities_Snapshot_Amd_v4_1_Dissector.lua "Aquis Snapshot Amd v4.1 Wireshark Dissector"
 [Aquis.AquisEquities.Snapshot.Amd.v4.1.Url]: https://www.aquis.eu/markets/documents "Aquis Exchange 4.1 Url"
+[Aquis.AquisEquities.Snapshot.Amd.v4.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Specifications/Documentation/Aquis.AquisEquities.MarketData.Amd.v4.1.pdf "Aquis Exchange 4.1 Pdf"
 [Aquis.AquisEquities.TcpHeader.Amd.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Aquis/TcpHeader/Aquis_AquisEquities_TcpHeader_Amd_v1_0_Dissector.lua "Aquis TcpHeader Amd v1.0 Wireshark Dissector"
 [Aquis.AquisEquities.TcpHeader.Amd.v1.0.Url]: https://www.aquis.eu/technologies "Aquis Exchange 1.0 Url"
 [Aquis.AquisEquities.TcpHeader.Atp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Aquis/TcpHeader/Aquis_AquisEquities_TcpHeader_Atp_v1_0_Dissector.lua "Aquis TcpHeader Atp v1.0 Wireshark Dissector"

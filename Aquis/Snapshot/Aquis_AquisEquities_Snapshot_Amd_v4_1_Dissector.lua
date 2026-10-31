@@ -15,14 +15,14 @@ local aquis_aquisequities_snapshot_amd_v4_1 = {}
 -----------------------------------------------------------------------
 
 -- Aquis AquisEquities Snapshot Amd 4.1 Fields
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "aquis.aquisequities.snapshot.amd.v4.1.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during the closing market; otherwise 0")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "aquis.aquisequities.snapshot.amd.v4.1.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during the closing market; otherwise 0")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "aquis.aquisequities.snapshot.amd.v4.1.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during the closing market")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "aquis.aquisequities.snapshot.amd.v4.1.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during the closing market")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.entries = ProtoField.new("Entries", "aquis.aquisequities.snapshot.amd.v4.1.entries", ftypes.UINT16, nil, nil, nil, "Number of open orders in the book for this security")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.indicative_price = ProtoField.new("Indicative Price", "aquis.aquisequities.snapshot.amd.v4.1.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Indicative auction price")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.mac_open = ProtoField.new("Mac Open", "aquis.aquisequities.snapshot.amd.v4.1.macopen", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "MaC status; 0 = Closed, 1 = Open")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.mac_run = ProtoField.new("Mac Run", "aquis.aquisequities.snapshot.amd.v4.1.macrun", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "MaC lockdown status; 0 = Not locked down, 1 = Locked down")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.mac_open = ProtoField.new("Mac Open", "aquis.aquisequities.snapshot.amd.v4.1.macopen", ftypes.UINT8, {[0]="Mac Is Closed", [1]="Mac Is Open"}, base.DEC, 0x02, "MaC open or closed")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.mac_run = ProtoField.new("Mac Run", "aquis.aquisequities.snapshot.amd.v4.1.macrun", ftypes.UINT8, {[0]="Mac Is Not Locked Down", [1]="Mac Is Locked Down"}, base.DEC, 0x04, "MaC locked down or not")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.market_flags = ProtoField.new("Market Flags", "aquis.aquisequities.snapshot.amd.v4.1.marketflags", ftypes.STRING, nil, nil, nil, "Market status flags")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.snapshot.amd.v4.1.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages in this packet")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.snapshot.amd.v4.1.messagecount", ftypes.UINT8, nil, nil, nil, "number of messages (n) in this packet")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.snapshot.amd.v4.1.msglength", ftypes.UINT8, nil, nil, nil, "Length of market data message, including header")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.snapshot.amd.v4.1.msgtype", ftypes.UINT8, nil, nil, nil, "Message type identifier")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.order_ref = ProtoField.new("Order Ref", "aquis.aquisequities.snapshot.amd.v4.1.orderref", ftypes.UINT32, nil, nil, nil, "Unique order reference number for the day")
@@ -31,11 +31,11 @@ omi_aquis_aquisequities_snapshot_amd_v4_1.fields.quantity = ProtoField.new("Quan
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.security_count = ProtoField.new("Security Count", "aquis.aquisequities.snapshot.amd.v4.1.securitycount", ftypes.UINT16, nil, nil, nil, "Number of securities reported in this snapshot")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.security_id = ProtoField.new("Security Id", "aquis.aquisequities.snapshot.amd.v4.1.securityid", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the relevant security")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.snapshot.amd.v4.1.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.side = ProtoField.new("Side", "aquis.aquisequities.snapshot.amd.v4.1.side", ftypes.UINT8, nil, nil, nil, "1 = Buy Order, 2 = Sell Order")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.stream_seq_no = ProtoField.new("Stream Seq No", "aquis.aquisequities.snapshot.amd.v4.1.streamseqno", ftypes.UINT32, nil, nil, nil, "Sequence number of the last message in the continuous stream which relates to this snapshot")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.side = ProtoField.new("Side", "aquis.aquisequities.snapshot.amd.v4.1.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.stream_seq_no = ProtoField.new("Stream Seq No", "aquis.aquisequities.snapshot.amd.v4.1.streamseqno", ftypes.UINT32, nil, nil, nil, "The sequence number of the last message in the continuous stream which relates to this snapshot")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.snapshot.amd.v4.1.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this snapshot")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisequities.snapshot.amd.v4.1.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this snapshot")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.trading = ProtoField.new("Trading", "aquis.aquisequities.snapshot.amd.v4.1.trading", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Continuous trading status; 0 = Closed, 1 = Open")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.trading = ProtoField.new("Trading", "aquis.aquisequities.snapshot.amd.v4.1.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "Continuous trading open or closed")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.trading_status = ProtoField.new("Trading Status", "aquis.aquisequities.snapshot.amd.v4.1.tradingstatus", ftypes.UINT8, nil, nil, nil, "Trading status of the security")
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.unused_5 = ProtoField.new("Unused 5", "aquis.aquisequities.snapshot.amd.v4.1.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved")
 
@@ -46,10 +46,10 @@ omi_aquis_aquisequities_snapshot_amd_v4_1.fields.packet = ProtoField.new("Packet
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.snapshot.amd.v4.1.packetheader", ftypes.STRING, nil, nil, nil, "Aquis udp packet header")
 
 -- Aquis AquisEquities Snapshot 4.1 Application Messages
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.book_entry_message = ProtoField.new("Book Entry Message", "aquis.aquisequities.snapshot.amd.v4.1.bookentrymessage", ftypes.STRING, nil, nil, nil, "Published after each Book Status message to provide details of each order for building the book.")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.book_status_message = ProtoField.new("Book Status Message", "aquis.aquisequities.snapshot.amd.v4.1.bookstatusmessage", ftypes.STRING, nil, nil, nil, "Published to report the trading and market status of each security and the number of open orders on the order book at the time of the snapshot.")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.ma_c_book_entry_message = ProtoField.new("Ma C Book Entry Message", "aquis.aquisequities.snapshot.amd.v4.1.macbookentrymessage", ftypes.STRING, nil, nil, nil, "Published during MaC phase to provide the volume of the 5 best bid and offer orders per security in chronological order.")
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.snapshot_start_message = ProtoField.new("Snapshot Start Message", "aquis.aquisequities.snapshot.amd.v4.1.snapshotstartmessage", ftypes.STRING, nil, nil, nil, "Published as the first message in a snapshot, identifying the continuous stream sequence number and number of securities being reported.")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.book_entry_message = ProtoField.new("Book Entry Message", "aquis.aquisequities.snapshot.amd.v4.1.bookentrymessage", ftypes.STRING, nil, nil, nil, "An appropriate number of Book Entry messages is published after each Book Status message to provide details of each order and allow the book to be built.")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.book_status_message = ProtoField.new("Book Status Message", "aquis.aquisequities.snapshot.amd.v4.1.bookstatusmessage", ftypes.STRING, nil, nil, nil, "A Book Status message is published to report the trading and market status of each security and the number of open orders on the order book for the security at the time of the snapshot.")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.mac_book_entry_message = ProtoField.new("Mac Book Entry Message", "aquis.aquisequities.snapshot.amd.v4.1.macbookentrymessage", ftypes.STRING, nil, nil, nil, "During the MaC phase, Aquis will publish the volume of the 5 best bid and offer orders per security in chronological order using the MaC Book Entry Message.")
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.snapshot_start_message = ProtoField.new("Snapshot Start Message", "aquis.aquisequities.snapshot.amd.v4.1.snapshotstartmessage", ftypes.STRING, nil, nil, nil, "A Snapshot Start message is published as the first message in a snapshot to identify the sequence number in the continuous stream that this snapshot relates to. It also states the number of securities being reported in this snapshot.")
 
 -- Aquis AquisEquities Snapshot Amd 4.1 Generated Fields
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.message_index = ProtoField.new("Message Index", "aquis.aquisequities.snapshot.amd.v4.1.messageindex", ftypes.UINT16)
@@ -122,6 +122,11 @@ aquis_aquisequities_snapshot_amd_v4_1.closing_buy_qty.size = 4
 
 -- Display: Closing Buy Qty
 aquis_aquisequities_snapshot_amd_v4_1.closing_buy_qty.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Closing Buy Qty: No Value"
+  end
+
   return "Closing Buy Qty: "..value
 end
 
@@ -145,6 +150,11 @@ aquis_aquisequities_snapshot_amd_v4_1.closing_sell_qty.size = 4
 
 -- Display: Closing Sell Qty
 aquis_aquisequities_snapshot_amd_v4_1.closing_sell_qty.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Closing Sell Qty: No Value"
+  end
+
   return "Closing Sell Qty: "..value
 end
 
@@ -269,7 +279,7 @@ aquis_aquisequities_snapshot_amd_v4_1.msg_type.labels = {
   [10] = "Msg Type: Snapshot Start Message (10)",
   [11] = "Msg Type: Book Status Message (11)",
   [12] = "Msg Type: Book Entry Message (12)",
-  [18] = "Msg Type: Ma C Book Entry Message (18)",
+  [18] = "Msg Type: Mac Book Entry Message (18)",
 }
 
 aquis_aquisequities_snapshot_amd_v4_1.msg_type.display = function(value)
@@ -518,8 +528,8 @@ aquis_aquisequities_snapshot_amd_v4_1.trading_status.labels = {
   [1] = "Trading Status: Active (1)",
   [2] = "Trading Status: Halted (2)",
   [3] = "Trading Status: Suspended (3)",
-  [8] = "Trading Status: Ao D Start (8)",
-  [24] = "Trading Status: Ao D End (24)",
+  [8] = "Trading Status: Aod Start (8)",
+  [24] = "Trading Status: Aod End (24)",
 }
 
 aquis_aquisequities_snapshot_amd_v4_1.trading_status.display = function(value)
@@ -543,24 +553,24 @@ end
 -- Dissect Aquis AquisEquities Snapshot Amd 4.1
 -----------------------------------------------------------------------
 
--- Ma C Book Entry Message
-aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message = {}
+-- Mac Book Entry Message
+aquis_aquisequities_snapshot_amd_v4_1.mac_book_entry_message = {}
 
--- Size: Ma C Book Entry Message
-aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.size =
+-- Size: Mac Book Entry Message
+aquis_aquisequities_snapshot_amd_v4_1.mac_book_entry_message.size =
   aquis_aquisequities_snapshot_amd_v4_1.security_id.size + 
   aquis_aquisequities_snapshot_amd_v4_1.side.size + 
   aquis_aquisequities_snapshot_amd_v4_1.quantity.size + 
   aquis_aquisequities_snapshot_amd_v4_1.price.size + 
   aquis_aquisequities_snapshot_amd_v4_1.order_ref.size
 
--- Display: Ma C Book Entry Message
-aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.display = function(packet, parent, length)
+-- Display: Mac Book Entry Message
+aquis_aquisequities_snapshot_amd_v4_1.mac_book_entry_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Ma C Book Entry Message
-aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mac Book Entry Message
+aquis_aquisequities_snapshot_amd_v4_1.mac_book_entry_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: u16
@@ -581,21 +591,21 @@ aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.fields = function(
   return index
 end
 
--- Dissect: Ma C Book Entry Message
-aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Mac Book Entry Message
+aquis_aquisequities_snapshot_amd_v4_1.mac_book_entry_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_aquis_aquisequities_snapshot_amd_v4_1.fields.ma_c_book_entry_message, buffer(offset, 0))
-    local index = aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_aquis_aquisequities_snapshot_amd_v4_1.fields.mac_book_entry_message, buffer(offset, 0))
+    local index = aquis_aquisequities_snapshot_amd_v4_1.mac_book_entry_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.display(packet, parent, length)
+    local display = aquis_aquisequities_snapshot_amd_v4_1.mac_book_entry_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.fields(buffer, offset, packet, parent)
+    return aquis_aquisequities_snapshot_amd_v4_1.mac_book_entry_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -684,13 +694,13 @@ end
 -- Dissect Bit Fields: Market Flags
 aquis_aquisequities_snapshot_amd_v4_1.market_flags.bits = function(range, value, packet, parent)
 
-  -- Trading: 1 Bit
+  -- Trading: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_snapshot_amd_v4_1.fields.trading, range, value)
 
-  -- Mac Open: 1 Bit
+  -- Mac Open: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_snapshot_amd_v4_1.fields.mac_open, range, value)
 
-  -- Mac Run: 1 Bit
+  -- Mac Run: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_snapshot_amd_v4_1.fields.mac_run, range, value)
 
   -- Unused 5: 5 Bit
@@ -832,7 +842,7 @@ aquis_aquisequities_snapshot_amd_v4_1.payload.dispatch = {
   [10] = aquis_aquisequities_snapshot_amd_v4_1.snapshot_start_message.dissect,
   [11] = aquis_aquisequities_snapshot_amd_v4_1.book_status_message.dissect,
   [12] = aquis_aquisequities_snapshot_amd_v4_1.book_entry_message.dissect,
-  [18] = aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.dissect,
+  [18] = aquis_aquisequities_snapshot_amd_v4_1.mac_book_entry_message.dissect,
 }
 
 -- Dissect: Payload
@@ -1064,7 +1074,7 @@ aquis_aquisequities_snapshot_amd_v4_1.packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Ma C Book Entry Message
+  -- Mac Book Entry Message
   if msg_type == 18 then
     return true
   end
@@ -1108,6 +1118,7 @@ udp_table:add_for_decode_as(omi_aquis_aquisequities_snapshot_amd_v4_1)
 --   Organization: Aquis Exchange
 --   Version: 4.1
 --   Date: Thursday, January 1, 2026
+--   Specification: Aquis Market Data Technical Specification v4.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

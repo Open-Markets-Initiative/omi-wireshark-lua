@@ -179,6 +179,30 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.server_heartbeat = ProtoField.new
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v5.0.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server")
 
 -- Nasdaq NsmEquities Orders Ouch 5.0 Generated Fields
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_appendage_index = ProtoField.new("Account Query Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_appendage_index = ProtoField.new("Account Query Response Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryresponseappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_appendage_index = ProtoField.new("Aiq Canceled Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.aiqcanceledappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_appendage_index = ProtoField.new("Broken Trade Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.brokentradeappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_appendage_index = ProtoField.new("Cancel Order Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.cancelorderappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_pending_appendage_index = ProtoField.new("Cancel Pending Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.cancelpendingappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_reject_appendage_index = ProtoField.new("Cancel Reject Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.cancelrejectappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.canceled_message_appendage_index = ProtoField.new("Canceled Message Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.canceledmessageappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.disable_order_entry_request_appendage_index = ProtoField.new("Disable Order Entry Request Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.disableorderentryrequestappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.disable_order_entry_response_appendage_index = ProtoField.new("Disable Order Entry Response Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.disableorderentryresponseappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enable_order_entry_request_appendage_index = ProtoField.new("Enable Order Entry Request Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.enableorderentryrequestappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enable_order_entry_response_appendage_index = ProtoField.new("Enable Order Entry Response Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.enableorderentryresponseappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_appendage_index = ProtoField.new("Enter Order Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.enterorderappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_request_appendage_index = ProtoField.new("Mass Cancel Request Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.masscancelrequestappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_response_appendage_index = ProtoField.new("Mass Cancel Response Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.masscancelresponseappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.modify_order_appendage_index = ProtoField.new("Modify Order Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.modifyorderappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_appendage_index = ProtoField.new("Order Accepted Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.orderacceptedappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_appendage_index = ProtoField.new("Order Executed Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.orderexecutedappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_modified_appendage_index = ProtoField.new("Order Modified Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.ordermodifiedappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_priority_update_appendage_index = ProtoField.new("Order Priority Update Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.orderpriorityupdateappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_appendage_index = ProtoField.new("Order Restated Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.orderrestatedappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_appendage_index = ProtoField.new("Rejected Order Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.rejectedorderappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_appendage_index = ProtoField.new("Replace Order Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.replaceorderappendageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message_appendage_index = ProtoField.new("Replaced Message Appendage Index", "nasdaq.nsmequities.orders.ouch.v5.0.replacedmessageappendageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nsmequities.orders.ouch.v5.0.sequenceddatapacketsequencenumber", ftypes.UINT64)
 
 -- Nasdaq NsmEquities Orders Ouch 5.0 Expert Info
@@ -219,6 +243,7 @@ show.structs = true
 show.application_messages = true
 show.headers = true
 show.session_messages = true
+show.indexes = true
 show.sequences = true
 
 -- Register Nasdaq NsmEquities Orders Ouch 5.0 Show Options
@@ -229,6 +254,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_structs = Pref.bool("Show Str
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
@@ -248,6 +274,9 @@ function omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs_changed()
   end
   if show.structs ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_structs then
     show.structs = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_structs
+  end
+  if show.indexes ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_indexes then
+    show.indexes = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_indexes
   end
   if show.sequences ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_sequences then
     show.sequences = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_sequences
@@ -3172,8 +3201,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.displa
 end
 
 -- Dissect Fields: Enable Order Entry Response Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.fields = function(buffer, offset, packet, parent, size_of_enable_order_entry_response_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.fields = function(buffer, offset, packet, parent, size_of_enable_order_entry_response_appendage, enable_order_entry_response_appendage_index)
   local index = offset
+
+  -- Implicit Enable Order Entry Response Appendage Index
+  if enable_order_entry_response_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enable_order_entry_response_appendage_index, enable_order_entry_response_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -3188,13 +3223,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.fields
 end
 
 -- Dissect: Enable Order Entry Response Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_enable_order_entry_response_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_enable_order_entry_response_appendage, enable_order_entry_response_appendage_index)
   local index = offset + size_of_enable_order_entry_response_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enable_order_entry_response_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_response_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_response_appendage, enable_order_entry_response_appendage_index)
     parent:set_len(size_of_enable_order_entry_response_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3202,7 +3237,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.dissec
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_response_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_response_appendage, enable_order_entry_response_appendage_index)
 
     return index
   end
@@ -3211,11 +3246,22 @@ end
 -- Enable Order Entry Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_message = {}
 
--- Size: Enable Order Entry Response Message
+-- Calculate size of: Enable Order Entry Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.firm.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Enable Order Entry Response Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Enable Order Entry Response Message
@@ -3240,7 +3286,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_message.fields =
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Enable Order Entry Response Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Enable Order Entry Response Appendage: Struct of 3 fields
   local message_index = 0
@@ -3254,7 +3300,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_message.fields =
     local size_of_enable_order_entry_response_appendage = optional_field_length + 1
 
     -- Enable Order Entry Response Appendage: Struct of 3 fields
-    index, enable_order_entry_response_appendage = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.dissect(buffer, index, packet, parent, size_of_enable_order_entry_response_appendage)
+    index, enable_order_entry_response_appendage = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.dissect(buffer, index, packet, parent, size_of_enable_order_entry_response_appendage, enable_order_entry_response_appendage_index)
   end
 
   return index
@@ -3305,8 +3351,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.displ
 end
 
 -- Dissect Fields: Disable Order Entry Response Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.fields = function(buffer, offset, packet, parent, size_of_disable_order_entry_response_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.fields = function(buffer, offset, packet, parent, size_of_disable_order_entry_response_appendage, disable_order_entry_response_appendage_index)
   local index = offset
+
+  -- Implicit Disable Order Entry Response Appendage Index
+  if disable_order_entry_response_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.disable_order_entry_response_appendage_index, disable_order_entry_response_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -3321,13 +3373,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.field
 end
 
 -- Dissect: Disable Order Entry Response Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_disable_order_entry_response_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_disable_order_entry_response_appendage, disable_order_entry_response_appendage_index)
   local index = offset + size_of_disable_order_entry_response_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.disable_order_entry_response_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_response_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_response_appendage, disable_order_entry_response_appendage_index)
     parent:set_len(size_of_disable_order_entry_response_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3335,7 +3387,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.disse
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_response_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_response_appendage, disable_order_entry_response_appendage_index)
 
     return index
   end
@@ -3344,11 +3396,22 @@ end
 -- Disable Order Entry Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_message = {}
 
--- Size: Disable Order Entry Response Message
+-- Calculate size of: Disable Order Entry Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.firm.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Disable Order Entry Response Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Disable Order Entry Response Message
@@ -3373,7 +3436,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_message.fields 
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Disable Order Entry Response Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Disable Order Entry Response Appendage: Struct of 3 fields
   local message_index = 0
@@ -3387,7 +3450,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_message.fields 
     local size_of_disable_order_entry_response_appendage = optional_field_length + 1
 
     -- Disable Order Entry Response Appendage: Struct of 3 fields
-    index, disable_order_entry_response_appendage = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.dissect(buffer, index, packet, parent, size_of_disable_order_entry_response_appendage)
+    index, disable_order_entry_response_appendage = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.dissect(buffer, index, packet, parent, size_of_disable_order_entry_response_appendage, disable_order_entry_response_appendage_index)
   end
 
   return index
@@ -3440,8 +3503,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.display = fun
 end
 
 -- Dissect Fields: Mass Cancel Response Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.fields = function(buffer, offset, packet, parent, size_of_mass_cancel_response_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.fields = function(buffer, offset, packet, parent, size_of_mass_cancel_response_appendage, mass_cancel_response_appendage_index)
   local index = offset
+
+  -- Implicit Mass Cancel Response Appendage Index
+  if mass_cancel_response_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_response_appendage_index, mass_cancel_response_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -3456,13 +3525,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.fields = func
 end
 
 -- Dissect: Mass Cancel Response Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_response_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_response_appendage, mass_cancel_response_appendage_index)
   local index = offset + size_of_mass_cancel_response_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_response_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_response_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_response_appendage, mass_cancel_response_appendage_index)
     parent:set_len(size_of_mass_cancel_response_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3470,7 +3539,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.dissect = fun
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_response_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_response_appendage, mass_cancel_response_appendage_index)
 
     return index
   end
@@ -3479,11 +3548,24 @@ end
 -- Mass Cancel Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_message = {}
 
--- Size: Mass Cancel Response Message
+-- Calculate size of: Mass Cancel Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.firm.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.symbol.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Mass Cancel Response Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Mass Cancel Response Message
@@ -3511,7 +3593,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_message.fields = functi
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Mass Cancel Response Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Mass Cancel Response Appendage: Struct of 3 fields
   local message_index = 0
@@ -3525,7 +3607,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_message.fields = functi
     local size_of_mass_cancel_response_appendage = optional_field_length + 1
 
     -- Mass Cancel Response Appendage: Struct of 3 fields
-    index, mass_cancel_response_appendage = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.dissect(buffer, index, packet, parent, size_of_mass_cancel_response_appendage)
+    index, mass_cancel_response_appendage = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.dissect(buffer, index, packet, parent, size_of_mass_cancel_response_appendage, mass_cancel_response_appendage_index)
   end
 
   return index
@@ -3576,8 +3658,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.display = f
 end
 
 -- Dissect Fields: Account Query Response Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields = function(buffer, offset, packet, parent, size_of_account_query_response_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields = function(buffer, offset, packet, parent, size_of_account_query_response_appendage, account_query_response_appendage_index)
   local index = offset
+
+  -- Implicit Account Query Response Appendage Index
+  if account_query_response_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_appendage_index, account_query_response_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -3592,13 +3680,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields = fu
 end
 
 -- Dissect: Account Query Response Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_account_query_response_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_account_query_response_appendage, account_query_response_appendage_index)
   local index = offset + size_of_account_query_response_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields(buffer, offset, packet, parent, size_of_account_query_response_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields(buffer, offset, packet, parent, size_of_account_query_response_appendage, account_query_response_appendage_index)
     parent:set_len(size_of_account_query_response_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3606,7 +3694,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.dissect = f
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields(buffer, offset, packet, parent, size_of_account_query_response_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields(buffer, offset, packet, parent, size_of_account_query_response_appendage, account_query_response_appendage_index)
 
     return index
   end
@@ -3615,11 +3703,24 @@ end
 -- Account Query Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message = {}
 
--- Size: Account Query Response Message
+-- Calculate size of: Account Query Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.next_user_ref_num.size
+
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Account Query Response Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Account Query Response Message
@@ -3647,7 +3748,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.fields = func
   end
 
   -- Dependency for Account Query Response Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Account Query Response Appendage: Struct of 3 fields
   local message_index = 0
@@ -3661,7 +3762,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.fields = func
     local size_of_account_query_response_appendage = optional_field_length + 1
 
     -- Account Query Response Appendage: Struct of 3 fields
-    index, account_query_response_appendage = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.dissect(buffer, index, packet, parent, size_of_account_query_response_appendage)
+    index, account_query_response_appendage = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.dissect(buffer, index, packet, parent, size_of_account_query_response_appendage, account_query_response_appendage_index)
   end
 
   return index
@@ -3715,8 +3816,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.display = function(
 end
 
 -- Dissect Fields: Order Restated Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields = function(buffer, offset, packet, parent, size_of_order_restated_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields = function(buffer, offset, packet, parent, size_of_order_restated_appendage, order_restated_appendage_index)
   local index = offset
+
+  -- Implicit Order Restated Appendage Index
+  if order_restated_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_appendage_index, order_restated_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -3731,13 +3838,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields = function(b
 end
 
 -- Dissect: Order Restated Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_restated_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_restated_appendage, order_restated_appendage_index)
   local index = offset + size_of_order_restated_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields(buffer, offset, packet, parent, size_of_order_restated_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields(buffer, offset, packet, parent, size_of_order_restated_appendage, order_restated_appendage_index)
     parent:set_len(size_of_order_restated_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3745,7 +3852,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields(buffer, offset, packet, parent, size_of_order_restated_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields(buffer, offset, packet, parent, size_of_order_restated_appendage, order_restated_appendage_index)
 
     return index
   end
@@ -3754,11 +3861,22 @@ end
 -- Order Restated Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message = {}
 
--- Size: Order Restated Message
+-- Calculate size of: Order Restated Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.order_restated_reason.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Order Restated Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Order Restated Message
@@ -3783,7 +3901,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.fields = function(buf
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Order Restated Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Order Restated Appendage: Struct of 3 fields
   local message_index = 0
@@ -3797,7 +3915,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.fields = function(buf
     local size_of_order_restated_appendage = optional_field_length + 1
 
     -- Order Restated Appendage: Struct of 3 fields
-    index, order_restated_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.dissect(buffer, index, packet, parent, size_of_order_restated_appendage)
+    index, order_restated_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.dissect(buffer, index, packet, parent, size_of_order_restated_appendage, order_restated_appendage_index)
   end
 
   return index
@@ -3850,8 +3968,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.display = function(
 end
 
 -- Dissect Fields: Order Modified Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields = function(buffer, offset, packet, parent, size_of_order_modified_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields = function(buffer, offset, packet, parent, size_of_order_modified_appendage, order_modified_appendage_index)
   local index = offset
+
+  -- Implicit Order Modified Appendage Index
+  if order_modified_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_modified_appendage_index, order_modified_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -3866,13 +3990,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields = function(b
 end
 
 -- Dissect: Order Modified Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_modified_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_modified_appendage, order_modified_appendage_index)
   local index = offset + size_of_order_modified_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_modified_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields(buffer, offset, packet, parent, size_of_order_modified_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields(buffer, offset, packet, parent, size_of_order_modified_appendage, order_modified_appendage_index)
     parent:set_len(size_of_order_modified_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3880,7 +4004,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields(buffer, offset, packet, parent, size_of_order_modified_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields(buffer, offset, packet, parent, size_of_order_modified_appendage, order_modified_appendage_index)
 
     return index
   end
@@ -3889,11 +4013,28 @@ end
 -- Order Modified Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message = {}
 
--- Size: Order Modified Message
+-- Calculate size of: Order Modified Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.side.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Order Modified Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Order Modified Message
@@ -3927,7 +4068,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.fields = function(buf
   end
 
   -- Dependency for Order Modified Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Order Modified Appendage: Struct of 3 fields
   local message_index = 0
@@ -3941,7 +4082,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.fields = function(buf
     local size_of_order_modified_appendage = optional_field_length + 1
 
     -- Order Modified Appendage: Struct of 3 fields
-    index, order_modified_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.dissect(buffer, index, packet, parent, size_of_order_modified_appendage)
+    index, order_modified_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.dissect(buffer, index, packet, parent, size_of_order_modified_appendage, order_modified_appendage_index)
   end
 
   return index
@@ -3992,8 +4133,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.display = fu
 end
 
 -- Dissect Fields: Order Priority Update Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields = function(buffer, offset, packet, parent, size_of_order_priority_update_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields = function(buffer, offset, packet, parent, size_of_order_priority_update_appendage, order_priority_update_appendage_index)
   local index = offset
+
+  -- Implicit Order Priority Update Appendage Index
+  if order_priority_update_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_priority_update_appendage_index, order_priority_update_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -4008,13 +4155,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields = fun
 end
 
 -- Dissect: Order Priority Update Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_priority_update_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_priority_update_appendage, order_priority_update_appendage_index)
   local index = offset + size_of_order_priority_update_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_priority_update_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields(buffer, offset, packet, parent, size_of_order_priority_update_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields(buffer, offset, packet, parent, size_of_order_priority_update_appendage, order_priority_update_appendage_index)
     parent:set_len(size_of_order_priority_update_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4022,7 +4169,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.dissect = fu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields(buffer, offset, packet, parent, size_of_order_priority_update_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields(buffer, offset, packet, parent, size_of_order_priority_update_appendage, order_priority_update_appendage_index)
 
     return index
   end
@@ -4031,11 +4178,30 @@ end
 -- Order Priority Update Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message = {}
 
--- Size: Order Priority Update Message
+-- Calculate size of: Order Priority Update Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.price.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.display.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.order_reference_number.size
+
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Order Priority Update Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Order Priority Update Message
@@ -4072,7 +4238,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.fields = funct
   end
 
   -- Dependency for Order Priority Update Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Order Priority Update Appendage: Struct of 3 fields
   local message_index = 0
@@ -4086,7 +4252,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.fields = funct
     local size_of_order_priority_update_appendage = optional_field_length + 1
 
     -- Order Priority Update Appendage: Struct of 3 fields
-    index, order_priority_update_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.dissect(buffer, index, packet, parent, size_of_order_priority_update_appendage)
+    index, order_priority_update_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.dissect(buffer, index, packet, parent, size_of_order_priority_update_appendage, order_priority_update_appendage_index)
   end
 
   return index
@@ -4137,8 +4303,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.display = function(p
 end
 
 -- Dissect Fields: Cancel Reject Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields = function(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields = function(buffer, offset, packet, parent, size_of_cancel_reject_appendage, cancel_reject_appendage_index)
   local index = offset
+
+  -- Implicit Cancel Reject Appendage Index
+  if cancel_reject_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_reject_appendage_index, cancel_reject_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -4153,13 +4325,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields = function(bu
 end
 
 -- Dissect: Cancel Reject Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_reject_appendage, cancel_reject_appendage_index)
   local index = offset + size_of_cancel_reject_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_reject_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields(buffer, offset, packet, parent, size_of_cancel_reject_appendage, cancel_reject_appendage_index)
     parent:set_len(size_of_cancel_reject_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4167,7 +4339,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields(buffer, offset, packet, parent, size_of_cancel_reject_appendage, cancel_reject_appendage_index)
 
     return index
   end
@@ -4176,11 +4348,24 @@ end
 -- Cancel Reject Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message = {}
 
--- Size: Cancel Reject Message
+-- Calculate size of: Cancel Reject Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Cancel Reject Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Cancel Reject Message
@@ -4208,7 +4393,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.fields = function(buff
   end
 
   -- Dependency for Cancel Reject Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Cancel Reject Appendage: Struct of 3 fields
   local message_index = 0
@@ -4222,7 +4407,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.fields = function(buff
     local size_of_cancel_reject_appendage = optional_field_length + 1
 
     -- Cancel Reject Appendage: Struct of 3 fields
-    index, cancel_reject_appendage = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.dissect(buffer, index, packet, parent, size_of_cancel_reject_appendage)
+    index, cancel_reject_appendage = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.dissect(buffer, index, packet, parent, size_of_cancel_reject_appendage, cancel_reject_appendage_index)
   end
 
   return index
@@ -4273,8 +4458,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.display = function(
 end
 
 -- Dissect Fields: Cancel Pending Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields = function(buffer, offset, packet, parent, size_of_cancel_pending_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields = function(buffer, offset, packet, parent, size_of_cancel_pending_appendage, cancel_pending_appendage_index)
   local index = offset
+
+  -- Implicit Cancel Pending Appendage Index
+  if cancel_pending_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_pending_appendage_index, cancel_pending_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -4289,13 +4480,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields = function(b
 end
 
 -- Dissect: Cancel Pending Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_pending_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_pending_appendage, cancel_pending_appendage_index)
   local index = offset + size_of_cancel_pending_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_pending_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields(buffer, offset, packet, parent, size_of_cancel_pending_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields(buffer, offset, packet, parent, size_of_cancel_pending_appendage, cancel_pending_appendage_index)
     parent:set_len(size_of_cancel_pending_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4303,7 +4494,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields(buffer, offset, packet, parent, size_of_cancel_pending_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields(buffer, offset, packet, parent, size_of_cancel_pending_appendage, cancel_pending_appendage_index)
 
     return index
   end
@@ -4312,11 +4503,24 @@ end
 -- Cancel Pending Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message = {}
 
--- Size: Cancel Pending Message
+-- Calculate size of: Cancel Pending Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Cancel Pending Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Cancel Pending Message
@@ -4344,7 +4548,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.fields = function(buf
   end
 
   -- Dependency for Cancel Pending Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Cancel Pending Appendage: Struct of 3 fields
   local message_index = 0
@@ -4358,7 +4562,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.fields = function(buf
     local size_of_cancel_pending_appendage = optional_field_length + 1
 
     -- Cancel Pending Appendage: Struct of 3 fields
-    index, cancel_pending_appendage = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.dissect(buffer, index, packet, parent, size_of_cancel_pending_appendage)
+    index, cancel_pending_appendage = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.dissect(buffer, index, packet, parent, size_of_cancel_pending_appendage, cancel_pending_appendage_index)
   end
 
   return index
@@ -4409,8 +4613,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.display = function(
 end
 
 -- Dissect Fields: Rejected Order Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields = function(buffer, offset, packet, parent, size_of_rejected_order_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields = function(buffer, offset, packet, parent, size_of_rejected_order_appendage, rejected_order_appendage_index)
   local index = offset
+
+  -- Implicit Rejected Order Appendage Index
+  if rejected_order_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_appendage_index, rejected_order_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -4425,13 +4635,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields = function(b
 end
 
 -- Dissect: Rejected Order Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_rejected_order_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_rejected_order_appendage, rejected_order_appendage_index)
   local index = offset + size_of_rejected_order_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields(buffer, offset, packet, parent, size_of_rejected_order_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields(buffer, offset, packet, parent, size_of_rejected_order_appendage, rejected_order_appendage_index)
     parent:set_len(size_of_rejected_order_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4439,7 +4649,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields(buffer, offset, packet, parent, size_of_rejected_order_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields(buffer, offset, packet, parent, size_of_rejected_order_appendage, rejected_order_appendage_index)
 
     return index
   end
@@ -4448,11 +4658,28 @@ end
 -- Rejected Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message = {}
 
--- Size: Rejected Order Message
+-- Calculate size of: Rejected Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.clordid.size
+
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Rejected Order Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Rejected Order Message
@@ -4486,7 +4713,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.fields = function(buf
   end
 
   -- Dependency for Rejected Order Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Rejected Order Appendage: Struct of 3 fields
   local message_index = 0
@@ -4500,7 +4727,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.fields = function(buf
     local size_of_rejected_order_appendage = optional_field_length + 1
 
     -- Rejected Order Appendage: Struct of 3 fields
-    index, rejected_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.dissect(buffer, index, packet, parent, size_of_rejected_order_appendage)
+    index, rejected_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.dissect(buffer, index, packet, parent, size_of_rejected_order_appendage, rejected_order_appendage_index)
   end
 
   return index
@@ -4551,8 +4778,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.display = function(pa
 end
 
 -- Dissect Fields: Broken Trade Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields = function(buffer, offset, packet, parent, size_of_broken_trade_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields = function(buffer, offset, packet, parent, size_of_broken_trade_appendage, broken_trade_appendage_index)
   local index = offset
+
+  -- Implicit Broken Trade Appendage Index
+  if broken_trade_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_appendage_index, broken_trade_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -4567,13 +4800,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields = function(buf
 end
 
 -- Dissect: Broken Trade Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.dissect = function(buffer, offset, packet, parent, size_of_broken_trade_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.dissect = function(buffer, offset, packet, parent, size_of_broken_trade_appendage, broken_trade_appendage_index)
   local index = offset + size_of_broken_trade_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields(buffer, offset, packet, parent, size_of_broken_trade_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields(buffer, offset, packet, parent, size_of_broken_trade_appendage, broken_trade_appendage_index)
     parent:set_len(size_of_broken_trade_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4581,7 +4814,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields(buffer, offset, packet, parent, size_of_broken_trade_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields(buffer, offset, packet, parent, size_of_broken_trade_appendage, broken_trade_appendage_index)
 
     return index
   end
@@ -4590,11 +4823,30 @@ end
 -- Broken Trade Message
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message = {}
 
--- Size: Broken Trade Message
+-- Calculate size of: Broken Trade Message
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.match_number.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_reason.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.clordid.size
+
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Broken Trade Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Broken Trade Message
@@ -4631,7 +4883,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.fields = function(buffe
   end
 
   -- Dependency for Broken Trade Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Broken Trade Appendage: Struct of 3 fields
   local message_index = 0
@@ -4645,7 +4897,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.fields = function(buffe
     local size_of_broken_trade_appendage = optional_field_length + 1
 
     -- Broken Trade Appendage: Struct of 3 fields
-    index, broken_trade_appendage = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.dissect(buffer, index, packet, parent, size_of_broken_trade_appendage)
+    index, broken_trade_appendage = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.dissect(buffer, index, packet, parent, size_of_broken_trade_appendage, broken_trade_appendage_index)
   end
 
   return index
@@ -4696,8 +4948,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.display = function(
 end
 
 -- Dissect Fields: Order Executed Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields = function(buffer, offset, packet, parent, size_of_order_executed_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields = function(buffer, offset, packet, parent, size_of_order_executed_appendage, order_executed_appendage_index)
   local index = offset
+
+  -- Implicit Order Executed Appendage Index
+  if order_executed_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_appendage_index, order_executed_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -4712,13 +4970,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields = function(b
 end
 
 -- Dissect: Order Executed Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_executed_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_executed_appendage, order_executed_appendage_index)
   local index = offset + size_of_order_executed_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields(buffer, offset, packet, parent, size_of_order_executed_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields(buffer, offset, packet, parent, size_of_order_executed_appendage, order_executed_appendage_index)
     parent:set_len(size_of_order_executed_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4726,7 +4984,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields(buffer, offset, packet, parent, size_of_order_executed_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields(buffer, offset, packet, parent, size_of_order_executed_appendage, order_executed_appendage_index)
 
     return index
   end
@@ -4735,11 +4993,28 @@ end
 -- Order Executed Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message = {}
 
--- Size: Order Executed Message
+-- Calculate size of: Order Executed Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.price.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.match_number.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Order Executed Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Order Executed Message
@@ -4773,7 +5048,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.fields = function(buf
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Order Executed Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Order Executed Appendage: Struct of 3 fields
   local message_index = 0
@@ -4787,7 +5062,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.fields = function(buf
     local size_of_order_executed_appendage = optional_field_length + 1
 
     -- Order Executed Appendage: Struct of 3 fields
-    index, order_executed_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.dissect(buffer, index, packet, parent, size_of_order_executed_appendage)
+    index, order_executed_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.dissect(buffer, index, packet, parent, size_of_order_executed_appendage, order_executed_appendage_index)
   end
 
   return index
@@ -4838,8 +5113,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.display = function(pa
 end
 
 -- Dissect Fields: Aiq Canceled Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields = function(buffer, offset, packet, parent, size_of_aiq_canceled_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields = function(buffer, offset, packet, parent, size_of_aiq_canceled_appendage, aiq_canceled_appendage_index)
   local index = offset
+
+  -- Implicit Aiq Canceled Appendage Index
+  if aiq_canceled_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_appendage_index, aiq_canceled_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -4854,13 +5135,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields = function(buf
 end
 
 -- Dissect: Aiq Canceled Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.dissect = function(buffer, offset, packet, parent, size_of_aiq_canceled_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.dissect = function(buffer, offset, packet, parent, size_of_aiq_canceled_appendage, aiq_canceled_appendage_index)
   local index = offset + size_of_aiq_canceled_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields(buffer, offset, packet, parent, size_of_aiq_canceled_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields(buffer, offset, packet, parent, size_of_aiq_canceled_appendage, aiq_canceled_appendage_index)
     parent:set_len(size_of_aiq_canceled_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4868,7 +5149,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields(buffer, offset, packet, parent, size_of_aiq_canceled_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields(buffer, offset, packet, parent, size_of_aiq_canceled_appendage, aiq_canceled_appendage_index)
 
     return index
   end
@@ -4877,11 +5158,36 @@ end
 -- Aiq Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message = {}
 
--- Size: Aiq Canceled Message
+-- Calculate size of: Aiq Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.decrement_shares.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.order_cancel_reason.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.quantity_prevented_from_trading.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.execution_price.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.size
+
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Aiq Canceled Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Aiq Canceled Message
@@ -4927,7 +5233,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.fields = function(buffe
   end
 
   -- Dependency for Aiq Canceled Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Aiq Canceled Appendage: Struct of 3 fields
   local message_index = 0
@@ -4941,7 +5247,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.fields = function(buffe
     local size_of_aiq_canceled_appendage = optional_field_length + 1
 
     -- Aiq Canceled Appendage: Struct of 3 fields
-    index, aiq_canceled_appendage = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.dissect(buffer, index, packet, parent, size_of_aiq_canceled_appendage)
+    index, aiq_canceled_appendage = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.dissect(buffer, index, packet, parent, size_of_aiq_canceled_appendage, aiq_canceled_appendage_index)
   end
 
   return index
@@ -4992,8 +5298,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.display = functio
 end
 
 -- Dissect Fields: Canceled Message Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields = function(buffer, offset, packet, parent, size_of_canceled_message_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields = function(buffer, offset, packet, parent, size_of_canceled_message_appendage, canceled_message_appendage_index)
   local index = offset
+
+  -- Implicit Canceled Message Appendage Index
+  if canceled_message_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.canceled_message_appendage_index, canceled_message_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -5008,13 +5320,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields = function
 end
 
 -- Dissect: Canceled Message Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.dissect = function(buffer, offset, packet, parent, size_of_canceled_message_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.dissect = function(buffer, offset, packet, parent, size_of_canceled_message_appendage, canceled_message_appendage_index)
   local index = offset + size_of_canceled_message_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.canceled_message_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields(buffer, offset, packet, parent, size_of_canceled_message_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields(buffer, offset, packet, parent, size_of_canceled_message_appendage, canceled_message_appendage_index)
     parent:set_len(size_of_canceled_message_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5022,7 +5334,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.dissect = functio
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields(buffer, offset, packet, parent, size_of_canceled_message_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields(buffer, offset, packet, parent, size_of_canceled_message_appendage, canceled_message_appendage_index)
 
     return index
   end
@@ -5031,11 +5343,28 @@ end
 -- Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message = {}
 
--- Size: Canceled Message
+-- Calculate size of: Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.size
+
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Canceled Message Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Canceled Message
@@ -5069,7 +5398,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.fields = function(buffer, o
   end
 
   -- Dependency for Canceled Message Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Canceled Message Appendage: Struct of 3 fields
   local message_index = 0
@@ -5083,7 +5412,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.fields = function(buffer, o
     local size_of_canceled_message_appendage = optional_field_length + 1
 
     -- Canceled Message Appendage: Struct of 3 fields
-    index, canceled_message_appendage = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.dissect(buffer, index, packet, parent, size_of_canceled_message_appendage)
+    index, canceled_message_appendage = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.dissect(buffer, index, packet, parent, size_of_canceled_message_appendage, canceled_message_appendage_index)
   end
 
   return index
@@ -5145,8 +5474,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.display = functio
 end
 
 -- Dissect Fields: Replaced Message Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields = function(buffer, offset, packet, parent, size_of_replaced_message_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields = function(buffer, offset, packet, parent, size_of_replaced_message_appendage, replaced_message_appendage_index)
   local index = offset
+
+  -- Implicit Replaced Message Appendage Index
+  if replaced_message_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message_appendage_index, replaced_message_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -5161,13 +5496,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields = function
 end
 
 -- Dissect: Replaced Message Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.dissect = function(buffer, offset, packet, parent, size_of_replaced_message_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.dissect = function(buffer, offset, packet, parent, size_of_replaced_message_appendage, replaced_message_appendage_index)
   local index = offset + size_of_replaced_message_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields(buffer, offset, packet, parent, size_of_replaced_message_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields(buffer, offset, packet, parent, size_of_replaced_message_appendage, replaced_message_appendage_index)
     parent:set_len(size_of_replaced_message_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5175,7 +5510,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.dissect = functio
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields(buffer, offset, packet, parent, size_of_replaced_message_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields(buffer, offset, packet, parent, size_of_replaced_message_appendage, replaced_message_appendage_index)
 
     return index
   end
@@ -5184,11 +5519,46 @@ end
 -- Replaced Message
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message = {}
 
--- Size: Replaced Message
+-- Calculate size of: Replaced Message
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.orig_user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.side.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.symbol.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.price.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.display.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.order_reference_number.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.capacity.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.cross_type.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.order_state.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.clordid.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Replaced Message Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Replaced Message
@@ -5249,7 +5619,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.fields = function(buffer, o
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Replaced Message Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Replaced Message Appendage: Struct of 3 fields
   local message_index = 0
@@ -5263,7 +5633,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.fields = function(buffer, o
     local size_of_replaced_message_appendage = optional_field_length + 1
 
     -- Replaced Message Appendage: Struct of 3 fields
-    index, replaced_message_appendage = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.dissect(buffer, index, packet, parent, size_of_replaced_message_appendage)
+    index, replaced_message_appendage = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.dissect(buffer, index, packet, parent, size_of_replaced_message_appendage, replaced_message_appendage_index)
   end
 
   return index
@@ -5334,8 +5704,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.display = function(
 end
 
 -- Dissect Fields: Order Accepted Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields = function(buffer, offset, packet, parent, size_of_order_accepted_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields = function(buffer, offset, packet, parent, size_of_order_accepted_appendage, order_accepted_appendage_index)
   local index = offset
+
+  -- Implicit Order Accepted Appendage Index
+  if order_accepted_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_appendage_index, order_accepted_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -5350,13 +5726,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields = function(b
 end
 
 -- Dissect: Order Accepted Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_accepted_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_accepted_appendage, order_accepted_appendage_index)
   local index = offset + size_of_order_accepted_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields(buffer, offset, packet, parent, size_of_order_accepted_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields(buffer, offset, packet, parent, size_of_order_accepted_appendage, order_accepted_appendage_index)
     parent:set_len(size_of_order_accepted_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5364,7 +5740,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields(buffer, offset, packet, parent, size_of_order_accepted_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields(buffer, offset, packet, parent, size_of_order_accepted_appendage, order_accepted_appendage_index)
 
     return index
   end
@@ -5373,11 +5749,44 @@ end
 -- Order Accepted Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message = {}
 
--- Size: Order Accepted Message
+-- Calculate size of: Order Accepted Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.side.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.symbol.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.price.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.display.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.order_reference_number.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.capacity.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.cross_type.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.order_state.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.clordid.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Order Accepted Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Order Accepted Message
@@ -5435,7 +5844,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.fields = function(buf
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Order Accepted Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Order Accepted Appendage: Struct of 3 fields
   local message_index = 0
@@ -5449,7 +5858,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.fields = function(buf
     local size_of_order_accepted_appendage = optional_field_length + 1
 
     -- Order Accepted Appendage: Struct of 3 fields
-    index, order_accepted_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.dissect(buffer, index, packet, parent, size_of_order_accepted_appendage)
+    index, order_accepted_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.dissect(buffer, index, packet, parent, size_of_order_accepted_appendage, order_accepted_appendage_index)
   end
 
   return index
@@ -6024,8 +6433,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.display
 end
 
 -- Dissect Fields: Enable Order Entry Request Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.fields = function(buffer, offset, packet, parent, size_of_enable_order_entry_request_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.fields = function(buffer, offset, packet, parent, size_of_enable_order_entry_request_appendage, enable_order_entry_request_appendage_index)
   local index = offset
+
+  -- Implicit Enable Order Entry Request Appendage Index
+  if enable_order_entry_request_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enable_order_entry_request_appendage_index, enable_order_entry_request_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -6040,13 +6455,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.fields 
 end
 
 -- Dissect: Enable Order Entry Request Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.dissect = function(buffer, offset, packet, parent, size_of_enable_order_entry_request_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.dissect = function(buffer, offset, packet, parent, size_of_enable_order_entry_request_appendage, enable_order_entry_request_appendage_index)
   local index = offset + size_of_enable_order_entry_request_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enable_order_entry_request_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_request_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_request_appendage, enable_order_entry_request_appendage_index)
     parent:set_len(size_of_enable_order_entry_request_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6054,7 +6469,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.dissect
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_request_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_request_appendage, enable_order_entry_request_appendage_index)
 
     return index
   end
@@ -6063,11 +6478,20 @@ end
 -- Enable Order Entry Request Message
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_message = {}
 
--- Size: Enable Order Entry Request Message
+-- Calculate size of: Enable Order Entry Request Message
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.firm.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Enable Order Entry Request Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Enable Order Entry Request Message
@@ -6089,7 +6513,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_message.fields = 
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Enable Order Entry Request Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Enable Order Entry Request Appendage: Struct of 3 fields
   local message_index = 0
@@ -6103,7 +6527,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_message.fields = 
     local size_of_enable_order_entry_request_appendage = optional_field_length + 1
 
     -- Enable Order Entry Request Appendage: Struct of 3 fields
-    index, enable_order_entry_request_appendage = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.dissect(buffer, index, packet, parent, size_of_enable_order_entry_request_appendage)
+    index, enable_order_entry_request_appendage = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.dissect(buffer, index, packet, parent, size_of_enable_order_entry_request_appendage, enable_order_entry_request_appendage_index)
   end
 
   return index
@@ -6154,8 +6578,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.displa
 end
 
 -- Dissect Fields: Disable Order Entry Request Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.fields = function(buffer, offset, packet, parent, size_of_disable_order_entry_request_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.fields = function(buffer, offset, packet, parent, size_of_disable_order_entry_request_appendage, disable_order_entry_request_appendage_index)
   local index = offset
+
+  -- Implicit Disable Order Entry Request Appendage Index
+  if disable_order_entry_request_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.disable_order_entry_request_appendage_index, disable_order_entry_request_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -6170,13 +6600,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.fields
 end
 
 -- Dissect: Disable Order Entry Request Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.dissect = function(buffer, offset, packet, parent, size_of_disable_order_entry_request_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.dissect = function(buffer, offset, packet, parent, size_of_disable_order_entry_request_appendage, disable_order_entry_request_appendage_index)
   local index = offset + size_of_disable_order_entry_request_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.disable_order_entry_request_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_request_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_request_appendage, disable_order_entry_request_appendage_index)
     parent:set_len(size_of_disable_order_entry_request_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6184,7 +6614,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.dissec
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_request_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_request_appendage, disable_order_entry_request_appendage_index)
 
     return index
   end
@@ -6193,11 +6623,20 @@ end
 -- Disable Order Entry Request Message
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_message = {}
 
--- Size: Disable Order Entry Request Message
+-- Calculate size of: Disable Order Entry Request Message
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.firm.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Disable Order Entry Request Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Disable Order Entry Request Message
@@ -6219,7 +6658,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_message.fields =
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Disable Order Entry Request Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Disable Order Entry Request Appendage: Struct of 3 fields
   local message_index = 0
@@ -6233,7 +6672,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_message.fields =
     local size_of_disable_order_entry_request_appendage = optional_field_length + 1
 
     -- Disable Order Entry Request Appendage: Struct of 3 fields
-    index, disable_order_entry_request_appendage = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.dissect(buffer, index, packet, parent, size_of_disable_order_entry_request_appendage)
+    index, disable_order_entry_request_appendage = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.dissect(buffer, index, packet, parent, size_of_disable_order_entry_request_appendage, disable_order_entry_request_appendage_index)
   end
 
   return index
@@ -6286,8 +6725,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.display = func
 end
 
 -- Dissect Fields: Mass Cancel Request Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.fields = function(buffer, offset, packet, parent, size_of_mass_cancel_request_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.fields = function(buffer, offset, packet, parent, size_of_mass_cancel_request_appendage, mass_cancel_request_appendage_index)
   local index = offset
+
+  -- Implicit Mass Cancel Request Appendage Index
+  if mass_cancel_request_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_request_appendage_index, mass_cancel_request_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -6302,13 +6747,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.fields = funct
 end
 
 -- Dissect: Mass Cancel Request Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_request_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_request_appendage, mass_cancel_request_appendage_index)
   local index = offset + size_of_mass_cancel_request_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_request_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_request_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_request_appendage, mass_cancel_request_appendage_index)
     parent:set_len(size_of_mass_cancel_request_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6316,7 +6761,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.dissect = func
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_request_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_request_appendage, mass_cancel_request_appendage_index)
 
     return index
   end
@@ -6325,11 +6770,22 @@ end
 -- Mass Cancel Request Message
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_message = {}
 
--- Size: Mass Cancel Request Message
+-- Calculate size of: Mass Cancel Request Message
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.firm.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.symbol.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Mass Cancel Request Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Mass Cancel Request Message
@@ -6354,7 +6810,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_message.fields = functio
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Mass Cancel Request Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Mass Cancel Request Appendage: Struct of 3 fields
   local message_index = 0
@@ -6368,7 +6824,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_message.fields = functio
     local size_of_mass_cancel_request_appendage = optional_field_length + 1
 
     -- Mass Cancel Request Appendage: Struct of 3 fields
-    index, mass_cancel_request_appendage = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.dissect(buffer, index, packet, parent, size_of_mass_cancel_request_appendage)
+    index, mass_cancel_request_appendage = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.dissect(buffer, index, packet, parent, size_of_mass_cancel_request_appendage, mass_cancel_request_appendage_index)
   end
 
   return index
@@ -6419,8 +6875,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.display = function(p
 end
 
 -- Dissect Fields: Account Query Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields = function(buffer, offset, packet, parent, size_of_account_query_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields = function(buffer, offset, packet, parent, size_of_account_query_appendage, account_query_appendage_index)
   local index = offset
+
+  -- Implicit Account Query Appendage Index
+  if account_query_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_appendage_index, account_query_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -6435,13 +6897,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields = function(bu
 end
 
 -- Dissect: Account Query Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.dissect = function(buffer, offset, packet, parent, size_of_account_query_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.dissect = function(buffer, offset, packet, parent, size_of_account_query_appendage, account_query_appendage_index)
   local index = offset + size_of_account_query_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields(buffer, offset, packet, parent, size_of_account_query_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields(buffer, offset, packet, parent, size_of_account_query_appendage, account_query_appendage_index)
     parent:set_len(size_of_account_query_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6449,7 +6911,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields(buffer, offset, packet, parent, size_of_account_query_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields(buffer, offset, packet, parent, size_of_account_query_appendage, account_query_appendage_index)
 
     return index
   end
@@ -6458,11 +6920,20 @@ end
 -- Account Query Message
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_message = {}
 
--- Size: Account Query Message
+-- Calculate size of: Account Query Message
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Account Query Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Account Query Message
@@ -6484,7 +6955,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.fields = function(buff
   end
 
   -- Dependency for Account Query Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Account Query Appendage: Struct of 3 fields
   local message_index = 0
@@ -6498,7 +6969,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.fields = function(buff
     local size_of_account_query_appendage = optional_field_length + 1
 
     -- Account Query Appendage: Struct of 3 fields
-    index, account_query_appendage = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.dissect(buffer, index, packet, parent, size_of_account_query_appendage)
+    index, account_query_appendage = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.dissect(buffer, index, packet, parent, size_of_account_query_appendage, account_query_appendage_index)
   end
 
   return index
@@ -6551,8 +7022,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.display = function(pa
 end
 
 -- Dissect Fields: Modify Order Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields = function(buffer, offset, packet, parent, size_of_modify_order_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields = function(buffer, offset, packet, parent, size_of_modify_order_appendage, modify_order_appendage_index)
   local index = offset
+
+  -- Implicit Modify Order Appendage Index
+  if modify_order_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.modify_order_appendage_index, modify_order_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -6567,13 +7044,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields = function(buf
 end
 
 -- Dissect: Modify Order Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_modify_order_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_modify_order_appendage, modify_order_appendage_index)
   local index = offset + size_of_modify_order_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.modify_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields(buffer, offset, packet, parent, size_of_modify_order_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields(buffer, offset, packet, parent, size_of_modify_order_appendage, modify_order_appendage_index)
     parent:set_len(size_of_modify_order_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6581,7 +7058,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields(buffer, offset, packet, parent, size_of_modify_order_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields(buffer, offset, packet, parent, size_of_modify_order_appendage, modify_order_appendage_index)
 
     return index
   end
@@ -6590,11 +7067,26 @@ end
 -- Modify Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message = {}
 
--- Size: Modify Order Message
+-- Calculate size of: Modify Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.side.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Modify Order Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Modify Order Message
@@ -6625,7 +7117,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.fields = function(buffe
   end
 
   -- Dependency for Modify Order Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Modify Order Appendage: Struct of 3 fields
   local message_index = 0
@@ -6639,7 +7131,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.fields = function(buffe
     local size_of_modify_order_appendage = optional_field_length + 1
 
     -- Modify Order Appendage: Struct of 3 fields
-    index, modify_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.dissect(buffer, index, packet, parent, size_of_modify_order_appendage)
+    index, modify_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.dissect(buffer, index, packet, parent, size_of_modify_order_appendage, modify_order_appendage_index)
   end
 
   return index
@@ -6690,8 +7182,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.display = function(pa
 end
 
 -- Dissect Fields: Cancel Order Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields = function(buffer, offset, packet, parent, size_of_cancel_order_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields = function(buffer, offset, packet, parent, size_of_cancel_order_appendage, cancel_order_appendage_index)
   local index = offset
+
+  -- Implicit Cancel Order Appendage Index
+  if cancel_order_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_appendage_index, cancel_order_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -6706,13 +7204,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields = function(buf
 end
 
 -- Dissect: Cancel Order Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_order_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_order_appendage, cancel_order_appendage_index)
   local index = offset + size_of_cancel_order_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields(buffer, offset, packet, parent, size_of_cancel_order_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields(buffer, offset, packet, parent, size_of_cancel_order_appendage, cancel_order_appendage_index)
     parent:set_len(size_of_cancel_order_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6720,7 +7218,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields(buffer, offset, packet, parent, size_of_cancel_order_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields(buffer, offset, packet, parent, size_of_cancel_order_appendage, cancel_order_appendage_index)
 
     return index
   end
@@ -6729,11 +7227,24 @@ end
 -- Cancel Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message = {}
 
--- Size: Cancel Order Message
+-- Calculate size of: Cancel Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+
+
+  if  then
+    index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  end
+
+  -- Parse runtime size of: Cancel Order Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Cancel Order Message
@@ -6761,7 +7272,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.fields = function(buffe
   end
 
   -- Dependency for Cancel Order Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = index + (appendage_length or 0)
 
   -- Cancel Order Appendage: Struct of 3 fields
   local message_index = 0
@@ -6775,7 +7286,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.fields = function(buffe
     local size_of_cancel_order_appendage = optional_field_length + 1
 
     -- Cancel Order Appendage: Struct of 3 fields
-    index, cancel_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.dissect(buffer, index, packet, parent, size_of_cancel_order_appendage)
+    index, cancel_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.dissect(buffer, index, packet, parent, size_of_cancel_order_appendage, cancel_order_appendage_index)
   end
 
   return index
@@ -6843,8 +7354,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.display = function(p
 end
 
 -- Dissect Fields: Replace Order Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields = function(buffer, offset, packet, parent, size_of_replace_order_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields = function(buffer, offset, packet, parent, size_of_replace_order_appendage, replace_order_appendage_index)
   local index = offset
+
+  -- Implicit Replace Order Appendage Index
+  if replace_order_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_appendage_index, replace_order_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -6859,13 +7376,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields = function(bu
 end
 
 -- Dissect: Replace Order Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_replace_order_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_replace_order_appendage, replace_order_appendage_index)
   local index = offset + size_of_replace_order_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields(buffer, offset, packet, parent, size_of_replace_order_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields(buffer, offset, packet, parent, size_of_replace_order_appendage, replace_order_appendage_index)
     parent:set_len(size_of_replace_order_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6873,7 +7390,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields(buffer, offset, packet, parent, size_of_replace_order_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields(buffer, offset, packet, parent, size_of_replace_order_appendage, replace_order_appendage_index)
 
     return index
   end
@@ -6882,11 +7399,32 @@ end
 -- Replace Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message = {}
 
--- Size: Replace Order Message
+-- Calculate size of: Replace Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.orig_user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.price.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.display.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.clordid.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Replace Order Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Replace Order Message
@@ -6926,7 +7464,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.fields = function(buff
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Replace Order Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Replace Order Appendage: Struct of 3 fields
   local message_index = 0
@@ -6940,7 +7478,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.fields = function(buff
     local size_of_replace_order_appendage = optional_field_length + 1
 
     -- Replace Order Appendage: Struct of 3 fields
-    index, replace_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.dissect(buffer, index, packet, parent, size_of_replace_order_appendage)
+    index, replace_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.dissect(buffer, index, packet, parent, size_of_replace_order_appendage, replace_order_appendage_index)
   end
 
   return index
@@ -7010,8 +7548,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.display = function(pac
 end
 
 -- Dissect Fields: Enter Order Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields = function(buffer, offset, packet, parent, size_of_enter_order_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields = function(buffer, offset, packet, parent, size_of_enter_order_appendage, enter_order_appendage_index)
   local index = offset
+
+  -- Implicit Enter Order Appendage Index
+  if enter_order_appendage_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_appendage_index, enter_order_appendage_index)
+    iteration:set_generated()
+  end
 
   -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
@@ -7026,13 +7570,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields = function(buff
 end
 
 -- Dissect: Enter Order Appendage
-nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_enter_order_appendage)
+nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_enter_order_appendage, enter_order_appendage_index)
   local index = offset + size_of_enter_order_appendage
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields(buffer, offset, packet, parent, size_of_enter_order_appendage)
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields(buffer, offset, packet, parent, size_of_enter_order_appendage, enter_order_appendage_index)
     parent:set_len(size_of_enter_order_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -7040,7 +7584,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.dissect = function(buf
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields(buffer, offset, packet, parent, size_of_enter_order_appendage)
+    nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields(buffer, offset, packet, parent, size_of_enter_order_appendage, enter_order_appendage_index)
 
     return index
   end
@@ -7049,11 +7593,38 @@ end
 -- Enter Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message = {}
 
--- Size: Enter Order Message
+-- Calculate size of: Enter Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index) 
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.side.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.symbol.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.price.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.display.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.capacity.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.cross_type.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.clordid.size
+
+  index = index + nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.size
+
+  -- Parse runtime size of: Enter Order Appendage
+  index = index + buffer(offset + index - 0, 1):uint()
+
+  return index
 end
 
 -- Display: Enter Order Message
@@ -7102,7 +7673,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.fields = function(buffer
   index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Enter Order Appendage
-  local end_of_payload = appendage_length + index
+  local end_of_payload = index + appendage_length
 
   -- Enter Order Appendage: Struct of 3 fields
   local message_index = 0
@@ -7116,7 +7687,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.fields = function(buffer
     local size_of_enter_order_appendage = optional_field_length + 1
 
     -- Enter Order Appendage: Struct of 3 fields
-    index, enter_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.dissect(buffer, index, packet, parent, size_of_enter_order_appendage)
+    index, enter_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.dissect(buffer, index, packet, parent, size_of_enter_order_appendage, enter_order_appendage_index)
   end
 
   return index

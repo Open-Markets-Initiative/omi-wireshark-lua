@@ -15,12 +15,12 @@ local a2x_a2xequities_snapshot_amd_v2_5 = {}
 -----------------------------------------------------------------------
 
 -- A2X A2XEquities Snapshot Amd 2.5 Fields
-omi_a2x_a2xequities_snapshot_amd_v2_5.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.snapshot.amd.v2.5.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during the closing market, otherwise set to 0")
-omi_a2x_a2xequities_snapshot_amd_v2_5.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.a2xequities.snapshot.amd.v2.5.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during the closing market, otherwise set to 0")
+omi_a2x_a2xequities_snapshot_amd_v2_5.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.snapshot.amd.v2.5.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during the closing market")
+omi_a2x_a2xequities_snapshot_amd_v2_5.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.a2xequities.snapshot.amd.v2.5.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during the closing market")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.entries = ProtoField.new("Entries", "a2x.a2xequities.snapshot.amd.v2.5.entries", ftypes.UINT16, nil, nil, nil, "Number of open orders in the book for this security")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.a2xequities.snapshot.amd.v2.5.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Indicative auction price")
-omi_a2x_a2xequities_snapshot_amd_v2_5.fields.mac_open = ProtoField.new("Mac Open", "a2x.a2xequities.snapshot.amd.v2.5.macopen", ftypes.UINT8, {[0]="Mac Is Closed", [1]="Mac Is Open"}, base.DEC, 0x02, "0 = MaC is Closed, 1 = MaC is Open")
-omi_a2x_a2xequities_snapshot_amd_v2_5.fields.mac_run = ProtoField.new("Mac Run", "a2x.a2xequities.snapshot.amd.v2.5.macrun", ftypes.UINT8, {[0]="Mac Is Not Locked Down", [1]="Mac Is Locked Down"}, base.DEC, 0x04, "0 = MaC is not locked down, 1 = MaC is locked down")
+omi_a2x_a2xequities_snapshot_amd_v2_5.fields.mac_open = ProtoField.new("Mac Open", "a2x.a2xequities.snapshot.amd.v2.5.macopen", ftypes.UINT8, {[0]="Mac Is Closed", [1]="Mac Is Open"}, base.DEC, 0x02, "MaC open or closed")
+omi_a2x_a2xequities_snapshot_amd_v2_5.fields.mac_run = ProtoField.new("Mac Run", "a2x.a2xequities.snapshot.amd.v2.5.macrun", ftypes.UINT8, {[0]="Mac Is Not Locked Down", [1]="Mac Is Locked Down"}, base.DEC, 0x04, "MaC locked down or not")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.market_flags = ProtoField.new("Market Flags", "a2x.a2xequities.snapshot.amd.v2.5.marketflags", ftypes.STRING)
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.message_count = ProtoField.new("Message Count", "a2x.a2xequities.snapshot.amd.v2.5.messagecount", ftypes.UINT8, nil, nil, nil, "number of messages in this packet")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.msg_length = ProtoField.new("Msg Length", "a2x.a2xequities.snapshot.amd.v2.5.msglength", ftypes.UINT8, nil, nil, nil, "Length of market data message, including header")
@@ -31,16 +31,16 @@ omi_a2x_a2xequities_snapshot_amd_v2_5.fields.quantity = ProtoField.new("Quantity
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.security_count = ProtoField.new("Security Count", "a2x.a2xequities.snapshot.amd.v2.5.securitycount", ftypes.UINT16, nil, nil, nil, "Number of securities reported in this snapshot")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.security_id = ProtoField.new("Security Id", "a2x.a2xequities.snapshot.amd.v2.5.securityid", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the relevant security")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.seq_no = ProtoField.new("Seq No", "a2x.a2xequities.snapshot.amd.v2.5.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
-omi_a2x_a2xequities_snapshot_amd_v2_5.fields.side = ProtoField.new("Side", "a2x.a2xequities.snapshot.amd.v2.5.side", ftypes.UINT8, nil, nil, nil, "1 = Buy Order, 2 = Sell Order")
+omi_a2x_a2xequities_snapshot_amd_v2_5.fields.side = ProtoField.new("Side", "a2x.a2xequities.snapshot.amd.v2.5.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.stream_seq_no = ProtoField.new("Stream Seq No", "a2x.a2xequities.snapshot.amd.v2.5.streamseqno", ftypes.UINT32, nil, nil, nil, "The sequence number of the last message in the continuous stream which relates to this snapshot")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.snapshot.amd.v2.5.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this snapshot")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.snapshot.amd.v2.5.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this snapshot")
-omi_a2x_a2xequities_snapshot_amd_v2_5.fields.trading = ProtoField.new("Trading", "a2x.a2xequities.snapshot.amd.v2.5.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "0 = Continuous Trading Closed, 1 = Continuous Trading Open")
-omi_a2x_a2xequities_snapshot_amd_v2_5.fields.trading_status = ProtoField.new("Trading Status", "a2x.a2xequities.snapshot.amd.v2.5.tradingstatus", ftypes.UINT8, nil, nil, nil, "See Section 3.4.8 (Security Status message)")
+omi_a2x_a2xequities_snapshot_amd_v2_5.fields.trading = ProtoField.new("Trading", "a2x.a2xequities.snapshot.amd.v2.5.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "Continuous trading open or closed")
+omi_a2x_a2xequities_snapshot_amd_v2_5.fields.trading_status = ProtoField.new("Trading Status", "a2x.a2xequities.snapshot.amd.v2.5.tradingstatus", ftypes.UINT8, nil, nil, nil, "Trading status of the security")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.unused_5 = ProtoField.new("Unused 5", "a2x.a2xequities.snapshot.amd.v2.5.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved")
 
 -- A2X A2XEquities Snapshot Amd 2.5 Framing
-omi_a2x_a2xequities_snapshot_amd_v2_5.fields.message = ProtoField.new("Message", "a2x.a2xequities.snapshot.amd.v2.5.message", ftypes.STRING)
+omi_a2x_a2xequities_snapshot_amd_v2_5.fields.message = ProtoField.new("Message", "a2x.a2xequities.snapshot.amd.v2.5.message", ftypes.STRING, nil, nil, nil, "A2X Amd Message")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.snapshot.amd.v2.5.messageheader", ftypes.STRING, nil, nil, nil, "A2X message header")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.snapshot.amd.v2.5.packet", ftypes.STRING, nil, nil, nil, "A2X Udp Packet")
 
@@ -122,6 +122,11 @@ a2x_a2xequities_snapshot_amd_v2_5.closing_buy_qty.size = 4
 
 -- Display: Closing Buy Qty
 a2x_a2xequities_snapshot_amd_v2_5.closing_buy_qty.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Closing Buy Qty: No Value"
+  end
+
   return "Closing Buy Qty: "..value
 end
 
@@ -145,6 +150,11 @@ a2x_a2xequities_snapshot_amd_v2_5.closing_sell_qty.size = 4
 
 -- Display: Closing Sell Qty
 a2x_a2xequities_snapshot_amd_v2_5.closing_sell_qty.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Closing Sell Qty: No Value"
+  end
+
   return "Closing Sell Qty: "..value
 end
 

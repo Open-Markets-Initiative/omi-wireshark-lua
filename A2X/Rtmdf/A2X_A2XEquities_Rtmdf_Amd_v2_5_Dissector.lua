@@ -15,17 +15,17 @@ local a2x_a2xequities_rtmdf_amd_v2_5 = {}
 -----------------------------------------------------------------------
 
 -- A2X A2XEquities Rtmdf Amd 2.5 Fields
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.aod_enabled = ProtoField.new("Aod Enabled", "a2x.a2xequities.rtmdf.amd.v2.5.aodenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010, "0 = Security is not enabled for the AoD, 1 = Security is enabled for the AoD")
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.rtmdf.amd.v2.5.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during the closing market, otherwise set to 0")
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.a2xequities.rtmdf.amd.v2.5.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during the closing market, otherwise set to 0")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.aod_enabled = ProtoField.new("Aod Enabled", "a2x.a2xequities.rtmdf.amd.v2.5.aodenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010, "Security is enabled for the AoD")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.rtmdf.amd.v2.5.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during the closing market")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.a2xequities.rtmdf.amd.v2.5.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during the closing market")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.currency = ProtoField.new("Currency", "a2x.a2xequities.rtmdf.amd.v2.5.currency", ftypes.STRING, nil, nil, nil, "Trading currency for the security")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.flags = ProtoField.new("Flags", "a2x.a2xequities.rtmdf.amd.v2.5.flags", ftypes.STRING, nil, nil, nil, "Security flags")
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.illiquid = ProtoField.new("Illiquid", "a2x.a2xequities.rtmdf.amd.v2.5.illiquid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "0 = Security is liquid, 1 = Security is illiquid")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.illiquid = ProtoField.new("Illiquid", "a2x.a2xequities.rtmdf.amd.v2.5.illiquid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "Security is illiquid")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.a2xequities.rtmdf.amd.v2.5.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Indicative auction price")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.isin = ProtoField.new("Isin", "a2x.a2xequities.rtmdf.amd.v2.5.isin", ftypes.STRING, nil, nil, nil, "ISIN for the security")
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.mac_enabled = ProtoField.new("Mac Enabled", "a2x.a2xequities.rtmdf.amd.v2.5.macenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "0 = Security is not enabled for the MaC, 1 = Security is enabled for the MaC")
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.mac_open = ProtoField.new("Mac Open", "a2x.a2xequities.rtmdf.amd.v2.5.macopen", ftypes.UINT8, {[0]="Mac Is Closed", [1]="Mac Is Open"}, base.DEC, 0x02, "0 = MaC is Closed, 1 = MaC is Open")
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.mac_run = ProtoField.new("Mac Run", "a2x.a2xequities.rtmdf.amd.v2.5.macrun", ftypes.UINT8, {[0]="Mac Is Not Locked Down", [1]="Mac Is Locked Down"}, base.DEC, 0x04, "0 = MaC is not locked down, 1 = MaC is locked down")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.mac_enabled = ProtoField.new("Mac Enabled", "a2x.a2xequities.rtmdf.amd.v2.5.macenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Security is enabled for the MaC")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.mac_open = ProtoField.new("Mac Open", "a2x.a2xequities.rtmdf.amd.v2.5.macopen", ftypes.UINT8, {[0]="Mac Is Closed", [1]="Mac Is Open"}, base.DEC, 0x02, "MaC open or closed")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.mac_run = ProtoField.new("Mac Run", "a2x.a2xequities.rtmdf.amd.v2.5.macrun", ftypes.UINT8, {[0]="Mac Is Not Locked Down", [1]="Mac Is Locked Down"}, base.DEC, 0x04, "MaC locked down or not")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.market_flags = ProtoField.new("Market Flags", "a2x.a2xequities.rtmdf.amd.v2.5.marketflags", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.match_vol = ProtoField.new("Match Vol", "a2x.a2xequities.rtmdf.amd.v2.5.matchvol", ftypes.UINT32, nil, nil, nil, "Indicative matched volume")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.md_flags = ProtoField.new("Md Flags", "a2x.a2xequities.rtmdf.amd.v2.5.mdflags", ftypes.STRING, nil, nil, nil, "Market data flags")
@@ -39,8 +39,8 @@ omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.price = ProtoField.new("Price", "a2x.a
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.quantity = ProtoField.new("Quantity", "a2x.a2xequities.rtmdf.amd.v2.5.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.security_id = ProtoField.new("Security Id", "a2x.a2xequities.rtmdf.amd.v2.5.securityid", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the relevant security")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.seq_no = ProtoField.new("Seq No", "a2x.a2xequities.rtmdf.amd.v2.5.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.side = ProtoField.new("Side", "a2x.a2xequities.rtmdf.amd.v2.5.side", ftypes.UINT8, nil, nil, nil, "1 = Buy Order, 2 = Sell Order")
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.test_stock = ProtoField.new("Test Stock", "a2x.a2xequities.rtmdf.amd.v2.5.teststock", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "0 = Security is not a test stock, 1 = Security is a test stock")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.side = ProtoField.new("Side", "a2x.a2xequities.rtmdf.amd.v2.5.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.test_stock = ProtoField.new("Test Stock", "a2x.a2xequities.rtmdf.amd.v2.5.teststock", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Security is a test stock")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.threshold = ProtoField.new("Threshold", "a2x.a2xequities.rtmdf.amd.v2.5.threshold", ftypes.DOUBLE, nil, nil, nil, "The price threshold at which this tick data applies")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.tick_size = ProtoField.new("Tick Size", "a2x.a2xequities.rtmdf.amd.v2.5.ticksize", ftypes.DOUBLE, nil, nil, nil, "The tick size (price increment)")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.tick_table_id = ProtoField.new("Tick Table Id", "a2x.a2xequities.rtmdf.amd.v2.5.ticktableid", ftypes.UINT8, nil, nil, nil, "Numeric identifier for this tick table or static tick")
@@ -48,17 +48,17 @@ omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.timestamp = ProtoField.new("Timestamp"
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.rtmdf.amd.v2.5.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this market data event")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.trade_ref = ProtoField.new("Trade Ref", "a2x.a2xequities.rtmdf.amd.v2.5.traderef", ftypes.UINT32, nil, nil, nil, "Trade reference number")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.trade_type = ProtoField.new("Trade Type", "a2x.a2xequities.rtmdf.amd.v2.5.tradetype", ftypes.UINT8, nil, nil, nil, "Code identifying type of trade")
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.trading = ProtoField.new("Trading", "a2x.a2xequities.rtmdf.amd.v2.5.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "0 = Continuous Trading Closed, 1 = Continuous Trading Open")
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.trading_status = ProtoField.new("Trading Status", "a2x.a2xequities.rtmdf.amd.v2.5.tradingstatus", ftypes.UINT8, nil, nil, nil, "Possible values")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.trading = ProtoField.new("Trading", "a2x.a2xequities.rtmdf.amd.v2.5.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "Continuous trading open or closed")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.trading_status = ProtoField.new("Trading Status", "a2x.a2xequities.rtmdf.amd.v2.5.tradingstatus", ftypes.UINT8, nil, nil, nil, "Trading status of the security")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.umtf = ProtoField.new("Umtf", "a2x.a2xequities.rtmdf.amd.v2.5.umtf", ftypes.STRING, nil, nil, nil, "Uniform MTF code for the security")
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.unrestricted_liquidity = ProtoField.new("Unrestricted Liquidity", "a2x.a2xequities.rtmdf.amd.v2.5.unrestrictedliquidity", ftypes.UINT8, {[0]="Restricted Liquidity Only", [1]="Unrestricted Liquidity Available"}, base.DEC, 0x01, "Flag to indicate whether there is unrestricted liquidity available at the top of the book")
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.unrestricted_liquidity = ProtoField.new("Unrestricted Liquidity", "a2x.a2xequities.rtmdf.amd.v2.5.unrestrictedliquidity", ftypes.UINT8, {[0]="Restricted Liquidity Only", [1]="Unrestricted Liquidity Available"}, base.DEC, 0x01, "Flag to indicate whether there is unrestricted liquidity available at the top of the book. For order messages: refers to the side indicated in the order")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.unused_1 = ProtoField.new("Unused 1", "a2x.a2xequities.rtmdf.amd.v2.5.unused1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "Reserved")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.unused_11 = ProtoField.new("Unused 11", "a2x.a2xequities.rtmdf.amd.v2.5.unused11", ftypes.UINT16, nil, base.DEC, 0xFFE0, "Reserved")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.unused_5 = ProtoField.new("Unused 5", "a2x.a2xequities.rtmdf.amd.v2.5.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.unused_7 = ProtoField.new("Unused 7", "a2x.a2xequities.rtmdf.amd.v2.5.unused7", ftypes.UINT8, nil, base.DEC, 0xFE, "Reserved")
 
 -- A2X A2XEquities Rtmdf Amd 2.5 Framing
-omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.message = ProtoField.new("Message", "a2x.a2xequities.rtmdf.amd.v2.5.message", ftypes.STRING)
+omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.message = ProtoField.new("Message", "a2x.a2xequities.rtmdf.amd.v2.5.message", ftypes.STRING, nil, nil, nil, "A2X Amd Message")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.rtmdf.amd.v2.5.messageheader", ftypes.STRING, nil, nil, nil, "A2X message header")
 omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.rtmdf.amd.v2.5.packet", ftypes.STRING, nil, nil, nil, "A2X Udp Packet")
 
@@ -146,6 +146,11 @@ a2x_a2xequities_rtmdf_amd_v2_5.closing_buy_qty.size = 4
 
 -- Display: Closing Buy Qty
 a2x_a2xequities_rtmdf_amd_v2_5.closing_buy_qty.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Closing Buy Qty: No Value"
+  end
+
   return "Closing Buy Qty: "..value
 end
 
@@ -169,6 +174,11 @@ a2x_a2xequities_rtmdf_amd_v2_5.closing_sell_qty.size = 4
 
 -- Display: Closing Sell Qty
 a2x_a2xequities_rtmdf_amd_v2_5.closing_sell_qty.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Closing Sell Qty: No Value"
+  end
+
   return "Closing Sell Qty: "..value
 end
 
@@ -483,6 +493,11 @@ a2x_a2xequities_rtmdf_amd_v2_5.order_ref.size = 4
 
 -- Display: Order Ref
 a2x_a2xequities_rtmdf_amd_v2_5.order_ref.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Order Ref: No Value"
+  end
+
   return "Order Ref: "..value
 end
 

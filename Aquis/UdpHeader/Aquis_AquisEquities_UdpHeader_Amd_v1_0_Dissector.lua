@@ -15,7 +15,7 @@ local aquis_aquisequities_udpheader_amd_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Aquis AquisEquities UdpHeader Amd 1.0 Fields
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.udpheader.amd.v1.0.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages in this packet")
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.udpheader.amd.v1.0.messagecount", ftypes.UINT8, nil, nil, nil, "number of messages (n) in this packet")
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.udpheader.amd.v1.0.msglength", ftypes.UINT8, nil, nil, nil, "Length of market data message, including header")
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.udpheader.amd.v1.0.msgtype", ftypes.UINT8, nil, nil, nil, "Message type identifier")
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.payload = ProtoField.new("Payload", "aquis.aquisequities.udpheader.amd.v1.0.payload", ftypes.BYTES)

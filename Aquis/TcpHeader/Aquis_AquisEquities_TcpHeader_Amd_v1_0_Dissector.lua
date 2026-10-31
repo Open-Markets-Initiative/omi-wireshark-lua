@@ -171,13 +171,13 @@ end
 aquis_aquisequities_tcpheader_amd_v1_0.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Type: 1 Byte Unsigned Fixed Width Integer
+  -- Msg Type: u8
   index, msg_type = aquis_aquisequities_tcpheader_amd_v1_0.msg_type.dissect(buffer, index, packet, parent)
 
-  -- Msg Length: 1 Byte Unsigned Fixed Width Integer
+  -- Msg Length: u8
   index, msg_length = aquis_aquisequities_tcpheader_amd_v1_0.msg_length.dissect(buffer, index, packet, parent)
 
-  -- Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Seq No: u32
   index, seq_no = aquis_aquisequities_tcpheader_amd_v1_0.seq_no.dissect(buffer, index, packet, parent)
 
   return index
@@ -269,15 +269,12 @@ aquis_aquisequities_tcpheader_amd_v1_0.packet = {}
 
 -- Verify required size of Tcp packet
 aquis_aquisequities_tcpheader_amd_v1_0.packet.requiredsize = function(buffer)
-  return buffer:len() >= aquis_aquisequities_tcpheader_amd_v1_0.message_count.size + aquis_aquisequities_tcpheader_amd_v1_0.message_header.size + aquis_aquisequities_tcpheader_amd_v1_0.payload.size
+  return buffer:len() >= aquis_aquisequities_tcpheader_amd_v1_0.message_header.size + aquis_aquisequities_tcpheader_amd_v1_0.payload.size
 end
 
 -- Dissect Packet
 aquis_aquisequities_tcpheader_amd_v1_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
-
-  -- Message Count
-  index, message_count = aquis_aquisequities_tcpheader_amd_v1_0.message_count.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
