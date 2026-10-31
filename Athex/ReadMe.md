@@ -13,6 +13,13 @@
 | [AthexSecurities][AthexSecurities.Exchange] | [Relaxed][Athex.AthexSecurities.Relaxed] | [Ids][Omi.Encoding.Ids] | [5.2][Athex.AthexSecurities.Relaxed.Ids.v5.2.Dissector] | 11/1/2019 | 2576 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Athex.AthexSecurities.Relaxed.Ids.v5.2.Url] - [pdf][Athex.AthexSecurities.Relaxed.Ids.v5.2.Pdf] |
 
 
+### Protocols
+
+| Division | [Protocol][Omi.Athex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Athex.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [Oasis][Oasis.Platform] | [Mdfs][Athex.Oasis.Mdfs] | [Fast][Omi.Encoding.Fast] | [9][Athex.Oasis.Mdfs.Fast.v9.Dissector] | 12/2/2025 | 8778 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Athex.Oasis.Mdfs.Fast.v9.Url] - [pdf][Athex.Oasis.Mdfs.Fast.v9.Pdf] - [xml][Athex.Oasis.Mdfs.Fast.v9.Xml] |
+
+
 <p align="center"><a href="https://www.athexgroup.gr" title="Athens Exchange Group Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Athens_Stock_Exchange" title="Athens Exchange Group on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>
 
 
@@ -33,12 +40,15 @@
 [Omi.Athex.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Athex/Protocols "Athex Protocol Directory"
 [Omi.Athex.Specifications]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Athex/Specifications "Athex Specifications Directory"
 [Omi.Encoding.Ids]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Ids.md "Ids Encoding"
+[Omi.Encoding.Fast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Fast.md "Fast Encoding"
 [AthexDerivatives.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Athex/Protocols/AthexDerivatives "Athex AthexDerivatives"
 [AthexSecurities.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Athex/Protocols/AthexSecurities "Athex AthexSecurities"
+[Oasis.Platform]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Athex/Protocols/Oasis "Athex Oasis"
 [Athex.AthexDerivatives.RealTime]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Athex/Protocols/AthexDerivatives/RealTime.md "Athens Exchange Derivatives Market Real Time Channel"
 [Athex.AthexDerivatives.Relaxed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Athex/Protocols/AthexDerivatives/Relaxed.md "Athens Exchange Derivatives Market Relaxed Channel"
 [Athex.AthexSecurities.RealTime]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Athex/Protocols/AthexSecurities/RealTime.md "Athens Exchange Securities Market Real Time Channel"
 [Athex.AthexSecurities.Relaxed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Athex/Protocols/AthexSecurities/Relaxed.md "Athens Exchange Securities Market Relaxed Channel"
+[Athex.Oasis.Mdfs]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Athex/Protocols/Oasis/Mdfs.md ""
 
 [Athex.AthexDerivatives.RealTime.Ids.v5.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Athex/AthexDerivatives/RealTime/Athex_AthexDerivatives_RealTime_Ids_v5_2_Dissector.lua "Athex AthexDerivatives RealTime Ids v5.2 Wireshark Dissector"
 [Athex.AthexDerivatives.RealTime.Ids.v5.2.Url]: https://www.athexgroup.gr/en/trade/trading-system "Athens Exchange Group 5.2 Url"
@@ -52,3 +62,7 @@
 [Athex.AthexSecurities.Relaxed.Ids.v5.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Athex/AthexSecurities/Relaxed/Athex_AthexSecurities_Relaxed_Ids_v5_2_Dissector.lua "Athex AthexSecurities Relaxed Ids v5.2 Wireshark Dissector"
 [Athex.AthexSecurities.Relaxed.Ids.v5.2.Url]: https://www.athexgroup.gr/en/trade/trading-system "Athens Exchange Group 5.2 Url"
 [Athex.AthexSecurities.Relaxed.Ids.v5.2.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Athex/Specifications/Documentation/Athex.Oasis.MarketData.Ids.v5.2.pdf "Athens Exchange Group 5.2 Pdf"
+[Athex.Oasis.Mdfs.Fast.v9.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Athex/Oasis/Mdfs/Athex_Oasis_Mdfs_Fast_v9_Dissector.lua "Athex Oasis Mdfs Fast v9 Wireshark Dissector"
+[Athex.Oasis.Mdfs.Fast.v9.Url]: https://athens.euronext.com/en/market-data/data-services/real-time-feed/data-vendors/technical-specs "Athens Exchange Group 9 Url"
+[Athex.Oasis.Mdfs.Fast.v9.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Athex/Specifications/Oasis/Mdfs/Athex.Oasis.Mdfs.Fast.v9.pdf "Athens Exchange Group 9 Pdf"
+[Athex.Oasis.Mdfs.Fast.v9.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Athex/Specifications/Oasis/Mdfs/Athex.Oasis.Mdfs.Fast.v9.xml "Athens Exchange Group 9 Xml"

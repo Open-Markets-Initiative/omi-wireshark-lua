@@ -86,6 +86,16 @@
 | [T7][T7.Platform] | [Xti][Eurex.T7.Xti] | [Fbe][Omi.Encoding.Fbe] | [9.1][Eurex.T7.Xti.Fbe.v9.1.Dissector] | 4/6/2021 | 25467 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.T7.Xti.Fbe.v9.1.Url] - [xml][Eurex.T7.Xti.Fbe.v9.1.Xml] - [pdf][Eurex.T7.Xti.Fbe.v9.1.Pdf] |
 
 
+### Protocols
+
+| Division | [Protocol][Omi.Eurex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Eurex.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [T7][T7.Platform] | [Emdi][Eurex.T7.Emdi] | [Fast][Omi.Encoding.Fast] | [14.0][Eurex.T7.Emdi.Fast.v14.0.Dissector] | 7/29/2025 | 8770 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.T7.Emdi.Fast.v14.0.Url] |
+| [T7][T7.Platform] | [Emdi][Eurex.T7.Emdi] | [Fast][Omi.Encoding.Fast] | [5.0][Eurex.T7.Emdi.Fast.v5.0.Dissector] | 7/3/2017 | 6256 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] |  |
+| [T7][T7.Platform] | [Mdi][Eurex.T7.Mdi] | [Fast][Omi.Encoding.Fast] | [14.0][Eurex.T7.Mdi.Fast.v14.0.Dissector] | 7/29/2025 | 8530 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.T7.Mdi.Fast.v14.0.Url] |
+| [T7][T7.Platform] | [Rdi][Eurex.T7.Rdi] | [Fast][Omi.Encoding.Fast] | [14.0][Eurex.T7.Rdi.Fast.v14.0.Dissector] | 7/29/2025 | 15903 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.T7.Rdi.Fast.v14.0.Url] |
+
+
 <p align="center"><a href="https://www.eurex.com" title="Eurex Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/eurex" title="Eurex Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Eurex" title="Eurex Exchange on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>
 
 
@@ -106,11 +116,15 @@
 [Omi.Eurex.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Eurex/Protocols "Eurex Protocol Directory"
 [Omi.Eurex.Specifications]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Eurex/Specifications "Eurex Specifications Directory"
 [Omi.Encoding.Fbe]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Fbe.md "Fbe Encoding"
+[Omi.Encoding.Fast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Fast.md "Fast Encoding"
 [T7.Platform]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Eurex/Protocols/T7 "Eurex T7"
 [Eurex.T7.Edci]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Protocols/T7/Edci.md "Extended Derivatives Clearing Interface"
 [Eurex.T7.Eobi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Protocols/T7/Eobi.md "Enhanced Order Book Interface"
 [Eurex.T7.Eti]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Protocols/T7/Eti.md "Enhanced Trading Interface"
 [Eurex.T7.Xti]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Protocols/T7/Xti.md "Cash Enhanced Trading Interface"
+[Eurex.T7.Emdi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Protocols/T7/Emdi.md ""
+[Eurex.T7.Mdi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Protocols/T7/Mdi.md ""
+[Eurex.T7.Rdi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Protocols/T7/Rdi.md ""
 
 [Eurex.T7.Edci.Fbe.v1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Eurex/T7/Edci/Eurex_T7_Edci_Fbe_v1_Dissector.lua "Eurex T7 Edci Fbe v1 Wireshark Dissector"
 [Eurex.T7.Edci.Fbe.v1.Url]: https://www.eurex.com/ex-en/technology/t7 "Eurex Exchange 1 Url"
@@ -390,3 +404,10 @@
 [Eurex.T7.Xti.Fbe.v9.1.Url]: https://www.eurex.com/ex-en/technology/t7 "Eurex Exchange 9.1 Url"
 [Eurex.T7.Xti.Fbe.v9.1.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Specifications/9.1/Eurex.T7.Xti.Fbe.v9.1.xml "Eurex Exchange 9.1 Xml"
 [Eurex.T7.Xti.Fbe.v9.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Specifications/9.1/Eurex.T7.Xti.Fbe.v9.1.2026.07.17.pdf "Eurex Exchange 9.1 Pdf"
+[Eurex.T7.Emdi.Fast.v14.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Eurex/T7/Emdi/Eurex_T7_Emdi_Fast_v14_0_Dissector.lua "Eurex T7 Emdi Fast v14.0 Wireshark Dissector"
+[Eurex.T7.Emdi.Fast.v14.0.Url]: https://www.eurex.com/ex-en/technology/t7 "Eurex Exchange 14.0 Url"
+[Eurex.T7.Emdi.Fast.v5.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Eurex/T7/Emdi/Eurex_T7_Emdi_Fast_v5_0_Dissector.lua "Eurex T7 Emdi Fast v5.0 Wireshark Dissector"
+[Eurex.T7.Mdi.Fast.v14.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Eurex/T7/Mdi/Eurex_T7_Mdi_Fast_v14_0_Dissector.lua "Eurex T7 Mdi Fast v14.0 Wireshark Dissector"
+[Eurex.T7.Mdi.Fast.v14.0.Url]: https://www.eurex.com/ex-en/technology/t7 "Eurex Exchange 14.0 Url"
+[Eurex.T7.Rdi.Fast.v14.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Eurex/T7/Rdi/Eurex_T7_Rdi_Fast_v14_0_Dissector.lua "Eurex T7 Rdi Fast v14.0 Wireshark Dissector"
+[Eurex.T7.Rdi.Fast.v14.0.Url]: https://www.eurex.com/ex-en/technology/t7 "Eurex Exchange 14.0 Url"

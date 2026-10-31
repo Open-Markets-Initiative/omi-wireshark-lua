@@ -56,7 +56,7 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.price_formation_discovery_proce
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.publication_mode_post_trade_deferral = ProtoField.new("Publication Mode Post Trade Deferral", "aquis.aquisequities.realtime.amd.v4.0.publicationmodeposttradedeferral", ftypes.UINT32, {[1]="Immediate Publication", [2]="Non Immediate Publication", [3]="Lrgs", [4]="Ilqd", [5]="Size", [6]="Ilqd And Size", [7]="Ilqd And Lrgs"}, base.DEC, 0x0E000000, "Publication mode or post-trade deferral")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.quantity = ProtoField.new("Quantity", "aquis.aquisequities.realtime.amd.v4.0.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.remaining_quantity = ProtoField.new("Quantity", "aquis.aquisequities.realtime.amd.v4.0.remainingquantity", ftypes.UINT32, nil, nil, nil, "Number of shares remaining in the book")
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved = ProtoField.new("Reserved", "aquis.aquisequities.realtime.amd.v4.0.reserved", ftypes.STRING)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_20 = ProtoField.new("Reserved 20", "aquis.aquisequities.realtime.amd.v4.0.reserved20", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.security_id = ProtoField.new("Security Id", "aquis.aquisequities.realtime.amd.v4.0.securityid", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the relevant security")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.realtime.amd.v4.0.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.side = ProtoField.new("Side", "aquis.aquisequities.realtime.amd.v4.0.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
@@ -689,41 +689,25 @@ aquis_aquisequities_realtime_amd_v4_0.remaining_quantity.dissect = function(buff
   return offset + length, value
 end
 
--- Reserved
-aquis_aquisequities_realtime_amd_v4_0.reserved = {}
+-- Reserved 20
+aquis_aquisequities_realtime_amd_v4_0.reserved_20 = {}
 
--- Size: Reserved
-aquis_aquisequities_realtime_amd_v4_0.reserved.size = 20
+-- Size: Reserved 20
+aquis_aquisequities_realtime_amd_v4_0.reserved_20.size = 20
 
--- Display: Reserved
-aquis_aquisequities_realtime_amd_v4_0.reserved.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reserved: No Value"
-  end
-
-  return "Reserved: "..value
+-- Display: Reserved 20
+aquis_aquisequities_realtime_amd_v4_0.reserved_20.display = function(value)
+  return "Reserved 20: "..value
 end
 
--- Dissect: Reserved
-aquis_aquisequities_realtime_amd_v4_0.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_aquisequities_realtime_amd_v4_0.reserved.size
+-- Dissect: Reserved 20
+aquis_aquisequities_realtime_amd_v4_0.reserved_20.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_realtime_amd_v4_0.reserved_20.size
   local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = aquis_aquisequities_realtime_amd_v4_0.reserved_20.display(value, buffer, offset, packet, parent)
 
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_aquisequities_realtime_amd_v4_0.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved, range, value, display)
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_20, range, value, display)
 
   return offset + length, value
 end
@@ -1450,7 +1434,7 @@ aquis_aquisequities_realtime_amd_v4_0.security_definition_message.size =
   aquis_aquisequities_realtime_amd_v4_0.mic.size + 
   aquis_aquisequities_realtime_amd_v4_0.tick_table_id.size + 
   aquis_aquisequities_realtime_amd_v4_0.flags.size + 
-  aquis_aquisequities_realtime_amd_v4_0.reserved.size + 
+  aquis_aquisequities_realtime_amd_v4_0.reserved_20.size + 
   aquis_aquisequities_realtime_amd_v4_0.lot_size_composite.size
 
 -- Display: Security Definition Message
@@ -1483,8 +1467,8 @@ aquis_aquisequities_realtime_amd_v4_0.security_definition_message.fields = funct
   -- Flags: Struct of 8 fields
   index, flags = aquis_aquisequities_realtime_amd_v4_0.flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved: char(20)
-  index, reserved = aquis_aquisequities_realtime_amd_v4_0.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 20: char(20)
+  index, reserved_20 = aquis_aquisequities_realtime_amd_v4_0.reserved_20.dissect(buffer, index, packet, parent)
 
   -- Lot Size Composite: Struct of 2 fields
   index, lot_size_composite = aquis_aquisequities_realtime_amd_v4_0.lot_size_composite.dissect(buffer, index, packet, parent)

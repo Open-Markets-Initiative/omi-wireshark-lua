@@ -70,13 +70,8 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.quantity = ProtoField.ne
 omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reason_code = ProtoField.new("Reason Code", "aquis.aquisequities.tradingprotocol.atp.v4.5.reasoncode", ftypes.UINT8, nil, base.DEC, 0x1F, "Reason code if rejected or cancelled; otherwise zero")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reason_text = ProtoField.new("Reason Text", "aquis.aquisequities.tradingprotocol.atp.v4.5.reasontext", ftypes.STRING, nil, nil, nil, "Text describing reason for logout")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.request_ref = ProtoField.new("Request Ref", "aquis.aquisequities.tradingprotocol.atp.v4.5.requestref", ftypes.UINT32, nil, nil, nil, "Sequence number (msgSeqNo) of the trading Member's request message")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_1 = ProtoField.new("Reserved 1", "aquis.aquisequities.tradingprotocol.atp.v4.5.reserved1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Reserved")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_15 = ProtoField.new("Reserved 15", "aquis.aquisequities.tradingprotocol.atp.v4.5.reserved15", ftypes.UINT16, nil, base.DEC, 0xFFFE, "Reserved")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_2 = ProtoField.new("Reserved 2", "aquis.aquisequities.tradingprotocol.atp.v4.5.reserved2", ftypes.UINT8, nil, base.DEC, 0xC0, "Reserved")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_5 = ProtoField.new("Reserved 5", "aquis.aquisequities.tradingprotocol.atp.v4.5.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_6 = ProtoField.new("Reserved 6", "aquis.aquisequities.tradingprotocol.atp.v4.5.reserved6", ftypes.UINT8, nil, base.DEC, 0x3F, "Reserved")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_long = ProtoField.new("Reserved Long", "aquis.aquisequities.tradingprotocol.atp.v4.5.reservedlong", ftypes.UINT64, nil, nil, nil, "Reserved")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_short = ProtoField.new("Reserved Short", "aquis.aquisequities.tradingprotocol.atp.v4.5.reservedshort", ftypes.UINT16, nil, nil, nil, "Reserved")
+omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_2 = ProtoField.new("Reserved 2", "aquis.aquisequities.tradingprotocol.atp.v4.5.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved")
+omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_8 = ProtoField.new("Reserved 8", "aquis.aquisequities.tradingprotocol.atp.v4.5.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.result_code = ProtoField.new("Result Code", "aquis.aquisequities.tradingprotocol.atp.v4.5.resultcode", ftypes.UINT8, nil, nil, nil, "Login result code")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.routetolit = ProtoField.new("Routetolit", "aquis.aquisequities.tradingprotocol.atp.v4.5.routetolit", ftypes.UINT8, {[0]="Order Is Not Routed", [1]="Route To Lit"}, base.DEC, 0x04, "Route to Lit: whether the order is routed to the lit order book")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.routing = ProtoField.new("Routing", "aquis.aquisequities.tradingprotocol.atp.v4.5.routing", ftypes.UINT8, {[0]="Limit", [1]="Post Only", [2]="Pocr", [3]="Restricted Post Only Order", [4]="Restricted Pocr Order"}, base.DEC, 0x38, "Behaviour of the Lit portion of a Dark-to-Lit sweep order. This flag is ignored when Bit2 (Routetolit) = 0.")
@@ -102,6 +97,11 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.trade_ref = ProtoField.n
 omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.trade_timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.tradingprotocol.atp.v4.5.tradetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the trade occurred on the Aquis system")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.trade_timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisequities.tradingprotocol.atp.v4.5.tradetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the trade occurred on the Aquis system")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.traded_quantity = ProtoField.new("Traded Quantity", "aquis.aquisequities.tradingprotocol.atp.v4.5.tradedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares traded, if any")
+omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_1 = ProtoField.new("Unused 1", "aquis.aquisequities.tradingprotocol.atp.v4.5.unused1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Reserved")
+omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_15 = ProtoField.new("Unused 15", "aquis.aquisequities.tradingprotocol.atp.v4.5.unused15", ftypes.UINT16, nil, base.DEC, 0xFFFE, "Reserved")
+omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_2 = ProtoField.new("Unused 2", "aquis.aquisequities.tradingprotocol.atp.v4.5.unused2", ftypes.UINT8, nil, base.DEC, 0xC0, "Reserved")
+omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_5 = ProtoField.new("Unused 5", "aquis.aquisequities.tradingprotocol.atp.v4.5.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved")
+omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_6 = ProtoField.new("Unused 6", "aquis.aquisequities.tradingprotocol.atp.v4.5.unused6", ftypes.UINT8, nil, base.DEC, 0x3F, "Reserved")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.user_tag = ProtoField.new("User Tag", "aquis.aquisequities.tradingprotocol.atp.v4.5.usertag", ftypes.UINT64, nil, nil, nil, "Free form tag assigned by trading Member")
 
 -- Aquis AquisEquities TradingProtocol Atp 4.5 Framing
@@ -1170,48 +1170,48 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.request_ref.dissect = function(buff
   return offset + length, value
 end
 
--- Reserved Long
-aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_long = {}
+-- Reserved 2
+aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2 = {}
 
--- Size: Reserved Long
-aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_long.size = 8
+-- Size: Reserved 2
+aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.size = 2
 
--- Display: Reserved Long
-aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_long.display = function(value)
-  return "Reserved Long: "..value
+-- Display: Reserved 2
+aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.display = function(value)
+  return "Reserved 2: "..value
 end
 
--- Dissect: Reserved Long
-aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_long.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_long.size
+-- Dissect: Reserved 2
+aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_long.display(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_long, range, value, display)
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
 
--- Reserved Short
-aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short = {}
+-- Reserved 8
+aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_8 = {}
 
--- Size: Reserved Short
-aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.size = 2
+-- Size: Reserved 8
+aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_8.size = 8
 
--- Display: Reserved Short
-aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.display = function(value)
-  return "Reserved Short: "..value
+-- Display: Reserved 8
+aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_8.display = function(value)
+  return "Reserved 8: "..value
 end
 
--- Dissect: Reserved Short
-aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.size
+-- Dissect: Reserved 8
+aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.display(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_short, range, value, display)
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -1781,8 +1781,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.ioi_extended_flags.bits = function(
   -- Lis Only: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.lis_only, range, value)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_6, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_6, range, value)
 end
 
 -- Dissect: Ioi Extended Flags
@@ -1967,8 +1967,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.flags.bits = function(range, value,
   -- Dea Flag: 1 Bit
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.dea_flag, range, value)
 
-  -- Reserved 5: 5 Bit
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_5, range, value)
+  -- Unused 5: 5 Bit
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_5, range, value)
 end
 
 -- Dissect: Flags
@@ -2187,8 +2187,8 @@ end
 -- Dissect Bit Fields: Trade Flags
 aquis_aquisequities_tradingprotocol_atp_v4_5.trade_flags.bits = function(range, value, packet, parent)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_6, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_6, range, value)
 
   -- Lis: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.lis, range, value)
@@ -2344,7 +2344,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.trade_capture_response_message.size
   aquis_aquisequities_tradingprotocol_atp_v4_5.trade_ref.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.request_ref.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.user_tag.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.size
+  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.size
 
 -- Display: Trade Capture Response Message
 aquis_aquisequities_tradingprotocol_atp_v4_5.trade_capture_response_message.display = function(packet, parent, length)
@@ -2367,8 +2367,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.trade_capture_response_message.fiel
   -- User Tag: u64
   index, user_tag = aquis_aquisequities_tradingprotocol_atp_v4_5.user_tag.dissect(buffer, index, packet, parent)
 
-  -- Reserved Short: u16
-  index, reserved_short = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.dissect(buffer, index, packet, parent)
+  -- Reserved 2: u16
+  index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2412,14 +2412,14 @@ end
 -- Dissect Bit Fields: Trade Capture Flags
 aquis_aquisequities_tradingprotocol_atp_v4_5.trade_capture_flags.bits = function(range, value, packet, parent)
 
-  -- Reserved 1: 1 Bit
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_1, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_1, range, value)
 
   -- Algo Trade Flag: 1 Bit
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.algo_trade_flag, range, value)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_6, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_6, range, value)
 end
 
 -- Dissect: Trade Capture Flags
@@ -2578,8 +2578,8 @@ end
 -- Dissect Bit Fields: Order Modify Response Flags
 aquis_aquisequities_tradingprotocol_atp_v4_5.order_modify_response_flags.bits = function(range, value, packet, parent)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_6, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_6, range, value)
 
   -- Lis: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.lis, range, value)
@@ -2614,7 +2614,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.order_modify_response_message.size 
   aquis_aquisequities_tradingprotocol_atp_v4_5.modification_timestamp.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.user_tag.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.order_modify_response_flags.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.size
+  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.size
 
 -- Display: Order Modify Response Message
 aquis_aquisequities_tradingprotocol_atp_v4_5.order_modify_response_message.display = function(packet, parent, length)
@@ -2643,8 +2643,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.order_modify_response_message.field
   -- Order Modify Response Flags: Struct of 3 fields
   index, order_modify_response_flags = aquis_aquisequities_tradingprotocol_atp_v4_5.order_modify_response_flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved Short: u16
-  index, reserved_short = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.dissect(buffer, index, packet, parent)
+  -- Reserved 2: u16
+  index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2677,7 +2677,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.order_cancel_response_message.size 
   aquis_aquisequities_tradingprotocol_atp_v4_5.status.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.cancellation_timestamp.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.user_tag.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.size
+  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.size
 
 -- Display: Order Cancel Response Message
 aquis_aquisequities_tradingprotocol_atp_v4_5.order_cancel_response_message.display = function(packet, parent, length)
@@ -2703,8 +2703,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.order_cancel_response_message.field
   -- User Tag: u64
   index, user_tag = aquis_aquisequities_tradingprotocol_atp_v4_5.user_tag.dissect(buffer, index, packet, parent)
 
-  -- Reserved Short: u16
-  index, reserved_short = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.dissect(buffer, index, packet, parent)
+  -- Reserved 2: u16
+  index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2752,8 +2752,8 @@ end
 -- Dissect Bit Fields: Order Add Response Flags
 aquis_aquisequities_tradingprotocol_atp_v4_5.order_add_response_flags.bits = function(range, value, packet, parent)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_6, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_6, range, value)
 
   -- Lis: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.lis, range, value)
@@ -2789,7 +2789,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.order_add_response_message.size =
   aquis_aquisequities_tradingprotocol_atp_v4_5.timestamp.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.user_tag.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.order_add_response_flags.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.size
+  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.size
 
 -- Display: Order Add Response Message
 aquis_aquisequities_tradingprotocol_atp_v4_5.order_add_response_message.display = function(packet, parent, length)
@@ -2821,8 +2821,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.order_add_response_message.fields =
   -- Order Add Response Flags: Struct of 3 fields
   index, order_add_response_flags = aquis_aquisequities_tradingprotocol_atp_v4_5.order_add_response_flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved Short: u16
-  index, reserved_short = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.dissect(buffer, index, packet, parent)
+  -- Reserved 2: u16
+  index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2864,7 +2864,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.order_modify_extended_message.size 
   aquis_aquisequities_tradingprotocol_atp_v4_5.order_capacity.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.display_quantity.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.min_qty.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_long.size
+  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_8.size
 
 -- Display: Order Modify Extended Message
 aquis_aquisequities_tradingprotocol_atp_v4_5.order_modify_extended_message.display = function(packet, parent, length)
@@ -2917,8 +2917,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.order_modify_extended_message.field
   -- Min Qty: u32
   index, min_qty = aquis_aquisequities_tradingprotocol_atp_v4_5.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Reserved Long: u64
-  index, reserved_long = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_long.dissect(buffer, index, packet, parent)
+  -- Reserved 8: u64
+  index, reserved_8 = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_8.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3114,11 +3114,11 @@ end
 -- Dissect Bit Fields: Order Flags 2
 aquis_aquisequities_tradingprotocol_atp_v4_5.order_flags_2.bits = function(range, value, packet, parent)
 
-  -- Reserved 1: 1 Bit
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_1, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_1, range, value)
 
-  -- Reserved 15: 15 Bit
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_15, range, value)
+  -- Unused 15: 15 Bit
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_15, range, value)
 end
 
 -- Dissect: Order Flags 2
@@ -3177,8 +3177,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.extended_order_flags.bits = functio
   -- Routing: 3 Bit Unsigned Fixed Width Integer Enum with 5 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.routing, range, value)
 
-  -- Reserved 2: 2 Bit
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.reserved_2, range, value)
+  -- Unused 2: 2 Bit
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.unused_2, range, value)
 end
 
 -- Dissect: Extended Order Flags
@@ -3220,9 +3220,9 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.order_add_extended_message.size =
   aquis_aquisequities_tradingprotocol_atp_v4_5.display_quantity.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.min_qty.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.extended_order_flags.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_long.size + 
+  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_8.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.designated_order_id.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.size + 
+  aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.peg_difference.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.display_low_qty.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_5.display_high_qty.size + 
@@ -3294,14 +3294,14 @@ aquis_aquisequities_tradingprotocol_atp_v4_5.order_add_extended_message.fields =
   -- Extended Order Flags: Struct of 5 fields
   index, extended_order_flags = aquis_aquisequities_tradingprotocol_atp_v4_5.extended_order_flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved Long: u64
-  index, reserved_long = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_long.dissect(buffer, index, packet, parent)
+  -- Reserved 8: u64
+  index, reserved_8 = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_8.dissect(buffer, index, packet, parent)
 
   -- Designated Order Id: u64
   index, designated_order_id = aquis_aquisequities_tradingprotocol_atp_v4_5.designated_order_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved Short: u16
-  index, reserved_short = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_short.dissect(buffer, index, packet, parent)
+  -- Reserved 2: u16
+  index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_5.reserved_2.dissect(buffer, index, packet, parent)
 
   -- Peg Difference: s64
   index, peg_difference = aquis_aquisequities_tradingprotocol_atp_v4_5.peg_difference.dissect(buffer, index, packet, parent)
