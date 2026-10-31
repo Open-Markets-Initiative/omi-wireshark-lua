@@ -27,6 +27,7 @@ omi_aquis_aquisequities_realtime_amd_v4_1.fields.currency = ProtoField.new("Curr
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.deferral_type = ProtoField.new("Deferral Type", "aquis.aquisequities.realtime.amd.v4.1.deferraltype", ftypes.UINT32, {[0]="None Apply"}, base.DEC, 0x10000000)
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.dividend = ProtoField.new("Dividend", "aquis.aquisequities.realtime.amd.v4.1.dividend", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00040000)
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "aquis.aquisequities.realtime.amd.v4.1.duplicativeindicator", ftypes.UINT32, {[0]="Unique", [1]="Duplicative"}, base.DEC, 0x20000000)
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.execution_price = ProtoField.new("Price", "aquis.aquisequities.realtime.amd.v4.1.executionprice", ftypes.DOUBLE, nil, nil, nil, "The execution price")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.flags = ProtoField.new("Flags", "aquis.aquisequities.realtime.amd.v4.1.flags", ftypes.STRING, nil, nil, nil, "Security flags")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.illiquid = ProtoField.new("Illiquid", "aquis.aquisequities.realtime.amd.v4.1.illiquid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "Security is illiquid")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.indicative_price = ProtoField.new("Indicative Price", "aquis.aquisequities.realtime.amd.v4.1.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Indicative auction price")
@@ -42,8 +43,7 @@ omi_aquis_aquisequities_realtime_amd_v4_1.fields.market_mechanism = ProtoField.n
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.match_vol = ProtoField.new("Match Vol", "aquis.aquisequities.realtime.amd.v4.1.matchvol", ftypes.UINT32, nil, nil, nil, "Indicative matched volume")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.md_flags = ProtoField.new("Md Flags", "aquis.aquisequities.realtime.amd.v4.1.mdflags", ftypes.STRING, nil, nil, nil, "Market data flags")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.realtime.amd.v4.1.messagecount", ftypes.UINT8, nil, nil, nil, "number of messages (n) in this packet")
-omi_aquis_aquisequities_realtime_amd_v4_1.fields.mic_char_44 = ProtoField.new("Mic Char 44", "aquis.aquisequities.realtime.amd.v4.1.micchar44", ftypes.STRING, nil, nil, nil, "Segment MIC")
-omi_aquis_aquisequities_realtime_amd_v4_1.fields.mic_mic_4 = ProtoField.new("Mic Mic 4", "aquis.aquisequities.realtime.amd.v4.1.micmic4", ftypes.STRING, nil, nil, nil, "MIC for the security's market of listing")
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.mic = ProtoField.new("Mic", "aquis.aquisequities.realtime.amd.v4.1.mic", ftypes.STRING, nil, nil, nil, "MIC for the security's market of listing")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.modification_indicator = ProtoField.new("Modification Indicator", "aquis.aquisequities.realtime.amd.v4.1.modificationindicator", ftypes.UINT32, {[1]="Trade Cancelation", [2]="Trade Amendment", [3]="New Trade"}, base.DEC, 0x0000C000)
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.realtime.amd.v4.1.msglength", ftypes.UINT8, nil, nil, nil, "Length of market data message, including header")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.realtime.amd.v4.1.msgtype", ftypes.UINT8, nil, nil, nil, "Message type identifier")
@@ -55,8 +55,10 @@ omi_aquis_aquisequities_realtime_amd_v4_1.fields.price = ProtoField.new("Price",
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.price_formation_discovery_process = ProtoField.new("Price Formation Discovery Process", "aquis.aquisequities.realtime.amd.v4.1.priceformationdiscoveryprocess", ftypes.UINT32, {[1]="Plain Vanilla", [2]="Non Price Forming", [3]="Trade Not Contributing To Price Discovery", [4]="Price Not Currently Available But Pending"}, base.DEC, 0x00E00000, "Price formation or discovery process")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.publication_mode_post_trade_deferral = ProtoField.new("Publication Mode Post Trade Deferral", "aquis.aquisequities.realtime.amd.v4.1.publicationmodeposttradedeferral", ftypes.UINT32, {[1]="Immediate Publication", [2]="Non Immediate Publication", [3]="Lrgs", [4]="Ilqd", [5]="Size", [6]="Ilqd And Size", [7]="Ilqd And Lrgs"}, base.DEC, 0x0E000000, "Publication mode or post-trade deferral")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.quantity = ProtoField.new("Quantity", "aquis.aquisequities.realtime.amd.v4.1.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book")
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.remaining_quantity = ProtoField.new("Quantity", "aquis.aquisequities.realtime.amd.v4.1.remainingquantity", ftypes.UINT32, nil, nil, nil, "Number of shares remaining in the book")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.reserved = ProtoField.new("Reserved", "aquis.aquisequities.realtime.amd.v4.1.reserved", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.security_id = ProtoField.new("Security Id", "aquis.aquisequities.realtime.amd.v4.1.securityid", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the relevant security")
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.segment_mic = ProtoField.new("Mic", "aquis.aquisequities.realtime.amd.v4.1.segmentmic", ftypes.STRING, nil, nil, nil, "Segment MIC")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.realtime.amd.v4.1.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.side = ProtoField.new("Side", "aquis.aquisequities.realtime.amd.v4.1.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.test_stock = ProtoField.new("Test Stock", "aquis.aquisequities.realtime.amd.v4.1.teststock", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Security is a test stock")
@@ -67,6 +69,7 @@ omi_aquis_aquisequities_realtime_amd_v4_1.fields.timestamp = ProtoField.new("Tim
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisequities.realtime.amd.v4.1.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this market data event")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.trade_ref = ProtoField.new("Trade Ref", "aquis.aquisequities.realtime.amd.v4.1.traderef", ftypes.UINT32, nil, nil, nil, "Trade reference number")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.trade_type = ProtoField.new("Trade Type", "aquis.aquisequities.realtime.amd.v4.1.tradetype", ftypes.UINT8, nil, nil, nil, "Code identifying type of trade (see below)")
+omi_aquis_aquisequities_realtime_amd_v4_1.fields.traded_quantity = ProtoField.new("Quantity", "aquis.aquisequities.realtime.amd.v4.1.tradedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares traded")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.trading = ProtoField.new("Trading", "aquis.aquisequities.realtime.amd.v4.1.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "Continuous trading open or closed")
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.trading_mode = ProtoField.new("Trading Mode", "aquis.aquisequities.realtime.amd.v4.1.tradingmode", ftypes.UINT32, {[1]="Undefined Auction", [2]="Opening Auction", [3]="Closing Auction", [4]="Intraday Auction", [5]="Unscheduled Auction", [6]="Continuous Trading", [7]="At Market Close", [8]="Out Of Main Session", [9]="On Exchange Trade Reporting", [10]="Off Exchange Trade Reporting", [11]="Systematic Internalizer Trade Reporting"}, base.DEC, 0x00000078)
 omi_aquis_aquisequities_realtime_amd_v4_1.fields.trading_phase = ProtoField.new("Trading Phase", "aquis.aquisequities.realtime.amd.v4.1.tradingphase", ftypes.UINT8, nil, nil, nil, "Trading phase of the security")
@@ -257,6 +260,35 @@ aquis_aquisequities_realtime_amd_v4_1.currency.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- Execution Price
+aquis_aquisequities_realtime_amd_v4_1.execution_price = {}
+
+-- Size: Execution Price
+aquis_aquisequities_realtime_amd_v4_1.execution_price.size = 8
+
+-- Display: Execution Price
+aquis_aquisequities_realtime_amd_v4_1.execution_price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Execution Price
+aquis_aquisequities_realtime_amd_v4_1.execution_price.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
+-- Dissect: Execution Price
+aquis_aquisequities_realtime_amd_v4_1.execution_price.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_realtime_amd_v4_1.execution_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = aquis_aquisequities_realtime_amd_v4_1.execution_price.translate(raw)
+  local display = aquis_aquisequities_realtime_amd_v4_1.execution_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.execution_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Indicative Price
 aquis_aquisequities_realtime_amd_v4_1.indicative_price = {}
 
@@ -417,25 +449,25 @@ aquis_aquisequities_realtime_amd_v4_1.message_count.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Mic Char 44
-aquis_aquisequities_realtime_amd_v4_1.mic_char_44 = {}
+-- Mic
+aquis_aquisequities_realtime_amd_v4_1.mic = {}
 
--- Size: Mic Char 44
-aquis_aquisequities_realtime_amd_v4_1.mic_char_44.size = 4
+-- Size: Mic
+aquis_aquisequities_realtime_amd_v4_1.mic.size = 4
 
--- Display: Mic Char 44
-aquis_aquisequities_realtime_amd_v4_1.mic_char_44.display = function(value)
+-- Display: Mic
+aquis_aquisequities_realtime_amd_v4_1.mic.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Mic Char 44: No Value"
+    return "Mic: No Value"
   end
 
-  return "Mic Char 44: "..value
+  return "Mic: "..value
 end
 
--- Dissect: Mic Char 44
-aquis_aquisequities_realtime_amd_v4_1.mic_char_44.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_aquisequities_realtime_amd_v4_1.mic_char_44.size
+-- Dissect: Mic
+aquis_aquisequities_realtime_amd_v4_1.mic.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_realtime_amd_v4_1.mic.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -449,48 +481,9 @@ aquis_aquisequities_realtime_amd_v4_1.mic_char_44.dissect = function(buffer, off
     value = range:string()
   end
 
-  local display = aquis_aquisequities_realtime_amd_v4_1.mic_char_44.display(value, buffer, offset, packet, parent)
+  local display = aquis_aquisequities_realtime_amd_v4_1.mic.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.mic_char_44, range, value, display)
-
-  return offset + length, value
-end
-
--- Mic Mic 4
-aquis_aquisequities_realtime_amd_v4_1.mic_mic_4 = {}
-
--- Size: Mic Mic 4
-aquis_aquisequities_realtime_amd_v4_1.mic_mic_4.size = 4
-
--- Display: Mic Mic 4
-aquis_aquisequities_realtime_amd_v4_1.mic_mic_4.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Mic Mic 4: No Value"
-  end
-
-  return "Mic Mic 4: "..value
-end
-
--- Dissect: Mic Mic 4
-aquis_aquisequities_realtime_amd_v4_1.mic_mic_4.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_aquisequities_realtime_amd_v4_1.mic_mic_4.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_aquisequities_realtime_amd_v4_1.mic_mic_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.mic_mic_4, range, value, display)
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.mic, range, value, display)
 
   return offset + length, value
 end
@@ -674,6 +667,29 @@ aquis_aquisequities_realtime_amd_v4_1.quantity.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- Remaining Quantity
+aquis_aquisequities_realtime_amd_v4_1.remaining_quantity = {}
+
+-- Size: Remaining Quantity
+aquis_aquisequities_realtime_amd_v4_1.remaining_quantity.size = 4
+
+-- Display: Remaining Quantity
+aquis_aquisequities_realtime_amd_v4_1.remaining_quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Remaining Quantity
+aquis_aquisequities_realtime_amd_v4_1.remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_realtime_amd_v4_1.remaining_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_aquisequities_realtime_amd_v4_1.remaining_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.remaining_quantity, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reserved
 aquis_aquisequities_realtime_amd_v4_1.reserved = {}
 
@@ -732,6 +748,45 @@ aquis_aquisequities_realtime_amd_v4_1.security_id.dissect = function(buffer, off
   local display = aquis_aquisequities_realtime_amd_v4_1.security_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Segment Mic
+aquis_aquisequities_realtime_amd_v4_1.segment_mic = {}
+
+-- Size: Segment Mic
+aquis_aquisequities_realtime_amd_v4_1.segment_mic.size = 4
+
+-- Display: Mic
+aquis_aquisequities_realtime_amd_v4_1.segment_mic.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mic: No Value"
+  end
+
+  return "Mic: "..value
+end
+
+-- Dissect: Segment Mic
+aquis_aquisequities_realtime_amd_v4_1.segment_mic.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_realtime_amd_v4_1.segment_mic.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_aquisequities_realtime_amd_v4_1.segment_mic.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.segment_mic, range, value, display)
 
   return offset + length, value
 end
@@ -944,6 +999,29 @@ aquis_aquisequities_realtime_amd_v4_1.trade_type.dissect = function(buffer, offs
   local display = aquis_aquisequities_realtime_amd_v4_1.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.trade_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Traded Quantity
+aquis_aquisequities_realtime_amd_v4_1.traded_quantity = {}
+
+-- Size: Traded Quantity
+aquis_aquisequities_realtime_amd_v4_1.traded_quantity.size = 4
+
+-- Display: Traded Quantity
+aquis_aquisequities_realtime_amd_v4_1.traded_quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Traded Quantity
+aquis_aquisequities_realtime_amd_v4_1.traded_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_realtime_amd_v4_1.traded_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_aquisequities_realtime_amd_v4_1.traded_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.traded_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1409,7 +1487,7 @@ aquis_aquisequities_realtime_amd_v4_1.security_definition_message.size =
   aquis_aquisequities_realtime_amd_v4_1.umtf.size + 
   aquis_aquisequities_realtime_amd_v4_1.isin.size + 
   aquis_aquisequities_realtime_amd_v4_1.currency.size + 
-  aquis_aquisequities_realtime_amd_v4_1.mic_mic_4.size + 
+  aquis_aquisequities_realtime_amd_v4_1.mic.size + 
   aquis_aquisequities_realtime_amd_v4_1.tick_table_id.size + 
   aquis_aquisequities_realtime_amd_v4_1.flags.size + 
   aquis_aquisequities_realtime_amd_v4_1.reserved.size + 
@@ -1436,8 +1514,8 @@ aquis_aquisequities_realtime_amd_v4_1.security_definition_message.fields = funct
   -- Currency: currency
   index, currency = aquis_aquisequities_realtime_amd_v4_1.currency.dissect(buffer, index, packet, parent)
 
-  -- Mic Mic 4: mic
-  index, mic_mic_4 = aquis_aquisequities_realtime_amd_v4_1.mic_mic_4.dissect(buffer, index, packet, parent)
+  -- Mic: mic
+  index, mic = aquis_aquisequities_realtime_amd_v4_1.mic.dissect(buffer, index, packet, parent)
 
   -- Tick Table Id: u8
   index, tick_table_id = aquis_aquisequities_realtime_amd_v4_1.tick_table_id.dissect(buffer, index, packet, parent)
@@ -1628,8 +1706,8 @@ aquis_aquisequities_realtime_amd_v4_1.trade_bust_message = {}
 -- Size: Trade Bust Message
 aquis_aquisequities_realtime_amd_v4_1.trade_bust_message.size =
   aquis_aquisequities_realtime_amd_v4_1.security_id.size + 
-  aquis_aquisequities_realtime_amd_v4_1.quantity.size + 
-  aquis_aquisequities_realtime_amd_v4_1.price.size + 
+  aquis_aquisequities_realtime_amd_v4_1.traded_quantity.size + 
+  aquis_aquisequities_realtime_amd_v4_1.execution_price.size + 
   aquis_aquisequities_realtime_amd_v4_1.trade_ref.size + 
   aquis_aquisequities_realtime_amd_v4_1.timestamp.size + 
   aquis_aquisequities_realtime_amd_v4_1.binary_mmt.size
@@ -1646,11 +1724,11 @@ aquis_aquisequities_realtime_amd_v4_1.trade_bust_message.fields = function(buffe
   -- Security Id: u16
   index, security_id = aquis_aquisequities_realtime_amd_v4_1.security_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity: u32
-  index, quantity = aquis_aquisequities_realtime_amd_v4_1.quantity.dissect(buffer, index, packet, parent)
+  -- Traded Quantity: u32
+  index, traded_quantity = aquis_aquisequities_realtime_amd_v4_1.traded_quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: u64
-  index, price = aquis_aquisequities_realtime_amd_v4_1.price.dissect(buffer, index, packet, parent)
+  -- Execution Price: u64
+  index, execution_price = aquis_aquisequities_realtime_amd_v4_1.execution_price.dissect(buffer, index, packet, parent)
 
   -- Trade Ref: u32
   index, trade_ref = aquis_aquisequities_realtime_amd_v4_1.trade_ref.dissect(buffer, index, packet, parent)
@@ -1732,12 +1810,12 @@ aquis_aquisequities_realtime_amd_v4_1.trade_message = {}
 aquis_aquisequities_realtime_amd_v4_1.trade_message.size =
   aquis_aquisequities_realtime_amd_v4_1.security_id.size + 
   aquis_aquisequities_realtime_amd_v4_1.trade_type.size + 
-  aquis_aquisequities_realtime_amd_v4_1.quantity.size + 
-  aquis_aquisequities_realtime_amd_v4_1.price.size + 
+  aquis_aquisequities_realtime_amd_v4_1.traded_quantity.size + 
+  aquis_aquisequities_realtime_amd_v4_1.execution_price.size + 
   aquis_aquisequities_realtime_amd_v4_1.order_ref.size + 
   aquis_aquisequities_realtime_amd_v4_1.trade_ref.size + 
   aquis_aquisequities_realtime_amd_v4_1.timestamp.size + 
-  aquis_aquisequities_realtime_amd_v4_1.mic_char_44.size + 
+  aquis_aquisequities_realtime_amd_v4_1.segment_mic.size + 
   aquis_aquisequities_realtime_amd_v4_1.binary_mmt.size + 
   aquis_aquisequities_realtime_amd_v4_1.md_flags.size
 
@@ -1756,11 +1834,11 @@ aquis_aquisequities_realtime_amd_v4_1.trade_message.fields = function(buffer, of
   -- Trade Type: u8
   index, trade_type = aquis_aquisequities_realtime_amd_v4_1.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Quantity: u32
-  index, quantity = aquis_aquisequities_realtime_amd_v4_1.quantity.dissect(buffer, index, packet, parent)
+  -- Traded Quantity: u32
+  index, traded_quantity = aquis_aquisequities_realtime_amd_v4_1.traded_quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: u64
-  index, price = aquis_aquisequities_realtime_amd_v4_1.price.dissect(buffer, index, packet, parent)
+  -- Execution Price: u64
+  index, execution_price = aquis_aquisequities_realtime_amd_v4_1.execution_price.dissect(buffer, index, packet, parent)
 
   -- Order Ref: u32
   index, order_ref = aquis_aquisequities_realtime_amd_v4_1.order_ref.dissect(buffer, index, packet, parent)
@@ -1771,8 +1849,8 @@ aquis_aquisequities_realtime_amd_v4_1.trade_message.fields = function(buffer, of
   -- Timestamp: u64
   index, timestamp = aquis_aquisequities_realtime_amd_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Mic Char 44: char(4)
-  index, mic_char_44 = aquis_aquisequities_realtime_amd_v4_1.mic_char_44.dissect(buffer, index, packet, parent)
+  -- Segment Mic: char(4)
+  index, segment_mic = aquis_aquisequities_realtime_amd_v4_1.segment_mic.dissect(buffer, index, packet, parent)
 
   -- Binary Mmt: Struct of 15 fields
   index, binary_mmt = aquis_aquisequities_realtime_amd_v4_1.binary_mmt.dissect(buffer, index, packet, parent)
@@ -1807,7 +1885,7 @@ aquis_aquisequities_realtime_amd_v4_1.order_modify_message = {}
 -- Size: Order Modify Message
 aquis_aquisequities_realtime_amd_v4_1.order_modify_message.size =
   aquis_aquisequities_realtime_amd_v4_1.security_id.size + 
-  aquis_aquisequities_realtime_amd_v4_1.quantity.size + 
+  aquis_aquisequities_realtime_amd_v4_1.remaining_quantity.size + 
   aquis_aquisequities_realtime_amd_v4_1.price.size + 
   aquis_aquisequities_realtime_amd_v4_1.order_ref.size + 
   aquis_aquisequities_realtime_amd_v4_1.timestamp.size + 
@@ -1825,8 +1903,8 @@ aquis_aquisequities_realtime_amd_v4_1.order_modify_message.fields = function(buf
   -- Security Id: u16
   index, security_id = aquis_aquisequities_realtime_amd_v4_1.security_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity: u32
-  index, quantity = aquis_aquisequities_realtime_amd_v4_1.quantity.dissect(buffer, index, packet, parent)
+  -- Remaining Quantity: u32
+  index, remaining_quantity = aquis_aquisequities_realtime_amd_v4_1.remaining_quantity.dissect(buffer, index, packet, parent)
 
   -- Price: u64
   index, price = aquis_aquisequities_realtime_amd_v4_1.price.dissect(buffer, index, packet, parent)

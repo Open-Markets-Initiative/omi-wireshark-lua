@@ -14,6 +14,8 @@ grep "nasdaq.nsmequities.orders.ouch.v5.0.timestamp" Nasdaq.NsmEquities.Orders.O
 grep "nasdaq.nsmequities.orders.ouch.v5.0.userrefnum" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.quantity" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.cancelorderreason" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json
+grep "nasdaq.nsmequities.orders.ouch.v5.0.optionalfieldlength" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json
+grep "nasdaq.nsmequities.orders.ouch.v5.0.canceledmessageoptionalfield" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/NsmEquities.Orders.Ouch.v5.0/CancelOrderMessage.pcap" \
   -X "lua_script:Nasdaq/NsmEquities/Orders/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \
@@ -23,6 +25,8 @@ runuser -u tester -- tshark \
 
 grep "nasdaq.nsmequities.orders.ouch.v5.0.userrefnum" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.quantity" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage.json
+grep "nasdaq.nsmequities.orders.ouch.v5.0.optionalfieldlength" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage.json
+grep "nasdaq.nsmequities.orders.ouch.v5.0.cancelorderoptionalfield" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/NsmEquities.Orders.Ouch.v5.0/ClientHeartbeat.pcap" \
   -X "lua_script:Nasdaq/NsmEquities/Orders/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \
@@ -49,6 +53,8 @@ grep "nasdaq.nsmequities.orders.ouch.v5.0.intermarketsweepeligibility" Nasdaq.Ns
 grep "nasdaq.nsmequities.orders.ouch.v5.0.crosstype" Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.clordid" Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.appendagelength" Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json
+grep "nasdaq.nsmequities.orders.ouch.v5.0.optionalfieldlength" Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json
+grep "nasdaq.nsmequities.orders.ouch.v5.0.enterorderoptionalfield" Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/NsmEquities.Orders.Ouch.v5.0/OrderAcceptedMessage.pcap" \
   -X "lua_script:Nasdaq/NsmEquities/Orders/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \
@@ -71,6 +77,8 @@ grep "nasdaq.nsmequities.orders.ouch.v5.0.crosstype" Nasdaq.NsmEquities.Orders.O
 grep "nasdaq.nsmequities.orders.ouch.v5.0.orderstate" Nasdaq.NsmEquities.Orders.Ouch.v5.0.OrderAcceptedMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.clordid" Nasdaq.NsmEquities.Orders.Ouch.v5.0.OrderAcceptedMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.appendagelength" Nasdaq.NsmEquities.Orders.Ouch.v5.0.OrderAcceptedMessage.json
+grep "nasdaq.nsmequities.orders.ouch.v5.0.optionalfieldlength" Nasdaq.NsmEquities.Orders.Ouch.v5.0.OrderAcceptedMessage.json
+grep "nasdaq.nsmequities.orders.ouch.v5.0.orderacceptedoptionalfield" Nasdaq.NsmEquities.Orders.Ouch.v5.0.OrderAcceptedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/NsmEquities.Orders.Ouch.v5.0/ServerHeartbeat.pcap" \
   -X "lua_script:Nasdaq/NsmEquities/Orders/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \

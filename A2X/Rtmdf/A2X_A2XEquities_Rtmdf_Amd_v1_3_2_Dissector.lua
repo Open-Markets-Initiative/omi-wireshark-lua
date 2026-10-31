@@ -19,6 +19,7 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.aod_enabled = ProtoField.new("Aod En
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.rtmdf.amd.v1.3.2.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during the closing market")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.a2xequities.rtmdf.amd.v1.3.2.closingsellqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the sell side during the closing market")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.currency = ProtoField.new("Currency", "a2x.a2xequities.rtmdf.amd.v1.3.2.currency", ftypes.STRING, nil, nil, nil, "Trading currency for the security")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.execution_price = ProtoField.new("Price", "a2x.a2xequities.rtmdf.amd.v1.3.2.executionprice", ftypes.DOUBLE, nil, nil, nil, "The execution price")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.flags = ProtoField.new("Flags", "a2x.a2xequities.rtmdf.amd.v1.3.2.flags", ftypes.STRING, nil, nil, nil, "Security flags")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.illiquid = ProtoField.new("Illiquid", "a2x.a2xequities.rtmdf.amd.v1.3.2.illiquid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "Security is illiquid")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.a2xequities.rtmdf.amd.v1.3.2.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Indicative auction price")
@@ -36,6 +37,7 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.name = ProtoField.new("Name", "a2x.a
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.order_ref = ProtoField.new("Order Ref", "a2x.a2xequities.rtmdf.amd.v1.3.2.orderref", ftypes.UINT32, nil, nil, nil, "Order reference number")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.price = ProtoField.new("Price", "a2x.a2xequities.rtmdf.amd.v1.3.2.price", ftypes.DOUBLE, nil, nil, nil, "The price of the order")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.quantity = ProtoField.new("Quantity", "a2x.a2xequities.rtmdf.amd.v1.3.2.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.remaining_quantity = ProtoField.new("Quantity", "a2x.a2xequities.rtmdf.amd.v1.3.2.remainingquantity", ftypes.UINT32, nil, nil, nil, "Number of shares remaining in the book")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.security_id = ProtoField.new("Security Id", "a2x.a2xequities.rtmdf.amd.v1.3.2.securityid", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the relevant security")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.seq_no = ProtoField.new("Seq No", "a2x.a2xequities.rtmdf.amd.v1.3.2.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.side = ProtoField.new("Side", "a2x.a2xequities.rtmdf.amd.v1.3.2.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
@@ -47,6 +49,7 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestam
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.rtmdf.amd.v1.3.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this market data event")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_ref = ProtoField.new("Trade Ref", "a2x.a2xequities.rtmdf.amd.v1.3.2.traderef", ftypes.UINT32, nil, nil, nil, "Trade reference number")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_type = ProtoField.new("Trade Type", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradetype", ftypes.UINT8, nil, nil, nil, "Code identifying type of trade")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.traded_quantity = ProtoField.new("Quantity", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares traded")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.a2xequities.rtmdf.amd.v1.3.2.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "Continuous trading open or closed")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradingstatus", ftypes.UINT8, nil, nil, nil, "Trading status of the security")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.umtf = ProtoField.new("Umtf", "a2x.a2xequities.rtmdf.amd.v1.3.2.umtf", ftypes.STRING, nil, nil, nil, "Uniform MTF code for the security")
@@ -226,6 +229,35 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.currency.dissect = function(buffer, offset, pac
   local display = a2x_a2xequities_rtmdf_amd_v1_3_2.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Price
+a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price = {}
+
+-- Size: Execution Price
+a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price.size = 8
+
+-- Display: Execution Price
+a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Execution Price
+a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
+-- Dissect: Execution Price
+a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price.translate(raw)
+  local display = a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.execution_price, range, value, display)
 
   return offset + length, value
 end
@@ -562,6 +594,29 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.quantity.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Remaining Quantity
+a2x_a2xequities_rtmdf_amd_v1_3_2.remaining_quantity = {}
+
+-- Size: Remaining Quantity
+a2x_a2xequities_rtmdf_amd_v1_3_2.remaining_quantity.size = 4
+
+-- Display: Remaining Quantity
+a2x_a2xequities_rtmdf_amd_v1_3_2.remaining_quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Remaining Quantity
+a2x_a2xequities_rtmdf_amd_v1_3_2.remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_a2xequities_rtmdf_amd_v1_3_2.remaining_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = a2x_a2xequities_rtmdf_amd_v1_3_2.remaining_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.remaining_quantity, range, value, display)
+
+  return offset + length, value
+end
+
 -- Security Id
 a2x_a2xequities_rtmdf_amd_v1_3_2.security_id = {}
 
@@ -792,6 +847,29 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.dissect = function(buffer, offset, p
   local display = a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Traded Quantity
+a2x_a2xequities_rtmdf_amd_v1_3_2.traded_quantity = {}
+
+-- Size: Traded Quantity
+a2x_a2xequities_rtmdf_amd_v1_3_2.traded_quantity.size = 4
+
+-- Display: Traded Quantity
+a2x_a2xequities_rtmdf_amd_v1_3_2.traded_quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Traded Quantity
+a2x_a2xequities_rtmdf_amd_v1_3_2.traded_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_a2xequities_rtmdf_amd_v1_3_2.traded_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = a2x_a2xequities_rtmdf_amd_v1_3_2.traded_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.traded_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1277,8 +1355,8 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.trade_bust_message = {}
 -- Size: Trade Bust Message
 a2x_a2xequities_rtmdf_amd_v1_3_2.trade_bust_message.size =
   a2x_a2xequities_rtmdf_amd_v1_3_2.security_id.size + 
-  a2x_a2xequities_rtmdf_amd_v1_3_2.quantity.size + 
-  a2x_a2xequities_rtmdf_amd_v1_3_2.price.size + 
+  a2x_a2xequities_rtmdf_amd_v1_3_2.traded_quantity.size + 
+  a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.trade_ref.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.size
 
@@ -1294,11 +1372,11 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.trade_bust_message.fields = function(buffer, of
   -- Security Id: u16
   index, security_id = a2x_a2xequities_rtmdf_amd_v1_3_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity: u32
-  index, quantity = a2x_a2xequities_rtmdf_amd_v1_3_2.quantity.dissect(buffer, index, packet, parent)
+  -- Traded Quantity: u32
+  index, traded_quantity = a2x_a2xequities_rtmdf_amd_v1_3_2.traded_quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: u64
-  index, price = a2x_a2xequities_rtmdf_amd_v1_3_2.price.dissect(buffer, index, packet, parent)
+  -- Execution Price: u64
+  index, execution_price = a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price.dissect(buffer, index, packet, parent)
 
   -- Trade Ref: u32
   index, trade_ref = a2x_a2xequities_rtmdf_amd_v1_3_2.trade_ref.dissect(buffer, index, packet, parent)
@@ -1334,8 +1412,8 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.trade_message = {}
 a2x_a2xequities_rtmdf_amd_v1_3_2.trade_message.size =
   a2x_a2xequities_rtmdf_amd_v1_3_2.security_id.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.size + 
-  a2x_a2xequities_rtmdf_amd_v1_3_2.quantity.size + 
-  a2x_a2xequities_rtmdf_amd_v1_3_2.price.size + 
+  a2x_a2xequities_rtmdf_amd_v1_3_2.traded_quantity.size + 
+  a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.order_ref.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.trade_ref.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.size
@@ -1355,11 +1433,11 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.trade_message.fields = function(buffer, offset,
   -- Trade Type: u8
   index, trade_type = a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Quantity: u32
-  index, quantity = a2x_a2xequities_rtmdf_amd_v1_3_2.quantity.dissect(buffer, index, packet, parent)
+  -- Traded Quantity: u32
+  index, traded_quantity = a2x_a2xequities_rtmdf_amd_v1_3_2.traded_quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: u64
-  index, price = a2x_a2xequities_rtmdf_amd_v1_3_2.price.dissect(buffer, index, packet, parent)
+  -- Execution Price: u64
+  index, execution_price = a2x_a2xequities_rtmdf_amd_v1_3_2.execution_price.dissect(buffer, index, packet, parent)
 
   -- Order Ref: u32
   index, order_ref = a2x_a2xequities_rtmdf_amd_v1_3_2.order_ref.dissect(buffer, index, packet, parent)
@@ -1397,7 +1475,7 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.order_modify_message = {}
 -- Size: Order Modify Message
 a2x_a2xequities_rtmdf_amd_v1_3_2.order_modify_message.size =
   a2x_a2xequities_rtmdf_amd_v1_3_2.security_id.size + 
-  a2x_a2xequities_rtmdf_amd_v1_3_2.quantity.size + 
+  a2x_a2xequities_rtmdf_amd_v1_3_2.remaining_quantity.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.price.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.order_ref.size + 
   a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp.size
@@ -1414,8 +1492,8 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.order_modify_message.fields = function(buffer, 
   -- Security Id: u16
   index, security_id = a2x_a2xequities_rtmdf_amd_v1_3_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity: u32
-  index, quantity = a2x_a2xequities_rtmdf_amd_v1_3_2.quantity.dissect(buffer, index, packet, parent)
+  -- Remaining Quantity: u32
+  index, remaining_quantity = a2x_a2xequities_rtmdf_amd_v1_3_2.remaining_quantity.dissect(buffer, index, packet, parent)
 
   -- Price: u64
   index, price = a2x_a2xequities_rtmdf_amd_v1_3_2.price.dissect(buffer, index, packet, parent)

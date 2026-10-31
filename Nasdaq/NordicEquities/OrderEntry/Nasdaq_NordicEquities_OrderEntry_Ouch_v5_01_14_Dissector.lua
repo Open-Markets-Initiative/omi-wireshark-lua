@@ -184,7 +184,6 @@ omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.server_heartbeat = Pro
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server")
 
 -- Nasdaq NordicEquities OrderEntry Ouch 5.01.14 Generated Fields
-omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.tagvalue_index = ProtoField.new("TagValue Index", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.tagvalueindex", ftypes.UINT16)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.sequenceddatapacketsequencenumber", ftypes.UINT64)
 
 -- Nasdaq NordicEquities OrderEntry Ouch 5.01.14 Expert Info
@@ -225,7 +224,6 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
-show.indexes = true
 show.sequences = true
 
 -- Register Nasdaq NordicEquities OrderEntry Ouch 5.01.14 Show Options
@@ -236,7 +234,6 @@ omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_application_messag
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
@@ -256,9 +253,6 @@ function omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs_changed()
   end
   if show.structs ~= omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_structs then
     show.structs = omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_structs
-  end
-  if show.indexes ~= omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_indexes then
-    show.indexes = omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_indexes
   end
   if show.sequences ~= omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_sequences then
     show.sequences = omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.prefs.show_sequences
@@ -4032,14 +4026,8 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.display = function(packe
 end
 
 -- Dissect Fields: TagValue
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.fields = function(buffer, offset, packet, parent, size_of_tagvalue, tagvalue_index)
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.fields = function(buffer, offset, packet, parent, size_of_tagvalue)
   local index = offset
-
-  -- Implicit TagValue Index
-  if tagvalue_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.tagvalue_index, tagvalue_index)
-    iteration:set_generated()
-  end
 
   -- Length: 1 Byte Unsigned Fixed Width Integer
   index, length = nasdaq_nordicequities_orderentry_ouch_v5_01_14.length.dissect(buffer, index, packet, parent)
@@ -4054,13 +4042,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.fields = function(buffer
 end
 
 -- Dissect: TagValue
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect = function(buffer, offset, packet, parent, size_of_tagvalue, tagvalue_index)
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect = function(buffer, offset, packet, parent, size_of_tagvalue)
   local index = offset + size_of_tagvalue
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.tagvalue, buffer(offset, 0))
-    local current = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.fields(buffer, offset, packet, parent, size_of_tagvalue, tagvalue_index)
+    local current = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.fields(buffer, offset, packet, parent, size_of_tagvalue)
     parent:set_len(size_of_tagvalue)
     local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4068,7 +4056,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect = function(buffe
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.fields(buffer, offset, packet, parent, size_of_tagvalue, tagvalue_index)
+    nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.fields(buffer, offset, packet, parent, size_of_tagvalue)
 
     return index
   end
@@ -4077,22 +4065,11 @@ end
 -- Order Restated Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_restated_message = {}
 
--- Calculate size of: Order Restated Message
+-- Size: Order Restated Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_restated_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.timestamp.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.user_ref_num.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.restate_reason.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.appendage_length.size
-
-  -- Parse runtime size of: TagValue
-  index = index + buffer(offset + index - 0, 1):uint()
-
-  return index
+  return buffer:len() - (offset + index) 
 end
 
 -- Display: Order Restated Message
@@ -4131,7 +4108,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_restated_message.fields = f
     local size_of_tagvalue = length + 1
 
     -- TagValue: Struct of 3 fields
-    index, tagvalue = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect(buffer, index, packet, parent, size_of_tagvalue, tagvalue_index)
+    index, tagvalue = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect(buffer, index, packet, parent, size_of_tagvalue)
   end
 
   return index
@@ -4614,34 +4591,11 @@ end
 -- Order Replaced Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_replaced_message = {}
 
--- Calculate size of: Order Replaced Message
+-- Size: Order Replaced Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_replaced_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.timestamp.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.orig_user_ref_num.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.new_user_ref_num.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.price.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_reference_number.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.buy_sell_indicator.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_book.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.quantity.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.user.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.appendage_length.size
-
-  -- Parse runtime size of: TagValue
-  index = index + buffer(offset + index - 0, 1):uint()
-
-  return index
+  return buffer:len() - (offset + index) 
 end
 
 -- Display: Order Replaced Message
@@ -4698,7 +4652,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_replaced_message.fields = f
     local size_of_tagvalue = length + 1
 
     -- TagValue: Struct of 3 fields
-    index, tagvalue = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect(buffer, index, packet, parent, size_of_tagvalue, tagvalue_index)
+    index, tagvalue = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect(buffer, index, packet, parent, size_of_tagvalue)
   end
 
   return index
@@ -4776,44 +4730,11 @@ end
 -- Order Accepted Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_accepted_message = {}
 
--- Calculate size of: Order Accepted Message
+-- Size: Order Accepted Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_accepted_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.timestamp.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.user_ref_num.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.price.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_reference_number.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.buy_sell_indicator.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_book.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.quantity.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.user.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.execution_within_firm.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_short_code.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_identifier.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.party_role_qualifier.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.capacity.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.algo_indicator.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.appendage_length.size
-
-  -- Parse runtime size of: TagValue
-  index = index + buffer(offset + index - 0, 1):uint()
-
-  return index
+  return buffer:len() - (offset + index) 
 end
 
 -- Display: Order Accepted Message
@@ -4885,7 +4806,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_accepted_message.fields = f
     local size_of_tagvalue = length + 1
 
     -- TagValue: Struct of 3 fields
-    index, tagvalue = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect(buffer, index, packet, parent, size_of_tagvalue, tagvalue_index)
+    index, tagvalue = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect(buffer, index, packet, parent, size_of_tagvalue)
   end
 
   return index
@@ -5559,26 +5480,11 @@ end
 -- Replace Order Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.replace_order_message = {}
 
--- Calculate size of: Replace Order Message
+-- Size: Replace Order Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.replace_order_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.orig_user_ref_num.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.new_user_ref_num.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.quantity.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.price.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.user.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.appendage_length.size
-
-  -- Parse runtime size of: TagValue
-  index = index + buffer(offset + index - 0, 1):uint()
-
-  return index
+  return buffer:len() - (offset + index) 
 end
 
 -- Display: Replace Order Message
@@ -5623,7 +5529,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.replace_order_message.fields = fu
     local size_of_tagvalue = length + 1
 
     -- TagValue: Struct of 3 fields
-    index, tagvalue = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect(buffer, index, packet, parent, size_of_tagvalue, tagvalue_index)
+    index, tagvalue = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect(buffer, index, packet, parent, size_of_tagvalue)
   end
 
   return index
@@ -5650,40 +5556,11 @@ end
 -- Enter Order Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.enter_order_message = {}
 
--- Calculate size of: Enter Order Message
+-- Size: Enter Order Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.enter_order_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.user_ref_num.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.buy_sell_indicator.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.quantity.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_book.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.price.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.user.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.execution_within_firm.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_short_code.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_identifier.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.party_role_qualifier.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.capacity.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.algo_indicator.size
-
-  index = index + nasdaq_nordicequities_orderentry_ouch_v5_01_14.appendage_length.size
-
-  -- Parse runtime size of: TagValue
-  index = index + buffer(offset + index - 0, 1):uint()
-
-  return index
+  return buffer:len() - (offset + index) 
 end
 
 -- Display: Enter Order Message
@@ -5749,7 +5626,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.enter_order_message.fields = func
     local size_of_tagvalue = length + 1
 
     -- TagValue: Struct of 3 fields
-    index, tagvalue = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect(buffer, index, packet, parent, size_of_tagvalue, tagvalue_index)
+    index, tagvalue = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tagvalue.dissect(buffer, index, packet, parent, size_of_tagvalue)
   end
 
   return index
