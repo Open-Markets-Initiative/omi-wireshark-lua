@@ -3711,7 +3711,6 @@ tcp_table:add_for_decode_as(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206)
 --   Specification: soupbintcp-protocol-specification.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

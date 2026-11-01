@@ -2598,7 +2598,6 @@ tcp_table:add_for_decode_as(omi_cme_globex_derived_sbe_v12_0)
 --   Date: Saturday, January 4, 2020
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

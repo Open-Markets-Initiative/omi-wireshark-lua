@@ -4458,7 +4458,6 @@ tcp_table:add_for_decode_as(omi_nse_nsecd_dropcopy_nnfdirect_v1_7)
 --   Specification: DC_CUR_Normal_DROPCOPY_PROTOCOL_1.7_1.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

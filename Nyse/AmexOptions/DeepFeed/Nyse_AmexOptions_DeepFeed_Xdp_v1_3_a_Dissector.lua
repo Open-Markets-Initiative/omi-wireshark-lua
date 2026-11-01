@@ -2785,7 +2785,6 @@ udp_table:add_for_decode_as(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a)
 --   Specification: XDP_Options_Client_Specification_v1.3a.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

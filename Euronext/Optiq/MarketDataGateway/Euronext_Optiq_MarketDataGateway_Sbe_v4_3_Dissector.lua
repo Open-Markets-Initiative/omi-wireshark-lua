@@ -17624,7 +17624,6 @@ udp_table:add_for_decode_as(omi_euronext_optiq_marketdatagateway_sbe_v4_3)
 --   Specification: Euronext Markets - Optiq MDG Client Specifications - v4.3.0 +TC.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

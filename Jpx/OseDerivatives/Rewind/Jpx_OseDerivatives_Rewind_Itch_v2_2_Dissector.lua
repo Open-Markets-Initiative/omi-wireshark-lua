@@ -217,7 +217,6 @@ udp_table:add_for_decode_as(omi_jpx_osederivatives_rewind_itch_v2_2)
 --   Specification: J-GATE3.0_ITCH_Connectivity_Manual_V2.2.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

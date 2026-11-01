@@ -2842,7 +2842,6 @@ udp_table:add_for_decode_as(omi_aquis_aquisstockexchange_realtime_amd_v1_2_3)
 --   Specification: Aquis Stock Exchange Multicast Market Data Specification v1.2.3 (2024).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

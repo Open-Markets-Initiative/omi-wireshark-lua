@@ -3895,7 +3895,6 @@ udp_table:add_for_decode_as(omi_nasdaq_nordicequities_totalview_itch_v3_04_5)
 --   Specification: Nordic_Equity_TotalView-ITCH-3.04.5.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

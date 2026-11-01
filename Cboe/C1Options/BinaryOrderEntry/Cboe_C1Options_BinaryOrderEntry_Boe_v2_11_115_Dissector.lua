@@ -58602,7 +58602,6 @@ tcp_table:add_for_decode_as(omi_cboe_c1options_binaryorderentry_boe_v2_11_115)
 --   Specification: Cboe Titanium U.S. Options BOE Specification.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

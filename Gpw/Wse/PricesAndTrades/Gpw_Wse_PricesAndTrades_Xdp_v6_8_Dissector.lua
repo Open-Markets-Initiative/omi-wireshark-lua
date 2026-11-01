@@ -2972,7 +2972,6 @@ udp_table:add_for_decode_as(omi_gpw_wse_pricesandtrades_xdp_v6_8)
 --   Specification: WSE_CDE_XDP_Message_Specifications_v_68.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

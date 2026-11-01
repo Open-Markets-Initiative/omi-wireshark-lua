@@ -358,7 +358,6 @@ tcp_table:add_for_decode_as(omi_a2x_a2xequities_tcpheader_atp_v1)
 --   Date: Tuesday, August 1, 2017
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

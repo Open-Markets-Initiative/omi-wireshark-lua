@@ -2180,7 +2180,6 @@ udp_table:add_for_decode_as(omi_nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5)
 --   Specification: Nasdaq Canada Multicast Market Data Specification CHIXMMD 1.1 V3.6_French.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -19,9 +19,11 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.message = ProtoField.new(
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.message_header = ProtoField.new("Message Header", "moex.asts.marketdatamulticast.fast.v2025.10.messageheader", ftypes.NONE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_map = ProtoField.new("Presence Map", "moex.asts.marketdatamulticast.fast.v2025.10.presencemap", ftypes.BYTES)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.template_id = ProtoField.new("Template Id", "moex.asts.marketdatamulticast.fast.v2025.10.templateid", ftypes.UINT32)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.record = ProtoField.new("Record", "moex.asts.marketdatamulticast.fast.v2025.10.record", ftypes.NONE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_stop = ProtoField.new("Stop Bit", "moex.asts.marketdatamulticast.fast.v2025.10.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_identified = ProtoField.new("Template Id", "moex.asts.marketdatamulticast.fast.v2025.10.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_unused = ProtoField.new("Unused", "moex.asts.marketdatamulticast.fast.v2025.10.presenceunused", ftypes.UINT8, nil, base.HEX)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.prefix_msg_seq_num = ProtoField.new("Msg Seq Num", "moex.asts.marketdatamulticast.fast.v2025.10.msgseqnum", ftypes.UINT32)
 
 -- Moex Asts MarketDataMulticast Fast 2025.10 Presence Map Fields
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "moex.asts.marketdatamulticast.fast.v2025.10.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -488,6 +490,20 @@ local function read_byte_vector(buffer, offset)
 
   -- the length is checked against what is left rather than by adding it to the
   -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
+
+  return buffer(offset, length), offset + length
+end
+
+-- the same where the field is optional: the length carries the null, and a null
+-- one says the field is absent, with no octets behind it
+local function read_nullable_byte_vector(buffer, offset)
+  local length
+  length, offset = read_nullable_unsigned(buffer, offset)
+  if length == nil then return nil, offset end
+
   if length < 0 or length > buffer:len() - offset then
     error("truncated FAST byte vector")
   end
@@ -4088,7 +4104,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.security_id.dissect = function(buffe
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4110,7 +4126,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.security_id_source.dissect = functio
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4264,7 +4280,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.asset.dissect = function(buffer, off
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4308,7 +4324,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.gc_pool_id.dissect = function(buffer
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4374,7 +4390,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.cfi_code.dissect = function(buffer, 
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4396,7 +4412,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.security_type.dissect = function(buf
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4619,7 +4635,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.security_desc.dissect = function(buf
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4641,7 +4657,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.encoded_security_desc.dissect = func
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4663,7 +4679,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.quote_text.dissect = function(buffer
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4729,7 +4745,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.instr_attrib_value.dissect = functio
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4950,7 +4966,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.state_security_id.dissect = function
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4972,7 +4988,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.encoded_short_security_desc.dissect 
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4994,7 +5010,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.market_code.dissect = function(buffe
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_nullable_byte_vector(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -8317,8 +8333,22 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.dissector = function(buffer, pac
   local offset = 0
   local messages = 0
 
+  -- this feed's dictionaries start again at every packet
+  state.values = {}
+  state.last_template_id = nil
+
+  -- the packet carries these ahead of its fast stream, unencoded
+  if offset + 4 > buffer:len() then
+    root:add_expert_info(PI_MALFORMED, PI_ERROR, "FAST packet ended inside Msg Seq Num")
+    return
+  end
+  root:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.prefix_msg_seq_num, buffer(offset, 4), buffer(offset, 4):le_uint())
+  offset = offset + 4
+
   while offset < buffer:len() do
     local start = offset
+
+    local holder = root
 
     local presence_map = nil
     presence_map, offset = read_presence_map(buffer, offset)
@@ -8343,9 +8373,9 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.dissector = function(buffer, pac
     local message_tree = nil
 
     if template ~= nil then
-      message_tree = root:add(template.node, buffer(start, 0))
+      message_tree = holder:add(template.node, buffer(start, 0))
     else
-      message_tree = root:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.message, buffer(start, 0))
+      message_tree = holder:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.message, buffer(start, 0))
       message_tree:set_text(moex_asts_marketdatamulticast_fast_v2025_10.template_id.name(template_id))
     end
 
@@ -8398,7 +8428,6 @@ udp_table:add_for_decode_as(omi_moex_asts_marketdatamulticast_fast_v2025_10)
 --   Specification: ENG_Market_Data_Multicast_User_Guide_Ver_5_1.pdf
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

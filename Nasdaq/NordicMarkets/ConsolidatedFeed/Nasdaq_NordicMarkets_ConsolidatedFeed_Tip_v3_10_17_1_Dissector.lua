@@ -29654,7 +29654,6 @@ tcp_table:add_for_decode_as(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_
 --   Specification: soupbintcp-for-nasdaq-nordic-v.3.00.2.pdf
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

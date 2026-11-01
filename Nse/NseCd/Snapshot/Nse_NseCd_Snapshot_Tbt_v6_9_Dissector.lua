@@ -1486,7 +1486,6 @@ tcp_table:add_for_decode_as(omi_nse_nsecd_snapshot_tbt_v6_9)
 --   Specification: MTBT_FO_NNF_PROTOCOL_6_9_20260717161139.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

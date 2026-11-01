@@ -4756,7 +4756,6 @@ tcp_table:add_for_decode_as(omi_miax_pearloptions_topofmarket_mach_v1_2)
 --   Specification: Pearl_Top_of_Market_Feed_ToM_v1.2.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -3048,7 +3048,6 @@ tcp_table:add_for_decode_as(omi_lme_lmeselect_level1retransmission_lmesource_v4_
 --   Specification: lmesource-client-interface-specification-v4-18.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

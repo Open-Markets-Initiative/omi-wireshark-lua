@@ -2950,7 +2950,6 @@ udp_table:add_for_decode_as(omi_n24x_24xequities_memoirlastsale_sbe_v2_0)
 --   Specification: MEMOIR Last Sale Feed-v2.0a.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -1644,7 +1644,6 @@ tcp_table:add_for_decode_as(omi_memx_memxequities_commonheader_tcp_v1_2)
 --   Specification: MEMX-TCP-v1_2.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

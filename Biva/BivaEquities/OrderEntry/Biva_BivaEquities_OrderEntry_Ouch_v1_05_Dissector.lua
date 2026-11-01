@@ -2936,7 +2936,6 @@ tcp_table:add_for_decode_as(omi_biva_bivaequities_orderentry_ouch_v1_05)
 --   Specification: BIVA_External_OUCH_Specification_v1.05.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

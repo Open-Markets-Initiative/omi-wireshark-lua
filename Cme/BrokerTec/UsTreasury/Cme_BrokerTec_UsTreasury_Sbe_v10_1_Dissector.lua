@@ -1983,7 +1983,6 @@ tcp_table:add_for_decode_as(omi_cme_brokertec_ustreasury_sbe_v10_1)
 --   Date: Thursday, April 13, 2023
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

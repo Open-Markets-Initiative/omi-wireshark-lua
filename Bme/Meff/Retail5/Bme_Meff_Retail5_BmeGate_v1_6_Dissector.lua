@@ -8643,7 +8643,6 @@ udp_table:add_for_decode_as(omi_bme_meff_retail5_bmegate_v1_6)
 --   Specification: BMEGate Codification Tables.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

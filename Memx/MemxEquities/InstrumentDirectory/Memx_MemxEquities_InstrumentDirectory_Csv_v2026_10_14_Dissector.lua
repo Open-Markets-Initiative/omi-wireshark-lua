@@ -669,7 +669,6 @@ register_filehandler(memx_memxequities_instrumentdirectory_csv_v2026_10_14.file.
 --   Date: Wednesday, October 14, 2026
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

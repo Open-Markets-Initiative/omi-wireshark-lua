@@ -4182,7 +4182,6 @@ udp_table:add_for_decode_as(omi_eurex_t7_eobi_fbe_v2_5)
 --   Specification: eurex_enhanced_order_book_interfaces_V255.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

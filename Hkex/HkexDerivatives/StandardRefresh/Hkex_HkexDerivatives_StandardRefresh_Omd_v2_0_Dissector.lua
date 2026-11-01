@@ -4271,7 +4271,6 @@ udp_table:add_for_decode_as(omi_hkex_hkexderivatives_standardrefresh_omd_v2_0)
 --   Specification: HKEX_OMD_Derivatives_Binary_Interface_Specifications_v2.0.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

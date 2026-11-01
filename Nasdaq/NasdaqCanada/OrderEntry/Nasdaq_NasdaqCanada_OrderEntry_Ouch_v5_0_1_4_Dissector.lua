@@ -6535,7 +6535,6 @@ tcp_table:add_for_decode_as(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4)
 --   Specification: nasdaq-canada-ouch.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

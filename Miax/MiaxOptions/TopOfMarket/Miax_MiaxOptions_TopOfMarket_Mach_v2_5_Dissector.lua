@@ -4538,7 +4538,6 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_topofmarket_mach_v2_5)
 --   Specification: Top_Of_Market_Feed_ToM_v2.5-2.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

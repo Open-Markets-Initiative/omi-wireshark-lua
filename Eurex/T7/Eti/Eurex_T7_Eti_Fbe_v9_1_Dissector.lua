@@ -34164,7 +34164,6 @@ tcp_table:add_for_decode_as(omi_eurex_t7_eti_fbe_v9_1)
 --   Specification: T7_Enhanced_Trading_Interface_-_Derivatives_Message_Reference_v.9.1-D0002.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

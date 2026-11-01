@@ -19,6 +19,7 @@ omi_athex_oasis_mdfs_fast_v9.fields.message = ProtoField.new("Message", "athex.o
 omi_athex_oasis_mdfs_fast_v9.fields.message_header = ProtoField.new("Message Header", "athex.oasis.mdfs.fast.v9.messageheader", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_map = ProtoField.new("Presence Map", "athex.oasis.mdfs.fast.v9.presencemap", ftypes.BYTES)
 omi_athex_oasis_mdfs_fast_v9.fields.template_id = ProtoField.new("Template Id", "athex.oasis.mdfs.fast.v9.templateid", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.record = ProtoField.new("Record", "athex.oasis.mdfs.fast.v9.record", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_stop = ProtoField.new("Stop Bit", "athex.oasis.mdfs.fast.v9.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_identified = ProtoField.new("Template Id", "athex.oasis.mdfs.fast.v9.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_unused = ProtoField.new("Unused", "athex.oasis.mdfs.fast.v9.presenceunused", ftypes.UINT8, nil, base.HEX)
@@ -545,6 +546,20 @@ local function read_byte_vector(buffer, offset)
 
   -- the length is checked against what is left rather than by adding it to the
   -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
+
+  return buffer(offset, length), offset + length
+end
+
+-- the same where the field is optional: the length carries the null, and a null
+-- one says the field is absent, with no octets behind it
+local function read_nullable_byte_vector(buffer, offset)
+  local length
+  length, offset = read_nullable_unsigned(buffer, offset)
+  if length == nil then return nil, offset end
+
   if length < 0 or length > buffer:len() - offset then
     error("truncated FAST byte vector")
   end
@@ -8806,6 +8821,8 @@ omi_athex_oasis_mdfs_fast_v9.dissector = function(buffer, packet, parent)
   while offset < buffer:len() do
     local start = offset
 
+    local holder = root
+
     local presence_map = nil
     presence_map, offset = read_presence_map(buffer, offset)
     local mapped = offset
@@ -8829,9 +8846,9 @@ omi_athex_oasis_mdfs_fast_v9.dissector = function(buffer, packet, parent)
     local message_tree = nil
 
     if template ~= nil then
-      message_tree = root:add(template.node, buffer(start, 0))
+      message_tree = holder:add(template.node, buffer(start, 0))
     else
-      message_tree = root:add(omi_athex_oasis_mdfs_fast_v9.fields.message, buffer(start, 0))
+      message_tree = holder:add(omi_athex_oasis_mdfs_fast_v9.fields.message, buffer(start, 0))
       message_tree:set_text(athex_oasis_mdfs_fast_v9.template_id.name(template_id))
     end
 
@@ -8885,7 +8902,6 @@ udp_table:add_for_decode_as(omi_athex_oasis_mdfs_fast_v9)
 --   Specification: OASIS MDFS - Message Reference v2.2.pdf
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

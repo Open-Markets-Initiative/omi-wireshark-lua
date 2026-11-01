@@ -1879,7 +1879,6 @@ udp_table:add_for_decode_as(omi_odx_odxequities_pts_itch_v2_2)
 --   Specification: ODX_PTS_ITCH_Equities_v2.2.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

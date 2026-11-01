@@ -19,6 +19,7 @@ omi_b3_b3derivatives_umdf_fast_v5_1_17.fields.message = ProtoField.new("Message"
 omi_b3_b3derivatives_umdf_fast_v5_1_17.fields.message_header = ProtoField.new("Message Header", "b3.b3derivatives.umdf.fast.v5.1.17.messageheader", ftypes.NONE)
 omi_b3_b3derivatives_umdf_fast_v5_1_17.fields.presence_map = ProtoField.new("Presence Map", "b3.b3derivatives.umdf.fast.v5.1.17.presencemap", ftypes.BYTES)
 omi_b3_b3derivatives_umdf_fast_v5_1_17.fields.template_id = ProtoField.new("Template Id", "b3.b3derivatives.umdf.fast.v5.1.17.templateid", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_17.fields.record = ProtoField.new("Record", "b3.b3derivatives.umdf.fast.v5.1.17.record", ftypes.NONE)
 omi_b3_b3derivatives_umdf_fast_v5_1_17.fields.presence_stop = ProtoField.new("Stop Bit", "b3.b3derivatives.umdf.fast.v5.1.17.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_b3_b3derivatives_umdf_fast_v5_1_17.fields.presence_identified = ProtoField.new("Template Id", "b3.b3derivatives.umdf.fast.v5.1.17.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_b3_b3derivatives_umdf_fast_v5_1_17.fields.presence_unused = ProtoField.new("Unused", "b3.b3derivatives.umdf.fast.v5.1.17.presenceunused", ftypes.UINT8, nil, base.HEX)
@@ -656,6 +657,20 @@ local function read_byte_vector(buffer, offset)
 
   -- the length is checked against what is left rather than by adding it to the
   -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
+
+  return buffer(offset, length), offset + length
+end
+
+-- the same where the field is optional: the length carries the null, and a null
+-- one says the field is absent, with no octets behind it
+local function read_nullable_byte_vector(buffer, offset)
+  local length
+  length, offset = read_nullable_unsigned(buffer, offset)
+  if length == nil then return nil, offset end
+
   if length < 0 or length > buffer:len() - offset then
     error("truncated FAST byte vector")
   end
@@ -16499,6 +16514,8 @@ omi_b3_b3derivatives_umdf_fast_v5_1_17.dissector = function(buffer, packet, pare
   while offset < buffer:len() do
     local start = offset
 
+    local holder = root
+
     local presence_map = nil
     presence_map, offset = read_presence_map(buffer, offset)
     local mapped = offset
@@ -16522,9 +16539,9 @@ omi_b3_b3derivatives_umdf_fast_v5_1_17.dissector = function(buffer, packet, pare
     local message_tree = nil
 
     if template ~= nil then
-      message_tree = root:add(template.node, buffer(start, 0))
+      message_tree = holder:add(template.node, buffer(start, 0))
     else
-      message_tree = root:add(omi_b3_b3derivatives_umdf_fast_v5_1_17.fields.message, buffer(start, 0))
+      message_tree = holder:add(omi_b3_b3derivatives_umdf_fast_v5_1_17.fields.message, buffer(start, 0))
       message_tree:set_text(b3_b3derivatives_umdf_fast_v5_1_17.template_id.name(template_id))
     end
 
@@ -16577,7 +16594,6 @@ udp_table:add_for_decode_as(omi_b3_b3derivatives_umdf_fast_v5_1_17)
 --   Specification: UMDF_FIX-FAST_MarketDataSpecification_v2.1.7.pdf
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

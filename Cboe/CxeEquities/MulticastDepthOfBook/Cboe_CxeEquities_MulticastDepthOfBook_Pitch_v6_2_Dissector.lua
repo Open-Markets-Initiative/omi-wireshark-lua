@@ -3446,7 +3446,6 @@ udp_table:add_for_decode_as(omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_2
 --   Specification: BATS_Europe_MC_PITCH_Specification_Effective.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -19,6 +19,7 @@ omi_eurex_t7_emdi_fast_v12_0.fields.message = ProtoField.new("Message", "eurex.t
 omi_eurex_t7_emdi_fast_v12_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.emdi.fast.v12.0.messageheader", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v12_0.fields.presence_map = ProtoField.new("Presence Map", "eurex.t7.emdi.fast.v12.0.presencemap", ftypes.BYTES)
 omi_eurex_t7_emdi_fast_v12_0.fields.template_id = ProtoField.new("Template Id", "eurex.t7.emdi.fast.v12.0.templateid", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v12_0.fields.record = ProtoField.new("Record", "eurex.t7.emdi.fast.v12.0.record", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v12_0.fields.presence_stop = ProtoField.new("Stop Bit", "eurex.t7.emdi.fast.v12.0.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_eurex_t7_emdi_fast_v12_0.fields.presence_identified = ProtoField.new("Template Id", "eurex.t7.emdi.fast.v12.0.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_eurex_t7_emdi_fast_v12_0.fields.presence_unused = ProtoField.new("Unused", "eurex.t7.emdi.fast.v12.0.presenceunused", ftypes.UINT8, nil, base.HEX)
@@ -473,6 +474,20 @@ local function read_byte_vector(buffer, offset)
 
   -- the length is checked against what is left rather than by adding it to the
   -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
+
+  return buffer(offset, length), offset + length
+end
+
+-- the same where the field is optional: the length carries the null, and a null
+-- one says the field is absent, with no octets behind it
+local function read_nullable_byte_vector(buffer, offset)
+  local length
+  length, offset = read_nullable_unsigned(buffer, offset)
+  if length == nil then return nil, offset end
+
   if length < 0 or length > buffer:len() - offset then
     error("truncated FAST byte vector")
   end
@@ -8474,6 +8489,8 @@ omi_eurex_t7_emdi_fast_v12_0.dissector = function(buffer, packet, parent)
   while offset < buffer:len() do
     local start = offset
 
+    local holder = root
+
     local presence_map = nil
     presence_map, offset = read_presence_map(buffer, offset)
     local mapped = offset
@@ -8497,9 +8514,9 @@ omi_eurex_t7_emdi_fast_v12_0.dissector = function(buffer, packet, parent)
     local message_tree = nil
 
     if template ~= nil then
-      message_tree = root:add(template.node, buffer(start, 0))
+      message_tree = holder:add(template.node, buffer(start, 0))
     else
-      message_tree = root:add(omi_eurex_t7_emdi_fast_v12_0.fields.message, buffer(start, 0))
+      message_tree = holder:add(omi_eurex_t7_emdi_fast_v12_0.fields.message, buffer(start, 0))
       message_tree:set_text(eurex_t7_emdi_fast_v12_0.template_id.name(template_id))
     end
 
@@ -8563,7 +8580,6 @@ udp_table:add_for_decode_as(omi_eurex_t7_emdi_fast_v12_0)
 --   Specification: T7 Market and Reference Data Interfaces Manual
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

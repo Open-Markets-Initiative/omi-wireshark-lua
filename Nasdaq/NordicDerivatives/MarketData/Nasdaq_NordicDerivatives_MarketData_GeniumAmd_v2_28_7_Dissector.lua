@@ -3722,7 +3722,6 @@ udp_table:add_for_decode_as(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2
 --   Specification: Nasdaq Nordic Genium INET AMD Protocol Specification (a2.28.7).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

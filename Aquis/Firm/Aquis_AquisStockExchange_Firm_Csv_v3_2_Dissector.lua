@@ -626,7 +626,6 @@ register_filehandler(aquis_aquisstockexchange_firm_csv_v3_2.file.handler)
 --   Specification: Aquis Stock Exchange Reference Data Specification v3.2.pdf
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

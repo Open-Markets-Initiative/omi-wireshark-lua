@@ -3096,7 +3096,6 @@ udp_table:add_for_decode_as(omi_asx_asxsecurities_trade_itch_v3_1)
 --   Specification: asx-trade-itch-message-specification (2024-08-07).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

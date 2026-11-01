@@ -17242,7 +17242,6 @@ tcp_table:add_for_decode_as(omi_euronext_optiq_orderentrygateway_sbe_v2_1)
 --   Date: Monday, March 30, 2020
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

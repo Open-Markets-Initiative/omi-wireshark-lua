@@ -2852,7 +2852,6 @@ udp_table:add_for_decode_as(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7)
 --   Specification: Nasdaq AMD Market Data (2017-11).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

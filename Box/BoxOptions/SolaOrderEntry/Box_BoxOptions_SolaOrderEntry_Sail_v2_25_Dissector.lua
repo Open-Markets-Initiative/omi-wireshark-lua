@@ -10263,7 +10263,6 @@ tcp_table:add_for_decode_as(omi_box_boxoptions_solaorderentry_sail_v2_25)
 --   Specification: BOX-SAIL-Specifications-Guide-v2.25.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

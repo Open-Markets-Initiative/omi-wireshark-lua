@@ -3883,7 +3883,6 @@ udp_table:add_for_decode_as(omi_nyse_nationalequities_integratedfeedrefresh_pill
 --   Specification: NYSE_Pillar_Integrated_Feed_Client_Specification.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -1313,7 +1313,6 @@ udp_table:add_for_decode_as(omi_nse_nsecm_mtbt_tbt_v7_0)
 --   Specification: MTBT_FO_NNF_PROTOCOL_7.0_20260817172155.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

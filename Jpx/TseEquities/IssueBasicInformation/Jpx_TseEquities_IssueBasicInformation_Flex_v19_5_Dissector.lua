@@ -3578,7 +3578,6 @@ udp_table:add_for_decode_as(omi_jpx_tseequities_issuebasicinformation_flex_v19_5
 --   Specification: 01_FLEX Connection Specification Common Items DS.19.5.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

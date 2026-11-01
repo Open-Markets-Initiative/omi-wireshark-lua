@@ -8268,7 +8268,6 @@ register_filehandler(databento_marketdata_normalized_dbn_v1.file_handler.file.ha
 --   Date: Sunday, October 4, 2026
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

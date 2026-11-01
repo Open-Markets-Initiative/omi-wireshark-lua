@@ -9424,7 +9424,6 @@ udp_table:add_for_decode_as(omi_nse_nsefo_broadcast_nnfbcast_v9_50)
 --   Specification: TP_FO_Trimmed_NNF_PROTOCOL_9_50.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -890,7 +890,6 @@ register_filehandler(a2x_a2xequities_securitycomma_csv_v1_0.file.handler)
 --   Specification: A2X Reference Data Specification v1.0.pdf
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

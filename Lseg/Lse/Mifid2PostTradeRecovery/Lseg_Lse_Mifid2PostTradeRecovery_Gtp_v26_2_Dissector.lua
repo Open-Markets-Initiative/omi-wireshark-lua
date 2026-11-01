@@ -5949,7 +5949,6 @@ tcp_table:add_for_decode_as(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2)
 --   Specification: gtp-002-technical-guide-london-stock-exchange-issue-26.2.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

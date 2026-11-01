@@ -4724,7 +4724,6 @@ udp_table:add_for_decode_as(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d)
 --   Specification: PILLAR_COMPLEX_Client_Specification.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -4080,7 +4080,6 @@ tcp_table:add_for_decode_as(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a)
 --   Specification: MIAX Sapphire Liquidity Feed SLF v1.0a.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

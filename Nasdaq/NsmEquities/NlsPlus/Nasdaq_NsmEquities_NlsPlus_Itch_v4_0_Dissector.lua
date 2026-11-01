@@ -3232,7 +3232,6 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_nlsplus_itch_v4_0)
 --   Specification: NLS4.0_02132026.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -1410,7 +1410,6 @@ udp_table:add_for_decode_as(omi_hkex_hkexsecurities_index_omd_v1_44)
 --   Specification: HKEX_OMD-C_Binary_Interface_Specifications_v1.44.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

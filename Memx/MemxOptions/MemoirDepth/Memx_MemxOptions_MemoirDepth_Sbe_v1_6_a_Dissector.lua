@@ -2560,7 +2560,6 @@ udp_table:add_for_decode_as(omi_memx_memxoptions_memoirdepth_sbe_v1_6_a)
 --   Specification: MEMOIR Depth for US Options-v1_6a.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

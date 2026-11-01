@@ -2158,7 +2158,6 @@ udp_table:add_for_decode_as(omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01)
 --   Specification: TradelogiQ-Level-1-ITCH-5.0-Specification-v1.01.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

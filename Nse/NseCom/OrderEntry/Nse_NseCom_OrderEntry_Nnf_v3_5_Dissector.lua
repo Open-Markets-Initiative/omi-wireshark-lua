@@ -21753,7 +21753,6 @@ tcp_table:add_for_decode_as(omi_nse_nsecom_orderentry_nnf_v3_5)
 --   Specification: TP_COM_Trimmed_NNF_Protocol_3_5_20251229105314.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

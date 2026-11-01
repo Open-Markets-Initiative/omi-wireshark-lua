@@ -35846,7 +35846,6 @@ tcp_table:add_for_decode_as(omi_eurex_t7_eti_fbe_v11_0)
 --   Date: Monday, October 31, 2022
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

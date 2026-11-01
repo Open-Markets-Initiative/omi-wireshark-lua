@@ -3594,7 +3594,6 @@ udp_table:add_for_decode_as(omi_cboe_c1options_complex_pitch_v2_1_18)
 --   Specification: US Options Complex Multicast PITCH Specification v2.1.18.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

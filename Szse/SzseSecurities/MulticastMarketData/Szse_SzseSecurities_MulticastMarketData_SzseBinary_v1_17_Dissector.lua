@@ -6906,7 +6906,6 @@ udp_table:add_for_decode_as(omi_szse_szsesecurities_multicastmarketdata_szsebina
 --   Specification: SZSE Interface Specification of BINARY Market Data Feed (Ver1.17).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

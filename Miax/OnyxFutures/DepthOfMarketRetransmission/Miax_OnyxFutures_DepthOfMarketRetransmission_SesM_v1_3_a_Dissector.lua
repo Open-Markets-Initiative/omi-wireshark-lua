@@ -4824,7 +4824,6 @@ tcp_table:add_for_decode_as(omi_miax_onyxfutures_depthofmarketretransmission_ses
 --   Specification: ONYX_DoM_Feed_v1.3a.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

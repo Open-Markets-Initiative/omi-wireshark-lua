@@ -2821,7 +2821,6 @@ udp_table:add_for_decode_as(omi_tradelogiq_lynxats_multicastlevel2_itch_v2_01)
 --   Specification: Tradelogiq-Level-2-ITCH-5.0-Specification-v2.01.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

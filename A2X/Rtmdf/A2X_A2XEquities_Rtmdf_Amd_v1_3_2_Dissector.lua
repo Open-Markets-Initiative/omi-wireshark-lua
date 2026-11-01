@@ -1934,7 +1934,6 @@ udp_table:add_for_decode_as(omi_a2x_a2xequities_rtmdf_amd_v1_3_2)
 --   Specification: A2X712-Market-Data-Techincal-Specification-v1.3.2.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

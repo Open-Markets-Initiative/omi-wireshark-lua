@@ -1793,7 +1793,6 @@ udp_table:add_for_decode_as(omi_jnx_jnxbonds_pts_itch_v1_2)
 --   Specification: Japannext_PTS_ITCH_Bonds_v1.2.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

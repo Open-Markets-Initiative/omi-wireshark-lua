@@ -2274,7 +2274,6 @@ omi_okx_okxdigital_marketdata_sbe_v1_0:register_heuristic("ws", omi_okx_okxdigit
 --   Date: Thursday, November 6, 2025
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

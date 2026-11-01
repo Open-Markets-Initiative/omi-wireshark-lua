@@ -3023,7 +3023,6 @@ udp_table:add_for_decode_as(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_1
 --   Specification: Cboe Canada Equities Multicast PITCH Specification.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

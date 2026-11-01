@@ -1714,7 +1714,6 @@ tcp_table:add_for_decode_as(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_9)
 --   Specification: technical-specifications-cboe-titanium-bzx-equities-auction-feed-specification.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

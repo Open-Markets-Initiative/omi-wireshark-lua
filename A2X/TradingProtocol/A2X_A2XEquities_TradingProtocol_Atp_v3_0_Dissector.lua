@@ -3305,7 +3305,6 @@ tcp_table:add_for_decode_as(omi_a2x_a2xequities_tradingprotocol_atp_v3_0)
 --   Specification: A2X ATP Binary Protocol Specification v3.0 (Draft).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

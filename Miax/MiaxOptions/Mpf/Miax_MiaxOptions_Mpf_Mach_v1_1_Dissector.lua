@@ -2600,7 +2600,6 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_mpf_mach_v1_1)
 --   Specification: MIAX_Product_Feed_v1.1_re.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

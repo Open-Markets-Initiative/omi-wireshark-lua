@@ -2258,7 +2258,6 @@ udp_table:add_for_decode_as(omi_cboe_edgxoptions_complexauction_pitch_v2_2_41)
 --   Specification: US_OPTIONS_COMPLEX_AUCTION_MULTICAST_PITCH_SPECIFICATION.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

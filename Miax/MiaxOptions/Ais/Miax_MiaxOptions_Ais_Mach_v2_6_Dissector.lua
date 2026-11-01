@@ -4785,7 +4785,6 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_ais_mach_v2_6)
 --   Specification: Administrative Information Subscriber Feed AIS v2.6.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

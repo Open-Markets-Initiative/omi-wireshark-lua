@@ -18508,7 +18508,6 @@ udp_table:add_for_decode_as(omi_euronext_optiq_marketdatagateway_sbe_v5_35)
 --   Specification: Optiq MDG Messages - Interface Specification - Euronext Cash and Derivatives Markets - External - v5.35.0 +TC
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

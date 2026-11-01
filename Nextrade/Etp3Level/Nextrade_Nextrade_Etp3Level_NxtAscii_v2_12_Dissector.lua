@@ -3439,7 +3439,6 @@ udp_table:add_for_decode_as(omi_nextrade_nextrade_etp3level_nxtascii_v2_12)
 --   Date: Thursday, August 13, 2026
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -4993,7 +4993,6 @@ tcp_table:add_for_decode_as(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7)
 --   Date: Tuesday, July 1, 2025
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

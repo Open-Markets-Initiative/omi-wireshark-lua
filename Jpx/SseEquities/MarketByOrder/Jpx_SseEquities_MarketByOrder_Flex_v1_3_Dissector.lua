@@ -2803,7 +2803,6 @@ tcp_table:add_for_decode_as(omi_jpx_sseequities_marketbyorder_flex_v1_3)
 --   Specification: TSEarrowhead_FLEX_MarketbyOrderSpecifications_ver.1.3.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

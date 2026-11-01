@@ -6115,7 +6115,6 @@ tcp_table:add_for_decode_as(omi_miax_pearlequities_expressorders_meo_v2_7_a)
 --   Specification: miax express orders meo (2025-07-19).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

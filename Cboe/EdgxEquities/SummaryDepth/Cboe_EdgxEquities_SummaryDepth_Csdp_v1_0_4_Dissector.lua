@@ -1996,7 +1996,6 @@ udp_table:add_for_decode_as(omi_cboe_edgxequities_summarydepth_csdp_v1_0_4)
 --   Specification: Cboe_US_Equities_Summary_Depth_Feed_Specification.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

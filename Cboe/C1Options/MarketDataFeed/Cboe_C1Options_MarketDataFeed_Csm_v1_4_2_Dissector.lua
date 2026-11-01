@@ -4305,7 +4305,6 @@ udp_table:add_for_decode_as(omi_cboe_c1options_marketdatafeed_csm_v1_4_2)
 --   Specification: Cboe Streaming Current Market v1.4.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

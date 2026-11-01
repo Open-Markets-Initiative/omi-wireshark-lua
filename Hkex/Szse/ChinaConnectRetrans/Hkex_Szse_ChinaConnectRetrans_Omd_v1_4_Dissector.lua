@@ -2359,7 +2359,6 @@ tcp_table:add_for_decode_as(omi_hkex_szse_chinaconnectretrans_omd_v1_4)
 --   Specification: OMD_Interface_Specification_China_Connect_Securities (v1.4).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

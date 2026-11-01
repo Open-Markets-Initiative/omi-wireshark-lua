@@ -3850,7 +3850,6 @@ tcp_table:add_for_decode_as(omi_aquis_aquisequities_tradingprotocol_atp_v4_0)
 --   Specification: Aquis ATP Technical Specification v4.0.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

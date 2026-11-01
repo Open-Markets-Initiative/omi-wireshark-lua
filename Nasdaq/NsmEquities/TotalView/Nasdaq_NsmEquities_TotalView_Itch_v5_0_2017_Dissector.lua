@@ -6138,7 +6138,6 @@ register_filehandler(nasdaq_nsmequities_totalview_itch_v5_0_2017.file_handler.fi
 --   Specification: Nasdaq TotalView ITCH (5.0 - 2017).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

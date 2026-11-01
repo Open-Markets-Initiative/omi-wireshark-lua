@@ -2355,7 +2355,6 @@ omi_binance_binancespot_marketdata_sbe_v1_0:register_heuristic("ws", omi_binance
 --   Date: Friday, September 18, 2026
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -3022,7 +3022,6 @@ udp_table:add_for_decode_as(omi_jpx_osederivatives_geniuminet_itch_v5_0_6)
 --   Specification: ITCH_ProtSpec_OSE_va70.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

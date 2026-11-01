@@ -56316,7 +56316,6 @@ tcp_table:add_for_decode_as(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18)
 --   Specification: Cboe_Europe_CEDX_BOE2_Specification.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

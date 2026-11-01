@@ -2976,7 +2976,6 @@ udp_table:add_for_decode_as(omi_miax_pearloptions_topofmarket_mach_v1_0)
 --   Specification: PEARL Top Of Market Feed ToM v1.0b.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

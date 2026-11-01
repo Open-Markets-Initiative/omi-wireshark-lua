@@ -9400,7 +9400,6 @@ udp_table:add_for_decode_as(omi_b3_b3derivatives_binaryumdf_sbe_v2_2)
 --   Specification: BinaryUMDF-MessageReference-v.2.2.0-enUS.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

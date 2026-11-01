@@ -1573,7 +1573,6 @@ udp_table:add_for_decode_as(omi_nyse_nysebonds_quote_pdp_v1_2_a)
 --   Specification: NYSE_Bonds_Quote_Client_Spec.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

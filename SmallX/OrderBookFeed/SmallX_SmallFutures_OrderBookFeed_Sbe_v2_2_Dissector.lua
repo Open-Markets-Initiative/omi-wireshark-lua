@@ -5789,7 +5789,6 @@ udp_table:add_for_decode_as(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2)
 --   Specification: Small Exchange Market Data Feed 2.2.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

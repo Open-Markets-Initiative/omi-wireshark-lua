@@ -19,6 +19,7 @@ omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.message = ProtoField.new
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.message_header = ProtoField.new("Message Header", "bse.bseindia.mdi.fast.v502.002.420.600003750.messageheader", ftypes.NONE)
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_map = ProtoField.new("Presence Map", "bse.bseindia.mdi.fast.v502.002.420.600003750.presencemap", ftypes.BYTES)
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.template_id = ProtoField.new("Template Id", "bse.bseindia.mdi.fast.v502.002.420.600003750.templateid", ftypes.UINT32)
+omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.record = ProtoField.new("Record", "bse.bseindia.mdi.fast.v502.002.420.600003750.record", ftypes.NONE)
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_stop = ProtoField.new("Stop Bit", "bse.bseindia.mdi.fast.v502.002.420.600003750.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_identified = ProtoField.new("Template Id", "bse.bseindia.mdi.fast.v502.002.420.600003750.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_unused = ProtoField.new("Unused", "bse.bseindia.mdi.fast.v502.002.420.600003750.presenceunused", ftypes.UINT8, nil, base.HEX)
@@ -433,6 +434,20 @@ local function read_byte_vector(buffer, offset)
 
   -- the length is checked against what is left rather than by adding it to the
   -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
+
+  return buffer(offset, length), offset + length
+end
+
+-- the same where the field is optional: the length carries the null, and a null
+-- one says the field is absent, with no octets behind it
+local function read_nullable_byte_vector(buffer, offset)
+  local length
+  length, offset = read_nullable_unsigned(buffer, offset)
+  if length == nil then return nil, offset end
+
   if length < 0 or length > buffer:len() - offset then
     error("truncated FAST byte vector")
   end
@@ -5264,6 +5279,8 @@ omi_bse_bseindia_mdi_fast_v502_002_420_600003750.dissector = function(buffer, pa
   while offset < buffer:len() do
     local start = offset
 
+    local holder = root
+
     local presence_map = nil
     presence_map, offset = read_presence_map(buffer, offset)
     local mapped = offset
@@ -5287,9 +5304,9 @@ omi_bse_bseindia_mdi_fast_v502_002_420_600003750.dissector = function(buffer, pa
     local message_tree = nil
 
     if template ~= nil then
-      message_tree = root:add(template.node, buffer(start, 0))
+      message_tree = holder:add(template.node, buffer(start, 0))
     else
-      message_tree = root:add(omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.message, buffer(start, 0))
+      message_tree = holder:add(omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.message, buffer(start, 0))
       message_tree:set_text(bse_bseindia_mdi_fast_v502_002_420_600003750.template_id.name(template_id))
     end
 
@@ -5342,7 +5359,6 @@ udp_table:add_for_decode_as(omi_bse_bseindia_mdi_fast_v502_002_420_600003750)
 --   Specification: BSE_market data_manual_v 1.4.5.pdf
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

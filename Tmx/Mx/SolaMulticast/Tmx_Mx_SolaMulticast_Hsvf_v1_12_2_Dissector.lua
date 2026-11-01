@@ -24170,7 +24170,6 @@ udp_table:add_for_decode_as(omi_tmx_mx_solamulticast_hsvf_v1_12_2)
 --   Specification: MX SOLA HSVF Multicast Specifications Guide (1.12.2).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

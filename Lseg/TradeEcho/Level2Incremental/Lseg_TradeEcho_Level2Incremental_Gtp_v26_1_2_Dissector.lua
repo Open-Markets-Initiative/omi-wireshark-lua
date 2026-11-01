@@ -2143,7 +2143,6 @@ udp_table:add_for_decode_as(omi_lseg_tradeecho_level2incremental_gtp_v26_1_2)
 --   Specification: gtp-002-technical-guide-tradecho-pre-trade-si-quote-issue-26-1-2_0.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -1567,7 +1567,6 @@ tcp_table:add_for_decode_as(omi_miax_pearlequities_headeronly_esesm_v1_0_a)
 --   Specification: tcp_session_mgmt_esesm.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

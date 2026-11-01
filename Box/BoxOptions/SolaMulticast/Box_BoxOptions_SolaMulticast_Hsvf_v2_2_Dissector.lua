@@ -17938,7 +17938,6 @@ udp_table:add_for_decode_as(omi_box_boxoptions_solamulticast_hsvf_v2_2)
 --   Specification: BOX-SOLA-HSVF-Multicast-Specifications-v2.2.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

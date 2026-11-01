@@ -9556,7 +9556,6 @@ udp_table:add_for_decode_as(omi_koscom_mdcsrealtime_koscom_exture_v1_20)
 --   Date: Thursday, May 26, 2022
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -29465,7 +29465,6 @@ tcp_table:add_for_decode_as(omi_eurex_t7_xti_fbe_v14_1)
 --   Specification: T7_R.14.1_Enhanced_Trading_Interface_-_Cash_Message_Reference_Version 1.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

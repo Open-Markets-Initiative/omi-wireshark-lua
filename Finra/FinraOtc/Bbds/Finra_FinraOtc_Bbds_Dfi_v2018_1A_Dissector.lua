@@ -2917,7 +2917,6 @@ udp_table:add_for_decode_as(omi_finra_finraotc_bbds_dfi_v2018_1a)
 --   Specification: FINRA BBDS Data Feed Interface Specification (2018-1A).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

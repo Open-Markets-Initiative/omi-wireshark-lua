@@ -4166,7 +4166,6 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_orderfeed_mach_v2_5_b)
 --   Specification: MIAX Options Order Feed_MOR_v2.5b_re.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

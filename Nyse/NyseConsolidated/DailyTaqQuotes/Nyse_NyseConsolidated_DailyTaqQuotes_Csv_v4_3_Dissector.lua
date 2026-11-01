@@ -1947,7 +1947,6 @@ register_filehandler(nyse_nyseconsolidated_dailytaqquotes_csv_v4_3.file.handler)
 --   Specification: Daily_TAQ_Client_Spec_v4.3.pdf
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

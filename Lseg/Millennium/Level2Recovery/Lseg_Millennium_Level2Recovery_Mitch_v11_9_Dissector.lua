@@ -2011,7 +2011,6 @@ tcp_table:add_for_decode_as(omi_lseg_millennium_level2recovery_mitch_v11_9)
 --   Specification: mit303issue119.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

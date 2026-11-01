@@ -3229,7 +3229,6 @@ udp_table:add_for_decode_as(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3)
 --   Specification: gtp-002-technical-guide-turquoise-issue-26-3.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

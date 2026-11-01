@@ -2786,7 +2786,6 @@ udp_table:add_for_decode_as(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54)
 --   Specification: US_OPTIONS_MULTICAST_TOP_SPECIFICATION.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

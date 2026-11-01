@@ -18699,7 +18699,6 @@ tcp_table:add_for_decode_as(omi_euronext_optiq_orderentrygateway_sbe_v5_51)
 --   Specification: Optiq OEG SBE Messages - Interface Specification - Euronext Cash and Derivatives Markets - External - v5.351.0 +TC
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

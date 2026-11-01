@@ -5115,7 +5115,6 @@ udp_table:add_for_decode_as(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v
 --   Specification: FairX_UDP_MarketData_API_V1.2.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

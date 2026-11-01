@@ -1719,7 +1719,6 @@ tcp_table:add_for_decode_as(omi_nasdaq_bxequities_drop_asciidrop_v2_1)
 --   Specification: NQBX_DROP2.1.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

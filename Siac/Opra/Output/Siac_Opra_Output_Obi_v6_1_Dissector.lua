@@ -4604,7 +4604,6 @@ udp_table:add_for_decode_as(omi_siac_opra_output_obi_v6_1)
 --   Specification: OPRA_Pillar_Output_Specification (6.1c).pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

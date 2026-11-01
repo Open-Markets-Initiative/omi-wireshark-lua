@@ -3259,7 +3259,6 @@ tcp_table:add_for_decode_as(omi_cme_globex_settlements_sbe_v7_0)
 --   Date: Monday, December 3, 2018
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

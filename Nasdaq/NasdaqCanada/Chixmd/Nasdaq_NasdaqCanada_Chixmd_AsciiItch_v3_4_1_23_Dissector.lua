@@ -3056,7 +3056,6 @@ tcp_table:add_for_decode_as(omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23)
 --   Specification: Nasdaq Canada Market Data Specification - CHIXMD 3.4 V1.23.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

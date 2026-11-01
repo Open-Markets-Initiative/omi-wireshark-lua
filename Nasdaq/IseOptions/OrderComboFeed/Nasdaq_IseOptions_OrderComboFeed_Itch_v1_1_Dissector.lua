@@ -2292,7 +2292,6 @@ udp_table:add_for_decode_as(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1)
 --   Specification: ISEOrderComboFeedSpecification_tcm5044-41354.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

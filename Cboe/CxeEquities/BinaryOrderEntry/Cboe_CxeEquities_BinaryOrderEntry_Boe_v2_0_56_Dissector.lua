@@ -38968,7 +38968,6 @@ tcp_table:add_for_decode_as(omi_cboe_cxeequities_binaryorderentry_boe_v2_0_56)
 --   Specification: BATS_Europe_BOE2_Specification.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

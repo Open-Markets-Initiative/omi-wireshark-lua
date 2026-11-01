@@ -3667,7 +3667,6 @@ udp_table:add_for_decode_as(omi_nasdaq_mrxoptions_orderfeed_itch_v2_1)
 --   Specification: Options_Order_Feed_2.1.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

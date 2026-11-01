@@ -1963,7 +1963,6 @@ udp_table:add_for_decode_as(omi_nyse_amexequities_openbook_xdp_v1_9_a)
 --   Specification: XDP_Depth_of_Book_Client_Spec.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -13066,7 +13066,6 @@ tcp_table:add_for_decode_as(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0)
 --   Specification: BinaryEntryPoint-MessageReference-7.0.1-enUS_.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

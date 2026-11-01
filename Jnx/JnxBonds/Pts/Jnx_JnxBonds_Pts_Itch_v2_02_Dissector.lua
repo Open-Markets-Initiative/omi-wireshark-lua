@@ -1799,7 +1799,6 @@ udp_table:add_for_decode_as(omi_jnx_jnxbonds_pts_itch_v2_02)
 --   Specification: JNX_ITCH_Market_Data_Specification_Bonds_2.02.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

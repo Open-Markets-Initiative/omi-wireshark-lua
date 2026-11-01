@@ -1433,7 +1433,6 @@ udp_table:add_for_decode_as(omi_otcmarkets_linkats_trade_link_v4_10_4)
 --   Specification: OTC Markets Multicast Data Feeds v4.10.4.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

@@ -3589,7 +3589,6 @@ udp_table:add_for_decode_as(omi_cnsx_cse_multicast_mmd_v2_8)
 --   Specification: CSE_Multicast_Market_Data_Feed_Programmers_Guide_2.8.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

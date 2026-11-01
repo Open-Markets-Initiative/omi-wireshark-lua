@@ -5140,7 +5140,6 @@ udp_table:add_for_decode_as(omi_nasdaq_utdf_output_utp_v1_5)
 --   Specification: UtpBinaryOutputSpec.pdf
 --
 -- Script:
---   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

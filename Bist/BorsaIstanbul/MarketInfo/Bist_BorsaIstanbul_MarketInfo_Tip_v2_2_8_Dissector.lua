@@ -12109,7 +12109,6 @@ tcp_table:add_for_decode_as(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8)
 --   Specification: soupbintcp-protocol-specification.pdf
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers
