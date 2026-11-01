@@ -50,6 +50,13 @@
 | [MemxOptions][MemxOptions.Exchange] | [Memo][Memx.MemxOptions.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.9][Memx.MemxOptions.Memo.Sbe.v1.9.Dissector] | 9/27/2024 | 9223 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Memx.MemxOptions.Memo.Sbe.v1.9.Url] |
 
 
+### Protocols
+
+| Division | [Protocol][Omi.Memx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Memx.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [MemxEquities][MemxEquities.Exchange] | [InstrumentDirectory][Memx.MemxEquities.InstrumentDirectory] | [Csv][Omi.Encoding.Csv] | [2026.10.14][Memx.MemxEquities.InstrumentDirectory.Csv.v2026.10.14.Dissector] | 10/14/2026 | 690 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [csv][Memx.MemxEquities.InstrumentDirectory.Csv.v2026.10.14.Csv] |
+
+
 ### Risk Control
 
 | Division | [Protocol][Omi.Memx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Memx.Specifications] |
@@ -81,6 +88,7 @@
 [Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Tcp.md "Tcp Encoding"
 [Omi.Encoding.Udp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Udp.md "Udp Encoding"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Sbe.md "Sbe Encoding"
+[Omi.Encoding.Csv]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Csv.md "Csv Encoding"
 [MemxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Memx/Protocols/MemxEquities "Memx MemxEquities"
 [MemxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Memx/Protocols/MemxOptions "Memx MemxOptions"
 [Memx.MemxEquities.CommonHeader]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Memx/Protocols/MemxEquities/CommonHeader.md "Common Header"
@@ -92,6 +100,7 @@
 [Memx.MemxOptions.MemoirDepth]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Memx/Protocols/MemxOptions/MemoirDepth.md "Member Order Information Record Depth"
 [Memx.MemxOptions.MemoirTop]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Memx/Protocols/MemxOptions/MemoirTop.md "Member Order Information Record Top"
 [Memx.MemxOptions.RiskControl]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Memx/Protocols/MemxOptions/RiskControl.md "Risk Control"
+[Memx.MemxEquities.InstrumentDirectory]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Memx/Protocols/MemxEquities/InstrumentDirectory.md ""
 
 [Memx.MemxEquities.CommonHeader.Tcp.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Memx/MemxEquities/CommonHeader/Memx_MemxEquities_CommonHeader_Tcp_v1_2_Dissector.lua "Memx MemxEquities CommonHeader Tcp v1.2 Wireshark Dissector"
 [Memx.MemxEquities.CommonHeader.Tcp.v1.2.Url]: https://info.memxtrading.com/equities-trading-resources/ "The Members Exchange 1.2 Url"
@@ -158,3 +167,5 @@
 [Memx.MemxOptions.RiskControl.Sbe.v1.6.Url]: https://www.memxtrading.com/specs "The Members Exchange 1.6 Url"
 [Memx.MemxOptions.RiskControl.Sbe.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Memx/MemxOptions/RiskControl/Memx_MemxOptions_RiskControl_Sbe_v1_7_Dissector.lua "Memx MemxOptions RiskControl Sbe v1.7 Wireshark Dissector"
 [Memx.MemxOptions.RiskControl.Sbe.v1.7.Url]: https://www.memxtrading.com/specs "The Members Exchange 1.7 Url"
+[Memx.MemxEquities.InstrumentDirectory.Csv.v2026.10.14.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Memx/MemxEquities/InstrumentDirectory/Memx_MemxEquities_InstrumentDirectory_Csv_v2026_10_14_Dissector.lua "Memx MemxEquities InstrumentDirectory Csv v2026.10.14 Wireshark Dissector"
+[Memx.MemxEquities.InstrumentDirectory.Csv.v2026.10.14.Csv]: https://www.memxtrading.com/files/MEMXInstrumentDirectory.csv "The Members Exchange 2026.10.14 Csv"

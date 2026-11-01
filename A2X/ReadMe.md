@@ -35,6 +35,10 @@
 
 | [Protocol][Omi.A2X.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.A2X.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [Security][A2X.A2XEquities.Security] | [Csv][Omi.Encoding.Csv] | [1.0][A2X.A2XEquities.Security.Csv.v1.0.Dissector] | 11/25/2022 | 911 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][A2X.A2XEquities.Security.Csv.v1.0.Url] - [pdf][A2X.A2XEquities.Security.Csv.v1.0.Pdf] |
+| [Security][A2X.A2XEquities.Security] | [Csv][Omi.Encoding.Csv] | [1.2][A2X.A2XEquities.Security.Csv.v1.2.Dissector] | 9/5/2024 | 911 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][A2X.A2XEquities.Security.Csv.v1.2.Url] - [pdf][A2X.A2XEquities.Security.Csv.v1.2.Pdf] |
+| [SecurityComma][A2X.A2XEquities.SecurityComma] | [Csv][Omi.Encoding.Csv] | [1.0][A2X.A2XEquities.SecurityComma.Csv.v1.0.Dissector] | 11/25/2022 | 911 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][A2X.A2XEquities.SecurityComma.Csv.v1.0.Url] - [pdf][A2X.A2XEquities.SecurityComma.Csv.v1.0.Pdf] |
+| [SecurityComma][A2X.A2XEquities.SecurityComma] | [Csv][Omi.Encoding.Csv] | [1.2][A2X.A2XEquities.SecurityComma.Csv.v1.2.Dissector] | 9/5/2024 | 911 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][A2X.A2XEquities.SecurityComma.Csv.v1.2.Url] - [pdf][A2X.A2XEquities.SecurityComma.Csv.v1.2.Pdf] |
 | [SecurityExtra][A2X.A2XEquities.SecurityExtra] | [Csv][Omi.Encoding.Csv] | [1.0][A2X.A2XEquities.SecurityExtra.Csv.v1.0.Dissector] | 11/25/2022 | 457 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][A2X.A2XEquities.SecurityExtra.Csv.v1.0.Url] - [pdf][A2X.A2XEquities.SecurityExtra.Csv.v1.0.Pdf] |
 | [SecurityExtra][A2X.A2XEquities.SecurityExtra] | [Csv][Omi.Encoding.Csv] | [1.2][A2X.A2XEquities.SecurityExtra.Csv.v1.2.Dissector] | 9/5/2024 | 457 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][A2X.A2XEquities.SecurityExtra.Csv.v1.2.Url] - [pdf][A2X.A2XEquities.SecurityExtra.Csv.v1.2.Pdf] |
 | [SecurityExtraComma][A2X.A2XEquities.SecurityExtraComma] | [Csv][Omi.Encoding.Csv] | [1.0][A2X.A2XEquities.SecurityExtraComma.Csv.v1.0.Dissector] | 11/25/2022 | 457 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][A2X.A2XEquities.SecurityExtraComma.Csv.v1.0.Url] - [pdf][A2X.A2XEquities.SecurityExtraComma.Csv.v1.0.Pdf] |
@@ -69,6 +73,8 @@
 [A2X.A2XEquities.TcpHeader]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Protocols/A2XEquities/TcpHeader.md "Tcp Headers"
 [A2X.A2XEquities.TradingProtocol]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Protocols/A2XEquities/TradingProtocol.md "A2X Binary Protocol"
 [A2X.A2XEquities.UdpHeader]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Protocols/A2XEquities/UdpHeader.md "Udp Headers"
+[A2X.A2XEquities.Security]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Protocols/A2XEquities/Security.md ""
+[A2X.A2XEquities.SecurityComma]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Protocols/A2XEquities/SecurityComma.md ""
 [A2X.A2XEquities.SecurityExtra]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Protocols/A2XEquities/SecurityExtra.md ""
 [A2X.A2XEquities.SecurityExtraComma]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Protocols/A2XEquities/SecurityExtraComma.md ""
 
@@ -100,6 +106,18 @@
 [A2X.A2XEquities.TradingProtocol.Atp.v3.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Specifications/TradingProtocol/A2X.A2XEquities.TradingProtocol.Atp.v3.0.pdf "A2X Markets 3.0 Pdf"
 [A2X.A2XEquities.UdpHeader.Amd.v1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/A2X/UdpHeader/A2X_A2XEquities_UdpHeader_Amd_v1_Dissector.lua "A2X UdpHeader Amd v1 Wireshark Dissector"
 [A2X.A2XEquities.UdpHeader.Amd.v1.Url]: https://www.a2x.co.za/?page_id=734/#a2xtech "A2X Markets 1 Url"
+[A2X.A2XEquities.Security.Csv.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/A2X/Security/A2X_A2XEquities_Security_Csv_v1_0_Dissector.lua "A2X Security Csv v1.0 Wireshark Dissector"
+[A2X.A2XEquities.Security.Csv.v1.0.Url]: https://www.a2x.co.za/?page_id=531 "A2X Markets 1.0 Url"
+[A2X.A2XEquities.Security.Csv.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Specifications/Documentation/A2X.A2XEquities.ReferenceData.Csv.v1.0.pdf "A2X Markets 1.0 Pdf"
+[A2X.A2XEquities.Security.Csv.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/A2X/Security/A2X_A2XEquities_Security_Csv_v1_2_Dissector.lua "A2X Security Csv v1.2 Wireshark Dissector"
+[A2X.A2XEquities.Security.Csv.v1.2.Url]: https://www.a2x.co.za/?page_id=531 "A2X Markets 1.2 Url"
+[A2X.A2XEquities.Security.Csv.v1.2.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Specifications/Documentation/A2X.A2XEquities.ReferenceData.Csv.v1.2.pdf "A2X Markets 1.2 Pdf"
+[A2X.A2XEquities.SecurityComma.Csv.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/A2X/SecurityComma/A2X_A2XEquities_SecurityComma_Csv_v1_0_Dissector.lua "A2X SecurityComma Csv v1.0 Wireshark Dissector"
+[A2X.A2XEquities.SecurityComma.Csv.v1.0.Url]: https://www.a2x.co.za/?page_id=531 "A2X Markets 1.0 Url"
+[A2X.A2XEquities.SecurityComma.Csv.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Specifications/Documentation/A2X.A2XEquities.ReferenceData.Csv.v1.0.pdf "A2X Markets 1.0 Pdf"
+[A2X.A2XEquities.SecurityComma.Csv.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/A2X/SecurityComma/A2X_A2XEquities_SecurityComma_Csv_v1_2_Dissector.lua "A2X SecurityComma Csv v1.2 Wireshark Dissector"
+[A2X.A2XEquities.SecurityComma.Csv.v1.2.Url]: https://www.a2x.co.za/?page_id=531 "A2X Markets 1.2 Url"
+[A2X.A2XEquities.SecurityComma.Csv.v1.2.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Specifications/Documentation/A2X.A2XEquities.ReferenceData.Csv.v1.2.pdf "A2X Markets 1.2 Pdf"
 [A2X.A2XEquities.SecurityExtra.Csv.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/A2X/SecurityExtra/A2X_A2XEquities_SecurityExtra_Csv_v1_0_Dissector.lua "A2X SecurityExtra Csv v1.0 Wireshark Dissector"
 [A2X.A2XEquities.SecurityExtra.Csv.v1.0.Url]: https://www.a2x.co.za/?page_id=531 "A2X Markets 1.0 Url"
 [A2X.A2XEquities.SecurityExtra.Csv.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Specifications/Documentation/A2X.A2XEquities.ReferenceData.Csv.v1.0.pdf "A2X Markets 1.0 Pdf"

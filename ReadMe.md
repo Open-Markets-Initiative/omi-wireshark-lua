@@ -39,7 +39,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1817 | 12,109,706 |
+| 1872 | 12,664,836 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -65,7 +65,7 @@ Other generated code can be found at [Omi Projects](https://github.com/Open-Mark
 
 ## Organizations
 
-> [24X][24X.Directory] · [A2X][A2X.Directory] · [Aquis][Aquis.Directory] · [Asx][Asx.Directory] · [Athex][Athex.Directory] · [B3][B3.Directory] · [Binance][Binance.Directory] · [Bist][Bist.Directory] · [Biva][Biva.Directory] · [BlueOceanAts][BlueOceanAts.Directory] · [Bme][Bme.Directory] · [Box][Box.Directory] · [BruceAts][BruceAts.Directory] · [Bse][Bse.Directory] · [Cboe][Cboe.Directory] · [CixAts][CixAts.Directory] · [Cme][Cme.Directory] · [Cnsx][Cnsx.Directory] · [Coinbase][Coinbase.Directory] · [Currenex][Currenex.Directory] · [Eurex][Eurex.Directory] · [Euronext][Euronext.Directory] · [Finra][Finra.Directory] · [Gpw][Gpw.Directory] · [Hkex][Hkex.Directory] · [Ice][Ice.Directory] · [Iex][Iex.Directory] · [Imperative][Imperative.Directory] · [Jnx][Jnx.Directory] · [Jpx][Jpx.Directory] · [Jse][Jse.Directory] · [Koscom][Koscom.Directory] · [Lme][Lme.Directory] · [Lseg][Lseg.Directory] · [Ltse][Ltse.Directory] · [Memx][Memx.Directory] · [Miax][Miax.Directory] · [Moex][Moex.Directory] · [Nasdaq][Nasdaq.Directory] · [Nextrade][Nextrade.Directory] · [Nse][Nse.Directory] · [NsxAustralia][NsxAustralia.Directory] · [Nyse][Nyse.Directory] · [Odx][Odx.Directory] · [Okx][Okx.Directory] · [OtcMarkets][OtcMarkets.Directory] · [Qse][Qse.Directory] · [Sgx][Sgx.Directory] · [Siac][Siac.Directory] · [SmallX][SmallX.Directory] · [Szse][Szse.Directory] · [Taifex][Taifex.Directory] · [Tmx][Tmx.Directory] · [Tradelogiq][Tradelogiq.Directory] · [Txse][Txse.Directory] · [Ngm][Ngm.Directory]
+> [24X][24X.Directory] · [A2X][A2X.Directory] · [Aquis][Aquis.Directory] · [Asx][Asx.Directory] · [Athex][Athex.Directory] · [B3][B3.Directory] · [Binance][Binance.Directory] · [Bist][Bist.Directory] · [Biva][Biva.Directory] · [BlueOceanAts][BlueOceanAts.Directory] · [Bme][Bme.Directory] · [Box][Box.Directory] · [BruceAts][BruceAts.Directory] · [Bse][Bse.Directory] · [Cboe][Cboe.Directory] · [CixAts][CixAts.Directory] · [Cme][Cme.Directory] · [Cnsx][Cnsx.Directory] · [Coinbase][Coinbase.Directory] · [Currenex][Currenex.Directory] · [Databento][Databento.Directory] · [Eurex][Eurex.Directory] · [Euronext][Euronext.Directory] · [Finra][Finra.Directory] · [Gpw][Gpw.Directory] · [Hkex][Hkex.Directory] · [Ice][Ice.Directory] · [Iex][Iex.Directory] · [Imperative][Imperative.Directory] · [Jnx][Jnx.Directory] · [Jpx][Jpx.Directory] · [Jse][Jse.Directory] · [Koscom][Koscom.Directory] · [Lme][Lme.Directory] · [Lseg][Lseg.Directory] · [Ltse][Ltse.Directory] · [Memx][Memx.Directory] · [Miax][Miax.Directory] · [Moex][Moex.Directory] · [Nasdaq][Nasdaq.Directory] · [Nextrade][Nextrade.Directory] · [Nse][Nse.Directory] · [NsxAustralia][NsxAustralia.Directory] · [Nyse][Nyse.Directory] · [Odx][Odx.Directory] · [Okx][Okx.Directory] · [OtcMarkets][OtcMarkets.Directory] · [Qse][Qse.Directory] · [Sgx][Sgx.Directory] · [Siac][Siac.Directory] · [SmallX][SmallX.Directory] · [Szse][Szse.Directory] · [Taifex][Taifex.Directory] · [Tmx][Tmx.Directory] · [Tradelogiq][Tradelogiq.Directory] · [Txse][Txse.Directory] · [Ngm][Ngm.Directory]
 
 ## Exchanges and Ats
 
@@ -77,7 +77,7 @@ Other generated code can be found at [Omi Projects](https://github.com/Open-Mark
 
 ## Redistributors
 
-> [IceDataServices][IceDataServices.Redistributor]
+> [IceDataServices][IceDataServices.Redistributor] · [MarketData][MarketData.Redistributor]
 
 ## Platforms
 
@@ -141,6 +141,7 @@ Enjoy.
 [Omi.Encoding.Mmd]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Mmd.md "Mmd Encoding"
 [Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Tcp.md "Tcp Encoding"
 [Omi.Encoding.Cbp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Cbp.md "Cbp Encoding"
+[Omi.Encoding.Dbn]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Dbn.md "Dbn Encoding"
 [Omi.Encoding.Dfi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Dfi.md "Dfi Encoding"
 [Omi.Encoding.Xdp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Xdp.md "Xdp Encoding"
 [Omi.Encoding.Wats]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Wats.md "Wats Encoding"
@@ -396,6 +397,7 @@ Enjoy.
 [Currenex.CurrenexForex.Esp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Currenex/Protocols/CurrenexForex/Esp.md "Executable Streaming Prices"
 [Currenex.CurrenexForex.Now]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Currenex/Protocols/CurrenexForex/Now.md "Now Forex Market Data"
 [Currenex.CurrenexForex.OrderService]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Currenex/Protocols/CurrenexForex/OrderService.md "Order Service"
+[Databento.MarketData.Normalized]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Databento/Protocols/MarketData/Normalized.md "Normalized"
 [Eurex.T7.Edci]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Protocols/T7/Edci.md "Extended Derivatives Clearing Interface"
 [Eurex.T7.Eobi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Protocols/T7/Eobi.md "Enhanced Order Book Interface"
 [Eurex.T7.Eti]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Eurex/Protocols/T7/Eti.md "Enhanced Trading Interface"
@@ -974,12 +976,16 @@ Enjoy.
 [Ice.IceDataServices.SingaporeNzxDerivativesLevel2]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Ice/Protocols/IceDataServices/SingaporeNzxDerivativesLevel2.md ""
 [Ice.IceDataServices.ThailandFutures]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Ice/Protocols/IceDataServices/ThailandFutures.md ""
 [Ice.IceDataServices.ThailandFuturesLevel2]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Ice/Protocols/IceDataServices/ThailandFuturesLevel2.md ""
+[A2X.A2XEquities.Security]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Protocols/A2XEquities/Security.md ""
+[A2X.A2XEquities.SecurityComma]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Protocols/A2XEquities/SecurityComma.md ""
 [A2X.A2XEquities.SecurityExtra]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Protocols/A2XEquities/SecurityExtra.md ""
 [A2X.A2XEquities.SecurityExtraComma]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/A2X/Protocols/A2XEquities/SecurityExtraComma.md ""
 [Aquis.AquisStockExchange.Firm]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Protocols/AquisStockExchange/Firm.md ""
+[Aquis.AquisStockExchange.Security]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Protocols/AquisStockExchange/Security.md ""
 [Ice.IceDataServices.CoreReference]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Ice/Protocols/IceDataServices/CoreReference.md ""
 [Ice.IceDataServices.CrossReference]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Ice/Protocols/IceDataServices/CrossReference.md ""
 [Ice.IceDataServices.Eex]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Ice/Protocols/IceDataServices/Eex.md ""
+[Memx.MemxEquities.InstrumentDirectory]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Memx/Protocols/MemxEquities/InstrumentDirectory.md ""
 [Nyse.NyseConsolidated.DailyTaqBolo]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nyse/Protocols/NyseConsolidated/DailyTaqBolo.md ""
 [Nyse.NyseConsolidated.DailyTaqCtaAdmin]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nyse/Protocols/NyseConsolidated/DailyTaqCtaAdmin.md ""
 [Nyse.NyseConsolidated.DailyTaqMaster]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nyse/Protocols/NyseConsolidated/DailyTaqMaster.md ""
@@ -991,6 +997,8 @@ Enjoy.
 [Nyse.NyseConsolidated.DailyTaqTrades]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nyse/Protocols/NyseConsolidated/DailyTaqTrades.md ""
 [Nyse.NyseConsolidated.DailyTaqUtpAdmin]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nyse/Protocols/NyseConsolidated/DailyTaqUtpAdmin.md ""
 [Athex.Oasis.Mdfs]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Athex/Protocols/Oasis/Mdfs.md ""
+[B3.B3Derivatives.Umdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/B3/Protocols/B3Derivatives/Umdf.md ""
+[B3.B3Derivatives.UmdfNtp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/B3/Protocols/B3Derivatives/UmdfNtp.md ""
 [Bse.BseIndia.Emdi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bse/Protocols/BseIndia/Emdi.md ""
 [Bse.BseIndia.EmdiSnapshot]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bse/Protocols/BseIndia/EmdiSnapshot.md ""
 [Bse.BseIndia.Mdi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bse/Protocols/BseIndia/Mdi.md ""
@@ -1021,6 +1029,7 @@ Enjoy.
 [Cnsx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Cnsx "Canadian Securities Exchange"
 [Coinbase.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Coinbase "Coinbase"
 [Currenex.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Currenex "Currenex"
+[Databento.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Databento "Databento"
 [Eurex.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Eurex "Eurex Exchange"
 [Euronext.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Euronext "Euronext"
 [Finra.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Finra "Financial Industry Regulatory Authority"
@@ -1134,6 +1143,7 @@ Enjoy.
 [Lse.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Lseg/Protocols/Lse "London Stock Exchange"
 [LtseEquities.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Ltse/Protocols/LtseEquities "Ltse Equities"
 [LynxAts.Ats]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Tradelogiq/Protocols/LynxAts "Lynx ATS"
+[MarketData.Redistributor]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Databento/Protocols/MarketData "Databento Market Data"
 [MatchNow.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Cboe/Protocols/MatchNow "Cboe Canada MATCHNow"
 [MdcsRealtime.Consolidator]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Koscom/Protocols/MdcsRealtime "MDCS Realtime Market Data"
 [Meff.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Bme/Protocols/Meff "MEFF"

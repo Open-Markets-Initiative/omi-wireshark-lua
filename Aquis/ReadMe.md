@@ -52,6 +52,7 @@
 | [Protocol][Omi.Aquis.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Aquis.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [Firm][Aquis.AquisStockExchange.Firm] | [Csv][Omi.Encoding.Csv] | [3.2][Aquis.AquisStockExchange.Firm.Csv.v3.2.Dissector] | 7/1/2025 | 647 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aquis.AquisStockExchange.Firm.Csv.v3.2.Url] - [pdf][Aquis.AquisStockExchange.Firm.Csv.v3.2.Pdf] |
+| [Security][Aquis.AquisStockExchange.Security] | [Csv][Omi.Encoding.Csv] | [3.2][Aquis.AquisStockExchange.Security.Csv.v3.2.Dissector] | 7/1/2025 | 1301 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aquis.AquisStockExchange.Security.Csv.v3.2.Url] - [pdf][Aquis.AquisStockExchange.Security.Csv.v3.2.Pdf] |
 
 
 <p align="center"><a href="https://www.aquis.eu" title="Aquis Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/aquis-exchange-plc" title="Aquis Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a></p>
@@ -88,6 +89,7 @@
 [Aquis.AquisStockExchange.Replay]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Protocols/AquisStockExchange/Replay.md "Replay"
 [Aquis.AquisStockExchange.Snapshot]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Protocols/AquisStockExchange/Snapshot.md "Snapshot"
 [Aquis.AquisStockExchange.Firm]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Protocols/AquisStockExchange/Firm.md ""
+[Aquis.AquisStockExchange.Security]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Protocols/AquisStockExchange/Security.md ""
 
 [Aquis.AquisEquities.RealTime.Amd.v2.4.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Aquis/RealTime/Aquis_AquisEquities_RealTime_Amd_v2_4_2_Dissector.lua "Aquis RealTime Amd v2.4.2 Wireshark Dissector"
 [Aquis.AquisEquities.RealTime.Amd.v2.4.2.Url]: https://www.aquis.eu/markets/documents "Aquis Exchange 2.4.2 Url"
@@ -166,3 +168,6 @@
 [Aquis.AquisStockExchange.Firm.Csv.v3.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Aquis/Firm/Aquis_AquisStockExchange_Firm_Csv_v3_2_Dissector.lua "Aquis Firm Csv v3.2 Wireshark Dissector"
 [Aquis.AquisStockExchange.Firm.Csv.v3.2.Url]: https://www.aquisexchange.com/aquis-stock-exchange "Aquis Exchange 3.2 Url"
 [Aquis.AquisStockExchange.Firm.Csv.v3.2.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Specifications/Documentation/Aquis.AquisStockExchange.ReferenceData.Csv.v3.2.pdf "Aquis Exchange 3.2 Pdf"
+[Aquis.AquisStockExchange.Security.Csv.v3.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Aquis/Security/Aquis_AquisStockExchange_Security_Csv_v3_2_Dissector.lua "Aquis Security Csv v3.2 Wireshark Dissector"
+[Aquis.AquisStockExchange.Security.Csv.v3.2.Url]: https://www.aquisexchange.com/aquis-stock-exchange "Aquis Exchange 3.2 Url"
+[Aquis.AquisStockExchange.Security.Csv.v3.2.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Specifications/Documentation/Aquis.AquisStockExchange.ReferenceData.Csv.v3.2.pdf "Aquis Exchange 3.2 Pdf"

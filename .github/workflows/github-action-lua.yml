@@ -133,6 +133,15 @@ jobs:
       - name: Run Coinbase Deribit OrdersApi Sbe 0.1 Dissector Tests
         run: bash -x .github/tests/Coinbase-Deribit-OrdersApi-Sbe-v0-1-Test.sh
 
+      - name: Run Databento MarketData Normalized Dbn 1 Dissector Tests
+        run: bash -x .github/tests/Databento-MarketData-Normalized-Dbn-v1-Test.sh
+
+      - name: Run Databento MarketData Normalized Dbn 2 Dissector Tests
+        run: bash -x .github/tests/Databento-MarketData-Normalized-Dbn-v2-Test.sh
+
+      - name: Run Databento MarketData Normalized Dbn 3 Dissector Tests
+        run: bash -x .github/tests/Databento-MarketData-Normalized-Dbn-v3-Test.sh
+
       - name: Run Eurex T7 Eobi Fbe 13.0 Dissector Tests
         run: bash -x .github/tests/Eurex-T7-Eobi-Fbe-v13-0-Test.sh
 
