@@ -22,7 +22,6 @@ omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.template_id = ProtoField
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_stop = ProtoField.new("Stop Bit", "bse.bseindia.mdi.fast.v502.002.420.600003750.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_identified = ProtoField.new("Template Id", "bse.bseindia.mdi.fast.v502.002.420.600003750.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_unused = ProtoField.new("Unused", "bse.bseindia.mdi.fast.v502.002.420.600003750.presenceunused", ftypes.UINT8, nil, base.HEX)
-bse_bseindia_mdi_fast_v502_002_420_600003750.presence_bits = {}
 
 -- Bse BseIndia Mdi Fast 502.002.420.600003750 Presence Map Fields
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "bse.bseindia.mdi.fast.v502.002.420.600003750.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -41,63 +40,6 @@ omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_refresh_indicat
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_bid_size = ProtoField.new("Bid Size", "bse.bseindia.mdi.fast.v502.002.420.600003750.bidsizepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_offer_size = ProtoField.new("Offer Size", "bse.bseindia.mdi.fast.v502.002.420.600003750.offersizepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_no_md_entries = ProtoField.new("No Md Entries", "bse.bseindia.mdi.fast.v502.002.420.600003750.nomdentriespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-
-bse_bseindia_mdi_fast_v502_002_420_600003750.presence_bits.named = {
-  [108] = {
-    [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
-    [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
-    [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
-    [5] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_trading_session_id,
-    [6] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_fast_market_indicator,
-  },
-  [104] = {
-    [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
-    [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
-    [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
-    [5] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_instrument_scope_product_complex,
-    [6] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_security_mass_trading_status,
-    [7] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_fast_market_indicator,
-    [8] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_no_related_sym,
-  },
-  [103] = {
-    [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
-    [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
-    [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
-    [5] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_security_status,
-    [6] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_security_trading_status,
-    [7] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_fast_market_indicator,
-  },
-  [102] = {
-    [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
-    [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
-    [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
-  },
-  [105] = {
-    [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
-    [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
-    [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_product_complex,
-  },
-  [106] = {
-    [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
-    [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
-    [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
-  },
-  [107] = {
-    [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
-  },
-  [101] = {
-    [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
-    [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
-    [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_last_msg_seq_num_processed,
-    [5] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_refresh_indicator,
-    [6] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
-    [7] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_product_complex,
-    [8] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_security_status,
-    [9] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_bid_size,
-    [10] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_offer_size,
-    [11] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_no_md_entries,
-  },
-}
 
 -- Bse BseIndia Mdi Fast 502.002.420.600003750 Fields
 omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.sender_comp_id = ProtoField.new("Sender Comp Id", "bse.bseindia.mdi.fast.v502.002.420.600003750.sendercompid", ftypes.UINT32)
@@ -298,16 +240,30 @@ local function add_presence_map(parent, range, map_field, stop_field, identified
   return node
 end
 
+-- Seven bits an octet, so ten octets hold the widest value FAST carries and a
+-- longer run is not an integer of any width. Reading one on matters because a
+-- Lua integer wraps on overflow rather than widening: the run would come back
+-- negative and be used as a length, which raises from inside Wireshark rather
+-- than saying what was wrong with the packet. The two that accumulate into
+-- Wireshark's own 64 bit values take all ten; the two that accumulate into a
+-- Lua integer stop at the nine that cannot overflow it, a value needing the
+-- tenth being wider than anything they are asked to read.
+local FAST_WIDE_OCTETS = 10
+local FAST_NUMBER_OCTETS = 9
+
 -- read an unsigned fast integer
 local function read_stop_bit_unsigned(buffer, offset)
   local value = 0
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST unsigned integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -318,12 +274,15 @@ local function read_stop_bit_signed(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and -1 or 0
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST signed integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -333,12 +292,15 @@ end
 local function read_stop_bit_uint64(buffer, offset)
   local value = UInt64(0)
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST unsigned integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -349,12 +311,15 @@ local function read_stop_bit_int64(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and Int64(-1) or Int64(0)
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST signed integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -406,24 +371,71 @@ local function read_ascii_string(buffer, offset)
     offset = offset + 1
   until bit.band(octet, 0x80) ~= 0
 
-  -- the stop bit rides in the high bit of the last character, so that octet is
-  -- masked back to the character it carries
-  local text = buffer(start, offset - start):string()
+  -- Every character but the last is 7 bit and reads as it stands. The last
+  -- octet carries the stop bit in its high bit, so it is masked back to the
+  -- character it carries rather than read as text: read as text it is not a
+  -- character at all, and Wireshark substitutes a replacement character three
+  -- bytes wide where the octet was one, which would leave two stray bytes
+  -- inside every string the wire carries.
+  local text = buffer(start, offset - start - 1):string()
   local last = bit.band(octet, 0x7f)
 
   -- a run closing on a nul carries no character there: the string ends before it
   if last == 0 then
-    return text:sub(1, -2), offset
+    return text, offset
   end
 
-  return text:sub(1, -2) .. string.char(last), offset
+  return text .. string.char(last), offset
+end
+
+-- splice a string delta onto the value the stream last sent: a subtraction
+-- length says how much of it to drop, and the characters that follow take the
+-- dropped part's place. A non-negative length drops from the tail and the
+-- difference goes after what is left; a negative one drops from the head and
+-- the difference goes in front, counting from -1 for nothing dropped, there
+-- being no negative zero to say it with.
+local function splice_string_delta(buffer, offset, base, length)
+  local text
+  text, offset = read_ascii_string(buffer, offset)
+  base = base or ""
+
+  -- sub clamps, so a length longer than what is remembered drops all of it
+  -- rather than reading off the end of the string
+  if length < 0 then
+    return text .. base:sub(-length), offset
+  end
+
+  return base:sub(1, #base - length) .. text, offset
+end
+
+-- read a fast string delta, whose subtraction length leads
+local function read_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_stop_bit_signed(buffer, offset)
+
+  return splice_string_delta(buffer, offset, base, length)
+end
+
+-- the same where the field is optional: the subtraction length carries the
+-- null, and a null one says the field is absent, with no difference behind it
+local function read_nullable_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_nullable_signed(buffer, offset)
+  if length == nil then return nil, offset end
+
+  return splice_string_delta(buffer, offset, base, length)
 end
 
 -- read a fast byte vector, counted by the length that precedes it
 local function read_byte_vector(buffer, offset)
   local length
   length, offset = read_stop_bit_unsigned(buffer, offset)
-  if offset + length > buffer:len() then error("truncated FAST byte vector") end
+
+  -- the length is checked against what is left rather than by adding it to the
+  -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
 
   return buffer(offset, length), offset + length
 end
@@ -2141,7 +2153,11 @@ bse_bseindia_mdi_fast_v502_002_420_600003750.md_entry_px.dissect = function(buff
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2191,7 +2207,11 @@ bse_bseindia_mdi_fast_v502_002_420_600003750.yield.dissect = function(buffer, of
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2241,7 +2261,11 @@ bse_bseindia_mdi_fast_v502_002_420_600003750.put_yield.dissect = function(buffer
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2291,7 +2315,11 @@ bse_bseindia_mdi_fast_v502_002_420_600003750.call_yield.dissect = function(buffe
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2320,7 +2348,7 @@ bse_bseindia_mdi_fast_v502_002_420_600003750.md_entry_size.dissect = function(bu
   value_delta, offset = read_nullable_int64(buffer, offset)
 
   if value_delta ~= nil then
-    value = (state.values[key] or Int64(0)) + value_delta
+    value = (state.values[key] or UInt64(0)) + UInt64.fromhex(value_delta:tohex())
     state.values[key] = value
   end
 
@@ -3529,7 +3557,11 @@ bse_bseindia_mdi_fast_v502_002_420_600003750.leg_price.dissect = function(buffer
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3831,7 +3863,11 @@ bse_bseindia_mdi_fast_v502_002_420_600003750.gross_trade_amt.dissect = function(
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4137,6 +4173,8 @@ end
 -- Index Change Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.index_change = {}
 
+bse_bseindia_mdi_fast_v502_002_420_600003750.index_change.node = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.index_change
+
 -- Dissect Fields: Index Change Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.index_change.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -4269,6 +4307,20 @@ end
 -- Depth Snapshot Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.depth_snapshot = {}
 
+bse_bseindia_mdi_fast_v502_002_420_600003750.depth_snapshot.node = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.depth_snapshot
+bse_bseindia_mdi_fast_v502_002_420_600003750.depth_snapshot.presence = {
+  [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
+  [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
+  [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_last_msg_seq_num_processed,
+  [5] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_refresh_indicator,
+  [6] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
+  [7] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_product_complex,
+  [8] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_security_status,
+  [9] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_bid_size,
+  [10] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_offer_size,
+  [11] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_no_md_entries,
+}
+
 -- Dissect Fields: Depth Snapshot Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.depth_snapshot.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -4337,6 +4389,11 @@ end
 
 -- Cross Request Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.cross_request = {}
+
+bse_bseindia_mdi_fast_v502_002_420_600003750.cross_request.node = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.cross_request
+bse_bseindia_mdi_fast_v502_002_420_600003750.cross_request.presence = {
+  [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
+}
 
 -- Dissect Fields: Cross Request Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.cross_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -4430,6 +4487,13 @@ end
 
 -- Quote Request Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.quote_request = {}
+
+bse_bseindia_mdi_fast_v502_002_420_600003750.quote_request.node = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.quote_request
+bse_bseindia_mdi_fast_v502_002_420_600003750.quote_request.presence = {
+  [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
+  [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
+  [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
+}
 
 -- Dissect Fields: Quote Request Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.quote_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -4559,6 +4623,13 @@ end
 
 -- Complex Instrument Update Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.complex_instrument_update = {}
+
+bse_bseindia_mdi_fast_v502_002_420_600003750.complex_instrument_update.node = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.complex_instrument_update
+bse_bseindia_mdi_fast_v502_002_420_600003750.complex_instrument_update.presence = {
+  [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
+  [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
+  [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_product_complex,
+}
 
 -- Dissect Fields: Complex Instrument Update Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.complex_instrument_update.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -4779,6 +4850,13 @@ end
 -- Depth Incremental Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.depth_incremental = {}
 
+bse_bseindia_mdi_fast_v502_002_420_600003750.depth_incremental.node = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.depth_incremental
+bse_bseindia_mdi_fast_v502_002_420_600003750.depth_incremental.presence = {
+  [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
+  [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
+  [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
+}
+
 -- Dissect Fields: Depth Incremental Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.depth_incremental.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -4820,6 +4898,16 @@ end
 
 -- Instrument State Change Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.instrument_state_change = {}
+
+bse_bseindia_mdi_fast_v502_002_420_600003750.instrument_state_change.node = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.instrument_state_change
+bse_bseindia_mdi_fast_v502_002_420_600003750.instrument_state_change.presence = {
+  [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
+  [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
+  [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
+  [5] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_security_status,
+  [6] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_security_trading_status,
+  [7] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_fast_market_indicator,
+}
 
 -- Dissect Fields: Instrument State Change Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.instrument_state_change.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -4917,6 +5005,17 @@ end
 -- Mass Instrument State Change Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.mass_instrument_state_change = {}
 
+bse_bseindia_mdi_fast_v502_002_420_600003750.mass_instrument_state_change.node = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.mass_instrument_state_change
+bse_bseindia_mdi_fast_v502_002_420_600003750.mass_instrument_state_change.presence = {
+  [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
+  [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
+  [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
+  [5] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_instrument_scope_product_complex,
+  [6] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_security_mass_trading_status,
+  [7] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_fast_market_indicator,
+  [8] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_no_related_sym,
+}
+
 -- Dissect Fields: Mass Instrument State Change Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.mass_instrument_state_change.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -4974,6 +5073,15 @@ end
 -- Product State Change Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.product_state_change = {}
 
+bse_bseindia_mdi_fast_v502_002_420_600003750.product_state_change.node = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.product_state_change
+bse_bseindia_mdi_fast_v502_002_420_600003750.product_state_change.presence = {
+  [2] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_msg_seq_num,
+  [3] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_sender_comp_id,
+  [4] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_market_segment_id,
+  [5] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_trading_session_id,
+  [6] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_fast_market_indicator,
+}
+
 -- Dissect Fields: Product State Change Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.product_state_change.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5022,6 +5130,8 @@ end
 -- Md Packet Header Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.md_packet_header = {}
 
+bse_bseindia_mdi_fast_v502_002_420_600003750.md_packet_header.node = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.md_packet_header
+
 -- Dissect Fields: Md Packet Header Message
 bse_bseindia_mdi_fast_v502_002_420_600003750.md_packet_header.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5055,31 +5165,17 @@ end
 -----------------------------------------------------------------------
 
 -- Bse BseIndia Mdi Fast 502.002.420.600003750 Message Dispatch
-bse_bseindia_mdi_fast_v502_002_420_600003750.messages = {
-  [122] = bse_bseindia_mdi_fast_v502_002_420_600003750.md_packet_header.dissect,
-  [108] = bse_bseindia_mdi_fast_v502_002_420_600003750.product_state_change.dissect,
-  [104] = bse_bseindia_mdi_fast_v502_002_420_600003750.mass_instrument_state_change.dissect,
-  [103] = bse_bseindia_mdi_fast_v502_002_420_600003750.instrument_state_change.dissect,
-  [102] = bse_bseindia_mdi_fast_v502_002_420_600003750.depth_incremental.dissect,
-  [105] = bse_bseindia_mdi_fast_v502_002_420_600003750.complex_instrument_update.dissect,
-  [106] = bse_bseindia_mdi_fast_v502_002_420_600003750.quote_request.dissect,
-  [107] = bse_bseindia_mdi_fast_v502_002_420_600003750.cross_request.dissect,
-  [101] = bse_bseindia_mdi_fast_v502_002_420_600003750.depth_snapshot.dissect,
-  [51] = bse_bseindia_mdi_fast_v502_002_420_600003750.index_change.dissect,
-}
-
--- Bse BseIndia Mdi Fast 502.002.420.600003750 Message Nodes
-bse_bseindia_mdi_fast_v502_002_420_600003750.message_fields = {
-  [122] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.md_packet_header,
-  [108] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.product_state_change,
-  [104] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.mass_instrument_state_change,
-  [103] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.instrument_state_change,
-  [102] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.depth_incremental,
-  [105] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.complex_instrument_update,
-  [106] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.quote_request,
-  [107] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.cross_request,
-  [101] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.depth_snapshot,
-  [51] = omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.index_change,
+bse_bseindia_mdi_fast_v502_002_420_600003750.templates = {
+  [122] = bse_bseindia_mdi_fast_v502_002_420_600003750.md_packet_header,
+  [108] = bse_bseindia_mdi_fast_v502_002_420_600003750.product_state_change,
+  [104] = bse_bseindia_mdi_fast_v502_002_420_600003750.mass_instrument_state_change,
+  [103] = bse_bseindia_mdi_fast_v502_002_420_600003750.instrument_state_change,
+  [102] = bse_bseindia_mdi_fast_v502_002_420_600003750.depth_incremental,
+  [105] = bse_bseindia_mdi_fast_v502_002_420_600003750.complex_instrument_update,
+  [106] = bse_bseindia_mdi_fast_v502_002_420_600003750.quote_request,
+  [107] = bse_bseindia_mdi_fast_v502_002_420_600003750.cross_request,
+  [101] = bse_bseindia_mdi_fast_v502_002_420_600003750.depth_snapshot,
+  [51] = bse_bseindia_mdi_fast_v502_002_420_600003750.index_change,
 }
 
 -- Bse BseIndia Mdi Fast 502.002.420.600003750 Template Names
@@ -5187,11 +5283,11 @@ omi_bse_bseindia_mdi_fast_v502_002_420_600003750.dissector = function(buffer, pa
       return
     end
 
-    local message_field = bse_bseindia_mdi_fast_v502_002_420_600003750.message_fields[template_id]
+    local template = bse_bseindia_mdi_fast_v502_002_420_600003750.templates[template_id]
     local message_tree = nil
 
-    if message_field ~= nil then
-      message_tree = root:add(message_field, buffer(start, 0))
+    if template ~= nil then
+      message_tree = root:add(template.node, buffer(start, 0))
     else
       message_tree = root:add(omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.message, buffer(start, 0))
       message_tree:set_text(bse_bseindia_mdi_fast_v502_002_420_600003750.template_id.name(template_id))
@@ -5199,18 +5295,20 @@ omi_bse_bseindia_mdi_fast_v502_002_420_600003750.dissector = function(buffer, pa
 
     -- the presence map and the template id are the message's own framing
     local header = message_tree:add(omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.message_header, buffer(start, offset - start))
-    add_presence_map(header, buffer(start, mapped - start), omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_map, omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_stop, omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_identified, omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_unused, bse_bseindia_mdi_fast_v502_002_420_600003750.presence_bits.named[template_id])
+    local named = nil
+    if template ~= nil then
+      named = template.presence
+    end
+    add_presence_map(header, buffer(start, mapped - start), omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_map, omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_stop, omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_identified, omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.presence_unused, named)
     header:add(omi_bse_bseindia_mdi_fast_v502_002_420_600003750.fields.template_id, buffer(identified, offset - identified), template_id, bse_bseindia_mdi_fast_v502_002_420_600003750.template_id.display(template_id))
 
-    local message = bse_bseindia_mdi_fast_v502_002_420_600003750.messages[template_id]
-
-    if message == nil then
+    if template == nil then
       message_tree:add_expert_info(PI_UNDECODED, PI_WARN, "This dissector reads: 122 (MDPacketHeader), 108 (ProductStateChange), 104 (MassInstrumentStateChange), 103 (InstrumentStateChange), 102 (DepthIncremental), 105 (ComplexInstrumentUpdate), 106 (QuoteRequest), 107 (CrossRequest), 101 (DepthSnapshot), 51 (IndexChange)")
       message_tree:set_len(offset - start)
       return
     end
 
-    offset = message(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
+    offset = template.dissect(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
     messages = messages + 1
 
     -- the message occupies whatever its framing and its fields consumed

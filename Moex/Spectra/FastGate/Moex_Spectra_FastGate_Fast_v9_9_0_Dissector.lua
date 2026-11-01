@@ -22,12 +22,8 @@ omi_moex_spectra_fastgate_fast_v9_9_0.fields.template_id = ProtoField.new("Templ
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_stop = ProtoField.new("Stop Bit", "moex.spectra.fastgate.fast.v9.9.0.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_identified = ProtoField.new("Template Id", "moex.spectra.fastgate.fast.v9.9.0.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_unused = ProtoField.new("Unused", "moex.spectra.fastgate.fast.v9.9.0.presenceunused", ftypes.UINT8, nil, base.HEX)
-moex_spectra_fastgate_fast_v9_9_0.presence_bits = {}
 
 -- Moex Spectra FastGate Fast 9.9.0 Presence Map Fields
-
-moex_spectra_fastgate_fast_v9_9_0.presence_bits.named = {
-}
 
 -- Moex Spectra FastGate Fast 9.9.0 Fields
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.appl_ver_id = ProtoField.new("Appl Ver Id", "moex.spectra.fastgate.fast.v9.9.0.applverid", ftypes.STRING)
@@ -307,16 +303,30 @@ local function add_presence_map(parent, range, map_field, stop_field, identified
   return node
 end
 
+-- Seven bits an octet, so ten octets hold the widest value FAST carries and a
+-- longer run is not an integer of any width. Reading one on matters because a
+-- Lua integer wraps on overflow rather than widening: the run would come back
+-- negative and be used as a length, which raises from inside Wireshark rather
+-- than saying what was wrong with the packet. The two that accumulate into
+-- Wireshark's own 64 bit values take all ten; the two that accumulate into a
+-- Lua integer stop at the nine that cannot overflow it, a value needing the
+-- tenth being wider than anything they are asked to read.
+local FAST_WIDE_OCTETS = 10
+local FAST_NUMBER_OCTETS = 9
+
 -- read an unsigned fast integer
 local function read_stop_bit_unsigned(buffer, offset)
   local value = 0
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST unsigned integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -327,12 +337,15 @@ local function read_stop_bit_signed(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and -1 or 0
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST signed integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -342,12 +355,15 @@ end
 local function read_stop_bit_uint64(buffer, offset)
   local value = UInt64(0)
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST unsigned integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -358,12 +374,15 @@ local function read_stop_bit_int64(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and Int64(-1) or Int64(0)
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST signed integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -415,24 +434,71 @@ local function read_ascii_string(buffer, offset)
     offset = offset + 1
   until bit.band(octet, 0x80) ~= 0
 
-  -- the stop bit rides in the high bit of the last character, so that octet is
-  -- masked back to the character it carries
-  local text = buffer(start, offset - start):string()
+  -- Every character but the last is 7 bit and reads as it stands. The last
+  -- octet carries the stop bit in its high bit, so it is masked back to the
+  -- character it carries rather than read as text: read as text it is not a
+  -- character at all, and Wireshark substitutes a replacement character three
+  -- bytes wide where the octet was one, which would leave two stray bytes
+  -- inside every string the wire carries.
+  local text = buffer(start, offset - start - 1):string()
   local last = bit.band(octet, 0x7f)
 
   -- a run closing on a nul carries no character there: the string ends before it
   if last == 0 then
-    return text:sub(1, -2), offset
+    return text, offset
   end
 
-  return text:sub(1, -2) .. string.char(last), offset
+  return text .. string.char(last), offset
+end
+
+-- splice a string delta onto the value the stream last sent: a subtraction
+-- length says how much of it to drop, and the characters that follow take the
+-- dropped part's place. A non-negative length drops from the tail and the
+-- difference goes after what is left; a negative one drops from the head and
+-- the difference goes in front, counting from -1 for nothing dropped, there
+-- being no negative zero to say it with.
+local function splice_string_delta(buffer, offset, base, length)
+  local text
+  text, offset = read_ascii_string(buffer, offset)
+  base = base or ""
+
+  -- sub clamps, so a length longer than what is remembered drops all of it
+  -- rather than reading off the end of the string
+  if length < 0 then
+    return text .. base:sub(-length), offset
+  end
+
+  return base:sub(1, #base - length) .. text, offset
+end
+
+-- read a fast string delta, whose subtraction length leads
+local function read_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_stop_bit_signed(buffer, offset)
+
+  return splice_string_delta(buffer, offset, base, length)
+end
+
+-- the same where the field is optional: the subtraction length carries the
+-- null, and a null one says the field is absent, with no difference behind it
+local function read_nullable_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_nullable_signed(buffer, offset)
+  if length == nil then return nil, offset end
+
+  return splice_string_delta(buffer, offset, base, length)
 end
 
 -- read a fast byte vector, counted by the length that precedes it
 local function read_byte_vector(buffer, offset)
   local length
   length, offset = read_stop_bit_unsigned(buffer, offset)
-  if offset + length > buffer:len() then error("truncated FAST byte vector") end
+
+  -- the length is checked against what is left rather than by adding it to the
+  -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
 
   return buffer(offset, length), offset + length
 end
@@ -1330,7 +1396,11 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_optional.dissect = function(b
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -1547,7 +1617,11 @@ moex_spectra_fastgate_fast_v9_9_0.last_px.dissect = function(buffer, offset, pac
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -1786,7 +1860,11 @@ moex_spectra_fastgate_fast_v9_9_0.index_cross_rate.dissect = function(buffer, of
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2069,7 +2147,11 @@ moex_spectra_fastgate_fast_v9_9_0.strike_price.dissect = function(buffer, offset
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2110,7 +2192,11 @@ moex_spectra_fastgate_fast_v9_9_0.contract_multiplier.dissect = function(buffer,
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2305,7 +2391,11 @@ moex_spectra_fastgate_fast_v9_9_0.volatility.dissect = function(buffer, offset, 
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2522,7 +2612,11 @@ moex_spectra_fastgate_fast_v9_9_0.high_limit_px.dissect = function(buffer, offse
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2563,7 +2657,11 @@ moex_spectra_fastgate_fast_v9_9_0.low_limit_px.dissect = function(buffer, offset
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2604,7 +2702,11 @@ moex_spectra_fastgate_fast_v9_9_0.min_price_increment.dissect = function(buffer,
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2645,7 +2747,11 @@ moex_spectra_fastgate_fast_v9_9_0.min_price_increment_amount.dissect = function(
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2686,7 +2792,11 @@ moex_spectra_fastgate_fast_v9_9_0.initial_margin_on_buy.dissect = function(buffe
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2727,7 +2837,11 @@ moex_spectra_fastgate_fast_v9_9_0.initial_margin_on_sell.dissect = function(buff
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2768,7 +2882,11 @@ moex_spectra_fastgate_fast_v9_9_0.initial_margin_syntetic.dissect = function(buf
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2831,7 +2949,11 @@ moex_spectra_fastgate_fast_v9_9_0.theor_price.dissect = function(buffer, offset,
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2872,7 +2994,11 @@ moex_spectra_fastgate_fast_v9_9_0.theor_price_limit.dissect = function(buffer, o
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2979,7 +3105,11 @@ moex_spectra_fastgate_fast_v9_9_0.leg_ratio_qty.dissect = function(buffer, offse
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3108,7 +3238,11 @@ moex_spectra_fastgate_fast_v9_9_0.underlying_qty.dissect = function(buffer, offs
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3281,7 +3415,11 @@ moex_spectra_fastgate_fast_v9_9_0.min_price_increment_amount_curr.dissect = func
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3322,7 +3460,11 @@ moex_spectra_fastgate_fast_v9_9_0.settl_price_open.dissect = function(buffer, of
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3385,7 +3527,11 @@ moex_spectra_fastgate_fast_v9_9_0.risk_free_rate.dissect = function(buffer, offs
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3426,7 +3572,11 @@ moex_spectra_fastgate_fast_v9_9_0.fixed_spot_discount.dissect = function(buffer,
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3467,7 +3617,11 @@ moex_spectra_fastgate_fast_v9_9_0.projected_spot_discount.dissect = function(buf
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3596,7 +3750,11 @@ moex_spectra_fastgate_fast_v9_9_0.interest_rate_risk_up.dissect = function(buffe
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3637,7 +3795,11 @@ moex_spectra_fastgate_fast_v9_9_0.interest_rate_risk_down.dissect = function(buf
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3678,7 +3840,11 @@ moex_spectra_fastgate_fast_v9_9_0.risk_free_rate2.dissect = function(buffer, off
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3719,7 +3885,11 @@ moex_spectra_fastgate_fast_v9_9_0.interest_rate2_risk_up.dissect = function(buff
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3760,7 +3930,11 @@ moex_spectra_fastgate_fast_v9_9_0.interest_rate2_risk_down.dissect = function(bu
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3801,7 +3975,11 @@ moex_spectra_fastgate_fast_v9_9_0.settl_price.dissect = function(buffer, offset,
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3952,7 +4130,11 @@ moex_spectra_fastgate_fast_v9_9_0.high_limit_px_weekend.dissect = function(buffe
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3993,7 +4175,11 @@ moex_spectra_fastgate_fast_v9_9_0.low_limit_px_weekend.dissect = function(buffer
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4034,7 +4220,11 @@ moex_spectra_fastgate_fast_v9_9_0.clearing_settl_price.dissect = function(buffer
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4763,6 +4953,8 @@ end
 -- Logout Message
 moex_spectra_fastgate_fast_v9_9_0.logout = {}
 
+moex_spectra_fastgate_fast_v9_9_0.logout.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.logout
+
 -- Dissect Fields: Logout Message
 moex_spectra_fastgate_fast_v9_9_0.logout.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -4801,6 +4993,8 @@ end
 
 -- Logon Message
 moex_spectra_fastgate_fast_v9_9_0.logon = {}
+
+moex_spectra_fastgate_fast_v9_9_0.logon.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.logon
 
 -- Dissect Fields: Logon Message
 moex_spectra_fastgate_fast_v9_9_0.logon.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -4906,6 +5100,8 @@ end
 
 -- Otc Monitor Security Definition Message
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_security_definition = {}
+
+moex_spectra_fastgate_fast_v9_9_0.otc_monitor_security_definition.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_security_definition
 
 -- Dissect Fields: Otc Monitor Security Definition Message
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_security_definition.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -5063,6 +5259,8 @@ end
 -- Otc Monitor Snapshot Message Message
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message = {}
 
+moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_snapshot_message
+
 -- Dissect Fields: Otc Monitor Snapshot Message Message
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5201,6 +5399,8 @@ end
 -- Otc Monitor Incremental Refresh Message Message
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message = {}
 
+moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_incremental_refresh_message
+
 -- Dissect Fields: Otc Monitor Incremental Refresh Message Message
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5302,6 +5502,8 @@ end
 
 -- Book Message Message
 moex_spectra_fastgate_fast_v9_9_0.book_message = {}
+
+moex_spectra_fastgate_fast_v9_9_0.book_message.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.book_message
 
 -- Dissect Fields: Book Message Message
 moex_spectra_fastgate_fast_v9_9_0.book_message.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -5447,6 +5649,8 @@ end
 -- Orders Log Message Message
 moex_spectra_fastgate_fast_v9_9_0.orders_log_message = {}
 
+moex_spectra_fastgate_fast_v9_9_0.orders_log_message.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.orders_log_message
+
 -- Dissect Fields: Orders Log Message Message
 moex_spectra_fastgate_fast_v9_9_0.orders_log_message.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5524,6 +5728,8 @@ end
 
 -- News Message
 moex_spectra_fastgate_fast_v9_9_0.news = {}
+
+moex_spectra_fastgate_fast_v9_9_0.news.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.news
 
 -- Dissect Fields: News Message
 moex_spectra_fastgate_fast_v9_9_0.news.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -5624,6 +5830,8 @@ end
 -- Discrete Auction Message
 moex_spectra_fastgate_fast_v9_9_0.discrete_auction = {}
 
+moex_spectra_fastgate_fast_v9_9_0.discrete_auction.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.discrete_auction
+
 -- Dissect Fields: Discrete Auction Message
 moex_spectra_fastgate_fast_v9_9_0.discrete_auction.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5692,6 +5900,8 @@ end
 
 -- Trading Session Status Message
 moex_spectra_fastgate_fast_v9_9_0.trading_session_status = {}
+
+moex_spectra_fastgate_fast_v9_9_0.trading_session_status.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_status
 
 -- Dissect Fields: Trading Session Status Message
 moex_spectra_fastgate_fast_v9_9_0.trading_session_status.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -5762,6 +5972,8 @@ end
 -- Sequence Reset Message
 moex_spectra_fastgate_fast_v9_9_0.sequence_reset = {}
 
+moex_spectra_fastgate_fast_v9_9_0.sequence_reset.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.sequence_reset
+
 -- Dissect Fields: Sequence Reset Message
 moex_spectra_fastgate_fast_v9_9_0.sequence_reset.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5801,6 +6013,8 @@ end
 -- Heartbeat Message
 moex_spectra_fastgate_fast_v9_9_0.heartbeat = {}
 
+moex_spectra_fastgate_fast_v9_9_0.heartbeat.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.heartbeat
+
 -- Dissect Fields: Heartbeat Message
 moex_spectra_fastgate_fast_v9_9_0.heartbeat.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5836,6 +6050,8 @@ end
 
 -- Security Group Status Message
 moex_spectra_fastgate_fast_v9_9_0.security_group_status = {}
+
+moex_spectra_fastgate_fast_v9_9_0.security_group_status.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_group_status
 
 -- Dissect Fields: Security Group Status Message
 moex_spectra_fastgate_fast_v9_9_0.security_group_status.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -5933,6 +6149,8 @@ end
 -- Security Mass Status Message
 moex_spectra_fastgate_fast_v9_9_0.security_mass_status = {}
 
+moex_spectra_fastgate_fast_v9_9_0.security_mass_status.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_mass_status
+
 -- Dissect Fields: Security Mass Status Message
 moex_spectra_fastgate_fast_v9_9_0.security_mass_status.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5980,6 +6198,8 @@ end
 
 -- Security Status Message
 moex_spectra_fastgate_fast_v9_9_0.security_status = {}
+
+moex_spectra_fastgate_fast_v9_9_0.security_status.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_status
 
 -- Dissect Fields: Security Status Message
 moex_spectra_fastgate_fast_v9_9_0.security_status.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -6049,6 +6269,8 @@ end
 
 -- Security Definition Update Report Message
 moex_spectra_fastgate_fast_v9_9_0.security_definition_update_report = {}
+
+moex_spectra_fastgate_fast_v9_9_0.security_definition_update_report.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_definition_update_report
 
 -- Dissect Fields: Security Definition Update Report Message
 moex_spectra_fastgate_fast_v9_9_0.security_definition_update_report.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -6280,6 +6502,8 @@ end
 
 -- Security Definition Message
 moex_spectra_fastgate_fast_v9_9_0.security_definition = {}
+
+moex_spectra_fastgate_fast_v9_9_0.security_definition.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_definition
 
 -- Dissect Fields: Security Definition Message
 moex_spectra_fastgate_fast_v9_9_0.security_definition.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -6605,6 +6829,8 @@ end
 -- Default Snapshot Message Message
 moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message = {}
 
+moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_snapshot_message
+
 -- Dissect Fields: Default Snapshot Message Message
 moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -6782,6 +7008,8 @@ end
 -- Default Incremental Refresh Message Message
 moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message = {}
 
+moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message.node = omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_incremental_refresh_message
+
 -- Dissect Fields: Default Incremental Refresh Message Message
 moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -6833,49 +7061,26 @@ end
 -----------------------------------------------------------------------
 
 -- Moex Spectra FastGate Fast 9.9.0 Message Dispatch
-moex_spectra_fastgate_fast_v9_9_0.messages = {
-  [31] = moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message.dissect,
-  [32] = moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message.dissect,
-  [47] = moex_spectra_fastgate_fast_v9_9_0.security_definition.dissect,
-  [4] = moex_spectra_fastgate_fast_v9_9_0.security_definition_update_report.dissect,
-  [48] = moex_spectra_fastgate_fast_v9_9_0.security_status.dissect,
-  [37] = moex_spectra_fastgate_fast_v9_9_0.security_mass_status.dissect,
-  [45] = moex_spectra_fastgate_fast_v9_9_0.security_group_status.dissect,
-  [6] = moex_spectra_fastgate_fast_v9_9_0.heartbeat.dissect,
-  [7] = moex_spectra_fastgate_fast_v9_9_0.sequence_reset.dissect,
-  [46] = moex_spectra_fastgate_fast_v9_9_0.trading_session_status.dissect,
-  [42] = moex_spectra_fastgate_fast_v9_9_0.discrete_auction.dissect,
-  [9] = moex_spectra_fastgate_fast_v9_9_0.news.dissect,
-  [29] = moex_spectra_fastgate_fast_v9_9_0.orders_log_message.dissect,
-  [30] = moex_spectra_fastgate_fast_v9_9_0.book_message.dissect,
-  [33] = moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message.dissect,
-  [34] = moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message.dissect,
-  [35] = moex_spectra_fastgate_fast_v9_9_0.otc_monitor_security_definition.dissect,
-  [1000] = moex_spectra_fastgate_fast_v9_9_0.logon.dissect,
-  [1001] = moex_spectra_fastgate_fast_v9_9_0.logout.dissect,
-}
-
--- Moex Spectra FastGate Fast 9.9.0 Message Nodes
-moex_spectra_fastgate_fast_v9_9_0.message_fields = {
-  [31] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_incremental_refresh_message,
-  [32] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_snapshot_message,
-  [47] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_definition,
-  [4] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_definition_update_report,
-  [48] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_status,
-  [37] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_mass_status,
-  [45] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_group_status,
-  [6] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.heartbeat,
-  [7] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.sequence_reset,
-  [46] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_status,
-  [42] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.discrete_auction,
-  [9] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.news,
-  [29] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.orders_log_message,
-  [30] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.book_message,
-  [33] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_incremental_refresh_message,
-  [34] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_snapshot_message,
-  [35] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_security_definition,
-  [1000] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.logon,
-  [1001] = omi_moex_spectra_fastgate_fast_v9_9_0.fields.logout,
+moex_spectra_fastgate_fast_v9_9_0.templates = {
+  [31] = moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message,
+  [32] = moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message,
+  [47] = moex_spectra_fastgate_fast_v9_9_0.security_definition,
+  [4] = moex_spectra_fastgate_fast_v9_9_0.security_definition_update_report,
+  [48] = moex_spectra_fastgate_fast_v9_9_0.security_status,
+  [37] = moex_spectra_fastgate_fast_v9_9_0.security_mass_status,
+  [45] = moex_spectra_fastgate_fast_v9_9_0.security_group_status,
+  [6] = moex_spectra_fastgate_fast_v9_9_0.heartbeat,
+  [7] = moex_spectra_fastgate_fast_v9_9_0.sequence_reset,
+  [46] = moex_spectra_fastgate_fast_v9_9_0.trading_session_status,
+  [42] = moex_spectra_fastgate_fast_v9_9_0.discrete_auction,
+  [9] = moex_spectra_fastgate_fast_v9_9_0.news,
+  [29] = moex_spectra_fastgate_fast_v9_9_0.orders_log_message,
+  [30] = moex_spectra_fastgate_fast_v9_9_0.book_message,
+  [33] = moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message,
+  [34] = moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message,
+  [35] = moex_spectra_fastgate_fast_v9_9_0.otc_monitor_security_definition,
+  [1000] = moex_spectra_fastgate_fast_v9_9_0.logon,
+  [1001] = moex_spectra_fastgate_fast_v9_9_0.logout,
 }
 
 -- Moex Spectra FastGate Fast 9.9.0 Template Names
@@ -7037,11 +7242,11 @@ omi_moex_spectra_fastgate_fast_v9_9_0.dissector = function(buffer, packet, paren
       return
     end
 
-    local message_field = moex_spectra_fastgate_fast_v9_9_0.message_fields[template_id]
+    local template = moex_spectra_fastgate_fast_v9_9_0.templates[template_id]
     local message_tree = nil
 
-    if message_field ~= nil then
-      message_tree = root:add(message_field, buffer(start, 0))
+    if template ~= nil then
+      message_tree = root:add(template.node, buffer(start, 0))
     else
       message_tree = root:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.message, buffer(start, 0))
       message_tree:set_text(moex_spectra_fastgate_fast_v9_9_0.template_id.name(template_id))
@@ -7049,18 +7254,20 @@ omi_moex_spectra_fastgate_fast_v9_9_0.dissector = function(buffer, packet, paren
 
     -- the presence map and the template id are the message's own framing
     local header = message_tree:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.message_header, buffer(start, offset - start))
-    add_presence_map(header, buffer(start, mapped - start), omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_map, omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_stop, omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_identified, omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_unused, moex_spectra_fastgate_fast_v9_9_0.presence_bits.named[template_id])
+    local named = nil
+    if template ~= nil then
+      named = template.presence
+    end
+    add_presence_map(header, buffer(start, mapped - start), omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_map, omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_stop, omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_identified, omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_unused, named)
     header:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.template_id, buffer(identified, offset - identified), template_id, moex_spectra_fastgate_fast_v9_9_0.template_id.display(template_id))
 
-    local message = moex_spectra_fastgate_fast_v9_9_0.messages[template_id]
-
-    if message == nil then
+    if template == nil then
       message_tree:add_expert_info(PI_UNDECODED, PI_WARN, "This dissector reads: 31 (DefaultIncrementalRefreshMessage), 32 (DefaultSnapshotMessage), 47 (SecurityDefinition), 4 (SecurityDefinitionUpdateReport), 48 (SecurityStatus), 37 (SecurityMassStatus), 45 (SecurityGroupStatus), 6 (Heartbeat), 7 (SequenceReset), 46 (TradingSessionStatus), 42 (DiscreteAuction), 9 (News), 29 (OrdersLogMessage), 30 (BookMessage), 33 (OtcMonitorIncrementalRefreshMessage), 34 (OtcMonitorSnapshotMessage), 35 (OtcMonitorSecurityDefinition), 1000 (Logon), 1001 (Logout)")
       message_tree:set_len(offset - start)
       return
     end
 
-    offset = message(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
+    offset = template.dissect(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
     messages = messages + 1
 
     -- the message occupies whatever its framing and its fields consumed

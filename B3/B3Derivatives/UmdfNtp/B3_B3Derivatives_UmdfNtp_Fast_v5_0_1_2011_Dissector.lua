@@ -22,7 +22,6 @@ omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.template_id = ProtoField.ne
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_stop = ProtoField.new("Stop Bit", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_identified = ProtoField.new("Template Id", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_unused = ProtoField.new("Unused", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.presenceunused", ftypes.UINT8, nil, base.HEX)
-b3_b3derivatives_umdfntp_fast_v5_0_1_2011.presence_bits = {}
 
 -- B3 B3Derivatives UmdfNtp Fast 5.0.1.2011 Presence Map Fields
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_md_req_id = ProtoField.new("Md Req Id", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.mdreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -37,238 +36,6 @@ omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_language_code = Pr
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_headline = ProtoField.new("Headline", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.headlinepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_url_link = ProtoField.new("Url Link", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.urllinkpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_appl_ver_id = ProtoField.new("Appl Ver Id", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.applveridpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-
-b3_b3derivatives_umdfntp_fast_v5_0_1_2011.presence_bits.named = {
-  [117] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_md_req_id,
-    [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_md_req_rej_reason,
-  },
-  [81] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [110] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [109] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [108] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [97] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [77] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [103] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [69] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [83] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [32] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [84] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [68] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [104] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [71] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [59] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [86] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [35] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [87] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [36] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [88] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [72] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [105] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [67] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [90] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [39] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [91] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [70] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [93] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [41] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [106] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [73] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [95] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [43] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [96] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [44] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [107] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [74] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [79] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-    [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [6] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
-    [7] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [8] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [9] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [10] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [11] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [12] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_user_defined_instrument,
-    [13] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [14] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_contract_multiplier_type,
-  },
-  [78] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-    [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [6] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
-    [7] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [8] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [9] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [10] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [11] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [12] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_user_defined_instrument,
-    [13] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [14] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_contract_multiplier_type,
-    [15] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-  },
-  [52] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-    [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [6] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
-    [7] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [8] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [9] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [10] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [11] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [12] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_user_defined_instrument,
-  },
-  [98] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [54] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [125] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
-  },
-  [113] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
-  },
-  [102] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-    [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
-    [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-  },
-  [99] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-    [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
-    [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-  },
-  [76] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-    [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
-    [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-  },
-  [48] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-    [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
-    [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-    [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
-  },
-  [124] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_md_req_id,
-  },
-  [112] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-    [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_md_req_id,
-  },
-  [80] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [53] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [120] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_news_source,
-    [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_language_code,
-    [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_headline,
-    [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_url_link,
-  },
-  [100] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [49] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [101] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [50] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
-  },
-  [122] = {
-    [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_appl_ver_id,
-  },
-}
 
 -- B3 B3Derivatives UmdfNtp Fast 5.0.1.2011 Fields
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.message_type = ProtoField.new("Message Type", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.messagetype", ftypes.STRING)
@@ -719,16 +486,30 @@ local function add_presence_map(parent, range, map_field, stop_field, identified
   return node
 end
 
+-- Seven bits an octet, so ten octets hold the widest value FAST carries and a
+-- longer run is not an integer of any width. Reading one on matters because a
+-- Lua integer wraps on overflow rather than widening: the run would come back
+-- negative and be used as a length, which raises from inside Wireshark rather
+-- than saying what was wrong with the packet. The two that accumulate into
+-- Wireshark's own 64 bit values take all ten; the two that accumulate into a
+-- Lua integer stop at the nine that cannot overflow it, a value needing the
+-- tenth being wider than anything they are asked to read.
+local FAST_WIDE_OCTETS = 10
+local FAST_NUMBER_OCTETS = 9
+
 -- read an unsigned fast integer
 local function read_stop_bit_unsigned(buffer, offset)
   local value = 0
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST unsigned integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -739,12 +520,15 @@ local function read_stop_bit_signed(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and -1 or 0
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST signed integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -754,12 +538,15 @@ end
 local function read_stop_bit_uint64(buffer, offset)
   local value = UInt64(0)
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST unsigned integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -770,12 +557,15 @@ local function read_stop_bit_int64(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and Int64(-1) or Int64(0)
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST signed integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -827,24 +617,71 @@ local function read_ascii_string(buffer, offset)
     offset = offset + 1
   until bit.band(octet, 0x80) ~= 0
 
-  -- the stop bit rides in the high bit of the last character, so that octet is
-  -- masked back to the character it carries
-  local text = buffer(start, offset - start):string()
+  -- Every character but the last is 7 bit and reads as it stands. The last
+  -- octet carries the stop bit in its high bit, so it is masked back to the
+  -- character it carries rather than read as text: read as text it is not a
+  -- character at all, and Wireshark substitutes a replacement character three
+  -- bytes wide where the octet was one, which would leave two stray bytes
+  -- inside every string the wire carries.
+  local text = buffer(start, offset - start - 1):string()
   local last = bit.band(octet, 0x7f)
 
   -- a run closing on a nul carries no character there: the string ends before it
   if last == 0 then
-    return text:sub(1, -2), offset
+    return text, offset
   end
 
-  return text:sub(1, -2) .. string.char(last), offset
+  return text .. string.char(last), offset
+end
+
+-- splice a string delta onto the value the stream last sent: a subtraction
+-- length says how much of it to drop, and the characters that follow take the
+-- dropped part's place. A non-negative length drops from the tail and the
+-- difference goes after what is left; a negative one drops from the head and
+-- the difference goes in front, counting from -1 for nothing dropped, there
+-- being no negative zero to say it with.
+local function splice_string_delta(buffer, offset, base, length)
+  local text
+  text, offset = read_ascii_string(buffer, offset)
+  base = base or ""
+
+  -- sub clamps, so a length longer than what is remembered drops all of it
+  -- rather than reading off the end of the string
+  if length < 0 then
+    return text .. base:sub(-length), offset
+  end
+
+  return base:sub(1, #base - length) .. text, offset
+end
+
+-- read a fast string delta, whose subtraction length leads
+local function read_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_stop_bit_signed(buffer, offset)
+
+  return splice_string_delta(buffer, offset, base, length)
+end
+
+-- the same where the field is optional: the subtraction length carries the
+-- null, and a null one says the field is absent, with no difference behind it
+local function read_nullable_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_nullable_signed(buffer, offset)
+  if length == nil then return nil, offset end
+
+  return splice_string_delta(buffer, offset, base, length)
 end
 
 -- read a fast byte vector, counted by the length that precedes it
 local function read_byte_vector(buffer, offset)
   local length
   length, offset = read_stop_bit_unsigned(buffer, offset)
-  if offset + length > buffer:len() then error("truncated FAST byte vector") end
+
+  -- the length is checked against what is left rather than by adding it to the
+  -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
 
   return buffer(offset, length), offset + length
 end
@@ -2530,7 +2367,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.leg_security_id_delta.dissect = functi
 
   local value_delta = nil
   value_delta, offset = read_stop_bit_int64(buffer, offset)
-  value = (state.values[key] or Int64(0)) + value_delta
+  value = (state.values[key] or UInt64(0)) + UInt64.fromhex(value_delta:tohex())
   state.values[key] = value
 
   local range = buffer(start, offset - start)
@@ -2878,7 +2715,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.min_price_increment_sent_required.diss
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2931,7 +2772,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.min_price_increment_sent_optional.diss
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3408,7 +3253,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.strike_price.dissect = function(buffer
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3488,7 +3337,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.contract_multiplier_sent_required.diss
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4648,7 +4501,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_entry_px_sent_optional.dissect = fu
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4699,7 +4556,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_entry_px_sent_required.dissect = fu
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5483,7 +5344,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.net_chg_prev_day.dissect = function(bu
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5538,7 +5403,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.trade_volume_delta_optional_u_int64.di
   value_delta, offset = read_nullable_int64(buffer, offset)
 
   if value_delta ~= nil then
-    value = (state.values[key] or Int64(0)) + value_delta
+    value = (state.values[key] or UInt64(0)) + UInt64.fromhex(value_delta:tohex())
     state.values[key] = value
   end
 
@@ -6068,7 +5933,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.low_limit_price.dissect = function(buf
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6119,7 +5988,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.high_limit_price.dissect = function(bu
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6170,7 +6043,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.trading_ref_price.dissect = function(b
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6423,7 +6300,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.event_date.dissect = function(buffer, 
   value_delta, offset = read_nullable_int64(buffer, offset)
 
   if value_delta ~= nil then
-    value = (state.values[key] or Int64(0)) + value_delta
+    value = (state.values[key] or UInt64(0)) + UInt64.fromhex(value_delta:tohex())
     state.values[key] = value
   end
 
@@ -6451,7 +6328,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.event_time.dissect = function(buffer, 
   value_delta, offset = read_nullable_int64(buffer, offset)
 
   if value_delta ~= nil then
-    value = (state.values[key] or Int64(0)) + value_delta
+    value = (state.values[key] or UInt64(0)) + UInt64.fromhex(value_delta:tohex())
     state.values[key] = value
   end
 
@@ -6498,7 +6375,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.trading_reference_price.dissect = func
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6546,7 +6427,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.high_limit_px.dissect = function(buffe
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6594,7 +6479,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.low_limit_px.dissect = function(buffer
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6686,7 +6575,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.min_cab_price.dissect = function(buffe
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6867,7 +6760,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.instr_attrib_type.dissect = function(b
 
   local value_delta = nil
   value_delta, offset = read_stop_bit_int64(buffer, offset)
-  value = (state.values[key] or Int64(0)) + value_delta
+  value = (state.values[key] or UInt64(0)) + UInt64.fromhex(value_delta:tohex())
   state.values[key] = value
 
   local range = buffer(start, offset - start)
@@ -6941,7 +6834,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.min_price_increment_amount.dissect = f
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7011,7 +6908,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.display_factor.dissect = function(buff
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7200,7 +7101,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.leg_maturity_month_year.dissect = func
   value_delta, offset = read_nullable_int64(buffer, offset)
 
   if value_delta ~= nil then
-    value = (state.values[key] or Int64(0)) + value_delta
+    value = (state.values[key] or UInt64(0)) + UInt64.fromhex(value_delta:tohex())
     state.values[key] = value
   end
 
@@ -7252,7 +7153,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.leg_strike_price.dissect = function(bu
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7333,7 +7238,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.leg_price.dissect = function(buffer, o
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7386,7 +7295,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.leg_option_delta.dissect = function(bu
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7458,7 +7371,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.price_ratio.dissect = function(buffer,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7752,7 +7669,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.min_lot_size.dissect = function(buffer
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8124,7 +8045,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.high_px.dissect = function(buffer, off
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8172,7 +8097,11 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2011.low_px.dissect = function(buffer, offs
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8783,6 +8712,11 @@ end
 -- Md Sequence Reset Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_sequence_reset = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_sequence_reset.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_sequence_reset
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_sequence_reset.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_appl_ver_id,
+}
+
 -- Dissect Fields: Md Sequence Reset Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_sequence_reset.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -8818,6 +8752,8 @@ end
 
 -- Md Logout Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logout
 
 -- Dissect Fields: Md Logout Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -8861,6 +8797,8 @@ end
 -- Md Logout_119 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout_119 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout_119.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logout_119
+
 -- Dissect Fields: Md Logout_119 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout_119.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -8899,6 +8837,8 @@ end
 
 -- Md Logout_4 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout_4 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout_4.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logout_4
 
 -- Dissect Fields: Md Logout_4 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout_4.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -8941,6 +8881,8 @@ end
 
 -- Md Logon Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logon
 
 -- Dissect Fields: Md Logon Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -8990,6 +8932,8 @@ end
 -- Md Logon_3 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon_3 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon_3.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logon_3
+
 -- Dissect Fields: Md Logon_3 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon_3.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -9038,6 +8982,8 @@ end
 -- Md Logon_118 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon_118 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon_118.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logon_118
+
 -- Dissect Fields: Md Logon_118 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon_118.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -9083,6 +9029,11 @@ end
 -- Md Heartbeat Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_heartbeat
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Heartbeat Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -9121,6 +9072,11 @@ end
 
 -- Md Heartbeat_101 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat_101 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat_101.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_heartbeat_101
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat_101.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Heartbeat_101 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat_101.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -9193,6 +9149,11 @@ end
 
 -- Md News Message Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_news_message
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md News Message Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -9280,6 +9241,11 @@ end
 
 -- Md News Message_100 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_100 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_100.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_news_message_100
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_100.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md News Message_100 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_100.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -9455,6 +9421,14 @@ end
 -- Md News Message_120 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_120 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_120.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_news_message_120
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_120.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_news_source,
+  [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_language_code,
+  [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_headline,
+  [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_url_link,
+}
+
 -- Dissect Fields: Md News Message_120 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_120.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -9596,6 +9570,11 @@ end
 -- Md Snapshot Full Refresh_53 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_53 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_53.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_snapshot_full_refresh_53
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_53.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Snapshot Full Refresh_53 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_53.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -9721,6 +9700,11 @@ end
 
 -- Md Snapshot Full Refresh_80 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_80 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_80.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_snapshot_full_refresh_80
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_80.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Snapshot Full Refresh_80 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_80.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -9913,6 +9897,12 @@ end
 
 -- Md Snapshot Full Refresh_112 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_112 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_112.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_snapshot_full_refresh_112
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_112.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+  [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_md_req_id,
+}
 
 -- Dissect Fields: Md Snapshot Full Refresh_112 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_112.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -10115,6 +10105,11 @@ end
 -- Md Snapshot Full Refresh_124 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_124 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_124.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_snapshot_full_refresh_124
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_124.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_md_req_id,
+}
+
 -- Dissect Fields: Md Snapshot Full Refresh_124 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_124.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -10184,6 +10179,14 @@ end
 -- Md Security Status Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+  [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
+  [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+}
+
 -- Dissect Fields: Md Security Status Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -10240,6 +10243,14 @@ end
 
 -- Md Security Status_76 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_76 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_76.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status_76
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_76.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+  [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
+  [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+}
 
 -- Dissect Fields: Md Security Status_76 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_76.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -10307,6 +10318,14 @@ end
 -- Md Security Status_99 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_99 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_99.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status_99
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_99.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+  [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
+  [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+}
+
 -- Dissect Fields: Md Security Status_99 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_99.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -10372,6 +10391,14 @@ end
 
 -- Md Security Status_102 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_102 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_102.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status_102
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_102.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+  [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
+  [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+}
 
 -- Dissect Fields: Md Security Status_102 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_102.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -10439,6 +10466,11 @@ end
 -- Md Security Status_113 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_113 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_113.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status_113
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_113.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
+}
+
 -- Dissect Fields: Md Security Status_113 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_113.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -10504,6 +10536,11 @@ end
 
 -- Md Security Status_125 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_125 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_125.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status_125
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_125.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
+}
 
 -- Dissect Fields: Md Security Status_125 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_125.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -10625,6 +10662,11 @@ end
 -- Md Quote Request_54 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_54 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_54.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_quote_request_54
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_54.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Quote Request_54 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_54.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -10729,6 +10771,11 @@ end
 
 -- Md Quote Request_98 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_98 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_98.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_quote_request_98
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_98.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Quote Request_98 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_98.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -10996,6 +11043,21 @@ end
 
 -- Md Security Definition_52 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_52 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_52.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_definition_52
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_52.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+  [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [6] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
+  [7] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [8] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [9] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [10] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [11] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [12] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_user_defined_instrument,
+}
 
 -- Dissect Fields: Md Security Definition_52 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_52.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -11401,6 +11463,24 @@ end
 
 -- Md Security Definition_78 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_78 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_78.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_definition_78
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_78.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+  [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [6] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
+  [7] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [8] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [9] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [10] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [11] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [12] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_user_defined_instrument,
+  [13] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [14] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_contract_multiplier_type,
+  [15] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+}
 
 -- Dissect Fields: Md Security Definition_78 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_78.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -11927,6 +12007,23 @@ end
 -- Md Security Definition_79 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_79 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_79.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_definition_79
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_79.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+  [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [5] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [6] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_security_id_source,
+  [7] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [8] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [9] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [10] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [11] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [12] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_user_defined_instrument,
+  [13] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_exponent,
+  [14] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_contract_multiplier_type,
+}
+
 -- Dissect Fields: Md Security Definition_79 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_79.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12260,6 +12357,11 @@ end
 -- Md Inc Refresh_74 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_74 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_74.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_74
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_74.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_74 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_74.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12407,6 +12509,11 @@ end
 -- Md Inc Refresh_107 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_107 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_107.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_107
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_107.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_107 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_107.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12526,6 +12633,11 @@ end
 
 -- Md Inc Refresh_44 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_44 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_44.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_44
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_44.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_44 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_44.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -12647,6 +12759,11 @@ end
 -- Md Inc Refresh_96 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_96 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_96.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_96
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_96.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_96 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_96.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12767,6 +12884,11 @@ end
 -- Md Inc Refresh_43 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_43 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_43.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_43
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_43.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_43 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_43.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12886,6 +13008,11 @@ end
 
 -- Md Inc Refresh_95 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_95 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_95.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_95
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_95.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_95 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_95.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -13027,6 +13154,11 @@ end
 
 -- Md Inc Refresh_73 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_73 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_73.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_73
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_73.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_73 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_73.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -13172,6 +13304,11 @@ end
 -- Md Inc Refresh_106 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_106 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_106.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_106
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_106.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_106 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_106.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -13289,6 +13426,11 @@ end
 -- Md Inc Refresh_41 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_41 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_41.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_41
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_41.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_41 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_41.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -13405,6 +13547,11 @@ end
 
 -- Md Inc Refresh_93 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_93 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_93.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_93
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_93.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_93 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_93.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -13532,6 +13679,11 @@ end
 -- Md Inc Refresh_70 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_70 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_70.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_70
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_70.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_70 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_70.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -13658,6 +13810,11 @@ end
 -- Md Inc Refresh_91 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_91 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_91.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_91
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_91.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_91 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_91.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -13775,6 +13932,11 @@ end
 -- Md Inc Refresh_39 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_39 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_39.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_39
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_39.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_39 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_39.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -13891,6 +14053,11 @@ end
 
 -- Md Inc Refresh_90 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_90 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_90.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_90
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_90.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_90 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_90.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -14032,6 +14199,11 @@ end
 
 -- Md Inc Refresh_67 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_67 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_67.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_67
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_67.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_67 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_67.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -14177,6 +14349,11 @@ end
 -- Md Inc Refresh_105 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_105 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_105.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_105
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_105.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_105 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_105.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -14302,6 +14479,11 @@ end
 
 -- Md Inc Refresh_72 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_72 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_72.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_72
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_72.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_72 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_72.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -14429,6 +14611,11 @@ end
 -- Md Inc Refresh_88 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_88 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_88.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_88
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_88.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_88 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_88.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -14546,6 +14733,11 @@ end
 -- Md Inc Refresh_36 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_36 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_36.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_36
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_36.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_36 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_36.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -14662,6 +14854,11 @@ end
 
 -- Md Inc Refresh_87 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_87 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_87.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_87
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_87.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_87 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_87.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -14783,6 +14980,11 @@ end
 -- Md Inc Refresh_35 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_35 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_35.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_35
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_35.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_35 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_35.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -14902,6 +15104,11 @@ end
 
 -- Md Inc Refresh_86 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_86 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_86.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_86
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_86.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_86 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_86.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -15040,6 +15247,11 @@ end
 
 -- Md Inc Refresh_59 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_59 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_59.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_59
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_59.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_59 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_59.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -15181,6 +15393,11 @@ end
 
 -- Md Inc Refresh_71 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_71 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_71.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_71
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_71.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_71 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_71.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -15326,6 +15543,11 @@ end
 -- Md Inc Refresh_104 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_104 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_104.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_104
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_104.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_104 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_104.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -15451,6 +15673,11 @@ end
 
 -- Md Inc Refresh_68 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_68 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_68.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_68
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_68.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_68 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_68.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -15578,6 +15805,11 @@ end
 -- Md Inc Refresh_84 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_84 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_84.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_84
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_84.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_84 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_84.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -15695,6 +15927,11 @@ end
 -- Md Inc Refresh_32 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_32 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_32.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_32
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_32.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_32 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_32.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -15811,6 +16048,11 @@ end
 
 -- Md Inc Refresh_83 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_83 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_83.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_83
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_83.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_83 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_83.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -15952,6 +16194,11 @@ end
 
 -- Md Inc Refresh_69 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_69 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_69.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_69
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_69.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_69 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_69.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -16097,6 +16344,11 @@ end
 -- Md Inc Refresh_103 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_103 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_103.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_103
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_103.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_103 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_103.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -16214,6 +16466,11 @@ end
 -- Md Inc Refresh_77 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_77 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_77.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_77
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_77.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_77 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_77.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -16330,6 +16587,11 @@ end
 
 -- Md Inc Refresh_97 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_97 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_97.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_97
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_97.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_97 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_97.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -16463,6 +16725,11 @@ end
 -- Md Inc Refresh_108 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_108 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_108.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_108
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_108.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
+
 -- Dissect Fields: Md Inc Refresh_108 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_108.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -16594,6 +16861,11 @@ end
 
 -- Md Inc Refresh_109 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_109 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_109.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_109
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_109.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_109 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_109.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -16789,6 +17061,11 @@ end
 
 -- Md Inc Refresh_110 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_110 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_110.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_110
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_110.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_110 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_110.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -16988,6 +17265,8 @@ end
 -- Md Inc Refresh_123 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_123 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_123.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_123
+
 -- Dissect Fields: Md Inc Refresh_123 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_123.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -17101,6 +17380,11 @@ end
 
 -- Md Inc Refresh_81 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_81 = {}
+
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_81.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_81
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_81.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_pos_dup_flag,
+}
 
 -- Dissect Fields: Md Inc Refresh_81 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_81.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -17525,6 +17809,8 @@ end
 -- Md Security List_111 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_list_111 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_list_111.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_list_111
+
 -- Dissect Fields: Md Security List_111 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_list_111.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -17573,6 +17859,12 @@ end
 -- Md Tcp Request Reject_117 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_tcp_request_reject_117 = {}
 
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_tcp_request_reject_117.node = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_tcp_request_reject_117
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_tcp_request_reject_117.presence = {
+  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_md_req_id,
+  [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_md_req_rej_reason,
+}
+
 -- Dissect Fields: Md Tcp Request Reject_117 Message
 b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_tcp_request_reject_117.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -17618,145 +17910,74 @@ end
 -----------------------------------------------------------------------
 
 -- B3 B3Derivatives UmdfNtp Fast 5.0.1.2011 Message Dispatch
-b3_b3derivatives_umdfntp_fast_v5_0_1_2011.messages = {
-  [117] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_tcp_request_reject_117.dissect,
-  [111] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_list_111.dissect,
-  [81] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_81.dissect,
-  [123] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_123.dissect,
-  [110] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_110.dissect,
-  [109] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_109.dissect,
-  [108] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_108.dissect,
-  [97] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_97.dissect,
-  [77] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_77.dissect,
-  [103] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_103.dissect,
-  [69] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_69.dissect,
-  [83] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_83.dissect,
-  [32] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_32.dissect,
-  [84] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_84.dissect,
-  [68] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_68.dissect,
-  [104] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_104.dissect,
-  [71] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_71.dissect,
-  [59] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_59.dissect,
-  [86] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_86.dissect,
-  [35] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_35.dissect,
-  [87] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_87.dissect,
-  [36] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_36.dissect,
-  [88] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_88.dissect,
-  [72] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_72.dissect,
-  [105] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_105.dissect,
-  [67] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_67.dissect,
-  [90] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_90.dissect,
-  [39] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_39.dissect,
-  [91] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_91.dissect,
-  [70] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_70.dissect,
-  [93] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_93.dissect,
-  [41] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_41.dissect,
-  [106] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_106.dissect,
-  [73] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_73.dissect,
-  [95] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_95.dissect,
-  [43] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_43.dissect,
-  [96] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_96.dissect,
-  [44] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_44.dissect,
-  [107] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_107.dissect,
-  [74] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_74.dissect,
-  [79] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_79.dissect,
-  [78] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_78.dissect,
-  [52] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_52.dissect,
-  [98] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_98.dissect,
-  [54] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_54.dissect,
-  [125] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_125.dissect,
-  [113] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_113.dissect,
-  [102] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_102.dissect,
-  [99] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_99.dissect,
-  [76] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_76.dissect,
-  [48] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status.dissect,
-  [124] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_124.dissect,
-  [112] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_112.dissect,
-  [80] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_80.dissect,
-  [53] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_53.dissect,
-  [120] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_120.dissect,
-  [100] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_100.dissect,
-  [49] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message.dissect,
-  [101] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat_101.dissect,
-  [50] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat.dissect,
-  [118] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon_118.dissect,
-  [3] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon_3.dissect,
-  [1] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon.dissect,
-  [4] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout_4.dissect,
-  [119] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout_119.dissect,
-  [2] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout.dissect,
-  [122] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_sequence_reset.dissect,
-}
-
--- B3 B3Derivatives UmdfNtp Fast 5.0.1.2011 Message Nodes
-b3_b3derivatives_umdfntp_fast_v5_0_1_2011.message_fields = {
-  [117] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_tcp_request_reject_117,
-  [111] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_list_111,
-  [81] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_81,
-  [123] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_123,
-  [110] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_110,
-  [109] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_109,
-  [108] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_108,
-  [97] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_97,
-  [77] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_77,
-  [103] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_103,
-  [69] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_69,
-  [83] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_83,
-  [32] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_32,
-  [84] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_84,
-  [68] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_68,
-  [104] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_104,
-  [71] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_71,
-  [59] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_59,
-  [86] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_86,
-  [35] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_35,
-  [87] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_87,
-  [36] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_36,
-  [88] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_88,
-  [72] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_72,
-  [105] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_105,
-  [67] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_67,
-  [90] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_90,
-  [39] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_39,
-  [91] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_91,
-  [70] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_70,
-  [93] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_93,
-  [41] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_41,
-  [106] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_106,
-  [73] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_73,
-  [95] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_95,
-  [43] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_43,
-  [96] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_96,
-  [44] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_44,
-  [107] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_107,
-  [74] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_inc_refresh_74,
-  [79] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_definition_79,
-  [78] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_definition_78,
-  [52] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_definition_52,
-  [98] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_quote_request_98,
-  [54] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_quote_request_54,
-  [125] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status_125,
-  [113] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status_113,
-  [102] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status_102,
-  [99] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status_99,
-  [76] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status_76,
-  [48] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_security_status,
-  [124] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_snapshot_full_refresh_124,
-  [112] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_snapshot_full_refresh_112,
-  [80] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_snapshot_full_refresh_80,
-  [53] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_snapshot_full_refresh_53,
-  [120] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_news_message_120,
-  [100] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_news_message_100,
-  [49] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_news_message,
-  [101] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_heartbeat_101,
-  [50] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_heartbeat,
-  [118] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logon_118,
-  [3] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logon_3,
-  [1] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logon,
-  [4] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logout_4,
-  [119] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logout_119,
-  [2] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_logout,
-  [122] = omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.md_sequence_reset,
+b3_b3derivatives_umdfntp_fast_v5_0_1_2011.templates = {
+  [117] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_tcp_request_reject_117,
+  [111] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_list_111,
+  [81] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_81,
+  [123] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_123,
+  [110] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_110,
+  [109] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_109,
+  [108] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_108,
+  [97] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_97,
+  [77] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_77,
+  [103] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_103,
+  [69] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_69,
+  [83] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_83,
+  [32] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_32,
+  [84] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_84,
+  [68] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_68,
+  [104] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_104,
+  [71] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_71,
+  [59] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_59,
+  [86] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_86,
+  [35] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_35,
+  [87] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_87,
+  [36] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_36,
+  [88] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_88,
+  [72] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_72,
+  [105] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_105,
+  [67] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_67,
+  [90] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_90,
+  [39] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_39,
+  [91] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_91,
+  [70] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_70,
+  [93] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_93,
+  [41] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_41,
+  [106] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_106,
+  [73] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_73,
+  [95] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_95,
+  [43] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_43,
+  [96] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_96,
+  [44] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_44,
+  [107] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_107,
+  [74] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_inc_refresh_74,
+  [79] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_79,
+  [78] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_78,
+  [52] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_definition_52,
+  [98] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_98,
+  [54] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_quote_request_54,
+  [125] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_125,
+  [113] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_113,
+  [102] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_102,
+  [99] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_99,
+  [76] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status_76,
+  [48] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_security_status,
+  [124] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_124,
+  [112] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_112,
+  [80] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_80,
+  [53] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_snapshot_full_refresh_53,
+  [120] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_120,
+  [100] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message_100,
+  [49] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_news_message,
+  [101] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat_101,
+  [50] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_heartbeat,
+  [118] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon_118,
+  [3] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon_3,
+  [1] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logon,
+  [4] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout_4,
+  [119] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout_119,
+  [2] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_logout,
+  [122] = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.md_sequence_reset,
 }
 
 -- B3 B3Derivatives UmdfNtp Fast 5.0.1.2011 Template Names
@@ -18206,11 +18427,11 @@ omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.dissector = function(buffer, packe
       return
     end
 
-    local message_field = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.message_fields[template_id]
+    local template = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.templates[template_id]
     local message_tree = nil
 
-    if message_field ~= nil then
-      message_tree = root:add(message_field, buffer(start, 0))
+    if template ~= nil then
+      message_tree = root:add(template.node, buffer(start, 0))
     else
       message_tree = root:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.message, buffer(start, 0))
       message_tree:set_text(b3_b3derivatives_umdfntp_fast_v5_0_1_2011.template_id.name(template_id))
@@ -18218,18 +18439,20 @@ omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.dissector = function(buffer, packe
 
     -- the presence map and the template id are the message's own framing
     local header = message_tree:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.message_header, buffer(start, offset - start))
-    add_presence_map(header, buffer(start, mapped - start), omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_map, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_stop, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_identified, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_unused, b3_b3derivatives_umdfntp_fast_v5_0_1_2011.presence_bits.named[template_id])
+    local named = nil
+    if template ~= nil then
+      named = template.presence
+    end
+    add_presence_map(header, buffer(start, mapped - start), omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_map, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_stop, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_identified, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_unused, named)
     header:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.template_id, buffer(identified, offset - identified), template_id, b3_b3derivatives_umdfntp_fast_v5_0_1_2011.template_id.display(template_id))
 
-    local message = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.messages[template_id]
-
-    if message == nil then
+    if template == nil then
       message_tree:add_expert_info(PI_UNDECODED, PI_WARN, "This dissector reads: 117 (MDTcpRequestReject_117), 111 (MDSecurityList_111), 81 (MDIncRefresh_81), 123 (MDIncRefresh_123), 110 (MDIncRefresh_110), 109 (MDIncRefresh_109), 108 (MDIncRefresh_108), 97 (MDIncRefresh_97), 77 (MDIncRefresh_77), 103 (MDIncRefresh_103), 69 (MDIncRefresh_69), 83 (MDIncRefresh_83), 32 (MDIncRefresh_32), 84 (MDIncRefresh_84), 68 (MDIncRefresh_68), 104 (MDIncRefresh_104), 71 (MDIncRefresh_71), 59 (MDIncRefresh_59), 86 (MDIncRefresh_86), 35 (MDIncRefresh_35), 87 (MDIncRefresh_87), 36 (MDIncRefresh_36), 88 (MDIncRefresh_88), 72 (MDIncRefresh_72), 105 (MDIncRefresh_105), 67 (MDIncRefresh_67), 90 (MDIncRefresh_90), 39 (MDIncRefresh_39), 91 (MDIncRefresh_91), 70 (MDIncRefresh_70), 93 (MDIncRefresh_93), 41 (MDIncRefresh_41), 106 (MDIncRefresh_106), 73 (MDIncRefresh_73), 95 (MDIncRefresh_95), 43 (MDIncRefresh_43), 96 (MDIncRefresh_96), 44 (MDIncRefresh_44), 107 (MDIncRefresh_107), 74 (MDIncRefresh_74), 79 (MDSecurityDefinition_79), 78 (MDSecurityDefinition_78), 52 (MDSecurityDefinition_52), 98 (MDQuoteRequest_98), 54 (MDQuoteRequest_54), 125 (MDSecurityStatus_125), 113 (MDSecurityStatus_113), 102 (MDSecurityStatus_102), 99 (MDSecurityStatus_99), 76 (MDSecurityStatus_76), 48 (MDSecurityStatus), 124 (MDSnapshotFullRefresh_124), 112 (MDSnapshotFullRefresh_112), 80 (MDSnapshotFullRefresh_80), 53 (MDSnapshotFullRefresh_53), 120 (MDNewsMessage_120), 100 (MDNewsMessage_100), 49 (MDNewsMessage), 101 (MDHeartbeat_101), 50 (MDHeartbeat), 118 (MDLogon_118), 3 (MDLogon_3), 1 (MDLogon), 4 (MDLogout_4), 119 (MDLogout_119), 2 (MDLogout), 122 (MDSequenceReset)")
       message_tree:set_len(offset - start)
       return
     end
 
-    offset = message(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
+    offset = template.dissect(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
     messages = messages + 1
 
     -- the message occupies whatever its framing and its fields consumed

@@ -22,7 +22,6 @@ omi_athex_oasis_mdfs_fast_v9.fields.template_id = ProtoField.new("Template Id", 
 omi_athex_oasis_mdfs_fast_v9.fields.presence_stop = ProtoField.new("Stop Bit", "athex.oasis.mdfs.fast.v9.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_identified = ProtoField.new("Template Id", "athex.oasis.mdfs.fast.v9.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_unused = ProtoField.new("Unused", "athex.oasis.mdfs.fast.v9.presenceunused", ftypes.UINT8, nil, base.HEX)
-athex_oasis_mdfs_fast_v9.presence_bits = {}
 
 -- Athex Oasis Mdfs Fast 9 Presence Map Fields
 omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums = ProtoField.new("No Athex Recovery Seq Nums", "athex.oasis.mdfs.fast.v9.noathexrecoveryseqnumspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -37,76 +36,6 @@ omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_system_status = ProtoField.ne
 omi_athex_oasis_mdfs_fast_v9.fields.presence_md_book_type = ProtoField.new("Md Book Type", "athex.oasis.mdfs.fast.v9.mdbooktypepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_instrument_grp = ProtoField.new("Instrument Grp", "athex.oasis.mdfs.fast.v9.instrumentgrppresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_no_underlyings = ProtoField.new("No Underlyings", "athex.oasis.mdfs.fast.v9.nounderlyingspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-
-athex_oasis_mdfs_fast_v9.presence_bits.named = {
-  [17] = {
-    [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums,
-  },
-  [18] = {
-    [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
-    [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
-    [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
-    [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums,
-    [6] = omi_athex_oasis_mdfs_fast_v9.fields.presence_trading_session_sub_id,
-    [7] = omi_athex_oasis_mdfs_fast_v9.fields.presence_security_status_grp,
-    [8] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_auction_type,
-  },
-  [19] = {
-    [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
-    [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
-    [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
-    [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums,
-    [6] = omi_athex_oasis_mdfs_fast_v9.fields.presence_trading_session_grp,
-    [7] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_system_status,
-    [8] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_auction_type,
-  },
-  [20] = {
-    [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
-    [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
-    [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
-    [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums,
-  },
-  [21] = {
-    [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
-    [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
-    [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_md_book_type,
-    [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_instrument_grp,
-    [6] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_underlyings,
-  },
-  [22] = {
-    [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
-    [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums,
-    [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_md_book_type,
-  },
-  [10] = {
-    [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
-    [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
-    [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
-    [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_trading_session_sub_id,
-    [6] = omi_athex_oasis_mdfs_fast_v9.fields.presence_security_status_grp,
-  },
-  [11] = {
-    [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
-    [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
-    [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
-  },
-  [12] = {
-    [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
-    [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
-    [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
-  },
-  [15] = {
-    [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
-    [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
-    [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_md_book_type,
-    [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_instrument_grp,
-    [6] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_underlyings,
-  },
-  [16] = {
-    [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
-    [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_md_book_type,
-  },
-}
 
 -- Athex Oasis Mdfs Fast 9 Fields
 omi_athex_oasis_mdfs_fast_v9.fields.begin_string = ProtoField.new("Begin String", "athex.oasis.mdfs.fast.v9.beginstring", ftypes.STRING)
@@ -423,16 +352,30 @@ local function add_presence_map(parent, range, map_field, stop_field, identified
   return node
 end
 
+-- Seven bits an octet, so ten octets hold the widest value FAST carries and a
+-- longer run is not an integer of any width. Reading one on matters because a
+-- Lua integer wraps on overflow rather than widening: the run would come back
+-- negative and be used as a length, which raises from inside Wireshark rather
+-- than saying what was wrong with the packet. The two that accumulate into
+-- Wireshark's own 64 bit values take all ten; the two that accumulate into a
+-- Lua integer stop at the nine that cannot overflow it, a value needing the
+-- tenth being wider than anything they are asked to read.
+local FAST_WIDE_OCTETS = 10
+local FAST_NUMBER_OCTETS = 9
+
 -- read an unsigned fast integer
 local function read_stop_bit_unsigned(buffer, offset)
   local value = 0
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST unsigned integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -443,12 +386,15 @@ local function read_stop_bit_signed(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and -1 or 0
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST signed integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -458,12 +404,15 @@ end
 local function read_stop_bit_uint64(buffer, offset)
   local value = UInt64(0)
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST unsigned integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -474,12 +423,15 @@ local function read_stop_bit_int64(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and Int64(-1) or Int64(0)
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST signed integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -531,24 +483,71 @@ local function read_ascii_string(buffer, offset)
     offset = offset + 1
   until bit.band(octet, 0x80) ~= 0
 
-  -- the stop bit rides in the high bit of the last character, so that octet is
-  -- masked back to the character it carries
-  local text = buffer(start, offset - start):string()
+  -- Every character but the last is 7 bit and reads as it stands. The last
+  -- octet carries the stop bit in its high bit, so it is masked back to the
+  -- character it carries rather than read as text: read as text it is not a
+  -- character at all, and Wireshark substitutes a replacement character three
+  -- bytes wide where the octet was one, which would leave two stray bytes
+  -- inside every string the wire carries.
+  local text = buffer(start, offset - start - 1):string()
   local last = bit.band(octet, 0x7f)
 
   -- a run closing on a nul carries no character there: the string ends before it
   if last == 0 then
-    return text:sub(1, -2), offset
+    return text, offset
   end
 
-  return text:sub(1, -2) .. string.char(last), offset
+  return text .. string.char(last), offset
+end
+
+-- splice a string delta onto the value the stream last sent: a subtraction
+-- length says how much of it to drop, and the characters that follow take the
+-- dropped part's place. A non-negative length drops from the tail and the
+-- difference goes after what is left; a negative one drops from the head and
+-- the difference goes in front, counting from -1 for nothing dropped, there
+-- being no negative zero to say it with.
+local function splice_string_delta(buffer, offset, base, length)
+  local text
+  text, offset = read_ascii_string(buffer, offset)
+  base = base or ""
+
+  -- sub clamps, so a length longer than what is remembered drops all of it
+  -- rather than reading off the end of the string
+  if length < 0 then
+    return text .. base:sub(-length), offset
+  end
+
+  return base:sub(1, #base - length) .. text, offset
+end
+
+-- read a fast string delta, whose subtraction length leads
+local function read_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_stop_bit_signed(buffer, offset)
+
+  return splice_string_delta(buffer, offset, base, length)
+end
+
+-- the same where the field is optional: the subtraction length carries the
+-- null, and a null one says the field is absent, with no difference behind it
+local function read_nullable_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_nullable_signed(buffer, offset)
+  if length == nil then return nil, offset end
+
+  return splice_string_delta(buffer, offset, base, length)
 end
 
 -- read a fast byte vector, counted by the length that precedes it
 local function read_byte_vector(buffer, offset)
   local length
   length, offset = read_stop_bit_unsigned(buffer, offset)
-  if offset + length > buffer:len() then error("truncated FAST byte vector") end
+
+  -- the length is checked against what is left rather than by adding it to the
+  -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
 
   return buffer(offset, length), offset + length
 end
@@ -1752,7 +1751,11 @@ athex_oasis_mdfs_fast_v9.contract_multiplier.dissect = function(buffer, offset, 
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -1793,7 +1796,11 @@ athex_oasis_mdfs_fast_v9.accrued_interest_amt.dissect = function(buffer, offset,
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -1934,7 +1941,11 @@ athex_oasis_mdfs_fast_v9.unit_of_measure_qty.dissect = function(buffer, offset, 
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2031,7 +2042,11 @@ athex_oasis_mdfs_fast_v9.strike_price.dissect = function(buffer, offset, packet,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2406,7 +2421,11 @@ athex_oasis_mdfs_fast_v9.md_entry_px.dissect = function(buffer, offset, packet, 
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2451,7 +2470,11 @@ athex_oasis_mdfs_fast_v9.md_entry_size.dissect = function(buffer, offset, packet
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2658,7 +2681,11 @@ athex_oasis_mdfs_fast_v9.cum_qty.dissect = function(buffer, offset, packet, pare
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2777,7 +2804,11 @@ athex_oasis_mdfs_fast_v9.athex_condition_volume.dissect = function(buffer, offse
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3092,7 +3123,11 @@ athex_oasis_mdfs_fast_v9.athex_total_volume.dissect = function(buffer, offset, p
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3137,7 +3172,11 @@ athex_oasis_mdfs_fast_v9.athex_trade_value.dissect = function(buffer, offset, pa
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3208,7 +3247,11 @@ athex_oasis_mdfs_fast_v9.low_limit_price.dissect = function(buffer, offset, pack
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3253,7 +3296,11 @@ athex_oasis_mdfs_fast_v9.high_limit_price.dissect = function(buffer, offset, pac
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3508,7 +3555,11 @@ athex_oasis_mdfs_fast_v9.athexapa_price_multiplier.dissect = function(buffer, of
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4867,6 +4918,12 @@ end
 -- Market Data Incremental Refresh_16 Message
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16 = {}
 
+athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16.node = omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16
+athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16.presence = {
+  [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
+  [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_md_book_type,
+}
+
 -- Dissect Fields: Market Data Incremental Refresh_16 Message
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5777,6 +5834,15 @@ end
 -- Market Data Snapshot Full Refresh_15 Message
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15 = {}
 
+athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15.node = omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15
+athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15.presence = {
+  [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
+  [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
+  [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_md_book_type,
+  [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_instrument_grp,
+  [6] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_underlyings,
+}
+
 -- Dissect Fields: Market Data Snapshot Full Refresh_15 Message
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5893,6 +5959,13 @@ end
 -- News_12 Message
 athex_oasis_mdfs_fast_v9.news_12 = {}
 
+athex_oasis_mdfs_fast_v9.news_12.node = omi_athex_oasis_mdfs_fast_v9.fields.news_12
+athex_oasis_mdfs_fast_v9.news_12.presence = {
+  [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
+  [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
+  [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
+}
+
 -- Dissect Fields: News_12 Message
 athex_oasis_mdfs_fast_v9.news_12.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5970,6 +6043,13 @@ end
 
 -- Trading Session Status_11 Message
 athex_oasis_mdfs_fast_v9.trading_session_status_11 = {}
+
+athex_oasis_mdfs_fast_v9.trading_session_status_11.node = omi_athex_oasis_mdfs_fast_v9.fields.trading_session_status_11
+athex_oasis_mdfs_fast_v9.trading_session_status_11.presence = {
+  [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
+  [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
+  [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
+}
 
 -- Dissect Fields: Trading Session Status_11 Message
 athex_oasis_mdfs_fast_v9.trading_session_status_11.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -6086,6 +6166,15 @@ end
 -- Security Status_10 Message
 athex_oasis_mdfs_fast_v9.security_status_10 = {}
 
+athex_oasis_mdfs_fast_v9.security_status_10.node = omi_athex_oasis_mdfs_fast_v9.fields.security_status_10
+athex_oasis_mdfs_fast_v9.security_status_10.presence = {
+  [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
+  [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
+  [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
+  [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_trading_session_sub_id,
+  [6] = omi_athex_oasis_mdfs_fast_v9.fields.presence_security_status_grp,
+}
+
 -- Dissect Fields: Security Status_10 Message
 athex_oasis_mdfs_fast_v9.security_status_10.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -6171,6 +6260,8 @@ end
 
 -- Heartbeat_9 Message
 athex_oasis_mdfs_fast_v9.heartbeat_9 = {}
+
+athex_oasis_mdfs_fast_v9.heartbeat_9.node = omi_athex_oasis_mdfs_fast_v9.fields.heartbeat_9
 
 -- Dissect Fields: Heartbeat_9 Message
 athex_oasis_mdfs_fast_v9.heartbeat_9.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -7035,6 +7126,13 @@ end
 
 -- Market Data Incremental Refresh_22 Message
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22 = {}
+
+athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22.node = omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22
+athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22.presence = {
+  [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
+  [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums,
+  [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_md_book_type,
+}
 
 -- Dissect Fields: Market Data Incremental Refresh_22 Message
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -7907,6 +8005,15 @@ end
 -- Market Data Snapshot Full Refresh_21 Message
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21 = {}
 
+athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21.node = omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21
+athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21.presence = {
+  [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
+  [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
+  [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_md_book_type,
+  [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_instrument_grp,
+  [6] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_underlyings,
+}
+
 -- Dissect Fields: Market Data Snapshot Full Refresh_21 Message
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -8052,6 +8159,14 @@ end
 
 -- News_20 Message
 athex_oasis_mdfs_fast_v9.news_20 = {}
+
+athex_oasis_mdfs_fast_v9.news_20.node = omi_athex_oasis_mdfs_fast_v9.fields.news_20
+athex_oasis_mdfs_fast_v9.news_20.presence = {
+  [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
+  [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
+  [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
+  [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums,
+}
 
 -- Dissect Fields: News_20 Message
 athex_oasis_mdfs_fast_v9.news_20.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -8210,6 +8325,17 @@ end
 -- Trading Session Status_19 Message
 athex_oasis_mdfs_fast_v9.trading_session_status_19 = {}
 
+athex_oasis_mdfs_fast_v9.trading_session_status_19.node = omi_athex_oasis_mdfs_fast_v9.fields.trading_session_status_19
+athex_oasis_mdfs_fast_v9.trading_session_status_19.presence = {
+  [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
+  [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
+  [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
+  [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums,
+  [6] = omi_athex_oasis_mdfs_fast_v9.fields.presence_trading_session_grp,
+  [7] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_system_status,
+  [8] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_auction_type,
+}
+
 -- Dissect Fields: Trading Session Status_19 Message
 athex_oasis_mdfs_fast_v9.trading_session_status_19.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -8357,6 +8483,17 @@ end
 -- Security Status_18 Message
 athex_oasis_mdfs_fast_v9.security_status_18 = {}
 
+athex_oasis_mdfs_fast_v9.security_status_18.node = omi_athex_oasis_mdfs_fast_v9.fields.security_status_18
+athex_oasis_mdfs_fast_v9.security_status_18.presence = {
+  [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed,
+  [3] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator,
+  [4] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator,
+  [5] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums,
+  [6] = omi_athex_oasis_mdfs_fast_v9.fields.presence_trading_session_sub_id,
+  [7] = omi_athex_oasis_mdfs_fast_v9.fields.presence_security_status_grp,
+  [8] = omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_auction_type,
+}
+
 -- Dissect Fields: Security Status_18 Message
 athex_oasis_mdfs_fast_v9.security_status_18.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -8485,6 +8622,11 @@ end
 -- Heartbeat_17 Message
 athex_oasis_mdfs_fast_v9.heartbeat_17 = {}
 
+athex_oasis_mdfs_fast_v9.heartbeat_17.node = omi_athex_oasis_mdfs_fast_v9.fields.heartbeat_17
+athex_oasis_mdfs_fast_v9.heartbeat_17.presence = {
+  [2] = omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums,
+}
+
 -- Dissect Fields: Heartbeat_17 Message
 athex_oasis_mdfs_fast_v9.heartbeat_17.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -8551,35 +8693,19 @@ end
 -----------------------------------------------------------------------
 
 -- Athex Oasis Mdfs Fast 9 Message Dispatch
-athex_oasis_mdfs_fast_v9.messages = {
-  [17] = athex_oasis_mdfs_fast_v9.heartbeat_17.dissect,
-  [18] = athex_oasis_mdfs_fast_v9.security_status_18.dissect,
-  [19] = athex_oasis_mdfs_fast_v9.trading_session_status_19.dissect,
-  [20] = athex_oasis_mdfs_fast_v9.news_20.dissect,
-  [21] = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21.dissect,
-  [22] = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22.dissect,
-  [9] = athex_oasis_mdfs_fast_v9.heartbeat_9.dissect,
-  [10] = athex_oasis_mdfs_fast_v9.security_status_10.dissect,
-  [11] = athex_oasis_mdfs_fast_v9.trading_session_status_11.dissect,
-  [12] = athex_oasis_mdfs_fast_v9.news_12.dissect,
-  [15] = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15.dissect,
-  [16] = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16.dissect,
-}
-
--- Athex Oasis Mdfs Fast 9 Message Nodes
-athex_oasis_mdfs_fast_v9.message_fields = {
-  [17] = omi_athex_oasis_mdfs_fast_v9.fields.heartbeat_17,
-  [18] = omi_athex_oasis_mdfs_fast_v9.fields.security_status_18,
-  [19] = omi_athex_oasis_mdfs_fast_v9.fields.trading_session_status_19,
-  [20] = omi_athex_oasis_mdfs_fast_v9.fields.news_20,
-  [21] = omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21,
-  [22] = omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22,
-  [9] = omi_athex_oasis_mdfs_fast_v9.fields.heartbeat_9,
-  [10] = omi_athex_oasis_mdfs_fast_v9.fields.security_status_10,
-  [11] = omi_athex_oasis_mdfs_fast_v9.fields.trading_session_status_11,
-  [12] = omi_athex_oasis_mdfs_fast_v9.fields.news_12,
-  [15] = omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15,
-  [16] = omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16,
+athex_oasis_mdfs_fast_v9.templates = {
+  [17] = athex_oasis_mdfs_fast_v9.heartbeat_17,
+  [18] = athex_oasis_mdfs_fast_v9.security_status_18,
+  [19] = athex_oasis_mdfs_fast_v9.trading_session_status_19,
+  [20] = athex_oasis_mdfs_fast_v9.news_20,
+  [21] = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21,
+  [22] = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22,
+  [9] = athex_oasis_mdfs_fast_v9.heartbeat_9,
+  [10] = athex_oasis_mdfs_fast_v9.security_status_10,
+  [11] = athex_oasis_mdfs_fast_v9.trading_session_status_11,
+  [12] = athex_oasis_mdfs_fast_v9.news_12,
+  [15] = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15,
+  [16] = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16,
 }
 
 -- Athex Oasis Mdfs Fast 9 Template Names
@@ -8699,11 +8825,11 @@ omi_athex_oasis_mdfs_fast_v9.dissector = function(buffer, packet, parent)
       return
     end
 
-    local message_field = athex_oasis_mdfs_fast_v9.message_fields[template_id]
+    local template = athex_oasis_mdfs_fast_v9.templates[template_id]
     local message_tree = nil
 
-    if message_field ~= nil then
-      message_tree = root:add(message_field, buffer(start, 0))
+    if template ~= nil then
+      message_tree = root:add(template.node, buffer(start, 0))
     else
       message_tree = root:add(omi_athex_oasis_mdfs_fast_v9.fields.message, buffer(start, 0))
       message_tree:set_text(athex_oasis_mdfs_fast_v9.template_id.name(template_id))
@@ -8711,18 +8837,20 @@ omi_athex_oasis_mdfs_fast_v9.dissector = function(buffer, packet, parent)
 
     -- the presence map and the template id are the message's own framing
     local header = message_tree:add(omi_athex_oasis_mdfs_fast_v9.fields.message_header, buffer(start, offset - start))
-    add_presence_map(header, buffer(start, mapped - start), omi_athex_oasis_mdfs_fast_v9.fields.presence_map, omi_athex_oasis_mdfs_fast_v9.fields.presence_stop, omi_athex_oasis_mdfs_fast_v9.fields.presence_identified, omi_athex_oasis_mdfs_fast_v9.fields.presence_unused, athex_oasis_mdfs_fast_v9.presence_bits.named[template_id])
+    local named = nil
+    if template ~= nil then
+      named = template.presence
+    end
+    add_presence_map(header, buffer(start, mapped - start), omi_athex_oasis_mdfs_fast_v9.fields.presence_map, omi_athex_oasis_mdfs_fast_v9.fields.presence_stop, omi_athex_oasis_mdfs_fast_v9.fields.presence_identified, omi_athex_oasis_mdfs_fast_v9.fields.presence_unused, named)
     header:add(omi_athex_oasis_mdfs_fast_v9.fields.template_id, buffer(identified, offset - identified), template_id, athex_oasis_mdfs_fast_v9.template_id.display(template_id))
 
-    local message = athex_oasis_mdfs_fast_v9.messages[template_id]
-
-    if message == nil then
+    if template == nil then
       message_tree:add_expert_info(PI_UNDECODED, PI_WARN, "This dissector reads: 17 (Heartbeat_17), 18 (SecurityStatus_18), 19 (TradingSessionStatus_19), 20 (News_20), 21 (MarketDataSnapshotFullRefresh_21), 22 (MarketDataIncrementalRefresh_22), 9 (Heartbeat_9), 10 (SecurityStatus_10), 11 (TradingSessionStatus_11), 12 (News_12), 15 (MarketDataSnapshotFullRefresh_15), 16 (MarketDataIncrementalRefresh_16)")
       message_tree:set_len(offset - start)
       return
     end
 
-    offset = message(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
+    offset = template.dissect(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
     messages = messages + 1
 
     -- the message occupies whatever its framing and its fields consumed

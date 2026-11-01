@@ -22,7 +22,6 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.template_id = ProtoField.new("Template 
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_stop = ProtoField.new("Stop Bit", "ngm.elasticia.fix.fast.v2.0.0.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_identified = ProtoField.new("Template Id", "ngm.elasticia.fix.fast.v2.0.0.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_unused = ProtoField.new("Unused", "ngm.elasticia.fix.fast.v2.0.0.presenceunused", ftypes.UINT8, nil, base.HEX)
-ngm_elasticia_fix_fast_v2_0_0.presence_bits = {}
 
 -- Ngm Elasticia Fix Fast 2.0.0 Presence Map Fields
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "ngm.elasticia.fix.fast.v2.0.0.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -98,443 +97,6 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_rules = ProtoField.ne
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_trade_report_rules = ProtoField.new("No Trade Report Rules", "ngm.elasticia.fix.fast.v2.0.0.notradereportrulespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_trad_ses_req_id = ProtoField.new("Trad Ses Req Id", "ngm.elasticia.fix.fast.v2.0.0.tradsesreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_corp_action_req_id = ProtoField.new("Corp Action Req Id", "ngm.elasticia.fix.fast.v2.0.0.corpactionreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-
-ngm_elasticia_fix_fast_v2_0_0.presence_bits.named = {
-  [1006] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1000] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_reset_seq_num_flag,
-  },
-  [1001] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1002] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1003] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1004] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_gap_fill_flag,
-  },
-  [1005] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_ord_type,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_expire_time,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_inst,
-    [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
-    [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_qty,
-    [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_when,
-    [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_method,
-    [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_refresh_qty,
-    [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_auction_type,
-    [17] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_capacity,
-    [18] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_origination,
-    [19] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_order_attribute_grp,
-    [20] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
-  },
-  [2] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_ord_type,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_expire_time,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_inst,
-    [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
-    [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_qty,
-    [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_when,
-    [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_method,
-    [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_refresh_qty,
-    [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_auction_type,
-  },
-  [3] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-  },
-  [4] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_mass_status_req_id,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_ord_type,
-    [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_expire_time,
-    [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_inst,
-    [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
-    [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_qty,
-    [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_when,
-    [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_method,
-    [17] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_refresh_qty,
-    [18] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_auction_type,
-    [19] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_md_entry_id,
-    [20] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_working_indicator,
-    [21] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_lot_type,
-    [22] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_cum_qty,
-    [23] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_avg_px,
-    [24] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_ord_rej_reason,
-    [25] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_restatement_reason,
-    [26] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_origination,
-    [27] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_order_attribute_grp,
-    [28] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
-    [29] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_text,
-  },
-  [1007] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1008] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [5] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_req_id,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_id,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_orig_quote_msg_id,
-    [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
-    [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
-  },
-  [6] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_req_id,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_id,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_orig_quote_msg_id,
-  },
-  [7] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_status_req_id,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_orig_quote_msg_id,
-    [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
-    [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
-    [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_working_indicator,
-    [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_reject_reason,
-    [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_restatement_reason,
-    [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_text,
-  },
-  [8] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_id,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_msg_id,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_qty,
-    [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_side,
-  },
-  [1009] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [9] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_trade_request_id,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_secondary_trd_type,
-    [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_trd_reg_publications,
-  },
-  [10] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_secondary_trd_type,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_trd_reg_publications,
-  },
-  [1010] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1011] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [2052] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-  },
-  [2053] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-  },
-  [11] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1012] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1013] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_md_req_id,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
-  },
-  [1014] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1015] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1016] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [12] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_currency,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_instr_registry,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_business_center,
-    [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_zone_id,
-  },
-  [1017] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [13] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_status_req_id,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_halt_reason,
-    [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_corporate_action,
-    [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_financial_status,
-  },
-  [1018] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [1019] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_encoded_mkt_segm_desc,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_parent_mkt_segm_id,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_currency,
-    [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_instr_registry,
-    [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_business_center,
-    [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_zone_id,
-    [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_trade_vol,
-    [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_round_lot,
-    [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_price_type,
-    [17] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_max_order_expire_duration,
-    [18] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_max_trade_trans_bkd_time_diff,
-    [19] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_tick_rules,
-    [20] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_match_rules,
-    [21] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_market_order_rules,
-    [22] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_protection_auction_time_min,
-    [23] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_protection_auction_time_max,
-    [24] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_missing_reference_price_auction_time_min,
-    [25] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_missing_reference_price_auction_time_max,
-    [26] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_allow_reserve_order,
-    [27] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_reserve_order_value,
-    [28] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_reserve_order_value_currency,
-    [29] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_market_data_rules,
-    [30] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_rules,
-    [31] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_trade_report_rules,
-  },
-  [19] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_encoded_mkt_segm_desc,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_parent_mkt_segm_id,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_currency,
-    [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_instr_registry,
-    [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_business_center,
-    [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_zone_id,
-    [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_trade_vol,
-    [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_round_lot,
-    [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_price_type,
-    [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_max_order_expire_duration,
-    [17] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_max_trade_trans_bkd_time_diff,
-    [18] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_tick_rules,
-    [19] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_match_rules,
-    [20] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_market_order_rules,
-    [21] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_protection_auction_time_min,
-    [22] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_protection_auction_time_max,
-    [23] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_missing_reference_price_auction_time_min,
-    [24] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_missing_reference_price_auction_time_max,
-    [25] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_allow_reserve_order,
-    [26] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_reserve_order_value,
-    [27] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_reserve_order_value_currency,
-    [28] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_market_data_rules,
-    [29] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_rules,
-    [30] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_trade_report_rules,
-  },
-  [1020] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-  [15] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_trad_ses_req_id,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
-  },
-  [1021] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-    [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
-    [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_corp_action_req_id,
-    [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
-  },
-  [1022] = {
-    [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
-    [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
-    [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
-    [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
-    [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
-  },
-}
 
 -- Ngm Elasticia Fix Fast 2.0.0 Fields
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.msg_type = ProtoField.new("Msg Type", "ngm.elasticia.fix.fast.v2.0.0.msgtype", ftypes.STRING)
@@ -959,16 +521,30 @@ local function add_presence_map(parent, range, map_field, stop_field, identified
   return node
 end
 
+-- Seven bits an octet, so ten octets hold the widest value FAST carries and a
+-- longer run is not an integer of any width. Reading one on matters because a
+-- Lua integer wraps on overflow rather than widening: the run would come back
+-- negative and be used as a length, which raises from inside Wireshark rather
+-- than saying what was wrong with the packet. The two that accumulate into
+-- Wireshark's own 64 bit values take all ten; the two that accumulate into a
+-- Lua integer stop at the nine that cannot overflow it, a value needing the
+-- tenth being wider than anything they are asked to read.
+local FAST_WIDE_OCTETS = 10
+local FAST_NUMBER_OCTETS = 9
+
 -- read an unsigned fast integer
 local function read_stop_bit_unsigned(buffer, offset)
   local value = 0
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST unsigned integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -979,12 +555,15 @@ local function read_stop_bit_signed(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and -1 or 0
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST signed integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -994,12 +573,15 @@ end
 local function read_stop_bit_uint64(buffer, offset)
   local value = UInt64(0)
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST unsigned integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -1010,12 +592,15 @@ local function read_stop_bit_int64(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and Int64(-1) or Int64(0)
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST signed integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -1067,24 +652,71 @@ local function read_ascii_string(buffer, offset)
     offset = offset + 1
   until bit.band(octet, 0x80) ~= 0
 
-  -- the stop bit rides in the high bit of the last character, so that octet is
-  -- masked back to the character it carries
-  local text = buffer(start, offset - start):string()
+  -- Every character but the last is 7 bit and reads as it stands. The last
+  -- octet carries the stop bit in its high bit, so it is masked back to the
+  -- character it carries rather than read as text: read as text it is not a
+  -- character at all, and Wireshark substitutes a replacement character three
+  -- bytes wide where the octet was one, which would leave two stray bytes
+  -- inside every string the wire carries.
+  local text = buffer(start, offset - start - 1):string()
   local last = bit.band(octet, 0x7f)
 
   -- a run closing on a nul carries no character there: the string ends before it
   if last == 0 then
-    return text:sub(1, -2), offset
+    return text, offset
   end
 
-  return text:sub(1, -2) .. string.char(last), offset
+  return text .. string.char(last), offset
+end
+
+-- splice a string delta onto the value the stream last sent: a subtraction
+-- length says how much of it to drop, and the characters that follow take the
+-- dropped part's place. A non-negative length drops from the tail and the
+-- difference goes after what is left; a negative one drops from the head and
+-- the difference goes in front, counting from -1 for nothing dropped, there
+-- being no negative zero to say it with.
+local function splice_string_delta(buffer, offset, base, length)
+  local text
+  text, offset = read_ascii_string(buffer, offset)
+  base = base or ""
+
+  -- sub clamps, so a length longer than what is remembered drops all of it
+  -- rather than reading off the end of the string
+  if length < 0 then
+    return text .. base:sub(-length), offset
+  end
+
+  return base:sub(1, #base - length) .. text, offset
+end
+
+-- read a fast string delta, whose subtraction length leads
+local function read_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_stop_bit_signed(buffer, offset)
+
+  return splice_string_delta(buffer, offset, base, length)
+end
+
+-- the same where the field is optional: the subtraction length carries the
+-- null, and a null one says the field is absent, with no difference behind it
+local function read_nullable_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_nullable_signed(buffer, offset)
+  if length == nil then return nil, offset end
+
+  return splice_string_delta(buffer, offset, base, length)
 end
 
 -- read a fast byte vector, counted by the length that precedes it
 local function read_byte_vector(buffer, offset)
   local length
   length, offset = read_stop_bit_unsigned(buffer, offset)
-  if offset + length > buffer:len() then error("truncated FAST byte vector") end
+
+  -- the length is checked against what is left rather than by adding it to the
+  -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
 
   return buffer(offset, length), offset + length
 end
@@ -2209,7 +1841,7 @@ ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect = function(buffer, offset, pa
 
   local value_delta = nil
   value_delta, offset = read_stop_bit_int64(buffer, offset)
-  value = (state.values[key] or Int64(0)) + value_delta
+  value = (state.values[key] or UInt64(0)) + UInt64.fromhex(value_delta:tohex())
   state.values[key] = value
 
   local range = buffer(start, offset - start)
@@ -2882,7 +2514,11 @@ ngm_elasticia_fix_fast_v2_0_0.price.dissect = function(buffer, offset, packet, p
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2923,7 +2559,11 @@ ngm_elasticia_fix_fast_v2_0_0.order_qty_sent.dissect = function(buffer, offset, 
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2968,7 +2608,11 @@ ngm_elasticia_fix_fast_v2_0_0.order_qty_default.dissect = function(buffer, offse
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3179,7 +2823,11 @@ ngm_elasticia_fix_fast_v2_0_0.display_qty.dissect = function(buffer, offset, pac
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3276,7 +2924,11 @@ ngm_elasticia_fix_fast_v2_0_0.refresh_qty.dissect = function(buffer, offset, pac
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4021,7 +3673,11 @@ ngm_elasticia_fix_fast_v2_0_0.leaves_qty.dissect = function(buffer, offset, pack
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4066,7 +3722,11 @@ ngm_elasticia_fix_fast_v2_0_0.cum_qty.dissect = function(buffer, offset, packet,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4111,7 +3771,11 @@ ngm_elasticia_fix_fast_v2_0_0.avg_px.dissect = function(buffer, offset, packet, 
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4484,7 +4148,11 @@ ngm_elasticia_fix_fast_v2_0_0.bid_px.dissect = function(buffer, offset, packet, 
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4525,7 +4193,11 @@ ngm_elasticia_fix_fast_v2_0_0.offer_px.dissect = function(buffer, offset, packet
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4566,7 +4238,11 @@ ngm_elasticia_fix_fast_v2_0_0.bid_size.dissect = function(buffer, offset, packet
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4607,7 +4283,11 @@ ngm_elasticia_fix_fast_v2_0_0.total_bid_size.dissect = function(buffer, offset, 
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4648,7 +4328,11 @@ ngm_elasticia_fix_fast_v2_0_0.offer_size.dissect = function(buffer, offset, pack
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4689,7 +4373,11 @@ ngm_elasticia_fix_fast_v2_0_0.total_offer_size.dissect = function(buffer, offset
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5624,7 +5312,11 @@ ngm_elasticia_fix_fast_v2_0_0.last_qty.dissect = function(buffer, offset, packet
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5665,7 +5357,11 @@ ngm_elasticia_fix_fast_v2_0_0.last_px.dissect = function(buffer, offset, packet,
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5848,7 +5544,11 @@ ngm_elasticia_fix_fast_v2_0_0.accrued_interest_amt.dissect = function(buffer, of
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6201,7 +5901,11 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_px.dissect = function(buffer, offset, pac
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6242,7 +5946,11 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_size.dissect = function(buffer, offset, p
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6875,7 +6583,11 @@ ngm_elasticia_fix_fast_v2_0_0.min_trade_vol.dissect = function(buffer, offset, p
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6920,7 +6632,11 @@ ngm_elasticia_fix_fast_v2_0_0.round_lot.dissect = function(buffer, offset, packe
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7065,7 +6781,11 @@ ngm_elasticia_fix_fast_v2_0_0.start_tick_price_range.dissect = function(buffer, 
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7106,7 +6826,11 @@ ngm_elasticia_fix_fast_v2_0_0.end_tick_price_range.dissect = function(buffer, of
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7147,7 +6871,11 @@ ngm_elasticia_fix_fast_v2_0_0.tick_increment.dissect = function(buffer, offset, 
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7418,7 +7146,11 @@ ngm_elasticia_fix_fast_v2_0_0.min_reserve_order_value.dissect = function(buffer,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8343,7 +8075,11 @@ ngm_elasticia_fix_fast_v2_0_0.dividend.dissect = function(buffer, offset, packet
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8367,6 +8103,15 @@ end
 
 -- Corporate Action Request Message
 ngm_elasticia_fix_fast_v2_0_0.corporate_action_request = {}
+
+ngm_elasticia_fix_fast_v2_0_0.corporate_action_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.corporate_action_request
+ngm_elasticia_fix_fast_v2_0_0.corporate_action_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
 
 -- Dissect Fields: Corporate Action Request Message
 ngm_elasticia_fix_fast_v2_0_0.corporate_action_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -8417,6 +8162,18 @@ end
 
 -- Corporate Action Report Message
 ngm_elasticia_fix_fast_v2_0_0.corporate_action_report = {}
+
+ngm_elasticia_fix_fast_v2_0_0.corporate_action_report.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.corporate_action_report
+ngm_elasticia_fix_fast_v2_0_0.corporate_action_report.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_corp_action_req_id,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
+}
 
 -- Dissect Fields: Corporate Action Report Message
 ngm_elasticia_fix_fast_v2_0_0.corporate_action_report.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -8514,6 +8271,17 @@ end
 -- Trading Session Status Message
 ngm_elasticia_fix_fast_v2_0_0.trading_session_status = {}
 
+ngm_elasticia_fix_fast_v2_0_0.trading_session_status.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trading_session_status
+ngm_elasticia_fix_fast_v2_0_0.trading_session_status.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_trad_ses_req_id,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
+}
+
 -- Dissect Fields: Trading Session Status Message
 ngm_elasticia_fix_fast_v2_0_0.trading_session_status.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -8577,6 +8345,15 @@ end
 
 -- Trading Session Status Request Message
 ngm_elasticia_fix_fast_v2_0_0.trading_session_status_request = {}
+
+ngm_elasticia_fix_fast_v2_0_0.trading_session_status_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trading_session_status_request
+ngm_elasticia_fix_fast_v2_0_0.trading_session_status_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
 
 -- Dissect Fields: Trading Session Status Request Message
 ngm_elasticia_fix_fast_v2_0_0.trading_session_status_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -8819,6 +8596,39 @@ end
 
 -- Market Definition Update Report Message
 ngm_elasticia_fix_fast_v2_0_0.market_definition_update_report = {}
+
+ngm_elasticia_fix_fast_v2_0_0.market_definition_update_report.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_definition_update_report
+ngm_elasticia_fix_fast_v2_0_0.market_definition_update_report.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_encoded_mkt_segm_desc,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_parent_mkt_segm_id,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_currency,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_instr_registry,
+  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_business_center,
+  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_zone_id,
+  [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_trade_vol,
+  [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_round_lot,
+  [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_price_type,
+  [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_max_order_expire_duration,
+  [17] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_max_trade_trans_bkd_time_diff,
+  [18] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_tick_rules,
+  [19] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_match_rules,
+  [20] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_market_order_rules,
+  [21] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_protection_auction_time_min,
+  [22] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_protection_auction_time_max,
+  [23] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_missing_reference_price_auction_time_min,
+  [24] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_missing_reference_price_auction_time_max,
+  [25] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_allow_reserve_order,
+  [26] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_reserve_order_value,
+  [27] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_reserve_order_value_currency,
+  [28] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_market_data_rules,
+  [29] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_rules,
+  [30] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_trade_report_rules,
+}
 
 -- Dissect Fields: Market Definition Update Report Message
 ngm_elasticia_fix_fast_v2_0_0.market_definition_update_report.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -9185,6 +8995,40 @@ end
 -- Market Definition Message
 ngm_elasticia_fix_fast_v2_0_0.market_definition = {}
 
+ngm_elasticia_fix_fast_v2_0_0.market_definition.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_definition
+ngm_elasticia_fix_fast_v2_0_0.market_definition.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_encoded_mkt_segm_desc,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_parent_mkt_segm_id,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_currency,
+  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_instr_registry,
+  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_business_center,
+  [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_zone_id,
+  [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_trade_vol,
+  [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_round_lot,
+  [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_price_type,
+  [17] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_max_order_expire_duration,
+  [18] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_max_trade_trans_bkd_time_diff,
+  [19] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_tick_rules,
+  [20] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_match_rules,
+  [21] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_market_order_rules,
+  [22] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_protection_auction_time_min,
+  [23] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_protection_auction_time_max,
+  [24] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_missing_reference_price_auction_time_min,
+  [25] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_missing_reference_price_auction_time_max,
+  [26] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_allow_reserve_order,
+  [27] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_reserve_order_value,
+  [28] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_reserve_order_value_currency,
+  [29] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_market_data_rules,
+  [30] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_rules,
+  [31] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_trade_report_rules,
+}
+
 -- Dissect Fields: Market Definition Message
 ngm_elasticia_fix_fast_v2_0_0.market_definition.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -9361,6 +9205,15 @@ end
 -- Market Definition Request Message
 ngm_elasticia_fix_fast_v2_0_0.market_definition_request = {}
 
+ngm_elasticia_fix_fast_v2_0_0.market_definition_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_definition_request
+ngm_elasticia_fix_fast_v2_0_0.market_definition_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
+
 -- Dissect Fields: Market Definition Request Message
 ngm_elasticia_fix_fast_v2_0_0.market_definition_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -9413,6 +9266,21 @@ end
 
 -- Security Status Message
 ngm_elasticia_fix_fast_v2_0_0.security_status = {}
+
+ngm_elasticia_fix_fast_v2_0_0.security_status.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status
+ngm_elasticia_fix_fast_v2_0_0.security_status.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_status_req_id,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_halt_reason,
+  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_corporate_action,
+  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_financial_status,
+}
 
 -- Dissect Fields: Security Status Message
 ngm_elasticia_fix_fast_v2_0_0.security_status.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -9488,6 +9356,15 @@ end
 
 -- Security Mass Status Request Message
 ngm_elasticia_fix_fast_v2_0_0.security_mass_status_request = {}
+
+ngm_elasticia_fix_fast_v2_0_0.security_mass_status_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_mass_status_request
+ngm_elasticia_fix_fast_v2_0_0.security_mass_status_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
 
 -- Dissect Fields: Security Mass Status Request Message
 ngm_elasticia_fix_fast_v2_0_0.security_mass_status_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -9891,6 +9768,20 @@ end
 
 -- Security Definition Update Report Message
 ngm_elasticia_fix_fast_v2_0_0.security_definition_update_report = {}
+
+ngm_elasticia_fix_fast_v2_0_0.security_definition_update_report.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_definition_update_report
+ngm_elasticia_fix_fast_v2_0_0.security_definition_update_report.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_currency,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_instr_registry,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_business_center,
+  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_zone_id,
+}
 
 -- Dissect Fields: Security Definition Update Report Message
 ngm_elasticia_fix_fast_v2_0_0.security_definition_update_report.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -10434,6 +10325,15 @@ end
 -- Security List Message
 ngm_elasticia_fix_fast_v2_0_0.security_list = {}
 
+ngm_elasticia_fix_fast_v2_0_0.security_list.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_list
+ngm_elasticia_fix_fast_v2_0_0.security_list.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
+
 -- Dissect Fields: Security List Message
 ngm_elasticia_fix_fast_v2_0_0.security_list.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -10499,6 +10399,15 @@ end
 -- Security List Request Message
 ngm_elasticia_fix_fast_v2_0_0.security_list_request = {}
 
+ngm_elasticia_fix_fast_v2_0_0.security_list_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_list_request
+ngm_elasticia_fix_fast_v2_0_0.security_list_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
+
 -- Dissect Fields: Security List Request Message
 ngm_elasticia_fix_fast_v2_0_0.security_list_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -10548,6 +10457,15 @@ end
 
 -- Market Data Request Reject Message
 ngm_elasticia_fix_fast_v2_0_0.market_data_request_reject = {}
+
+ngm_elasticia_fix_fast_v2_0_0.market_data_request_reject.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_request_reject
+ngm_elasticia_fix_fast_v2_0_0.market_data_request_reject.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
 
 -- Dissect Fields: Market Data Request Reject Message
 ngm_elasticia_fix_fast_v2_0_0.market_data_request_reject.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -10739,6 +10657,18 @@ end
 -- Market Data Snapshot Full Refresh Message
 ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh = {}
 
+ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_snapshot_full_refresh
+ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_md_req_id,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
+}
+
 -- Dissect Fields: Market Data Snapshot Full Refresh Message
 ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -10868,6 +10798,15 @@ end
 
 -- Market Data Request Message
 ngm_elasticia_fix_fast_v2_0_0.market_data_request = {}
+
+ngm_elasticia_fix_fast_v2_0_0.market_data_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_request
+ngm_elasticia_fix_fast_v2_0_0.market_data_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
 
 -- Dissect Fields: Market Data Request Message
 ngm_elasticia_fix_fast_v2_0_0.market_data_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -11127,6 +11066,15 @@ end
 -- Market Data Incremental Refresh Message
 ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh = {}
 
+ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_incremental_refresh
+ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
+
 -- Dissect Fields: Market Data Incremental Refresh Message
 ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -11182,6 +11130,16 @@ end
 
 -- User Security Status Update Response Message
 ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_response = {}
+
+ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_response.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.user_security_status_update_response
+ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_response.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+}
 
 -- Dissect Fields: User Security Status Update Response Message
 ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_response.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -11280,6 +11238,16 @@ end
 -- User Security Status Update Request Message
 ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_request = {}
 
+ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.user_security_status_update_request
+ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+}
+
 -- Dissect Fields: User Security Status Update Request Message
 ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -11346,6 +11314,15 @@ end
 
 -- Trade Capture Report Request Ack Message
 ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request_ack = {}
+
+ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request_ack.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report_request_ack
+ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request_ack.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
 
 -- Dissect Fields: Trade Capture Report Request Ack Message
 ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request_ack.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -11438,6 +11415,15 @@ end
 
 -- Trade Capture Report Request Message
 ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request = {}
+
+ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report_request
+ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
 
 -- Dissect Fields: Trade Capture Report Request Message
 ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -11744,6 +11730,19 @@ end
 
 -- Trade Capture Report Ack Message
 ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_ack = {}
+
+ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_ack.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report_ack
+ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_ack.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_secondary_trd_type,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_trd_reg_publications,
+}
 
 -- Dissect Fields: Trade Capture Report Ack Message
 ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_ack.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -12166,6 +12165,20 @@ end
 -- Trade Capture Report Message
 ngm_elasticia_fix_fast_v2_0_0.trade_capture_report = {}
 
+ngm_elasticia_fix_fast_v2_0_0.trade_capture_report.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report
+ngm_elasticia_fix_fast_v2_0_0.trade_capture_report.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_trade_request_id,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_secondary_trd_type,
+  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_trd_reg_publications,
+}
+
 -- Dissect Fields: Trade Capture Report Message
 ngm_elasticia_fix_fast_v2_0_0.trade_capture_report.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12315,6 +12328,15 @@ end
 -- Quote Status Request Message
 ngm_elasticia_fix_fast_v2_0_0.quote_status_request = {}
 
+ngm_elasticia_fix_fast_v2_0_0.quote_status_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_request
+ngm_elasticia_fix_fast_v2_0_0.quote_status_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
+
 -- Dissect Fields: Quote Status Request Message
 ngm_elasticia_fix_fast_v2_0_0.quote_status_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12367,6 +12389,20 @@ end
 
 -- Quote Request Message
 ngm_elasticia_fix_fast_v2_0_0.quote_request = {}
+
+ngm_elasticia_fix_fast_v2_0_0.quote_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_request
+ngm_elasticia_fix_fast_v2_0_0.quote_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_id,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_msg_id,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_qty,
+  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_side,
+}
 
 -- Dissect Fields: Quote Request Message
 ngm_elasticia_fix_fast_v2_0_0.quote_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -12525,6 +12561,25 @@ end
 -- Quote Status Report Message
 ngm_elasticia_fix_fast_v2_0_0.quote_status_report = {}
 
+ngm_elasticia_fix_fast_v2_0_0.quote_status_report.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_report
+ngm_elasticia_fix_fast_v2_0_0.quote_status_report.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_status_req_id,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_orig_quote_msg_id,
+  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
+  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
+  [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_working_indicator,
+  [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_reject_reason,
+  [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_restatement_reason,
+  [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_text,
+}
+
 -- Dissect Fields: Quote Status Report Message
 ngm_elasticia_fix_fast_v2_0_0.quote_status_report.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12664,6 +12719,19 @@ end
 
 -- Quote Cancel Message
 ngm_elasticia_fix_fast_v2_0_0.quote_cancel = {}
+
+ngm_elasticia_fix_fast_v2_0_0.quote_cancel.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_cancel
+ngm_elasticia_fix_fast_v2_0_0.quote_cancel.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_req_id,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_id,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_orig_quote_msg_id,
+}
 
 -- Dissect Fields: Quote Cancel Message
 ngm_elasticia_fix_fast_v2_0_0.quote_cancel.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -12825,6 +12893,21 @@ end
 -- Quote Message
 ngm_elasticia_fix_fast_v2_0_0.quote = {}
 
+ngm_elasticia_fix_fast_v2_0_0.quote.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote
+ngm_elasticia_fix_fast_v2_0_0.quote.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_req_id,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_id,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_orig_quote_msg_id,
+  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
+  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
+}
+
 -- Dissect Fields: Quote Message
 ngm_elasticia_fix_fast_v2_0_0.quote.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12935,6 +13018,15 @@ end
 -- Order Mass Status Request Message
 ngm_elasticia_fix_fast_v2_0_0.order_mass_status_request = {}
 
+ngm_elasticia_fix_fast_v2_0_0.order_mass_status_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_mass_status_request
+ngm_elasticia_fix_fast_v2_0_0.order_mass_status_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
+
 -- Dissect Fields: Order Mass Status Request Message
 ngm_elasticia_fix_fast_v2_0_0.order_mass_status_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12987,6 +13079,15 @@ end
 
 -- Order Cancel Reject Message
 ngm_elasticia_fix_fast_v2_0_0.order_cancel_reject = {}
+
+ngm_elasticia_fix_fast_v2_0_0.order_cancel_reject.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_cancel_reject
+ngm_elasticia_fix_fast_v2_0_0.order_cancel_reject.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
 
 -- Dissect Fields: Order Cancel Reject Message
 ngm_elasticia_fix_fast_v2_0_0.order_cancel_reject.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -13176,6 +13277,38 @@ end
 -- Execution Report Message
 ngm_elasticia_fix_fast_v2_0_0.execution_report = {}
 
+ngm_elasticia_fix_fast_v2_0_0.execution_report.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.execution_report
+ngm_elasticia_fix_fast_v2_0_0.execution_report.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_mass_status_req_id,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_ord_type,
+  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_expire_time,
+  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_inst,
+  [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
+  [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_qty,
+  [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_when,
+  [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_method,
+  [17] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_refresh_qty,
+  [18] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_auction_type,
+  [19] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_md_entry_id,
+  [20] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_working_indicator,
+  [21] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_lot_type,
+  [22] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_cum_qty,
+  [23] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_avg_px,
+  [24] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_ord_rej_reason,
+  [25] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_restatement_reason,
+  [26] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_origination,
+  [27] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_order_attribute_grp,
+  [28] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
+  [29] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_text,
+}
+
 -- Dissect Fields: Execution Report Message
 ngm_elasticia_fix_fast_v2_0_0.execution_report.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -13360,6 +13493,16 @@ end
 -- Order Cancel Request Message
 ngm_elasticia_fix_fast_v2_0_0.order_cancel_request = {}
 
+ngm_elasticia_fix_fast_v2_0_0.order_cancel_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_cancel_request
+ngm_elasticia_fix_fast_v2_0_0.order_cancel_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+}
+
 -- Dissect Fields: Order Cancel Request Message
 ngm_elasticia_fix_fast_v2_0_0.order_cancel_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -13426,6 +13569,25 @@ end
 
 -- Order Cancel Replace Request Message
 ngm_elasticia_fix_fast_v2_0_0.order_cancel_replace_request = {}
+
+ngm_elasticia_fix_fast_v2_0_0.order_cancel_replace_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_cancel_replace_request
+ngm_elasticia_fix_fast_v2_0_0.order_cancel_replace_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_ord_type,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_expire_time,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_inst,
+  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
+  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_qty,
+  [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_when,
+  [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_method,
+  [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_refresh_qty,
+  [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_auction_type,
+}
 
 -- Dissect Fields: Order Cancel Replace Request Message
 ngm_elasticia_fix_fast_v2_0_0.order_cancel_replace_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -13658,6 +13820,29 @@ end
 -- New Order Single Message
 ngm_elasticia_fix_fast_v2_0_0.new_order_single = {}
 
+ngm_elasticia_fix_fast_v2_0_0.new_order_single.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.new_order_single
+ngm_elasticia_fix_fast_v2_0_0.new_order_single.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source,
+  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_ord_type,
+  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_expire_time,
+  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_inst,
+  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
+  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_qty,
+  [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_when,
+  [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_display_method,
+  [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_refresh_qty,
+  [16] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_auction_type,
+  [17] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_capacity,
+  [18] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_origination,
+  [19] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_order_attribute_grp,
+  [20] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
+}
+
 -- Dissect Fields: New Order Single Message
 ngm_elasticia_fix_fast_v2_0_0.new_order_single.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -13791,6 +13976,15 @@ end
 -- Reject Message
 ngm_elasticia_fix_fast_v2_0_0.reject = {}
 
+ngm_elasticia_fix_fast_v2_0_0.reject.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.reject
+ngm_elasticia_fix_fast_v2_0_0.reject.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
+
 -- Dissect Fields: Reject Message
 ngm_elasticia_fix_fast_v2_0_0.reject.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -13853,6 +14047,16 @@ end
 -- Sequence Reset Message
 ngm_elasticia_fix_fast_v2_0_0.sequence_reset = {}
 
+ngm_elasticia_fix_fast_v2_0_0.sequence_reset.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.sequence_reset
+ngm_elasticia_fix_fast_v2_0_0.sequence_reset.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_gap_fill_flag,
+}
+
 -- Dissect Fields: Sequence Reset Message
 ngm_elasticia_fix_fast_v2_0_0.sequence_reset.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -13906,6 +14110,15 @@ end
 -- Heartbeat Message
 ngm_elasticia_fix_fast_v2_0_0.heartbeat = {}
 
+ngm_elasticia_fix_fast_v2_0_0.heartbeat.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.heartbeat
+ngm_elasticia_fix_fast_v2_0_0.heartbeat.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
+
 -- Dissect Fields: Heartbeat Message
 ngm_elasticia_fix_fast_v2_0_0.heartbeat.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -13956,6 +14169,15 @@ end
 -- Test Request Message
 ngm_elasticia_fix_fast_v2_0_0.test_request = {}
 
+ngm_elasticia_fix_fast_v2_0_0.test_request.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.test_request
+ngm_elasticia_fix_fast_v2_0_0.test_request.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
+
 -- Dissect Fields: Test Request Message
 ngm_elasticia_fix_fast_v2_0_0.test_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -14005,6 +14227,15 @@ end
 
 -- Logout Message
 ngm_elasticia_fix_fast_v2_0_0.logout = {}
+
+ngm_elasticia_fix_fast_v2_0_0.logout.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.logout
+ngm_elasticia_fix_fast_v2_0_0.logout.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
 
 -- Dissect Fields: Logout Message
 ngm_elasticia_fix_fast_v2_0_0.logout.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -14058,6 +14289,16 @@ end
 
 -- Logon Message
 ngm_elasticia_fix_fast_v2_0_0.logon = {}
+
+ngm_elasticia_fix_fast_v2_0_0.logon.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.logon
+ngm_elasticia_fix_fast_v2_0_0.logon.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_reset_seq_num_flag,
+}
 
 -- Dissect Fields: Logon Message
 ngm_elasticia_fix_fast_v2_0_0.logon.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -14127,6 +14368,15 @@ end
 -- Business Message Reject Message
 ngm_elasticia_fix_fast_v2_0_0.business_message_reject = {}
 
+ngm_elasticia_fix_fast_v2_0_0.business_message_reject.node = omi_ngm_elasticia_fix_fast_v2_0_0.fields.business_message_reject
+ngm_elasticia_fix_fast_v2_0_0.business_message_reject.presence = {
+  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num,
+  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id,
+  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id,
+  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id,
+  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id,
+}
+
 -- Dissect Fields: Business Message Reject Message
 ngm_elasticia_fix_fast_v2_0_0.business_message_reject.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -14189,91 +14439,47 @@ end
 -----------------------------------------------------------------------
 
 -- Ngm Elasticia Fix Fast 2.0.0 Message Dispatch
-ngm_elasticia_fix_fast_v2_0_0.messages = {
-  [1006] = ngm_elasticia_fix_fast_v2_0_0.business_message_reject.dissect,
-  [1000] = ngm_elasticia_fix_fast_v2_0_0.logon.dissect,
-  [1001] = ngm_elasticia_fix_fast_v2_0_0.logout.dissect,
-  [1002] = ngm_elasticia_fix_fast_v2_0_0.test_request.dissect,
-  [1003] = ngm_elasticia_fix_fast_v2_0_0.heartbeat.dissect,
-  [1004] = ngm_elasticia_fix_fast_v2_0_0.sequence_reset.dissect,
-  [1005] = ngm_elasticia_fix_fast_v2_0_0.reject.dissect,
-  [1] = ngm_elasticia_fix_fast_v2_0_0.new_order_single.dissect,
-  [2] = ngm_elasticia_fix_fast_v2_0_0.order_cancel_replace_request.dissect,
-  [3] = ngm_elasticia_fix_fast_v2_0_0.order_cancel_request.dissect,
-  [4] = ngm_elasticia_fix_fast_v2_0_0.execution_report.dissect,
-  [1007] = ngm_elasticia_fix_fast_v2_0_0.order_cancel_reject.dissect,
-  [1008] = ngm_elasticia_fix_fast_v2_0_0.order_mass_status_request.dissect,
-  [5] = ngm_elasticia_fix_fast_v2_0_0.quote.dissect,
-  [6] = ngm_elasticia_fix_fast_v2_0_0.quote_cancel.dissect,
-  [7] = ngm_elasticia_fix_fast_v2_0_0.quote_status_report.dissect,
-  [8] = ngm_elasticia_fix_fast_v2_0_0.quote_request.dissect,
-  [1009] = ngm_elasticia_fix_fast_v2_0_0.quote_status_request.dissect,
-  [9] = ngm_elasticia_fix_fast_v2_0_0.trade_capture_report.dissect,
-  [10] = ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_ack.dissect,
-  [1010] = ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request.dissect,
-  [1011] = ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request_ack.dissect,
-  [2052] = ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_request.dissect,
-  [2053] = ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_response.dissect,
-  [11] = ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh.dissect,
-  [1012] = ngm_elasticia_fix_fast_v2_0_0.market_data_request.dissect,
-  [1013] = ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh.dissect,
-  [1014] = ngm_elasticia_fix_fast_v2_0_0.market_data_request_reject.dissect,
-  [1015] = ngm_elasticia_fix_fast_v2_0_0.security_list_request.dissect,
-  [1016] = ngm_elasticia_fix_fast_v2_0_0.security_list.dissect,
-  [12] = ngm_elasticia_fix_fast_v2_0_0.security_definition_update_report.dissect,
-  [1017] = ngm_elasticia_fix_fast_v2_0_0.security_mass_status_request.dissect,
-  [13] = ngm_elasticia_fix_fast_v2_0_0.security_status.dissect,
-  [1018] = ngm_elasticia_fix_fast_v2_0_0.market_definition_request.dissect,
-  [1019] = ngm_elasticia_fix_fast_v2_0_0.market_definition.dissect,
-  [19] = ngm_elasticia_fix_fast_v2_0_0.market_definition_update_report.dissect,
-  [1020] = ngm_elasticia_fix_fast_v2_0_0.trading_session_status_request.dissect,
-  [15] = ngm_elasticia_fix_fast_v2_0_0.trading_session_status.dissect,
-  [1021] = ngm_elasticia_fix_fast_v2_0_0.corporate_action_report.dissect,
-  [1022] = ngm_elasticia_fix_fast_v2_0_0.corporate_action_request.dissect,
-}
-
--- Ngm Elasticia Fix Fast 2.0.0 Message Nodes
-ngm_elasticia_fix_fast_v2_0_0.message_fields = {
-  [1006] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.business_message_reject,
-  [1000] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.logon,
-  [1001] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.logout,
-  [1002] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.test_request,
-  [1003] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.heartbeat,
-  [1004] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.sequence_reset,
-  [1005] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.reject,
-  [1] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.new_order_single,
-  [2] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_cancel_replace_request,
-  [3] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_cancel_request,
-  [4] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.execution_report,
-  [1007] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_cancel_reject,
-  [1008] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_mass_status_request,
-  [5] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote,
-  [6] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_cancel,
-  [7] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_report,
-  [8] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_request,
-  [1009] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_request,
-  [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report,
-  [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report_ack,
-  [1010] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report_request,
-  [1011] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report_request_ack,
-  [2052] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.user_security_status_update_request,
-  [2053] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.user_security_status_update_response,
-  [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_incremental_refresh,
-  [1012] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_request,
-  [1013] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_snapshot_full_refresh,
-  [1014] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_request_reject,
-  [1015] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_list_request,
-  [1016] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_list,
-  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_definition_update_report,
-  [1017] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_mass_status_request,
-  [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status,
-  [1018] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_definition_request,
-  [1019] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_definition,
-  [19] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_definition_update_report,
-  [1020] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trading_session_status_request,
-  [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.trading_session_status,
-  [1021] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.corporate_action_report,
-  [1022] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.corporate_action_request,
+ngm_elasticia_fix_fast_v2_0_0.templates = {
+  [1006] = ngm_elasticia_fix_fast_v2_0_0.business_message_reject,
+  [1000] = ngm_elasticia_fix_fast_v2_0_0.logon,
+  [1001] = ngm_elasticia_fix_fast_v2_0_0.logout,
+  [1002] = ngm_elasticia_fix_fast_v2_0_0.test_request,
+  [1003] = ngm_elasticia_fix_fast_v2_0_0.heartbeat,
+  [1004] = ngm_elasticia_fix_fast_v2_0_0.sequence_reset,
+  [1005] = ngm_elasticia_fix_fast_v2_0_0.reject,
+  [1] = ngm_elasticia_fix_fast_v2_0_0.new_order_single,
+  [2] = ngm_elasticia_fix_fast_v2_0_0.order_cancel_replace_request,
+  [3] = ngm_elasticia_fix_fast_v2_0_0.order_cancel_request,
+  [4] = ngm_elasticia_fix_fast_v2_0_0.execution_report,
+  [1007] = ngm_elasticia_fix_fast_v2_0_0.order_cancel_reject,
+  [1008] = ngm_elasticia_fix_fast_v2_0_0.order_mass_status_request,
+  [5] = ngm_elasticia_fix_fast_v2_0_0.quote,
+  [6] = ngm_elasticia_fix_fast_v2_0_0.quote_cancel,
+  [7] = ngm_elasticia_fix_fast_v2_0_0.quote_status_report,
+  [8] = ngm_elasticia_fix_fast_v2_0_0.quote_request,
+  [1009] = ngm_elasticia_fix_fast_v2_0_0.quote_status_request,
+  [9] = ngm_elasticia_fix_fast_v2_0_0.trade_capture_report,
+  [10] = ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_ack,
+  [1010] = ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request,
+  [1011] = ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request_ack,
+  [2052] = ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_request,
+  [2053] = ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_response,
+  [11] = ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh,
+  [1012] = ngm_elasticia_fix_fast_v2_0_0.market_data_request,
+  [1013] = ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh,
+  [1014] = ngm_elasticia_fix_fast_v2_0_0.market_data_request_reject,
+  [1015] = ngm_elasticia_fix_fast_v2_0_0.security_list_request,
+  [1016] = ngm_elasticia_fix_fast_v2_0_0.security_list,
+  [12] = ngm_elasticia_fix_fast_v2_0_0.security_definition_update_report,
+  [1017] = ngm_elasticia_fix_fast_v2_0_0.security_mass_status_request,
+  [13] = ngm_elasticia_fix_fast_v2_0_0.security_status,
+  [1018] = ngm_elasticia_fix_fast_v2_0_0.market_definition_request,
+  [1019] = ngm_elasticia_fix_fast_v2_0_0.market_definition,
+  [19] = ngm_elasticia_fix_fast_v2_0_0.market_definition_update_report,
+  [1020] = ngm_elasticia_fix_fast_v2_0_0.trading_session_status_request,
+  [15] = ngm_elasticia_fix_fast_v2_0_0.trading_session_status,
+  [1021] = ngm_elasticia_fix_fast_v2_0_0.corporate_action_report,
+  [1022] = ngm_elasticia_fix_fast_v2_0_0.corporate_action_request,
 }
 
 -- Ngm Elasticia Fix Fast 2.0.0 Template Names
@@ -14561,11 +14767,11 @@ omi_ngm_elasticia_fix_fast_v2_0_0.dissector = function(buffer, packet, parent)
       return
     end
 
-    local message_field = ngm_elasticia_fix_fast_v2_0_0.message_fields[template_id]
+    local template = ngm_elasticia_fix_fast_v2_0_0.templates[template_id]
     local message_tree = nil
 
-    if message_field ~= nil then
-      message_tree = root:add(message_field, buffer(start, 0))
+    if template ~= nil then
+      message_tree = root:add(template.node, buffer(start, 0))
     else
       message_tree = root:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.message, buffer(start, 0))
       message_tree:set_text(ngm_elasticia_fix_fast_v2_0_0.template_id.name(template_id))
@@ -14573,18 +14779,20 @@ omi_ngm_elasticia_fix_fast_v2_0_0.dissector = function(buffer, packet, parent)
 
     -- the presence map and the template id are the message's own framing
     local header = message_tree:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.message_header, buffer(start, offset - start))
-    add_presence_map(header, buffer(start, mapped - start), omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_map, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_stop, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_identified, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_unused, ngm_elasticia_fix_fast_v2_0_0.presence_bits.named[template_id])
+    local named = nil
+    if template ~= nil then
+      named = template.presence
+    end
+    add_presence_map(header, buffer(start, mapped - start), omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_map, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_stop, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_identified, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_unused, named)
     header:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.template_id, buffer(identified, offset - identified), template_id, ngm_elasticia_fix_fast_v2_0_0.template_id.display(template_id))
 
-    local message = ngm_elasticia_fix_fast_v2_0_0.messages[template_id]
-
-    if message == nil then
+    if template == nil then
       message_tree:add_expert_info(PI_UNDECODED, PI_WARN, "This dissector reads: 1006 (BusinessMessageReject), 1000 (Logon), 1001 (Logout), 1002 (TestRequest), 1003 (Heartbeat), 1004 (SequenceReset), 1005 (Reject), 1 (NewOrderSingle), 2 (OrderCancelReplaceRequest), 3 (OrderCancelRequest), 4 (ExecutionReport), 1007 (OrderCancelReject), 1008 (OrderMassStatusRequest), 5 (Quote), 6 (QuoteCancel), 7 (QuoteStatusReport), 8 (QuoteRequest), 1009 (QuoteStatusRequest), 9 (TradeCaptureReport), 10 (TradeCaptureReportAck), 1010 (TradeCaptureReportRequest), 1011 (TradeCaptureReportRequestAck), 2052 (UserSecurityStatusUpdateRequest), 2053 (UserSecurityStatusUpdateResponse), 11 (MarketDataIncrementalRefresh), 1012 (MarketDataRequest), 1013 (MarketDataSnapshotFullRefresh), 1014 (MarketDataRequestReject), 1015 (SecurityListRequest), 1016 (SecurityList), 12 (SecurityDefinitionUpdateReport), 1017 (SecurityMassStatusRequest), 13 (SecurityStatus), 1018 (MarketDefinitionRequest), 1019 (MarketDefinition), 19 (MarketDefinitionUpdateReport), 1020 (TradingSessionStatusRequest), 15 (TradingSessionStatus), 1021 (CorporateActionReport), 1022 (CorporateActionRequest)")
       message_tree:set_len(offset - start)
       return
     end
 
-    offset = message(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
+    offset = template.dissect(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
     messages = messages + 1
 
     -- the message occupies whatever its framing and its fields consumed

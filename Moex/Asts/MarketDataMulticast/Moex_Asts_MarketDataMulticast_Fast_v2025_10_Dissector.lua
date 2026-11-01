@@ -22,18 +22,10 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.template_id = ProtoField.
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_stop = ProtoField.new("Stop Bit", "moex.asts.marketdatamulticast.fast.v2025.10.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_identified = ProtoField.new("Template Id", "moex.asts.marketdatamulticast.fast.v2025.10.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_unused = ProtoField.new("Unused", "moex.asts.marketdatamulticast.fast.v2025.10.presenceunused", ftypes.UINT8, nil, base.HEX)
-moex_asts_marketdatamulticast_fast_v2025_10.presence_bits = {}
 
 -- Moex Asts MarketDataMulticast Fast 2025.10 Presence Map Fields
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "moex.asts.marketdatamulticast.fast.v2025.10.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_message_encoding = ProtoField.new("Message Encoding", "moex.asts.marketdatamulticast.fast.v2025.10.messageencodingpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-
-moex_asts_marketdatamulticast_fast_v2025_10.presence_bits.named = {
-  [2915] = {
-    [2] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_msg_seq_num,
-    [3] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_message_encoding,
-  },
-}
 
 -- Moex Asts MarketDataMulticast Fast 2025.10 Fields
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.message_type = ProtoField.new("Message Type", "moex.asts.marketdatamulticast.fast.v2025.10.messagetype", ftypes.STRING)
@@ -303,16 +295,30 @@ local function add_presence_map(parent, range, map_field, stop_field, identified
   return node
 end
 
+-- Seven bits an octet, so ten octets hold the widest value FAST carries and a
+-- longer run is not an integer of any width. Reading one on matters because a
+-- Lua integer wraps on overflow rather than widening: the run would come back
+-- negative and be used as a length, which raises from inside Wireshark rather
+-- than saying what was wrong with the packet. The two that accumulate into
+-- Wireshark's own 64 bit values take all ten; the two that accumulate into a
+-- Lua integer stop at the nine that cannot overflow it, a value needing the
+-- tenth being wider than anything they are asked to read.
+local FAST_WIDE_OCTETS = 10
+local FAST_NUMBER_OCTETS = 9
+
 -- read an unsigned fast integer
 local function read_stop_bit_unsigned(buffer, offset)
   local value = 0
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST unsigned integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -323,12 +329,15 @@ local function read_stop_bit_signed(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and -1 or 0
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST signed integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -338,12 +347,15 @@ end
 local function read_stop_bit_uint64(buffer, offset)
   local value = UInt64(0)
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST unsigned integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -354,12 +366,15 @@ local function read_stop_bit_int64(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and Int64(-1) or Int64(0)
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST signed integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -411,24 +426,71 @@ local function read_ascii_string(buffer, offset)
     offset = offset + 1
   until bit.band(octet, 0x80) ~= 0
 
-  -- the stop bit rides in the high bit of the last character, so that octet is
-  -- masked back to the character it carries
-  local text = buffer(start, offset - start):string()
+  -- Every character but the last is 7 bit and reads as it stands. The last
+  -- octet carries the stop bit in its high bit, so it is masked back to the
+  -- character it carries rather than read as text: read as text it is not a
+  -- character at all, and Wireshark substitutes a replacement character three
+  -- bytes wide where the octet was one, which would leave two stray bytes
+  -- inside every string the wire carries.
+  local text = buffer(start, offset - start - 1):string()
   local last = bit.band(octet, 0x7f)
 
   -- a run closing on a nul carries no character there: the string ends before it
   if last == 0 then
-    return text:sub(1, -2), offset
+    return text, offset
   end
 
-  return text:sub(1, -2) .. string.char(last), offset
+  return text .. string.char(last), offset
+end
+
+-- splice a string delta onto the value the stream last sent: a subtraction
+-- length says how much of it to drop, and the characters that follow take the
+-- dropped part's place. A non-negative length drops from the tail and the
+-- difference goes after what is left; a negative one drops from the head and
+-- the difference goes in front, counting from -1 for nothing dropped, there
+-- being no negative zero to say it with.
+local function splice_string_delta(buffer, offset, base, length)
+  local text
+  text, offset = read_ascii_string(buffer, offset)
+  base = base or ""
+
+  -- sub clamps, so a length longer than what is remembered drops all of it
+  -- rather than reading off the end of the string
+  if length < 0 then
+    return text .. base:sub(-length), offset
+  end
+
+  return base:sub(1, #base - length) .. text, offset
+end
+
+-- read a fast string delta, whose subtraction length leads
+local function read_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_stop_bit_signed(buffer, offset)
+
+  return splice_string_delta(buffer, offset, base, length)
+end
+
+-- the same where the field is optional: the subtraction length carries the
+-- null, and a null one says the field is absent, with no difference behind it
+local function read_nullable_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_nullable_signed(buffer, offset)
+  if length == nil then return nil, offset end
+
+  return splice_string_delta(buffer, offset, base, length)
 end
 
 -- read a fast byte vector, counted by the length that precedes it
 local function read_byte_vector(buffer, offset)
   local length
   length, offset = read_stop_bit_unsigned(buffer, offset)
-  if offset + length > buffer:len() then error("truncated FAST byte vector") end
+
+  -- the length is checked against what is left rather than by adding it to the
+  -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
 
   return buffer(offset, length), offset + length
 end
@@ -1307,7 +1369,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.net_chg_prev_day.dissect = function(
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -1348,7 +1414,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.price_improvement.dissect = function
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -1655,7 +1725,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_sent.dissect = function(
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -1703,7 +1777,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_copy.dissect = function(
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -1744,7 +1822,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_sent.dissect = functio
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -1792,7 +1874,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_copy.dissect = functio
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -1993,7 +2079,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.accrued_interest_amt_sent.dissect = 
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2041,7 +2131,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.accrued_interest_amt_copy.dissect = 
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2082,7 +2176,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.chg_from_wa_price.dissect = function
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2123,7 +2221,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.chg_open_interest.dissect = function
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2164,7 +2266,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.bid_market_size.dissect = function(b
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2205,7 +2311,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.ask_market_size.dissect = function(b
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2268,7 +2378,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.trade_value_sent.dissect = function(
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2316,7 +2430,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.trade_value_copy.dissect = function(
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2357,7 +2475,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.yield_sent.dissect = function(buffer
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2405,7 +2527,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.yield_copy.dissect = function(buffer
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2446,7 +2572,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.total_volume_sent.dissect = function
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2494,7 +2624,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.total_volume_copy.dissect = function
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2579,7 +2713,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.chg_from_settlmnt.dissect = function
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2864,7 +3002,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.min_curr_px.dissect = function(buffe
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2905,7 +3047,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.index_cross_rate.dissect = function(
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3090,7 +3236,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.price_sent.dissect = function(buffer
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3138,7 +3288,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.price_copy.dissect = function(buffer
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3229,7 +3383,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.nominal_value.dissect = function(buf
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3270,7 +3428,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.repo_to_px_sent.dissect = function(b
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3318,7 +3480,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.repo_to_px_copy.dissect = function(b
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3359,7 +3525,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.buy_back_px_sent.dissect = function(
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3407,7 +3577,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.buy_back_px_copy.dissect = function(
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3570,7 +3744,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.pml_upper_limit.dissect = function(b
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3611,7 +3789,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.pml_lower_limit.dissect = function(b
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4274,7 +4456,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.orig_issue_amt.dissect = function(bu
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4337,7 +4523,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.coupon_rate.dissect = function(buffe
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4400,7 +4590,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.dividend_net_px.dissect = function(b
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4617,7 +4811,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.round_lot.dissect = function(buffer,
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4834,7 +5032,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.min_price_increment.dissect = functi
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4875,7 +5077,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.mkt_share_limit.dissect = function(b
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4916,7 +5122,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.mkt_share_threshold.dissect = functi
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4957,7 +5167,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.max_orders_volume.dissect = function
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4998,7 +5212,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.price_mvm_limit.dissect = function(b
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5039,7 +5257,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.face_value.dissect = function(buffer
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5080,7 +5302,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.base_swap_px.dissect = function(buff
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5121,7 +5347,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.no_shares_issued.dissect = function(
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5162,7 +5392,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.high_limit.dissect = function(buffer
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5203,7 +5437,11 @@ moex_asts_marketdatamulticast_fast_v2025_10.low_limit.dissect = function(buffer,
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5250,6 +5488,8 @@ end
 -- 0 Message
 moex_asts_marketdatamulticast_fast_v2025_10._0 = {}
 
+moex_asts_marketdatamulticast_fast_v2025_10._0.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields._0
+
 -- Dissect Fields: 0 Message
 moex_asts_marketdatamulticast_fast_v2025_10._0.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5285,6 +5525,8 @@ end
 
 -- H Message
 moex_asts_marketdatamulticast_fast_v2025_10.h = {}
+
+moex_asts_marketdatamulticast_fast_v2025_10.h.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.h
 
 -- Dissect Fields: H Message
 moex_asts_marketdatamulticast_fast_v2025_10.h.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -5333,6 +5575,8 @@ end
 
 -- F Message
 moex_asts_marketdatamulticast_fast_v2025_10.f = {}
+
+moex_asts_marketdatamulticast_fast_v2025_10.f.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.f
 
 -- Dissect Fields: F Message
 moex_asts_marketdatamulticast_fast_v2025_10.f.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -5501,6 +5745,12 @@ end
 
 -- D Message
 moex_asts_marketdatamulticast_fast_v2025_10.d = {}
+
+moex_asts_marketdatamulticast_fast_v2025_10.d.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.d
+moex_asts_marketdatamulticast_fast_v2025_10.d.presence = {
+  [2] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_msg_seq_num,
+  [3] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_message_encoding,
+}
 
 -- Dissect Fields: D Message
 moex_asts_marketdatamulticast_fast_v2025_10.d.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -5805,6 +6055,8 @@ end
 -- X-tlr-curr Message
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr = {}
 
+moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrcurr
+
 -- Dissect Fields: X-tlr-curr Message
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -5973,6 +6225,8 @@ end
 -- X-tlr-fond Message
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond = {}
 
+moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrfond
+
 -- Dissect Fields: X-tlr-fond Message
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -6098,6 +6352,8 @@ end
 
 -- X-olr-curr Message
 moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr = {}
+
+moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrcurr
 
 -- Dissect Fields: X-olr-curr Message
 moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -6239,6 +6495,8 @@ end
 
 -- X-olr-fond Message
 moex_asts_marketdatamulticast_fast_v2025_10.xolrfond = {}
+
+moex_asts_marketdatamulticast_fast_v2025_10.xolrfond.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrfond
 
 -- Dissect Fields: X-olr-fond Message
 moex_asts_marketdatamulticast_fast_v2025_10.xolrfond.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -6413,6 +6671,8 @@ end
 
 -- X-msr-curr Message
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr = {}
+
+moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrcurr
 
 -- Dissect Fields: X-msr-curr Message
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -6612,6 +6872,8 @@ end
 -- X-msr-fond Message
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond = {}
 
+moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrfond
+
 -- Dissect Fields: X-msr-fond Message
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -6755,6 +7017,8 @@ end
 
 -- W-tls-curr Message
 moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr = {}
+
+moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlscurr
 
 -- Dissect Fields: W-tls-curr Message
 moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -6936,6 +7200,8 @@ end
 -- W-tls-fond Message
 moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond = {}
 
+moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlsfond
+
 -- Dissect Fields: W-tls-fond Message
 moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -7076,6 +7342,8 @@ end
 
 -- W-ols-curr Message
 moex_asts_marketdatamulticast_fast_v2025_10.wolscurr = {}
+
+moex_asts_marketdatamulticast_fast_v2025_10.wolscurr.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolscurr
 
 -- Dissect Fields: W-ols-curr Message
 moex_asts_marketdatamulticast_fast_v2025_10.wolscurr.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -7229,6 +7497,8 @@ end
 
 -- W-ols-fond Message
 moex_asts_marketdatamulticast_fast_v2025_10.wolsfond = {}
+
+moex_asts_marketdatamulticast_fast_v2025_10.wolsfond.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolsfond
 
 -- Dissect Fields: W-ols-fond Message
 moex_asts_marketdatamulticast_fast_v2025_10.wolsfond.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -7494,6 +7764,8 @@ end
 -- X- Generic Message
 moex_asts_marketdatamulticast_fast_v2025_10.x_generic = {}
 
+moex_asts_marketdatamulticast_fast_v2025_10.x_generic.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.x_generic
+
 -- Dissect Fields: X- Generic Message
 moex_asts_marketdatamulticast_fast_v2025_10.x_generic.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -7710,6 +7982,8 @@ end
 -- W- Generic Message
 moex_asts_marketdatamulticast_fast_v2025_10.w_generic = {}
 
+moex_asts_marketdatamulticast_fast_v2025_10.w_generic.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.w_generic
+
 -- Dissect Fields: W- Generic Message
 moex_asts_marketdatamulticast_fast_v2025_10.w_generic.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -7791,6 +8065,8 @@ end
 -- 5 Message
 moex_asts_marketdatamulticast_fast_v2025_10._5 = {}
 
+moex_asts_marketdatamulticast_fast_v2025_10._5.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields._5
+
 -- Dissect Fields: 5 Message
 moex_asts_marketdatamulticast_fast_v2025_10._5.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -7832,6 +8108,8 @@ end
 
 -- A Message
 moex_asts_marketdatamulticast_fast_v2025_10.a = {}
+
+moex_asts_marketdatamulticast_fast_v2025_10.a.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.a
 
 -- Dissect Fields: A Message
 moex_asts_marketdatamulticast_fast_v2025_10.a.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -7887,47 +8165,25 @@ end
 -----------------------------------------------------------------------
 
 -- Moex Asts MarketDataMulticast Fast 2025.10 Message Dispatch
-moex_asts_marketdatamulticast_fast_v2025_10.messages = {
-  [2101] = moex_asts_marketdatamulticast_fast_v2025_10.a.dissect,
-  [2102] = moex_asts_marketdatamulticast_fast_v2025_10._5.dissect,
-  [2803] = moex_asts_marketdatamulticast_fast_v2025_10.w_generic.dissect,
-  [2704] = moex_asts_marketdatamulticast_fast_v2025_10.x_generic.dissect,
-  [2910] = moex_asts_marketdatamulticast_fast_v2025_10.wolsfond.dissect,
-  [3700] = moex_asts_marketdatamulticast_fast_v2025_10.wolscurr.dissect,
-  [2811] = moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond.dissect,
-  [3701] = moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr.dissect,
-  [2823] = moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond.dissect,
-  [3813] = moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr.dissect,
-  [2920] = moex_asts_marketdatamulticast_fast_v2025_10.xolrfond.dissect,
-  [3710] = moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr.dissect,
-  [2821] = moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond.dissect,
-  [3711] = moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr.dissect,
-  [2915] = moex_asts_marketdatamulticast_fast_v2025_10.d.dissect,
-  [2106] = moex_asts_marketdatamulticast_fast_v2025_10.f.dissect,
-  [2107] = moex_asts_marketdatamulticast_fast_v2025_10.h.dissect,
-  [2108] = moex_asts_marketdatamulticast_fast_v2025_10._0.dissect,
-}
-
--- Moex Asts MarketDataMulticast Fast 2025.10 Message Nodes
-moex_asts_marketdatamulticast_fast_v2025_10.message_fields = {
-  [2101] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.a,
-  [2102] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields._5,
-  [2803] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.w_generic,
-  [2704] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.x_generic,
-  [2910] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolsfond,
-  [3700] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolscurr,
-  [2811] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlsfond,
-  [3701] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlscurr,
-  [2823] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrfond,
-  [3813] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrcurr,
-  [2920] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrfond,
-  [3710] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrcurr,
-  [2821] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrfond,
-  [3711] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrcurr,
-  [2915] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.d,
-  [2106] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.f,
-  [2107] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.h,
-  [2108] = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields._0,
+moex_asts_marketdatamulticast_fast_v2025_10.templates = {
+  [2101] = moex_asts_marketdatamulticast_fast_v2025_10.a,
+  [2102] = moex_asts_marketdatamulticast_fast_v2025_10._5,
+  [2803] = moex_asts_marketdatamulticast_fast_v2025_10.w_generic,
+  [2704] = moex_asts_marketdatamulticast_fast_v2025_10.x_generic,
+  [2910] = moex_asts_marketdatamulticast_fast_v2025_10.wolsfond,
+  [3700] = moex_asts_marketdatamulticast_fast_v2025_10.wolscurr,
+  [2811] = moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond,
+  [3701] = moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr,
+  [2823] = moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond,
+  [3813] = moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr,
+  [2920] = moex_asts_marketdatamulticast_fast_v2025_10.xolrfond,
+  [3710] = moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr,
+  [2821] = moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond,
+  [3711] = moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr,
+  [2915] = moex_asts_marketdatamulticast_fast_v2025_10.d,
+  [2106] = moex_asts_marketdatamulticast_fast_v2025_10.f,
+  [2107] = moex_asts_marketdatamulticast_fast_v2025_10.h,
+  [2108] = moex_asts_marketdatamulticast_fast_v2025_10._0,
 }
 
 -- Moex Asts MarketDataMulticast Fast 2025.10 Template Names
@@ -8083,11 +8339,11 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.dissector = function(buffer, pac
       return
     end
 
-    local message_field = moex_asts_marketdatamulticast_fast_v2025_10.message_fields[template_id]
+    local template = moex_asts_marketdatamulticast_fast_v2025_10.templates[template_id]
     local message_tree = nil
 
-    if message_field ~= nil then
-      message_tree = root:add(message_field, buffer(start, 0))
+    if template ~= nil then
+      message_tree = root:add(template.node, buffer(start, 0))
     else
       message_tree = root:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.message, buffer(start, 0))
       message_tree:set_text(moex_asts_marketdatamulticast_fast_v2025_10.template_id.name(template_id))
@@ -8095,18 +8351,20 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.dissector = function(buffer, pac
 
     -- the presence map and the template id are the message's own framing
     local header = message_tree:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.message_header, buffer(start, offset - start))
-    add_presence_map(header, buffer(start, mapped - start), omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_map, omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_stop, omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_identified, omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_unused, moex_asts_marketdatamulticast_fast_v2025_10.presence_bits.named[template_id])
+    local named = nil
+    if template ~= nil then
+      named = template.presence
+    end
+    add_presence_map(header, buffer(start, mapped - start), omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_map, omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_stop, omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_identified, omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_unused, named)
     header:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.template_id, buffer(identified, offset - identified), template_id, moex_asts_marketdatamulticast_fast_v2025_10.template_id.display(template_id))
 
-    local message = moex_asts_marketdatamulticast_fast_v2025_10.messages[template_id]
-
-    if message == nil then
+    if template == nil then
       message_tree:add_expert_info(PI_UNDECODED, PI_WARN, "This dissector reads: 2101 (A), 2102 (5), 2803 (W-Generic), 2704 (X-Generic), 2910 (W-OLS-FOND), 3700 (W-OLS-CURR), 2811 (W-TLS-FOND), 3701 (W-TLS-CURR), 2823 (X-MSR-FOND), 3813 (X-MSR-CURR), 2920 (X-OLR-FOND), 3710 (X-OLR-CURR), 2821 (X-TLR-FOND), 3711 (X-TLR-CURR), 2915 (d), 2106 (f), 2107 (h), 2108 (0)")
       message_tree:set_len(offset - start)
       return
     end
 
-    offset = message(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
+    offset = template.dissect(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
     messages = messages + 1
 
     -- the message occupies whatever its framing and its fields consumed

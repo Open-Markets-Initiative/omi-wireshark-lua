@@ -22,7 +22,6 @@ omi_eurex_t7_rdi_fast_v9_0.fields.template_id = ProtoField.new("Template Id", "e
 omi_eurex_t7_rdi_fast_v9_0.fields.presence_stop = ProtoField.new("Stop Bit", "eurex.t7.rdi.fast.v9.0.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_eurex_t7_rdi_fast_v9_0.fields.presence_identified = ProtoField.new("Template Id", "eurex.t7.rdi.fast.v9.0.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_eurex_t7_rdi_fast_v9_0.fields.presence_unused = ProtoField.new("Unused", "eurex.t7.rdi.fast.v9.0.presenceunused", ftypes.UINT8, nil, base.HEX)
-eurex_t7_rdi_fast_v9_0.presence_bits = {}
 
 -- Eurex T7 Rdi Fast 9.0 Presence Map Fields
 omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.rdi.fast.v9.0.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -58,78 +57,6 @@ omi_eurex_t7_rdi_fast_v9_0.fields.presence_md_report_event = ProtoField.new("Md 
 omi_eurex_t7_rdi_fast_v9_0.fields.presence_tot_no_market_segment_reports = ProtoField.new("Tot No Market Segment Reports", "eurex.t7.rdi.fast.v9.0.totnomarketsegmentreportspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v9_0.fields.presence_tot_no_instrument_reports = ProtoField.new("Tot No Instrument Reports", "eurex.t7.rdi.fast.v9.0.totnoinstrumentreportspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v9_0.fields.presence_sender_comp_id = ProtoField.new("Sender Comp Id", "eurex.t7.rdi.fast.v9.0.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-
-eurex_t7_rdi_fast_v9_0.presence_bits.named = {
-  [122] = {
-    [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_market_id,
-    [4] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_effective_business_date,
-    [5] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_next_effective_business_date,
-    [6] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_market_segment_status,
-    [7] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_partition_id,
-    [8] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_negotiation_duration,
-    [9] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_derivatives_descriptor_group,
-    [10] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_underlying_descriptor_group,
-    [11] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_no_instrument_scopes,
-    [12] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_base_trdg_rules_derivatives,
-    [13] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_base_trdg_rules_cash,
-    [14] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_no_match_rules,
-    [15] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_no_md_feed_types,
-  },
-  [123] = {
-    [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_type,
-    [4] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_status,
-    [5] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_exchange,
-    [6] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_product_complex,
-    [7] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_derivatives_descriptor_group,
-    [8] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_cash_descriptor_group,
-    [9] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_instrument_price_precision,
-    [10] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment,
-    [11] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment_clearing,
-    [12] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment_amount,
-    [13] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_maturity_date,
-    [14] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_maturity_month_year,
-    [15] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_sub_type,
-  },
-  [121] = {
-    [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_type,
-    [4] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_status,
-    [5] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_exchange,
-    [6] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_product_complex,
-    [7] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_derivatives_descriptor_group,
-    [8] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_instrument_price_precision,
-    [9] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment,
-    [10] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment_clearing,
-    [11] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment_amount,
-    [12] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_maturity_date,
-    [13] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_maturity_month_year,
-    [14] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_sub_type,
-  },
-  [162] = {
-    [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
-  },
-  [514] = {
-    [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_prior_settl_price,
-    [4] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_settl_price,
-  },
-  [515] = {
-    [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
-  },
-  [125] = {
-    [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_sender_sub_id,
-    [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_market_id,
-    [4] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_md_report_event,
-    [5] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_tot_no_market_segment_reports,
-    [6] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_tot_no_instrument_reports,
-  },
-  [109] = {
-    [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_sender_comp_id,
-    [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_sender_sub_id,
-  },
-}
 
 -- Eurex T7 Rdi Fast 9.0 Fields
 omi_eurex_t7_rdi_fast_v9_0.fields.sender_comp_id = ProtoField.new("Sender Comp Id", "eurex.t7.rdi.fast.v9.0.sendercompid", ftypes.UINT32)
@@ -490,16 +417,30 @@ local function add_presence_map(parent, range, map_field, stop_field, identified
   return node
 end
 
+-- Seven bits an octet, so ten octets hold the widest value FAST carries and a
+-- longer run is not an integer of any width. Reading one on matters because a
+-- Lua integer wraps on overflow rather than widening: the run would come back
+-- negative and be used as a length, which raises from inside Wireshark rather
+-- than saying what was wrong with the packet. The two that accumulate into
+-- Wireshark's own 64 bit values take all ten; the two that accumulate into a
+-- Lua integer stop at the nine that cannot overflow it, a value needing the
+-- tenth being wider than anything they are asked to read.
+local FAST_WIDE_OCTETS = 10
+local FAST_NUMBER_OCTETS = 9
+
 -- read an unsigned fast integer
 local function read_stop_bit_unsigned(buffer, offset)
   local value = 0
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST unsigned integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -510,12 +451,15 @@ local function read_stop_bit_signed(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and -1 or 0
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST signed integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -525,12 +469,15 @@ end
 local function read_stop_bit_uint64(buffer, offset)
   local value = UInt64(0)
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST unsigned integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -541,12 +488,15 @@ local function read_stop_bit_int64(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and Int64(-1) or Int64(0)
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST signed integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -598,24 +548,71 @@ local function read_ascii_string(buffer, offset)
     offset = offset + 1
   until bit.band(octet, 0x80) ~= 0
 
-  -- the stop bit rides in the high bit of the last character, so that octet is
-  -- masked back to the character it carries
-  local text = buffer(start, offset - start):string()
+  -- Every character but the last is 7 bit and reads as it stands. The last
+  -- octet carries the stop bit in its high bit, so it is masked back to the
+  -- character it carries rather than read as text: read as text it is not a
+  -- character at all, and Wireshark substitutes a replacement character three
+  -- bytes wide where the octet was one, which would leave two stray bytes
+  -- inside every string the wire carries.
+  local text = buffer(start, offset - start - 1):string()
   local last = bit.band(octet, 0x7f)
 
   -- a run closing on a nul carries no character there: the string ends before it
   if last == 0 then
-    return text:sub(1, -2), offset
+    return text, offset
   end
 
-  return text:sub(1, -2) .. string.char(last), offset
+  return text .. string.char(last), offset
+end
+
+-- splice a string delta onto the value the stream last sent: a subtraction
+-- length says how much of it to drop, and the characters that follow take the
+-- dropped part's place. A non-negative length drops from the tail and the
+-- difference goes after what is left; a negative one drops from the head and
+-- the difference goes in front, counting from -1 for nothing dropped, there
+-- being no negative zero to say it with.
+local function splice_string_delta(buffer, offset, base, length)
+  local text
+  text, offset = read_ascii_string(buffer, offset)
+  base = base or ""
+
+  -- sub clamps, so a length longer than what is remembered drops all of it
+  -- rather than reading off the end of the string
+  if length < 0 then
+    return text .. base:sub(-length), offset
+  end
+
+  return base:sub(1, #base - length) .. text, offset
+end
+
+-- read a fast string delta, whose subtraction length leads
+local function read_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_stop_bit_signed(buffer, offset)
+
+  return splice_string_delta(buffer, offset, base, length)
+end
+
+-- the same where the field is optional: the subtraction length carries the
+-- null, and a null one says the field is absent, with no difference behind it
+local function read_nullable_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_nullable_signed(buffer, offset)
+  if length == nil then return nil, offset end
+
+  return splice_string_delta(buffer, offset, base, length)
 end
 
 -- read a fast byte vector, counted by the length that precedes it
 local function read_byte_vector(buffer, offset)
   local length
   length, offset = read_stop_bit_unsigned(buffer, offset)
-  if offset + length > buffer:len() then error("truncated FAST byte vector") end
+
+  -- the length is checked against what is left rather than by adding it to the
+  -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
 
   return buffer(offset, length), offset + length
 end
@@ -1252,9 +1249,7 @@ eurex_t7_rdi_fast_v9_0.market_segment.dissect = function(buffer, offset, packet,
   local start = offset
   local value = nil
 
-  local value_delta = nil
-  value_delta, offset = read_stop_bit_signed(buffer, offset)
-  value = (state.values[key] or 0) + value_delta
+  value, offset = read_string_delta(buffer, offset, state.values[key])
   state.values[key] = value
 
   local range = buffer(start, offset - start)
@@ -1418,11 +1413,9 @@ eurex_t7_rdi_fast_v9_0.market_segment_desc.dissect = function(buffer, offset, pa
   local start = offset
   local value = nil
 
-  local value_delta = nil
-  value_delta, offset = read_nullable_signed(buffer, offset)
+  value, offset = read_nullable_string_delta(buffer, offset, state.values[key])
 
-  if value_delta ~= nil then
-    value = (state.values[key] or 0) + value_delta
+  if value ~= nil then
     state.values[key] = value
   end
 
@@ -1446,11 +1439,9 @@ eurex_t7_rdi_fast_v9_0.market_segment_symbol.dissect = function(buffer, offset, 
   local start = offset
   local value = nil
 
-  local value_delta = nil
-  value_delta, offset = read_nullable_signed(buffer, offset)
+  value, offset = read_nullable_string_delta(buffer, offset, state.values[key])
 
-  if value_delta ~= nil then
-    value = (state.values[key] or 0) + value_delta
+  if value ~= nil then
     state.values[key] = value
   end
 
@@ -1773,11 +1764,9 @@ eurex_t7_rdi_fast_v9_0.underlying_symbol.dissect = function(buffer, offset, pack
   local start = offset
   local value = nil
 
-  local value_delta = nil
-  value_delta, offset = read_nullable_signed(buffer, offset)
+  value, offset = read_nullable_string_delta(buffer, offset, state.values[key])
 
-  if value_delta ~= nil then
-    value = (state.values[key] or 0) + value_delta
+  if value ~= nil then
     state.values[key] = value
   end
 
@@ -1801,11 +1790,9 @@ eurex_t7_rdi_fast_v9_0.underlying_security_id.dissect = function(buffer, offset,
   local start = offset
   local value = nil
 
-  local value_delta = nil
-  value_delta, offset = read_nullable_signed(buffer, offset)
+  value, offset = read_nullable_string_delta(buffer, offset, state.values[key])
 
-  if value_delta ~= nil then
-    value = (state.values[key] or 0) + value_delta
+  if value ~= nil then
     state.values[key] = value
   end
 
@@ -1880,7 +1867,11 @@ eurex_t7_rdi_fast_v9_0.underlying_prev_close_px.dissect = function(buffer, offse
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2269,7 +2260,11 @@ eurex_t7_rdi_fast_v9_0.start_tick_price_range.dissect = function(buffer, offset,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2319,7 +2314,11 @@ eurex_t7_rdi_fast_v9_0.end_tick_price_range.dissect = function(buffer, offset, p
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2369,7 +2368,11 @@ eurex_t7_rdi_fast_v9_0.tick_increment.dissect = function(buffer, offset, packet,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2754,7 +2757,11 @@ eurex_t7_rdi_fast_v9_0.start_price_range.dissect = function(buffer, offset, pack
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2802,7 +2809,11 @@ eurex_t7_rdi_fast_v9_0.end_price_range.dissect = function(buffer, offset, packet
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2850,7 +2861,11 @@ eurex_t7_rdi_fast_v9_0.price_range_value.dissect = function(buffer, offset, pack
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -2898,7 +2913,11 @@ eurex_t7_rdi_fast_v9_0.price_range_percentage.dissect = function(buffer, offset,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3034,7 +3053,11 @@ eurex_t7_rdi_fast_v9_0.fast_market_percentage.dissect = function(buffer, offset,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3132,7 +3155,11 @@ eurex_t7_rdi_fast_v9_0.min_bid_size.dissect = function(buffer, offset, packet, p
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3180,7 +3207,11 @@ eurex_t7_rdi_fast_v9_0.min_offer_size.dissect = function(buffer, offset, packet,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3431,7 +3462,11 @@ eurex_t7_rdi_fast_v9_0.round_lot.dissect = function(buffer, offset, packet, pare
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -4022,9 +4057,7 @@ eurex_t7_rdi_fast_v9_0.primary_service_location_id.dissect = function(buffer, of
   local start = offset
   local value = nil
 
-  local value_delta = nil
-  value_delta, offset = read_stop_bit_signed(buffer, offset)
-  value = (state.values[key] or 0) + value_delta
+  value, offset = read_string_delta(buffer, offset, state.values[key])
   state.values[key] = value
 
   local range = buffer(start, offset - start)
@@ -4072,11 +4105,9 @@ eurex_t7_rdi_fast_v9_0.secondary_service_location_id.dissect = function(buffer, 
   local start = offset
   local value = nil
 
-  local value_delta = nil
-  value_delta, offset = read_nullable_signed(buffer, offset)
+  value, offset = read_nullable_string_delta(buffer, offset, state.values[key])
 
-  if value_delta ~= nil then
-    value = (state.values[key] or 0) + value_delta
+  if value ~= nil then
     state.values[key] = value
   end
 
@@ -4212,9 +4243,7 @@ eurex_t7_rdi_fast_v9_0.security_alt_id.dissect = function(buffer, offset, packet
   local start = offset
   local value = nil
 
-  local value_delta = nil
-  value_delta, offset = read_stop_bit_signed(buffer, offset)
-  value = (state.values[key] or 0) + value_delta
+  value, offset = read_string_delta(buffer, offset, state.values[key])
   state.values[key] = value
 
   local range = buffer(start, offset - start)
@@ -4669,11 +4698,9 @@ eurex_t7_rdi_fast_v9_0.security_desc.dissect = function(buffer, offset, packet, 
   local start = offset
   local value = nil
 
-  local value_delta = nil
-  value_delta, offset = read_nullable_signed(buffer, offset)
+  value, offset = read_nullable_string_delta(buffer, offset, state.values[key])
 
-  if value_delta ~= nil then
-    value = (state.values[key] or 0) + value_delta
+  if value ~= nil then
     state.values[key] = value
   end
 
@@ -5118,7 +5145,11 @@ eurex_t7_rdi_fast_v9_0.strike_price.dissect = function(buffer, offset, packet, p
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5194,7 +5225,11 @@ eurex_t7_rdi_fast_v9_0.contract_multiplier.dissect = function(buffer, offset, pa
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5360,7 +5395,11 @@ eurex_t7_rdi_fast_v9_0.orig_strike_price.dissect = function(buffer, offset, pack
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5630,7 +5669,11 @@ eurex_t7_rdi_fast_v9_0.prior_settl_price_copy_optional.dissect = function(buffer
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5678,7 +5721,11 @@ eurex_t7_rdi_fast_v9_0.prior_settl_price_copy_required.dissect = function(buffer
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6007,7 +6054,11 @@ eurex_t7_rdi_fast_v9_0.leg_price.dissect = function(buffer, offset, packet, pare
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6399,7 +6450,11 @@ eurex_t7_rdi_fast_v9_0.min_trade_vol.dissect = function(buffer, offset, packet, 
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6752,7 +6807,11 @@ eurex_t7_rdi_fast_v9_0.coupon_rate.dissect = function(buffer, offset, packet, pa
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7427,7 +7486,11 @@ eurex_t7_rdi_fast_v9_0.min_price_increment.dissect = function(buffer, offset, pa
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7475,7 +7538,11 @@ eurex_t7_rdi_fast_v9_0.min_price_increment_clearing.dissect = function(buffer, o
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -7523,7 +7590,11 @@ eurex_t7_rdi_fast_v9_0.min_price_increment_amount.dissect = function(buffer, off
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8126,7 +8197,11 @@ eurex_t7_rdi_fast_v9_0.clearing_price_offset.dissect = function(buffer, offset, 
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8286,7 +8361,11 @@ eurex_t7_rdi_fast_v9_0.standard_variance.dissect = function(buffer, offset, pack
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8334,7 +8413,11 @@ eurex_t7_rdi_fast_v9_0.related_close_price.dissect = function(buffer, offset, pa
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8382,7 +8465,11 @@ eurex_t7_rdi_fast_v9_0.realized_variance.dissect = function(buffer, offset, pack
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8430,7 +8517,11 @@ eurex_t7_rdi_fast_v9_0.risk_free_rate.dissect = function(buffer, offset, packet,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8478,7 +8569,11 @@ eurex_t7_rdi_fast_v9_0.discount_factor.dissect = function(buffer, offset, packet
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8526,7 +8621,11 @@ eurex_t7_rdi_fast_v9_0.overnight_interest_rate.dissect = function(buffer, offset
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8574,7 +8673,11 @@ eurex_t7_rdi_fast_v9_0.accumulated_return_modified_variation_margin.dissect = fu
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8622,7 +8725,11 @@ eurex_t7_rdi_fast_v9_0.volatility.dissect = function(buffer, offset, packet, par
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8670,7 +8777,11 @@ eurex_t7_rdi_fast_v9_0.clearing_settl_price.dissect = function(buffer, offset, p
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8762,7 +8873,11 @@ eurex_t7_rdi_fast_v9_0.settl_price.dissect = function(buffer, offset, packet, pa
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8866,7 +8981,11 @@ eurex_t7_rdi_fast_v9_0.current_payment_parameter.dissect = function(buffer, offs
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8914,7 +9033,11 @@ eurex_t7_rdi_fast_v9_0.accrued_payment_parameter.dissect = function(buffer, offs
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -8962,7 +9085,11 @@ eurex_t7_rdi_fast_v9_0.related_index_value.dissect = function(buffer, offset, pa
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -9010,7 +9137,11 @@ eurex_t7_rdi_fast_v9_0.current_collection_parameter.dissect = function(buffer, o
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -9058,7 +9189,11 @@ eurex_t7_rdi_fast_v9_0.accrued_collection_parameter.dissect = function(buffer, o
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -9325,6 +9460,12 @@ end
 -- Beacon Message
 eurex_t7_rdi_fast_v9_0.beacon = {}
 
+eurex_t7_rdi_fast_v9_0.beacon.node = omi_eurex_t7_rdi_fast_v9_0.fields.beacon
+eurex_t7_rdi_fast_v9_0.beacon.presence = {
+  [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_sender_comp_id,
+  [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_sender_sub_id,
+}
+
 -- Dissect Fields: Beacon Message
 eurex_t7_rdi_fast_v9_0.beacon.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -9357,6 +9498,15 @@ end
 
 -- Market Data Report Message
 eurex_t7_rdi_fast_v9_0.market_data_report = {}
+
+eurex_t7_rdi_fast_v9_0.market_data_report.node = omi_eurex_t7_rdi_fast_v9_0.fields.market_data_report
+eurex_t7_rdi_fast_v9_0.market_data_report.presence = {
+  [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_sender_sub_id,
+  [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_market_id,
+  [4] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_md_report_event,
+  [5] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_tot_no_market_segment_reports,
+  [6] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_tot_no_instrument_reports,
+}
 
 -- Dissect Fields: Market Data Report Message
 eurex_t7_rdi_fast_v9_0.market_data_report.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -9447,6 +9597,11 @@ end
 
 -- Trade At Reference Price Status Message
 eurex_t7_rdi_fast_v9_0.trade_at_reference_price_status = {}
+
+eurex_t7_rdi_fast_v9_0.trade_at_reference_price_status.node = omi_eurex_t7_rdi_fast_v9_0.fields.trade_at_reference_price_status
+eurex_t7_rdi_fast_v9_0.trade_at_reference_price_status.presence = {
+  [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
+}
 
 -- Dissect Fields: Trade At Reference Price Status Message
 eurex_t7_rdi_fast_v9_0.trade_at_reference_price_status.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -9558,6 +9713,13 @@ end
 
 -- Total Return Futures Status Message
 eurex_t7_rdi_fast_v9_0.total_return_futures_status = {}
+
+eurex_t7_rdi_fast_v9_0.total_return_futures_status.node = omi_eurex_t7_rdi_fast_v9_0.fields.total_return_futures_status
+eurex_t7_rdi_fast_v9_0.total_return_futures_status.presence = {
+  [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_prior_settl_price,
+  [4] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_settl_price,
+}
 
 -- Dissect Fields: Total Return Futures Status Message
 eurex_t7_rdi_fast_v9_0.total_return_futures_status.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -9693,6 +9855,11 @@ end
 
 -- Variance Futures Status Message
 eurex_t7_rdi_fast_v9_0.variance_futures_status = {}
+
+eurex_t7_rdi_fast_v9_0.variance_futures_status.node = omi_eurex_t7_rdi_fast_v9_0.fields.variance_futures_status
+eurex_t7_rdi_fast_v9_0.variance_futures_status.presence = {
+  [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
+}
 
 -- Dissect Fields: Variance Futures Status Message
 eurex_t7_rdi_fast_v9_0.variance_futures_status.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -10267,6 +10434,23 @@ end
 
 -- Instrument Incremental Message
 eurex_t7_rdi_fast_v9_0.instrument_incremental = {}
+
+eurex_t7_rdi_fast_v9_0.instrument_incremental.node = omi_eurex_t7_rdi_fast_v9_0.fields.instrument_incremental
+eurex_t7_rdi_fast_v9_0.instrument_incremental.presence = {
+  [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_type,
+  [4] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_status,
+  [5] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_exchange,
+  [6] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_product_complex,
+  [7] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_derivatives_descriptor_group,
+  [8] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_instrument_price_precision,
+  [9] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment,
+  [10] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment_clearing,
+  [11] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment_amount,
+  [12] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_maturity_date,
+  [13] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_maturity_month_year,
+  [14] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_sub_type,
+}
 
 -- Dissect Fields: Instrument Incremental Message
 eurex_t7_rdi_fast_v9_0.instrument_incremental.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -11103,6 +11287,24 @@ end
 -- Instrument Snapshot Message
 eurex_t7_rdi_fast_v9_0.instrument_snapshot = {}
 
+eurex_t7_rdi_fast_v9_0.instrument_snapshot.node = omi_eurex_t7_rdi_fast_v9_0.fields.instrument_snapshot
+eurex_t7_rdi_fast_v9_0.instrument_snapshot.presence = {
+  [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_type,
+  [4] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_status,
+  [5] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_exchange,
+  [6] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_product_complex,
+  [7] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_derivatives_descriptor_group,
+  [8] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_cash_descriptor_group,
+  [9] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_instrument_price_precision,
+  [10] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment,
+  [11] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment_clearing,
+  [12] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_min_price_increment_amount,
+  [13] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_maturity_date,
+  [14] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_maturity_month_year,
+  [15] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_security_sub_type,
+}
+
 -- Dissect Fields: Instrument Snapshot Message
 eurex_t7_rdi_fast_v9_0.instrument_snapshot.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -11898,6 +12100,24 @@ end
 -- Product Snapshot Message
 eurex_t7_rdi_fast_v9_0.product_snapshot = {}
 
+eurex_t7_rdi_fast_v9_0.product_snapshot.node = omi_eurex_t7_rdi_fast_v9_0.fields.product_snapshot
+eurex_t7_rdi_fast_v9_0.product_snapshot.presence = {
+  [2] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_market_id,
+  [4] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_effective_business_date,
+  [5] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_next_effective_business_date,
+  [6] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_market_segment_status,
+  [7] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_partition_id,
+  [8] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_negotiation_duration,
+  [9] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_derivatives_descriptor_group,
+  [10] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_underlying_descriptor_group,
+  [11] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_no_instrument_scopes,
+  [12] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_base_trdg_rules_derivatives,
+  [13] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_base_trdg_rules_cash,
+  [14] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_no_match_rules,
+  [15] = omi_eurex_t7_rdi_fast_v9_0.fields.presence_no_md_feed_types,
+}
+
 -- Dissect Fields: Product Snapshot Message
 eurex_t7_rdi_fast_v9_0.product_snapshot.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12008,6 +12228,8 @@ end
 -- Rd Packet Header Framing
 eurex_t7_rdi_fast_v9_0.rd_packet_header = {}
 
+eurex_t7_rdi_fast_v9_0.rd_packet_header.node = omi_eurex_t7_rdi_fast_v9_0.fields.rd_packet_header
+
 -- Dissect Fields: Rd Packet Header Framing
 eurex_t7_rdi_fast_v9_0.rd_packet_header.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -12041,29 +12263,16 @@ end
 -----------------------------------------------------------------------
 
 -- Eurex T7 Rdi Fast 9.0 Message Dispatch
-eurex_t7_rdi_fast_v9_0.messages = {
-  [70] = eurex_t7_rdi_fast_v9_0.rd_packet_header.dissect,
-  [122] = eurex_t7_rdi_fast_v9_0.product_snapshot.dissect,
-  [123] = eurex_t7_rdi_fast_v9_0.instrument_snapshot.dissect,
-  [121] = eurex_t7_rdi_fast_v9_0.instrument_incremental.dissect,
-  [162] = eurex_t7_rdi_fast_v9_0.variance_futures_status.dissect,
-  [514] = eurex_t7_rdi_fast_v9_0.total_return_futures_status.dissect,
-  [515] = eurex_t7_rdi_fast_v9_0.trade_at_reference_price_status.dissect,
-  [125] = eurex_t7_rdi_fast_v9_0.market_data_report.dissect,
-  [109] = eurex_t7_rdi_fast_v9_0.beacon.dissect,
-}
-
--- Eurex T7 Rdi Fast 9.0 Message Nodes
-eurex_t7_rdi_fast_v9_0.message_fields = {
-  [70] = omi_eurex_t7_rdi_fast_v9_0.fields.rd_packet_header,
-  [122] = omi_eurex_t7_rdi_fast_v9_0.fields.product_snapshot,
-  [123] = omi_eurex_t7_rdi_fast_v9_0.fields.instrument_snapshot,
-  [121] = omi_eurex_t7_rdi_fast_v9_0.fields.instrument_incremental,
-  [162] = omi_eurex_t7_rdi_fast_v9_0.fields.variance_futures_status,
-  [514] = omi_eurex_t7_rdi_fast_v9_0.fields.total_return_futures_status,
-  [515] = omi_eurex_t7_rdi_fast_v9_0.fields.trade_at_reference_price_status,
-  [125] = omi_eurex_t7_rdi_fast_v9_0.fields.market_data_report,
-  [109] = omi_eurex_t7_rdi_fast_v9_0.fields.beacon,
+eurex_t7_rdi_fast_v9_0.templates = {
+  [70] = eurex_t7_rdi_fast_v9_0.rd_packet_header,
+  [122] = eurex_t7_rdi_fast_v9_0.product_snapshot,
+  [123] = eurex_t7_rdi_fast_v9_0.instrument_snapshot,
+  [121] = eurex_t7_rdi_fast_v9_0.instrument_incremental,
+  [162] = eurex_t7_rdi_fast_v9_0.variance_futures_status,
+  [514] = eurex_t7_rdi_fast_v9_0.total_return_futures_status,
+  [515] = eurex_t7_rdi_fast_v9_0.trade_at_reference_price_status,
+  [125] = eurex_t7_rdi_fast_v9_0.market_data_report,
+  [109] = eurex_t7_rdi_fast_v9_0.beacon,
 }
 
 -- Eurex T7 Rdi Fast 9.0 Template Names
@@ -12175,11 +12384,11 @@ omi_eurex_t7_rdi_fast_v9_0.dissector = function(buffer, packet, parent)
       return
     end
 
-    local message_field = eurex_t7_rdi_fast_v9_0.message_fields[template_id]
+    local template = eurex_t7_rdi_fast_v9_0.templates[template_id]
     local message_tree = nil
 
-    if message_field ~= nil then
-      message_tree = root:add(message_field, buffer(start, 0))
+    if template ~= nil then
+      message_tree = root:add(template.node, buffer(start, 0))
     else
       message_tree = root:add(omi_eurex_t7_rdi_fast_v9_0.fields.message, buffer(start, 0))
       message_tree:set_text(eurex_t7_rdi_fast_v9_0.template_id.name(template_id))
@@ -12187,7 +12396,11 @@ omi_eurex_t7_rdi_fast_v9_0.dissector = function(buffer, packet, parent)
 
     -- the presence map and the template id are the message's own framing
     local header = message_tree:add(omi_eurex_t7_rdi_fast_v9_0.fields.message_header, buffer(start, offset - start))
-    add_presence_map(header, buffer(start, mapped - start), omi_eurex_t7_rdi_fast_v9_0.fields.presence_map, omi_eurex_t7_rdi_fast_v9_0.fields.presence_stop, omi_eurex_t7_rdi_fast_v9_0.fields.presence_identified, omi_eurex_t7_rdi_fast_v9_0.fields.presence_unused, eurex_t7_rdi_fast_v9_0.presence_bits.named[template_id])
+    local named = nil
+    if template ~= nil then
+      named = template.presence
+    end
+    add_presence_map(header, buffer(start, mapped - start), omi_eurex_t7_rdi_fast_v9_0.fields.presence_map, omi_eurex_t7_rdi_fast_v9_0.fields.presence_stop, omi_eurex_t7_rdi_fast_v9_0.fields.presence_identified, omi_eurex_t7_rdi_fast_v9_0.fields.presence_unused, named)
     header:add(omi_eurex_t7_rdi_fast_v9_0.fields.template_id, buffer(identified, offset - identified), template_id, eurex_t7_rdi_fast_v9_0.template_id.display(template_id))
 
     -- the reset template tells a receiver to forget what the stream remembered
@@ -12195,9 +12408,7 @@ omi_eurex_t7_rdi_fast_v9_0.dissector = function(buffer, packet, parent)
       state.values = {}
       state.last_template_id = nil
     else
-      local message = eurex_t7_rdi_fast_v9_0.messages[template_id]
-
-      if message == nil then
+      if template == nil then
         message_tree:add_expert_info(PI_UNDECODED, PI_WARN, "This dissector reads: 70 (RDPacketHeader), 122 (ProductSnapshot), 123 (InstrumentSnapshot), 121 (InstrumentIncremental), 162 (VarianceFuturesStatus), 514 (TotalReturnFuturesStatus), 515 (TradeAtReferencePriceStatus), 125 (MarketDataReport), 109 (Beacon)")
         message_tree:set_len(offset - start)
         return
@@ -12208,7 +12419,7 @@ omi_eurex_t7_rdi_fast_v9_0.dissector = function(buffer, packet, parent)
         root:add_expert_info(PI_PROTOCOL, PI_WARN, "FAST packet did not open with its packet header template")
       end
 
-      offset = message(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
+      offset = template.dissect(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
       messages = messages + 1
     end
 

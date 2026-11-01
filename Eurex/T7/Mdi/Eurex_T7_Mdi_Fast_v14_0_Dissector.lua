@@ -22,7 +22,6 @@ omi_eurex_t7_mdi_fast_v14_0.fields.template_id = ProtoField.new("Template Id", "
 omi_eurex_t7_mdi_fast_v14_0.fields.presence_stop = ProtoField.new("Stop Bit", "eurex.t7.mdi.fast.v14.0.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_eurex_t7_mdi_fast_v14_0.fields.presence_identified = ProtoField.new("Template Id", "eurex.t7.mdi.fast.v14.0.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_eurex_t7_mdi_fast_v14_0.fields.presence_unused = ProtoField.new("Unused", "eurex.t7.mdi.fast.v14.0.presenceunused", ftypes.UINT8, nil, base.HEX)
-eurex_t7_mdi_fast_v14_0.presence_bits = {}
 
 -- Eurex T7 Mdi Fast 14.0 Presence Map Fields
 omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.mdi.fast.v14.0.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -53,90 +52,6 @@ omi_eurex_t7_mdi_fast_v14_0.fields.presence_no_cross_request_side_grp = ProtoFie
 omi_eurex_t7_mdi_fast_v14_0.fields.presence_last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "eurex.t7.mdi.fast.v14.0.lastmsgseqnumprocessedpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_mdi_fast_v14_0.fields.presence_refresh_indicator = ProtoField.new("Refresh Indicator", "eurex.t7.mdi.fast.v14.0.refreshindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_mdi_fast_v14_0.fields.presence_no_md_entries = ProtoField.new("No Md Entries", "eurex.t7.mdi.fast.v14.0.nomdentriespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-
-eurex_t7_mdi_fast_v14_0.presence_bits.named = {
-  [108] = {
-    [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
-    [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
-    [5] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_trading_session_id,
-    [6] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_condition,
-    [7] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_fast_market_indicator,
-  },
-  [104] = {
-    [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
-    [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
-    [5] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_instrument_scope_product_complex,
-    [6] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_mass_status,
-    [7] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_mass_trading_status,
-    [8] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_mass_market_condition,
-    [9] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_fast_market_indicator,
-    [10] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_mass_trading_event,
-    [11] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_mass_sold_out_indicator,
-    [12] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_tes_security_mass_status,
-    [13] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_no_related_sym,
-    [14] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_last_fragment,
-  },
-  [103] = {
-    [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
-    [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
-    [5] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_status,
-    [6] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_trading_status,
-    [7] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_condition,
-    [8] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_fast_market_indicator,
-    [9] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_trading_event,
-    [10] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sold_out_indicator,
-    [11] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_high_px,
-    [12] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_low_px,
-    [13] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_tes_security_status,
-  },
-  [102] = {
-    [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
-    [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
-  },
-  [105] = {
-    [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
-    [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_product_complex,
-    [5] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_leg_ratio_multiplier,
-    [6] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_last_fragment,
-  },
-  [106] = {
-    [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
-    [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
-  },
-  [107] = {
-    [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_no_cross_request_side_grp,
-  },
-  [101] = {
-    [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
-    [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_last_msg_seq_num_processed,
-    [5] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_refresh_indicator,
-    [6] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
-    [7] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_product_complex,
-    [8] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_status,
-    [9] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_no_md_entries,
-  },
-  [513] = {
-    [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
-    [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
-  },
-  [110] = {
-    [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
-  },
-  [517] = {
-    [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
-    [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
-  },
-}
 
 -- Eurex T7 Mdi Fast 14.0 Fields
 omi_eurex_t7_mdi_fast_v14_0.fields.sender_comp_id = ProtoField.new("Sender Comp Id", "eurex.t7.mdi.fast.v14.0.sendercompid", ftypes.UINT32)
@@ -368,16 +283,30 @@ local function add_presence_map(parent, range, map_field, stop_field, identified
   return node
 end
 
+-- Seven bits an octet, so ten octets hold the widest value FAST carries and a
+-- longer run is not an integer of any width. Reading one on matters because a
+-- Lua integer wraps on overflow rather than widening: the run would come back
+-- negative and be used as a length, which raises from inside Wireshark rather
+-- than saying what was wrong with the packet. The two that accumulate into
+-- Wireshark's own 64 bit values take all ten; the two that accumulate into a
+-- Lua integer stop at the nine that cannot overflow it, a value needing the
+-- tenth being wider than anything they are asked to read.
+local FAST_WIDE_OCTETS = 10
+local FAST_NUMBER_OCTETS = 9
+
 -- read an unsigned fast integer
 local function read_stop_bit_unsigned(buffer, offset)
   local value = 0
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST unsigned integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -388,12 +317,15 @@ local function read_stop_bit_signed(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and -1 or 0
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_NUMBER_OCTETS then error("FAST signed integer wider than 63 bits") end
     octet = buffer(offset, 1):uint()
     value = (value * 128) + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -403,12 +335,15 @@ end
 local function read_stop_bit_uint64(buffer, offset)
   local value = UInt64(0)
   local octet
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST unsigned integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST unsigned integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -419,12 +354,15 @@ local function read_stop_bit_int64(buffer, offset)
   if offset >= buffer:len() then error("truncated FAST signed integer") end
   local octet = buffer(offset, 1):uint()
   local value = (bit.band(octet, 0x40) ~= 0) and Int64(-1) or Int64(0)
+  local octets = 0
 
   repeat
     if offset >= buffer:len() then error("truncated FAST signed integer") end
+    if octets == FAST_WIDE_OCTETS then error("FAST signed integer wider than 64 bits") end
     octet = buffer(offset, 1):uint()
     value = value * 128 + bit.band(octet, 0x7f)
     offset = offset + 1
+    octets = octets + 1
   until bit.band(octet, 0x80) ~= 0
 
   return value, offset
@@ -476,24 +414,71 @@ local function read_ascii_string(buffer, offset)
     offset = offset + 1
   until bit.band(octet, 0x80) ~= 0
 
-  -- the stop bit rides in the high bit of the last character, so that octet is
-  -- masked back to the character it carries
-  local text = buffer(start, offset - start):string()
+  -- Every character but the last is 7 bit and reads as it stands. The last
+  -- octet carries the stop bit in its high bit, so it is masked back to the
+  -- character it carries rather than read as text: read as text it is not a
+  -- character at all, and Wireshark substitutes a replacement character three
+  -- bytes wide where the octet was one, which would leave two stray bytes
+  -- inside every string the wire carries.
+  local text = buffer(start, offset - start - 1):string()
   local last = bit.band(octet, 0x7f)
 
   -- a run closing on a nul carries no character there: the string ends before it
   if last == 0 then
-    return text:sub(1, -2), offset
+    return text, offset
   end
 
-  return text:sub(1, -2) .. string.char(last), offset
+  return text .. string.char(last), offset
+end
+
+-- splice a string delta onto the value the stream last sent: a subtraction
+-- length says how much of it to drop, and the characters that follow take the
+-- dropped part's place. A non-negative length drops from the tail and the
+-- difference goes after what is left; a negative one drops from the head and
+-- the difference goes in front, counting from -1 for nothing dropped, there
+-- being no negative zero to say it with.
+local function splice_string_delta(buffer, offset, base, length)
+  local text
+  text, offset = read_ascii_string(buffer, offset)
+  base = base or ""
+
+  -- sub clamps, so a length longer than what is remembered drops all of it
+  -- rather than reading off the end of the string
+  if length < 0 then
+    return text .. base:sub(-length), offset
+  end
+
+  return base:sub(1, #base - length) .. text, offset
+end
+
+-- read a fast string delta, whose subtraction length leads
+local function read_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_stop_bit_signed(buffer, offset)
+
+  return splice_string_delta(buffer, offset, base, length)
+end
+
+-- the same where the field is optional: the subtraction length carries the
+-- null, and a null one says the field is absent, with no difference behind it
+local function read_nullable_string_delta(buffer, offset, base)
+  local length
+  length, offset = read_nullable_signed(buffer, offset)
+  if length == nil then return nil, offset end
+
+  return splice_string_delta(buffer, offset, base, length)
 end
 
 -- read a fast byte vector, counted by the length that precedes it
 local function read_byte_vector(buffer, offset)
   local length
   length, offset = read_stop_bit_unsigned(buffer, offset)
-  if offset + length > buffer:len() then error("truncated FAST byte vector") end
+
+  -- the length is checked against what is left rather than by adding it to the
+  -- offset, so that a length too large to add cannot pass the check it breaks
+  if length < 0 or length > buffer:len() - offset then
+    error("truncated FAST byte vector")
+  end
 
   return buffer(offset, length), offset + length
 end
@@ -3032,7 +3017,11 @@ eurex_t7_mdi_fast_v14_0.high_px_sent.dissect = function(buffer, offset, packet, 
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3080,7 +3069,11 @@ eurex_t7_mdi_fast_v14_0.high_px_copy.dissect = function(buffer, offset, packet, 
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3130,7 +3123,11 @@ eurex_t7_mdi_fast_v14_0.high_px_delta.dissect = function(buffer, offset, packet,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3171,7 +3168,11 @@ eurex_t7_mdi_fast_v14_0.low_px_sent.dissect = function(buffer, offset, packet, p
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3219,7 +3220,11 @@ eurex_t7_mdi_fast_v14_0.low_px_copy.dissect = function(buffer, offset, packet, p
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3269,7 +3274,11 @@ eurex_t7_mdi_fast_v14_0.low_px_delta.dissect = function(buffer, offset, packet, 
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3789,7 +3798,11 @@ eurex_t7_mdi_fast_v14_0.md_entry_px_delta.dissect = function(buffer, offset, pac
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3830,7 +3843,11 @@ eurex_t7_mdi_fast_v14_0.md_entry_px_sent.dissect = function(buffer, offset, pack
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -3880,7 +3897,11 @@ eurex_t7_mdi_fast_v14_0.md_entry_size.dissect = function(buffer, offset, packet,
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5022,7 +5043,11 @@ eurex_t7_mdi_fast_v14_0.resting_cxl_qty.dissect = function(buffer, offset, packe
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5091,7 +5116,11 @@ eurex_t7_mdi_fast_v14_0.non_disclosed_trade_volume_sent.dissect = function(buffe
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5136,7 +5165,11 @@ eurex_t7_mdi_fast_v14_0.non_disclosed_trade_volume_default.dissect = function(bu
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5850,7 +5883,11 @@ eurex_t7_mdi_fast_v14_0.leg_price.dissect = function(buffer, offset, packet, par
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -5891,7 +5928,11 @@ eurex_t7_mdi_fast_v14_0.related_price.dissect = function(buffer, offset, packet,
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6135,7 +6176,11 @@ eurex_t7_mdi_fast_v14_0.order_qty_delta.dissect = function(buffer, offset, packe
   end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6176,7 +6221,11 @@ eurex_t7_mdi_fast_v14_0.order_qty_sent.dissect = function(buffer, offset, packet
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6676,7 +6725,11 @@ eurex_t7_mdi_fast_v14_0.strike_price.dissect = function(buffer, offset, packet, 
   if exponent ~= nil then mantissa, offset = read_stop_bit_signed(buffer, offset) end
 
   if exponent ~= nil and mantissa ~= nil then
-    value = mantissa * (10 ^ exponent)
+    if exponent < 0 then
+      value = mantissa / (10 ^ -exponent)
+    else
+      value = mantissa * (10 ^ exponent)
+    end
   end
 
   local range = buffer(start, offset - start)
@@ -6954,6 +7007,12 @@ end
 -- Scaled Simple Instrument Update Message
 eurex_t7_mdi_fast_v14_0.scaled_simple_instrument_update = {}
 
+eurex_t7_mdi_fast_v14_0.scaled_simple_instrument_update.node = omi_eurex_t7_mdi_fast_v14_0.fields.scaled_simple_instrument_update
+eurex_t7_mdi_fast_v14_0.scaled_simple_instrument_update.presence = {
+  [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
+}
+
 -- Dissect Fields: Scaled Simple Instrument Update Message
 eurex_t7_mdi_fast_v14_0.scaled_simple_instrument_update.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -7055,6 +7114,12 @@ end
 
 -- Flexible Instrument Update Message
 eurex_t7_mdi_fast_v14_0.flexible_instrument_update = {}
+
+eurex_t7_mdi_fast_v14_0.flexible_instrument_update.node = omi_eurex_t7_mdi_fast_v14_0.fields.flexible_instrument_update
+eurex_t7_mdi_fast_v14_0.flexible_instrument_update.presence = {
+  [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
+}
 
 -- Dissect Fields: Flexible Instrument Update Message
 eurex_t7_mdi_fast_v14_0.flexible_instrument_update.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -7202,6 +7267,13 @@ end
 
 -- Top Of Book Implied Message
 eurex_t7_mdi_fast_v14_0.top_of_book_implied = {}
+
+eurex_t7_mdi_fast_v14_0.top_of_book_implied.node = omi_eurex_t7_mdi_fast_v14_0.fields.top_of_book_implied
+eurex_t7_mdi_fast_v14_0.top_of_book_implied.presence = {
+  [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
+  [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
+}
 
 -- Dissect Fields: Top Of Book Implied Message
 eurex_t7_mdi_fast_v14_0.top_of_book_implied.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -7359,6 +7431,18 @@ end
 -- Depth Snapshot Message
 eurex_t7_mdi_fast_v14_0.depth_snapshot = {}
 
+eurex_t7_mdi_fast_v14_0.depth_snapshot.node = omi_eurex_t7_mdi_fast_v14_0.fields.depth_snapshot
+eurex_t7_mdi_fast_v14_0.depth_snapshot.presence = {
+  [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
+  [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_last_msg_seq_num_processed,
+  [5] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_refresh_indicator,
+  [6] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
+  [7] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_product_complex,
+  [8] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_status,
+  [9] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_no_md_entries,
+}
+
 -- Dissect Fields: Depth Snapshot Message
 eurex_t7_mdi_fast_v14_0.depth_snapshot.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -7463,6 +7547,12 @@ end
 
 -- Cross Request Message
 eurex_t7_mdi_fast_v14_0.cross_request = {}
+
+eurex_t7_mdi_fast_v14_0.cross_request.node = omi_eurex_t7_mdi_fast_v14_0.fields.cross_request
+eurex_t7_mdi_fast_v14_0.cross_request.presence = {
+  [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_no_cross_request_side_grp,
+}
 
 -- Dissect Fields: Cross Request Message
 eurex_t7_mdi_fast_v14_0.cross_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -7571,6 +7661,13 @@ end
 
 -- Quote Request Message
 eurex_t7_mdi_fast_v14_0.quote_request = {}
+
+eurex_t7_mdi_fast_v14_0.quote_request.node = omi_eurex_t7_mdi_fast_v14_0.fields.quote_request
+eurex_t7_mdi_fast_v14_0.quote_request.presence = {
+  [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
+  [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
+}
 
 -- Dissect Fields: Quote Request Message
 eurex_t7_mdi_fast_v14_0.quote_request.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -7715,6 +7812,15 @@ end
 
 -- Complex Instrument Update Message
 eurex_t7_mdi_fast_v14_0.complex_instrument_update = {}
+
+eurex_t7_mdi_fast_v14_0.complex_instrument_update.node = omi_eurex_t7_mdi_fast_v14_0.fields.complex_instrument_update
+eurex_t7_mdi_fast_v14_0.complex_instrument_update.presence = {
+  [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
+  [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_product_complex,
+  [5] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_leg_ratio_multiplier,
+  [6] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_last_fragment,
+}
 
 -- Dissect Fields: Complex Instrument Update Message
 eurex_t7_mdi_fast_v14_0.complex_instrument_update.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -7950,6 +8056,13 @@ end
 -- Depth Incremental Message
 eurex_t7_mdi_fast_v14_0.depth_incremental = {}
 
+eurex_t7_mdi_fast_v14_0.depth_incremental.node = omi_eurex_t7_mdi_fast_v14_0.fields.depth_incremental
+eurex_t7_mdi_fast_v14_0.depth_incremental.presence = {
+  [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
+  [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
+}
+
 -- Dissect Fields: Depth Incremental Message
 eurex_t7_mdi_fast_v14_0.depth_incremental.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -7991,6 +8104,22 @@ end
 
 -- Instrument State Change Message
 eurex_t7_mdi_fast_v14_0.instrument_state_change = {}
+
+eurex_t7_mdi_fast_v14_0.instrument_state_change.node = omi_eurex_t7_mdi_fast_v14_0.fields.instrument_state_change
+eurex_t7_mdi_fast_v14_0.instrument_state_change.presence = {
+  [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
+  [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
+  [5] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_status,
+  [6] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_trading_status,
+  [7] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_condition,
+  [8] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_fast_market_indicator,
+  [9] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_trading_event,
+  [10] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sold_out_indicator,
+  [11] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_high_px,
+  [12] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_low_px,
+  [13] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_tes_security_status,
+}
 
 -- Dissect Fields: Instrument State Change Message
 eurex_t7_mdi_fast_v14_0.instrument_state_change.fields = function(buffer, offset, packet, parent, presence_map, base, state)
@@ -8124,6 +8253,23 @@ end
 -- Mass Instrument State Change Message
 eurex_t7_mdi_fast_v14_0.mass_instrument_state_change = {}
 
+eurex_t7_mdi_fast_v14_0.mass_instrument_state_change.node = omi_eurex_t7_mdi_fast_v14_0.fields.mass_instrument_state_change
+eurex_t7_mdi_fast_v14_0.mass_instrument_state_change.presence = {
+  [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
+  [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
+  [5] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_instrument_scope_product_complex,
+  [6] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_mass_status,
+  [7] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_mass_trading_status,
+  [8] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_mass_market_condition,
+  [9] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_fast_market_indicator,
+  [10] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_security_mass_trading_event,
+  [11] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_mass_sold_out_indicator,
+  [12] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_tes_security_mass_status,
+  [13] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_no_related_sym,
+  [14] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_last_fragment,
+}
+
 -- Dissect Fields: Mass Instrument State Change Message
 eurex_t7_mdi_fast_v14_0.mass_instrument_state_change.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -8196,6 +8342,16 @@ end
 -- Product State Change Message
 eurex_t7_mdi_fast_v14_0.product_state_change = {}
 
+eurex_t7_mdi_fast_v14_0.product_state_change.node = omi_eurex_t7_mdi_fast_v14_0.fields.product_state_change
+eurex_t7_mdi_fast_v14_0.product_state_change.presence = {
+  [2] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_msg_seq_num,
+  [3] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_sender_comp_id,
+  [4] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_segment_id,
+  [5] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_trading_session_id,
+  [6] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_market_condition,
+  [7] = omi_eurex_t7_mdi_fast_v14_0.fields.presence_fast_market_indicator,
+}
+
 -- Dissect Fields: Product State Change Message
 eurex_t7_mdi_fast_v14_0.product_state_change.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -8250,6 +8406,8 @@ end
 -- Md Packet Header Framing
 eurex_t7_mdi_fast_v14_0.md_packet_header = {}
 
+eurex_t7_mdi_fast_v14_0.md_packet_header.node = omi_eurex_t7_mdi_fast_v14_0.fields.md_packet_header
+
 -- Dissect Fields: Md Packet Header Framing
 eurex_t7_mdi_fast_v14_0.md_packet_header.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
@@ -8283,35 +8441,19 @@ end
 -----------------------------------------------------------------------
 
 -- Eurex T7 Mdi Fast 14.0 Message Dispatch
-eurex_t7_mdi_fast_v14_0.messages = {
-  [68] = eurex_t7_mdi_fast_v14_0.md_packet_header.dissect,
-  [108] = eurex_t7_mdi_fast_v14_0.product_state_change.dissect,
-  [104] = eurex_t7_mdi_fast_v14_0.mass_instrument_state_change.dissect,
-  [103] = eurex_t7_mdi_fast_v14_0.instrument_state_change.dissect,
-  [102] = eurex_t7_mdi_fast_v14_0.depth_incremental.dissect,
-  [105] = eurex_t7_mdi_fast_v14_0.complex_instrument_update.dissect,
-  [106] = eurex_t7_mdi_fast_v14_0.quote_request.dissect,
-  [107] = eurex_t7_mdi_fast_v14_0.cross_request.dissect,
-  [101] = eurex_t7_mdi_fast_v14_0.depth_snapshot.dissect,
-  [513] = eurex_t7_mdi_fast_v14_0.top_of_book_implied.dissect,
-  [110] = eurex_t7_mdi_fast_v14_0.flexible_instrument_update.dissect,
-  [517] = eurex_t7_mdi_fast_v14_0.scaled_simple_instrument_update.dissect,
-}
-
--- Eurex T7 Mdi Fast 14.0 Message Nodes
-eurex_t7_mdi_fast_v14_0.message_fields = {
-  [68] = omi_eurex_t7_mdi_fast_v14_0.fields.md_packet_header,
-  [108] = omi_eurex_t7_mdi_fast_v14_0.fields.product_state_change,
-  [104] = omi_eurex_t7_mdi_fast_v14_0.fields.mass_instrument_state_change,
-  [103] = omi_eurex_t7_mdi_fast_v14_0.fields.instrument_state_change,
-  [102] = omi_eurex_t7_mdi_fast_v14_0.fields.depth_incremental,
-  [105] = omi_eurex_t7_mdi_fast_v14_0.fields.complex_instrument_update,
-  [106] = omi_eurex_t7_mdi_fast_v14_0.fields.quote_request,
-  [107] = omi_eurex_t7_mdi_fast_v14_0.fields.cross_request,
-  [101] = omi_eurex_t7_mdi_fast_v14_0.fields.depth_snapshot,
-  [513] = omi_eurex_t7_mdi_fast_v14_0.fields.top_of_book_implied,
-  [110] = omi_eurex_t7_mdi_fast_v14_0.fields.flexible_instrument_update,
-  [517] = omi_eurex_t7_mdi_fast_v14_0.fields.scaled_simple_instrument_update,
+eurex_t7_mdi_fast_v14_0.templates = {
+  [68] = eurex_t7_mdi_fast_v14_0.md_packet_header,
+  [108] = eurex_t7_mdi_fast_v14_0.product_state_change,
+  [104] = eurex_t7_mdi_fast_v14_0.mass_instrument_state_change,
+  [103] = eurex_t7_mdi_fast_v14_0.instrument_state_change,
+  [102] = eurex_t7_mdi_fast_v14_0.depth_incremental,
+  [105] = eurex_t7_mdi_fast_v14_0.complex_instrument_update,
+  [106] = eurex_t7_mdi_fast_v14_0.quote_request,
+  [107] = eurex_t7_mdi_fast_v14_0.cross_request,
+  [101] = eurex_t7_mdi_fast_v14_0.depth_snapshot,
+  [513] = eurex_t7_mdi_fast_v14_0.top_of_book_implied,
+  [110] = eurex_t7_mdi_fast_v14_0.flexible_instrument_update,
+  [517] = eurex_t7_mdi_fast_v14_0.scaled_simple_instrument_update,
 }
 
 -- Eurex T7 Mdi Fast 14.0 Template Names
@@ -8441,11 +8583,11 @@ omi_eurex_t7_mdi_fast_v14_0.dissector = function(buffer, packet, parent)
       return
     end
 
-    local message_field = eurex_t7_mdi_fast_v14_0.message_fields[template_id]
+    local template = eurex_t7_mdi_fast_v14_0.templates[template_id]
     local message_tree = nil
 
-    if message_field ~= nil then
-      message_tree = root:add(message_field, buffer(start, 0))
+    if template ~= nil then
+      message_tree = root:add(template.node, buffer(start, 0))
     else
       message_tree = root:add(omi_eurex_t7_mdi_fast_v14_0.fields.message, buffer(start, 0))
       message_tree:set_text(eurex_t7_mdi_fast_v14_0.template_id.name(template_id))
@@ -8453,7 +8595,11 @@ omi_eurex_t7_mdi_fast_v14_0.dissector = function(buffer, packet, parent)
 
     -- the presence map and the template id are the message's own framing
     local header = message_tree:add(omi_eurex_t7_mdi_fast_v14_0.fields.message_header, buffer(start, offset - start))
-    add_presence_map(header, buffer(start, mapped - start), omi_eurex_t7_mdi_fast_v14_0.fields.presence_map, omi_eurex_t7_mdi_fast_v14_0.fields.presence_stop, omi_eurex_t7_mdi_fast_v14_0.fields.presence_identified, omi_eurex_t7_mdi_fast_v14_0.fields.presence_unused, eurex_t7_mdi_fast_v14_0.presence_bits.named[template_id])
+    local named = nil
+    if template ~= nil then
+      named = template.presence
+    end
+    add_presence_map(header, buffer(start, mapped - start), omi_eurex_t7_mdi_fast_v14_0.fields.presence_map, omi_eurex_t7_mdi_fast_v14_0.fields.presence_stop, omi_eurex_t7_mdi_fast_v14_0.fields.presence_identified, omi_eurex_t7_mdi_fast_v14_0.fields.presence_unused, named)
     header:add(omi_eurex_t7_mdi_fast_v14_0.fields.template_id, buffer(identified, offset - identified), template_id, eurex_t7_mdi_fast_v14_0.template_id.display(template_id))
 
     -- the reset template tells a receiver to forget what the stream remembered
@@ -8461,9 +8607,7 @@ omi_eurex_t7_mdi_fast_v14_0.dissector = function(buffer, packet, parent)
       state.values = {}
       state.last_template_id = nil
     else
-      local message = eurex_t7_mdi_fast_v14_0.messages[template_id]
-
-      if message == nil then
+      if template == nil then
         message_tree:add_expert_info(PI_UNDECODED, PI_WARN, "This dissector reads: 68 (MDPacketHeader), 108 (ProductStateChange), 104 (MassInstrumentStateChange), 103 (InstrumentStateChange), 102 (DepthIncremental), 105 (ComplexInstrumentUpdate), 106 (QuoteRequest), 107 (CrossRequest), 101 (DepthSnapshot), 513 (TopOfBookImplied), 110 (FlexibleInstrumentUpdate), 517 (ScaledSimpleInstrumentUpdate)")
         message_tree:set_len(offset - start)
         return
@@ -8474,7 +8618,7 @@ omi_eurex_t7_mdi_fast_v14_0.dissector = function(buffer, packet, parent)
         root:add_expert_info(PI_PROTOCOL, PI_WARN, "FAST packet did not open with its packet header template")
       end
 
-      offset = message(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
+      offset = template.dissect(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
       messages = messages + 1
     end
 
