@@ -15,7 +15,7 @@ local a2x_a2xequities_security_csv_v1_2 = {}
 -----------------------------------------------------------------------
 
 -- A2X A2XEquities Security Csv 1.2 Fields
-omi_a2x_a2xequities_security_csv_v1_2.fields.security = ProtoField.new("Security", "a2x.a2xequities.security.csv.v1.2.security", ftypes.STRING, nil, nil)
+omi_a2x_a2xequities_security_csv_v1_2.fields.record_security = ProtoField.new("Security", "a2x.a2xequities.security.csv.v1.2.record.security", ftypes.STRING, nil, nil)
 omi_a2x_a2xequities_security_csv_v1_2.fields.id = ProtoField.new("id", "a2x.a2xequities.security.csv.v1.2.id", ftypes.UINT64, nil, nil, nil, "A2X Security ID")
 omi_a2x_a2xequities_security_csv_v1_2.fields.description = ProtoField.new("description", "a2x.a2xequities.security.csv.v1.2.description", ftypes.STRING, nil, nil, nil, "Security description or name")
 omi_a2x_a2xequities_security_csv_v1_2.fields.primric = ProtoField.new("primric", "a2x.a2xequities.security.csv.v1.2.primric", ftypes.STRING, nil, nil, nil, "Reuters Instrument Code for security on the primary venue")
@@ -535,15 +535,15 @@ end
 -----------------------------------------------------------------------
 
 -- Security
-a2x_a2xequities_security_csv_v1_2.security = {}
+a2x_a2xequities_security_csv_v1_2.record_security = {}
 
 -- The delimiter every field of Security ends at, which its line is split at
-a2x_a2xequities_security_csv_v1_2.security.delimiter = "\009"
+a2x_a2xequities_security_csv_v1_2.record_security.delimiter = "\009"
 
 -- Dissect Fields: Security
 -- Split: every field of Security ends at a tab and none is quoted, so its line is split once and each field handed its range
-a2x_a2xequities_security_csv_v1_2.security.fields = function(buffer, offset, packet, parent)
-  local starts, lengths = a2x_a2xequities_security_csv_v1_2.lines.split(offset, a2x_a2xequities_security_csv_v1_2.security.delimiter)
+a2x_a2xequities_security_csv_v1_2.record_security.fields = function(buffer, offset, packet, parent)
+  local starts, lengths = a2x_a2xequities_security_csv_v1_2.lines.split(offset, a2x_a2xequities_security_csv_v1_2.record_security.delimiter)
   if #starts > 14 then
     return nil, "Security: the line has " .. #starts .. " fields, its layout 14"
   end
@@ -638,9 +638,9 @@ a2x_a2xequities_security_csv_v1_2.security.fields = function(buffer, offset, pac
 end
 
 -- Dissect: Security
-a2x_a2xequities_security_csv_v1_2.security.dissect = function(buffer, offset, packet, parent)
-  local element = parent:add(omi_a2x_a2xequities_security_csv_v1_2.fields.security, buffer(), "Security", "Security")
-  return a2x_a2xequities_security_csv_v1_2.security.fields(buffer, offset, packet, element)
+a2x_a2xequities_security_csv_v1_2.record_security.dissect = function(buffer, offset, packet, parent)
+  local element = parent:add(omi_a2x_a2xequities_security_csv_v1_2.fields.record_security, buffer(), "Security", "Security")
+  return a2x_a2xequities_security_csv_v1_2.record_security.fields(buffer, offset, packet, element)
 end
 
 
@@ -711,7 +711,7 @@ a2x_a2xequities_security_csv_v1_2.reads = function(buffer, packet, line)
   if a2x_a2xequities_security_csv_v1_2.headed(line, variant) then
     return true
   end
-  local index, failure = a2x_a2xequities_security_csv_v1_2.security.fields(buffer, 0, packet, nil)
+  local index, failure = a2x_a2xequities_security_csv_v1_2.record_security.fields(buffer, 0, packet, nil)
   return failure == nil
 end
 
@@ -725,13 +725,13 @@ a2x_a2xequities_security_csv_v1_2.line = function(buffer, packet, parent)
   end
 
   -- read first with no tree, so a line the layout does not read is shown whole
-  local index, failure = a2x_a2xequities_security_csv_v1_2.security.fields(buffer, 0, packet, nil)
+  local index, failure = a2x_a2xequities_security_csv_v1_2.record_security.fields(buffer, 0, packet, nil)
   if failure ~= nil then
     return a2x_a2xequities_security_csv_v1_2.outside(buffer, packet, parent, failure)
   end
 
   packet.cols.info = "Security"
-  a2x_a2xequities_security_csv_v1_2.security.dissect(buffer, 0, packet, parent)
+  a2x_a2xequities_security_csv_v1_2.record_security.dissect(buffer, 0, packet, parent)
 end
 -- Dissect A2X A2XEquities Security Csv 1.2
 function omi_a2x_a2xequities_security_csv_v1_2.dissector(buffer, packet, parent)

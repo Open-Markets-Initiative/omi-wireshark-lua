@@ -15,7 +15,7 @@ local aquis_aquisstockexchange_security_csv_v3_2 = {}
 -----------------------------------------------------------------------
 
 -- Aquis AquisStockExchange Security Csv 3.2 Fields
-omi_aquis_aquisstockexchange_security_csv_v3_2.fields.security = ProtoField.new("Security", "aquis.aquisstockexchange.security.csv.v3.2.security", ftypes.STRING, nil, nil)
+omi_aquis_aquisstockexchange_security_csv_v3_2.fields.record_security = ProtoField.new("Security", "aquis.aquisstockexchange.security.csv.v3.2.record.security", ftypes.STRING, nil, nil)
 omi_aquis_aquisstockexchange_security_csv_v3_2.fields.id = ProtoField.new("id", "aquis.aquisstockexchange.security.csv.v3.2.id", ftypes.UINT64, nil, nil, nil, "Unique Aquis security ID")
 omi_aquis_aquisstockexchange_security_csv_v3_2.fields.description = ProtoField.new("description", "aquis.aquisstockexchange.security.csv.v3.2.description", ftypes.STRING, nil, nil, nil, "Name of the security")
 omi_aquis_aquisstockexchange_security_csv_v3_2.fields.ticker = ProtoField.new("ticker", "aquis.aquisstockexchange.security.csv.v3.2.ticker", ftypes.STRING, nil, nil, nil, "Unique symbol of security")
@@ -877,15 +877,15 @@ end
 -----------------------------------------------------------------------
 
 -- Security
-aquis_aquisstockexchange_security_csv_v3_2.security = {}
+aquis_aquisstockexchange_security_csv_v3_2.record_security = {}
 
 -- The delimiter every field of Security ends at, which its line is split at
-aquis_aquisstockexchange_security_csv_v3_2.security.delimiter = "\009"
+aquis_aquisstockexchange_security_csv_v3_2.record_security.delimiter = "\009"
 
 -- Dissect Fields: Security
 -- Split: every field of Security ends at a tab and none is quoted, so its line is split once and each field handed its range
-aquis_aquisstockexchange_security_csv_v3_2.security.fields = function(buffer, offset, packet, parent)
-  local starts, lengths = aquis_aquisstockexchange_security_csv_v3_2.lines.split(offset, aquis_aquisstockexchange_security_csv_v3_2.security.delimiter)
+aquis_aquisstockexchange_security_csv_v3_2.record_security.fields = function(buffer, offset, packet, parent)
+  local starts, lengths = aquis_aquisstockexchange_security_csv_v3_2.lines.split(offset, aquis_aquisstockexchange_security_csv_v3_2.record_security.delimiter)
   if #starts > 22 then
     return nil, "Security: the line has " .. #starts .. " fields, its layout 22"
   end
@@ -1028,9 +1028,9 @@ aquis_aquisstockexchange_security_csv_v3_2.security.fields = function(buffer, of
 end
 
 -- Dissect: Security
-aquis_aquisstockexchange_security_csv_v3_2.security.dissect = function(buffer, offset, packet, parent)
-  local element = parent:add(omi_aquis_aquisstockexchange_security_csv_v3_2.fields.security, buffer(), "Security", "Security")
-  return aquis_aquisstockexchange_security_csv_v3_2.security.fields(buffer, offset, packet, element)
+aquis_aquisstockexchange_security_csv_v3_2.record_security.dissect = function(buffer, offset, packet, parent)
+  local element = parent:add(omi_aquis_aquisstockexchange_security_csv_v3_2.fields.record_security, buffer(), "Security", "Security")
+  return aquis_aquisstockexchange_security_csv_v3_2.record_security.fields(buffer, offset, packet, element)
 end
 
 
@@ -1101,7 +1101,7 @@ aquis_aquisstockexchange_security_csv_v3_2.reads = function(buffer, packet, line
   if aquis_aquisstockexchange_security_csv_v3_2.headed(line, variant) then
     return true
   end
-  local index, failure = aquis_aquisstockexchange_security_csv_v3_2.security.fields(buffer, 0, packet, nil)
+  local index, failure = aquis_aquisstockexchange_security_csv_v3_2.record_security.fields(buffer, 0, packet, nil)
   return failure == nil
 end
 
@@ -1115,13 +1115,13 @@ aquis_aquisstockexchange_security_csv_v3_2.line = function(buffer, packet, paren
   end
 
   -- read first with no tree, so a line the layout does not read is shown whole
-  local index, failure = aquis_aquisstockexchange_security_csv_v3_2.security.fields(buffer, 0, packet, nil)
+  local index, failure = aquis_aquisstockexchange_security_csv_v3_2.record_security.fields(buffer, 0, packet, nil)
   if failure ~= nil then
     return aquis_aquisstockexchange_security_csv_v3_2.outside(buffer, packet, parent, failure)
   end
 
   packet.cols.info = "Security"
-  aquis_aquisstockexchange_security_csv_v3_2.security.dissect(buffer, 0, packet, parent)
+  aquis_aquisstockexchange_security_csv_v3_2.record_security.dissect(buffer, 0, packet, parent)
 end
 -- Dissect Aquis AquisStockExchange Security Csv 3.2
 function omi_aquis_aquisstockexchange_security_csv_v3_2.dissector(buffer, packet, parent)

@@ -15,7 +15,7 @@ local aquis_aquisstockexchange_firm_csv_v3_2 = {}
 -----------------------------------------------------------------------
 
 -- Aquis AquisStockExchange Firm Csv 3.2 Fields
-omi_aquis_aquisstockexchange_firm_csv_v3_2.fields.firm = ProtoField.new("Firm", "aquis.aquisstockexchange.firm.csv.v3.2.firm", ftypes.STRING, nil, nil)
+omi_aquis_aquisstockexchange_firm_csv_v3_2.fields.record_firm = ProtoField.new("Firm", "aquis.aquisstockexchange.firm.csv.v3.2.record.firm", ftypes.STRING, nil, nil)
 omi_aquis_aquisstockexchange_firm_csv_v3_2.fields.firm_id = ProtoField.new("firm_id", "aquis.aquisstockexchange.firm.csv.v3.2.firm_id", ftypes.UINT64, nil, nil, nil, "ID of firm")
 omi_aquis_aquisstockexchange_firm_csv_v3_2.fields.firm_name = ProtoField.new("firm_name", "aquis.aquisstockexchange.firm.csv.v3.2.firm_name", ftypes.STRING, nil, nil, nil, "Name of firm")
 omi_aquis_aquisstockexchange_firm_csv_v3_2.fields.firm_code = ProtoField.new("firm_code", "aquis.aquisstockexchange.firm.csv.v3.2.firm_code", ftypes.STRING, nil, nil, nil, "Firm BIC")
@@ -313,15 +313,15 @@ end
 -----------------------------------------------------------------------
 
 -- Firm
-aquis_aquisstockexchange_firm_csv_v3_2.firm = {}
+aquis_aquisstockexchange_firm_csv_v3_2.record_firm = {}
 
 -- The delimiter every field of Firm ends at, which its line is split at
-aquis_aquisstockexchange_firm_csv_v3_2.firm.delimiter = "\009"
+aquis_aquisstockexchange_firm_csv_v3_2.record_firm.delimiter = "\009"
 
 -- Dissect Fields: Firm
 -- Split: every field of Firm ends at a tab and none is quoted, so its line is split once and each field handed its range
-aquis_aquisstockexchange_firm_csv_v3_2.firm.fields = function(buffer, offset, packet, parent)
-  local starts, lengths = aquis_aquisstockexchange_firm_csv_v3_2.lines.split(offset, aquis_aquisstockexchange_firm_csv_v3_2.firm.delimiter)
+aquis_aquisstockexchange_firm_csv_v3_2.record_firm.fields = function(buffer, offset, packet, parent)
+  local starts, lengths = aquis_aquisstockexchange_firm_csv_v3_2.lines.split(offset, aquis_aquisstockexchange_firm_csv_v3_2.record_firm.delimiter)
   if #starts > 7 then
     return nil, "Firm: the line has " .. #starts .. " fields, its layout 7"
   end
@@ -374,9 +374,9 @@ aquis_aquisstockexchange_firm_csv_v3_2.firm.fields = function(buffer, offset, pa
 end
 
 -- Dissect: Firm
-aquis_aquisstockexchange_firm_csv_v3_2.firm.dissect = function(buffer, offset, packet, parent)
-  local element = parent:add(omi_aquis_aquisstockexchange_firm_csv_v3_2.fields.firm, buffer(), "Firm", "Firm")
-  return aquis_aquisstockexchange_firm_csv_v3_2.firm.fields(buffer, offset, packet, element)
+aquis_aquisstockexchange_firm_csv_v3_2.record_firm.dissect = function(buffer, offset, packet, parent)
+  local element = parent:add(omi_aquis_aquisstockexchange_firm_csv_v3_2.fields.record_firm, buffer(), "Firm", "Firm")
+  return aquis_aquisstockexchange_firm_csv_v3_2.record_firm.fields(buffer, offset, packet, element)
 end
 
 
@@ -447,7 +447,7 @@ aquis_aquisstockexchange_firm_csv_v3_2.reads = function(buffer, packet, line)
   if aquis_aquisstockexchange_firm_csv_v3_2.headed(line, variant) then
     return true
   end
-  local index, failure = aquis_aquisstockexchange_firm_csv_v3_2.firm.fields(buffer, 0, packet, nil)
+  local index, failure = aquis_aquisstockexchange_firm_csv_v3_2.record_firm.fields(buffer, 0, packet, nil)
   return failure == nil
 end
 
@@ -461,13 +461,13 @@ aquis_aquisstockexchange_firm_csv_v3_2.line = function(buffer, packet, parent)
   end
 
   -- read first with no tree, so a line the layout does not read is shown whole
-  local index, failure = aquis_aquisstockexchange_firm_csv_v3_2.firm.fields(buffer, 0, packet, nil)
+  local index, failure = aquis_aquisstockexchange_firm_csv_v3_2.record_firm.fields(buffer, 0, packet, nil)
   if failure ~= nil then
     return aquis_aquisstockexchange_firm_csv_v3_2.outside(buffer, packet, parent, failure)
   end
 
   packet.cols.info = "Firm"
-  aquis_aquisstockexchange_firm_csv_v3_2.firm.dissect(buffer, 0, packet, parent)
+  aquis_aquisstockexchange_firm_csv_v3_2.record_firm.dissect(buffer, 0, packet, parent)
 end
 -- Dissect Aquis AquisStockExchange Firm Csv 3.2
 function omi_aquis_aquisstockexchange_firm_csv_v3_2.dissector(buffer, packet, parent)

@@ -15,7 +15,7 @@ local a2x_a2xequities_securityextra_csv_v1_2 = {}
 -----------------------------------------------------------------------
 
 -- A2X A2XEquities SecurityExtra Csv 1.2 Fields
-omi_a2x_a2xequities_securityextra_csv_v1_2.fields.security_extra = ProtoField.new("Security Extra", "a2x.a2xequities.securityextra.csv.v1.2.securityextra", ftypes.STRING, nil, nil)
+omi_a2x_a2xequities_securityextra_csv_v1_2.fields.record_security_extra = ProtoField.new("Security Extra", "a2x.a2xequities.securityextra.csv.v1.2.record.securityextra", ftypes.STRING, nil, nil)
 omi_a2x_a2xequities_securityextra_csv_v1_2.fields.id = ProtoField.new("id", "a2x.a2xequities.securityextra.csv.v1.2.id", ftypes.UINT64, nil, nil, nil, "A2X Security ID")
 omi_a2x_a2xequities_securityextra_csv_v1_2.fields.minimum_large_in_scale_size = ProtoField.new("minimum_large_in_scale_size", "a2x.a2xequities.securityextra.csv.v1.2.minimum_large_in_scale_size", ftypes.UINT64, nil, nil, nil, "Minimum value for LIS trades in major currency with 5 implied decimals")
 omi_a2x_a2xequities_securityextra_csv_v1_2.fields.header_row = ProtoField.new("Header Row", "a2x.a2xequities.securityextra.csv.v1.2.headerrow", ftypes.STRING, nil, nil, nil, "The line naming a file's columns, which states the layout its lines are read in")
@@ -153,15 +153,15 @@ end
 -----------------------------------------------------------------------
 
 -- Security Extra
-a2x_a2xequities_securityextra_csv_v1_2.security_extra = {}
+a2x_a2xequities_securityextra_csv_v1_2.record_security_extra = {}
 
 -- The delimiter every field of Security Extra ends at, which its line is split at
-a2x_a2xequities_securityextra_csv_v1_2.security_extra.delimiter = "\009"
+a2x_a2xequities_securityextra_csv_v1_2.record_security_extra.delimiter = "\009"
 
 -- Dissect Fields: Security Extra
 -- Split: every field of Security Extra ends at a tab and none is quoted, so its line is split once and each field handed its range
-a2x_a2xequities_securityextra_csv_v1_2.security_extra.fields = function(buffer, offset, packet, parent)
-  local starts, lengths = a2x_a2xequities_securityextra_csv_v1_2.lines.split(offset, a2x_a2xequities_securityextra_csv_v1_2.security_extra.delimiter)
+a2x_a2xequities_securityextra_csv_v1_2.record_security_extra.fields = function(buffer, offset, packet, parent)
+  local starts, lengths = a2x_a2xequities_securityextra_csv_v1_2.lines.split(offset, a2x_a2xequities_securityextra_csv_v1_2.record_security_extra.delimiter)
   if #starts > 2 then
     return nil, "Security Extra: the line has " .. #starts .. " fields, its layout 2"
   end
@@ -184,9 +184,9 @@ a2x_a2xequities_securityextra_csv_v1_2.security_extra.fields = function(buffer, 
 end
 
 -- Dissect: Security Extra
-a2x_a2xequities_securityextra_csv_v1_2.security_extra.dissect = function(buffer, offset, packet, parent)
-  local element = parent:add(omi_a2x_a2xequities_securityextra_csv_v1_2.fields.security_extra, buffer(), "Security Extra", "Security Extra")
-  return a2x_a2xequities_securityextra_csv_v1_2.security_extra.fields(buffer, offset, packet, element)
+a2x_a2xequities_securityextra_csv_v1_2.record_security_extra.dissect = function(buffer, offset, packet, parent)
+  local element = parent:add(omi_a2x_a2xequities_securityextra_csv_v1_2.fields.record_security_extra, buffer(), "Security Extra", "Security Extra")
+  return a2x_a2xequities_securityextra_csv_v1_2.record_security_extra.fields(buffer, offset, packet, element)
 end
 
 
@@ -257,7 +257,7 @@ a2x_a2xequities_securityextra_csv_v1_2.reads = function(buffer, packet, line)
   if a2x_a2xequities_securityextra_csv_v1_2.headed(line, variant) then
     return true
   end
-  local index, failure = a2x_a2xequities_securityextra_csv_v1_2.security_extra.fields(buffer, 0, packet, nil)
+  local index, failure = a2x_a2xequities_securityextra_csv_v1_2.record_security_extra.fields(buffer, 0, packet, nil)
   return failure == nil
 end
 
@@ -271,13 +271,13 @@ a2x_a2xequities_securityextra_csv_v1_2.line = function(buffer, packet, parent)
   end
 
   -- read first with no tree, so a line the layout does not read is shown whole
-  local index, failure = a2x_a2xequities_securityextra_csv_v1_2.security_extra.fields(buffer, 0, packet, nil)
+  local index, failure = a2x_a2xequities_securityextra_csv_v1_2.record_security_extra.fields(buffer, 0, packet, nil)
   if failure ~= nil then
     return a2x_a2xequities_securityextra_csv_v1_2.outside(buffer, packet, parent, failure)
   end
 
   packet.cols.info = "Security Extra"
-  a2x_a2xequities_securityextra_csv_v1_2.security_extra.dissect(buffer, 0, packet, parent)
+  a2x_a2xequities_securityextra_csv_v1_2.record_security_extra.dissect(buffer, 0, packet, parent)
 end
 -- Dissect A2X A2XEquities SecurityExtra Csv 1.2
 function omi_a2x_a2xequities_securityextra_csv_v1_2.dissector(buffer, packet, parent)

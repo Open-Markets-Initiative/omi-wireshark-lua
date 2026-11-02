@@ -2197,9 +2197,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.index_pct.dissect = function(buffer, offset, 
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -2254,9 +2254,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.index_theoretical_qty.dissect = function(buff
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -2421,9 +2421,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.start_tick_price_range.dissect = function(buf
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -2478,9 +2478,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.end_tick_price_range.dissect = function(buffe
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -2535,9 +2535,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.tick_increment.dissect = function(buffer, off
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -2889,9 +2889,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.min_price_increment_sent_optional.dissect = f
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -2951,9 +2951,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.min_price_increment_sent_required.dissect = f
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -3052,9 +3052,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.price_divisor.dissect = function(buffer, offs
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -3603,9 +3603,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.strike_price.dissect = function(buffer, offse
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -3726,9 +3726,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.contract_multiplier_sent_optional.dissect = f
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -3788,9 +3788,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.contract_multiplier_sent_required.dissect = f
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -4749,9 +4749,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.md_entry_px.dissect = function(buffer, offset
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -5121,9 +5121,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.md_entry_interest_rate.dissect = function(buf
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -5360,9 +5360,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.price_delta.dissect = function(buffer, offset
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -5415,9 +5415,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.first_px.dissect = function(buffer, offset, p
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -5470,9 +5470,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.last_px.dissect = function(buffer, offset, pa
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -5525,9 +5525,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.net_chg_prev_day.dissect = function(buffer, o
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -6106,9 +6106,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.low_limit_price.dissect = function(buffer, of
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -6161,9 +6161,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.high_limit_price.dissect = function(buffer, o
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -6216,9 +6216,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.trading_reference_price.dissect = function(bu
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -6447,9 +6447,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.underlying_px.dissect = function(buffer, offs
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 
@@ -6664,9 +6664,9 @@ b3_b3derivatives_umdf_fast_v5_1_13.trading_ref_price.dissect = function(buffer, 
 
   if exponent ~= nil and mantissa ~= nil then
     if exponent < 0 then
-      value = mantissa / (10 ^ -exponent)
+      value = mantissa:tonumber() / (10 ^ -exponent)
     else
-      value = mantissa * (10 ^ exponent)
+      value = mantissa:tonumber() * (10 ^ exponent)
     end
   end
 

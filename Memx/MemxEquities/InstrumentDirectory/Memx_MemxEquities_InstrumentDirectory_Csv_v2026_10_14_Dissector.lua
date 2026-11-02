@@ -15,7 +15,7 @@ local memx_memxequities_instrumentdirectory_csv_v2026_10_14 = {}
 -----------------------------------------------------------------------
 
 -- Memx MemxEquities InstrumentDirectory Csv 2026.10.14 Fields
-omi_memx_memxequities_instrumentdirectory_csv_v2026_10_14.fields.instrument = ProtoField.new("Instrument", "memx.memxequities.instrumentdirectory.csv.v2026.10.14.instrument", ftypes.STRING, nil, nil)
+omi_memx_memxequities_instrumentdirectory_csv_v2026_10_14.fields.record_instrument = ProtoField.new("Instrument", "memx.memxequities.instrumentdirectory.csv.v2026.10.14.record.instrument", ftypes.STRING, nil, nil)
 omi_memx_memxequities_instrumentdirectory_csv_v2026_10_14.fields.securityid = ProtoField.new("securityId", "memx.memxequities.instrumentdirectory.csv.v2026.10.14.securityid", ftypes.UINT64, nil, nil, nil, "A unique code identifying the instrument for any messages in this session")
 omi_memx_memxequities_instrumentdirectory_csv_v2026_10_14.fields.symbol = ProtoField.new("symbol", "memx.memxequities.instrumentdirectory.csv.v2026.10.14.symbol", ftypes.STRING, nil, nil, nil, "The CMS root for the tradable instrument")
 omi_memx_memxequities_instrumentdirectory_csv_v2026_10_14.fields.symbolsfx = ProtoField.new("symbolSfx", "memx.memxequities.instrumentdirectory.csv.v2026.10.14.symbolsfx", ftypes.STRING, nil, nil, nil, "The CMS suffix for the tradable instrument")
@@ -366,11 +366,11 @@ end
 -----------------------------------------------------------------------
 
 -- Instrument
-memx_memxequities_instrumentdirectory_csv_v2026_10_14.instrument = {}
+memx_memxequities_instrumentdirectory_csv_v2026_10_14.record_instrument = {}
 
 -- Dissect Fields: Instrument
 -- Readers: the fields of Instrument end at their own delimiters (",") or are quoted, so each reads from where the last ended
-memx_memxequities_instrumentdirectory_csv_v2026_10_14.instrument.fields = function(buffer, offset, packet, parent)
+memx_memxequities_instrumentdirectory_csv_v2026_10_14.record_instrument.fields = function(buffer, offset, packet, parent)
   local index = offset
   local failure = nil
 
@@ -418,9 +418,9 @@ memx_memxequities_instrumentdirectory_csv_v2026_10_14.instrument.fields = functi
 end
 
 -- Dissect: Instrument
-memx_memxequities_instrumentdirectory_csv_v2026_10_14.instrument.dissect = function(buffer, offset, packet, parent)
-  local element = parent:add(omi_memx_memxequities_instrumentdirectory_csv_v2026_10_14.fields.instrument, buffer(), "Instrument", "Instrument")
-  return memx_memxequities_instrumentdirectory_csv_v2026_10_14.instrument.fields(buffer, offset, packet, element)
+memx_memxequities_instrumentdirectory_csv_v2026_10_14.record_instrument.dissect = function(buffer, offset, packet, parent)
+  local element = parent:add(omi_memx_memxequities_instrumentdirectory_csv_v2026_10_14.fields.record_instrument, buffer(), "Instrument", "Instrument")
+  return memx_memxequities_instrumentdirectory_csv_v2026_10_14.record_instrument.fields(buffer, offset, packet, element)
 end
 
 
@@ -491,7 +491,7 @@ memx_memxequities_instrumentdirectory_csv_v2026_10_14.reads = function(buffer, p
   if memx_memxequities_instrumentdirectory_csv_v2026_10_14.headed(line, variant) then
     return true
   end
-  local index, failure = memx_memxequities_instrumentdirectory_csv_v2026_10_14.instrument.fields(buffer, 0, packet, nil)
+  local index, failure = memx_memxequities_instrumentdirectory_csv_v2026_10_14.record_instrument.fields(buffer, 0, packet, nil)
   return failure == nil
 end
 
@@ -505,13 +505,13 @@ memx_memxequities_instrumentdirectory_csv_v2026_10_14.line = function(buffer, pa
   end
 
   -- read first with no tree, so a line the layout does not read is shown whole
-  local index, failure = memx_memxequities_instrumentdirectory_csv_v2026_10_14.instrument.fields(buffer, 0, packet, nil)
+  local index, failure = memx_memxequities_instrumentdirectory_csv_v2026_10_14.record_instrument.fields(buffer, 0, packet, nil)
   if failure ~= nil then
     return memx_memxequities_instrumentdirectory_csv_v2026_10_14.outside(buffer, packet, parent, failure)
   end
 
   packet.cols.info = "Instrument"
-  memx_memxequities_instrumentdirectory_csv_v2026_10_14.instrument.dissect(buffer, 0, packet, parent)
+  memx_memxequities_instrumentdirectory_csv_v2026_10_14.record_instrument.dissect(buffer, 0, packet, parent)
 end
 -- Dissect Memx MemxEquities InstrumentDirectory Csv 2026.10.14
 function omi_memx_memxequities_instrumentdirectory_csv_v2026_10_14.dissector(buffer, packet, parent)

@@ -15,7 +15,7 @@ local nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3 = {}
 -----------------------------------------------------------------------
 
 -- Nyse NyseConsolidated DailyTaqTradeLuld Csv 4.3 Fields
-omi_nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.fields.trade_luld = ProtoField.new("Trade Luld", "nyse.nyseconsolidated.dailytaqtradeluld.csv.v4.3.tradeluld", ftypes.STRING, nil, nil)
+omi_nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.fields.record_trade_luld = ProtoField.new("Trade Luld", "nyse.nyseconsolidated.dailytaqtradeluld.csv.v4.3.record.tradeluld", ftypes.STRING, nil, nil)
 omi_nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.fields.time = ProtoField.new("Time", "nyse.nyseconsolidated.dailytaqtradeluld.csv.v4.3.time", ftypes.STRING, nil, nil, nil, "Time of message published by the SIP")
 omi_nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.fields.time_utc = ProtoField.new("Time", "nyse.nyseconsolidated.dailytaqtradeluld.csv.v4.3.time.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time on the day the protocol's Day preference names, in UTC")
 omi_nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.nyseconsolidated.dailytaqtradeluld.csv.v4.3.sequencenumber", ftypes.UINT64, nil, nil, nil, "The Message Sequence Number")
@@ -143,14 +143,25 @@ nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.lines.signed = function(text)
   end
   return value
 end
--- Days since 1970-01-01 of a yyyymmdd date, or nil for text naming no day
-nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.lines.days = function(text)
-  if #text ~= 8 or string.find(text, "^%d+$") == nil then
-    return nil
+-- Days since 1970-01-01 of a calendar date, or nil for text naming no day: eight digits,
+-- or yyyy-mm-dd where the column states its dashes
+nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.lines.days = function(text, dashed)
+  local year, month, day
+  if dashed then
+    if #text ~= 10 or string.find(text, "^%d%d%d%d%-%d%d%-%d%d$") == nil then
+      return nil
+    end
+    year = tonumber(string.sub(text, 1, 4))
+    month = tonumber(string.sub(text, 6, 7))
+    day = tonumber(string.sub(text, 9, 10))
+  else
+    if #text ~= 8 or string.find(text, "^%d+$") == nil then
+      return nil
+    end
+    year = tonumber(string.sub(text, 1, 4))
+    month = tonumber(string.sub(text, 5, 6))
+    day = tonumber(string.sub(text, 7, 8))
   end
-  local year = tonumber(string.sub(text, 1, 4))
-  local month = tonumber(string.sub(text, 5, 6))
-  local day = tonumber(string.sub(text, 7, 8))
   local lengths = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
   if month < 1 or month > 12 or day < 1 then
     return nil
@@ -834,15 +845,15 @@ end
 -----------------------------------------------------------------------
 
 -- Trade Luld
-nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.trade_luld = {}
+nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.record_trade_luld = {}
 
 -- The delimiter every field of Trade Luld ends at, which its line is split at
-nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.trade_luld.delimiter = "|"
+nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.record_trade_luld.delimiter = "|"
 
 -- Dissect Fields: Trade Luld
 -- Split: every field of Trade Luld ends at "|" and none is quoted, so its line is split once and each field handed its range
-nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.trade_luld.fields = function(buffer, offset, packet, parent)
-  local starts, lengths = nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.lines.split(offset, nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.trade_luld.delimiter)
+nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.record_trade_luld.fields = function(buffer, offset, packet, parent)
+  local starts, lengths = nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.lines.split(offset, nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.record_trade_luld.delimiter)
   if #starts > 9 then
     return nil, "Trade Luld: the line has " .. #starts .. " fields, its layout 9"
   end
@@ -907,9 +918,9 @@ nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.trade_luld.fields = function(bu
 end
 
 -- Dissect: Trade Luld
-nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.trade_luld.dissect = function(buffer, offset, packet, parent)
-  local element = parent:add(omi_nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.fields.trade_luld, buffer(), "Trade Luld", "Trade Luld")
-  return nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.trade_luld.fields(buffer, offset, packet, element)
+nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.record_trade_luld.dissect = function(buffer, offset, packet, parent)
+  local element = parent:add(omi_nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.fields.record_trade_luld, buffer(), "Trade Luld", "Trade Luld")
+  return nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.record_trade_luld.fields(buffer, offset, packet, element)
 end
 
 
@@ -980,7 +991,7 @@ nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.reads = function(buffer, packet
   if nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.headed(line, variant) then
     return true
   end
-  local index, failure = nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.trade_luld.fields(buffer, 0, packet, nil)
+  local index, failure = nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.record_trade_luld.fields(buffer, 0, packet, nil)
   return failure == nil
 end
 
@@ -994,13 +1005,13 @@ nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.line = function(buffer, packet,
   end
 
   -- read first with no tree, so a line the layout does not read is shown whole
-  local index, failure = nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.trade_luld.fields(buffer, 0, packet, nil)
+  local index, failure = nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.record_trade_luld.fields(buffer, 0, packet, nil)
   if failure ~= nil then
     return nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.outside(buffer, packet, parent, failure)
   end
 
   packet.cols.info = "Trade Luld"
-  nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.trade_luld.dissect(buffer, 0, packet, parent)
+  nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.record_trade_luld.dissect(buffer, 0, packet, parent)
 end
 -- Dissect Nyse NyseConsolidated DailyTaqTradeLuld Csv 4.3
 function omi_nyse_nyseconsolidated_dailytaqtradeluld_csv_v4_3.dissector(buffer, packet, parent)
