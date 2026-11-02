@@ -12,7 +12,7 @@ runuser -u tester -- tshark \
 
 grep "nyse.nyseconsolidated.dailytaqmaster.csv.v4.3." Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json
 
-[ "$(grep -c -F '"nyse.nyseconsolidated.dailytaqmaster.csv.v4.3.security"' Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json)" -eq 23 ] || { echo "--- 23 Security records expected (Master.excerpt.gz) ---"; exit 1; }
+[ "$(grep -c -F '"nyse.nyseconsolidated.dailytaqmaster.csv.v4.3.record.security"' Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json)" -eq 23 ] || { echo "--- 23 Security records expected (Master.excerpt.gz) ---"; exit 1; }
 
 grep -F '"nyse.nyseconsolidated.dailytaqmaster.csv.v4.3.symbol": "A"' Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json
 grep -F '"nyse.nyseconsolidated.dailytaqmaster.csv.v4.3.securitydescription": "Agilent Technologies Inc."' Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json

@@ -12,7 +12,7 @@ runuser -u tester -- tshark \
 
 grep "nyse.nyseconsolidated.dailytaqtrades.csv.v4.3." Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json
 
-[ "$(grep -c -F '"nyse.nyseconsolidated.dailytaqtrades.csv.v4.3.trade"' Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json)" -eq 21 ] || { echo "--- 21 Trade records expected (Trades.excerpt.gz) ---"; exit 1; }
+[ "$(grep -c -F '"nyse.nyseconsolidated.dailytaqtrades.csv.v4.3.record.trade"' Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json)" -eq 21 ] || { echo "--- 21 Trade records expected (Trades.excerpt.gz) ---"; exit 1; }
 
 grep -F '"nyse.nyseconsolidated.dailytaqtrades.csv.v4.3.time": "04:00:05.130764945"' Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json
 grep -F '"nyse.nyseconsolidated.dailytaqtrades.csv.v4.3.exchange": "D"' Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json

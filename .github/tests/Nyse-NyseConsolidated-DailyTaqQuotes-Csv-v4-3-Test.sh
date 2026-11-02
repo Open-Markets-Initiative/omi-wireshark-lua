@@ -12,7 +12,7 @@ runuser -u tester -- tshark \
 
 grep "nyse.nyseconsolidated.dailytaqquotes.csv.v4.3." Nyse.NyseConsolidated.DailyTaqQuotes.Csv.v4.3.Quotes.json
 
-[ "$(grep -c -F '"nyse.nyseconsolidated.dailytaqquotes.csv.v4.3.quote"' Nyse.NyseConsolidated.DailyTaqQuotes.Csv.v4.3.Quotes.json)" -eq 22 ] || { echo "--- 22 Quote records expected (Quotes.excerpt.gz) ---"; exit 1; }
+[ "$(grep -c -F '"nyse.nyseconsolidated.dailytaqquotes.csv.v4.3.record.quote"' Nyse.NyseConsolidated.DailyTaqQuotes.Csv.v4.3.Quotes.json)" -eq 22 ] || { echo "--- 22 Quote records expected (Quotes.excerpt.gz) ---"; exit 1; }
 
 grep -F '"nyse.nyseconsolidated.dailytaqquotes.csv.v4.3.time": "03:11:37.267150601"' Nyse.NyseConsolidated.DailyTaqQuotes.Csv.v4.3.Quotes.json
 grep -F '"nyse.nyseconsolidated.dailytaqquotes.csv.v4.3.exchange": "T"' Nyse.NyseConsolidated.DailyTaqQuotes.Csv.v4.3.Quotes.json

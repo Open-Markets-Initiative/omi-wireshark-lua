@@ -640,6 +640,42 @@ local function read_ascii_string(buffer, offset)
   return text .. string.char(last), offset
 end
 
+-- the same where the field is optional. Fast spells a nullable string's null
+-- as one octet carrying nothing, and its empty string as a nul ahead of that
+-- one, so a leading nul is the null indicator rather than a character: read
+-- plain, a null comes back as the empty string and a field that is absent is
+-- reported as one that is there and blank
+local function read_nullable_ascii_string(buffer, offset)
+  local start = offset
+  local octet
+
+  repeat
+    if offset >= buffer:len() then error("truncated FAST ascii string") end
+    octet = buffer(offset, 1):uint()
+    offset = offset + 1
+  until bit.band(octet, 0x80) ~= 0
+
+  local last = bit.band(octet, 0x7f)
+
+  -- one octet carrying nothing says the field is absent
+  if offset - start == 1 and last == 0 then
+    return nil, offset
+  end
+
+  -- the characters begin after the null indicator where the run carries one.
+  -- Read from the octets rather than through :string() of the whole run, so a
+  -- nul inside it cannot end the text early.
+  local from = buffer(start, 1):uint() == 0 and start + 1 or start
+  local text = offset - 1 > from and buffer(from, offset - 1 - from):string() or ""
+
+  -- a run closing on a nul carries no character there: the string ends before it
+  if last == 0 then
+    return text, offset
+  end
+
+  return text .. string.char(last), offset
+end
+
 -- splice a string delta onto the value the stream last sent: a subtraction
 -- length says how much of it to drop, and the characters that follow take the
 -- dropped part's place. A non-negative length drops from the tail and the
@@ -1157,7 +1193,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.md_req_id_copy_optional.dissect = func
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -1217,7 +1253,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.text_sent.dissect = function(buffer, o
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1382,7 +1418,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.symbol_sent_optional.dissect = functio
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1723,7 +1759,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.security_exchange_sent_optional.dissec
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1811,7 +1847,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.appl_id_sent_optional.dissect = functi
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2035,7 +2071,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.security_alt_id_sent_optional.dissect 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2587,7 +2623,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.leg_security_exchange_copy.dissect = f
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -2636,7 +2672,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.security_update_action_sent_optional.d
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2932,7 +2968,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.currency_copy.dissect = function(buffe
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -2959,7 +2995,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.currency_sent_optional.dissect = funct
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3003,7 +3039,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.settl_currency_sent_optional.dissect =
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3069,7 +3105,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.security_sub_type_sent_optional.dissec
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3135,7 +3171,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.security_desc_sent_optional.dissect = 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3302,7 +3338,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.strike_currency.dissect = function(buf
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3452,7 +3488,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.cfi_code_sent_optional.dissect = funct
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3584,7 +3620,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.settl_type_sent.dissect = function(buf
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3607,7 +3643,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.settl_type_default.dissect = function(
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -3728,7 +3764,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.security_group_sent_optional.dissect =
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3751,7 +3787,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.pos_dup_flag.dissect = function(buffer
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -4642,7 +4678,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.md_entry_time_copy_optional.dissect = 
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -4751,7 +4787,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.quote_condition_default_optional_strin
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -4777,7 +4813,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.quote_condition_copy_optional.dissect 
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -4838,7 +4874,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.quote_condition_default_k.dissect = fu
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = "K"
   end
@@ -5065,7 +5101,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.trading_session_id_default_optional.di
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = "2"
   end
@@ -5160,7 +5196,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.price_type_sent.dissect = function(buf
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -5183,7 +5219,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.price_type_default.dissect = function(
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = "2"
   end
@@ -5293,7 +5329,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.md_stream_id_default_optional_string_f
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -5319,7 +5355,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.md_stream_id_default_e.dissect = funct
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = "E"
   end
@@ -5508,7 +5544,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.tick_direction.dissect = function(buff
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -5533,7 +5569,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.trade_condition_sent.dissect = functio
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -5556,7 +5592,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.trade_condition_default.dissect = func
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -5582,7 +5618,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.trade_condition_copy.dissect = functio
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -5656,7 +5692,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.open_close_settle_flag_default.dissect
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -5682,7 +5718,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.order_id.dissect = function(buffer, of
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -5708,7 +5744,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.trade_id.dissect = function(buffer, of
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -5734,7 +5770,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.md_entry_buyer.dissect = function(buff
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -5760,7 +5796,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.md_entry_seller.dissect = function(buf
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -5833,7 +5869,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.settle_price_type_sent_optional_string
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -5882,7 +5918,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.price_band_type.dissect = function(buf
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -6121,7 +6157,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.fixing_bracket.dissect = function(buff
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -6175,7 +6211,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.match_event_indicator.dissect = functi
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = "1"
   end
@@ -6556,7 +6592,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.underlying_product.dissect = function(
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -6578,7 +6614,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.pricing_model.dissect = function(buffe
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -6674,7 +6710,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.unit_of_measure_qty.dissect = function
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -6718,7 +6754,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.match_algo.dissect = function(buffer, 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -6740,7 +6776,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.max_price_variation.dissect = function
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -6762,7 +6798,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.implied_market_indicator.dissect = fun
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -6832,7 +6868,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.instr_attrib_value.dissect = function(
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -6985,7 +7021,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.leg_security_desc.dissect = function(b
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -7008,7 +7044,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.leg_side.dissect = function(buffer, of
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = "1"
   end
@@ -7034,7 +7070,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.leg_security_group.dissect = function(
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -7062,7 +7098,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.leg_cfi_code.dissect = function(buffer
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -7090,7 +7126,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.leg_security_sub_type.dissect = functi
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -7118,7 +7154,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.leg_currency.dissect = function(buffer
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -7231,7 +7267,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.leg_strike_currency.dissect = function
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -7496,7 +7532,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.unitof_measure.dissect = function(buff
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -7672,7 +7708,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.lot_type.dissect = function(buffer, of
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -7746,7 +7782,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.appl_feed_id_sent.dissect = function(b
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -7790,7 +7826,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.quote_req_id.dissect = function(buffer
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -7908,7 +7944,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.trading_session_sub_id.dissect = funct
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -8219,7 +8255,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.curerncy.dissect = function(buffer, of
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -8337,7 +8373,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.news_source.dissect = function(buffer,
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -8365,7 +8401,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.language_code.dissect = function(buffe
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -8393,7 +8429,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.headline_copy.dissect = function(buffe
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -8443,7 +8479,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.url_link.dissect = function(buffer, of
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -8518,7 +8554,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.routing_id.dissect = function(buffer, 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -8606,7 +8642,7 @@ b3_b3derivatives_umdfntp_fast_v5_0_1_2018.encoded_text.dissect = function(buffer
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 

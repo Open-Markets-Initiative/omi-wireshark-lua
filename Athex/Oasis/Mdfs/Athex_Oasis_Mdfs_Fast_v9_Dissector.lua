@@ -501,6 +501,42 @@ local function read_ascii_string(buffer, offset)
   return text .. string.char(last), offset
 end
 
+-- the same where the field is optional. Fast spells a nullable string's null
+-- as one octet carrying nothing, and its empty string as a nul ahead of that
+-- one, so a leading nul is the null indicator rather than a character: read
+-- plain, a null comes back as the empty string and a field that is absent is
+-- reported as one that is there and blank
+local function read_nullable_ascii_string(buffer, offset)
+  local start = offset
+  local octet
+
+  repeat
+    if offset >= buffer:len() then error("truncated FAST ascii string") end
+    octet = buffer(offset, 1):uint()
+    offset = offset + 1
+  until bit.band(octet, 0x80) ~= 0
+
+  local last = bit.band(octet, 0x7f)
+
+  -- one octet carrying nothing says the field is absent
+  if offset - start == 1 and last == 0 then
+    return nil, offset
+  end
+
+  -- the characters begin after the null indicator where the run carries one.
+  -- Read from the octets rather than through :string() of the whole run, so a
+  -- nul inside it cannot end the text early.
+  local from = buffer(start, 1):uint() == 0 and start + 1 or start
+  local text = offset - 1 > from and buffer(from, offset - 1 - from):string() or ""
+
+  -- a run closing on a nul carries no character there: the string ends before it
+  if last == 0 then
+    return text, offset
+  end
+
+  return text .. string.char(last), offset
+end
+
 -- splice a string delta onto the value the stream last sent: a subtraction
 -- length says how much of it to drop, and the characters that follow take the
 -- dropped part's place. A non-negative length drops from the tail and the
@@ -1131,7 +1167,7 @@ athex_oasis_mdfs_fast_v9.symbol_default.dissect = function(buffer, offset, packe
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1227,7 +1263,7 @@ athex_oasis_mdfs_fast_v9.security_type_default.dissect = function(buffer, offset
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1275,7 +1311,7 @@ athex_oasis_mdfs_fast_v9.security_exchange_default.dissect = function(buffer, of
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1323,7 +1359,7 @@ athex_oasis_mdfs_fast_v9.athex_market_id_default.dissect = function(buffer, offs
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1349,7 +1385,7 @@ athex_oasis_mdfs_fast_v9.trading_session_sub_id_default.dissect = function(buffe
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1493,7 +1529,7 @@ athex_oasis_mdfs_fast_v9.transact_time_default.dissect = function(buffer, offset
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1541,7 +1577,7 @@ athex_oasis_mdfs_fast_v9.athex_board_id_default.dissect = function(buffer, offse
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1611,7 +1647,7 @@ athex_oasis_mdfs_fast_v9.athex_system_status.dissect = function(buffer, offset, 
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1885,7 +1921,7 @@ athex_oasis_mdfs_fast_v9.financial_instrument_full_name.dissect = function(buffe
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1911,7 +1947,7 @@ athex_oasis_mdfs_fast_v9.cfi_code.dissect = function(buffer, offset, packet, par
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1986,7 +2022,7 @@ athex_oasis_mdfs_fast_v9.athexapa_unit_of_measure.dissect = function(buffer, off
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2087,7 +2123,7 @@ athex_oasis_mdfs_fast_v9.strike_currency.dissect = function(buffer, offset, pack
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2139,7 +2175,7 @@ athex_oasis_mdfs_fast_v9.athexapa_strike_price_type_default_optional_string.diss
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2191,7 +2227,7 @@ athex_oasis_mdfs_fast_v9.maturity_date.dissect = function(buffer, offset, packet
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2217,7 +2253,7 @@ athex_oasis_mdfs_fast_v9.settl_method.dissect = function(buffer, offset, packet,
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2269,7 +2305,7 @@ athex_oasis_mdfs_fast_v9.underlying_security_id.dissect = function(buffer, offse
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2295,7 +2331,7 @@ athex_oasis_mdfs_fast_v9.underlying_security_id_source.dissect = function(buffer
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2321,7 +2357,7 @@ athex_oasis_mdfs_fast_v9.underlying_index_curve_unit.dissect = function(buffer, 
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2748,7 +2784,7 @@ athex_oasis_mdfs_fast_v9.ord_type.dissect = function(buffer, offset, packet, par
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2774,7 +2810,7 @@ athex_oasis_mdfs_fast_v9.athex_special_condition.dissect = function(buffer, offs
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2871,7 +2907,7 @@ athex_oasis_mdfs_fast_v9.trade_condition.dissect = function(buffer, offset, pack
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2897,7 +2933,7 @@ athex_oasis_mdfs_fast_v9.trade_id.dissect = function(buffer, offset, packet, par
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2923,7 +2959,7 @@ athex_oasis_mdfs_fast_v9.order_category.dissect = function(buffer, offset, packe
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -3217,7 +3253,7 @@ athex_oasis_mdfs_fast_v9.athex_index_type.dissect = function(buffer, offset, pac
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -3525,7 +3561,7 @@ athex_oasis_mdfs_fast_v9.athexapa_price_currency.dissect = function(buffer, offs
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -3600,7 +3636,7 @@ athex_oasis_mdfs_fast_v9.athexapa_size_currency.dissect = function(buffer, offse
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -3626,7 +3662,7 @@ athex_oasis_mdfs_fast_v9.athexapa_trade_value_currency.dissect = function(buffer
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -3652,7 +3688,7 @@ athex_oasis_mdfs_fast_v9.expire_date.dissect = function(buffer, offset, packet, 
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -3906,7 +3942,7 @@ athex_oasis_mdfs_fast_v9.athexapa_third_country_venue.dissect = function(buffer,
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -3954,7 +3990,7 @@ athex_oasis_mdfs_fast_v9.previously_reported.dissect = function(buffer, offset, 
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -4080,7 +4116,7 @@ athex_oasis_mdfs_fast_v9.athexapa_emission_allowance.dissect = function(buffer, 
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end

@@ -445,6 +445,42 @@ local function read_ascii_string(buffer, offset)
   return text .. string.char(last), offset
 end
 
+-- the same where the field is optional. Fast spells a nullable string's null
+-- as one octet carrying nothing, and its empty string as a nul ahead of that
+-- one, so a leading nul is the null indicator rather than a character: read
+-- plain, a null comes back as the empty string and a field that is absent is
+-- reported as one that is there and blank
+local function read_nullable_ascii_string(buffer, offset)
+  local start = offset
+  local octet
+
+  repeat
+    if offset >= buffer:len() then error("truncated FAST ascii string") end
+    octet = buffer(offset, 1):uint()
+    offset = offset + 1
+  until bit.band(octet, 0x80) ~= 0
+
+  local last = bit.band(octet, 0x7f)
+
+  -- one octet carrying nothing says the field is absent
+  if offset - start == 1 and last == 0 then
+    return nil, offset
+  end
+
+  -- the characters begin after the null indicator where the run carries one.
+  -- Read from the octets rather than through :string() of the whole run, so a
+  -- nul inside it cannot end the text early.
+  local from = buffer(start, 1):uint() == 0 and start + 1 or start
+  local text = offset - 1 > from and buffer(from, offset - 1 - from):string() or ""
+
+  -- a run closing on a nul carries no character there: the string ends before it
+  if last == 0 then
+    return text, offset
+  end
+
+  return text .. string.char(last), offset
+end
+
 -- splice a string delta onto the value the stream last sent: a subtraction
 -- length says how much of it to drop, and the characters that follow take the
 -- dropped part's place. A non-negative length drops from the tail and the
@@ -917,7 +953,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.username.dissect = function(buffer, 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -939,7 +975,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.password.dissect = function(buffer, 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -983,7 +1019,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.text.dissect = function(buffer, offs
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1027,7 +1063,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dis
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1050,7 +1086,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_copy.dissect = fu
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -1121,7 +1157,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.symbol_sent_optional.dissect = funct
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1144,7 +1180,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.symbol_copy.dissect = function(buffe
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -1481,7 +1517,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional.dissect 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1504,7 +1540,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy.dissect = functio
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -1553,7 +1589,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect = function(buffe
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1919,7 +1955,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.quote_condition.dissect = function(b
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1941,7 +1977,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.trade_condition.dissect = function(b
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1963,7 +1999,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.open_close_settl_flag.dissect = func
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1985,7 +2021,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.ord_type_sent.dissect = function(buf
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2008,7 +2044,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.ord_type_copy.dissect = function(buf
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -2830,7 +2866,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.settle_type_sent.dissect = function(
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2853,7 +2889,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.settle_type_copy.dissect = function(
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -2902,7 +2938,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.order_side_sent.dissect = function(b
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2925,7 +2961,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.order_side_copy.dissect = function(b
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -2952,7 +2988,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.order_status_sent.dissect = function
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2975,7 +3011,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.order_status_copy.dissect = function
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -3114,7 +3150,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sent.dissect = funct
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3137,7 +3173,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_copy.dissect = funct
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -3694,7 +3730,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent.dissect 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3717,7 +3753,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_copy.dissect 
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -3912,7 +3948,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.liquidity_type.dissect = function(bu
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3985,7 +4021,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_copy.dissect = function
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
     state.values[key] = value
   else
     value = state.values[key]
@@ -4012,7 +4048,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_sent.dissect = function
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4236,7 +4272,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.qualified_investor.dissect = functio
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4767,7 +4803,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.currency.dissect = function(buffer, 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4944,7 +4980,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.settl_currency.dissect = function(bu
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 

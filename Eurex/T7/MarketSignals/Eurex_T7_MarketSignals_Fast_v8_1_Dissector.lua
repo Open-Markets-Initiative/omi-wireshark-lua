@@ -329,6 +329,42 @@ local function read_ascii_string(buffer, offset)
   return text .. string.char(last), offset
 end
 
+-- the same where the field is optional. Fast spells a nullable string's null
+-- as one octet carrying nothing, and its empty string as a nul ahead of that
+-- one, so a leading nul is the null indicator rather than a character: read
+-- plain, a null comes back as the empty string and a field that is absent is
+-- reported as one that is there and blank
+local function read_nullable_ascii_string(buffer, offset)
+  local start = offset
+  local octet
+
+  repeat
+    if offset >= buffer:len() then error("truncated FAST ascii string") end
+    octet = buffer(offset, 1):uint()
+    offset = offset + 1
+  until bit.band(octet, 0x80) ~= 0
+
+  local last = bit.band(octet, 0x7f)
+
+  -- one octet carrying nothing says the field is absent
+  if offset - start == 1 and last == 0 then
+    return nil, offset
+  end
+
+  -- the characters begin after the null indicator where the run carries one.
+  -- Read from the octets rather than through :string() of the whole run, so a
+  -- nul inside it cannot end the text early.
+  local from = buffer(start, 1):uint() == 0 and start + 1 or start
+  local text = offset - 1 > from and buffer(from, offset - 1 - from):string() or ""
+
+  -- a run closing on a nul carries no character there: the string ends before it
+  if last == 0 then
+    return text, offset
+  end
+
+  return text .. string.char(last), offset
+end
+
 -- splice a string delta onto the value the stream last sent: a subtraction
 -- length says how much of it to drop, and the characters that follow take the
 -- dropped part's place. A non-negative length drops from the tail and the

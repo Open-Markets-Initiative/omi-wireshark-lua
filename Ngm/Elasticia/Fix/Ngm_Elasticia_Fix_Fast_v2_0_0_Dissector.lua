@@ -670,6 +670,42 @@ local function read_ascii_string(buffer, offset)
   return text .. string.char(last), offset
 end
 
+-- the same where the field is optional. Fast spells a nullable string's null
+-- as one octet carrying nothing, and its empty string as a nul ahead of that
+-- one, so a leading nul is the null indicator rather than a character: read
+-- plain, a null comes back as the empty string and a field that is absent is
+-- reported as one that is there and blank
+local function read_nullable_ascii_string(buffer, offset)
+  local start = offset
+  local octet
+
+  repeat
+    if offset >= buffer:len() then error("truncated FAST ascii string") end
+    octet = buffer(offset, 1):uint()
+    offset = offset + 1
+  until bit.band(octet, 0x80) ~= 0
+
+  local last = bit.band(octet, 0x7f)
+
+  -- one octet carrying nothing says the field is absent
+  if offset - start == 1 and last == 0 then
+    return nil, offset
+  end
+
+  -- the characters begin after the null indicator where the run carries one.
+  -- Read from the octets rather than through :string() of the whole run, so a
+  -- nul inside it cannot end the text early.
+  local from = buffer(start, 1):uint() == 0 and start + 1 or start
+  local text = offset - 1 > from and buffer(from, offset - 1 - from):string() or ""
+
+  -- a run closing on a nul carries no character there: the string ends before it
+  if last == 0 then
+    return text, offset
+  end
+
+  return text .. string.char(last), offset
+end
+
 -- splice a string delta onto the value the stream last sent: a subtraction
 -- length says how much of it to drop, and the characters that follow take the
 -- dropped part's place. A non-negative length drops from the tail and the
@@ -1803,7 +1839,7 @@ ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect = function(buffer, of
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1829,7 +1865,7 @@ ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect = function(buffer, offs
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1901,7 +1937,7 @@ ngm_elasticia_fix_fast_v2_0_0.ref_msg_type_sent_optional.dissect = function(buff
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1945,7 +1981,7 @@ ngm_elasticia_fix_fast_v2_0_0.text_sent.dissect = function(buffer, offset, packe
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -1968,7 +2004,7 @@ ngm_elasticia_fix_fast_v2_0_0.text_default.dissect = function(buffer, offset, pa
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -1993,7 +2029,7 @@ ngm_elasticia_fix_fast_v2_0_0.business_reject_ref_id.dissect = function(buffer, 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2083,7 +2119,7 @@ ngm_elasticia_fix_fast_v2_0_0.username.dissect = function(buffer, offset, packet
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2105,7 +2141,7 @@ ngm_elasticia_fix_fast_v2_0_0.password.dissect = function(buffer, offset, packet
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2215,7 +2251,7 @@ ngm_elasticia_fix_fast_v2_0_0.test_req_id_sent_optional.dissect = function(buffe
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2349,7 +2385,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_id.dissect = function(buffer, offset, pac
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2417,7 +2453,7 @@ ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_optional.dissect = function(buffer,
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2652,7 +2688,7 @@ ngm_elasticia_fix_fast_v2_0_0.account.dissect = function(buffer, offset, packet,
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -2767,7 +2803,7 @@ ngm_elasticia_fix_fast_v2_0_0.exec_inst.dissect = function(buffer, offset, packe
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -2793,7 +2829,7 @@ ngm_elasticia_fix_fast_v2_0_0.order_restrictions.dissect = function(buffer, offs
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -3324,7 +3360,7 @@ ngm_elasticia_fix_fast_v2_0_0.order_id_sent_optional.dissect = function(buffer, 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3368,7 +3404,7 @@ ngm_elasticia_fix_fast_v2_0_0.orig_cl_ord_id_sent_optional.dissect = function(bu
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3413,7 +3449,7 @@ ngm_elasticia_fix_fast_v2_0_0.mass_status_req_id_default.dissect = function(buff
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -3551,7 +3587,7 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_id_default.dissect = function(buffer, off
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -3576,7 +3612,7 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_id_sent.dissect = function(buffer, offset
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -3956,7 +3992,7 @@ ngm_elasticia_fix_fast_v2_0_0.quote_req_id_default.dissect = function(buffer, of
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -4004,7 +4040,7 @@ ngm_elasticia_fix_fast_v2_0_0.quote_id_default.dissect = function(buffer, offset
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -4029,7 +4065,7 @@ ngm_elasticia_fix_fast_v2_0_0.quote_id_sent.dissect = function(buffer, offset, p
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4073,7 +4109,7 @@ ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_sent_optional.dissect = function(buff
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4096,7 +4132,7 @@ ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_default.dissect = function(buffer, of
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -4122,7 +4158,7 @@ ngm_elasticia_fix_fast_v2_0_0.orig_quote_msg_id.dissect = function(buffer, offse
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -4462,7 +4498,7 @@ ngm_elasticia_fix_fast_v2_0_0.quote_status_req_id_default.dissect = function(buf
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -4487,7 +4523,7 @@ ngm_elasticia_fix_fast_v2_0_0.quote_status_req_id_sent.dissect = function(buffer
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4531,7 +4567,7 @@ ngm_elasticia_fix_fast_v2_0_0.bid_md_entry_id.dissect = function(buffer, offset,
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4553,7 +4589,7 @@ ngm_elasticia_fix_fast_v2_0_0.offer_md_entry_id.dissect = function(buffer, offse
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4756,7 +4792,7 @@ ngm_elasticia_fix_fast_v2_0_0.trade_request_id_default.dissect = function(buffer
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -4781,7 +4817,7 @@ ngm_elasticia_fix_fast_v2_0_0.trade_request_id_sent_optional.dissect = function(
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4825,7 +4861,7 @@ ngm_elasticia_fix_fast_v2_0_0.trade_report_id.dissect = function(buffer, offset,
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4847,7 +4883,7 @@ ngm_elasticia_fix_fast_v2_0_0.trade_report_ref_id.dissect = function(buffer, off
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -4869,7 +4905,7 @@ ngm_elasticia_fix_fast_v2_0_0.trade_id.dissect = function(buffer, offset, packet
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -5263,7 +5299,7 @@ ngm_elasticia_fix_fast_v2_0_0.trade_condition_sent.dissect = function(buffer, of
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -5286,7 +5322,7 @@ ngm_elasticia_fix_fast_v2_0_0.trade_condition_default.dissect = function(buffer,
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -5401,7 +5437,7 @@ ngm_elasticia_fix_fast_v2_0_0.currency_sent.dissect = function(buffer, offset, p
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -5424,7 +5460,7 @@ ngm_elasticia_fix_fast_v2_0_0.currency_default.dissect = function(buffer, offset
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -5449,7 +5485,7 @@ ngm_elasticia_fix_fast_v2_0_0.last_mkt.dissect = function(buffer, offset, packet
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -5493,7 +5529,7 @@ ngm_elasticia_fix_fast_v2_0_0.secondary_cl_ord_id.dissect = function(buffer, off
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -6013,7 +6049,7 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_buyer.dissect = function(buffer, offset, 
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -6039,7 +6075,7 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_seller.dissect = function(buffer, offset,
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -6211,7 +6247,7 @@ ngm_elasticia_fix_fast_v2_0_0.md_req_id_default.dissect = function(buffer, offse
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -6324,7 +6360,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_req_id_sent_optional.dissect = function(b
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -6413,7 +6449,7 @@ ngm_elasticia_fix_fast_v2_0_0.instr_registry.dissect = function(buffer, offset, 
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -6439,7 +6475,7 @@ ngm_elasticia_fix_fast_v2_0_0.business_center.dissect = function(buffer, offset,
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -6465,7 +6501,7 @@ ngm_elasticia_fix_fast_v2_0_0.zone_id.dissect = function(buffer, offset, packet,
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -6512,7 +6548,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_id_sent_optional.dissect = function(buffer,
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -6556,7 +6592,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_segment_id.dissect = function(buffer, offse
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -7191,7 +7227,7 @@ ngm_elasticia_fix_fast_v2_0_0.min_reserve_order_value_currency.dissect = functio
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -7360,7 +7396,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_xml.dissect = function(buffer, offset, pa
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -7471,7 +7507,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_status_req_id_default.dissect = function(
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -7545,7 +7581,7 @@ ngm_elasticia_fix_fast_v2_0_0.corporate_action.dissect = function(buffer, offset
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -7571,7 +7607,7 @@ ngm_elasticia_fix_fast_v2_0_0.financial_status.dissect = function(buffer, offset
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -7618,7 +7654,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_req_id_sent_optional.dissect = function(buf
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -7640,7 +7676,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_segment_desc.dissect = function(buffer, off
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -7663,7 +7699,7 @@ ngm_elasticia_fix_fast_v2_0_0.encoded_mkt_segm_desc.dissect = function(buffer, o
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -7689,7 +7725,7 @@ ngm_elasticia_fix_fast_v2_0_0.parent_mkt_segm_id.dissect = function(buffer, offs
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -7781,7 +7817,7 @@ ngm_elasticia_fix_fast_v2_0_0.trad_ses_req_id_default.dissect = function(buffer,
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -7829,7 +7865,7 @@ ngm_elasticia_fix_fast_v2_0_0.corp_action_req_id_default.dissect = function(buff
   local value = nil
 
   if present then
-    value, offset = read_ascii_string(buffer, offset)
+    value, offset = read_nullable_ascii_string(buffer, offset)
   else
     value = nil
   end
@@ -7942,7 +7978,7 @@ ngm_elasticia_fix_fast_v2_0_0.corp_action_id.dissect = function(buffer, offset, 
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 
@@ -7964,7 +8000,7 @@ ngm_elasticia_fix_fast_v2_0_0.corp_action_descr.dissect = function(buffer, offse
   local start = offset
   local value = nil
 
-  value, offset = read_ascii_string(buffer, offset)
+  value, offset = read_nullable_ascii_string(buffer, offset)
 
   local range = buffer(start, offset - start)
 

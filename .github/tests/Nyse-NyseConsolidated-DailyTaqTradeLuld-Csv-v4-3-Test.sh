@@ -12,7 +12,7 @@ runuser -u tester -- tshark \
 
 grep "nyse.nyseconsolidated.dailytaqtradeluld.csv.v4.3." Nyse.NyseConsolidated.DailyTaqTradeLuld.Csv.v4.3.TradeLuld.json
 
-[ "$(grep -c -F '"nyse.nyseconsolidated.dailytaqtradeluld.csv.v4.3.tradeluld"' Nyse.NyseConsolidated.DailyTaqTradeLuld.Csv.v4.3.TradeLuld.json)" -eq 21 ] || { echo "--- 21 Trade Luld records expected (TradeLuld.excerpt.gz) ---"; exit 1; }
+[ "$(grep -c -F '"nyse.nyseconsolidated.dailytaqtradeluld.csv.v4.3.record.tradeluld"' Nyse.NyseConsolidated.DailyTaqTradeLuld.Csv.v4.3.TradeLuld.json)" -eq 21 ] || { echo "--- 21 Trade Luld records expected (TradeLuld.excerpt.gz) ---"; exit 1; }
 
 grep -F '"nyse.nyseconsolidated.dailytaqtradeluld.csv.v4.3.time": "09:30:00.947197458"' Nyse.NyseConsolidated.DailyTaqTradeLuld.Csv.v4.3.TradeLuld.json
 grep -F '"nyse.nyseconsolidated.dailytaqtradeluld.csv.v4.3.sequencenumber": "27748"' Nyse.NyseConsolidated.DailyTaqTradeLuld.Csv.v4.3.TradeLuld.json
