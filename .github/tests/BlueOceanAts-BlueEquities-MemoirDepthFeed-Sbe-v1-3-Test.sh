@@ -99,6 +99,12 @@ runuser -u tester -- tshark \
   > BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json 2> BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json.stderr; exit 1; }
 
-grep "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3." BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json
+fields=$(grep -c "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3." BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json) \
+  || { echo "--- no blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3 fields (MultipleMessages) ---"; exit 1; }
+echo "  blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.' BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }
