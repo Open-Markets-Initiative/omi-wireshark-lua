@@ -68,7 +68,8 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.filler_62 = ProtoField.
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.filler_63 = ProtoField.new("Filler 63", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.filler63", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.fourth_filler_1 = ProtoField.new("Fourth Filler 1", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.fourthfiller1", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.free_text = ProtoField.new("Free Text", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.freetext", ftypes.STRING, nil, nil, nil, "Free text associated to the security. When there is no free text, spaces are present instead.")
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.headline = ProtoField.new("Headline", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.headline", ftypes.BYTES, nil, nil, nil, "News headline. ASCII encoded if NewsType is EXN, Unicode UTF-16LE encoded if NewsType is EXC.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.headline_ascii = ProtoField.new("Headline Ascii", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.headlineascii", ftypes.STRING, nil, nil, nil, "News headline. ASCII encoded if NewsType is EXN, Unicode UTF-16LE encoded if NewsType is EXC.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.headline_utf16 = ProtoField.new("Headline Utf16", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.headlineutf16", ftypes.BYTES, nil, nil, nil, "News headline. ASCII encoded if NewsType is EXN, Unicode UTF-16LE encoded if NewsType is EXC.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.high_price = ProtoField.new("High Price", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.highprice", ftypes.DOUBLE, nil, nil, nil, "Highest trade price currently performed for a security. 3 implied decimal places.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.high_value = ProtoField.new("High Value", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.highvalue", ftypes.DOUBLE, nil, nil, nil, "Highest value for an index. 4 implied decimal places.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.index_code = ProtoField.new("Index Code", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.indexcode", ftypes.STRING, nil, nil, nil, "Upstream source's index code or market information identifier.")
@@ -101,8 +102,9 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.msg_type = ProtoField.n
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.netchgprevday", ftypes.DOUBLE, nil, nil, nil, "Net change of IndexValue from the previous close, as provided in index source. 4 implied decimal places.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.net_chg_prev_day_pct = ProtoField.new("Net Chg Prev Day Pct", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.netchgprevdaypct", ftypes.DOUBLE, nil, nil, nil, "Percentage change of IndexValue from the previous close. 4 implied decimal places.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.news_id = ProtoField.new("News Id", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.newsid", ftypes.STRING, nil, nil, nil, "Unique number for the news page within each NewsType.")
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.news_line = ProtoField.new("News Line", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.newsline", ftypes.BYTES, nil, nil, nil, "News line. ASCII encoded if NewsType is EXN, Unicode UTF-16LE encoded if NewsType is EXC.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.news_line_ascii = ProtoField.new("News Line Ascii", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.newslineascii", ftypes.STRING, nil, nil, nil, "News line. ASCII encoded if NewsType is EXN, Unicode UTF-16LE encoded if NewsType is EXC.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.news_line_item = ProtoField.new("News Line Item", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.newslineitem", ftypes.STRING, nil, nil, nil, "Repeating group of news lines.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.news_line_utf16 = ProtoField.new("News Line Utf16", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.newslineutf16", ftypes.BYTES, nil, nil, nil, "News line. ASCII encoded if NewsType is EXN, Unicode UTF-16LE encoded if NewsType is EXC.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.news_market = ProtoField.new("News Market", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.newsmarket", ftypes.STRING, nil, nil, nil, "Repeating group of market codes referenced by this news item.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.news_security = ProtoField.new("News Security", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.newssecurity", ftypes.STRING, nil, nil, nil, "Repeating group of security codes referenced by this news item.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.news_type = ProtoField.new("News Type", "hkex.hkexsecurities.combinedrefresh.omd.v1.45.newstype", ftypes.STRING, nil, nil, nil, "Type of Exchange news.")
@@ -1491,33 +1493,64 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.free_text.dissect = function(buffe
   return offset + length, value
 end
 
--- Headline
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline = {}
+-- Headline Ascii
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_ascii = {}
 
--- Size: Headline
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.size = 320
+-- Size: Headline Ascii
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_ascii.size = 320
 
--- Display: Headline
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.display = function(value)
-  return "Headline: "..value
-end
-
--- Dissect: Headline
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.dissect = function(buffer, offset, packet, parent, news_type)
-  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.size
-  local range = buffer(offset, length)
-  -- text encoding News Type selects
-  local encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
-  if news_type == "EXN" then
-    encoding = ENC_ASCII
-  elseif news_type == "EXC" then
-    encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
+-- Display: Headline Ascii
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_ascii.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Headline Ascii: No Value"
   end
 
-  local value = range:string(encoding)
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.display(value, buffer, offset, packet, parent)
+  return "Headline Ascii: "..value
+end
 
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.headline, range, value, display)
+-- Dissect: Headline Ascii
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_ascii.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_ascii.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_ascii.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.headline_ascii, range, value, display)
+
+  return offset + length, value
+end
+
+-- Headline Utf16
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_utf16 = {}
+
+-- Size: Headline Utf16
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_utf16.size = 320
+
+-- Display: Headline Utf16
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_utf16.display = function(value)
+  return "Headline Utf16: "..value
+end
+
+-- Dissect: Headline Utf16
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_utf16.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_utf16.size
+  local range = buffer(offset, length)
+  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
+  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_utf16.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.headline_utf16, range, value, display)
 
   return offset + length, value
 end
@@ -2363,33 +2396,64 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_id.dissect = function(buffer,
   return offset + length, value
 end
 
--- News Line
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line = {}
+-- News Line Ascii
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_ascii = {}
 
--- Size: News Line
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line.size = 160
+-- Size: News Line Ascii
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_ascii.size = 160
 
--- Display: News Line
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line.display = function(value)
-  return "News Line: "..value
-end
-
--- Dissect: News Line
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line.dissect = function(buffer, offset, packet, parent, news_type)
-  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line.size
-  local range = buffer(offset, length)
-  -- text encoding News Type selects
-  local encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
-  if news_type == "EXN" then
-    encoding = ENC_ASCII
-  elseif news_type == "EXC" then
-    encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
+-- Display: News Line Ascii
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_ascii.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "News Line Ascii: No Value"
   end
 
-  local value = range:string(encoding)
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line.display(value, buffer, offset, packet, parent)
+  return "News Line Ascii: "..value
+end
 
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.news_line, range, value, display)
+-- Dissect: News Line Ascii
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_ascii.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_ascii.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_ascii.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.news_line_ascii, range, value, display)
+
+  return offset + length, value
+end
+
+-- News Line Utf16
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_utf16 = {}
+
+-- Size: News Line Utf16
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_utf16.size = 160
+
+-- Display: News Line Utf16
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_utf16.display = function(value)
+  return "News Line Utf16: "..value
+end
+
+-- Dissect: News Line Utf16
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_utf16.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_utf16.size
+  local range = buffer(offset, length)
+  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
+  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_utf16.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_45.fields.news_line_utf16, range, value, display)
 
   return offset + length, value
 end
@@ -5670,10 +5734,32 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.nominal_price_message.dissect = fu
   end
 end
 
+-- News Line
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line = {}
+
+-- Dispatch: News Line
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line.dispatch = {
+  ["EXN"] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_ascii.dissect,
+  ["EXC"] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_utf16.dissect,
+}
+
+-- Dissect: News Line
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line.dissect = function(buffer, offset, packet, parent, news_type)
+  local dissect = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line.dispatch[news_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect News Line Utf16
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_utf16.dissect(buffer, offset, packet, parent)
+end
+
 -- News Line Item
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_item = {}
 
--- Size of News Line Item: not written, it needs News Type passed down from News Message
+-- Size: News Line Item
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_item.size =
+  hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line.size
 
 -- Display: News Line Item
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_item.display = function(packet, parent, length)
@@ -5690,8 +5776,8 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_item.fields = function(b
     iteration:set_generated()
   end
 
-  -- News Line: Binary
-  index, news_line = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line.dissect(buffer, index, packet, parent, news_type)
+  -- News Line: Runtime Type with 2 branches
+  index = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line.dissect(buffer, index, packet, parent, news_type)
 
   return index
 end
@@ -5806,6 +5892,26 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_market.dissect = function(buf
   end
 end
 
+-- Headline
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline = {}
+
+-- Dispatch: Headline
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.dispatch = {
+  ["EXN"] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_ascii.dissect,
+  ["EXC"] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_utf16.dissect,
+}
+
+-- Dissect: Headline
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.dissect = function(buffer, offset, packet, parent, news_type)
+  local dissect = hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.dispatch[news_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Headline Utf16
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline_utf16.dissect(buffer, offset, packet, parent)
+end
+
 -- News Message
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_message = {}
 
@@ -5817,7 +5923,10 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_message.size = function(buffe
 
   index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_id.size
 
-  index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.size
+  -- Calculate runtime size of Headline field
+  local headline_offset = offset + index
+  local headline_type = buffer(headline_offset - 6, 3):string()
+  index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.size(buffer, headline_offset, headline_type)
 
   index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_45.cancel_flag.size
 
@@ -5849,9 +5958,8 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_message.size = function(buffe
 
   -- Calculate field size from count
   local news_line_item_count = buffer(offset + index - 2, 2):le_uint()
-  for i = 1, news_line_item_count do
-    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_line_item.size(buffer, offset + index)
-  end
+  index = index + news_line_item_count * 160
+
   return index
 end
 
@@ -5871,8 +5979,8 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_message.fields = function(buf
   -- News Id: String
   index, news_id = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_id.dissect(buffer, index, packet, parent)
 
-  -- Headline: Binary
-  index, headline = hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.dissect(buffer, index, packet, parent, news_type)
+  -- Headline: Runtime Type with 2 branches
+  index = hkex_hkexsecurities_combinedrefresh_omd_v1_45.headline.dissect(buffer, index, packet, parent, news_type)
 
   -- Cancel Flag: String
   index, cancel_flag = hkex_hkexsecurities_combinedrefresh_omd_v1_45.cancel_flag.dissect(buffer, index, packet, parent)
