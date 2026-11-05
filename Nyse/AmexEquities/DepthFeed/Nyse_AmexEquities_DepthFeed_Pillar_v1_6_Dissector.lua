@@ -1980,24 +1980,6 @@ nyse_amexequities_depthfeed_pillar_v1_6.symbol_index = {}
 -- Size: Symbol Index
 nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.size = 4
 
--- Display: Symbol Index
-nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.display = function(value)
-  return "Symbol Index: "..value
-end
-
--- Dissect: Symbol Index
-nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_depthfeed_pillar_v1_6.fields.symbol_index, range, value, display)
-
-  return offset + length, value
-end
-
-
 -- Lookup: Symbol Index
 nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.lookup = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.size
@@ -2032,6 +2014,23 @@ nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.lookup = function(buffer, o
   end
 
   return offset + length, value, record
+end
+
+-- Display: Symbol Index
+nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.display = function(value)
+  return "Symbol Index: "..value
+end
+
+-- Dissect: Symbol Index
+nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexequities_depthfeed_pillar_v1_6.symbol_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexequities_depthfeed_pillar_v1_6.fields.symbol_index, range, value, display)
+
+  return offset + length, value
 end
 
 -- Symbol Seq Num

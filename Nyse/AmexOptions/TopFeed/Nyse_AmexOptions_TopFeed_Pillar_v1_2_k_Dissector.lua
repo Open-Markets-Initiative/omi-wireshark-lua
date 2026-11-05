@@ -2610,24 +2610,6 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.series_index = {}
 -- Size: Series Index
 nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.size = 4
 
--- Display: Series Index
-nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.display = function(value)
-  return "Series Index: "..value
-end
-
--- Dissect: Series Index
-nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.series_index, range, value, display)
-
-  return offset + length, value
-end
-
-
 -- Lookup: Series Index
 nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.lookup = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.size
@@ -2659,6 +2641,23 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.lookup = function(buffer, of
   end
 
   return offset + length, value, record
+end
+
+-- Display: Series Index
+nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.display = function(value)
+  return "Series Index: "..value
+end
+
+-- Dissect: Series Index
+nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexoptions_topfeed_pillar_v1_2_k.series_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.series_index, range, value, display)
+
+  return offset + length, value
 end
 
 -- Series Seq Num
