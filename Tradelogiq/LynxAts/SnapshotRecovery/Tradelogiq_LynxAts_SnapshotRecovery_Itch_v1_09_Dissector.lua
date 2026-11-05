@@ -118,6 +118,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.padding = false
 show.sequences = true
 
 -- Register Tradelogiq LynxAts SnapshotRecovery Itch 1.09 Show Options
@@ -128,6 +129,7 @@ omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_application_messag
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
@@ -141,6 +143,9 @@ function omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs_changed()
   end
   if show.headers ~= omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_headers then
     show.headers = omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_headers
+  end
+  if show.padding ~= omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_padding then
+    show.padding = omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_padding
   end
   if show.session_messages ~= omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_session_messages then
     show.session_messages = omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_session_messages
@@ -1244,7 +1249,11 @@ tradelogiq_lynxats_snapshotrecovery_itch_v1_09.add_order_message.fields = functi
   index, exec_broker_id = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.exec_broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Alpha
-  index, reserved_2 = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_2.size
+  end
 
   return index
 end
@@ -1369,7 +1378,11 @@ tradelogiq_lynxats_snapshotrecovery_itch_v1_09.extended_stock_directory_message.
   index, frequency = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.frequency.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Alphanumeric
-  index, reserved_9 = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_9.size
+  end
 
   -- Currency: Alpha
   index, currency = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.currency.dissect(buffer, index, packet, parent)
@@ -1384,7 +1397,11 @@ tradelogiq_lynxats_snapshotrecovery_itch_v1_09.extended_stock_directory_message.
   index, description = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.description.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
-  index, reserved_3 = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_3.size
+  end
 
   return index
 end
@@ -1453,7 +1470,11 @@ tradelogiq_lynxats_snapshotrecovery_itch_v1_09.stock_directory_message.fields = 
   index, dividend_indicator = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.dividend_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Alphanumeric
-  index, reserved_9 = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_9.size
+  end
 
   -- Currency: Alpha
   index, currency = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.currency.dissect(buffer, index, packet, parent)
@@ -1501,7 +1522,11 @@ tradelogiq_lynxats_snapshotrecovery_itch_v1_09.system_event_message.fields = fun
   index, event_code = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.event_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Alpha
-  index, reserved_2 = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_snapshotrecovery_itch_v1_09.reserved_2.size
+  end
 
   -- Timestamp: Integer
   index, timestamp = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.timestamp.dissect(buffer, index, packet, parent)

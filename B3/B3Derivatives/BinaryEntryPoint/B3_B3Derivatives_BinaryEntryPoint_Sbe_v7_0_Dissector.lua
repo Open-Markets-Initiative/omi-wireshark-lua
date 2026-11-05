@@ -319,6 +319,7 @@ show.application_messages = true
 show.structs = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register B3 B3Derivatives BinaryEntryPoint Sbe 7.0 Show Options
@@ -326,6 +327,7 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_application_messages =
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -339,6 +341,9 @@ function omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs_changed()
   end
   if show.headers ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_headers then
     show.headers = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_headers
+  end
+  if show.padding ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_padding then
+    show.padding = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_padding
   end
   if show.repeating_groups ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_repeating_groups then
     show.repeating_groups = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_repeating_groups
@@ -7198,7 +7203,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.order_mass_action_report_message.fiel
   index, side_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.side_optional.dissect(buffer, index, packet, parent)
 
   -- Offset 49 Padding 1: 1 Byte
-  index, offset_49_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_49_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_49_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_49_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_49_padding_1.size
+  end
 
   -- Asset: AssetOptional
   index, asset = b3_b3derivatives_binaryentrypoint_sbe_v7_0.asset.dissect(buffer, index, packet, parent)
@@ -7344,7 +7353,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.order_mass_action_request_message.fie
   index, side_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.side_optional.dissect(buffer, index, packet, parent)
 
   -- Offset 31 Padding 1: 1 Byte
-  index, offset_31_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_31_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_31_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_31_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_31_padding_1.size
+  end
 
   -- Asset: AssetOptional
   index, asset = b3_b3derivatives_binaryentrypoint_sbe_v7_0.asset.dissect(buffer, index, packet, parent)
@@ -9084,7 +9097,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.security_definition_response_message.
   index, outbound_business_header = b3_b3derivatives_binaryentrypoint_sbe_v7_0.outbound_business_header.dissect(buffer, index, packet, parent)
 
   -- Offset 18 Padding 2: 2 Byte
-  index, offset_18_padding_2 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_18_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_18_padding_2 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_18_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_18_padding_2.size
+  end
 
   -- Security Req Id: SecurityReqRespID
   index, security_req_id = b3_b3derivatives_binaryentrypoint_sbe_v7_0.security_req_id.dissect(buffer, index, packet, parent)
@@ -9166,7 +9183,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.legs_group.fields = function(buffer, 
   index, leg_side = b3_b3derivatives_binaryentrypoint_sbe_v7_0.leg_side.dissect(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
-  index, padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.padding_1.size
+  end
 
   return index
 end
@@ -9353,7 +9374,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.business_message_reject_message.field
   index, ref_msg_type = b3_b3derivatives_binaryentrypoint_sbe_v7_0.ref_msg_type.dissect(buffer, index, packet, parent)
 
   -- Offset 19 Padding 1: 1 Byte
-  index, offset_19_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_19_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_19_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_19_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_19_padding_1.size
+  end
 
   -- Ref Seq Num: SeqNum
   index, ref_seq_num = b3_b3derivatives_binaryentrypoint_sbe_v7_0.ref_seq_num.dissect(buffer, index, packet, parent)
@@ -9525,7 +9550,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.execution_report_forward_message.fiel
   index, days_to_settlement_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.days_to_settlement_optional.dissect(buffer, index, packet, parent)
 
   -- Offset 118 Padding 2: 2 Byte
-  index, offset_118_padding_2 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_118_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_118_padding_2 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_118_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_118_padding_2.size
+  end
 
   -- Secondary Exec Id: ExecIDOptional
   index, secondary_exec_id = b3_b3derivatives_binaryentrypoint_sbe_v7_0.secondary_exec_id.dissect(buffer, index, packet, parent)
@@ -9877,7 +9906,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.execution_report_trade_message.fields
   index, tot_no_related_sym = b3_b3derivatives_binaryentrypoint_sbe_v7_0.tot_no_related_sym.dissect(buffer, index, packet, parent)
 
   -- Offset 119 Padding 1: 1 Byte
-  index, offset_119_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_119_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_119_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_119_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_119_padding_1.size
+  end
 
   -- Secondary Exec Id: ExecIDOptional
   index, secondary_exec_id = b3_b3derivatives_binaryentrypoint_sbe_v7_0.secondary_exec_id.dissect(buffer, index, packet, parent)
@@ -10481,7 +10514,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.cross_sides_group.fields = function(b
   index, side = b3_b3derivatives_binaryentrypoint_sbe_v7_0.side.dissect(buffer, index, packet, parent)
 
   -- Offset 1 Padding 1: 1 Byte
-  index, offset_1_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_1_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_1_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_1_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_1_padding_1.size
+  end
 
   -- Account: AccountOptional
   index, account = b3_b3derivatives_binaryentrypoint_sbe_v7_0.account.dissect(buffer, index, packet, parent)
@@ -10619,7 +10656,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.new_order_cross_message.fields = func
   index, inbound_business_header = b3_b3derivatives_binaryentrypoint_sbe_v7_0.inbound_business_header.dissect(buffer, index, packet, parent)
 
   -- Offset 18 Padding 2: 2 Byte
-  index, offset_18_padding_2 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_18_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_18_padding_2 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_18_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_18_padding_2.size
+  end
 
   -- CrossId: CrossID
   index, crossid = b3_b3derivatives_binaryentrypoint_sbe_v7_0.crossid.dissect(buffer, index, packet, parent)
@@ -10726,7 +10767,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.order_cancel_request_message.fields =
   index, inbound_business_header = b3_b3derivatives_binaryentrypoint_sbe_v7_0.inbound_business_header.dissect(buffer, index, packet, parent)
 
   -- Offset 18 Padding 2: 2 Byte
-  index, offset_18_padding_2 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_18_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_18_padding_2 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_18_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_18_padding_2.size
+  end
 
   -- ClOrdId: ClOrdID
   index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v7_0.clordid.dissect(buffer, index, packet, parent)
@@ -10747,7 +10792,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.order_cancel_request_message.fields =
   index, single_cancel_restatement_reason = b3_b3derivatives_binaryentrypoint_sbe_v7_0.single_cancel_restatement_reason.dissect(buffer, index, packet, parent)
 
   -- Offset 54 Padding 2: 2 Byte
-  index, offset_54_padding_2 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_54_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_54_padding_2 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_54_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_54_padding_2.size
+  end
 
   -- Sender Location: SenderLocation
   index, sender_location = b3_b3derivatives_binaryentrypoint_sbe_v7_0.sender_location.dissect(buffer, index, packet, parent)
@@ -11185,7 +11234,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.new_order_single_message.fields = fun
   index, time_in_force = b3_b3derivatives_binaryentrypoint_sbe_v7_0.time_in_force.dissect(buffer, index, packet, parent)
 
   -- Offset 59 Padding 1: 1 Byte
-  index, offset_59_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_59_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_59_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_59_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_59_padding_1.size
+  end
 
   -- Order Qty: Quantity
   index, order_qty = b3_b3derivatives_binaryentrypoint_sbe_v7_0.order_qty.dissect(buffer, index, packet, parent)
@@ -11338,7 +11391,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.simple_modify_order_message.fields = 
   index, time_in_force_simple = b3_b3derivatives_binaryentrypoint_sbe_v7_0.time_in_force_simple.dissect(buffer, index, packet, parent)
 
   -- Offset 59 Padding 1: 1 Byte
-  index, offset_59_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_59_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_59_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_59_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_59_padding_1.size
+  end
 
   -- Order Qty: Quantity
   index, order_qty = b3_b3derivatives_binaryentrypoint_sbe_v7_0.order_qty.dissect(buffer, index, packet, parent)
@@ -11469,7 +11526,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.simple_new_order_message.fields = fun
   index, time_in_force_simple = b3_b3derivatives_binaryentrypoint_sbe_v7_0.time_in_force_simple.dissect(buffer, index, packet, parent)
 
   -- Offset 59 Padding 1: 1 Byte
-  index, offset_59_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_59_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_59_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_59_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_59_padding_1.size
+  end
 
   -- Order Qty: Quantity
   index, order_qty = b3_b3derivatives_binaryentrypoint_sbe_v7_0.order_qty.dissect(buffer, index, packet, parent)
@@ -11822,7 +11883,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.establish_reject_message.fields = fun
   index, establishment_reject_code = b3_b3derivatives_binaryentrypoint_sbe_v7_0.establishment_reject_code.dissect(buffer, index, packet, parent)
 
   -- Offset 21 Padding 1: 1 Byte
-  index, offset_21_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_21_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_21_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_21_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_21_padding_1.size
+  end
 
   -- Last Incoming Seq No Optional: SeqNumOptional
   index, last_incoming_seq_no_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.last_incoming_seq_no_optional.dissect(buffer, index, packet, parent)
@@ -12035,7 +12100,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.establish_message.fields = function(b
   index, cancel_on_disconnect_type = b3_b3derivatives_binaryentrypoint_sbe_v7_0.cancel_on_disconnect_type.dissect(buffer, index, packet, parent)
 
   -- Offset 33 Padding 1: 1 Byte
-  index, offset_33_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_33_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_33_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_33_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_33_padding_1.size
+  end
 
   -- Cod Timeout Window: DeltaInMillis
   index, cod_timeout_window = b3_b3derivatives_binaryentrypoint_sbe_v7_0.cod_timeout_window.dissect(buffer, index, packet, parent)
@@ -12102,7 +12171,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.negotiate_reject_message.fields = fun
   index, negotiation_reject_code = b3_b3derivatives_binaryentrypoint_sbe_v7_0.negotiation_reject_code.dissect(buffer, index, packet, parent)
 
   -- Offset 25 Padding 3: 3 Byte
-  index, offset_25_padding_3 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_25_padding_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_25_padding_3 = b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_25_padding_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.offset_25_padding_3.size
+  end
 
   -- Current Session Ver Id: SessionVerIDOptional
   index, current_session_ver_id = b3_b3derivatives_binaryentrypoint_sbe_v7_0.current_session_ver_id.dissect(buffer, index, packet, parent)

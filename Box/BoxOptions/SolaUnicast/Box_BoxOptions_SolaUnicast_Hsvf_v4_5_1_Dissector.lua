@@ -102,9 +102,7 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.high_price_negative_whole_pair
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.high_price_numeric_pair = ProtoField.new("High Price Numeric Pair", "box.boxoptions.solaunicast.hsvf.v4.5.1.highpricenumericpair", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.high_price_sign = ProtoField.new("High Price Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.highpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.high_price_unknown_fraction_pair = ProtoField.new("High Price Unknown Fraction Pair", "box.boxoptions.solaunicast.hsvf.v4.5.1.highpriceunknownfractionpair", ftypes.STRING)
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.hsvf_etx = ProtoField.new("Hsvf Etx", "box.boxoptions.solaunicast.hsvf.v4.5.1.hsvfetx", ftypes.INT8, nil, nil, nil, "End of Hsvf message")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.hsvf_protocol = ProtoField.new("Hsvf Protocol", "box.boxoptions.solaunicast.hsvf.v4.5.1.hsvfprotocol", ftypes.STRING, nil, nil, nil, "Current HSVF Protocol version (C7)")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.hsvf_stx = ProtoField.new("Hsvf Stx", "box.boxoptions.solaunicast.hsvf.v4.5.1.hsvfstx", ftypes.INT8, nil, nil, nil, "Start of Hsvf message")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_order_side = ProtoField.new("Improvement Order Side", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementorderside", ftypes.STRING, nil, nil, nil, "Side")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_phase_expiry_time = ProtoField.new("Improvement Phase Expiry Time", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementphaseexpirytime", ftypes.STRING, nil, nil, nil, "Indicates the expiry time of the Improvement Phase (value is in HHMMSSCC)")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_phase_sequential_number = ProtoField.new("Improvement Phase Sequential Number", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementphasesequentialnumber", ftypes.UINT24, nil, nil, nil, "Indicates the number of an Improvement Phase. Sequential number unique per Instrument and per trading day")
@@ -303,6 +301,8 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.root_symbol = ProtoField.new("
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scheduled_time = ProtoField.new("Scheduled Time", "box.boxoptions.solaunicast.hsvf.v4.5.1.scheduledtime", ftypes.UINT24, nil, nil, nil, "Opening time of the instrument group (HHMMSS)")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sequence_number = ProtoField.new("Sequence Number", "box.boxoptions.solaunicast.hsvf.v4.5.1.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence numbers will range from ascii decimal 000000001 to 999999999")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sequence_numbers_skipped = ProtoField.new("Sequence Numbers Skipped", "box.boxoptions.solaunicast.hsvf.v4.5.1.sequencenumbersskipped", ftypes.UINT32, nil, nil, nil, "Sequence numbers skipped.")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sola_message_end = ProtoField.new("Sola Message End", "box.boxoptions.solaunicast.hsvf.v4.5.1.solamessageend", ftypes.INT8, nil, nil, nil, "End of Hsvf message")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sola_message_start = ProtoField.new("Sola Message Start", "box.boxoptions.solaunicast.hsvf.v4.5.1.solamessagestart", ftypes.INT8, nil, nil, nil, "Start of Hsvf message")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.strike_price = ProtoField.new("Strike Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.strikeprice", ftypes.UINT24, nil, nil, nil, "Strike Price of the option in full")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "box.boxoptions.solaunicast.hsvf.v4.5.1.strikepricecurrency", ftypes.STRING, nil, nil, nil, "Currency used for the Option Strike Price")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.strikepricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines the number of decimal places or fraction positions")
@@ -357,9 +357,9 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.underlying_symbol_root = Proto
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.volume = ProtoField.new("Volume", "box.boxoptions.solaunicast.hsvf.v4.5.1.volume", ftypes.UINT32, nil, nil, nil, "Number of contracts for the trade")
 
 -- Box BoxOptions SolaUnicast Hsvf 4.5.1 Framing
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.frame = ProtoField.new("Frame", "box.boxoptions.solaunicast.hsvf.v4.5.1.frame", ftypes.STRING, nil, nil, nil, "One Hsvf record, from STX through ETX")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.message_header = ProtoField.new("Message Header", "box.boxoptions.solaunicast.hsvf.v4.5.1.messageheader", ftypes.STRING, nil, nil, nil, "Standard Hsvf message header")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.packet = ProtoField.new("Packet", "box.boxoptions.solaunicast.hsvf.v4.5.1.packet", ftypes.STRING, nil, nil, nil, "Hsvf Tcp stream")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sola_frame = ProtoField.new("Sola Frame", "box.boxoptions.solaunicast.hsvf.v4.5.1.solaframe", ftypes.STRING, nil, nil, nil, "One Hsvf record, from STX through ETX")
 
 -- Box BoxOptions SolaUnicast 4.5.1 Application Messages
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.beginning_of_complex_order_summary_message = ProtoField.new("Beginning Of Complex Order Summary Message", "box.boxoptions.solaunicast.hsvf.v4.5.1.beginningofcomplexordersummarymessage", ftypes.STRING, nil, nil, nil, "This message indicates that the beginning and the end of day Complex Order summaries")
@@ -443,6 +443,8 @@ show.structs = true
 show.application_messages = true
 show.repeating_groups = true
 show.headers = true
+show.delimiters = false
+show.padding = false
 show.indexes = true
 
 -- Register Box BoxOptions SolaUnicast Hsvf 4.5.1 Show Options
@@ -450,6 +452,8 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_structs = Pref.bool("Show 
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_delimiters = Pref.bool("Show Delimiters", show.delimiters, "Parse and add Delimiters to protocol tree")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
@@ -460,8 +464,14 @@ function omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs_changed()
   if show.application_messages ~= omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_application_messages then
     show.application_messages = omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_application_messages
   end
+  if show.delimiters ~= omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_delimiters then
+    show.delimiters = omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_delimiters
+  end
   if show.headers ~= omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_headers then
     show.headers = omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_headers
+  end
+  if show.padding ~= omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_padding then
+    show.padding = omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_padding
   end
   if show.repeating_groups ~= omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_repeating_groups then
     show.repeating_groups = omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_repeating_groups
@@ -1739,33 +1749,6 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.high_price_sign.dissect = function(buffer
   return offset + length, value
 end
 
--- Hsvf Etx
-box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_etx = {}
-
--- Size: Hsvf Etx
-box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_etx.size = 1
-
--- Display: Hsvf Etx
-box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_etx.display = function(value)
-  if value == 3 then
-    return "Hsvf Etx: Etx"
-  end
-
-  return "Hsvf Etx: Unknown("..value..")"
-end
-
--- Dissect: Hsvf Etx
-box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_etx.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_etx.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_etx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.hsvf_etx, range, value, display)
-
-  return offset + length, value
-end
-
 -- Hsvf Protocol
 box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_protocol = {}
 
@@ -1785,33 +1768,6 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_protocol.dissect = function(buffer, 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_protocol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.hsvf_protocol, range, value, display)
-
-  return offset + length, value
-end
-
--- Hsvf Stx
-box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx = {}
-
--- Size: Hsvf Stx
-box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx.size = 1
-
--- Display: Hsvf Stx
-box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx.display = function(value)
-  if value == 2 then
-    return "Hsvf Stx: Stx"
-  end
-
-  return "Hsvf Stx: Unknown("..value..")"
-end
-
--- Dissect: Hsvf Stx
-box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.hsvf_stx, range, value, display)
 
   return offset + length, value
 end
@@ -4902,6 +4858,60 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.sequence_numbers_skipped.dissect = functi
   return offset + length, value
 end
 
+-- Sola Message End
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_end = {}
+
+-- Size: Sola Message End
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_end.size = 1
+
+-- Display: Sola Message End
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_end.display = function(value)
+  if value == 3 then
+    return "Sola Message End: Etx"
+  end
+
+  return "Sola Message End: Unknown("..value..")"
+end
+
+-- Dissect: Sola Message End
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_end.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_end.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_end.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sola_message_end, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sola Message Start
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start = {}
+
+-- Size: Sola Message Start
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.size = 1
+
+-- Display: Sola Message Start
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.display = function(value)
+  if value == 2 then
+    return "Sola Message Start: Stx"
+  end
+
+  return "Sola Message Start: Unknown("..value..")"
+end
+
+-- Dissect: Sola Message Start
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sola_message_start, range, value, display)
+
+  return offset + length, value
+end
+
 -- Strike Price
 box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price = {}
 
@@ -7441,7 +7451,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.instrument_description.fields = function(
   index, expiry_month_code = box_boxoptions_solaunicast_hsvf_v4_5_1.expiry_month_code.dissect(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte
-  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size
+  end
 
   -- Strike Price Fraction Pair: Runtime Type with 9 branches
   index = box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price_fraction_pair.dissect(buffer, index, packet, parent)
@@ -8033,7 +8047,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_im
   index, type_of_clearing_account = box_boxoptions_solaunicast_hsvf_v4_5_1.type_of_clearing_account.dissect(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte
-  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size
+  end
 
   -- End Of The Exposition: N
   index, end_of_the_exposition = box_boxoptions_solaunicast_hsvf_v4_5_1.end_of_the_exposition.dissect(buffer, index, packet, parent)
@@ -8125,7 +8143,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_orde
   index, type_of_clearing_account = box_boxoptions_solaunicast_hsvf_v4_5_1.type_of_clearing_account.dissect(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte
-  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size
+  end
 
   -- End Of The Exposition: N
   index, end_of_the_exposition = box_boxoptions_solaunicast_hsvf_v4_5_1.end_of_the_exposition.dissect(buffer, index, packet, parent)
@@ -8740,7 +8762,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_improvement_process_beginning_mess
   index, auction_type = box_boxoptions_solaunicast_hsvf_v4_5_1.auction_type.dissect(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte
-  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size
+  end
 
   return index
 end
@@ -8781,7 +8807,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.end_of_sales_message.fields = function(bu
   local index = offset
 
   -- Reserved: A
-  index, reserved = box_boxoptions_solaunicast_hsvf_v4_5_1.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = box_boxoptions_solaunicast_hsvf_v4_5_1.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.reserved.size
+  end
 
   -- Time: N
   index, time = box_boxoptions_solaunicast_hsvf_v4_5_1.time.dissect(buffer, index, packet, parent)
@@ -8827,7 +8857,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.bulletins_message.fields = function(buffe
   local index = offset
 
   -- Filler 1: 1 Byte
-  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size
+  end
 
   -- Bulletin Type: X
   index, bulletin_type = box_boxoptions_solaunicast_hsvf_v4_5_1.bulletin_type.dissect(buffer, index, packet, parent)
@@ -14379,7 +14413,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_instrument_keys_message.fie
   index = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 2: X
-  index, filler_2 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_2.size
+  end
 
   -- Group: X
   index, group = box_boxoptions_solaunicast_hsvf_v4_5_1.group.dissect(buffer, index, packet, parent)
@@ -15906,7 +15944,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_trade_cancellation_message.
   index = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte
-  index, filler_6 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = box_boxoptions_solaunicast_hsvf_v4_5_1.timestamp.dissect(buffer, index, packet, parent)
@@ -15972,7 +16014,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_trade_cancellation_message.fields 
   index = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte
-  index, filler_6 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = box_boxoptions_solaunicast_hsvf_v4_5_1.timestamp.dissect(buffer, index, packet, parent)
@@ -15981,7 +16027,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_trade_cancellation_message.fields 
   index, open_interest = box_boxoptions_solaunicast_hsvf_v4_5_1.open_interest.dissect(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte
-  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size
+  end
 
   -- Price Indicator Marker: A
   index, price_indicator_marker = box_boxoptions_solaunicast_hsvf_v4_5_1.price_indicator_marker.dissect(buffer, index, packet, parent)
@@ -17473,7 +17523,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_quote_message.fields = function(bu
   index, ask_size = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_size.dissect(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte
-  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size
+  end
 
   -- Instrument Status Marker: A
   index, instrument_status_marker = box_boxoptions_solaunicast_hsvf_v4_5_1.instrument_status_marker.dissect(buffer, index, packet, parent)
@@ -17600,7 +17654,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_instrument_trade_message.fi
   index = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte
-  index, filler_6 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = box_boxoptions_solaunicast_hsvf_v4_5_1.timestamp.dissect(buffer, index, packet, parent)
@@ -17674,7 +17732,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_trade_message.fields = function(bu
   index = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte
-  index, filler_6 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = box_boxoptions_solaunicast_hsvf_v4_5_1.timestamp.dissect(buffer, index, packet, parent)
@@ -17683,7 +17745,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_trade_message.fields = function(bu
   index, open_interest = box_boxoptions_solaunicast_hsvf_v4_5_1.open_interest.dissect(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte
-  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size
+  end
 
   -- Price Indicator Marker: A
   index, price_indicator_marker = box_boxoptions_solaunicast_hsvf_v4_5_1.price_indicator_marker.dissect(buffer, index, packet, parent)
@@ -18105,20 +18171,24 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.message_header.dissect = function(buffer,
   end
 end
 
--- Frame
-box_boxoptions_solaunicast_hsvf_v4_5_1.frame = {}
+-- Sola Frame
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame = {}
 
--- Display: Frame
-box_boxoptions_solaunicast_hsvf_v4_5_1.frame.display = function(packet, parent, length)
+-- Display: Sola Frame
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Frame
-box_boxoptions_solaunicast_hsvf_v4_5_1.frame.fields = function(buffer, offset, packet, parent, size_of_frame)
+-- Dissect Fields: Sola Frame
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.fields = function(buffer, offset, packet, parent, size_of_sola_frame)
   local index = offset
 
-  -- Hsvf Stx: character
-  index, hsvf_stx = box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx.dissect(buffer, index, packet, parent)
+  -- Sola Message Start: character
+  if show.delimiters then
+    index, sola_message_start = box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.size
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = box_boxoptions_solaunicast_hsvf_v4_5_1.message_header.dissect(buffer, index, packet, parent)
@@ -18129,35 +18199,39 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.frame.fields = function(buffer, offset, p
   -- Message Body: Runtime Type with 31 branches
   index = box_boxoptions_solaunicast_hsvf_v4_5_1.message_body.dissect(buffer, index, packet, parent, message_type)
 
-  -- Hsvf Etx: character
-  index, hsvf_etx = box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_etx.dissect(buffer, index, packet, parent)
+  -- Sola Message End: character
+  if show.delimiters then
+    index, sola_message_end = box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_end.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_end.size
+  end
 
   return index
 end
 
--- Dissect: Frame
-box_boxoptions_solaunicast_hsvf_v4_5_1.frame.dissect = function(buffer, offset, packet, parent, size_of_frame)
-  local index = offset + size_of_frame
+-- Dissect: Sola Frame
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.dissect = function(buffer, offset, packet, parent, size_of_sola_frame)
+  local index = offset + size_of_sola_frame
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.frame, buffer(offset, 0))
-    local current = box_boxoptions_solaunicast_hsvf_v4_5_1.frame.fields(buffer, offset, packet, parent, size_of_frame)
-    parent:set_len(size_of_frame)
-    local display = box_boxoptions_solaunicast_hsvf_v4_5_1.frame.display(buffer, packet, parent)
+    parent = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sola_frame, buffer(offset, 0))
+    local current = box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.fields(buffer, offset, packet, parent, size_of_sola_frame)
+    parent:set_len(size_of_sola_frame)
+    local display = box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    box_boxoptions_solaunicast_hsvf_v4_5_1.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.fields(buffer, offset, packet, parent, size_of_sola_frame)
 
     return index
   end
 end
 
--- Remaining Bytes For: Frame
-local frame_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Sola Frame
+local sola_frame_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
@@ -18184,26 +18258,26 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.packet = {}
 
 -- Verify required size of Tcp packet
 box_boxoptions_solaunicast_hsvf_v4_5_1.packet.requiredsize = function(buffer)
-  return buffer:len() >= box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx.size + box_boxoptions_solaunicast_hsvf_v4_5_1.message_header.size
+  return buffer:len() >= box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.size + box_boxoptions_solaunicast_hsvf_v4_5_1.message_header.size
 end
 
 -- Dissect Packet
 box_boxoptions_solaunicast_hsvf_v4_5_1.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Frame
+  -- Dependency for Sola Frame
   local end_of_payload = buffer:len()
 
-  -- Frame: Struct of 4 fields
+  -- Sola Frame: Struct of 4 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_frame = frame_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_sola_frame = sola_frame_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
       -- Dissect this message within a buffer bounded to its own frame
-      local frame = buffer(0, index + size_of_frame):tvb()
-      index = box_boxoptions_solaunicast_hsvf_v4_5_1.frame.dissect(frame, index, packet, parent, size_of_frame)
+      local frame = buffer(0, index + size_of_sola_frame):tvb()
+      index = box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.dissect(frame, index, packet, parent, size_of_sola_frame)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -18241,8 +18315,8 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify Hsvf Stx Field
-box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx.verify = function(buffer)
+-- Verify Sola Message Start Field
+box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.verify = function(buffer)
   -- Too short to carry the field: not this protocol
   if buffer:len() < 0 + 1 then
     return false
@@ -18263,8 +18337,8 @@ local function omi_box_boxoptions_solaunicast_hsvf_v4_5_1_tcp_heuristic(buffer, 
   -- Verify packet length
   if not box_boxoptions_solaunicast_hsvf_v4_5_1.packet.requiredsize(buffer) then return false end
 
-  -- Verify Hsvf Stx
-  if not box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx.verify(buffer) then return false end
+  -- Verify Sola Message Start
+  if not box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_box_boxoptions_solaunicast_hsvf_v4_5_1

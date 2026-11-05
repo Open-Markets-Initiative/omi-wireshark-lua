@@ -161,11 +161,13 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 
 -- Register Miax MiaxOptions TopOfMarket Mach 2.5 Show Options
 omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -179,6 +181,9 @@ function omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs_changed()
   end
   if show.headers ~= omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.show_headers then
     show.headers = omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.show_headers
+  end
+  if show.padding ~= omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.show_padding then
+    show.padding = omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.show_padding
   end
   if show.structs ~= omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.show_structs then
     show.structs = omi_miax_miaxoptions_topofmarket_mach_v2_5.prefs.show_structs
@@ -3654,7 +3659,11 @@ miax_miaxoptions_topofmarket_mach_v2_5.simple_series_update_message.fields = fun
   index, priority_quote_width = miax_miaxoptions_topofmarket_mach_v2_5.priority_quote_width.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_miaxoptions_topofmarket_mach_v2_5.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_miaxoptions_topofmarket_mach_v2_5.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_topofmarket_mach_v2_5.reserved_8.size
+  end
 
   return index
 end

@@ -151,6 +151,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.padding = false
 show.sequences = true
 
 -- Register Bist BorsaIstanbul GeniumInet Glimpse 2.7 Show Options
@@ -161,6 +162,7 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_application_messages =
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
@@ -175,6 +177,9 @@ function omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs_changed()
   end
   if show.headers ~= omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_headers then
     show.headers = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_headers
+  end
+  if show.padding ~= omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_padding then
+    show.padding = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_padding
   end
   if show.session_messages ~= omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_session_messages then
     show.session_messages = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_session_messages
@@ -1838,7 +1843,11 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.add_order_with_mpid_attribution.field
   index, side = bist_borsaistanbul_geniuminet_glimpse_v2_7.side.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Reserved
-  index, reserved_4 = bist_borsaistanbul_geniuminet_glimpse_v2_7.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = bist_borsaistanbul_geniuminet_glimpse_v2_7.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bist_borsaistanbul_geniuminet_glimpse_v2_7.reserved_4.size
+  end
 
   -- Quantity: Numeric
   index, quantity = bist_borsaistanbul_geniuminet_glimpse_v2_7.quantity.dissect(buffer, index, packet, parent)

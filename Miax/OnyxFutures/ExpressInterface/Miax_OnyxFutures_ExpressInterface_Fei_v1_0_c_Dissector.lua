@@ -163,6 +163,7 @@ show.structs = true
 show.application_messages = true
 show.headers = true
 show.repeating_groups = true
+show.padding = false
 show.indexes = true
 
 -- Register Miax OnyxFutures ExpressInterface Fei 1.0.c Show Options
@@ -170,6 +171,7 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_structs = Pref.bool(
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -183,6 +185,9 @@ function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
   end
   if show.headers ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_headers then
     show.headers = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_headers
+  end
+  if show.padding ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_padding then
+    show.padding = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_padding
   end
   if show.repeating_groups ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_repeating_groups then
     show.repeating_groups = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_repeating_groups
@@ -2541,7 +2546,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.
   index, status = miax_onyxfutures_expressinterface_fei_v1_0_c.status.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: BinaryU
-  index, reserved_16 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.size
+  end
 
   return index
 end
@@ -2595,7 +2604,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg.fields = function(buff
   index, leg_ratio = miax_onyxfutures_expressinterface_fei_v1_0_c.leg_ratio.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.size
+  end
 
   return index
 end
@@ -2671,7 +2684,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.fields = 
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: BinaryU
-  index, reserved_16 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.size
+  end
 
   -- Number Of Legs: BinaryU
   index, number_of_legs = miax_onyxfutures_expressinterface_fei_v1_0_c.number_of_legs.dissect(buffer, index, packet, parent)
@@ -2735,7 +2752,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.fields = funct
   index, status = miax_onyxfutures_expressinterface_fei_v1_0_c.status.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
+  end
 
   return index
 end
@@ -2798,7 +2819,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_request.fields = functi
   index, operator_location = miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
+  end
 
   -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.dissect(buffer, index, packet, parent)
@@ -2819,7 +2844,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_request.fields = functi
   index, purge_group = miax_onyxfutures_expressinterface_fei_v1_0_c.purge_group.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: BinaryU
-  index, reserved_9 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_9.size
+  end
 
   return index
 end
@@ -2955,7 +2984,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message.fields
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
+  end
 
   return index
 end
@@ -3027,7 +3060,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.fields = func
   index, status = miax_onyxfutures_expressinterface_fei_v1_0_c.status.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
+  end
 
   return index
 end
@@ -3184,7 +3221,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message.fields
   index, additional_order_indicators = miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.dissect(buffer, index, packet, parent)
 
   -- Reserved 32: BinaryU
-  index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
+  end
 
   return index
 end
@@ -3248,7 +3289,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.fields =
   index, status = miax_onyxfutures_expressinterface_fei_v1_0_c.status.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
+  end
 
   return index
 end
@@ -3469,7 +3514,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.fields = 
   index, text_memo = miax_onyxfutures_expressinterface_fei_v1_0_c.text_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 32: BinaryU
-  index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
+  end
 
   return index
 end
@@ -3625,7 +3674,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.fiel
   index, order_instructions = miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.dissect(buffer, index, packet, parent)
 
   -- Reserved 32: BinaryU
-  index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
+  end
 
   return index
 end
@@ -3737,7 +3790,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.field
   index, liquidity_indicator = miax_onyxfutures_expressinterface_fei_v1_0_c.liquidity_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 32: BinaryU
-  index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
+  end
 
   return index
 end
@@ -3793,7 +3850,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification.fi
   index, update_status = miax_onyxfutures_expressinterface_fei_v1_0_c.update_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 32: BinaryU
-  index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
+  end
 
   return index
 end
@@ -3881,7 +3942,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notificati
   index, last_size = miax_onyxfutures_expressinterface_fei_v1_0_c.last_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.size
+  end
 
   return index
 end
@@ -3993,7 +4058,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification.fields = 
   index, additional_order_indicators = miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.dissect(buffer, index, packet, parent)
 
   -- Reserved 32: BinaryU
-  index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
+  end
 
   return index
 end
@@ -4133,7 +4202,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification.fields = fun
   index, text_memo = miax_onyxfutures_expressinterface_fei_v1_0_c.text_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 32: BinaryU
-  index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
+  end
 
   return index
 end
@@ -4189,7 +4262,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message.f
   index, system_status = miax_onyxfutures_expressinterface_fei_v1_0_c.system_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.size
+  end
 
   return index
 end

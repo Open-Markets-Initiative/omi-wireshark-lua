@@ -189,11 +189,13 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 
 -- Register Lseg Millennium NativeTradingGatewayRecovery Ntgi 21.2 Show Options
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
@@ -206,6 +208,9 @@ function omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs_chang
   end
   if show.headers ~= omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_headers then
     show.headers = omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_headers
+  end
+  if show.padding ~= omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_padding then
+    show.padding = omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_padding
   end
   if show.structs ~= omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_structs then
     show.structs = omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_structs
@@ -3315,10 +3320,18 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_mes
   index, transact_time = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.transact_time.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: UInt64
-  index, reserved_8 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_8.size
+  end
 
   -- Second Reserved 8: UInt64
-  index, second_reserved_8 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.second_reserved_8.size
+  end
 
   -- Rfq Execution Report Order Status: UInt8
   index, rfq_execution_report_order_status = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_order_status.dissect(buffer, index, packet, parent)
@@ -3330,10 +3343,18 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_mes
   index, instrument_id = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 8: UInt64
-  index, third_reserved_8 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.third_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_8 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.third_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.third_reserved_8.size
+  end
 
   -- Fourth Reserved 8: UInt64
-  index, fourth_reserved_8 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fourth_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_8 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fourth_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fourth_reserved_8.size
+  end
 
   -- Contra Firm: String
   index, contra_firm = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_firm.dissect(buffer, index, packet, parent)
@@ -3360,7 +3381,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_mes
   index, last_market = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.last_market.dissect(buffer, index, packet, parent)
 
   -- Reserved 7: String
-  index, reserved_7 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_7.size
+  end
 
   return index
 end
@@ -3456,7 +3481,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_response_message.f
   index, clearing_account = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.clearing_account.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: UInt64
-  index, reserved_8 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_8.size
+  end
 
   return index
 end
@@ -4138,13 +4167,21 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_mass_cancel_report
   index, mass_cancel_reject_reason = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.mass_cancel_reject_reason.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Int32
-  index, reserved_4 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_4.size
+  end
 
   -- Transact Time: Struct of 2 fields
   index, transact_time = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.transact_time.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: String
-  index, reserved_10 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_10.size
+  end
 
   return index
 end
@@ -4336,7 +4373,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_message
   index, owner_type = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.owner_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 7: String
-  index, reserved_7 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_7.size
+  end
 
   -- Counterparty: String
   index, counterparty = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.counterparty.dissect(buffer, index, packet, parent)
@@ -4360,7 +4401,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_message
   index, capacity = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.capacity.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alpha
-  index, reserved_1 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_1.size
+  end
 
   -- Public Order Id: String
   index, public_order_id = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.public_order_id.dissect(buffer, index, packet, parent)

@@ -133,6 +133,7 @@ show.structs = true
 show.application_messages = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Miax MiaxOptions ComplexTopOfMarket Mach 1.3 Show Options
@@ -140,6 +141,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_structs = Pref.bool
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
@@ -154,6 +156,9 @@ function omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs_changed()
   end
   if show.headers ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_headers then
     show.headers = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_headers
+  end
+  if show.padding ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_padding then
+    show.padding = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_padding
   end
   if show.repeating_groups ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_repeating_groups then
     show.repeating_groups = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_repeating_groups
@@ -2026,7 +2031,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_last_sale_message.fields 
   index, trade_condition = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Reserved
-  index, reserved_16 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.size
+  end
 
   return index
 end
@@ -2528,7 +2537,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.leg_definition.fields = function(b
   index, leg_side = miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.size
+  end
 
   return index
 end
@@ -2603,13 +2616,21 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.complex_strategy_definition_messag
   index, active_on_miax = miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.size
+  end
 
   -- Update Reason: Alphanumeric
   index, update_reason = miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: Reserved
-  index, reserved_10 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.size
+  end
 
   -- Number Of Legs: BinaryU
   index, number_of_legs = miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs.dissect(buffer, index, packet, parent)
@@ -2721,7 +2742,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.simple_series_update_message.field
   index, priority_quote_width = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.size
+  end
 
   return index
 end

@@ -94,6 +94,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -101,6 +102,7 @@ show.sequences = true
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -115,6 +117,9 @@ function omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs_changed()
   end
   if show.headers ~= omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_headers then
     show.headers = omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_padding then
+    show.padding = omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_padding
   end
   if show.structs ~= omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_structs then
     show.structs = omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_structs
@@ -1154,7 +1159,11 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trading_status_message.fields
   index, halt_status = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.halt_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_1.size
+  end
 
   return index
 end
@@ -1214,7 +1223,11 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_break_message.fields = 
   index, cboe_cumulative_executed_volume_long = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.cboe_cumulative_executed_volume_long.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Binary
-  index, reserved_9 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_9.size
+  end
 
   return index
 end
@@ -1286,7 +1299,11 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_message.fields = functi
   index, trade_condition = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Binary
-  index, reserved_8 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_8.size
+  end
 
   return index
 end
@@ -1338,7 +1355,11 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.cboe_market_status_message.fi
   index, market_status = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.market_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_1.size
+  end
 
   return index
 end
@@ -1462,7 +1483,11 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.long_symbol_summary_message.f
   index, consolidated_best_ask_quantity_long = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.consolidated_best_ask_quantity_long.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Binary
-  index, reserved_9 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_9.size
+  end
 
   return index
 end
@@ -1530,7 +1555,11 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.short_symbol_summary_message.
   index, consolidated_best_ask_quantity_short = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.consolidated_best_ask_quantity_short.dissect(buffer, index, packet, parent)
 
   -- Reserved 5: Binary
-  index, reserved_5 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_5 = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_5.size
+  end
 
   return index
 end

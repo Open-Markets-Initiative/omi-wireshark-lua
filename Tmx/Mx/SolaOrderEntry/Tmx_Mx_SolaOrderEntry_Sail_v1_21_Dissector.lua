@@ -350,6 +350,7 @@ local show = {}
 -- Tmx Mx SolaOrderEntry Sail 1.21 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.padding = false
 show.indexes = true
 
 -- Register Tmx Mx SolaOrderEntry Sail 1.21 Show Options
@@ -358,6 +359,7 @@ omi_tmx_mx_solaorderentry_sail_v1_21.prefs.assume_role = Pref.enum("Assume Role"
 omi_tmx_mx_solaorderentry_sail_v1_21.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -366,6 +368,9 @@ function omi_tmx_mx_solaorderentry_sail_v1_21.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_application_messages then
     show.application_messages = omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_application_messages
+  end
+  if show.padding ~= omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_padding then
+    show.padding = omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_padding
   end
   if show.structs ~= omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_structs then
     show.structs = omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_structs
@@ -5779,7 +5784,11 @@ tmx_mx_solaorderentry_sail_v1_21.clearing_data.fields = function(buffer, offset,
   index, hedge_spec = tmx_mx_solaorderentry_sail_v1_21.hedge_spec.dissect(buffer, index, packet, parent)
 
   -- Filler 5: String (5)
-  index, filler_5 = tmx_mx_solaorderentry_sail_v1_21.filler_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_5 = tmx_mx_solaorderentry_sail_v1_21.filler_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_5.size
+  end
 
   return index
 end
@@ -5867,7 +5876,11 @@ tmx_mx_solaorderentry_sail_v1_21.order_cancellation_notice_by_mod_or_system.fiel
   index, original_order_id = tmx_mx_solaorderentry_sail_v1_21.original_order_id.dissect(buffer, index, packet, parent)
 
   -- Filler 6: Numeric (6)
-  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_6.size
+  end
 
   return index
 end
@@ -5972,7 +5985,11 @@ tmx_mx_solaorderentry_sail_v1_21.leg_execution_cancellation_notice.fields = func
   index, trade_type = tmx_mx_solaorderentry_sail_v1_21.trade_type.dissect(buffer, index, packet, parent)
 
   -- Filler 6: Numeric (6)
-  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_6.size
+  end
 
   -- Trade Number: Trade Number
   index, trade_number = tmx_mx_solaorderentry_sail_v1_21.trade_number.dissect(buffer, index, packet, parent)
@@ -6099,7 +6116,11 @@ tmx_mx_solaorderentry_sail_v1_21.execution_cancellation_notice.fields = function
   index, trade_type = tmx_mx_solaorderentry_sail_v1_21.trade_type.dissect(buffer, index, packet, parent)
 
   -- Filler 6: Numeric (6)
-  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_6.size
+  end
 
   -- Trade Number: Trade Number
   index, trade_number = tmx_mx_solaorderentry_sail_v1_21.trade_number.dissect(buffer, index, packet, parent)
@@ -6211,7 +6232,11 @@ tmx_mx_solaorderentry_sail_v1_21.execution_notice.fields = function(buffer, offs
   index, trade_type = tmx_mx_solaorderentry_sail_v1_21.trade_type.dissect(buffer, index, packet, parent)
 
   -- Filler 6: Numeric (6)
-  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_6.size
+  end
 
   -- Trade Number: Trade Number
   index, trade_number = tmx_mx_solaorderentry_sail_v1_21.trade_number.dissect(buffer, index, packet, parent)
@@ -6500,7 +6525,11 @@ tmx_mx_solaorderentry_sail_v1_21.leg_execution_notice.fields = function(buffer, 
   index, trade_type = tmx_mx_solaorderentry_sail_v1_21.trade_type.dissect(buffer, index, packet, parent)
 
   -- Filler 6: Numeric (6)
-  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_6.size
+  end
 
   -- Trade Number: Trade Number
   index, trade_number = tmx_mx_solaorderentry_sail_v1_21.trade_number.dissect(buffer, index, packet, parent)
@@ -6738,13 +6767,21 @@ tmx_mx_solaorderentry_sail_v1_21.excluded_instrument_notice.fields = function(bu
   index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String (2)
-  index, filler_2 = tmx_mx_solaorderentry_sail_v1_21.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = tmx_mx_solaorderentry_sail_v1_21.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_2.size
+  end
 
   -- Trader Id: Trader ID
   index, trader_id = tmx_mx_solaorderentry_sail_v1_21.trader_id.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String (4)
-  index, filler_4 = tmx_mx_solaorderentry_sail_v1_21.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = tmx_mx_solaorderentry_sail_v1_21.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_4.size
+  end
 
   -- Nb Of Instruments: Numeric (4)
   index, nb_of_instruments = tmx_mx_solaorderentry_sail_v1_21.nb_of_instruments.dissect(buffer, index, packet, parent)
@@ -7193,7 +7230,11 @@ tmx_mx_solaorderentry_sail_v1_21.order_cancellation_acknowledgement.fields = fun
   index, original_order_id = tmx_mx_solaorderentry_sail_v1_21.original_order_id.dissect(buffer, index, packet, parent)
 
   -- Filler 6: Numeric (6)
-  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_6.size
+  end
 
   return index
 end
@@ -7300,7 +7341,11 @@ tmx_mx_solaorderentry_sail_v1_21.new_strategy_instrument_acknowledgement_leg_def
   index, leg_verb = tmx_mx_solaorderentry_sail_v1_21.leg_verb.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String (1)
-  index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_1.size
+  end
 
   -- Leg Quantity Ratio: Quantity
   index, leg_quantity_ratio = tmx_mx_solaorderentry_sail_v1_21.leg_quantity_ratio.dissect(buffer, index, packet, parent)
@@ -7465,7 +7510,11 @@ tmx_mx_solaorderentry_sail_v1_21.order_modification_acknowledgement.fields = fun
   index, original_order_id = tmx_mx_solaorderentry_sail_v1_21.original_order_id.dissect(buffer, index, packet, parent)
 
   -- Filler 6: Numeric (6)
-  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_6.size
+  end
 
   return index
 end
@@ -7605,7 +7654,11 @@ tmx_mx_solaorderentry_sail_v1_21.order_acknowledgement.fields = function(buffer,
   index, original_order_id = tmx_mx_solaorderentry_sail_v1_21.original_order_id.dissect(buffer, index, packet, parent)
 
   -- Filler 6: Numeric (6)
-  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_6.size
+  end
 
   return index
 end
@@ -10761,7 +10814,11 @@ tmx_mx_solaorderentry_sail_v1_21.selling_clearing_data.fields = function(buffer,
   index, hedge_spec = tmx_mx_solaorderentry_sail_v1_21.hedge_spec.dissect(buffer, index, packet, parent)
 
   -- Filler 5: String (5)
-  index, filler_5 = tmx_mx_solaorderentry_sail_v1_21.filler_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_5 = tmx_mx_solaorderentry_sail_v1_21.filler_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_5.size
+  end
 
   return index
 end
@@ -10817,7 +10874,11 @@ tmx_mx_solaorderentry_sail_v1_21.buying_clearing_data.fields = function(buffer, 
   index, hedge_spec = tmx_mx_solaorderentry_sail_v1_21.hedge_spec.dissect(buffer, index, packet, parent)
 
   -- Filler 5: String (5)
-  index, filler_5 = tmx_mx_solaorderentry_sail_v1_21.filler_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_5 = tmx_mx_solaorderentry_sail_v1_21.filler_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_5.size
+  end
 
   return index
 end
@@ -10876,7 +10937,11 @@ tmx_mx_solaorderentry_sail_v1_21.cross_entry.fields = function(buffer, offset, p
   index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String (1)
-  index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_1.size
+  end
 
   -- Quantity: Quantity
   index, quantity = tmx_mx_solaorderentry_sail_v1_21.quantity.dissect(buffer, index, packet, parent)
@@ -10897,7 +10962,11 @@ tmx_mx_solaorderentry_sail_v1_21.cross_entry.fields = function(buffer, offset, p
   index, selling_owner_data = tmx_mx_solaorderentry_sail_v1_21.selling_owner_data.dissect(buffer, index, packet, parent)
 
   -- Filler 20: String (20)
-  index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_20.size
+  end
 
   return index
 end
@@ -10956,7 +11025,11 @@ tmx_mx_solaorderentry_sail_v1_21.new_strategy_instrument_leg_definition_repeatin
   index, leg_verb = tmx_mx_solaorderentry_sail_v1_21.leg_verb.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String (1)
-  index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_1.size
+  end
 
   -- Leg Quantity Ratio: Quantity
   index, leg_quantity_ratio = tmx_mx_solaorderentry_sail_v1_21.leg_quantity_ratio.dissect(buffer, index, packet, parent)
@@ -11121,10 +11194,18 @@ tmx_mx_solaorderentry_sail_v1_21.order_modification.fields = function(buffer, of
   index, gtd_date = tmx_mx_solaorderentry_sail_v1_21.gtd_date.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String (4)
-  index, filler_4 = tmx_mx_solaorderentry_sail_v1_21.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = tmx_mx_solaorderentry_sail_v1_21.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_4.size
+  end
 
   -- Filler 1: String (1)
-  index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_1.size
+  end
 
   -- Modified Order Id: Order ID
   index, modified_order_id = tmx_mx_solaorderentry_sail_v1_21.modified_order_id.dissect(buffer, index, packet, parent)
@@ -11142,7 +11223,11 @@ tmx_mx_solaorderentry_sail_v1_21.order_modification.fields = function(buffer, of
   index, anti_wash_instruction = tmx_mx_solaorderentry_sail_v1_21.anti_wash_instruction.dissect(buffer, index, packet, parent)
 
   -- Filler 20: String (20)
-  index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_20.size
+  end
 
   return index
 end
@@ -11243,7 +11328,11 @@ tmx_mx_solaorderentry_sail_v1_21.order_entry.fields = function(buffer, offset, p
   index, executing_participant = tmx_mx_solaorderentry_sail_v1_21.executing_participant.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String (1)
-  index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_1.size
+  end
 
   -- Clearing Data: Struct of 5 fields
   index, clearing_data = tmx_mx_solaorderentry_sail_v1_21.clearing_data.dissect(buffer, index, packet, parent)
@@ -11258,7 +11347,11 @@ tmx_mx_solaorderentry_sail_v1_21.order_entry.fields = function(buffer, offset, p
   index, anti_wash_instruction = tmx_mx_solaorderentry_sail_v1_21.anti_wash_instruction.dissect(buffer, index, packet, parent)
 
   -- Filler 20: String (20)
-  index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_20.size
+  end
 
   return index
 end
@@ -11464,7 +11557,11 @@ tmx_mx_solaorderentry_sail_v1_21.set_group_risk_limits_occurrence.fields = funct
   index, short_exposure_limit = tmx_mx_solaorderentry_sail_v1_21.short_exposure_limit.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String (2)
-  index, filler_2 = tmx_mx_solaorderentry_sail_v1_21.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = tmx_mx_solaorderentry_sail_v1_21.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_2.size
+  end
 
   return index
 end
@@ -11879,7 +11976,11 @@ tmx_mx_solaorderentry_sail_v1_21.bulk_quote_data.fields = function(buffer, offse
   index, minimum_volume = tmx_mx_solaorderentry_sail_v1_21.minimum_volume.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String (2)
-  index, filler_2 = tmx_mx_solaorderentry_sail_v1_21.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = tmx_mx_solaorderentry_sail_v1_21.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_2.size
+  end
 
   -- Calculation Time Interval: Numeric (8)
   index, calculation_time_interval = tmx_mx_solaorderentry_sail_v1_21.calculation_time_interval.dissect(buffer, index, packet, parent)
@@ -11900,7 +12001,11 @@ tmx_mx_solaorderentry_sail_v1_21.bulk_quote_data.fields = function(buffer, offse
   index, anti_wash_id = tmx_mx_solaorderentry_sail_v1_21.anti_wash_id.dissect(buffer, index, packet, parent)
 
   -- Filler 20: String (20)
-  index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solaorderentry_sail_v1_21.filler_20.size
+  end
 
   return index
 end

@@ -136,6 +136,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -143,6 +144,7 @@ show.sequences = true
 omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_sgx_titandt_depthofbook_itch_v1_4.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
@@ -158,6 +160,9 @@ function omi_sgx_titandt_depthofbook_itch_v1_4.prefs_changed()
   end
   if show.headers ~= omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_headers then
     show.headers = omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_headers
+  end
+  if show.padding ~= omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_padding then
+    show.padding = omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_padding
   end
   if show.structs ~= omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_structs then
     show.structs = omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_structs
@@ -1872,10 +1877,18 @@ sgx_titandt_depthofbook_itch_v1_4.trade_message.fields = function(buffer, offset
   index, trade_price = sgx_titandt_depthofbook_itch_v1_4.trade_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 7 A: Reserved
-  index, reserved_7_a = sgx_titandt_depthofbook_itch_v1_4.reserved_7_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7_a = sgx_titandt_depthofbook_itch_v1_4.reserved_7_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_7_a.size
+  end
 
   -- Reserved 7 B: Reserved
-  index, reserved_7_b = sgx_titandt_depthofbook_itch_v1_4.reserved_7_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7_b = sgx_titandt_depthofbook_itch_v1_4.reserved_7_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_7_b.size
+  end
 
   -- Printable: Alpha
   index, printable = sgx_titandt_depthofbook_itch_v1_4.printable.dissect(buffer, index, packet, parent)
@@ -2119,10 +2132,18 @@ sgx_titandt_depthofbook_itch_v1_4.order_executed_with_price_message.fields = fun
   index, combo_group_id = sgx_titandt_depthofbook_itch_v1_4.combo_group_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 7 A: Reserved
-  index, reserved_7_a = sgx_titandt_depthofbook_itch_v1_4.reserved_7_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7_a = sgx_titandt_depthofbook_itch_v1_4.reserved_7_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_7_a.size
+  end
 
   -- Reserved 7 B: Reserved
-  index, reserved_7_b = sgx_titandt_depthofbook_itch_v1_4.reserved_7_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7_b = sgx_titandt_depthofbook_itch_v1_4.reserved_7_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_7_b.size
+  end
 
   -- Trade Price: Price
   index, trade_price = sgx_titandt_depthofbook_itch_v1_4.trade_price.dissect(buffer, index, packet, parent)
@@ -2200,10 +2221,18 @@ sgx_titandt_depthofbook_itch_v1_4.order_executed_message.fields = function(buffe
   index, combo_group_id = sgx_titandt_depthofbook_itch_v1_4.combo_group_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 7 A: Reserved
-  index, reserved_7_a = sgx_titandt_depthofbook_itch_v1_4.reserved_7_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7_a = sgx_titandt_depthofbook_itch_v1_4.reserved_7_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_7_a.size
+  end
 
   -- Reserved 7 B: Reserved
-  index, reserved_7_b = sgx_titandt_depthofbook_itch_v1_4.reserved_7_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7_b = sgx_titandt_depthofbook_itch_v1_4.reserved_7_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_7_b.size
+  end
 
   return index
 end
@@ -2499,7 +2528,11 @@ sgx_titandt_depthofbook_itch_v1_4.combination_order_book_directory_message.field
   index, long_name = sgx_titandt_depthofbook_itch_v1_4.long_name.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: Reserved
-  index, reserved_12 = sgx_titandt_depthofbook_itch_v1_4.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = sgx_titandt_depthofbook_itch_v1_4.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_12.size
+  end
 
   -- Financial Product: Numeric
   index, financial_product = sgx_titandt_depthofbook_itch_v1_4.financial_product.dissect(buffer, index, packet, parent)
@@ -2514,13 +2547,25 @@ sgx_titandt_depthofbook_itch_v1_4.combination_order_book_directory_message.field
   index, number_of_decimals_in_nominal_value = sgx_titandt_depthofbook_itch_v1_4.number_of_decimals_in_nominal_value.dissect(buffer, index, packet, parent)
 
   -- Reserved 4 A: Reserved
-  index, reserved_4_a = sgx_titandt_depthofbook_itch_v1_4.reserved_4_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4_a = sgx_titandt_depthofbook_itch_v1_4.reserved_4_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_4_a.size
+  end
 
   -- Reserved 4 B: Reserved
-  index, reserved_4_b = sgx_titandt_depthofbook_itch_v1_4.reserved_4_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4_b = sgx_titandt_depthofbook_itch_v1_4.reserved_4_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_4_b.size
+  end
 
   -- Reserved 4 C: Reserved
-  index, reserved_4_c = sgx_titandt_depthofbook_itch_v1_4.reserved_4_c.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4_c = sgx_titandt_depthofbook_itch_v1_4.reserved_4_c.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_4_c.size
+  end
 
   -- Nominal Value: Numeric
   index, nominal_value = sgx_titandt_depthofbook_itch_v1_4.nominal_value.dissect(buffer, index, packet, parent)
@@ -2623,7 +2668,11 @@ sgx_titandt_depthofbook_itch_v1_4.order_book_directory_message.fields = function
   index, long_name = sgx_titandt_depthofbook_itch_v1_4.long_name.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: Reserved
-  index, reserved_12 = sgx_titandt_depthofbook_itch_v1_4.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = sgx_titandt_depthofbook_itch_v1_4.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_12.size
+  end
 
   -- Financial Product: Numeric
   index, financial_product = sgx_titandt_depthofbook_itch_v1_4.financial_product.dissect(buffer, index, packet, parent)
@@ -2638,13 +2687,25 @@ sgx_titandt_depthofbook_itch_v1_4.order_book_directory_message.fields = function
   index, number_of_decimals_in_nominal_value = sgx_titandt_depthofbook_itch_v1_4.number_of_decimals_in_nominal_value.dissect(buffer, index, packet, parent)
 
   -- Reserved 4 A: Reserved
-  index, reserved_4_a = sgx_titandt_depthofbook_itch_v1_4.reserved_4_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4_a = sgx_titandt_depthofbook_itch_v1_4.reserved_4_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_4_a.size
+  end
 
   -- Reserved 4 B: Reserved
-  index, reserved_4_b = sgx_titandt_depthofbook_itch_v1_4.reserved_4_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4_b = sgx_titandt_depthofbook_itch_v1_4.reserved_4_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_4_b.size
+  end
 
   -- Reserved 4 C: Reserved
-  index, reserved_4_c = sgx_titandt_depthofbook_itch_v1_4.reserved_4_c.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4_c = sgx_titandt_depthofbook_itch_v1_4.reserved_4_c.dissect(buffer, index, packet, parent)
+  else
+    index = index + sgx_titandt_depthofbook_itch_v1_4.reserved_4_c.size
+  end
 
   -- Nominal Value: Numeric
   index, nominal_value = sgx_titandt_depthofbook_itch_v1_4.nominal_value.dissect(buffer, index, packet, parent)

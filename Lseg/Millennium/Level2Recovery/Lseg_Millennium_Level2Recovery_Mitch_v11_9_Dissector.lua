@@ -88,12 +88,14 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Lseg Millennium Level2Recovery Mitch 11.9 Show Options
 omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -105,6 +107,9 @@ function omi_lseg_millennium_level2recovery_mitch_v11_9.prefs_changed()
   end
   if show.headers ~= omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_headers then
     show.headers = omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_headers
+  end
+  if show.padding ~= omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_padding then
+    show.padding = omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_padding
   end
   if show.structs ~= omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_structs then
     show.structs = omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_structs
@@ -984,10 +989,18 @@ lseg_millennium_level2recovery_mitch_v11_9.add_attributed_order_message.fields =
   index, instrument_id = lseg_millennium_level2recovery_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = lseg_millennium_level2recovery_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = lseg_millennium_level2recovery_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_level2recovery_mitch_v11_9.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = lseg_millennium_level2recovery_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = lseg_millennium_level2recovery_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_level2recovery_mitch_v11_9.reserved_b.size
+  end
 
   -- Price: Price
   index, price = lseg_millennium_level2recovery_mitch_v11_9.price.dissect(buffer, index, packet, parent)
@@ -1124,10 +1137,18 @@ lseg_millennium_level2recovery_mitch_v11_9.add_order_message.fields = function(b
   index, instrument_id = lseg_millennium_level2recovery_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = lseg_millennium_level2recovery_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = lseg_millennium_level2recovery_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_level2recovery_mitch_v11_9.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = lseg_millennium_level2recovery_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = lseg_millennium_level2recovery_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_level2recovery_mitch_v11_9.reserved_b.size
+  end
 
   -- Price: Price
   index, price = lseg_millennium_level2recovery_mitch_v11_9.price.dissect(buffer, index, packet, parent)
@@ -1136,7 +1157,11 @@ lseg_millennium_level2recovery_mitch_v11_9.add_order_message.fields = function(b
   index, add_order_flags = lseg_millennium_level2recovery_mitch_v11_9.add_order_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: Alpha
-  index, reserved_10 = lseg_millennium_level2recovery_mitch_v11_9.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = lseg_millennium_level2recovery_mitch_v11_9.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_level2recovery_mitch_v11_9.reserved_10.size
+  end
 
   return index
 end
@@ -1237,10 +1262,18 @@ lseg_millennium_level2recovery_mitch_v11_9.symbol_status_message.fields = functi
   index, instrument_id = lseg_millennium_level2recovery_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = lseg_millennium_level2recovery_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = lseg_millennium_level2recovery_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_level2recovery_mitch_v11_9.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = lseg_millennium_level2recovery_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = lseg_millennium_level2recovery_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_millennium_level2recovery_mitch_v11_9.reserved_b.size
+  end
 
   -- Trading Status: Byte
   index, trading_status = lseg_millennium_level2recovery_mitch_v11_9.trading_status.dissect(buffer, index, packet, parent)

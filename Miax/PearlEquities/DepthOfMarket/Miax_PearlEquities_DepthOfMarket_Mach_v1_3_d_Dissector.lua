@@ -140,11 +140,13 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 
 -- Register Miax PearlEquities DepthOfMarket Mach 1.3.d Show Options
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -158,6 +160,9 @@ function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs_changed()
   end
   if show.headers ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_headers then
     show.headers = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_headers
+  end
+  if show.padding ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_padding then
+    show.padding = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_padding
   end
   if show.structs ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs then
     show.structs = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs
@@ -3110,13 +3115,21 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.symbol_update_message.fields = func
   index, ticker_symbol = miax_pearlequities_depthofmarket_mach_v1_3_d.ticker_symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: BinaryU
-  index, reserved_1 = miax_pearlequities_depthofmarket_mach_v1_3_d.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = miax_pearlequities_depthofmarket_mach_v1_3_d.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.reserved_1.size
+  end
 
   -- Test Security Indicator: Alphanumeric
   index, test_security_indicator = miax_pearlequities_depthofmarket_mach_v1_3_d.test_security_indicator.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: BinaryU
-  index, second_reserved_1 = miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.size
+  end
 
   -- Lot Size: BinaryU
   index, lot_size = miax_pearlequities_depthofmarket_mach_v1_3_d.lot_size.dissect(buffer, index, packet, parent)

@@ -159,6 +159,7 @@ show.application_messages = true
 show.structs = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Eurex T7 Eobi Fbe 6.1 Show Options
@@ -166,6 +167,7 @@ omi_eurex_t7_eobi_fbe_v6_1.prefs.show_application_messages = Pref.bool("Show App
 omi_eurex_t7_eobi_fbe_v6_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_eurex_t7_eobi_fbe_v6_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_eurex_t7_eobi_fbe_v6_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_eurex_t7_eobi_fbe_v6_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_eurex_t7_eobi_fbe_v6_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_eurex_t7_eobi_fbe_v6_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -179,6 +181,9 @@ function omi_eurex_t7_eobi_fbe_v6_1.prefs_changed()
   end
   if show.headers ~= omi_eurex_t7_eobi_fbe_v6_1.prefs.show_headers then
     show.headers = omi_eurex_t7_eobi_fbe_v6_1.prefs.show_headers
+  end
+  if show.padding ~= omi_eurex_t7_eobi_fbe_v6_1.prefs.show_padding then
+    show.padding = omi_eurex_t7_eobi_fbe_v6_1.prefs.show_padding
   end
   if show.repeating_groups ~= omi_eurex_t7_eobi_fbe_v6_1.prefs.show_repeating_groups then
     show.repeating_groups = omi_eurex_t7_eobi_fbe_v6_1.prefs.show_repeating_groups
@@ -2530,7 +2535,11 @@ eurex_t7_eobi_fbe_v6_1.md_trade_entry_grp_comp.fields = function(buffer, offset,
   index, md_entry_type = eurex_t7_eobi_fbe_v6_1.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eobi_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eobi_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -2600,7 +2609,11 @@ eurex_t7_eobi_fbe_v6_1.trade_reversal.fields = function(buffer, offset, packet, 
   index, trade_condition = eurex_t7_eobi_fbe_v6_1.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eobi_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eobi_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad6.size
+  end
 
   -- No Md Entries: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_md_entries = eurex_t7_eobi_fbe_v6_1.no_md_entries.dissect(buffer, index, packet, parent)
@@ -2684,7 +2697,11 @@ eurex_t7_eobi_fbe_v6_1.trade_report.fields = function(buffer, offset, packet, pa
   index, trade_condition = eurex_t7_eobi_fbe_v6_1.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -2793,7 +2810,11 @@ eurex_t7_eobi_fbe_v6_1.order_details_comp.fields = function(buffer, offset, pack
   index, ord_type = eurex_t7_eobi_fbe_v6_1.ord_type.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eobi_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eobi_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad2.size
+  end
 
   -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_eobi_fbe_v6_1.price.dissect(buffer, index, packet, parent)
@@ -2889,7 +2910,11 @@ eurex_t7_eobi_fbe_v6_1.quote_request.fields = function(buffer, offset, packet, p
   index, side = eurex_t7_eobi_fbe_v6_1.side.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eobi_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eobi_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad3.size
+  end
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_t7_eobi_fbe_v6_1.transact_time.dissect(buffer, index, packet, parent)
@@ -2956,7 +2981,11 @@ eurex_t7_eobi_fbe_v6_1.product_summary.fields = function(buffer, offset, packet,
   index, fast_market_indicator = eurex_t7_eobi_fbe_v6_1.fast_market_indicator.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eobi_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eobi_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -3017,7 +3046,11 @@ eurex_t7_eobi_fbe_v6_1.product_state_change.fields = function(buffer, offset, pa
   index, fast_market_indicator = eurex_t7_eobi_fbe_v6_1.fast_market_indicator.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eobi_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eobi_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad3.size
+  end
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_t7_eobi_fbe_v6_1.transact_time.dissect(buffer, index, packet, parent)
@@ -3078,7 +3111,11 @@ eurex_t7_eobi_fbe_v6_1.partial_order_execution.fields = function(buffer, offset,
   index, algorithmic_trade_indicator = eurex_t7_eobi_fbe_v6_1.algorithmic_trade_indicator.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eobi_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = eurex_t7_eobi_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad5.size
+  end
 
   -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_eobi_fbe_v6_1.price.dissect(buffer, index, packet, parent)
@@ -3150,7 +3187,11 @@ eurex_t7_eobi_fbe_v6_1.order_modify_same_prio.fields = function(buffer, offset, 
   index, prev_display_qty = eurex_t7_eobi_fbe_v6_1.prev_display_qty.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad4.size
+  end
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_eobi_fbe_v6_1.security_id.dissect(buffer, index, packet, parent)
@@ -3214,7 +3255,11 @@ eurex_t7_eobi_fbe_v6_1.order_modify.fields = function(buffer, offset, packet, pa
   index, prev_display_qty = eurex_t7_eobi_fbe_v6_1.prev_display_qty.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad4.size
+  end
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_eobi_fbe_v6_1.security_id.dissect(buffer, index, packet, parent)
@@ -3432,7 +3477,11 @@ eurex_t7_eobi_fbe_v6_1.md_instrument_entry_grp_comp.fields = function(buffer, of
   index, trade_condition = eurex_t7_eobi_fbe_v6_1.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eobi_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eobi_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad2.size
+  end
 
   return index
 end
@@ -3579,7 +3628,11 @@ eurex_t7_eobi_fbe_v6_1.instrument_state_change.fields = function(buffer, offset,
   index, security_trading_event = eurex_t7_eobi_fbe_v6_1.security_trading_event.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eobi_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eobi_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad3.size
+  end
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_t7_eobi_fbe_v6_1.transact_time.dissect(buffer, index, packet, parent)
@@ -3626,7 +3679,11 @@ eurex_t7_eobi_fbe_v6_1.heartbeat.fields = function(buffer, offset, packet, paren
   index, last_msg_seq_num_processed = eurex_t7_eobi_fbe_v6_1.last_msg_seq_num_processed.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -3684,7 +3741,11 @@ eurex_t7_eobi_fbe_v6_1.full_order_execution.fields = function(buffer, offset, pa
   index, algorithmic_trade_indicator = eurex_t7_eobi_fbe_v6_1.algorithmic_trade_indicator.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eobi_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = eurex_t7_eobi_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad5.size
+  end
 
   -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_eobi_fbe_v6_1.price.dissect(buffer, index, packet, parent)
@@ -3773,7 +3834,11 @@ eurex_t7_eobi_fbe_v6_1.execution_summary.fields = function(buffer, offset, packe
   index, trade_condition = eurex_t7_eobi_fbe_v6_1.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eobi_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eobi_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad2.size
+  end
 
   -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = eurex_t7_eobi_fbe_v6_1.last_px.dissect(buffer, index, packet, parent)
@@ -3831,7 +3896,11 @@ eurex_t7_eobi_fbe_v6_1.cross_request.fields = function(buffer, offset, packet, p
   index, last_qty = eurex_t7_eobi_fbe_v6_1.last_qty.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad4.size
+  end
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_t7_eobi_fbe_v6_1.transact_time.dissect(buffer, index, packet, parent)
@@ -3902,7 +3971,11 @@ eurex_t7_eobi_fbe_v6_1.auction_clearing_price.fields = function(buffer, offset, 
   index, potential_security_trading_event = eurex_t7_eobi_fbe_v6_1.potential_security_trading_event.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eobi_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eobi_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -3970,7 +4043,11 @@ eurex_t7_eobi_fbe_v6_1.auction_bbo.fields = function(buffer, offset, packet, par
   index, potential_security_trading_event = eurex_t7_eobi_fbe_v6_1.potential_security_trading_event.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eobi_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eobi_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -4030,7 +4107,11 @@ eurex_t7_eobi_fbe_v6_1.instrmt_leg_grp_comp.fields = function(buffer, offset, pa
   index, leg_symbol = eurex_t7_eobi_fbe_v6_1.leg_symbol.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eobi_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad4.size
+  end
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_t7_eobi_fbe_v6_1.leg_security_id.dissect(buffer, index, packet, parent)
@@ -4042,7 +4123,11 @@ eurex_t7_eobi_fbe_v6_1.instrmt_leg_grp_comp.fields = function(buffer, offset, pa
   index, leg_side = eurex_t7_eobi_fbe_v6_1.leg_side.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eobi_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eobi_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -4107,7 +4192,11 @@ eurex_t7_eobi_fbe_v6_1.add_complex_instrument.fields = function(buffer, offset, 
   index, no_legs = eurex_t7_eobi_fbe_v6_1.no_legs.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eobi_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eobi_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad1.size
+  end
 
   -- Array Of: Instrmt Leg Grp Comp
   for instrmt_leg_grp_comp_index = 1, 20 do
@@ -4357,7 +4446,11 @@ eurex_t7_eobi_fbe_v6_1.packet_header.fields = function(buffer, offset, packet, p
   index, appl_seq_reset_indicator = eurex_t7_eobi_fbe_v6_1.appl_seq_reset_indicator.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eobi_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = eurex_t7_eobi_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eobi_fbe_v6_1.pad5.size
+  end
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_t7_eobi_fbe_v6_1.transact_time.dissect(buffer, index, packet, parent)

@@ -133,6 +133,7 @@ show.structs = true
 show.headers = true
 show.application_messages = true
 show.session_messages = true
+show.padding = false
 show.sequences = true
 
 -- Register Tradelogiq LynxAts TcpLevel1 Itch 1.01 Show Options
@@ -143,6 +144,7 @@ omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_structs = Pref.bool("Show
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
@@ -156,6 +158,9 @@ function omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs_changed()
   end
   if show.headers ~= omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_headers then
     show.headers = omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_headers
+  end
+  if show.padding ~= omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_padding then
+    show.padding = omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_padding
   end
   if show.session_messages ~= omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_session_messages then
     show.session_messages = omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.prefs.show_session_messages
@@ -1613,7 +1618,11 @@ tradelogiq_lynxats_tcplevel1_itch_v1_01.extended_stock_directory_message.fields 
   index, frequency = tradelogiq_lynxats_tcplevel1_itch_v1_01.frequency.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Alphanumeric
-  index, reserved_9 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_9.size
+  end
 
   -- Currency: Alpha
   index, currency = tradelogiq_lynxats_tcplevel1_itch_v1_01.currency.dissect(buffer, index, packet, parent)
@@ -1628,7 +1637,11 @@ tradelogiq_lynxats_tcplevel1_itch_v1_01.extended_stock_directory_message.fields 
   index, description = tradelogiq_lynxats_tcplevel1_itch_v1_01.description.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
-  index, reserved_3 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_3.size
+  end
 
   return index
 end
@@ -1697,7 +1710,11 @@ tradelogiq_lynxats_tcplevel1_itch_v1_01.stock_directory_message.fields = functio
   index, dividend_indicator = tradelogiq_lynxats_tcplevel1_itch_v1_01.dividend_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Alphanumeric
-  index, reserved_9 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_9.size
+  end
 
   -- Currency: Alpha
   index, currency = tradelogiq_lynxats_tcplevel1_itch_v1_01.currency.dissect(buffer, index, packet, parent)
@@ -1745,7 +1762,11 @@ tradelogiq_lynxats_tcplevel1_itch_v1_01.system_event_message.fields = function(b
   index, event_code = tradelogiq_lynxats_tcplevel1_itch_v1_01.event_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Alpha
-  index, reserved_2 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_2.size
+  end
 
   -- Timestamp: Integer
   index, timestamp = tradelogiq_lynxats_tcplevel1_itch_v1_01.timestamp.dissect(buffer, index, packet, parent)
@@ -1795,7 +1816,11 @@ tradelogiq_lynxats_tcplevel1_itch_v1_01.trade_correction_message.fields = functi
   local index = offset
 
   -- Reserved 1: Alpha
-  index, reserved_1 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_1.size
+  end
 
   -- Stock Symbol: Alphanumeric & '.'
   index, stock_symbol = tradelogiq_lynxats_tcplevel1_itch_v1_01.stock_symbol.dissect(buffer, index, packet, parent)
@@ -1859,7 +1884,11 @@ tradelogiq_lynxats_tcplevel1_itch_v1_01.trade_bust_message.fields = function(buf
   local index = offset
 
   -- Reserved 1: Alpha
-  index, reserved_1 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_1.size
+  end
 
   -- Stock Symbol: Alphanumeric & '.'
   index, stock_symbol = tradelogiq_lynxats_tcplevel1_itch_v1_01.stock_symbol.dissect(buffer, index, packet, parent)
@@ -1982,7 +2011,11 @@ tradelogiq_lynxats_tcplevel1_itch_v1_01.quote_message.fields = function(buffer, 
   local index = offset
 
   -- Reserved 1: Alpha
-  index, reserved_1 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_lynxats_tcplevel1_itch_v1_01.reserved_1.size
+  end
 
   -- Stock Symbol: Alphanumeric & '.'
   index, stock_symbol = tradelogiq_lynxats_tcplevel1_itch_v1_01.stock_symbol.dissect(buffer, index, packet, parent)

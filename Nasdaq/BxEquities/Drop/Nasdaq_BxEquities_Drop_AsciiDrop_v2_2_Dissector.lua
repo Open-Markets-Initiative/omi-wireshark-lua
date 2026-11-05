@@ -98,6 +98,7 @@ show.structs = true
 show.headers = true
 show.session_messages = true
 show.application_messages = true
+show.padding = false
 
 -- Register Nasdaq BxEquities Drop AsciiDrop 2.2 Show Options
 omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
@@ -107,6 +108,7 @@ omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.show_structs = Pref.bool("Show S
 omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs_changed()
@@ -117,6 +119,9 @@ function omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.show_headers then
     show.headers = omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.show_padding then
+    show.padding = omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.show_padding
   end
   if show.session_messages ~= omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_bxequities_drop_asciidrop_v2_2.prefs.show_session_messages

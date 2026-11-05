@@ -131,6 +131,7 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -138,6 +139,7 @@ show.sequences = true
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
@@ -153,6 +155,9 @@ function omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs_changed()
   end
   if show.headers ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_headers then
     show.headers = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_padding then
+    show.padding = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_padding
   end
   if show.structs ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_structs then
     show.structs = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_structs
@@ -1830,10 +1835,18 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trading_status_message.fields 
   index, reg_sho_action = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reg_sho_action.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reserved_1.size
+  end
 
   -- Second Reserved 1: Alphanumeric
-  index, second_reserved_1 = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_multicastdepthofbook_pitch_v2_39_4.second_reserved_1.size
+  end
 
   return index
 end

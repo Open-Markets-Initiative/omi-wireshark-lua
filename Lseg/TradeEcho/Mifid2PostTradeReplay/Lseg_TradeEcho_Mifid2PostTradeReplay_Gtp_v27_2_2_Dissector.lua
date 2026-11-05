@@ -195,12 +195,14 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Lseg TradeEcho Mifid2PostTradeReplay Gtp 27.2.2 Show Options
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -214,6 +216,9 @@ function omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs_changed()
   end
   if show.headers ~= omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.show_headers then
     show.headers = omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.show_headers
+  end
+  if show.padding ~= omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.show_padding then
+    show.padding = omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.show_padding
   end
   if show.structs ~= omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.show_structs then
     show.structs = omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.prefs.show_structs
@@ -4411,7 +4416,11 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.mifid_ii_trade_report_message.f
   index, total_number_of_transactions = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.total_number_of_transactions.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_8.size
+  end
 
   -- Source Venue: UInt16
   index, source_venue = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.source_venue.dissect(buffer, index, packet, parent)
@@ -4531,7 +4540,11 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.mifid_ii_trade_report_message.f
   index, consecutive_aggregation_flag = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.consecutive_aggregation_flag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Byte
-  index, reserved_1 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_1.size
+  end
 
   -- Venue Type: UInt8
   index, venue_type = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_type.dissect(buffer, index, packet, parent)
@@ -4928,7 +4941,11 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_directory_message.fi
   index, segment = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.segment.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: Alpha
-  index, reserved_12 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_12.size
+  end
 
   -- Security Exchange: Alpha
   index, security_exchange = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.security_exchange.dissect(buffer, index, packet, parent)
@@ -4937,25 +4954,49 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_directory_message.fi
   index, currency = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.currency.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Byte
-  index, reserved_1 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_1.size
+  end
 
   -- Reserved 4: Alpha
-  index, reserved_4 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_4.size
+  end
 
   -- Average Daily Turnover Adt: Price4
   index, average_daily_turnover_adt = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.average_daily_turnover_adt.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_8.size
+  end
 
   -- Second Reserved 1: Byte
-  index, second_reserved_1 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_1.size
+  end
 
   -- Second Reserved 8: Alpha
-  index, second_reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_8.size
+  end
 
   -- Third Reserved 8: Alpha
-  index, third_reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.third_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.third_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.third_reserved_8.size
+  end
 
   return index
 end

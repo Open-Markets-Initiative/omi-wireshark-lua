@@ -203,12 +203,14 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Miax PearlEquities ExpressOrders Meo 2.7.b Show Options
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -222,6 +224,9 @@ function omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs_changed()
   end
   if show.headers ~= omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_headers then
     show.headers = omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_headers
+  end
+  if show.padding ~= omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_padding then
+    show.padding = omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_padding
   end
   if show.structs ~= omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_structs then
     show.structs = omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_structs
@@ -3887,7 +3892,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.execution_notification_message.field
   index, execution_order_instructions = miax_pearlequities_expressorders_meo_v2_7_b.execution_order_instructions.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: BinaryU
-  index, reserved_1 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.size
+  end
 
   -- Executing Trading Center: Alphanumeric
   index, executing_trading_center = miax_pearlequities_expressorders_meo_v2_7_b.executing_trading_center.dissect(buffer, index, packet, parent)
@@ -3911,7 +3920,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.execution_notification_message.field
   index, executing_trading_center_mpid = miax_pearlequities_expressorders_meo_v2_7_b.executing_trading_center_mpid.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: BinaryU
-  index, reserved_12 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_12.size
+  end
 
   return index
 end
@@ -3971,7 +3984,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.reserve_order_replenishment_notifica
   index, display_qty = miax_pearlequities_expressorders_meo_v2_7_b.display_qty.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
+  end
 
   return index
 end
@@ -4039,7 +4056,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.aggressive_side_purge_response_messa
   index, asp_eligible_orders_cancelled = miax_pearlequities_expressorders_meo_v2_7_b.asp_eligible_orders_cancelled.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
+  end
 
   return index
 end
@@ -4128,7 +4149,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.aggressive_side_purge_request_messag
   local index = offset
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.size
+  end
 
   -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_b.mpid.dissect(buffer, index, packet, parent)
@@ -4146,7 +4171,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.aggressive_side_purge_request_messag
   index, price = miax_pearlequities_expressorders_meo_v2_7_b.price.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
+  end
 
   return index
 end
@@ -4220,7 +4249,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.mass_cancel_response_message.fields 
   end
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
+  end
 
   return index
 end
@@ -4266,7 +4299,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.mass_cancel_request_message.fields =
   local index = offset
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.size
+  end
 
   -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_b.mpid.dissect(buffer, index, packet, parent)
@@ -4284,7 +4321,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.mass_cancel_request_message.fields =
   index, purge_group = miax_pearlequities_expressorders_meo_v2_7_b.purge_group.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: BinaryU
-  index, reserved_9 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_9.size
+  end
 
   return index
 end
@@ -4352,7 +4393,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_by_exchange_order_id_re
   index, cancel_status = miax_pearlequities_expressorders_meo_v2_7_b.cancel_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
+  end
 
   return index
 end
@@ -4397,7 +4442,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_by_exchange_order_id_re
   local index = offset
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.size
+  end
 
   -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_b.mpid.dissect(buffer, index, packet, parent)
@@ -4412,7 +4461,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_by_exchange_order_id_re
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_b.symbol_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
+  end
 
   return index
 end
@@ -4484,7 +4537,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_response_message.fields
   index, cancel_status = miax_pearlequities_expressorders_meo_v2_7_b.cancel_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
+  end
 
   return index
 end
@@ -4529,7 +4586,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_request_message.fields 
   local index = offset
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.size
+  end
 
   -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_b.mpid.dissect(buffer, index, packet, parent)
@@ -4544,7 +4605,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_request_message.fields 
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_b.symbol_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
+  end
 
   return index
 end
@@ -4620,7 +4685,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.modify_order_response_message.fields
   index, modify_status = miax_pearlequities_expressorders_meo_v2_7_b.modify_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
+  end
 
   return index
 end
@@ -4719,7 +4788,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.modify_order_request_message.fields 
   local index = offset
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.size
+  end
 
   -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_b.mpid.dissect(buffer, index, packet, parent)
@@ -4758,7 +4831,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.modify_order_request_message.fields 
   index, order_expiry_time = miax_pearlequities_expressorders_meo_v2_7_b.order_expiry_time.dissect(buffer, index, packet, parent)
 
   -- Reserved 19: BinaryU
-  index, reserved_19 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_19 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.size
+  end
 
   return index
 end
@@ -4830,7 +4907,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.new_order_response_message.fields = 
   index, order_status = miax_pearlequities_expressorders_meo_v2_7_b.order_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 19: BinaryU
-  index, reserved_19 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_19 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.size
+  end
 
   return index
 end
@@ -5084,7 +5165,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.new_order_request_message.fields = f
   local index = offset
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.size
+  end
 
   -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_b.mpid.dissect(buffer, index, packet, parent)
@@ -5156,7 +5241,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.new_order_request_message.fields = f
   index, order_expiry_time = miax_pearlequities_expressorders_meo_v2_7_b.order_expiry_time.dissect(buffer, index, packet, parent)
 
   -- Reserved 11: BinaryU
-  index, reserved_11 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_11.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_11 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_11.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_11.size
+  end
 
   return index
 end
@@ -5304,7 +5393,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.order_price_update_notification_mess
   index, nbbo_indicator = miax_pearlequities_expressorders_meo_v2_7_b.nbbo_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: BinaryU
-  index, reserved_9 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_9.size
+  end
 
   return index
 end
@@ -5388,7 +5481,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.cancel_reduce_size_order_notificatio
   index, pending_reject_reason = miax_pearlequities_expressorders_meo_v2_7_b.pending_reject_reason.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.size
+  end
 
   return index
 end
@@ -5496,7 +5593,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.modify_order_notification_message.fi
   index, order_expiry_time = miax_pearlequities_expressorders_meo_v2_7_b.order_expiry_time.dissect(buffer, index, packet, parent)
 
   -- Reserved 17: Alphanumeric
-  index, reserved_17 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_17 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_17.size
+  end
 
   return index
 end
@@ -5640,7 +5741,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.new_order_notification_message.field
   index, order_expiry_time = miax_pearlequities_expressorders_meo_v2_7_b.order_expiry_time.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
+  end
 
   return index
 end
@@ -5696,7 +5801,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.system_state_notification_message.fi
   index, system_status = miax_pearlequities_expressorders_meo_v2_7_b.system_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.size
+  end
 
   return index
 end
@@ -5755,13 +5864,21 @@ miax_pearlequities_expressorders_meo_v2_7_b.symbol_update_message.fields = funct
   index, ticker_symbol = miax_pearlequities_expressorders_meo_v2_7_b.ticker_symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: BinaryU
-  index, reserved_1 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.size
+  end
 
   -- Test Security Indicator: Alphanumeric
   index, test_security_indicator = miax_pearlequities_expressorders_meo_v2_7_b.test_security_indicator.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: BinaryU
-  index, second_reserved_1 = miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.size
+  end
 
   -- Lot Size: BinaryU
   index, lot_size = miax_pearlequities_expressorders_meo_v2_7_b.lot_size.dissect(buffer, index, packet, parent)
@@ -5776,7 +5893,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.symbol_update_message.fields = funct
   index, primary_market_code = miax_pearlequities_expressorders_meo_v2_7_b.primary_market_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: BinaryU
-  index, reserved_12 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_12.size
+  end
 
   return index
 end

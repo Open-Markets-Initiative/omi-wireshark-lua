@@ -232,12 +232,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Lseg Turquoise Replay Gtp 24.4 Show Options
 omi_lseg_turquoise_replay_gtp_v24_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_turquoise_replay_gtp_v24_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_turquoise_replay_gtp_v24_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_lseg_turquoise_replay_gtp_v24_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_turquoise_replay_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_lseg_turquoise_replay_gtp_v24_4.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -251,6 +253,9 @@ function omi_lseg_turquoise_replay_gtp_v24_4.prefs_changed()
   end
   if show.headers ~= omi_lseg_turquoise_replay_gtp_v24_4.prefs.show_headers then
     show.headers = omi_lseg_turquoise_replay_gtp_v24_4.prefs.show_headers
+  end
+  if show.padding ~= omi_lseg_turquoise_replay_gtp_v24_4.prefs.show_padding then
+    show.padding = omi_lseg_turquoise_replay_gtp_v24_4.prefs.show_padding
   end
   if show.structs ~= omi_lseg_turquoise_replay_gtp_v24_4.prefs.show_structs then
     show.structs = omi_lseg_turquoise_replay_gtp_v24_4.prefs.show_structs
@@ -4772,7 +4777,11 @@ lseg_turquoise_replay_gtp_v24_4.mi_fid_ii_trade_cross_message.fields = function(
   index, publication_date_and_time = lseg_turquoise_replay_gtp_v24_4.publication_date_and_time.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Alpha
-  index, reserved_4 = lseg_turquoise_replay_gtp_v24_4.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = lseg_turquoise_replay_gtp_v24_4.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_4.size
+  end
 
   -- Nt Pre Trade Waiver Flag: Alpha
   index, nt_pre_trade_waiver_flag = lseg_turquoise_replay_gtp_v24_4.nt_pre_trade_waiver_flag.dissect(buffer, index, packet, parent)
@@ -4781,7 +4790,11 @@ lseg_turquoise_replay_gtp_v24_4.mi_fid_ii_trade_cross_message.fields = function(
   index, pt_algo_trade = lseg_turquoise_replay_gtp_v24_4.pt_algo_trade.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 4: Alpha
-  index, second_reserved_4 = lseg_turquoise_replay_gtp_v24_4.second_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_4 = lseg_turquoise_replay_gtp_v24_4.second_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.second_reserved_4.size
+  end
 
   -- Pt Cancellation Flag: Alpha
   index, pt_cancellation_flag = lseg_turquoise_replay_gtp_v24_4.pt_cancellation_flag.dissect(buffer, index, packet, parent)
@@ -4790,16 +4803,32 @@ lseg_turquoise_replay_gtp_v24_4.mi_fid_ii_trade_cross_message.fields = function(
   index, pt_amendment_flag = lseg_turquoise_replay_gtp_v24_4.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Byte
-  index, reserved_1 = lseg_turquoise_replay_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = lseg_turquoise_replay_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_1.size
+  end
 
   -- Reserved 3: Alpha
-  index, reserved_3 = lseg_turquoise_replay_gtp_v24_4.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = lseg_turquoise_replay_gtp_v24_4.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_3.size
+  end
 
   -- Reserved 20: MiFID Decimal
-  index, reserved_20 = lseg_turquoise_replay_gtp_v24_4.reserved_20.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_20 = lseg_turquoise_replay_gtp_v24_4.reserved_20.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_20.size
+  end
 
   -- Third Reserved 4: Alpha
-  index, third_reserved_4 = lseg_turquoise_replay_gtp_v24_4.third_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_4 = lseg_turquoise_replay_gtp_v24_4.third_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.third_reserved_4.size
+  end
 
   -- Market Mechanism: Byte
   index, market_mechanism = lseg_turquoise_replay_gtp_v24_4.market_mechanism.dissect(buffer, index, packet, parent)
@@ -4976,7 +5005,11 @@ lseg_turquoise_replay_gtp_v24_4.mifid_ii_trade_message.fields = function(buffer,
   index, pt_ref_price_waiver_flag = lseg_turquoise_replay_gtp_v24_4.pt_ref_price_waiver_flag.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Alpha
-  index, reserved_4 = lseg_turquoise_replay_gtp_v24_4.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = lseg_turquoise_replay_gtp_v24_4.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_4.size
+  end
 
   -- Market Closing Price Flag: Alpha
   index, market_closing_price_flag = lseg_turquoise_replay_gtp_v24_4.market_closing_price_flag.dissect(buffer, index, packet, parent)
@@ -4991,16 +5024,32 @@ lseg_turquoise_replay_gtp_v24_4.mifid_ii_trade_message.fields = function(buffer,
   index, pt_amendment_flag = lseg_turquoise_replay_gtp_v24_4.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Byte
-  index, reserved_1 = lseg_turquoise_replay_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = lseg_turquoise_replay_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_1.size
+  end
 
   -- Reserved 3: Alpha
-  index, reserved_3 = lseg_turquoise_replay_gtp_v24_4.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = lseg_turquoise_replay_gtp_v24_4.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_3.size
+  end
 
   -- Reserved 20: MiFID Decimal
-  index, reserved_20 = lseg_turquoise_replay_gtp_v24_4.reserved_20.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_20 = lseg_turquoise_replay_gtp_v24_4.reserved_20.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_20.size
+  end
 
   -- Second Reserved 4: Alpha
-  index, second_reserved_4 = lseg_turquoise_replay_gtp_v24_4.second_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_4 = lseg_turquoise_replay_gtp_v24_4.second_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.second_reserved_4.size
+  end
 
   -- Trade Qualifier: Byte
   index, trade_qualifier = lseg_turquoise_replay_gtp_v24_4.trade_qualifier.dissect(buffer, index, packet, parent)
@@ -5312,7 +5361,11 @@ lseg_turquoise_replay_gtp_v24_4.trade_cross_message.fields = function(buffer, of
   index, price = lseg_turquoise_replay_gtp_v24_4.price.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = lseg_turquoise_replay_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_turquoise_replay_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_8.size
+  end
 
   -- Trade Id: UInt64
   index, trade_id = lseg_turquoise_replay_gtp_v24_4.trade_id.dissect(buffer, index, packet, parent)
@@ -5394,7 +5447,11 @@ lseg_turquoise_replay_gtp_v24_4.trade_message.fields = function(buffer, offset, 
   index, price = lseg_turquoise_replay_gtp_v24_4.price.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = lseg_turquoise_replay_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_turquoise_replay_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_8.size
+  end
 
   -- Trade Id: UInt64
   index, trade_id = lseg_turquoise_replay_gtp_v24_4.trade_id.dissect(buffer, index, packet, parent)
@@ -5588,7 +5645,11 @@ lseg_turquoise_replay_gtp_v24_4.top_of_book_message.fields = function(buffer, of
   index, bid_limit_price = lseg_turquoise_replay_gtp_v24_4.bid_limit_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = lseg_turquoise_replay_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_turquoise_replay_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_8.size
+  end
 
   -- Bid Limit Size: Size
   index, bid_limit_size = lseg_turquoise_replay_gtp_v24_4.bid_limit_size.dissect(buffer, index, packet, parent)
@@ -5600,7 +5661,11 @@ lseg_turquoise_replay_gtp_v24_4.top_of_book_message.fields = function(buffer, of
   index, offer_limit_price = lseg_turquoise_replay_gtp_v24_4.offer_limit_price.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: Alpha
-  index, second_reserved_8 = lseg_turquoise_replay_gtp_v24_4.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = lseg_turquoise_replay_gtp_v24_4.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.second_reserved_8.size
+  end
 
   -- Offer Limit Size: Size
   index, offer_limit_size = lseg_turquoise_replay_gtp_v24_4.offer_limit_size.dissect(buffer, index, packet, parent)
@@ -5800,7 +5865,11 @@ lseg_turquoise_replay_gtp_v24_4.order_modify_message.fields = function(buffer, o
   index, new_price = lseg_turquoise_replay_gtp_v24_4.new_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = lseg_turquoise_replay_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_turquoise_replay_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_8.size
+  end
 
   -- Source Venue: UInt16
   index, source_venue = lseg_turquoise_replay_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
@@ -6099,34 +6168,66 @@ lseg_turquoise_replay_gtp_v24_4.instrument_directory_message.fields = function(b
   index, segment = lseg_turquoise_replay_gtp_v24_4.segment.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: Alpha
-  index, reserved_12 = lseg_turquoise_replay_gtp_v24_4.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = lseg_turquoise_replay_gtp_v24_4.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_12.size
+  end
 
   -- Reserved 11: Alpha
-  index, reserved_11 = lseg_turquoise_replay_gtp_v24_4.reserved_11.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_11 = lseg_turquoise_replay_gtp_v24_4.reserved_11.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_11.size
+  end
 
   -- Currency: Alpha
   index, currency = lseg_turquoise_replay_gtp_v24_4.currency.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Byte
-  index, reserved_1 = lseg_turquoise_replay_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = lseg_turquoise_replay_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_1.size
+  end
 
   -- Reserved 4: Alpha
-  index, reserved_4 = lseg_turquoise_replay_gtp_v24_4.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = lseg_turquoise_replay_gtp_v24_4.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_4.size
+  end
 
   -- Average Daily Turnover Adt: Price4
   index, average_daily_turnover_adt = lseg_turquoise_replay_gtp_v24_4.average_daily_turnover_adt.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = lseg_turquoise_replay_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_turquoise_replay_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.reserved_8.size
+  end
 
   -- Second Reserved 1: Byte
-  index, second_reserved_1 = lseg_turquoise_replay_gtp_v24_4.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = lseg_turquoise_replay_gtp_v24_4.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.second_reserved_1.size
+  end
 
   -- Second Reserved 8: Alpha
-  index, second_reserved_8 = lseg_turquoise_replay_gtp_v24_4.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = lseg_turquoise_replay_gtp_v24_4.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.second_reserved_8.size
+  end
 
   -- Third Reserved 8: Alpha
-  index, third_reserved_8 = lseg_turquoise_replay_gtp_v24_4.third_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_8 = lseg_turquoise_replay_gtp_v24_4.third_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_replay_gtp_v24_4.third_reserved_8.size
+  end
 
   return index
 end

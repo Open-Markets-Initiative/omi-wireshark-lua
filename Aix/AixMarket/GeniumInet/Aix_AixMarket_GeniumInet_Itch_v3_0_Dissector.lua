@@ -178,6 +178,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.padding = false
 show.sequences = true
 
 -- Register Aix AixMarket GeniumInet Itch 3.0 Show Options
@@ -189,6 +190,7 @@ omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_application_messages = Pref.bo
 omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
@@ -207,6 +209,9 @@ function omi_aix_aixmarket_geniuminet_itch_v3_0.prefs_changed()
   end
   if show.headers ~= omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_headers then
     show.headers = omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_headers
+  end
+  if show.padding ~= omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_padding then
+    show.padding = omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_padding
   end
   if show.session_messages ~= omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_session_messages then
     show.session_messages = omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_session_messages
@@ -2942,7 +2947,11 @@ aix_aixmarket_geniuminet_itch_v3_0.trade_message.fields = function(buffer, offse
   index, trade_report = aix_aixmarket_geniuminet_itch_v3_0.trade_report.dissect(buffer, index, packet, parent)
 
   -- Reserved 13: Reserved
-  index, reserved_13 = aix_aixmarket_geniuminet_itch_v3_0.reserved_13.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_13 = aix_aixmarket_geniuminet_itch_v3_0.reserved_13.dissect(buffer, index, packet, parent)
+  else
+    index = index + aix_aixmarket_geniuminet_itch_v3_0.reserved_13.size
+  end
 
   -- Printable: Alpha
   index, printable = aix_aixmarket_geniuminet_itch_v3_0.printable.dissect(buffer, index, packet, parent)
@@ -3111,7 +3120,11 @@ aix_aixmarket_geniuminet_itch_v3_0.order_executed_with_price_message.fields = fu
   index, match_id = aix_aixmarket_geniuminet_itch_v3_0.match_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 18: Reserved
-  index, reserved_18 = aix_aixmarket_geniuminet_itch_v3_0.reserved_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_18 = aix_aixmarket_geniuminet_itch_v3_0.reserved_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + aix_aixmarket_geniuminet_itch_v3_0.reserved_18.size
+  end
 
   -- Trade Price: Price
   index, trade_price = aix_aixmarket_geniuminet_itch_v3_0.scaled_trade_price.dissect(buffer, index, packet, parent)
@@ -3185,10 +3198,18 @@ aix_aixmarket_geniuminet_itch_v3_0.order_executed_message.fields = function(buff
   index, match_id = aix_aixmarket_geniuminet_itch_v3_0.match_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Reserved
-  index, reserved_4 = aix_aixmarket_geniuminet_itch_v3_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = aix_aixmarket_geniuminet_itch_v3_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + aix_aixmarket_geniuminet_itch_v3_0.reserved_4.size
+  end
 
   -- Reserved 14: Reserved
-  index, reserved_14 = aix_aixmarket_geniuminet_itch_v3_0.reserved_14.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_14 = aix_aixmarket_geniuminet_itch_v3_0.reserved_14.dissect(buffer, index, packet, parent)
+  else
+    index = index + aix_aixmarket_geniuminet_itch_v3_0.reserved_14.size
+  end
 
   return index
 end
@@ -3558,7 +3579,11 @@ aix_aixmarket_geniuminet_itch_v3_0.order_book_directory_message.fields = functio
   index, nominal_value = aix_aixmarket_geniuminet_itch_v3_0.scaled_nominal_value.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = aix_aixmarket_geniuminet_itch_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = aix_aixmarket_geniuminet_itch_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + aix_aixmarket_geniuminet_itch_v3_0.reserved_1.size
+  end
 
   -- Underlying Order Book Id: Numeric
   index, underlying_order_book_id = aix_aixmarket_geniuminet_itch_v3_0.underlying_order_book_id.dissect(buffer, index, packet, parent)

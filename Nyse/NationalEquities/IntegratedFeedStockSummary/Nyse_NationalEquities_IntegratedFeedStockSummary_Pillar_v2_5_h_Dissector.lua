@@ -125,6 +125,7 @@ show.records = true
 show.structs = true
 show.headers = true
 show.application_messages = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -133,6 +134,7 @@ omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.resolve
 omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
@@ -152,6 +154,9 @@ function omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.pref
   end
   if show.headers ~= omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_headers then
     show.headers = omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_padding then
+    show.padding = omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_padding
   end
   if show.structs ~= omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_structs then
     show.structs = omi_nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.prefs.show_structs
@@ -2165,7 +2170,11 @@ nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.security_status_m
   index, halt_condition = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary
-  index, reserved_4 = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.reserved_4.size
+  end
 
   -- Price 1: Binary
   index, price_1 = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.price_1.dissect(buffer, index, packet, parent)
@@ -2310,7 +2319,11 @@ nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.symbol_index_mapp
   index, symbol = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_h.market_id.dissect(buffer, index, packet, parent)

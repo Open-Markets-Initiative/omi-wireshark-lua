@@ -192,8 +192,6 @@ omi_tmx_mx_solamulticast_hsvf_v1_11.fields.historical_coupon_b_negative_thousand
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.historical_coupon_b_negative_whole_pair = ProtoField.new("Historical Coupon B Negative Whole Pair", "tmx.mx.solamulticast.hsvf.v1.11.historicalcouponbnegativewholepair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.historical_coupon_b_numeric_pair = ProtoField.new("Historical Coupon B Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.11.historicalcouponbnumericpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.historical_coupon_fraction_indicator = ProtoField.new("Historical Coupon Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.11.historicalcouponfractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_11.fields.hsvf_etx = ProtoField.new("Hsvf Etx", "tmx.mx.solamulticast.hsvf.v1.11.hsvfetx", ftypes.INT8, nil, nil, nil, "End of Hsvf message")
-omi_tmx_mx_solamulticast_hsvf_v1_11.fields.hsvf_stx = ProtoField.new("Hsvf Stx", "tmx.mx.solamulticast.hsvf.v1.11.hsvfstx", ftypes.INT8, nil, nil, nil, "Start of Hsvf message")
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.initial_effective_date = ProtoField.new("Initial Effective Date", "tmx.mx.solamulticast.hsvf.v1.11.initialeffectivedate", ftypes.STRING, nil, nil, nil, "The third Wednesday of the effective months (March, June, September, and December) (Quarterly IMM Dates (International Monetary Market Dates)). This date will be different from the Effective Date if it falls on a non-business date (YYMMDD)")
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.instrument = ProtoField.new("Instrument", "tmx.mx.solamulticast.hsvf.v1.11.instrument", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.instrument_external_code = ProtoField.new("Instrument External Code", "tmx.mx.solamulticast.hsvf.v1.11.instrumentexternalcode", ftypes.STRING, nil, nil, nil, "External identifier used by traders when entering an order")
@@ -530,6 +528,8 @@ omi_tmx_mx_solamulticast_hsvf_v1_11.fields.settlement_price_negative_ten_thousan
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.settlement_price_negative_thousand_pair = ProtoField.new("Settlement Price Negative Thousand Pair", "tmx.mx.solamulticast.hsvf.v1.11.settlementpricenegativethousandpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.settlement_price_negative_whole_pair = ProtoField.new("Settlement Price Negative Whole Pair", "tmx.mx.solamulticast.hsvf.v1.11.settlementpricenegativewholepair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.settlement_price_numeric_pair = ProtoField.new("Settlement Price Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.11.settlementpricenumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_11.fields.sola_message_end = ProtoField.new("Sola Message End", "tmx.mx.solamulticast.hsvf.v1.11.solamessageend", ftypes.INT8, nil, nil, nil, "End of Hsvf message")
+omi_tmx_mx_solamulticast_hsvf_v1_11.fields.sola_message_start = ProtoField.new("Sola Message Start", "tmx.mx.solamulticast.hsvf.v1.11.solamessagestart", ftypes.INT8, nil, nil, nil, "Start of Hsvf message")
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.special_bulletin_contents = ProtoField.new("Special Bulletin Contents", "tmx.mx.solamulticast.hsvf.v1.11.specialbulletincontents", ftypes.STRING, nil, nil, nil, "Bulletin in textual form")
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.special_text_bulletin = ProtoField.new("Special Text Bulletin", "tmx.mx.solamulticast.hsvf.v1.11.specialtextbulletin", ftypes.STRING, nil, nil, nil, "This bulletin type will be used for bulletins relating to a specific trading instrument. Any continuation records will also contain the symbol as the first 30 bytes of the bulletin field.")
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.strategy_allow_implied = ProtoField.new("Strategy Allow Implied", "tmx.mx.solamulticast.hsvf.v1.11.strategyallowimplied", ftypes.STRING, nil, nil, nil, "Indicates if the Strategy supports Implied Pricing")
@@ -619,6 +619,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_11.fields.volume = ProtoField.new("Volume", "tm
 -- Tmx Mx SolaMulticast Hsvf 1.11 Framing
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.message_header = ProtoField.new("Message Header", "tmx.mx.solamulticast.hsvf.v1.11.messageheader", ftypes.STRING, nil, nil, nil, "Hsvf Udp Market Data Packet Header")
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.packet = ProtoField.new("Packet", "tmx.mx.solamulticast.hsvf.v1.11.packet", ftypes.STRING, nil, nil, nil, "Hsvf Udp Packet")
+omi_tmx_mx_solamulticast_hsvf_v1_11.fields.sola_frame = ProtoField.new("Sola Frame", "tmx.mx.solamulticast.hsvf.v1.11.solaframe", ftypes.STRING, nil, nil, nil, "One Hsvf record, from STX through ETX")
 
 -- Tmx Mx SolaMulticast 1.11 Application Messages
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.beginning_of_future_options_summary_message = ProtoField.new("Beginning Of Future Options Summary Message", "tmx.mx.solamulticast.hsvf.v1.11.beginningoffutureoptionssummarymessage", ftypes.STRING)
@@ -747,6 +748,8 @@ show.structs = true
 show.application_messages = true
 show.repeating_groups = true
 show.headers = true
+show.delimiters = false
+show.padding = false
 show.indexes = true
 
 -- Register Tmx Mx SolaMulticast Hsvf 1.11 Show Options
@@ -754,6 +757,8 @@ omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_structs = Pref.bool("Show Structs
 omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_delimiters = Pref.bool("Show Delimiters", show.delimiters, "Parse and add Delimiters to protocol tree")
+omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
@@ -764,8 +769,14 @@ function omi_tmx_mx_solamulticast_hsvf_v1_11.prefs_changed()
   if show.application_messages ~= omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_application_messages then
     show.application_messages = omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_application_messages
   end
+  if show.delimiters ~= omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_delimiters then
+    show.delimiters = omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_delimiters
+  end
   if show.headers ~= omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_headers then
     show.headers = omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_headers
+  end
+  if show.padding ~= omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_padding then
+    show.padding = omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_padding
   end
   if show.repeating_groups ~= omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_repeating_groups then
     show.repeating_groups = omi_tmx_mx_solamulticast_hsvf_v1_11.prefs.show_repeating_groups
@@ -2567,60 +2578,6 @@ tmx_mx_solamulticast_hsvf_v1_11.historical_coupon_fraction_indicator.dissect = f
   local display = tmx_mx_solamulticast_hsvf_v1_11.historical_coupon_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.historical_coupon_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Hsvf Etx
-tmx_mx_solamulticast_hsvf_v1_11.hsvf_etx = {}
-
--- Size: Hsvf Etx
-tmx_mx_solamulticast_hsvf_v1_11.hsvf_etx.size = 1
-
--- Display: Hsvf Etx
-tmx_mx_solamulticast_hsvf_v1_11.hsvf_etx.display = function(value)
-  if value == 3 then
-    return "Hsvf Etx: Etx"
-  end
-
-  return "Hsvf Etx: Unknown("..value..")"
-end
-
--- Dissect: Hsvf Etx
-tmx_mx_solamulticast_hsvf_v1_11.hsvf_etx.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_11.hsvf_etx.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = tmx_mx_solamulticast_hsvf_v1_11.hsvf_etx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.hsvf_etx, range, value, display)
-
-  return offset + length, value
-end
-
--- Hsvf Stx
-tmx_mx_solamulticast_hsvf_v1_11.hsvf_stx = {}
-
--- Size: Hsvf Stx
-tmx_mx_solamulticast_hsvf_v1_11.hsvf_stx.size = 1
-
--- Display: Hsvf Stx
-tmx_mx_solamulticast_hsvf_v1_11.hsvf_stx.display = function(value)
-  if value == 2 then
-    return "Hsvf Stx: Stx"
-  end
-
-  return "Hsvf Stx: Unknown("..value..")"
-end
-
--- Dissect: Hsvf Stx
-tmx_mx_solamulticast_hsvf_v1_11.hsvf_stx.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_11.hsvf_stx.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = tmx_mx_solamulticast_hsvf_v1_11.hsvf_stx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.hsvf_stx, range, value, display)
 
   return offset + length, value
 end
@@ -6819,6 +6776,60 @@ tmx_mx_solamulticast_hsvf_v1_11.settlement_price_fraction_indicator.dissect = fu
   return offset + length, value
 end
 
+-- Sola Message End
+tmx_mx_solamulticast_hsvf_v1_11.sola_message_end = {}
+
+-- Size: Sola Message End
+tmx_mx_solamulticast_hsvf_v1_11.sola_message_end.size = 1
+
+-- Display: Sola Message End
+tmx_mx_solamulticast_hsvf_v1_11.sola_message_end.display = function(value)
+  if value == 3 then
+    return "Sola Message End: Etx"
+  end
+
+  return "Sola Message End: Unknown("..value..")"
+end
+
+-- Dissect: Sola Message End
+tmx_mx_solamulticast_hsvf_v1_11.sola_message_end.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_11.sola_message_end.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = tmx_mx_solamulticast_hsvf_v1_11.sola_message_end.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.sola_message_end, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sola Message Start
+tmx_mx_solamulticast_hsvf_v1_11.sola_message_start = {}
+
+-- Size: Sola Message Start
+tmx_mx_solamulticast_hsvf_v1_11.sola_message_start.size = 1
+
+-- Display: Sola Message Start
+tmx_mx_solamulticast_hsvf_v1_11.sola_message_start.display = function(value)
+  if value == 2 then
+    return "Sola Message Start: Stx"
+  end
+
+  return "Sola Message Start: Unknown("..value..")"
+end
+
+-- Dissect: Sola Message Start
+tmx_mx_solamulticast_hsvf_v1_11.sola_message_start.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_11.sola_message_start.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = tmx_mx_solamulticast_hsvf_v1_11.sola_message_start.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.sola_message_start, range, value, display)
+
+  return offset + length, value
+end
+
 -- Special Bulletin Contents
 tmx_mx_solamulticast_hsvf_v1_11.special_bulletin_contents = {}
 
@@ -11013,7 +11024,11 @@ tmx_mx_solamulticast_hsvf_v1_11.end_of_sales_message.fields = function(buffer, o
   local index = offset
 
   -- Reserved: 1 Byte
-  index, reserved = tmx_mx_solamulticast_hsvf_v1_11.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = tmx_mx_solamulticast_hsvf_v1_11.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.reserved.size
+  end
 
   -- Time: N
   index, time = tmx_mx_solamulticast_hsvf_v1_11.time.dissect(buffer, index, packet, parent)
@@ -11179,7 +11194,11 @@ tmx_mx_solamulticast_hsvf_v1_11.bulletins_message.fields = function(buffer, offs
   local index = offset
 
   -- Reserved: 1 Byte
-  index, reserved = tmx_mx_solamulticast_hsvf_v1_11.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = tmx_mx_solamulticast_hsvf_v1_11.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.reserved.size
+  end
 
   -- Bulletin Type: X
   index, bulletin_type = tmx_mx_solamulticast_hsvf_v1_11.bulletin_type.dissect(buffer, index, packet, parent)
@@ -12968,7 +12987,11 @@ tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_correction_message.fields = funct
   index = tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
@@ -13056,7 +13079,11 @@ tmx_mx_solamulticast_hsvf_v1_11.futures_trade_correction_message.fields = functi
   index = tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
@@ -13919,7 +13946,11 @@ tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_correction_message.fields =
   index = tmx_mx_solamulticast_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
@@ -13928,7 +13959,11 @@ tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_correction_message.fields =
   index, open_interest = tmx_mx_solamulticast_hsvf_v1_11.open_interest.dissect(buffer, index, packet, parent)
 
   -- Filler 2: X
-  index, filler_2 = tmx_mx_solamulticast_hsvf_v1_11.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = tmx_mx_solamulticast_hsvf_v1_11.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_2.size
+  end
 
   -- Trade Number: X
   index, trade_number = tmx_mx_solamulticast_hsvf_v1_11.trade_number.dissect(buffer, index, packet, parent)
@@ -13996,7 +14031,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_trade_correction_message.fields = functio
   index, expiry_month = tmx_mx_solamulticast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Filler 1: A
-  index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
+  end
 
   -- Strike Price Instrument Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.dissect(buffer, index, packet, parent)
@@ -14020,7 +14059,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_trade_correction_message.fields = functio
   index = tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
@@ -14029,7 +14072,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_trade_correction_message.fields = functio
   index, open_interest = tmx_mx_solamulticast_hsvf_v1_11.open_interest.dissect(buffer, index, packet, parent)
 
   -- Second Filler 1: X
-  index, second_filler_1 = tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_filler_1 = tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size
+  end
 
   -- Price Indicator Marker: A
   index, price_indicator_marker = tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.dissect(buffer, index, packet, parent)
@@ -22449,7 +22496,11 @@ tmx_mx_solamulticast_hsvf_v1_11.future_options_summary_message.fields = function
   index = tmx_mx_solamulticast_hsvf_v1_11.low_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 2: X
-  index, filler_2 = tmx_mx_solamulticast_hsvf_v1_11.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = tmx_mx_solamulticast_hsvf_v1_11.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_2.size
+  end
 
   -- Underlying Symbol Root Future Options: A
   index, underlying_symbol_root_future_options = tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol_root_future_options.dissect(buffer, index, packet, parent)
@@ -22921,7 +22972,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_summary_message.fields = function(buffer,
   index, expiry_month = tmx_mx_solamulticast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Filler 1: A
-  index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
+  end
 
   -- Strike Price Instrument Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.dissect(buffer, index, packet, parent)
@@ -26337,7 +26392,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_instrument_keys_message.fields = function
   index, expiry_month = tmx_mx_solamulticast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Filler 1: A
-  index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
+  end
 
   -- Strike Price Instrument Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.dissect(buffer, index, packet, parent)
@@ -26544,13 +26603,21 @@ tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_cancellation_message.fields = fun
   index = tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
   -- Filler 1: X
-  index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
+  end
 
   -- Trade Number: X
   index, trade_number = tmx_mx_solamulticast_hsvf_v1_11.trade_number.dissect(buffer, index, packet, parent)
@@ -26624,7 +26691,11 @@ tmx_mx_solamulticast_hsvf_v1_11.futures_trade_cancellation_message.fields = func
   index = tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
@@ -27098,7 +27169,11 @@ tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_cancellation_message.fields
   index, price_indicator_marker = tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Filler 6: X
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
@@ -27107,7 +27182,11 @@ tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_cancellation_message.fields
   index, open_interest = tmx_mx_solamulticast_hsvf_v1_11.open_interest.dissect(buffer, index, packet, parent)
 
   -- Filler 2: X
-  index, filler_2 = tmx_mx_solamulticast_hsvf_v1_11.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = tmx_mx_solamulticast_hsvf_v1_11.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_2.size
+  end
 
   -- Trade Number: X
   index, trade_number = tmx_mx_solamulticast_hsvf_v1_11.trade_number.dissect(buffer, index, packet, parent)
@@ -27173,7 +27252,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_trade_cancellation_message.fields = funct
   index, expiry_month = tmx_mx_solamulticast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Filler 1: A
-  index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
+  end
 
   -- Strike Price Instrument Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.dissect(buffer, index, packet, parent)
@@ -27191,7 +27274,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_trade_cancellation_message.fields = funct
   index = tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
@@ -27200,7 +27287,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_trade_cancellation_message.fields = funct
   index, open_interest = tmx_mx_solamulticast_hsvf_v1_11.open_interest.dissect(buffer, index, packet, parent)
 
   -- Second Filler 1: X
-  index, second_filler_1 = tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_filler_1 = tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size
+  end
 
   -- Price Indicator Marker: A
   index, price_indicator_marker = tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.dissect(buffer, index, packet, parent)
@@ -29755,7 +29846,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_market_depth_message.fields = function(bu
   index, expiry_month = tmx_mx_solamulticast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Filler 1: A
-  index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
+  end
 
   -- Strike Price Instrument Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.dissect(buffer, index, packet, parent)
@@ -31871,7 +31966,11 @@ tmx_mx_solamulticast_hsvf_v1_11.future_options_quote_message.fields = function(b
   index, instrument_status_marker = tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.dissect(buffer, index, packet, parent)
 
   -- Filler 1: X
-  index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
+  end
 
   return index
 end
@@ -31932,7 +32031,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_quote_message.fields = function(buffer, o
   index, expiry_month = tmx_mx_solamulticast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Filler 1: A
-  index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
+  end
 
   -- Strike Price Instrument Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.dissect(buffer, index, packet, parent)
@@ -31956,7 +32059,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_quote_message.fields = function(buffer, o
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_11.ask_size.dissect(buffer, index, packet, parent)
 
   -- Second Filler 1: X
-  index, second_filler_1 = tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_filler_1 = tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size
+  end
 
   -- Instrument Status Marker: A
   index, instrument_status_marker = tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.dissect(buffer, index, packet, parent)
@@ -32657,7 +32764,11 @@ tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_option_message.fields
   index, expiry_month = tmx_mx_solamulticast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Filler 1: A
-  index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
+  end
 
   -- Strike Price Schedule Notice Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solamulticast_hsvf_v1_11.strike_price_schedule_notice_fraction_pair.dissect(buffer, index, packet, parent)
@@ -32989,7 +33100,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_rfq_message.fields = function(buffer, off
   index, expiry_month = tmx_mx_solamulticast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Filler 1: A
-  index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
+  end
 
   -- Strike Price Instrument Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.dissect(buffer, index, packet, parent)
@@ -33167,7 +33282,11 @@ tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_message.fields = function(buffer,
   index = tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
@@ -33255,7 +33374,11 @@ tmx_mx_solamulticast_hsvf_v1_11.futures_trade_message.fields = function(buffer, 
   index = tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
@@ -33356,7 +33479,11 @@ tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_message.fields = function(b
   index = tmx_mx_solamulticast_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
@@ -33365,7 +33492,11 @@ tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_message.fields = function(b
   index, open_interest = tmx_mx_solamulticast_hsvf_v1_11.open_interest.dissect(buffer, index, packet, parent)
 
   -- Filler 2: X
-  index, filler_2 = tmx_mx_solamulticast_hsvf_v1_11.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = tmx_mx_solamulticast_hsvf_v1_11.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_2.size
+  end
 
   -- Trade Number: X
   index, trade_number = tmx_mx_solamulticast_hsvf_v1_11.trade_number.dissect(buffer, index, packet, parent)
@@ -33433,7 +33564,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_trade_message.fields = function(buffer, o
   index, expiry_month = tmx_mx_solamulticast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Filler 1: A
-  index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solamulticast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
+  end
 
   -- Strike Price Instrument Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.dissect(buffer, index, packet, parent)
@@ -33457,7 +33592,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_trade_message.fields = function(buffer, o
   index = tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solamulticast_hsvf_v1_11.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
+  end
 
   -- Timestamp: N
   index, timestamp = tmx_mx_solamulticast_hsvf_v1_11.timestamp.dissect(buffer, index, packet, parent)
@@ -33466,7 +33605,11 @@ tmx_mx_solamulticast_hsvf_v1_11.option_trade_message.fields = function(buffer, o
   index, open_interest = tmx_mx_solamulticast_hsvf_v1_11.open_interest.dissect(buffer, index, packet, parent)
 
   -- Second Filler 1: X
-  index, second_filler_1 = tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_filler_1 = tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size
+  end
 
   -- Price Indicator Marker: A
   index, price_indicator_marker = tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.dissect(buffer, index, packet, parent)
@@ -33615,37 +33758,100 @@ tmx_mx_solamulticast_hsvf_v1_11.message_header.dissect = function(buffer, offset
   end
 end
 
+-- Sola Frame
+tmx_mx_solamulticast_hsvf_v1_11.sola_frame = {}
+
+-- Calculate size of: Sola Frame
+tmx_mx_solamulticast_hsvf_v1_11.sola_frame.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_11.sola_message_start.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_11.message_header.size
+
+  -- Calculate runtime size of Message Body field
+  local message_body_offset = offset + index
+  local message_body_type = buffer(message_body_offset - 2, 2):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_11.message_body.size(buffer, message_body_offset, message_body_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_11.sola_message_end.size
+
+  return index
+end
+
+-- Display: Sola Frame
+tmx_mx_solamulticast_hsvf_v1_11.sola_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sola Frame
+tmx_mx_solamulticast_hsvf_v1_11.sola_frame.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sola Message Start: character
+  if show.delimiters then
+    index, sola_message_start = tmx_mx_solamulticast_hsvf_v1_11.sola_message_start.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.sola_message_start.size
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = tmx_mx_solamulticast_hsvf_v1_11.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = trim_right_spaces(buffer(index - 2, 2):string())
+
+  -- Message Body: Runtime Type with 59 branches
+  index = tmx_mx_solamulticast_hsvf_v1_11.message_body.dissect(buffer, index, packet, parent, message_type)
+
+  -- Sola Message End: character
+  if show.delimiters then
+    index, sola_message_end = tmx_mx_solamulticast_hsvf_v1_11.sola_message_end.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solamulticast_hsvf_v1_11.sola_message_end.size
+  end
+
+  return index
+end
+
+-- Dissect: Sola Frame
+tmx_mx_solamulticast_hsvf_v1_11.sola_frame.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.sola_frame, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_11.sola_frame.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_11.sola_frame.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_11.sola_frame.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet
 tmx_mx_solamulticast_hsvf_v1_11.packet = {}
 
 -- Verify required size of Udp packet
 tmx_mx_solamulticast_hsvf_v1_11.packet.requiredsize = function(buffer)
-  return buffer:len() >= tmx_mx_solamulticast_hsvf_v1_11.hsvf_stx.size + tmx_mx_solamulticast_hsvf_v1_11.message_header.size
+  return buffer:len() >= tmx_mx_solamulticast_hsvf_v1_11.sola_message_start.size + tmx_mx_solamulticast_hsvf_v1_11.message_header.size
 end
 
 -- Dissect Packet
 tmx_mx_solamulticast_hsvf_v1_11.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Packet
+  -- Dependency for Sola Frame
   local end_of_payload = buffer:len()
 
+  -- Sola Frame: Struct of 4 fields
+  local message_index = 0
   while index < end_of_payload do
-
-    -- Hsvf Stx: character
-    index, hsvf_stx = tmx_mx_solamulticast_hsvf_v1_11.hsvf_stx.dissect(buffer, index, packet, parent)
-
-    -- Message Header: Struct of 2 fields
-    index, message_header = tmx_mx_solamulticast_hsvf_v1_11.message_header.dissect(buffer, index, packet, parent)
-
-    -- Dependency element: Message Type
-    local message_type = trim_right_spaces(buffer(index - 2, 2):string())
-
-    -- Message Body: Runtime Type with 59 branches
-    index = tmx_mx_solamulticast_hsvf_v1_11.message_body.dissect(buffer, index, packet, parent, message_type)
-
-    -- Hsvf Etx: character
-    index, hsvf_etx = tmx_mx_solamulticast_hsvf_v1_11.hsvf_etx.dissect(buffer, index, packet, parent)
+    message_index = message_index + 1
+    index, sola_frame = tmx_mx_solamulticast_hsvf_v1_11.sola_frame.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -33675,8 +33881,8 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify Hsvf Stx Field
-tmx_mx_solamulticast_hsvf_v1_11.hsvf_stx.verify = function(buffer)
+-- Verify Sola Message Start Field
+tmx_mx_solamulticast_hsvf_v1_11.sola_message_start.verify = function(buffer)
   -- Too short to carry the field: not this protocol
   if buffer:len() < 0 + 1 then
     return false
@@ -33697,8 +33903,8 @@ local function omi_tmx_mx_solamulticast_hsvf_v1_11_udp_heuristic(buffer, packet,
   -- Verify packet length
   if not tmx_mx_solamulticast_hsvf_v1_11.packet.requiredsize(buffer) then return false end
 
-  -- Verify Hsvf Stx
-  if not tmx_mx_solamulticast_hsvf_v1_11.hsvf_stx.verify(buffer) then return false end
+  -- Verify Sola Message Start
+  if not tmx_mx_solamulticast_hsvf_v1_11.sola_message_start.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_mx_solamulticast_hsvf_v1_11

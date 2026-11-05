@@ -148,6 +148,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.repeating_groups = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -157,6 +158,7 @@ omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_application
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
@@ -175,6 +177,9 @@ function omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs_changed
   end
   if show.headers ~= omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_headers then
     show.headers = omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_padding then
+    show.padding = omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_padding
   end
   if show.repeating_groups ~= omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_repeating_groups then
     show.repeating_groups = omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.prefs.show_repeating_groups
@@ -2761,7 +2766,11 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.imbalance_message.fields =
   index, unpaired_side = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.unpaired_side.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.market_id.dissect(buffer, index, packet, parent)
@@ -3117,7 +3126,11 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.security_status_message.fi
   index, market_id = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.market_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary
-  index, reserved_2 = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_2.size
+  end
 
   -- Price 1: Binary
   index, price_1 = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.price_1.dissect(buffer, index, packet, parent)
@@ -3258,7 +3271,11 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.symbol_index_mapping_messa
   index, symbol = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.market_id.dissect(buffer, index, packet, parent)
@@ -3297,7 +3314,11 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.symbol_index_mapping_messa
   index, unit_of_trade = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.unit_of_trade.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary
-  index, reserved_2 = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reserved_2.size
+  end
 
   -- Cache Symbol Index Mapping Message record by symbol_index
   if show.records and not packet.visited then

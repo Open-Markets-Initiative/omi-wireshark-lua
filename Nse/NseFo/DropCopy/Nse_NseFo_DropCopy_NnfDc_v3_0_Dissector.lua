@@ -209,6 +209,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 
 -- Register Nse NseFo DropCopy NnfDc 3.0 Show Options
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
@@ -217,6 +218,7 @@ omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.swap_sides = Pref.bool("Swap Sides", fal
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
@@ -229,6 +231,9 @@ function omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs_changed()
   end
   if show.headers ~= omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_headers then
     show.headers = omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_headers
+  end
+  if show.padding ~= omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_padding then
+    show.padding = omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_padding
   end
   if show.structs ~= omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_structs then
     show.structs = omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_structs
@@ -2580,7 +2585,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.ms_spd_leg_info_leg_3.fields = function(buffer, of
   index, open_close_2 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_2.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   return index
 end
@@ -2644,7 +2653,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.ms_spd_leg_info_leg_2.fields = function(buffer, of
   index, open_close_2 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_2.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   return index
 end
@@ -2754,7 +2767,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.batch_spread_cxl_out_message.fields = function(buf
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -2882,7 +2899,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.thrl_order_error_message.fields = function(buffer,
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -3010,7 +3031,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.twol_order_error_message.fields = function(buffer,
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -3138,7 +3163,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_rejected_message.fields = function(buffer
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -3266,7 +3295,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_mod_confirmation_message.fields = functio
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -3394,7 +3427,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_mod_reject_message.fields = function(buff
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -3522,7 +3559,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.thrl_order_cxl_confirmation_message.fields = funct
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -3650,7 +3691,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.twol_order_cxl_confirmation_message.fields = funct
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -3778,7 +3823,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_cxl_confirmation_message.fields = functio
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -3906,7 +3955,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_cxl_rejected_message.fields = function(bu
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -4034,7 +4087,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.thrl_order_confirmation_message.fields = function(
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -4162,7 +4219,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.twol_order_confirmation_message.fields = function(
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -4290,7 +4351,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.sp_order_confirmation_message.fields = function(bu
   index, open_close_1 = nse_nsefo_dropcopy_nnfdc_v3_0.open_close_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor 1: CHAR
   index, settlor_1 = nse_nsefo_dropcopy_nnfdc_v3_0.settlor_1.dissect(buffer, index, packet, parent)
@@ -4424,13 +4489,25 @@ nse_nsefo_dropcopy_nnfdc_v3_0.batch_order_cancel_message.fields = function(buffe
   index, activity_time_in_nanos = nse_nsefo_dropcopy_nnfdc_v3_0.activity_time_in_nanos.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.size
+  end
 
   -- Second Reserved 2: SHORT
-  index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.size
+  end
 
   -- Third Reserved 2: SHORT
-  index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.size
+  end
 
   -- Suspended: CHAR
   index, suspended = nse_nsefo_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
@@ -4454,7 +4531,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.batch_order_cancel_message.fields = function(buffe
   index, pro_client_char_1 = nse_nsefo_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor: CHAR
   index, settlor = nse_nsefo_dropcopy_nnfdc_v3_0.settlor.dissect(buffer, index, packet, parent)
@@ -4576,13 +4657,25 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_error_message.fields = function(buffer, offs
   index, activity_time_in_nanos = nse_nsefo_dropcopy_nnfdc_v3_0.activity_time_in_nanos.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.size
+  end
 
   -- Second Reserved 2: SHORT
-  index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.size
+  end
 
   -- Third Reserved 2: SHORT
-  index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.size
+  end
 
   -- Suspended: CHAR
   index, suspended = nse_nsefo_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
@@ -4606,7 +4699,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_error_message.fields = function(buffer, offs
   index, pro_client_char_1 = nse_nsefo_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor: CHAR
   index, settlor = nse_nsefo_dropcopy_nnfdc_v3_0.settlor.dissect(buffer, index, packet, parent)
@@ -4728,13 +4825,25 @@ nse_nsefo_dropcopy_nnfdc_v3_0.on_stop_notification_message.fields = function(buf
   index, activity_time_in_nanos = nse_nsefo_dropcopy_nnfdc_v3_0.activity_time_in_nanos.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.size
+  end
 
   -- Second Reserved 2: SHORT
-  index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.size
+  end
 
   -- Third Reserved 2: SHORT
-  index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.size
+  end
 
   -- Suspended: CHAR
   index, suspended = nse_nsefo_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
@@ -4758,7 +4867,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.on_stop_notification_message.fields = function(buf
   index, pro_client_char_1 = nse_nsefo_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor: CHAR
   index, settlor = nse_nsefo_dropcopy_nnfdc_v3_0.settlor.dissect(buffer, index, packet, parent)
@@ -4880,13 +4993,25 @@ nse_nsefo_dropcopy_nnfdc_v3_0.freeze_to_control_message.fields = function(buffer
   index, activity_time_in_nanos = nse_nsefo_dropcopy_nnfdc_v3_0.activity_time_in_nanos.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.size
+  end
 
   -- Second Reserved 2: SHORT
-  index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.size
+  end
 
   -- Third Reserved 2: SHORT
-  index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.size
+  end
 
   -- Suspended: CHAR
   index, suspended = nse_nsefo_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
@@ -4910,7 +5035,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.freeze_to_control_message.fields = function(buffer
   index, pro_client_char_1 = nse_nsefo_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor: CHAR
   index, settlor = nse_nsefo_dropcopy_nnfdc_v3_0.settlor.dissect(buffer, index, packet, parent)
@@ -5032,13 +5161,25 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_cancel_confirmation_message.fields = functio
   index, activity_time_in_nanos = nse_nsefo_dropcopy_nnfdc_v3_0.activity_time_in_nanos.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.size
+  end
 
   -- Second Reserved 2: SHORT
-  index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.size
+  end
 
   -- Third Reserved 2: SHORT
-  index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.size
+  end
 
   -- Suspended: CHAR
   index, suspended = nse_nsefo_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
@@ -5062,7 +5203,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_cancel_confirmation_message.fields = functio
   index, pro_client_char_1 = nse_nsefo_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor: CHAR
   index, settlor = nse_nsefo_dropcopy_nnfdc_v3_0.settlor.dissect(buffer, index, packet, parent)
@@ -5184,13 +5329,25 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_mod_confirmation_message.fields = function(b
   index, activity_time_in_nanos = nse_nsefo_dropcopy_nnfdc_v3_0.activity_time_in_nanos.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.size
+  end
 
   -- Second Reserved 2: SHORT
-  index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.size
+  end
 
   -- Third Reserved 2: SHORT
-  index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.size
+  end
 
   -- Suspended: CHAR
   index, suspended = nse_nsefo_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
@@ -5214,7 +5371,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_mod_confirmation_message.fields = function(b
   index, pro_client_char_1 = nse_nsefo_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor: CHAR
   index, settlor = nse_nsefo_dropcopy_nnfdc_v3_0.settlor.dissect(buffer, index, packet, parent)
@@ -5336,13 +5497,25 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_confirmation_message.fields = function(buffe
   index, activity_time_in_nanos = nse_nsefo_dropcopy_nnfdc_v3_0.activity_time_in_nanos.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.size
+  end
 
   -- Second Reserved 2: SHORT
-  index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.size
+  end
 
   -- Third Reserved 2: SHORT
-  index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.size
+  end
 
   -- Suspended: CHAR
   index, suspended = nse_nsefo_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
@@ -5366,7 +5539,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_confirmation_message.fields = function(buffe
   index, pro_client_char_1 = nse_nsefo_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor: CHAR
   index, settlor = nse_nsefo_dropcopy_nnfdc_v3_0.settlor.dissect(buffer, index, packet, parent)
@@ -5488,13 +5665,25 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_cancel_reject_message.fields = function(buff
   index, activity_time_in_nanos = nse_nsefo_dropcopy_nnfdc_v3_0.activity_time_in_nanos.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.size
+  end
 
   -- Second Reserved 2: SHORT
-  index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.size
+  end
 
   -- Third Reserved 2: SHORT
-  index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.size
+  end
 
   -- Suspended: CHAR
   index, suspended = nse_nsefo_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
@@ -5518,7 +5707,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_cancel_reject_message.fields = function(buff
   index, pro_client_char_1 = nse_nsefo_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor: CHAR
   index, settlor = nse_nsefo_dropcopy_nnfdc_v3_0.settlor.dissect(buffer, index, packet, parent)
@@ -5640,13 +5833,25 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_mod_reject_message.fields = function(buffer,
   index, activity_time_in_nanos = nse_nsefo_dropcopy_nnfdc_v3_0.activity_time_in_nanos.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.size
+  end
 
   -- Second Reserved 2: SHORT
-  index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.size
+  end
 
   -- Third Reserved 2: SHORT
-  index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.size
+  end
 
   -- Suspended: CHAR
   index, suspended = nse_nsefo_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
@@ -5670,7 +5875,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.order_mod_reject_message.fields = function(buffer,
   index, pro_client_char_1 = nse_nsefo_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor: CHAR
   index, settlor = nse_nsefo_dropcopy_nnfdc_v3_0.settlor.dissect(buffer, index, packet, parent)
@@ -5792,13 +6001,25 @@ nse_nsefo_dropcopy_nnfdc_v3_0.price_confirmation_message.fields = function(buffe
   index, activity_time_in_nanos = nse_nsefo_dropcopy_nnfdc_v3_0.activity_time_in_nanos.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_2.size
+  end
 
   -- Second Reserved 2: SHORT
-  index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.second_reserved_2.size
+  end
 
   -- Third Reserved 2: SHORT
-  index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.third_reserved_2.size
+  end
 
   -- Suspended: CHAR
   index, suspended = nse_nsefo_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
@@ -5822,7 +6043,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.price_confirmation_message.fields = function(buffe
   index, pro_client_char_1 = nse_nsefo_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserved_1.size
+  end
 
   -- Settlor: CHAR
   index, settlor = nse_nsefo_dropcopy_nnfdc_v3_0.settlor.dissect(buffer, index, packet, parent)
@@ -7865,7 +8090,11 @@ nse_nsefo_dropcopy_nnfdc_v3_0.request_message_header.fields = function(buffer, o
   index, func_indc = nse_nsefo_dropcopy_nnfdc_v3_0.func_indc.dissect(buffer, index, packet, parent)
 
   -- Reserve: CHAR
-  index, reserve = nse_nsefo_dropcopy_nnfdc_v3_0.reserve.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserve = nse_nsefo_dropcopy_nnfdc_v3_0.reserve.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_dropcopy_nnfdc_v3_0.reserve.size
+  end
 
   return index
 end

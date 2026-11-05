@@ -340,11 +340,13 @@ local show = {}
 -- Nse NseCm Broadcast NnfBcast 6.6 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.padding = false
 show.indexes = true
 
 -- Register Nse NseCm Broadcast NnfBcast 6.6 Show Options
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -355,6 +357,9 @@ function omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_application_messages then
     show.application_messages = omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_application_messages
+  end
+  if show.padding ~= omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_padding then
+    show.padding = omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_padding
   end
   if show.structs ~= omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_structs then
     show.structs = omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_structs
@@ -4915,7 +4920,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_ord_cxl_details.fields = function(
   index, sell_ord_cxl_vol = nse_nsecm_broadcast_nnfbcast_v6_6.sell_ord_cxl_vol.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: CHAR
-  index, reserved_16 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_16.size
+  end
 
   return index
 end
@@ -5406,13 +5415,25 @@ nse_nsecm_broadcast_nnfbcast_v6_6.indicative_indices.fields = function(buffer, o
   index, indicative_close_value = nse_nsecm_broadcast_nnfbcast_v6_6.indicative_close_value.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: CHAR
-  index, reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_4.size
+  end
 
   -- Second Reserved 4: CHAR
-  index, second_reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.second_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.second_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.second_reserved_4.size
+  end
 
   -- Third Reserved 4: CHAR
-  index, third_reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.third_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.third_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.third_reserved_4.size
+  end
 
   -- Closing Index: LONG
   index, closing_index = nse_nsecm_broadcast_nnfbcast_v6_6.closing_index.dissect(buffer, index, packet, parent)
@@ -5421,16 +5442,28 @@ nse_nsecm_broadcast_nnfbcast_v6_6.indicative_indices.fields = function(buffer, o
   index, percent_change = nse_nsecm_broadcast_nnfbcast_v6_6.percent_change.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 4: CHAR
-  index, fourth_reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.fourth_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.fourth_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.fourth_reserved_4.size
+  end
 
   -- Fifth Reserved 4: CHAR
-  index, fifth_reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.fifth_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fifth_reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.fifth_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.fifth_reserved_4.size
+  end
 
   -- Change: LONG
   index, change = nse_nsecm_broadcast_nnfbcast_v6_6.change.dissect(buffer, index, packet, parent)
 
   -- Sixth Reserved 4: CHAR
-  index, sixth_reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.sixth_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, sixth_reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.sixth_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.sixth_reserved_4.size
+  end
 
   -- Market Capitalization: DOUBLE
   index, market_capitalization = nse_nsecm_broadcast_nnfbcast_v6_6.market_capitalization.dissect(buffer, index, packet, parent)
@@ -6358,7 +6391,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_only_mbp_data.fields = function(bu
   index, average_trade_price = nse_nsecm_broadcast_nnfbcast_v6_6.average_trade_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 14: CHAR
-  index, reserved_14 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_14.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_14 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_14.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_14.size
+  end
 
   -- Indicative Imbalance Qty: LONG LONG
   index, indicative_imbalance_qty = nse_nsecm_broadcast_nnfbcast_v6_6.indicative_imbalance_qty.dissect(buffer, index, packet, parent)
@@ -6754,7 +6791,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.market_by_order_and_market_by_price_message.fi
   index, low_price = nse_nsecm_broadcast_nnfbcast_v6_6.low_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: CHAR
-  index, reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_4.size
+  end
 
   return index
 end
@@ -6911,7 +6952,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.symbol_status_change_action_message.fields = f
   index, market_type = nse_nsecm_broadcast_nnfbcast_v6_6.market_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_2.size
+  end
 
   -- Action Code Short 2: SHORT
   index, action_code_short_2 = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short_2.dissect(buffer, index, packet, parent)
@@ -8199,7 +8244,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.participant_master_change_message.fields = fun
   index, delete_flag = nse_nsecm_broadcast_nnfbcast_v6_6.delete_flag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_1.size
+  end
 
   return index
 end
@@ -8428,7 +8477,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.security_eligibility_per_market.fields = funct
   index, security_eligibility_flags = nse_nsecm_broadcast_nnfbcast_v6_6.security_eligibility_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_1.size
+  end
 
   -- Status: SHORT
   index, status = nse_nsecm_broadcast_nnfbcast_v6_6.status.dissect(buffer, index, packet, parent)
@@ -8531,7 +8584,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.security_master_change_message.fields = functi
   index, credit_rating = nse_nsecm_broadcast_nnfbcast_v6_6.credit_rating.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_1.size
+  end
 
   -- Array Of: Security Eligibility Per Market
   for security_eligibility_per_market_index = 1, 6 do
@@ -8560,7 +8617,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.security_master_change_message.fields = functi
   index, name = nse_nsecm_broadcast_nnfbcast_v6_6.name.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsecm_broadcast_nnfbcast_v6_6.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsecm_broadcast_nnfbcast_v6_6.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.second_reserved_1.size
+  end
 
   -- Listing Date: LONG
   index, listing_date = nse_nsecm_broadcast_nnfbcast_v6_6.listing_date.dissect(buffer, index, packet, parent)
@@ -8672,7 +8733,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_journal_vct_message.fields = functio
   index, action_code_char_3 = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_char_3.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: CHAR
-  index, reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_4.size
+  end
 
   -- Broadcast Destination: Struct of 2 fields
   index, broadcast_destination = nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_destination.dissect(buffer, index, packet, parent)
@@ -8786,10 +8851,18 @@ nse_nsecm_broadcast_nnfbcast_v6_6.bcast_header.fields = function(buffer, offset,
   local index = offset
 
   -- Reserved 0: CHAR
-  index, reserved_0 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_0.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_0 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_0.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_0.size
+  end
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_2.size
+  end
 
   -- Log Time: LONG
   index, log_time = nse_nsecm_broadcast_nnfbcast_v6_6.log_time.dissect(buffer, index, packet, parent)
@@ -8807,16 +8880,28 @@ nse_nsecm_broadcast_nnfbcast_v6_6.bcast_header.fields = function(buffer, offset,
   index, bc_seq_no = nse_nsecm_broadcast_nnfbcast_v6_6.bc_seq_no.dissect(buffer, index, packet, parent)
 
   -- Reserved 18: CHAR
-  index, reserved_18 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_18 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_18.size
+  end
 
   -- Reserved 19: CHAR
-  index, reserved_19 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_19.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_19 = nse_nsecm_broadcast_nnfbcast_v6_6.reserved_19.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_19.size
+  end
 
   -- Time Stamp 2: CHAR
   index, time_stamp_2 = nse_nsecm_broadcast_nnfbcast_v6_6.time_stamp_2.dissect(buffer, index, packet, parent)
 
   -- Filler 2: BYTE
-  index, filler_2 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.filler_2.size
+  end
 
   -- Message Length: SHORT
   index, message_length = nse_nsecm_broadcast_nnfbcast_v6_6.message_length.dissect(buffer, index, packet, parent)
@@ -8876,7 +8961,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_data.fields = function(buffer, offse
   index, bcast_market_type = nse_nsecm_broadcast_nnfbcast_v6_6.bcast_market_type.dissect(buffer, index, packet, parent)
 
   -- Bcast Reserved: CHAR
-  index, bcast_reserved = nse_nsecm_broadcast_nnfbcast_v6_6.bcast_reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, bcast_reserved = nse_nsecm_broadcast_nnfbcast_v6_6.bcast_reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.bcast_reserved.size
+  end
 
   -- Bcast Header: Struct of 12 fields
   index, bcast_header = nse_nsecm_broadcast_nnfbcast_v6_6.bcast_header.dissect(buffer, index, packet, parent)

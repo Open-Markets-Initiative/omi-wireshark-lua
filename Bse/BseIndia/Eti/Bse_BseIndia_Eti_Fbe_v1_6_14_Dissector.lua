@@ -454,6 +454,7 @@ show.application_messages = true
 show.structs = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Bse BseIndia Eti Fbe 1.6.14 Show Options
@@ -464,6 +465,7 @@ omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_application_messages = Pref.bool("Sh
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -477,6 +479,9 @@ function omi_bse_bseindia_eti_fbe_v1_6_14.prefs_changed()
   end
   if show.headers ~= omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_headers then
     show.headers = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_headers
+  end
+  if show.padding ~= omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_padding then
+    show.padding = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_padding
   end
   if show.repeating_groups ~= omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_repeating_groups then
     show.repeating_groups = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_repeating_groups
@@ -9613,7 +9618,11 @@ bse_bseindia_eti_fbe_v1_6_14.response_header_comp.fields = function(buffer, offs
   index, msg_seq_num = bse_bseindia_eti_fbe_v1_6_14.msg_seq_num.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -9659,7 +9668,11 @@ bse_bseindia_eti_fbe_v1_6_14.user_password_change_response.fields = function(buf
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -9712,7 +9725,11 @@ bse_bseindia_eti_fbe_v1_6_14.user_logout_response.fields = function(buffer, offs
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -9765,7 +9782,11 @@ bse_bseindia_eti_fbe_v1_6_14.user_login_response.fields = function(buffer, offse
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -9780,7 +9801,11 @@ bse_bseindia_eti_fbe_v1_6_14.user_login_response.fields = function(buffer, offse
   index, grace_logins_left = bse_bseindia_eti_fbe_v1_6_14.grace_logins_left.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   return index
 end
@@ -9830,7 +9855,11 @@ bse_bseindia_eti_fbe_v1_6_14.unsubscribe_response.fields = function(buffer, offs
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -9909,7 +9938,11 @@ bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.fields = function(buffer, offset
   index, last_fragment = bse_bseindia_eti_fbe_v1_6_14.last_fragment.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad7.size
+  end
 
   return index
 end
@@ -9955,7 +9988,11 @@ bse_bseindia_eti_fbe_v1_6_14.trading_session_status_broadcast.fields = function(
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -9973,7 +10010,11 @@ bse_bseindia_eti_fbe_v1_6_14.trading_session_status_broadcast.fields = function(
   index, ref_appl_last_msg_id = bse_bseindia_eti_fbe_v1_6_14.ref_appl_last_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad7.size
+  end
 
   return index
 end
@@ -10045,7 +10086,11 @@ bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.fields = function(buffer, offset, p
   index, last_fragment = bse_bseindia_eti_fbe_v1_6_14.last_fragment.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad7.size
+  end
 
   return index
 end
@@ -10091,7 +10136,11 @@ bse_bseindia_eti_fbe_v1_6_14.trade_enhancement_broadcast.fields = function(buffe
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -10142,7 +10191,11 @@ bse_bseindia_eti_fbe_v1_6_14.trade_enhancement_broadcast.fields = function(buffe
   index, client_code = bse_bseindia_eti_fbe_v1_6_14.client_code.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = bse_bseindia_eti_fbe_v1_6_14.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = bse_bseindia_eti_fbe_v1_6_14.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad5.size
+  end
 
   return index
 end
@@ -10192,7 +10245,11 @@ bse_bseindia_eti_fbe_v1_6_14.trade_broadcast.fields = function(buffer, offset, p
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -10237,10 +10294,18 @@ bse_bseindia_eti_fbe_v1_6_14.trade_broadcast.fields = function(buffer, offset, p
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -10300,7 +10365,11 @@ bse_bseindia_eti_fbe_v1_6_14.trade_broadcast.fields = function(buffer, offset, p
   index, tot_num_trade_reports = bse_bseindia_eti_fbe_v1_6_14.tot_num_trade_reports.dissect(buffer, index, packet, parent)
 
   -- Filler4v2: 2 Byte
-  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4v2.size
+  end
 
   -- Multi Leg Reporting Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, multi_leg_reporting_type = bse_bseindia_eti_fbe_v1_6_14.multi_leg_reporting_type.dissect(buffer, index, packet, parent)
@@ -10387,7 +10456,11 @@ bse_bseindia_eti_fbe_v1_6_14.trade_broadcast.fields = function(buffer, offset, p
   index, root_party_clearing_firm = bse_bseindia_eti_fbe_v1_6_14.root_party_clearing_firm.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad7.size
+  end
 
   return index
 end
@@ -10477,7 +10550,11 @@ bse_bseindia_eti_fbe_v1_6_14.throttle_update_notification.fields = function(buff
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = bse_bseindia_eti_fbe_v1_6_14.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -10539,7 +10616,11 @@ bse_bseindia_eti_fbe_v1_6_14.tm_trading_session_status_broadcast.fields = functi
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -10548,7 +10629,11 @@ bse_bseindia_eti_fbe_v1_6_14.tm_trading_session_status_broadcast.fields = functi
   index, trad_ses_event = bse_bseindia_eti_fbe_v1_6_14.trad_ses_event.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad7.size
+  end
 
   return index
 end
@@ -10598,7 +10683,11 @@ bse_bseindia_eti_fbe_v1_6_14.subscribe_response.fields = function(buffer, offset
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -10607,7 +10696,11 @@ bse_bseindia_eti_fbe_v1_6_14.subscribe_response.fields = function(buffer, offset
   index, appl_sub_id = bse_bseindia_eti_fbe_v1_6_14.appl_sub_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -10657,7 +10750,11 @@ bse_bseindia_eti_fbe_v1_6_14.session_registration_response.fields = function(buf
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -10666,13 +10763,21 @@ bse_bseindia_eti_fbe_v1_6_14.session_registration_response.fields = function(buf
   index, status = bse_bseindia_eti_fbe_v1_6_14.status.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad1.size
+  end
 
   -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
   index, var_text_len = bse_bseindia_eti_fbe_v1_6_14.var_text_len.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = bse_bseindia_eti_fbe_v1_6_14.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -10739,7 +10844,11 @@ bse_bseindia_eti_fbe_v1_6_14.session_password_change_response.fields = function(
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -10802,7 +10911,11 @@ bse_bseindia_eti_fbe_v1_6_14.nrbc_header_comp.fields = function(buffer, offset, 
   index, last_fragment = bse_bseindia_eti_fbe_v1_6_14.last_fragment.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   return index
 end
@@ -10848,7 +10961,11 @@ bse_bseindia_eti_fbe_v1_6_14.service_availability_broadcast.fields = function(bu
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Nrbc Header Comp: Struct of 5 fields
   index, nrbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.nrbc_header_comp.dissect(buffer, index, packet, parent)
@@ -10875,7 +10992,11 @@ bse_bseindia_eti_fbe_v1_6_14.service_availability_broadcast.fields = function(bu
   index, appl_seq_status = bse_bseindia_eti_fbe_v1_6_14.appl_seq_status.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = bse_bseindia_eti_fbe_v1_6_14.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad7.size
+  end
 
   return index
 end
@@ -10925,7 +11046,11 @@ bse_bseindia_eti_fbe_v1_6_14.risk_notification_broadcast.fields = function(buffe
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -10976,7 +11101,11 @@ bse_bseindia_eti_fbe_v1_6_14.risk_notification_broadcast.fields = function(buffe
   index, business_unit_symbol = bse_bseindia_eti_fbe_v1_6_14.business_unit_symbol.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   return index
 end
@@ -11026,7 +11155,11 @@ bse_bseindia_eti_fbe_v1_6_14.risk_collateral_alert_broadcast.fields = function(b
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -11068,7 +11201,11 @@ bse_bseindia_eti_fbe_v1_6_14.risk_collateral_alert_broadcast.fields = function(b
   index, business_unit_symbol = bse_bseindia_eti_fbe_v1_6_14.business_unit_symbol.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = bse_bseindia_eti_fbe_v1_6_14.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -11135,7 +11272,11 @@ bse_bseindia_eti_fbe_v1_6_14.risk_collateral_alert_admin_broadcast.fields = func
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -11186,7 +11327,11 @@ bse_bseindia_eti_fbe_v1_6_14.risk_collateral_alert_admin_broadcast.fields = func
   index, business_unit_symbol = bse_bseindia_eti_fbe_v1_6_14.business_unit_symbol.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = bse_bseindia_eti_fbe_v1_6_14.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -11253,7 +11398,11 @@ bse_bseindia_eti_fbe_v1_6_14.retransmit_response.fields = function(buffer, offse
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -11268,7 +11417,11 @@ bse_bseindia_eti_fbe_v1_6_14.retransmit_response.fields = function(buffer, offse
   index, appl_total_message_count = bse_bseindia_eti_fbe_v1_6_14.appl_total_message_count.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   return index
 end
@@ -11318,7 +11471,11 @@ bse_bseindia_eti_fbe_v1_6_14.retransmit_me_message_response.fields = function(bu
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -11333,7 +11490,11 @@ bse_bseindia_eti_fbe_v1_6_14.retransmit_me_message_response.fields = function(bu
   index, ref_appl_last_msg_id = bse_bseindia_eti_fbe_v1_6_14.ref_appl_last_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   return index
 end
@@ -11409,7 +11570,11 @@ bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.fields = function(buffer
   index, last_fragment = bse_bseindia_eti_fbe_v1_6_14.last_fragment.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   return index
 end
@@ -11455,7 +11620,11 @@ bse_bseindia_eti_fbe_v1_6_14.reject.fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -11470,7 +11639,11 @@ bse_bseindia_eti_fbe_v1_6_14.reject.fields = function(buffer, offset, packet, pa
   index, session_status = bse_bseindia_eti_fbe_v1_6_14.session_status.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad1.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = bse_bseindia_eti_fbe_v1_6_14.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -11561,7 +11734,11 @@ bse_bseindia_eti_fbe_v1_6_14.quote_leg_exec_grp_comp.fields = function(buffer, o
   index, no_quote_events_index = bse_bseindia_eti_fbe_v1_6_14.no_quote_events_index.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   return index
 end
@@ -11675,7 +11852,11 @@ bse_bseindia_eti_fbe_v1_6_14.quote_event_grp_comp.fields = function(buffer, offs
   index, cp_code = bse_bseindia_eti_fbe_v1_6_14.cp_code.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   return index
 end
@@ -11721,7 +11902,11 @@ bse_bseindia_eti_fbe_v1_6_14.quote_execution_report.fields = function(buffer, of
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -11799,7 +11984,11 @@ bse_bseindia_eti_fbe_v1_6_14.quote_exec_report_broadcast.fields = function(buffe
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -11814,7 +12003,11 @@ bse_bseindia_eti_fbe_v1_6_14.quote_exec_report_broadcast.fields = function(buffe
   index, stpc_flag = bse_bseindia_eti_fbe_v1_6_14.stpc_flag.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   -- Repeating: Quote Event Grp Comp
   for quote_event_grp_comp_index = 1, no_quote_events do
@@ -11893,7 +12086,11 @@ bse_bseindia_eti_fbe_v1_6_14.instrmnt_leg_exec_grp_comp.fields = function(buffer
   index, no_fills_index = bse_bseindia_eti_fbe_v1_6_14.no_fills_index.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   return index
 end
@@ -11967,7 +12164,11 @@ bse_bseindia_eti_fbe_v1_6_14.fills_grp_comp.fields = function(buffer, offset, pa
   index, fill_liquidity_ind = bse_bseindia_eti_fbe_v1_6_14.fill_liquidity_ind.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   return index
 end
@@ -12093,7 +12294,11 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_response.fields = function(buffer, offse
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -12126,7 +12331,11 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_response.fields = function(buffer, offse
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = bse_bseindia_eti_fbe_v1_6_14.market_segment_id.dissect(buffer, index, packet, parent)
@@ -12141,7 +12350,11 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_response.fields = function(buffer, offse
   index, cxl_qty = bse_bseindia_eti_fbe_v1_6_14.cxl_qty.dissect(buffer, index, packet, parent)
 
   -- Filler4v2: 2 Byte
-  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4v2.size
+  end
 
   -- No Leg Execs: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_leg_execs = bse_bseindia_eti_fbe_v1_6_14.no_leg_execs.dissect(buffer, index, packet, parent)
@@ -12236,7 +12449,11 @@ bse_bseindia_eti_fbe_v1_6_14.leg_ord_grp_comp.fields = function(buffer, offset, 
   index, leg_position_effect = bse_bseindia_eti_fbe_v1_6_14.leg_position_effect.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = bse_bseindia_eti_fbe_v1_6_14.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = bse_bseindia_eti_fbe_v1_6_14.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad5.size
+  end
 
   return index
 end
@@ -12282,7 +12499,11 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_report_broadcast.fields = function(buffe
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -12330,10 +12551,18 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_report_broadcast.fields = function(buffe
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = bse_bseindia_eti_fbe_v1_6_14.market_segment_id.dissect(buffer, index, packet, parent)
@@ -12372,7 +12601,11 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_report_broadcast.fields = function(buffe
   index, party_id_entering_trader = bse_bseindia_eti_fbe_v1_6_14.party_id_entering_trader.dissect(buffer, index, packet, parent)
 
   -- Filler4v2: 2 Byte
-  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4v2.size
+  end
 
   -- No Leg Execs: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_leg_execs = bse_bseindia_eti_fbe_v1_6_14.no_leg_execs.dissect(buffer, index, packet, parent)
@@ -12468,7 +12701,11 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_report_broadcast.fields = function(buffe
   index, triggered = bse_bseindia_eti_fbe_v1_6_14.triggered.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
@@ -12533,7 +12770,11 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_notification.fields = function(buffer, o
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -12560,10 +12801,18 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_notification.fields = function(buffer, o
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -12584,7 +12833,11 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_notification.fields = function(buffer, o
   index, no_leg_execs = bse_bseindia_eti_fbe_v1_6_14.no_leg_execs.dissect(buffer, index, packet, parent)
 
   -- Filler4v2: 2 Byte
-  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4v2.size
+  end
 
   -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 52 values
   index, exec_restatement_reason = bse_bseindia_eti_fbe_v1_6_14.exec_restatement_reason.dissect(buffer, index, packet, parent)
@@ -12629,7 +12882,11 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_notification.fields = function(buffer, o
   index, free_text_3 = bse_bseindia_eti_fbe_v1_6_14.free_text_3.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
@@ -12689,7 +12946,11 @@ bse_bseindia_eti_fbe_v1_6_14.news_broadcast.fields = function(buffer, offset, pa
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -12704,7 +12965,11 @@ bse_bseindia_eti_fbe_v1_6_14.news_broadcast.fields = function(buffer, offset, pa
   index, headline = bse_bseindia_eti_fbe_v1_6_14.headline.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = bse_bseindia_eti_fbe_v1_6_14.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -12771,7 +13036,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_response.fields = function(buffer, offset
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -12807,13 +13076,25 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_response.fields = function(buffer, offset
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Filler4v2: 2 Byte
-  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4v2.size
+  end
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
   index, ord_status = bse_bseindia_eti_fbe_v1_6_14.ord_status.dissect(buffer, index, packet, parent)
@@ -12831,7 +13112,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_response.fields = function(buffer, offset
   index, rollover_flag = bse_bseindia_eti_fbe_v1_6_14.rollover_flag.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -12881,7 +13166,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_nr_response.fields = function(buffer, off
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -12911,13 +13200,25 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_nr_response.fields = function(buffer, off
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Filler4v2: 2 Byte
-  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4v2.size
+  end
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
   index, ord_status = bse_bseindia_eti_fbe_v1_6_14.ord_status.dissect(buffer, index, packet, parent)
@@ -12935,7 +13236,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_nr_response.fields = function(buffer, off
   index, rollover_flag = bse_bseindia_eti_fbe_v1_6_14.rollover_flag.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -12985,7 +13290,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_order_reject.fields = function(buffer, of
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13000,7 +13309,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_order_reject.fields = function(buffer, of
   index, var_text_len = bse_bseindia_eti_fbe_v1_6_14.var_text_len.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = bse_bseindia_eti_fbe_v1_6_14.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -13087,7 +13400,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_fill_grp_comp.fields = function(buffer, o
   index, fill_exec_id = bse_bseindia_eti_fbe_v1_6_14.fill_exec_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -13161,7 +13478,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_exec_grp_comp.fields = function(buffer, o
   index, exec_type = bse_bseindia_eti_fbe_v1_6_14.exec_type.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -13207,7 +13528,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_exec_response.fields = function(buffer, o
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13231,7 +13556,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_exec_response.fields = function(buffer, o
   index, algo_id = bse_bseindia_eti_fbe_v1_6_14.algo_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   -- Repeating: Multi Leg Exec Grp Comp
   for multi_leg_exec_grp_comp_index = 1, no_of_multi_leg do
@@ -13348,7 +13677,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_grp_comp.fields = function(buffer, offset
   index, ord_type = bse_bseindia_eti_fbe_v1_6_14.ord_type.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   return index
 end
@@ -13394,7 +13727,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_exec_report_broadcast.fields = function(b
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13430,7 +13767,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_exec_report_broadcast.fields = function(b
   index, cp_code = bse_bseindia_eti_fbe_v1_6_14.cp_code.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   -- Repeating: Multi Leg Grp Comp
   for multi_leg_grp_comp_index = 1, no_of_multi_leg do
@@ -13495,7 +13836,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_response.fields = function(buffer, off
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13531,10 +13876,18 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_response.fields = function(buffer, off
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Leaves Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = bse_bseindia_eti_fbe_v1_6_14.leaves_qty.dissect(buffer, index, packet, parent)
@@ -13546,7 +13899,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_response.fields = function(buffer, off
   index, cxl_qty = bse_bseindia_eti_fbe_v1_6_14.cxl_qty.dissect(buffer, index, packet, parent)
 
   -- Filler4v2: 2 Byte
-  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4v2.size
+  end
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
   index, ord_status = bse_bseindia_eti_fbe_v1_6_14.ord_status.dissect(buffer, index, packet, parent)
@@ -13611,7 +13968,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_nr_response.fields = function(buffer, 
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13644,10 +14005,18 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_nr_response.fields = function(buffer, 
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Leaves Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = bse_bseindia_eti_fbe_v1_6_14.leaves_qty.dissect(buffer, index, packet, parent)
@@ -13659,7 +14028,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_nr_response.fields = function(buffer, 
   index, cxl_qty = bse_bseindia_eti_fbe_v1_6_14.cxl_qty.dissect(buffer, index, packet, parent)
 
   -- Filler4v2: 2 Byte
-  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4v2.size
+  end
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
   index, ord_status = bse_bseindia_eti_fbe_v1_6_14.ord_status.dissect(buffer, index, packet, parent)
@@ -13744,7 +14117,11 @@ bse_bseindia_eti_fbe_v1_6_14.quote_entry_ack_grp_comp.fields = function(buffer, 
   index, quote_entry_status = bse_bseindia_eti_fbe_v1_6_14.quote_entry_status.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   return index
 end
@@ -13790,7 +14167,11 @@ bse_bseindia_eti_fbe_v1_6_14.mass_quote_response.fields = function(buffer, offse
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13808,7 +14189,11 @@ bse_bseindia_eti_fbe_v1_6_14.mass_quote_response.fields = function(buffer, offse
   index, no_quote_entries = bse_bseindia_eti_fbe_v1_6_14.no_quote_entries.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   -- Repeating: Quote Entry Ack Grp Comp
   for quote_entry_ack_grp_comp_index = 1, no_quote_entries do
@@ -13863,7 +14248,11 @@ bse_bseindia_eti_fbe_v1_6_14.logout_response.fields = function(buffer, offset, p
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -13916,7 +14305,11 @@ bse_bseindia_eti_fbe_v1_6_14.logon_response.fields = function(buffer, offset, pa
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -13958,7 +14351,11 @@ bse_bseindia_eti_fbe_v1_6_14.logon_response.fields = function(buffer, offset, pa
   index, default_cstm_appl_ver_id = bse_bseindia_eti_fbe_v1_6_14.default_cstm_appl_ver_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   return index
 end
@@ -14020,7 +14417,11 @@ bse_bseindia_eti_fbe_v1_6_14.sessions_grp_comp.fields = function(buffer, offset,
   index, session_sub_mode = bse_bseindia_eti_fbe_v1_6_14.session_sub_mode.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   return index
 end
@@ -14066,7 +14467,11 @@ bse_bseindia_eti_fbe_v1_6_14.inquire_session_list_response.fields = function(buf
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -14075,7 +14480,11 @@ bse_bseindia_eti_fbe_v1_6_14.inquire_session_list_response.fields = function(buf
   index, no_sessions = bse_bseindia_eti_fbe_v1_6_14.no_sessions.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   -- Repeating: Sessions Grp Comp
   for sessions_grp_comp_index = 1, no_sessions do
@@ -14130,7 +14539,11 @@ bse_bseindia_eti_fbe_v1_6_14.heartbeat_notification.fields = function(buffer, of
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = bse_bseindia_eti_fbe_v1_6_14.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -14183,7 +14596,11 @@ bse_bseindia_eti_fbe_v1_6_14.gw_order_acknowledgement.fields = function(buffer, 
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -14198,7 +14615,11 @@ bse_bseindia_eti_fbe_v1_6_14.gw_order_acknowledgement.fields = function(buffer, 
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -14248,7 +14669,11 @@ bse_bseindia_eti_fbe_v1_6_14.gateway_response.fields = function(buffer, offset, 
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -14278,7 +14703,11 @@ bse_bseindia_eti_fbe_v1_6_14.gateway_response.fields = function(buffer, offset, 
   index, initialization_vector = bse_bseindia_eti_fbe_v1_6_14.initialization_vector.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   return index
 end
@@ -14328,7 +14757,11 @@ bse_bseindia_eti_fbe_v1_6_14.forced_logout_notification.fields = function(buffer
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = bse_bseindia_eti_fbe_v1_6_14.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -14337,7 +14770,11 @@ bse_bseindia_eti_fbe_v1_6_14.forced_logout_notification.fields = function(buffer
   index, var_text_len = bse_bseindia_eti_fbe_v1_6_14.var_text_len.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = bse_bseindia_eti_fbe_v1_6_14.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -14404,7 +14841,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_response.fields = function(buffer, off
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -14443,7 +14884,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_response.fields = function(buffer, off
   index, product_complex = bse_bseindia_eti_fbe_v1_6_14.product_complex.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   return index
 end
@@ -14493,7 +14938,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_nr_response.fields = function(buffer, 
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -14532,7 +14981,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_nr_response.fields = function(buffer, 
   index, product_complex = bse_bseindia_eti_fbe_v1_6_14.product_complex.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   return index
 end
@@ -14582,7 +15035,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_broadcast.fields = function(buffer, of
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -14636,7 +15093,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_broadcast.fields = function(buffer, of
   index, side = bse_bseindia_eti_fbe_v1_6_14.side.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = bse_bseindia_eti_fbe_v1_6_14.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = bse_bseindia_eti_fbe_v1_6_14.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad5.size
+  end
 
   return index
 end
@@ -14732,7 +15193,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_response.fields = function(buffer,
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -14744,7 +15209,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_response.fields = function(buffer,
   index, no_not_affected_securities = bse_bseindia_eti_fbe_v1_6_14.no_not_affected_securities.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
@@ -14799,7 +15268,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_broadcast.fields = function(buffer
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -14826,13 +15299,25 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_broadcast.fields = function(buffer
   index, algo_id = bse_bseindia_eti_fbe_v1_6_14.algo_id.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Filler3: 4 Byte
-  index, filler3 = bse_bseindia_eti_fbe_v1_6_14.filler3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler3 = bse_bseindia_eti_fbe_v1_6_14.filler3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler3.size
+  end
 
   -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_not_affected_securities = bse_bseindia_eti_fbe_v1_6_14.no_not_affected_securities.dissect(buffer, index, packet, parent)
@@ -14847,7 +15332,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_broadcast.fields = function(buffer
   index, target_party_id_desk_id = bse_bseindia_eti_fbe_v1_6_14.target_party_id_desk_id.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad1.size
+  end
 
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
@@ -14952,7 +15441,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_order_response.fields = function(buffer,
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -14964,7 +15457,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_order_response.fields = function(buffer,
   index, no_not_affected_orders = bse_bseindia_eti_fbe_v1_6_14.no_not_affected_orders.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   -- Repeating: Not Affected Orders Grp Comp
   for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
@@ -15019,7 +15516,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_order_quote_event_broadcast.fields = fun
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -15040,7 +15541,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_order_quote_event_broadcast.fields = fun
   index, exec_inst = bse_bseindia_eti_fbe_v1_6_14.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   return index
 end
@@ -15090,7 +15595,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_order_nr_response.fields = function(buff
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -15146,7 +15655,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_order_broadcast.fields = function(buffer
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -15173,13 +15686,25 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_order_broadcast.fields = function(buffer
   index, algo_id = bse_bseindia_eti_fbe_v1_6_14.algo_id.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Filler3: 4 Byte
-  index, filler3 = bse_bseindia_eti_fbe_v1_6_14.filler3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler3 = bse_bseindia_eti_fbe_v1_6_14.filler3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler3.size
+  end
 
   -- No Not Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_not_affected_orders = bse_bseindia_eti_fbe_v1_6_14.no_not_affected_orders.dissect(buffer, index, packet, parent)
@@ -15194,7 +15719,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_order_broadcast.fields = function(buffer
   index, exec_inst = bse_bseindia_eti_fbe_v1_6_14.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   -- Repeating: Not Affected Orders Grp Comp
   for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
@@ -15249,7 +15778,11 @@ bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_response.fields = function(buffer, off
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -15326,7 +15859,11 @@ bse_bseindia_eti_fbe_v1_6_14.broadcast_error_notification.fields = function(buff
   local index = offset
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = bse_bseindia_eti_fbe_v1_6_14.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -15347,7 +15884,11 @@ bse_bseindia_eti_fbe_v1_6_14.broadcast_error_notification.fields = function(buff
   index, session_status = bse_bseindia_eti_fbe_v1_6_14.session_status.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = bse_bseindia_eti_fbe_v1_6_14.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -15677,7 +16218,11 @@ bse_bseindia_eti_fbe_v1_6_14.user_password_change_request.fields = function(buff
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -15692,7 +16237,11 @@ bse_bseindia_eti_fbe_v1_6_14.user_password_change_request.fields = function(buff
   index, new_password = bse_bseindia_eti_fbe_v1_6_14.new_password.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -15745,7 +16294,11 @@ bse_bseindia_eti_fbe_v1_6_14.user_logout_request.fields = function(buffer, offse
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -15754,7 +16307,11 @@ bse_bseindia_eti_fbe_v1_6_14.user_logout_request.fields = function(buffer, offse
   index, username = bse_bseindia_eti_fbe_v1_6_14.username.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -15807,7 +16364,11 @@ bse_bseindia_eti_fbe_v1_6_14.user_login_request.fields = function(buffer, offset
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -15819,7 +16380,11 @@ bse_bseindia_eti_fbe_v1_6_14.user_login_request.fields = function(buffer, offset
   index, password = bse_bseindia_eti_fbe_v1_6_14.password.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -15872,7 +16437,11 @@ bse_bseindia_eti_fbe_v1_6_14.unsubscribe_request.fields = function(buffer, offse
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -15881,7 +16450,11 @@ bse_bseindia_eti_fbe_v1_6_14.unsubscribe_request.fields = function(buffer, offse
   index, ref_appl_sub_id = bse_bseindia_eti_fbe_v1_6_14.ref_appl_sub_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -15934,7 +16507,11 @@ bse_bseindia_eti_fbe_v1_6_14.subscribe_request.fields = function(buffer, offset,
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -15946,7 +16523,11 @@ bse_bseindia_eti_fbe_v1_6_14.subscribe_request.fields = function(buffer, offset,
   index, ref_appl_id = bse_bseindia_eti_fbe_v1_6_14.ref_appl_id.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   return index
 end
@@ -15999,7 +16580,11 @@ bse_bseindia_eti_fbe_v1_6_14.session_registration_request.fields = function(buff
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -16008,10 +16593,18 @@ bse_bseindia_eti_fbe_v1_6_14.session_registration_request.fields = function(buff
   index, party_id_session_id = bse_bseindia_eti_fbe_v1_6_14.party_id_session_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   return index
 end
@@ -16064,7 +16657,11 @@ bse_bseindia_eti_fbe_v1_6_14.session_password_change_request.fields = function(b
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -16079,7 +16676,11 @@ bse_bseindia_eti_fbe_v1_6_14.session_password_change_request.fields = function(b
   index, new_password = bse_bseindia_eti_fbe_v1_6_14.new_password.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -16132,7 +16733,11 @@ bse_bseindia_eti_fbe_v1_6_14.retransmit_request.fields = function(buffer, offset
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -16153,7 +16758,11 @@ bse_bseindia_eti_fbe_v1_6_14.retransmit_request.fields = function(buffer, offset
   index, ref_appl_id = bse_bseindia_eti_fbe_v1_6_14.ref_appl_id.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad1.size
+  end
 
   return index
 end
@@ -16206,7 +16815,11 @@ bse_bseindia_eti_fbe_v1_6_14.retransmit_me_message_request.fields = function(buf
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -16227,7 +16840,11 @@ bse_bseindia_eti_fbe_v1_6_14.retransmit_me_message_request.fields = function(buf
   index, appl_end_msg_id = bse_bseindia_eti_fbe_v1_6_14.appl_end_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad1.size
+  end
 
   return index
 end
@@ -16280,7 +16897,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_single_short_request.fields = function(bu
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -16304,10 +16925,18 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_single_short_request.fields = function(bu
   index, simple_security_id = bse_bseindia_eti_fbe_v1_6_14.simple_security_id.dissect(buffer, index, packet, parent)
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, account_type = bse_bseindia_eti_fbe_v1_6_14.account_type.dissect(buffer, index, packet, parent)
@@ -16387,7 +17016,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_single_request.fields = function(buffer, 
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -16408,10 +17041,18 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_single_request.fields = function(buffer, 
   index, cl_ord_id = bse_bseindia_eti_fbe_v1_6_14.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -16435,7 +17076,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_single_request.fields = function(buffer, 
   index, regulatory_id = bse_bseindia_eti_fbe_v1_6_14.regulatory_id.dissect(buffer, index, packet, parent)
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
   index, party_id_take_up_trading_firm = bse_bseindia_eti_fbe_v1_6_14.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
@@ -16557,7 +17202,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_complex_request.fields = function(buffer,
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -16578,10 +17227,18 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_complex_request.fields = function(buffer,
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -16602,7 +17259,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_complex_request.fields = function(buffer,
   index, regulatory_id = bse_bseindia_eti_fbe_v1_6_14.regulatory_id.dissect(buffer, index, packet, parent)
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
   index, party_id_take_up_trading_firm = bse_bseindia_eti_fbe_v1_6_14.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
@@ -16671,7 +17332,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_complex_request.fields = function(buffer,
   index, no_legs = bse_bseindia_eti_fbe_v1_6_14.no_legs.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
@@ -16762,7 +17427,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_ord_grp_comp.fields = function(buffer, of
   index, ord_type = bse_bseindia_eti_fbe_v1_6_14.ord_type.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad1.size
+  end
 
   return index
 end
@@ -16811,7 +17480,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_order_request.fields = function(buffer, o
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -16841,7 +17514,11 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_order_request.fields = function(buffer, o
   index, cp_code = bse_bseindia_eti_fbe_v1_6_14.cp_code.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = bse_bseindia_eti_fbe_v1_6_14.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = bse_bseindia_eti_fbe_v1_6_14.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad5.size
+  end
 
   -- Repeating: Multi Leg Ord Grp Comp
   for multi_leg_ord_grp_comp_index = 1, no_of_multi_leg do
@@ -16899,7 +17576,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_short_request.fields = function
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -16932,10 +17613,18 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_short_request.fields = function
   index, simple_security_id = bse_bseindia_eti_fbe_v1_6_14.simple_security_id.dissect(buffer, index, packet, parent)
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, account_type = bse_bseindia_eti_fbe_v1_6_14.account_type.dissect(buffer, index, packet, parent)
@@ -16962,7 +17651,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_short_request.fields = function
   index, cp_code = bse_bseindia_eti_fbe_v1_6_14.cp_code.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad1.size
+  end
 
   return index
 end
@@ -17015,7 +17708,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_request.fields = function(buffe
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -17045,10 +17742,18 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_request.fields = function(buffe
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -17075,7 +17780,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_request.fields = function(buffe
   index, regulatory_id = bse_bseindia_eti_fbe_v1_6_14.regulatory_id.dissect(buffer, index, packet, parent)
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
   index, party_id_take_up_trading_firm = bse_bseindia_eti_fbe_v1_6_14.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
@@ -17147,7 +17856,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_request.fields = function(buffe
   index, free_text_3 = bse_bseindia_eti_fbe_v1_6_14.free_text_3.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -17200,7 +17913,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_complex_request.fields = function(buff
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -17230,10 +17947,18 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_complex_request.fields = function(buff
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Filler2: 4 Byte
-  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler2.size
+  end
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = bse_bseindia_eti_fbe_v1_6_14.market_segment_id.dissect(buffer, index, packet, parent)
@@ -17257,7 +17982,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_complex_request.fields = function(buff
   index, regulatory_id = bse_bseindia_eti_fbe_v1_6_14.regulatory_id.dissect(buffer, index, packet, parent)
 
   -- Filler4: 2 Byte
-  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler4.size
+  end
 
   -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
   index, party_id_take_up_trading_firm = bse_bseindia_eti_fbe_v1_6_14.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
@@ -17326,7 +18055,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_complex_request.fields = function(buff
   index, no_legs = bse_bseindia_eti_fbe_v1_6_14.no_legs.dissect(buffer, index, packet, parent)
 
   -- Pad2v2: 2 Byte
-  index, pad2v2 = bse_bseindia_eti_fbe_v1_6_14.pad2v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2v2 = bse_bseindia_eti_fbe_v1_6_14.pad2v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2v2.size
+  end
 
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
@@ -17405,7 +18138,11 @@ bse_bseindia_eti_fbe_v1_6_14.quote_entry_grp_comp.fields = function(buffer, offs
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -17454,7 +18191,11 @@ bse_bseindia_eti_fbe_v1_6_14.mass_quote_request.fields = function(buffer, offset
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -17499,7 +18240,11 @@ bse_bseindia_eti_fbe_v1_6_14.mass_quote_request.fields = function(buffer, offset
   index, cp_code = bse_bseindia_eti_fbe_v1_6_14.cp_code.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = bse_bseindia_eti_fbe_v1_6_14.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad1.size
+  end
 
   -- Repeating: Quote Entry Grp Comp
   for quote_entry_grp_comp_index = 1, no_quote_entries do
@@ -17557,7 +18302,11 @@ bse_bseindia_eti_fbe_v1_6_14.logout_request.fields = function(buffer, offset, pa
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -17613,7 +18362,11 @@ bse_bseindia_eti_fbe_v1_6_14.logon_request.fields = function(buffer, offset, pac
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -17658,7 +18411,11 @@ bse_bseindia_eti_fbe_v1_6_14.logon_request.fields = function(buffer, offset, pac
   index, application_system_vendor = bse_bseindia_eti_fbe_v1_6_14.application_system_vendor.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = bse_bseindia_eti_fbe_v1_6_14.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad3.size
+  end
 
   return index
 end
@@ -17711,7 +18468,11 @@ bse_bseindia_eti_fbe_v1_6_14.inquire_session_list_request.fields = function(buff
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -17767,7 +18528,11 @@ bse_bseindia_eti_fbe_v1_6_14.heartbeat.fields = function(buffer, offset, packet,
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   return index
 end
@@ -17820,7 +18585,11 @@ bse_bseindia_eti_fbe_v1_6_14.gateway_request.fields = function(buffer, offset, p
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -17835,7 +18604,11 @@ bse_bseindia_eti_fbe_v1_6_14.gateway_request.fields = function(buffer, offset, p
   index, password = bse_bseindia_eti_fbe_v1_6_14.password.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = bse_bseindia_eti_fbe_v1_6_14.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad6.size
+  end
 
   return index
 end
@@ -17888,7 +18661,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_single_request.fields = function(buffe
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -17903,7 +18680,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_single_request.fields = function(buffe
   index, orig_cl_ord_id = bse_bseindia_eti_fbe_v1_6_14.orig_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -17924,7 +18705,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_single_request.fields = function(buffe
   index, algo_id = bse_bseindia_eti_fbe_v1_6_14.algo_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -17977,7 +18762,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_complex_request.fields = function(buff
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -17995,7 +18784,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_complex_request.fields = function(buff
   index, security_id = bse_bseindia_eti_fbe_v1_6_14.security_id.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
-  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.filler1.size
+  end
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -18063,7 +18856,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_request.fields = function(buffer, 
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -18081,7 +18878,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_request.fields = function(buffer, 
   index, regulatory_id = bse_bseindia_eti_fbe_v1_6_14.regulatory_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end
@@ -18134,7 +18935,11 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_order_request.fields = function(buffer, 
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -18208,7 +19013,11 @@ bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_request.fields = function(buffer, offs
   index, network_msg_id = bse_bseindia_eti_fbe_v1_6_14.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = bse_bseindia_eti_fbe_v1_6_14.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
@@ -18226,7 +19035,11 @@ bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_request.fields = function(buffer, offs
   index, order_qty = bse_bseindia_eti_fbe_v1_6_14.order_qty.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eti_fbe_v1_6_14.pad4.size
+  end
 
   return index
 end

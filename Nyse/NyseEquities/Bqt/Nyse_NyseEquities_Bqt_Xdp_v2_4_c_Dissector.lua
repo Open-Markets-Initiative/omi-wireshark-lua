@@ -193,6 +193,7 @@ show.records = true
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Nyse NyseEquities Bqt Xdp 2.4.c Show Options
@@ -200,6 +201,7 @@ omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.resolve_records = Pref.bool("Symbol I
 omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
@@ -217,6 +219,9 @@ function omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs_changed()
   end
   if show.headers ~= omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.show_headers then
     show.headers = omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.show_padding then
+    show.padding = omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.show_padding
   end
   if show.structs ~= omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.show_structs then
     show.structs = omi_nyse_nyseequities_bqt_xdp_v2_4_c.prefs.show_structs
@@ -5250,7 +5255,11 @@ nyse_nyseequities_bqt_xdp_v2_4_c.security_status_message.fields = function(buffe
   index, market_id = nyse_nyseequities_bqt_xdp_v2_4_c.market_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary
-  index, reserved_2 = nyse_nyseequities_bqt_xdp_v2_4_c.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_nyseequities_bqt_xdp_v2_4_c.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nyseequities_bqt_xdp_v2_4_c.reserved_2.size
+  end
 
   -- Price 1: Binary
   index, price_1 = nyse_nyseequities_bqt_xdp_v2_4_c.price_1.dissect(buffer, index, packet, parent)
@@ -5391,7 +5400,11 @@ nyse_nyseequities_bqt_xdp_v2_4_c.symbol_index_mapping_message.fields = function(
   index, symbol = nyse_nyseequities_bqt_xdp_v2_4_c.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = nyse_nyseequities_bqt_xdp_v2_4_c.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_nyseequities_bqt_xdp_v2_4_c.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nyseequities_bqt_xdp_v2_4_c.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_nyseequities_bqt_xdp_v2_4_c.market_id.dissect(buffer, index, packet, parent)
@@ -5430,7 +5443,11 @@ nyse_nyseequities_bqt_xdp_v2_4_c.symbol_index_mapping_message.fields = function(
   index, unit_of_trade = nyse_nyseequities_bqt_xdp_v2_4_c.unit_of_trade.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary
-  index, reserved_2 = nyse_nyseequities_bqt_xdp_v2_4_c.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_nyseequities_bqt_xdp_v2_4_c.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nyseequities_bqt_xdp_v2_4_c.reserved_2.size
+  end
 
   -- Cache Symbol Index Mapping Message record by symbol_index
   if show.records and not packet.visited then

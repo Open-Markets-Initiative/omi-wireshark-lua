@@ -91,12 +91,14 @@ local show = {}
 show.structs = true
 show.headers = true
 show.application_messages = true
+show.padding = false
 show.indexes = true
 
 -- Register Gpw BondSpot PricesAndTrades Xdp 6.8 Show Options
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -108,6 +110,9 @@ function omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs_changed()
   end
   if show.headers ~= omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs.show_headers then
     show.headers = omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs.show_headers
+  end
+  if show.padding ~= omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs.show_padding then
+    show.padding = omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs.show_padding
   end
   if show.structs ~= omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs.show_structs then
     show.structs = omi_gpw_bondspot_pricesandtrades_xdp_v6_8.prefs.show_structs
@@ -1486,7 +1491,11 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.price_update_message.fields = function(buf
   index, type_of_price = gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary Int.
-  index, reserved_2 = gpw_bondspot_pricesandtrades_xdp_v6_8.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = gpw_bondspot_pricesandtrades_xdp_v6_8.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_pricesandtrades_xdp_v6_8.reserved_2.size
+  end
 
   -- Price Scale Code: Binary Int.
   index, price_scale_code = gpw_bondspot_pricesandtrades_xdp_v6_8.price_scale_code.dissect(buffer, index, packet, parent)
@@ -1657,7 +1666,11 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.trade_full_information_message.fields = fu
   index, notional_currency = gpw_bondspot_pricesandtrades_xdp_v6_8.notional_currency.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary Int.
-  index, reserved_1 = gpw_bondspot_pricesandtrades_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = gpw_bondspot_pricesandtrades_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_pricesandtrades_xdp_v6_8.reserved_1.size
+  end
 
   -- Transaction Id Code: ASCII Ch.
   index, transaction_id_code = gpw_bondspot_pricesandtrades_xdp_v6_8.transaction_id_code.dissect(buffer, index, packet, parent)

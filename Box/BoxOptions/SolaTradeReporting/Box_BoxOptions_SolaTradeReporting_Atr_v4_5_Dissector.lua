@@ -25,7 +25,6 @@ omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_order_id = ProtoFie
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.cmta_broker = ProtoField.new("Cmta Broker", "box.boxoptions.solatradereporting.atr.v4.5.cmtabroker", ftypes.UINT16, nil, nil, nil, "Contains the numeric portion of the Firm ID who will receive the trade in a CMTA")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.control_byte = ProtoField.new("Control Byte", "box.boxoptions.solatradereporting.atr.v4.5.controlbyte", ftypes.STRING, nil, nil, nil, "Unused, always blank")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.destination = ProtoField.new("Destination", "box.boxoptions.solatradereporting.atr.v4.5.destination", ftypes.STRING, nil, nil, nil, "Contains the mnemonic of the message destination, Box for Box or the firm's clearing number")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.end_of_text = ProtoField.new("End Of Text", "box.boxoptions.solatradereporting.atr.v4.5.endoftext", ftypes.INT8, nil, nil, nil, "End of text, an ascii character of 0x03, closing every Atr message")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.error_code = ProtoField.new("Error Code", "box.boxoptions.solatradereporting.atr.v4.5.errorcode", ftypes.UINT16, nil, nil, nil, "Refer to Error Codes below.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.error_text = ProtoField.new("Error Text", "box.boxoptions.solatradereporting.atr.v4.5.errortext", ftypes.STRING, nil, nil, nil, "Contains the error description.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.executing_broker = ProtoField.new("Executing Broker", "box.boxoptions.solatradereporting.atr.v4.5.executingbroker", ftypes.UINT16, nil, nil, nil, "Contains the numeric portion of the BOX Participant ID executing the trade In the [0001,9999] range Right justified, zero padded")
@@ -52,6 +51,7 @@ omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_message_type = P
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_trade_number = ProtoField.new("Reference Trade Number", "box.boxoptions.solatradereporting.atr.v4.5.referencetradenumber", ftypes.STRING, nil, nil, nil, "Identification of the Trade received from the Message Type 30 - Trade This refers to the Trade Number under which a New Allocation (or Give-Up) is to be created or under which an existing Allocation (or Give-Up) is to be modified.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_transaction_id = ProtoField.new("Reference Transaction Id", "box.boxoptions.solatradereporting.atr.v4.5.referencetransactionid", ftypes.UINT64, nil, nil, nil, "For Message Type 42 – New Allocation Identifies the Unique Transaction ID of the parent Trade under which the Allocation is to be created. For Message Type 43 – Modify Allocation Identifies the Unique Transaction ID of the original Allocation which is to be modified. For Message Type 52 – New Give-Up Identifies the Unique Transaction ID of the parent Trade under which the Give-Up is to be created. For Message Type 53 – Modify Give-Up Identifies the Unique Transaction ID of the original Give- Up which is to be modified.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.sequence_number = ProtoField.new("Sequence Number", "box.boxoptions.solatradereporting.atr.v4.5.sequencenumber", ftypes.UINT32, nil, nil, nil, "If the sequence number is higher than any message number known to the ATR Server, the Participant will receive the next message from the last sequence number which was sent by the ATR Server. In the [1,99999999] range, right justified, zero padded")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.sola_message_end = ProtoField.new("Sola Message End", "box.boxoptions.solatradereporting.atr.v4.5.solamessageend", ftypes.INT8, nil, nil, nil, "End of text, an ascii character of 0x03, closing every Atr message")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.source = ProtoField.new("Source", "box.boxoptions.solatradereporting.atr.v4.5.source", ftypes.STRING, nil, nil, nil, "Contains the mnemonic of the message source")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price = ProtoField.new("Strike Price", "box.boxoptions.solatradereporting.atr.v4.5.strikeprice", ftypes.UINT32, nil, nil, nil, "Option Strike Price The format is defined by the new field ‘Strike Price Fraction Indicator’. Filled with zero when the instrument is not an option Right justified, Zero padded")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "box.boxoptions.solatradereporting.atr.v4.5.strikepricefractionindicator", ftypes.STRING, nil, nil, nil, "Define the number of decimal places or fraction positions")
@@ -67,11 +67,11 @@ omi_box_boxoptions_solatradereporting_atr_v4_5.fields.username = ProtoField.new(
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.volume = ProtoField.new("Volume", "box.boxoptions.solatradereporting.atr.v4.5.volume", ftypes.UINT32, nil, nil, nil, "Volume of the trade Right justified, Zero padded")
 
 -- Box BoxOptions SolaTradeReporting Atr 4.5 Framing
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_frame = ProtoField.new("Client Frame", "box.boxoptions.solatradereporting.atr.v4.5.clientframe", ftypes.STRING, nil, nil, nil, "One Atr message sent by the participant, opened by the header and closed by an end of text")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_packet = ProtoField.new("Client Packet", "box.boxoptions.solatradereporting.atr.v4.5.clientpacket", ftypes.STRING, nil, nil, nil, "Atr message sent by the participant, opened by the header and closed by an end of text")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_sola_frame = ProtoField.new("Client Sola Frame", "box.boxoptions.solatradereporting.atr.v4.5.clientsolaframe", ftypes.STRING, nil, nil, nil, "One Atr message sent by the participant, opened by the header and closed by an end of text")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.message_header = ProtoField.new("Message Header", "box.boxoptions.solatradereporting.atr.v4.5.messageheader", ftypes.STRING, nil, nil, nil, "Atr message header, twenty eight bytes opening every message either way")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.server_frame = ProtoField.new("Server Frame", "box.boxoptions.solatradereporting.atr.v4.5.serverframe", ftypes.STRING, nil, nil, nil, "One Atr message sent by the Atr server, opened by the header and closed by an end of text")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.server_packet = ProtoField.new("Server Packet", "box.boxoptions.solatradereporting.atr.v4.5.serverpacket", ftypes.STRING, nil, nil, nil, "Atr message sent by the Atr server, opened by the header and closed by an end of text")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.server_sola_frame = ProtoField.new("Server Sola Frame", "box.boxoptions.solatradereporting.atr.v4.5.serversolaframe", ftypes.STRING, nil, nil, nil, "One Atr message sent by the Atr server, opened by the header and closed by an end of text")
 
 -- Box BoxOptions SolaTradeReporting 4.5 Application Messages
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.acknowledgement_message = ProtoField.new("Acknowledgement Message", "box.boxoptions.solatradereporting.atr.v4.5.acknowledgementmessage", ftypes.BYTES, nil, nil, nil, "Action")
@@ -131,6 +131,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.delimiters = false
 
 -- Register Box BoxOptions SolaTradeReporting Atr 4.5 Show Options
 omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
@@ -139,6 +140,7 @@ omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.swap_sides = Pref.bool("Swa
 omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_delimiters = Pref.bool("Show Delimiters", show.delimiters, "Parse and add Delimiters to protocol tree")
 omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
@@ -147,6 +149,9 @@ function omi_box_boxoptions_solatradereporting_atr_v4_5.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_application_messages then
     show.application_messages = omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_application_messages
+  end
+  if show.delimiters ~= omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_delimiters then
+    show.delimiters = omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_delimiters
   end
   if show.headers ~= omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_headers then
     show.headers = omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_headers
@@ -521,33 +526,6 @@ box_boxoptions_solatradereporting_atr_v4_5.destination.dissect = function(buffer
   local display = box_boxoptions_solatradereporting_atr_v4_5.destination.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.destination, range, value, display)
-
-  return offset + length, value
-end
-
--- End Of Text
-box_boxoptions_solatradereporting_atr_v4_5.end_of_text = {}
-
--- Size: End Of Text
-box_boxoptions_solatradereporting_atr_v4_5.end_of_text.size = 1
-
--- Display: End Of Text
-box_boxoptions_solatradereporting_atr_v4_5.end_of_text.display = function(value)
-  if value == 3 then
-    return "End Of Text: Etx"
-  end
-
-  return "End Of Text: Unknown("..value..")"
-end
-
--- Dissect: End Of Text
-box_boxoptions_solatradereporting_atr_v4_5.end_of_text.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solatradereporting_atr_v4_5.end_of_text.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = box_boxoptions_solatradereporting_atr_v4_5.end_of_text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.end_of_text, range, value, display)
 
   return offset + length, value
 end
@@ -1299,6 +1277,33 @@ box_boxoptions_solatradereporting_atr_v4_5.sequence_number.dissect = function(bu
   local display = box_boxoptions_solatradereporting_atr_v4_5.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sola Message End
+box_boxoptions_solatradereporting_atr_v4_5.sola_message_end = {}
+
+-- Size: Sola Message End
+box_boxoptions_solatradereporting_atr_v4_5.sola_message_end.size = 1
+
+-- Display: Sola Message End
+box_boxoptions_solatradereporting_atr_v4_5.sola_message_end.display = function(value)
+  if value == 3 then
+    return "Sola Message End: Etx"
+  end
+
+  return "Sola Message End: Unknown("..value..")"
+end
+
+-- Dissect: Sola Message End
+box_boxoptions_solatradereporting_atr_v4_5.sola_message_end.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solatradereporting_atr_v4_5.sola_message_end.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = box_boxoptions_solatradereporting_atr_v4_5.sola_message_end.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.sola_message_end, range, value, display)
 
   return offset + length, value
 end
@@ -2869,16 +2874,16 @@ box_boxoptions_solatradereporting_atr_v4_5.message_header.dissect = function(buf
   end
 end
 
--- Server Frame
-box_boxoptions_solatradereporting_atr_v4_5.server_frame = {}
+-- Server Sola Frame
+box_boxoptions_solatradereporting_atr_v4_5.server_sola_frame = {}
 
--- Display: Server Frame
-box_boxoptions_solatradereporting_atr_v4_5.server_frame.display = function(packet, parent, length)
+-- Display: Server Sola Frame
+box_boxoptions_solatradereporting_atr_v4_5.server_sola_frame.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Server Frame
-box_boxoptions_solatradereporting_atr_v4_5.server_frame.fields = function(buffer, offset, packet, parent, size_of_server_frame)
+-- Dissect Fields: Server Sola Frame
+box_boxoptions_solatradereporting_atr_v4_5.server_sola_frame.fields = function(buffer, offset, packet, parent, size_of_server_sola_frame)
   local index = offset
 
   -- Message Header: Struct of 7 fields
@@ -2890,35 +2895,39 @@ box_boxoptions_solatradereporting_atr_v4_5.server_frame.fields = function(buffer
   -- Server Message: Runtime Type with 13 branches
   index = box_boxoptions_solatradereporting_atr_v4_5.server_message.dissect(buffer, index, packet, parent, message_type)
 
-  -- End Of Text: A
-  index, end_of_text = box_boxoptions_solatradereporting_atr_v4_5.end_of_text.dissect(buffer, index, packet, parent)
+  -- Sola Message End: A
+  if show.delimiters then
+    index, sola_message_end = box_boxoptions_solatradereporting_atr_v4_5.sola_message_end.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solatradereporting_atr_v4_5.sola_message_end.size
+  end
 
   return index
 end
 
--- Dissect: Server Frame
-box_boxoptions_solatradereporting_atr_v4_5.server_frame.dissect = function(buffer, offset, packet, parent, size_of_server_frame)
-  local index = offset + size_of_server_frame
+-- Dissect: Server Sola Frame
+box_boxoptions_solatradereporting_atr_v4_5.server_sola_frame.dissect = function(buffer, offset, packet, parent, size_of_server_sola_frame)
+  local index = offset + size_of_server_sola_frame
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.server_frame, buffer(offset, 0))
-    local current = box_boxoptions_solatradereporting_atr_v4_5.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
-    parent:set_len(size_of_server_frame)
-    local display = box_boxoptions_solatradereporting_atr_v4_5.server_frame.display(buffer, packet, parent)
+    parent = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.server_sola_frame, buffer(offset, 0))
+    local current = box_boxoptions_solatradereporting_atr_v4_5.server_sola_frame.fields(buffer, offset, packet, parent, size_of_server_sola_frame)
+    parent:set_len(size_of_server_sola_frame)
+    local display = box_boxoptions_solatradereporting_atr_v4_5.server_sola_frame.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    box_boxoptions_solatradereporting_atr_v4_5.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    box_boxoptions_solatradereporting_atr_v4_5.server_sola_frame.fields(buffer, offset, packet, parent, size_of_server_sola_frame)
 
     return index
   end
 end
 
--- Remaining Bytes For: Server Frame
-local server_frame_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Server Sola Frame
+local server_sola_frame_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
@@ -2952,19 +2961,19 @@ end
 box_boxoptions_solatradereporting_atr_v4_5.server_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Server Frame
+  -- Dependency for Server Sola Frame
   local end_of_payload = buffer:len()
 
-  -- Server Frame: Struct of 3 fields
+  -- Server Sola Frame: Struct of 3 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_server_frame = server_frame_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_server_sola_frame = server_sola_frame_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
       -- Dissect this message within a buffer bounded to its own frame
-      local frame = buffer(0, index + size_of_server_frame):tvb()
-      index = box_boxoptions_solatradereporting_atr_v4_5.server_frame.dissect(frame, index, packet, parent, size_of_server_frame)
+      local frame = buffer(0, index + size_of_server_sola_frame):tvb()
+      index = box_boxoptions_solatradereporting_atr_v4_5.server_sola_frame.dissect(frame, index, packet, parent, size_of_server_sola_frame)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -3563,16 +3572,16 @@ box_boxoptions_solatradereporting_atr_v4_5.client_message.dissect = function(buf
   return offset
 end
 
--- Client Frame
-box_boxoptions_solatradereporting_atr_v4_5.client_frame = {}
+-- Client Sola Frame
+box_boxoptions_solatradereporting_atr_v4_5.client_sola_frame = {}
 
--- Display: Client Frame
-box_boxoptions_solatradereporting_atr_v4_5.client_frame.display = function(packet, parent, length)
+-- Display: Client Sola Frame
+box_boxoptions_solatradereporting_atr_v4_5.client_sola_frame.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Client Frame
-box_boxoptions_solatradereporting_atr_v4_5.client_frame.fields = function(buffer, offset, packet, parent, size_of_client_frame)
+-- Dissect Fields: Client Sola Frame
+box_boxoptions_solatradereporting_atr_v4_5.client_sola_frame.fields = function(buffer, offset, packet, parent, size_of_client_sola_frame)
   local index = offset
 
   -- Message Header: Struct of 7 fields
@@ -3584,35 +3593,39 @@ box_boxoptions_solatradereporting_atr_v4_5.client_frame.fields = function(buffer
   -- Client Message: Runtime Type with 10 branches
   index = box_boxoptions_solatradereporting_atr_v4_5.client_message.dissect(buffer, index, packet, parent, message_type)
 
-  -- End Of Text: A
-  index, end_of_text = box_boxoptions_solatradereporting_atr_v4_5.end_of_text.dissect(buffer, index, packet, parent)
+  -- Sola Message End: A
+  if show.delimiters then
+    index, sola_message_end = box_boxoptions_solatradereporting_atr_v4_5.sola_message_end.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solatradereporting_atr_v4_5.sola_message_end.size
+  end
 
   return index
 end
 
--- Dissect: Client Frame
-box_boxoptions_solatradereporting_atr_v4_5.client_frame.dissect = function(buffer, offset, packet, parent, size_of_client_frame)
-  local index = offset + size_of_client_frame
+-- Dissect: Client Sola Frame
+box_boxoptions_solatradereporting_atr_v4_5.client_sola_frame.dissect = function(buffer, offset, packet, parent, size_of_client_sola_frame)
+  local index = offset + size_of_client_sola_frame
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_frame, buffer(offset, 0))
-    local current = box_boxoptions_solatradereporting_atr_v4_5.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
-    parent:set_len(size_of_client_frame)
-    local display = box_boxoptions_solatradereporting_atr_v4_5.client_frame.display(buffer, packet, parent)
+    parent = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_sola_frame, buffer(offset, 0))
+    local current = box_boxoptions_solatradereporting_atr_v4_5.client_sola_frame.fields(buffer, offset, packet, parent, size_of_client_sola_frame)
+    parent:set_len(size_of_client_sola_frame)
+    local display = box_boxoptions_solatradereporting_atr_v4_5.client_sola_frame.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    box_boxoptions_solatradereporting_atr_v4_5.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    box_boxoptions_solatradereporting_atr_v4_5.client_sola_frame.fields(buffer, offset, packet, parent, size_of_client_sola_frame)
 
     return index
   end
 end
 
--- Remaining Bytes For: Client Frame
-local client_frame_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Client Sola Frame
+local client_sola_frame_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
@@ -3646,19 +3659,19 @@ end
 box_boxoptions_solatradereporting_atr_v4_5.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Client Frame
+  -- Dependency for Client Sola Frame
   local end_of_payload = buffer:len()
 
-  -- Client Frame: Struct of 3 fields
+  -- Client Sola Frame: Struct of 3 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_client_frame = client_frame_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_client_sola_frame = client_sola_frame_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
       -- Dissect this message within a buffer bounded to its own frame
-      local frame = buffer(0, index + size_of_client_frame):tvb()
-      index = box_boxoptions_solatradereporting_atr_v4_5.client_frame.dissect(frame, index, packet, parent, size_of_client_frame)
+      local frame = buffer(0, index + size_of_client_sola_frame):tvb()
+      index = box_boxoptions_solatradereporting_atr_v4_5.client_sola_frame.dissect(frame, index, packet, parent, size_of_client_sola_frame)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

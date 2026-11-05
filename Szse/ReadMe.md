@@ -7,7 +7,7 @@
 
 | Division | [Protocol][Omi.Szse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Szse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [SzseSecurities][SzseSecurities.Exchange] | [MulticastMarketData][Szse.SzseSecurities.MulticastMarketData] | [SzseBinary][Omi.Encoding.SzseBinary] | [1.17][Szse.SzseSecurities.MulticastMarketData.SzseBinary.v1.17.Dissector] | 4/1/2025 | 6926 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Szse.SzseSecurities.MulticastMarketData.SzseBinary.v1.17.Url] - [pdf][Szse.SzseSecurities.MulticastMarketData.SzseBinary.v1.17.Pdf] |
+| [SzseSecurities][SzseSecurities.Exchange] | [MulticastMarketData][Szse.SzseSecurities.MulticastMarketData] | [SzseBinary][Omi.Encoding.SzseBinary] | [1.17][Szse.SzseSecurities.MulticastMarketData.SzseBinary.v1.17.Dissector] | 4/1/2025 | 6931 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Szse.SzseSecurities.MulticastMarketData.SzseBinary.v1.17.Url] - [pdf][Szse.SzseSecurities.MulticastMarketData.SzseBinary.v1.17.Pdf] |
 | [SzseSecurities][SzseSecurities.Exchange] | [TcpMarketData][Szse.SzseSecurities.TcpMarketData] | [SzseBinary][Omi.Encoding.SzseBinary] | [1.17][Szse.SzseSecurities.TcpMarketData.SzseBinary.v1.17.Dissector] | 4/1/2025 | 6620 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Szse.SzseSecurities.TcpMarketData.SzseBinary.v1.17.Url] - [pdf][Szse.SzseSecurities.TcpMarketData.SzseBinary.v1.17.Pdf] |
 
 

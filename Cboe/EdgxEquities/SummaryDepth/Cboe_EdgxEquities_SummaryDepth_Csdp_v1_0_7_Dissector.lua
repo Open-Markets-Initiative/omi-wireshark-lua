@@ -105,6 +105,7 @@ show.repeating_groups = true
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -113,6 +114,7 @@ omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_repeating_groups = Pre
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -127,6 +129,9 @@ function omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs_changed()
   end
   if show.headers ~= omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_headers then
     show.headers = omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_padding then
+    show.padding = omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_padding
   end
   if show.repeating_groups ~= omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.prefs.show_repeating_groups
@@ -1585,7 +1590,11 @@ cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_message.fields = function(buffer
   index, adap_flags = cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_flags.dissect(buffer, index, packet, parent)
 
   -- Spare Reserved 1: Reserved
-  index, spare_reserved_1 = cboe_edgxequities_summarydepth_csdp_v1_0_7.spare_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, spare_reserved_1 = cboe_edgxequities_summarydepth_csdp_v1_0_7.spare_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxequities_summarydepth_csdp_v1_0_7.spare_reserved_1.size
+  end
 
   -- Adap Blocks: Binary
   index, adap_blocks = cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_blocks.dissect(buffer, index, packet, parent)

@@ -510,6 +510,7 @@ show.headers = true
 show.repeating_groups = true
 show.structs = true
 show.schema_messages = true
+show.padding = false
 show.indexes = true
 
 -- Register Cme Globex Mdp3 Sbe 1.12 Show Options
@@ -521,6 +522,7 @@ omi_cme_globex_mdp3_sbe_v1_12.prefs.show_headers = Pref.bool("Show Headers", sho
 omi_cme_globex_mdp3_sbe_v1_12.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_mdp3_sbe_v1_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_globex_mdp3_sbe_v1_12.prefs.show_schema_messages = Pref.bool("Show Schema Messages", show.schema_messages, "Parse and add Schema Messages to protocol tree")
+omi_cme_globex_mdp3_sbe_v1_12.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cme_globex_mdp3_sbe_v1_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cme_globex_mdp3_sbe_v1_12.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -534,6 +536,9 @@ function omi_cme_globex_mdp3_sbe_v1_12.prefs_changed()
   end
   if show.headers ~= omi_cme_globex_mdp3_sbe_v1_12.prefs.show_headers then
     show.headers = omi_cme_globex_mdp3_sbe_v1_12.prefs.show_headers
+  end
+  if show.padding ~= omi_cme_globex_mdp3_sbe_v1_12.prefs.show_padding then
+    show.padding = omi_cme_globex_mdp3_sbe_v1_12.prefs.show_padding
   end
   if show.repeating_groups ~= omi_cme_globex_mdp3_sbe_v1_12.prefs.show_repeating_groups then
     show.repeating_groups = omi_cme_globex_mdp3_sbe_v1_12.prefs.show_repeating_groups
@@ -7585,7 +7590,11 @@ cme_globex_mdp3_sbe_v1_12.terminate.fields = function(buffer, offset, packet, pa
   index, error_codes = cme_globex_mdp3_sbe_v1_12.error_codes.dissect(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
-  index, padding_5 = cme_globex_mdp3_sbe_v1_12.padding_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_5 = cme_globex_mdp3_sbe_v1_12.padding_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_5.size
+  end
 
   return index
 end
@@ -7637,7 +7646,11 @@ cme_globex_mdp3_sbe_v1_12.negotiation_response.fields = function(buffer, offset,
   index, secret_key_secure_id_expiration = cme_globex_mdp3_sbe_v1_12.secret_key_secure_id_expiration.dissect(buffer, index, packet, parent)
 
   -- Padding 4: 4 Byte
-  index, padding_4 = cme_globex_mdp3_sbe_v1_12.padding_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_4 = cme_globex_mdp3_sbe_v1_12.padding_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_4.size
+  end
 
   return index
 end
@@ -7693,7 +7706,11 @@ cme_globex_mdp3_sbe_v1_12.negotiation_reject.fields = function(buffer, offset, p
   index, error_codes = cme_globex_mdp3_sbe_v1_12.error_codes.dissect(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
-  index, padding_5 = cme_globex_mdp3_sbe_v1_12.padding_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_5 = cme_globex_mdp3_sbe_v1_12.padding_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_5.size
+  end
 
   return index
 end
@@ -8277,7 +8294,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_session_statistics_long_group.fiel
   index, md_entry_type_statistics = cme_globex_mdp3_sbe_v1_12.md_entry_type_statistics.dissect(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
-  index, padding_5 = cme_globex_mdp3_sbe_v1_12.padding_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_5 = cme_globex_mdp3_sbe_v1_12.padding_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_5.size
+  end
 
   return index
 end
@@ -8391,7 +8412,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_session_statistics_long_qty.fie
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Incremental Refresh Session Statistics Long Groups: Struct of 2 fields
   index, incremental_refresh_session_statistics_long_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_session_statistics_long_groups.dissect(buffer, index, packet, parent)
@@ -8456,7 +8481,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_volume_long_group.fields = functio
   index, md_update_action = cme_globex_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
   -- Padding 7: 7 Byte
-  index, padding_7 = cme_globex_mdp3_sbe_v1_12.padding_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_7 = cme_globex_mdp3_sbe_v1_12.padding_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_7.size
+  end
 
   return index
 end
@@ -8570,7 +8599,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_volume_long_qty.fields = functi
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Incremental Refresh Volume Long Groups: Struct of 2 fields
   index, incremental_refresh_volume_long_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_volume_long_groups.dissect(buffer, index, packet, parent)
@@ -8627,7 +8660,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_trade_summary_long_order_id_group.
   index, last_qty = cme_globex_mdp3_sbe_v1_12.last_qty.dissect(buffer, index, packet, parent)
 
   -- Padding 4: 4 Byte
-  index, padding_4 = cme_globex_mdp3_sbe_v1_12.padding_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_4 = cme_globex_mdp3_sbe_v1_12.padding_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_4.size
+  end
 
   return index
 end
@@ -8672,7 +8709,11 @@ cme_globex_mdp3_sbe_v1_12.group_size_8_byte.fields = function(buffer, offset, pa
   index, block_length = cme_globex_mdp3_sbe_v1_12.block_length.dissect(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
-  index, padding_5 = cme_globex_mdp3_sbe_v1_12.padding_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_5 = cme_globex_mdp3_sbe_v1_12.padding_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_5.size
+  end
 
   -- Num In Group: uint8
   index, num_in_group = cme_globex_mdp3_sbe_v1_12.num_in_group.dissect(buffer, index, packet, parent)
@@ -8810,7 +8851,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_trade_summary_long_group.fields = 
   index, md_update_action = cme_globex_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
   -- Padding 6: 6 Byte
-  index, padding_6 = cme_globex_mdp3_sbe_v1_12.padding_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_6 = cme_globex_mdp3_sbe_v1_12.padding_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_6.size
+  end
 
   return index
 end
@@ -8926,7 +8971,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_trade_summary_long_qty.fields =
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Incremental Refresh Trade Summary Long Groups: Struct of 2 fields
   index, incremental_refresh_trade_summary_long_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_trade_summary_long_groups.dissect(buffer, index, packet, parent)
@@ -8998,7 +9047,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_group.fields = 
   index, order_update_action = cme_globex_mdp3_sbe_v1_12.order_update_action.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   return index
 end
@@ -9133,7 +9186,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_group.fields = function(
   index, md_entry_type_book = cme_globex_mdp3_sbe_v1_12.md_entry_type_book.dissect(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
-  index, padding_1 = cme_globex_mdp3_sbe_v1_12.padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_1 = cme_globex_mdp3_sbe_v1_12.padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_1.size
+  end
 
   return index
 end
@@ -9249,7 +9306,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_book_long_qty.fields = function
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Incremental Refresh Book Long Groups: Struct of 2 fields
   index, incremental_refresh_book_long_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_groups.dissect(buffer, index, packet, parent)
@@ -10428,7 +10489,11 @@ cme_globex_mdp3_sbe_v1_12.collateral_market_value_group.fields = function(buffer
   index, md_stream_id = cme_globex_mdp3_sbe_v1_12.md_stream_id.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   return index
 end
@@ -10542,7 +10607,11 @@ cme_globex_mdp3_sbe_v1_12.collateral_market_value.fields = function(buffer, offs
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Collateral Market Value Groups: Struct of 2 fields
   index, collateral_market_value_groups = cme_globex_mdp3_sbe_v1_12.collateral_market_value_groups.dissect(buffer, index, packet, parent)
@@ -13876,7 +13945,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_session_statistics_group.fields = 
   index, md_entry_size_short_optional = cme_globex_mdp3_sbe_v1_12.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
-  index, padding_1 = cme_globex_mdp3_sbe_v1_12.padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_1 = cme_globex_mdp3_sbe_v1_12.padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_1.size
+  end
 
   return index
 end
@@ -13990,7 +14063,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_session_statistics.fields = fun
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Incremental Refresh Session Statistics Groups: Struct of 2 fields
   index, incremental_refresh_session_statistics_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_session_statistics_groups.dissect(buffer, index, packet, parent)
@@ -14169,7 +14246,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_limits_banding.fields = functio
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Incremental Refresh Limits Banding Groups: Struct of 2 fields
   index, incremental_refresh_limits_banding_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_limits_banding_groups.dissect(buffer, index, packet, parent)
@@ -14250,7 +14331,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_daily_statistics_group.fields = fu
   index, md_entry_type_daily_statistics = cme_globex_mdp3_sbe_v1_12.md_entry_type_daily_statistics.dissect(buffer, index, packet, parent)
 
   -- Padding 7: 7 Byte
-  index, padding_7 = cme_globex_mdp3_sbe_v1_12.padding_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_7 = cme_globex_mdp3_sbe_v1_12.padding_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_7.size
+  end
 
   return index
 end
@@ -14364,7 +14449,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_daily_statistics.fields = funct
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Incremental Refresh Daily Statistics Groups: Struct of 2 fields
   index, incremental_refresh_daily_statistics_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_daily_statistics_groups.dissect(buffer, index, packet, parent)
@@ -14421,7 +14510,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_trade_summary_order_id_group.field
   index, last_qty = cme_globex_mdp3_sbe_v1_12.last_qty.dissect(buffer, index, packet, parent)
 
   -- Padding 4: 4 Byte
-  index, padding_4 = cme_globex_mdp3_sbe_v1_12.padding_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_4 = cme_globex_mdp3_sbe_v1_12.padding_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_4.size
+  end
 
   return index
 end
@@ -14556,7 +14649,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_trade_summary_group.fields = funct
   index, md_trade_entry_optional = cme_globex_mdp3_sbe_v1_12.md_trade_entry_optional.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   return index
 end
@@ -14672,7 +14769,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_trade_summary.fields = function
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Incremental Refresh Trade Summary Groups: Struct of 2 fields
   index, incremental_refresh_trade_summary_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_trade_summary_groups.dissect(buffer, index, packet, parent)
@@ -14752,7 +14853,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_order_book_group.fields = function
   index, md_entry_type_book = cme_globex_mdp3_sbe_v1_12.md_entry_type_book.dissect(buffer, index, packet, parent)
 
   -- Padding 6: 6 Byte
-  index, padding_6 = cme_globex_mdp3_sbe_v1_12.padding_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_6 = cme_globex_mdp3_sbe_v1_12.padding_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_6.size
+  end
 
   return index
 end
@@ -14866,7 +14971,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_order_book.fields = function(bu
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Incremental Refresh Order Book Groups: Struct of 2 fields
   index, incremental_refresh_order_book_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_order_book_groups.dissect(buffer, index, packet, parent)
@@ -14935,7 +15044,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_order_id_group.fields = funct
   index, order_update_action = cme_globex_mdp3_sbe_v1_12.order_update_action.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   return index
 end
@@ -15074,7 +15187,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_group.fields = function(buffe
   index, tradeable_size = cme_globex_mdp3_sbe_v1_12.tradeable_size.dissect(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
-  index, padding_1 = cme_globex_mdp3_sbe_v1_12.padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_1 = cme_globex_mdp3_sbe_v1_12.padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_1.size
+  end
 
   return index
 end
@@ -15190,7 +15307,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_book.fields = function(buffer, 
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Incremental Refresh Book Groups: Struct of 2 fields
   index, incremental_refresh_book_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_groups.dissect(buffer, index, packet, parent)
@@ -15262,7 +15383,11 @@ cme_globex_mdp3_sbe_v1_12.related_sym_group.fields = function(buffer, offset, pa
   index, side_optional = cme_globex_mdp3_sbe_v1_12.side_optional.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   return index
 end
@@ -15381,7 +15506,11 @@ cme_globex_mdp3_sbe_v1_12.quote_request.fields = function(buffer, offset, packet
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 3: 3 Byte
-  index, padding_3 = cme_globex_mdp3_sbe_v1_12.padding_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_3 = cme_globex_mdp3_sbe_v1_12.padding_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_3.size
+  end
 
   -- Related Sym Groups: Struct of 2 fields
   index, related_sym_groups = cme_globex_mdp3_sbe_v1_12.related_sym_groups.dissect(buffer, index, packet, parent)
@@ -15446,7 +15575,11 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_volume_group.fields = function(buf
   index, md_update_action = cme_globex_mdp3_sbe_v1_12.md_update_action.dissect(buffer, index, packet, parent)
 
   -- Padding 3: 3 Byte
-  index, padding_3 = cme_globex_mdp3_sbe_v1_12.padding_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_3 = cme_globex_mdp3_sbe_v1_12.padding_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_3.size
+  end
 
   return index
 end
@@ -15560,7 +15693,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_volume.fields = function(buffer
   index, match_event_indicator = cme_globex_mdp3_sbe_v1_12.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_12.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_12.padding_2.size
+  end
 
   -- Incremental Refresh Volume Groups: Struct of 2 fields
   index, incremental_refresh_volume_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_volume_groups.dissect(buffer, index, packet, parent)

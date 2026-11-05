@@ -143,6 +143,7 @@ show.application_messages = true
 show.repeating_groups = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -151,6 +152,7 @@ omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_application_messages = Pref.
 omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_37.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
@@ -166,6 +168,9 @@ function omi_cboe_c1options_complex_pitch_v2_1_37.prefs_changed()
   end
   if show.headers ~= omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_headers then
     show.headers = omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_padding then
+    show.padding = omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_padding
   end
   if show.repeating_groups ~= omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_repeating_groups
@@ -2008,19 +2013,31 @@ cboe_c1options_complex_pitch_v2_1_37.trading_status_message.fields = function(bu
   index, complex_symbol_id = cboe_c1options_complex_pitch_v2_1_37.complex_symbol_id.dissect(buffer, index, packet, parent)
 
   -- Unused: Reserved
-  index, unused = cboe_c1options_complex_pitch_v2_1_37.unused.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, unused = cboe_c1options_complex_pitch_v2_1_37.unused.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complex_pitch_v2_1_37.unused.size
+  end
 
   -- Trading Status: Alphanumeric
   index, trading_status = cboe_c1options_complex_pitch_v2_1_37.trading_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_c1options_complex_pitch_v2_1_37.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_c1options_complex_pitch_v2_1_37.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complex_pitch_v2_1_37.reserved_1.size
+  end
 
   -- Gth Trading Status: Alphanumeric
   index, gth_trading_status = cboe_c1options_complex_pitch_v2_1_37.gth_trading_status.dissect(buffer, index, packet, parent)
 
   -- Padding: Reserved
-  index, padding = cboe_c1options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding = cboe_c1options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complex_pitch_v2_1_37.padding.size
+  end
 
   return index
 end
@@ -2436,7 +2453,11 @@ cboe_c1options_complex_pitch_v2_1_37.modify_order_short_message.fields = functio
   index, price_short = cboe_c1options_complex_pitch_v2_1_37.price_short.dissect(buffer, index, packet, parent)
 
   -- Padding: Reserved
-  index, padding = cboe_c1options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding = cboe_c1options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complex_pitch_v2_1_37.padding.size
+  end
 
   return index
 end
@@ -2492,7 +2513,11 @@ cboe_c1options_complex_pitch_v2_1_37.modify_order_long_message.fields = function
   index, price = cboe_c1options_complex_pitch_v2_1_37.price.dissect(buffer, index, packet, parent)
 
   -- Padding: Reserved
-  index, padding = cboe_c1options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding = cboe_c1options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complex_pitch_v2_1_37.padding.size
+  end
 
   return index
 end
@@ -2775,7 +2800,11 @@ cboe_c1options_complex_pitch_v2_1_37.add_order_expanded_message.fields = functio
   index, price = cboe_c1options_complex_pitch_v2_1_37.price.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_c1options_complex_pitch_v2_1_37.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_c1options_complex_pitch_v2_1_37.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complex_pitch_v2_1_37.reserved_1.size
+  end
 
   -- Participant Id: Alphanumeric
   index, participant_id = cboe_c1options_complex_pitch_v2_1_37.participant_id.dissect(buffer, index, packet, parent)
@@ -2848,7 +2877,11 @@ cboe_c1options_complex_pitch_v2_1_37.add_order_short_message.fields = function(b
   index, price_short = cboe_c1options_complex_pitch_v2_1_37.price_short.dissect(buffer, index, packet, parent)
 
   -- Padding: Reserved
-  index, padding = cboe_c1options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding = cboe_c1options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complex_pitch_v2_1_37.padding.size
+  end
 
   return index
 end
@@ -2912,7 +2945,11 @@ cboe_c1options_complex_pitch_v2_1_37.add_order_long_message.fields = function(bu
   index, price = cboe_c1options_complex_pitch_v2_1_37.price.dissect(buffer, index, packet, parent)
 
   -- Padding: Reserved
-  index, padding = cboe_c1options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding = cboe_c1options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complex_pitch_v2_1_37.padding.size
+  end
 
   return index
 end

@@ -294,6 +294,7 @@ show.structs = true
 show.session_messages = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Nyse AmexOptions BinaryGateway PillarStream 3.26 Show Options
@@ -305,6 +306,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_structs = Pref.
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -318,6 +320,9 @@ function omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs_changed()
   end
   if show.headers ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_headers then
     show.headers = omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_padding then
+    show.padding = omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_padding
   end
   if show.repeating_groups ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_repeating_groups then
     show.repeating_groups = omi_nyse_amexoptions_binarygateway_pillarstream_v3_26.prefs.show_repeating_groups
@@ -5660,7 +5665,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.risk_control_alert_message.fie
   index, mp_sub_id = nyse_amexoptions_binarygateway_pillarstream_v3_26.mp_sub_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.size
+  end
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_amexoptions_binarygateway_pillarstream_v3_26.clearing_number.dissect(buffer, index, packet, parent)
@@ -5726,7 +5735,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.risk_control_alert_message.fie
   index, reinstatement_required_by_other = nyse_amexoptions_binarygateway_pillarstream_v3_26.reinstatement_required_by_other.dissect(buffer, index, packet, parent)
 
   -- Reserved 200: zchar(200)
-  index, reserved_200 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_200.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_200 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_200.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_200.size
+  end
 
   return index
 end
@@ -5788,7 +5801,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.risk_control_acknowledgement_m
   index, mp_sub_id = nyse_amexoptions_binarygateway_pillarstream_v3_26.mp_sub_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.size
+  end
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_amexoptions_binarygateway_pillarstream_v3_26.clearing_number.dissect(buffer, index, packet, parent)
@@ -5869,7 +5886,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.risk_control_acknowledgement_m
   index, price_scale = nyse_amexoptions_binarygateway_pillarstream_v3_26.price_scale.dissect(buffer, index, packet, parent)
 
   -- Reserved 190: zchar(190)
-  index, reserved_190 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_190.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_190 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_190.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_190.size
+  end
 
   return index
 end
@@ -5940,7 +5961,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.application_layer_reject_messa
   index, user_data = nyse_amexoptions_binarygateway_pillarstream_v3_26.user_data.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.size
+  end
 
   return index
 end
@@ -6305,10 +6330,18 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.execution_report_message.field
   index, multileg_reporting_type = nyse_amexoptions_binarygateway_pillarstream_v3_26.multileg_reporting_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: u8
-  index, reserved_1 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_1.size
+  end
 
   -- Reserved 2: u16
-  index, reserved_2 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_2.size
+  end
 
   -- Locate Reqd U 81: u8
   index, locate_reqd_u_81 = nyse_amexoptions_binarygateway_pillarstream_v3_26.locate_reqd_u_81.dissect(buffer, index, packet, parent)
@@ -7126,7 +7159,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.session_configuration_acknowle
   index, bold_designation = nyse_amexoptions_binarygateway_pillarstream_v3_26.bold_designation.dissect(buffer, index, packet, parent)
 
   -- Reserved 49: zchar(49)
-  index, reserved_49 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_49.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_49 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_49.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_49.size
+  end
 
   return index
 end
@@ -7197,7 +7234,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.options_market_maker_symbol_ap
   index, appointment_status = nyse_amexoptions_binarygateway_pillarstream_v3_26.appointment_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 50: char(50)
-  index, reserved_50 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_50.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_50 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_50.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_50.size
+  end
 
   return index
 end
@@ -7259,7 +7300,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.mpid_configuration_message.fie
   index, username = nyse_amexoptions_binarygateway_pillarstream_v3_26.username.dissect(buffer, index, packet, parent)
 
   -- Reserved 50: char(50)
-  index, reserved_50 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_50.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_50 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_50.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_50.size
+  end
 
   return index
 end
@@ -7860,7 +7905,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.server_seq_msg.fields = functi
   index, seq_msg_id = nyse_amexoptions_binarygateway_pillarstream_v3_26.seq_msg_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.size
+  end
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = nyse_amexoptions_binarygateway_pillarstream_v3_26.timestamp.dissect(buffer, index, packet, parent)
@@ -8377,7 +8426,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.risk_action_request_message.fi
   index, mp_sub_id = nyse_amexoptions_binarygateway_pillarstream_v3_26.mp_sub_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.size
+  end
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_amexoptions_binarygateway_pillarstream_v3_26.clearing_number.dissect(buffer, index, packet, parent)
@@ -8401,7 +8454,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.risk_action_request_message.fi
   index, risk_range_id = nyse_amexoptions_binarygateway_pillarstream_v3_26.risk_range_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 199: zchar(199)
-  index, reserved_199 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_199.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_199 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_199.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_199.size
+  end
 
   return index
 end
@@ -8463,7 +8520,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.risk_limit_update_request_mess
   index, mp_sub_id = nyse_amexoptions_binarygateway_pillarstream_v3_26.mp_sub_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.size
+  end
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_amexoptions_binarygateway_pillarstream_v3_26.clearing_number.dissect(buffer, index, packet, parent)
@@ -8511,7 +8572,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.risk_limit_update_request_mess
   index, price_scale = nyse_amexoptions_binarygateway_pillarstream_v3_26.price_scale.dissect(buffer, index, packet, parent)
 
   -- Reserved 190: zchar(190)
-  index, reserved_190 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_190.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_190 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_190.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_190.size
+  end
 
   return index
 end
@@ -8585,7 +8650,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.bulk_cancel_request_type_224_m
   index, target_cancel_mpid = nyse_amexoptions_binarygateway_pillarstream_v3_26.target_cancel_mpid.dissect(buffer, index, packet, parent)
 
   -- Reserved 20: char(20)
-  index, reserved_20 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_20.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_20 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_20.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_20.size
+  end
 
   return index
 end
@@ -8955,7 +9024,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.new_order_cross_message.fields
   index, optional_data_covered = nyse_amexoptions_binarygateway_pillarstream_v3_26.optional_data_covered.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: char(16)
-  index, reserved_16 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_16.size
+  end
 
   -- Exposed: Struct of 15 fields
   index, exposed = nyse_amexoptions_binarygateway_pillarstream_v3_26.exposed.dissect(buffer, index, packet, parent)
@@ -9525,7 +9598,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.session_configuration_request_
   index, bold_designation = nyse_amexoptions_binarygateway_pillarstream_v3_26.bold_designation.dissect(buffer, index, packet, parent)
 
   -- Reserved 49: zchar(49)
-  index, reserved_49 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_49.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_49 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_49.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_49.size
+  end
 
   return index
 end
@@ -9642,7 +9719,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.client_seq_msg.fields = functi
   index, seq_msg_id = nyse_amexoptions_binarygateway_pillarstream_v3_26.seq_msg_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_binarygateway_pillarstream_v3_26.reserved_4.size
+  end
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = nyse_amexoptions_binarygateway_pillarstream_v3_26.timestamp.dissect(buffer, index, packet, parent)

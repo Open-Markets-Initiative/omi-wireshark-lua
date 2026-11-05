@@ -122,10 +122,12 @@ local show = {}
 -- Finra FinraOrf Tdds Dfi 2.0 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.padding = false
 
 -- Register Finra FinraOrf Tdds Dfi 2.0 Show Options
 omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 -- Handle changed preferences
 function omi_finra_finraorf_tdds_dfi_v2_0.prefs_changed()
@@ -133,6 +135,9 @@ function omi_finra_finraorf_tdds_dfi_v2_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_application_messages then
     show.application_messages = omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_application_messages
+  end
+  if show.padding ~= omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_padding then
+    show.padding = omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_padding
   end
   if show.structs ~= omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_structs then
     show.structs = omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_structs
@@ -2662,7 +2667,11 @@ finra_finraorf_tdds_dfi_v2_0.closing_trade_summary_report_message.fields = funct
   index, closing_price = finra_finraorf_tdds_dfi_v2_0.closing_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = finra_finraorf_tdds_dfi_v2_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = finra_finraorf_tdds_dfi_v2_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + finra_finraorf_tdds_dfi_v2_0.reserved_1.size
+  end
 
   -- Net Change Denominator: Alphanumeric
   index, net_change_denominator = finra_finraorf_tdds_dfi_v2_0.net_change_denominator.dissect(buffer, index, packet, parent)

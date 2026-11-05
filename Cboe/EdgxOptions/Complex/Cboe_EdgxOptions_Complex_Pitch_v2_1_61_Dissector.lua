@@ -141,6 +141,7 @@ show.application_messages = true
 show.repeating_groups = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -149,6 +150,7 @@ omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_application_messages = Pre
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
@@ -164,6 +166,9 @@ function omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs_changed()
   end
   if show.headers ~= omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_headers then
     show.headers = omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_padding then
+    show.padding = omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_padding
   end
   if show.repeating_groups ~= omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_repeating_groups
@@ -1993,19 +1998,31 @@ cboe_edgxoptions_complex_pitch_v2_1_61.trading_status_message.fields = function(
   index, complex_symbol_id = cboe_edgxoptions_complex_pitch_v2_1_61.complex_symbol_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Reserved
-  index, reserved_2 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxoptions_complex_pitch_v2_1_61.reserved_2.size
+  end
 
   -- Trading Status: Alpha
   index, trading_status = cboe_edgxoptions_complex_pitch_v2_1_61.trading_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.size
+  end
 
   -- Gth Trading Status: Alpha
   index, gth_trading_status = cboe_edgxoptions_complex_pitch_v2_1_61.gth_trading_status.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: Reserved
-  index, second_reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxoptions_complex_pitch_v2_1_61.second_reserved_1.size
+  end
 
   return index
 end
@@ -2421,7 +2438,11 @@ cboe_edgxoptions_complex_pitch_v2_1_61.modify_order_short_message.fields = funct
   index, signed_price_short = cboe_edgxoptions_complex_pitch_v2_1_61.signed_price_short.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.size
+  end
 
   return index
 end
@@ -2477,7 +2498,11 @@ cboe_edgxoptions_complex_pitch_v2_1_61.modify_order_long_message.fields = functi
   index, signed_price_long = cboe_edgxoptions_complex_pitch_v2_1_61.signed_price_long.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.size
+  end
 
   return index
 end
@@ -2761,7 +2786,11 @@ cboe_edgxoptions_complex_pitch_v2_1_61.add_order_expanded_message.fields = funct
   index, signed_price_long = cboe_edgxoptions_complex_pitch_v2_1_61.signed_price_long.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.size
+  end
 
   -- Participant Id: Alphanumeric
   index, participant_id = cboe_edgxoptions_complex_pitch_v2_1_61.participant_id.dissect(buffer, index, packet, parent)
@@ -2773,7 +2802,11 @@ cboe_edgxoptions_complex_pitch_v2_1_61.add_order_expanded_message.fields = funct
   index, client_id = cboe_edgxoptions_complex_pitch_v2_1_61.client_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 5: Reserved
-  index, reserved_5 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_5 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxoptions_complex_pitch_v2_1_61.reserved_5.size
+  end
 
   return index
 end
@@ -2837,7 +2870,11 @@ cboe_edgxoptions_complex_pitch_v2_1_61.add_order_short_message.fields = function
   index, signed_price_short = cboe_edgxoptions_complex_pitch_v2_1_61.signed_price_short.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.size
+  end
 
   return index
 end
@@ -2901,7 +2938,11 @@ cboe_edgxoptions_complex_pitch_v2_1_61.add_order_long_message.fields = function(
   index, signed_price_long = cboe_edgxoptions_complex_pitch_v2_1_61.signed_price_long.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxoptions_complex_pitch_v2_1_61.reserved_1.size
+  end
 
   return index
 end

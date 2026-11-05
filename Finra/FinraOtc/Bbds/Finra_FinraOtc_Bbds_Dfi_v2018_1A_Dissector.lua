@@ -99,10 +99,12 @@ local show = {}
 -- Finra FinraOtc Bbds Dfi 2018.1A Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.padding = false
 
 -- Register Finra FinraOtc Bbds Dfi 2018.1A Show Options
 omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 -- Handle changed preferences
 function omi_finra_finraotc_bbds_dfi_v2018_1a.prefs_changed()
@@ -110,6 +112,9 @@ function omi_finra_finraotc_bbds_dfi_v2018_1a.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_application_messages then
     show.application_messages = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_application_messages
+  end
+  if show.padding ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_padding then
+    show.padding = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_padding
   end
   if show.structs ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_structs then
     show.structs = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_structs
@@ -1740,7 +1745,11 @@ finra_finraotc_bbds_dfi_v2018_1a.message_header.fields = function(buffer, offset
   index, datetime = finra_finraotc_bbds_dfi_v2018_1a.datetime.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = finra_finraotc_bbds_dfi_v2018_1a.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = finra_finraotc_bbds_dfi_v2018_1a.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + finra_finraotc_bbds_dfi_v2018_1a.reserved_1.size
+  end
 
   return index
 end
@@ -2603,7 +2612,11 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.fields 
   index, market_participant_quote_condition = finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = finra_finraotc_bbds_dfi_v2018_1a.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = finra_finraotc_bbds_dfi_v2018_1a.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + finra_finraotc_bbds_dfi_v2018_1a.reserved_1.size
+  end
 
   -- Wanted Indicator: Alphanumeric
   index, wanted_indicator = finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator.dissect(buffer, index, packet, parent)

@@ -172,6 +172,7 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 
 -- Register Nse NseCom DropCopy NnfDirect 1.5 Show Options
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
@@ -180,6 +181,7 @@ omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.swap_sides = Pref.bool("Swap Sides"
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
@@ -192,6 +194,9 @@ function omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs_changed()
   end
   if show.headers ~= omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_headers then
     show.headers = omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_headers
+  end
+  if show.padding ~= omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_padding then
+    show.padding = omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_padding
   end
   if show.structs ~= omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_structs then
     show.structs = omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_structs
@@ -2169,7 +2174,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.giveup_rej_confirm_tm_message.fields = functi
   index, open_close = nse_nsecom_dropcopy_nnfdirect_v1_5.open_close.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.size
+  end
 
   -- Participant: CHAR
   index, participant = nse_nsecom_dropcopy_nnfdirect_v1_5.participant.dissect(buffer, index, packet, parent)
@@ -2181,7 +2190,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.giveup_rej_confirm_tm_message.fields = functi
   index, deleted = nse_nsecom_dropcopy_nnfdirect_v1_5.deleted.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.size
+  end
 
   return index
 end
@@ -2297,7 +2310,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.giveup_app_confirm_tm_message.fields = functi
   index, open_close = nse_nsecom_dropcopy_nnfdirect_v1_5.open_close.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.size
+  end
 
   -- Participant: CHAR
   index, participant = nse_nsecom_dropcopy_nnfdirect_v1_5.participant.dissect(buffer, index, packet, parent)
@@ -2309,7 +2326,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.giveup_app_confirm_tm_message.fields = functi
   index, deleted = nse_nsecom_dropcopy_nnfdirect_v1_5.deleted.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.size
+  end
 
   return index
 end
@@ -2630,7 +2651,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_reject_message.fields = function
   index, broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.size
+  end
 
   -- Trader Num: LONG
   index, trader_num = nse_nsecom_dropcopy_nnfdirect_v1_5.trader_num.dissect(buffer, index, packet, parent)
@@ -2687,7 +2712,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_reject_message.fields = function
   index, op_broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.op_broker_id.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.size
+  end
 
   -- Token: LONG
   index, token = nse_nsecom_dropcopy_nnfdirect_v1_5.token.dissect(buffer, index, packet, parent)
@@ -2705,7 +2734,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_reject_message.fields = function
   index, book_type_char_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.book_type_char_1.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
-  index, third_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.size
+  end
 
   -- New Volume: LONG
   index, new_volume = nse_nsecom_dropcopy_nnfdirect_v1_5.new_volume.dissect(buffer, index, packet, parent)
@@ -2723,13 +2756,21 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_reject_message.fields = function
   index, additional_order_flags = nse_nsecom_dropcopy_nnfdirect_v1_5.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 1: CHAR
-  index, fourth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.size
+  end
 
   -- Give Up Trade: CHAR
   index, give_up_trade = nse_nsecom_dropcopy_nnfdirect_v1_5.give_up_trade.dissect(buffer, index, packet, parent)
 
   -- Fifth Reserved 1: CHAR
-  index, fifth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fifth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecom_dropcopy_nnfdirect_v1_5.pan.dissect(buffer, index, packet, parent)
@@ -2741,7 +2782,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_reject_message.fields = function
   index, algo_id = nse_nsecom_dropcopy_nnfdirect_v1_5.algo_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.size
+  end
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsecom_dropcopy_nnfdirect_v1_5.last_activity_reference.dissect(buffer, index, packet, parent)
@@ -2750,7 +2795,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_reject_message.fields = function
   index, nnf_field = nse_nsecom_dropcopy_nnfdirect_v1_5.nnf_field.dissect(buffer, index, packet, parent)
 
   -- Reserved 44: CHAR
-  index, reserved_44 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_44 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.size
+  end
 
   return index
 end
@@ -2838,7 +2887,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_confirm_message.fields = functio
   index, broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.size
+  end
 
   -- Trader Num: LONG
   index, trader_num = nse_nsecom_dropcopy_nnfdirect_v1_5.trader_num.dissect(buffer, index, packet, parent)
@@ -2895,7 +2948,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_confirm_message.fields = functio
   index, op_broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.op_broker_id.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.size
+  end
 
   -- Token: LONG
   index, token = nse_nsecom_dropcopy_nnfdirect_v1_5.token.dissect(buffer, index, packet, parent)
@@ -2913,7 +2970,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_confirm_message.fields = functio
   index, book_type_char_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.book_type_char_1.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
-  index, third_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.size
+  end
 
   -- New Volume: LONG
   index, new_volume = nse_nsecom_dropcopy_nnfdirect_v1_5.new_volume.dissect(buffer, index, packet, parent)
@@ -2931,13 +2992,21 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_confirm_message.fields = functio
   index, additional_order_flags = nse_nsecom_dropcopy_nnfdirect_v1_5.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 1: CHAR
-  index, fourth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.size
+  end
 
   -- Give Up Trade: CHAR
   index, give_up_trade = nse_nsecom_dropcopy_nnfdirect_v1_5.give_up_trade.dissect(buffer, index, packet, parent)
 
   -- Fifth Reserved 1: CHAR
-  index, fifth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fifth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecom_dropcopy_nnfdirect_v1_5.pan.dissect(buffer, index, packet, parent)
@@ -2949,7 +3018,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_confirm_message.fields = functio
   index, algo_id = nse_nsecom_dropcopy_nnfdirect_v1_5.algo_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.size
+  end
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsecom_dropcopy_nnfdirect_v1_5.last_activity_reference.dissect(buffer, index, packet, parent)
@@ -2958,7 +3031,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_modify_confirm_message.fields = functio
   index, nnf_field = nse_nsecom_dropcopy_nnfdirect_v1_5.nnf_field.dissect(buffer, index, packet, parent)
 
   -- Reserved 44: CHAR
-  index, reserved_44 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_44 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.size
+  end
 
   return index
 end
@@ -3046,7 +3123,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_reject_message.fields = function
   index, broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.size
+  end
 
   -- Trader Num: LONG
   index, trader_num = nse_nsecom_dropcopy_nnfdirect_v1_5.trader_num.dissect(buffer, index, packet, parent)
@@ -3103,7 +3184,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_reject_message.fields = function
   index, op_broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.op_broker_id.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.size
+  end
 
   -- Token: LONG
   index, token = nse_nsecom_dropcopy_nnfdirect_v1_5.token.dissect(buffer, index, packet, parent)
@@ -3121,7 +3206,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_reject_message.fields = function
   index, book_type_char_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.book_type_char_1.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
-  index, third_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.size
+  end
 
   -- New Volume: LONG
   index, new_volume = nse_nsecom_dropcopy_nnfdirect_v1_5.new_volume.dissect(buffer, index, packet, parent)
@@ -3139,13 +3228,21 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_reject_message.fields = function
   index, additional_order_flags = nse_nsecom_dropcopy_nnfdirect_v1_5.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 1: CHAR
-  index, fourth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.size
+  end
 
   -- Give Up Trade: CHAR
   index, give_up_trade = nse_nsecom_dropcopy_nnfdirect_v1_5.give_up_trade.dissect(buffer, index, packet, parent)
 
   -- Fifth Reserved 1: CHAR
-  index, fifth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fifth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecom_dropcopy_nnfdirect_v1_5.pan.dissect(buffer, index, packet, parent)
@@ -3157,7 +3254,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_reject_message.fields = function
   index, algo_id = nse_nsecom_dropcopy_nnfdirect_v1_5.algo_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.size
+  end
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsecom_dropcopy_nnfdirect_v1_5.last_activity_reference.dissect(buffer, index, packet, parent)
@@ -3166,7 +3267,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_reject_message.fields = function
   index, nnf_field = nse_nsecom_dropcopy_nnfdirect_v1_5.nnf_field.dissect(buffer, index, packet, parent)
 
   -- Reserved 44: CHAR
-  index, reserved_44 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_44 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.size
+  end
 
   return index
 end
@@ -3254,7 +3359,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_confirm_message.fields = functio
   index, broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.size
+  end
 
   -- Trader Num: LONG
   index, trader_num = nse_nsecom_dropcopy_nnfdirect_v1_5.trader_num.dissect(buffer, index, packet, parent)
@@ -3311,7 +3420,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_confirm_message.fields = functio
   index, op_broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.op_broker_id.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.size
+  end
 
   -- Token: LONG
   index, token = nse_nsecom_dropcopy_nnfdirect_v1_5.token.dissect(buffer, index, packet, parent)
@@ -3329,7 +3442,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_confirm_message.fields = functio
   index, book_type_char_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.book_type_char_1.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
-  index, third_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.size
+  end
 
   -- New Volume: LONG
   index, new_volume = nse_nsecom_dropcopy_nnfdirect_v1_5.new_volume.dissect(buffer, index, packet, parent)
@@ -3347,13 +3464,21 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_confirm_message.fields = functio
   index, additional_order_flags = nse_nsecom_dropcopy_nnfdirect_v1_5.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 1: CHAR
-  index, fourth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.size
+  end
 
   -- Give Up Trade: CHAR
   index, give_up_trade = nse_nsecom_dropcopy_nnfdirect_v1_5.give_up_trade.dissect(buffer, index, packet, parent)
 
   -- Fifth Reserved 1: CHAR
-  index, fifth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fifth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecom_dropcopy_nnfdirect_v1_5.pan.dissect(buffer, index, packet, parent)
@@ -3365,7 +3490,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_confirm_message.fields = functio
   index, algo_id = nse_nsecom_dropcopy_nnfdirect_v1_5.algo_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.size
+  end
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsecom_dropcopy_nnfdirect_v1_5.last_activity_reference.dissect(buffer, index, packet, parent)
@@ -3374,7 +3503,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_cancel_confirm_message.fields = functio
   index, nnf_field = nse_nsecom_dropcopy_nnfdirect_v1_5.nnf_field.dissect(buffer, index, packet, parent)
 
   -- Reserved 44: CHAR
-  index, reserved_44 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_44 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.size
+  end
 
   return index
 end
@@ -3462,7 +3595,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_confirmation_message.fields = function(
   index, broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_1.size
+  end
 
   -- Trader Num: LONG
   index, trader_num = nse_nsecom_dropcopy_nnfdirect_v1_5.trader_num.dissect(buffer, index, packet, parent)
@@ -3519,7 +3656,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_confirmation_message.fields = function(
   index, op_broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.op_broker_id.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_1.size
+  end
 
   -- Token: LONG
   index, token = nse_nsecom_dropcopy_nnfdirect_v1_5.token.dissect(buffer, index, packet, parent)
@@ -3537,7 +3678,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_confirmation_message.fields = function(
   index, book_type_char_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.book_type_char_1.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
-  index, third_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_1.size
+  end
 
   -- New Volume: LONG
   index, new_volume = nse_nsecom_dropcopy_nnfdirect_v1_5.new_volume.dissect(buffer, index, packet, parent)
@@ -3555,13 +3700,21 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_confirmation_message.fields = function(
   index, additional_order_flags = nse_nsecom_dropcopy_nnfdirect_v1_5.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 1: CHAR
-  index, fourth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.fourth_reserved_1.size
+  end
 
   -- Give Up Trade: CHAR
   index, give_up_trade = nse_nsecom_dropcopy_nnfdirect_v1_5.give_up_trade.dissect(buffer, index, packet, parent)
 
   -- Fifth Reserved 1: CHAR
-  index, fifth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fifth_reserved_1 = nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.fifth_reserved_1.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecom_dropcopy_nnfdirect_v1_5.pan.dissect(buffer, index, packet, parent)
@@ -3573,7 +3726,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_confirmation_message.fields = function(
   index, algo_id = nse_nsecom_dropcopy_nnfdirect_v1_5.algo_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_2.size
+  end
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsecom_dropcopy_nnfdirect_v1_5.last_activity_reference.dissect(buffer, index, packet, parent)
@@ -3582,7 +3739,11 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.trade_confirmation_message.fields = function(
   index, nnf_field = nse_nsecom_dropcopy_nnfdirect_v1_5.nnf_field.dissect(buffer, index, packet, parent)
 
   -- Reserved 44: CHAR
-  index, reserved_44 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_44 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_44.size
+  end
 
   return index
 end
@@ -3634,31 +3795,59 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.sign_on_out_message.fields = function(buffer,
   index, user_id = nse_nsecom_dropcopy_nnfdirect_v1_5.user_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: CHAR
-  index, reserved_8 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_8.size
+  end
 
   -- Password: CHAR
   index, password = nse_nsecom_dropcopy_nnfdirect_v1_5.password.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: CHAR
-  index, second_reserved_8 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_8.size
+  end
 
   -- Reserved 38: CHAR
-  index, reserved_38 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_38.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_38 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_38.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_38.size
+  end
 
   -- Broker Id: CHAR
   index, broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 119: CHAR
-  index, reserved_119 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_119.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_119 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_119.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_119.size
+  end
 
   -- Reserved 16: CHAR
-  index, reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_16.size
+  end
 
   -- Second Reserved 16: CHAR
-  index, second_reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_16.size
+  end
 
   -- Third Reserved 16: CHAR
-  index, third_reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_16.size
+  end
 
   return index
 end
@@ -4019,31 +4208,59 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.signon_in_message.fields = function(buffer, o
   index, user_id = nse_nsecom_dropcopy_nnfdirect_v1_5.user_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: CHAR
-  index, reserved_8 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_8.size
+  end
 
   -- Password: CHAR
   index, password = nse_nsecom_dropcopy_nnfdirect_v1_5.password.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: CHAR
-  index, second_reserved_8 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_8.size
+  end
 
   -- Reserved 38: CHAR
-  index, reserved_38 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_38.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_38 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_38.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_38.size
+  end
 
   -- Broker Id: CHAR
   index, broker_id = nse_nsecom_dropcopy_nnfdirect_v1_5.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 119: CHAR
-  index, reserved_119 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_119.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_119 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_119.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_119.size
+  end
 
   -- Reserved 16: CHAR
-  index, reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.reserved_16.size
+  end
 
   -- Second Reserved 16: CHAR
-  index, second_reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.second_reserved_16.size
+  end
 
   -- Third Reserved 16: CHAR
-  index, third_reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_16 = nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.third_reserved_16.size
+  end
 
   return index
 end

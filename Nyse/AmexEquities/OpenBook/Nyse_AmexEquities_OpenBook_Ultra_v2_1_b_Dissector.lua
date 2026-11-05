@@ -99,6 +99,7 @@ show.application_messages = true
 show.repeating_groups = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Nyse AmexEquities OpenBook Ultra 2.1.b Show Options
@@ -106,6 +107,7 @@ omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_application_messages = Pr
 omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -117,6 +119,9 @@ function omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs_changed()
   end
   if show.headers ~= omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_headers then
     show.headers = omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_padding then
+    show.padding = omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_padding
   end
   if show.repeating_groups ~= omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_repeating_groups then
     show.repeating_groups = omi_nyse_amexequities_openbook_ultra_v2_1_b.prefs.show_repeating_groups
@@ -1597,7 +1602,11 @@ nyse_amexequities_openbook_ultra_v2_1_b.full_price_point.fields = function(buffe
   index, side = nyse_amexequities_openbook_ultra_v2_1_b.side.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = nyse_amexequities_openbook_ultra_v2_1_b.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexequities_openbook_ultra_v2_1_b.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexequities_openbook_ultra_v2_1_b.reserved_1.size
+  end
 
   return index
 end
@@ -1660,7 +1669,11 @@ nyse_amexequities_openbook_ultra_v2_1_b.full_update_message_body.fields = functi
   index, trading_status = nyse_amexequities_openbook_ultra_v2_1_b.trading_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = nyse_amexequities_openbook_ultra_v2_1_b.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexequities_openbook_ultra_v2_1_b.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexequities_openbook_ultra_v2_1_b.reserved_1.size
+  end
 
   -- Mpv: Binary
   index, mpv = nyse_amexequities_openbook_ultra_v2_1_b.mpv.dissect(buffer, index, packet, parent)
@@ -2086,7 +2099,11 @@ nyse_amexequities_openbook_ultra_v2_1_b.request_response_message.fields = functi
   index, reject_reason = nyse_amexequities_openbook_ultra_v2_1_b.reject_reason.dissect(buffer, index, packet, parent)
 
   -- Filler 2: ASCII
-  index, filler_2 = nyse_amexequities_openbook_ultra_v2_1_b.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = nyse_amexequities_openbook_ultra_v2_1_b.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexequities_openbook_ultra_v2_1_b.filler_2.size
+  end
 
   return index
 end
@@ -2238,7 +2255,11 @@ nyse_amexequities_openbook_ultra_v2_1_b.symbol_index_mapping_response_message.fi
   index, symbol_11 = nyse_amexequities_openbook_ultra_v2_1_b.symbol_11.dissect(buffer, index, packet, parent)
 
   -- Filler 1: Binary
-  index, filler_1 = nyse_amexequities_openbook_ultra_v2_1_b.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nyse_amexequities_openbook_ultra_v2_1_b.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexequities_openbook_ultra_v2_1_b.filler_1.size
+  end
 
   -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_openbook_ultra_v2_1_b.symbol_index.dissect(buffer, index, packet, parent)

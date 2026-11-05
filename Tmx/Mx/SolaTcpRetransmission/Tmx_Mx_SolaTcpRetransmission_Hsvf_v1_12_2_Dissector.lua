@@ -118,8 +118,6 @@ omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.high_price_negative_thousan
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.high_price_negative_whole_pair = ProtoField.new("High Price Negative Whole Pair", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.highpricenegativewholepair", ftypes.STRING)
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.high_price_numeric_pair = ProtoField.new("High Price Numeric Pair", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.highpricenumericpair", ftypes.STRING)
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.high_price_sign = ProtoField.new("High Price Sign", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.highpricesign", ftypes.STRING)
-omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.hsvf_etx = ProtoField.new("Hsvf Etx", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.hsvfetx", ftypes.INT8, nil, nil, nil, "End of Hsvf message")
-omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.hsvf_stx = ProtoField.new("Hsvf Stx", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.hsvfstx", ftypes.INT8, nil, nil, nil, "Start of Hsvf message")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.instrument = ProtoField.new("Instrument", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.instrument", ftypes.STRING)
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.instrument_external_code = ProtoField.new("Instrument External Code", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.instrumentexternalcode", ftypes.STRING)
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.instrument_status_marker = ProtoField.new("Instrument Status Marker", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.instrumentstatusmarker", ftypes.STRING)
@@ -349,6 +347,8 @@ omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.settlement_price_negative_t
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.settlement_price_negative_thousand_pair = ProtoField.new("Settlement Price Negative Thousand Pair", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.settlementpricenegativethousandpair", ftypes.STRING)
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.settlement_price_negative_whole_pair = ProtoField.new("Settlement Price Negative Whole Pair", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.settlementpricenegativewholepair", ftypes.STRING)
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.settlement_price_numeric_pair = ProtoField.new("Settlement Price Numeric Pair", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.settlementpricenumericpair", ftypes.STRING)
+omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.sola_message_end = ProtoField.new("Sola Message End", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.solamessageend", ftypes.INT8, nil, nil, nil, "End of Hsvf message")
+omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.sola_message_start = ProtoField.new("Sola Message Start", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.solamessagestart", ftypes.INT8, nil, nil, nil, "Start of Hsvf message")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.special_bulletin_contents = ProtoField.new("Special Bulletin Contents", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.specialbulletincontents", ftypes.STRING)
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.special_text_bulletin = ProtoField.new("Special Text Bulletin", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.specialtextbulletin", ftypes.STRING, nil, nil, nil, "This bulletin type will be used for bulletins relating to a specific trading instrument.")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.start = ProtoField.new("Start", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.start", ftypes.UINT32, nil, nil, nil, "Starting message number")
@@ -439,12 +439,12 @@ omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.user = ProtoField.new("User
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.volume = ProtoField.new("Volume", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.volume", ftypes.UINT32)
 
 -- Tmx Mx SolaTcpRetransmission Hsvf 1.12.2 Framing
-omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.client_frame = ProtoField.new("Client Frame", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.clientframe", ftypes.STRING, nil, nil, nil, "One Hsvf record, from STX through ETX")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.client_message_header = ProtoField.new("Client Message Header", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.clientmessageheader", ftypes.STRING, nil, nil, nil, "Standard Hsvf message header")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.client_packet = ProtoField.new("Client Packet", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.clientpacket", ftypes.STRING, nil, nil, nil, "Hsvf Tcp stream sent by the participant")
+omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.client_sola_frame = ProtoField.new("Client Sola Frame", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.clientsolaframe", ftypes.STRING, nil, nil, nil, "One Hsvf record, from STX through ETX")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.message_header = ProtoField.new("Message Header", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.messageheader", ftypes.STRING, nil, nil, nil, "Standard Hsvf message header")
-omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.server_frame = ProtoField.new("Server Frame", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.serverframe", ftypes.STRING, nil, nil, nil, "One Hsvf record, from STX through ETX")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.server_packet = ProtoField.new("Server Packet", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.serverpacket", ftypes.STRING, nil, nil, nil, "Hsvf Tcp stream sent by the exchange")
+omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.server_sola_frame = ProtoField.new("Server Sola Frame", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.serversolaframe", ftypes.STRING, nil, nil, nil, "One Hsvf record, from STX through ETX")
 
 -- Tmx Mx SolaTcpRetransmission 1.12.2 Application Messages
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.beginning_of_future_options_summary_message = ProtoField.new("Beginning Of Future Options Summary Message", "tmx.mx.solatcpretransmission.hsvf.v1.12.2.beginningoffutureoptionssummarymessage", ftypes.STRING, nil, nil, nil, "This message indicates that the beginning and the end of day NB: Future Options Summary messages are to follow. Other messages (such as bulletins) can be interspersed with the summaries.")
@@ -566,6 +566,8 @@ show.structs = true
 show.application_messages = true
 show.headers = true
 show.repeating_groups = true
+show.delimiters = false
+show.padding = false
 show.indexes = true
 
 -- Register Tmx Mx SolaTcpRetransmission Hsvf 1.12.2 Show Options
@@ -576,6 +578,8 @@ omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_structs = Pref.bool("Sh
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_delimiters = Pref.bool("Show Delimiters", show.delimiters, "Parse and add Delimiters to protocol tree")
+omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
@@ -586,8 +590,14 @@ function omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs_changed()
   if show.application_messages ~= omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_application_messages then
     show.application_messages = omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_application_messages
   end
+  if show.delimiters ~= omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_delimiters then
+    show.delimiters = omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_delimiters
+  end
   if show.headers ~= omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_headers then
     show.headers = omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_headers
+  end
+  if show.padding ~= omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_padding then
+    show.padding = omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_padding
   end
   if show.repeating_groups ~= omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_repeating_groups then
     show.repeating_groups = omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.prefs.show_repeating_groups
@@ -1907,60 +1917,6 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.high_price_sign.dissect = function(buf
   local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.high_price_sign.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.high_price_sign, range, value, display)
-
-  return offset + length, value
-end
-
--- Hsvf Etx
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_etx = {}
-
--- Size: Hsvf Etx
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_etx.size = 1
-
--- Display: Hsvf Etx
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_etx.display = function(value)
-  if value == 3 then
-    return "Hsvf Etx: Etx"
-  end
-
-  return "Hsvf Etx: Unknown("..value..")"
-end
-
--- Dissect: Hsvf Etx
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_etx.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_etx.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_etx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.hsvf_etx, range, value, display)
-
-  return offset + length, value
-end
-
--- Hsvf Stx
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx = {}
-
--- Size: Hsvf Stx
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.size = 1
-
--- Display: Hsvf Stx
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.display = function(value)
-  if value == 2 then
-    return "Hsvf Stx: Stx"
-  end
-
-  return "Hsvf Stx: Unknown("..value..")"
-end
-
--- Dissect: Hsvf Stx
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.hsvf_stx, range, value, display)
 
   return offset + length, value
 end
@@ -5095,6 +5051,60 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.settlement_price_fraction_indicator.di
   local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.settlement_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.settlement_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sola Message End
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end = {}
+
+-- Size: Sola Message End
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end.size = 1
+
+-- Display: Sola Message End
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end.display = function(value)
+  if value == 3 then
+    return "Sola Message End: Etx"
+  end
+
+  return "Sola Message End: Unknown("..value..")"
+end
+
+-- Dissect: Sola Message End
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.sola_message_end, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sola Message Start
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start = {}
+
+-- Size: Sola Message Start
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.size = 1
+
+-- Display: Sola Message Start
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.display = function(value)
+  if value == 2 then
+    return "Sola Message Start: Stx"
+  end
+
+  return "Sola Message Start: Unknown("..value..")"
+end
+
+-- Dissect: Sola Message Start
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.sola_message_start, range, value, display)
 
   return offset + length, value
 end
@@ -9028,7 +9038,11 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.end_of_sales_message.fields = function
   index, long_message_header = tmx_mx_solatcpretransmission_hsvf_v1_12_2.long_message_header.dissect(buffer, index, packet, parent)
 
   -- Reserved: X
-  index, reserved = tmx_mx_solatcpretransmission_hsvf_v1_12_2.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = tmx_mx_solatcpretransmission_hsvf_v1_12_2.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.reserved.size
+  end
 
   -- Time: N
   index, time = tmx_mx_solatcpretransmission_hsvf_v1_12_2.time.dissect(buffer, index, packet, parent)
@@ -9199,7 +9213,11 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.bulletins_message.fields = function(bu
   index, long_message_header = tmx_mx_solatcpretransmission_hsvf_v1_12_2.long_message_header.dissect(buffer, index, packet, parent)
 
   -- Reserved: X
-  index, reserved = tmx_mx_solatcpretransmission_hsvf_v1_12_2.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = tmx_mx_solatcpretransmission_hsvf_v1_12_2.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.reserved.size
+  end
 
   -- Bulletin Type: X
   index, bulletin_type = tmx_mx_solatcpretransmission_hsvf_v1_12_2.bulletin_type.dissect(buffer, index, packet, parent)
@@ -10194,7 +10212,11 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.futures_trade_correction_message.field
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.size
+  end
 
   -- Trade Timestamp: N
   index, trade_timestamp = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_timestamp.dissect(buffer, index, packet, parent)
@@ -15358,7 +15380,11 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.future_options_summary_message.fields 
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.low_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 2: X
-  index, filler_2 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_2.size
+  end
 
   -- Settlement Price Future Options Summary Message Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.settlement_price_future_options_summary_message_fraction_pair.dissect(buffer, index, packet, parent)
@@ -15799,7 +15825,11 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.option_symbol.fields = function(buffer
   index, expiry_month = tmx_mx_solatcpretransmission_hsvf_v1_12_2.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Filler 1: A
-  index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.size
+  end
 
   -- Strike Price Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.strike_price_fraction_pair.dissect(buffer, index, packet, parent)
@@ -18984,13 +19014,21 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.strategy_trade_cancellation_message.fi
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.size
+  end
 
   -- Trade Timestamp: N
   index, trade_timestamp = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_timestamp.dissect(buffer, index, packet, parent)
 
   -- Filler 1: X
-  index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.size
+  end
 
   -- Trade Number: X
   index, trade_number = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_number.dissect(buffer, index, packet, parent)
@@ -19056,7 +19094,11 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.futures_trade_cancellation_message.fie
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.size
+  end
 
   -- Trade Timestamp: N
   index, trade_timestamp = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_timestamp.dissect(buffer, index, packet, parent)
@@ -19513,13 +19555,21 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.future_options_trade_cancellation_mess
   index, price_indicator_marker = tmx_mx_solatcpretransmission_hsvf_v1_12_2.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Filler 6: X
-  index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.size
+  end
 
   -- Trade Timestamp: N
   index, trade_timestamp = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_timestamp.dissect(buffer, index, packet, parent)
 
   -- Filler 2: X
-  index, filler_2 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_2.size
+  end
 
   -- Trade Number: X
   index, trade_number = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_number.dissect(buffer, index, packet, parent)
@@ -19586,13 +19636,21 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.option_trade_cancellation_message.fiel
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.size
+  end
 
   -- Trade Timestamp: N
   index, trade_timestamp = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_timestamp.dissect(buffer, index, packet, parent)
 
   -- Filler 1: X
-  index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.size
+  end
 
   -- Price Indicator Marker: A
   index, price_indicator_marker = tmx_mx_solatcpretransmission_hsvf_v1_12_2.price_indicator_marker.dissect(buffer, index, packet, parent)
@@ -21660,7 +21718,11 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.future_options_quote_message.fields = 
   index, instrument_status_marker = tmx_mx_solatcpretransmission_hsvf_v1_12_2.instrument_status_marker.dissect(buffer, index, packet, parent)
 
   -- Filler 1: X
-  index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.size
+  end
 
   return index
 end
@@ -21729,7 +21791,11 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.option_quote_message.fields = function
   index, ask_size = tmx_mx_solatcpretransmission_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
 
   -- Filler 1: X
-  index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.size
+  end
 
   -- Instrument Status Marker: A
   index, instrument_status_marker = tmx_mx_solatcpretransmission_hsvf_v1_12_2.instrument_status_marker.dissect(buffer, index, packet, parent)
@@ -22332,7 +22398,11 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.option_symbol_schedule_notice.fields =
   index, expiry_month = tmx_mx_solatcpretransmission_hsvf_v1_12_2.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Filler 1: A
-  index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.size
+  end
 
   -- Strike Price Schedule Notice Fraction Pair: Runtime Type with 8 branches
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.strike_price_schedule_notice_fraction_pair.dissect(buffer, index, packet, parent)
@@ -22696,7 +22766,11 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.strategy_trade_message.fields = functi
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.size
+  end
 
   -- Trade Timestamp: N
   index, trade_timestamp = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_timestamp.dissect(buffer, index, packet, parent)
@@ -22776,7 +22850,11 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.futures_trade_message.fields = functio
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.size
+  end
 
   -- Trade Timestamp: N
   index, trade_timestamp = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_timestamp.dissect(buffer, index, packet, parent)
@@ -23241,13 +23319,21 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.future_options_trade_message.fields = 
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.net_change_future_options_trade_message_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.size
+  end
 
   -- Trade Timestamp: N
   index, trade_timestamp = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_timestamp.dissect(buffer, index, packet, parent)
 
   -- Filler 2: X
-  index, filler_2 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_2.size
+  end
 
   -- Trade Number: X
   index, trade_number = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_number.dissect(buffer, index, packet, parent)
@@ -23322,13 +23408,21 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.option_trade_message.fields = function
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
-  index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.size
+  end
 
   -- Trade Timestamp: N
   index, trade_timestamp = tmx_mx_solatcpretransmission_hsvf_v1_12_2.trade_timestamp.dissect(buffer, index, packet, parent)
 
   -- Filler 1: X
-  index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.size
+  end
 
   -- Price Indicator Marker: A
   index, price_indicator_marker = tmx_mx_solatcpretransmission_hsvf_v1_12_2.price_indicator_marker.dissect(buffer, index, packet, parent)
@@ -23649,20 +23743,24 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.message_header.dissect = function(buff
   end
 end
 
--- Server Frame
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_frame = {}
+-- Server Sola Frame
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame = {}
 
--- Display: Server Frame
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_frame.display = function(packet, parent, length)
+-- Display: Server Sola Frame
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Server Frame
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_frame.fields = function(buffer, offset, packet, parent, size_of_server_frame)
+-- Dissect Fields: Server Sola Frame
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.fields = function(buffer, offset, packet, parent, size_of_server_sola_frame)
   local index = offset
 
-  -- Hsvf Stx: character
-  index, hsvf_stx = tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.dissect(buffer, index, packet, parent)
+  -- Sola Message Start: character
+  if show.delimiters then
+    index, sola_message_start = tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.size
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = tmx_mx_solatcpretransmission_hsvf_v1_12_2.message_header.dissect(buffer, index, packet, parent)
@@ -23673,35 +23771,39 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_frame.fields = function(buffer,
   -- Server Message: Runtime Type with 6 branches
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_message.dissect(buffer, index, packet, parent, message_type)
 
-  -- Hsvf Etx: character
-  index, hsvf_etx = tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_etx.dissect(buffer, index, packet, parent)
+  -- Sola Message End: character
+  if show.delimiters then
+    index, sola_message_end = tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end.size
+  end
 
   return index
 end
 
--- Dissect: Server Frame
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_frame.dissect = function(buffer, offset, packet, parent, size_of_server_frame)
-  local index = offset + size_of_server_frame
+-- Dissect: Server Sola Frame
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.dissect = function(buffer, offset, packet, parent, size_of_server_sola_frame)
+  local index = offset + size_of_server_sola_frame
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.server_frame, buffer(offset, 0))
-    local current = tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
-    parent:set_len(size_of_server_frame)
-    local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_frame.display(buffer, packet, parent)
+    parent = parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.server_sola_frame, buffer(offset, 0))
+    local current = tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.fields(buffer, offset, packet, parent, size_of_server_sola_frame)
+    parent:set_len(size_of_server_sola_frame)
+    local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.fields(buffer, offset, packet, parent, size_of_server_sola_frame)
 
     return index
   end
 end
 
--- Remaining Bytes For: Server Frame
-local server_frame_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Server Sola Frame
+local server_sola_frame_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
@@ -23728,26 +23830,26 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_packet = {}
 
 -- Verify required size of Tcp packet
 tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_packet.requiredsize = function(buffer)
-  return buffer:len() >= tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.size + tmx_mx_solatcpretransmission_hsvf_v1_12_2.message_header.size
+  return buffer:len() >= tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.size + tmx_mx_solatcpretransmission_hsvf_v1_12_2.message_header.size
 end
 
 -- Dissect Server Packet
 tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Server Frame
+  -- Dependency for Server Sola Frame
   local end_of_payload = buffer:len()
 
-  -- Server Frame: Struct of 4 fields
+  -- Server Sola Frame: Struct of 4 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_server_frame = server_frame_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_server_sola_frame = server_sola_frame_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
       -- Dissect this message within a buffer bounded to its own frame
-      local frame = buffer(0, index + size_of_server_frame):tvb()
-      index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_frame.dissect(frame, index, packet, parent, size_of_server_frame)
+      local frame = buffer(0, index + size_of_server_sola_frame):tvb()
+      index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.dissect(frame, index, packet, parent, size_of_server_sola_frame)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -23942,20 +24044,24 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_message_header.dissect = functi
   end
 end
 
--- Client Frame
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_frame = {}
+-- Client Sola Frame
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame = {}
 
--- Display: Client Frame
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_frame.display = function(packet, parent, length)
+-- Display: Client Sola Frame
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Client Frame
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_frame.fields = function(buffer, offset, packet, parent, size_of_client_frame)
+-- Dissect Fields: Client Sola Frame
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.fields = function(buffer, offset, packet, parent, size_of_client_sola_frame)
   local index = offset
 
-  -- Hsvf Stx: character
-  index, hsvf_stx = tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.dissect(buffer, index, packet, parent)
+  -- Sola Message Start: character
+  if show.delimiters then
+    index, sola_message_start = tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.size
+  end
 
   -- Client Message Header: Struct of 2 fields
   index, client_message_header = tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_message_header.dissect(buffer, index, packet, parent)
@@ -23966,35 +24072,39 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_frame.fields = function(buffer,
   -- Client Message Body: Runtime Type with 3 branches
   index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_message_body.dissect(buffer, index, packet, parent, client_message_type)
 
-  -- Hsvf Etx: character
-  index, hsvf_etx = tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_etx.dissect(buffer, index, packet, parent)
+  -- Sola Message End: character
+  if show.delimiters then
+    index, sola_message_end = tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end.size
+  end
 
   return index
 end
 
--- Dissect: Client Frame
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_frame.dissect = function(buffer, offset, packet, parent, size_of_client_frame)
-  local index = offset + size_of_client_frame
+-- Dissect: Client Sola Frame
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.dissect = function(buffer, offset, packet, parent, size_of_client_sola_frame)
+  local index = offset + size_of_client_sola_frame
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.client_frame, buffer(offset, 0))
-    local current = tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
-    parent:set_len(size_of_client_frame)
-    local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_frame.display(buffer, packet, parent)
+    parent = parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.client_sola_frame, buffer(offset, 0))
+    local current = tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.fields(buffer, offset, packet, parent, size_of_client_sola_frame)
+    parent:set_len(size_of_client_sola_frame)
+    local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.fields(buffer, offset, packet, parent, size_of_client_sola_frame)
 
     return index
   end
 end
 
--- Remaining Bytes For: Client Frame
-local client_frame_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Client Sola Frame
+local client_sola_frame_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
@@ -24021,26 +24131,26 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_packet = {}
 
 -- Verify required size of Tcp packet
 tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_packet.requiredsize = function(buffer)
-  return buffer:len() >= tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.size + tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_message_header.size
+  return buffer:len() >= tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.size + tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_message_header.size
 end
 
 -- Dissect Client Packet
 tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Client Frame
+  -- Dependency for Client Sola Frame
   local end_of_payload = buffer:len()
 
-  -- Client Frame: Struct of 4 fields
+  -- Client Sola Frame: Struct of 4 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_client_frame = client_frame_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_client_sola_frame = client_sola_frame_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
       -- Dissect this message within a buffer bounded to its own frame
-      local frame = buffer(0, index + size_of_client_frame):tvb()
-      index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_frame.dissect(frame, index, packet, parent, size_of_client_frame)
+      local frame = buffer(0, index + size_of_client_sola_frame):tvb()
+      index = tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.dissect(frame, index, packet, parent, size_of_client_sola_frame)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -24462,8 +24572,8 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify Hsvf Stx Field
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.client_packet_verify = function(buffer)
+-- Verify Sola Message Start Field
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.client_packet_verify = function(buffer)
   -- Too short to carry the field: not this protocol
   if buffer:len() < 0 + 1 then
     return false
@@ -24479,8 +24589,8 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.client_packet_verify = functi
   return false
 end
 
--- Verify Hsvf Stx Field
-tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.server_packet_verify = function(buffer)
+-- Verify Sola Message Start Field
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.server_packet_verify = function(buffer)
   -- Too short to carry the field: not this protocol
   if buffer:len() < 0 + 1 then
     return false
@@ -24501,8 +24611,8 @@ local function omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2_tcp_initiator_heuri
   -- Verify packet length
   if not tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify Hsvf Stx
-  if not tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.client_packet_verify(buffer) then return false end
+  -- Verify Sola Message Start
+  if not tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.client_packet_verify(buffer) then return false end
 
   -- Verify the frame matches this tcp client packet message dispatch
   if not tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_packet.fingerprint(buffer) then return false end
@@ -24519,8 +24629,8 @@ local function omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2_tcp_acceptor_heuris
   -- Verify packet length
   if not tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify Hsvf Stx
-  if not tmx_mx_solatcpretransmission_hsvf_v1_12_2.hsvf_stx.server_packet_verify(buffer) then return false end
+  -- Verify Sola Message Start
+  if not tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.server_packet_verify(buffer) then return false end
 
   -- Verify the frame matches this tcp server packet message dispatch
   if not tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_packet.fingerprint(buffer) then return false end

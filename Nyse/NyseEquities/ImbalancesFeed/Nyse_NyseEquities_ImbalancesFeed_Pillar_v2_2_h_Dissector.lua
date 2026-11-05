@@ -143,6 +143,7 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -150,6 +151,7 @@ show.sequences = true
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -164,6 +166,9 @@ function omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs_changed()
   end
   if show.headers ~= omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_headers then
     show.headers = omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_padding then
+    show.padding = omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_padding
   end
   if show.structs ~= omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_structs then
     show.structs = omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_structs
@@ -2715,7 +2720,11 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.security_status_message.fields = 
   index, halt_condition = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary
-  index, reserved_4 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_4.size
+  end
 
   -- Price 1: Binary
   index, price_1 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.price_1.dissect(buffer, index, packet, parent)
@@ -3172,7 +3181,11 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_index_mapping_message.fiel
   index, symbol = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.market_id.dissect(buffer, index, packet, parent)
@@ -3211,7 +3224,11 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_index_mapping_message.fiel
   index, unit_of_trade = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary
-  index, reserved_2 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_2.size
+  end
 
   return index
 end

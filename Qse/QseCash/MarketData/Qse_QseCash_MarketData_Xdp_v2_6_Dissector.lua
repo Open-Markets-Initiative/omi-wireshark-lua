@@ -279,12 +279,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Qse QseCash MarketData Xdp 2.6 Show Options
 omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -296,6 +298,9 @@ function omi_qse_qsecash_marketdata_xdp_v2_6.prefs_changed()
   end
   if show.headers ~= omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_headers then
     show.headers = omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_headers
+  end
+  if show.padding ~= omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_padding then
+    show.padding = omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_padding
   end
   if show.structs ~= omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_structs then
     show.structs = omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_structs
@@ -6909,7 +6914,11 @@ qse_qsecash_marketdata_xdp_v2_6.index_summary_message.fields = function(buffer, 
   index, variation_scale_code = qse_qsecash_marketdata_xdp_v2_6.variation_scale_code.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 3: ASCII Str.
-  index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.size
+  end
 
   return index
 end
@@ -7017,7 +7026,11 @@ qse_qsecash_marketdata_xdp_v2_6.real_time_index_message.fields = function(buffer
   index, rebroadcast_indicator = qse_qsecash_marketdata_xdp_v2_6.rebroadcast_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 2: ASCII Str.
-  index, filler_ascii_str_2 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_2 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.size
+  end
 
   return index
 end
@@ -7193,7 +7206,11 @@ qse_qsecash_marketdata_xdp_v2_6.order_update_market_sheet_message.fields = funct
   index, order_origin = qse_qsecash_marketdata_xdp_v2_6.order_origin.dissect(buffer, index, packet, parent)
 
   -- Filler Binary Int 1: Binary Int.
-  index, filler_binary_int_1 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_binary_int_1 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_1.size
+  end
 
   return index
 end
@@ -7301,7 +7318,11 @@ qse_qsecash_marketdata_xdp_v2_6.quotes_message.fields = function(buffer, offset,
   index, price_scale_code = qse_qsecash_marketdata_xdp_v2_6.price_scale_code.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 1: ASCII Str.
-  index, filler_ascii_str_1 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_1 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_1.size
+  end
 
   return index
 end
@@ -7389,7 +7410,11 @@ qse_qsecash_marketdata_xdp_v2_6.vwap_closing_price_message.fields = function(buf
   index, price_scale_code = qse_qsecash_marketdata_xdp_v2_6.price_scale_code.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 3: ASCII Str.
-  index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.size
+  end
 
   return index
 end
@@ -7571,7 +7596,11 @@ qse_qsecash_marketdata_xdp_v2_6.price_update_message.fields = function(buffer, o
   index, type_of_price = qse_qsecash_marketdata_xdp_v2_6.type_of_price.dissect(buffer, index, packet, parent)
 
   -- Filler Binary Int 2: Binary Int.
-  index, filler_binary_int_2 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_binary_int_2 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.size
+  end
 
   -- Price Scale Code: Binary Int.
   index, price_scale_code = qse_qsecash_marketdata_xdp_v2_6.price_scale_code.dissect(buffer, index, packet, parent)
@@ -7677,7 +7706,11 @@ qse_qsecash_marketdata_xdp_v2_6.trade_full_information_message.fields = function
   index, source_time_micro_secs = qse_qsecash_marketdata_xdp_v2_6.source_time_micro_secs.dissect(buffer, index, packet, parent)
 
   -- Filler Binary Int 2: Binary Int.
-  index, filler_binary_int_2 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_binary_int_2 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.size
+  end
 
   -- Small Trade Indicator: ASCII Ch.
   index, small_trade_indicator = qse_qsecash_marketdata_xdp_v2_6.small_trade_indicator.dissect(buffer, index, packet, parent)
@@ -7765,7 +7798,11 @@ qse_qsecash_marketdata_xdp_v2_6.trade_cancellation_message.fields = function(buf
   index, source_time_micro_secs = qse_qsecash_marketdata_xdp_v2_6.source_time_micro_secs.dissect(buffer, index, packet, parent)
 
   -- Filler Binary Int 2: Binary Int.
-  index, filler_binary_int_2 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_binary_int_2 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.size
+  end
 
   return index
 end
@@ -8101,7 +8138,11 @@ qse_qsecash_marketdata_xdp_v2_6.referential_message.fields = function(buffer, of
   index, us_indicators = qse_qsecash_marketdata_xdp_v2_6.us_indicators.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 2: ASCII Str.
-  index, filler_ascii_str_2 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_2 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.size
+  end
 
   -- Prev Day Capital Traded: Binary Int.
   index, prev_day_capital_traded = qse_qsecash_marketdata_xdp_v2_6.prev_day_capital_traded.dissect(buffer, index, packet, parent)
@@ -8161,7 +8202,11 @@ qse_qsecash_marketdata_xdp_v2_6.referential_message.fields = function(buffer, of
   index, trading_code = qse_qsecash_marketdata_xdp_v2_6.trading_code.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 3: ASCII Str.
-  index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.size
+  end
 
   -- Strike Price: Binary Int.
   index, strike_price = qse_qsecash_marketdata_xdp_v2_6.strike_price.dissect(buffer, index, packet, parent)
@@ -8197,7 +8242,11 @@ qse_qsecash_marketdata_xdp_v2_6.referential_message.fields = function(buffer, of
   index, small_trade = qse_qsecash_marketdata_xdp_v2_6.small_trade.dissect(buffer, index, packet, parent)
 
   -- Filler Binary Int 12: Binary Int.
-  index, filler_binary_int_12 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_binary_int_12 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_12.size
+  end
 
   return index
 end
@@ -8241,7 +8290,11 @@ qse_qsecash_marketdata_xdp_v2_6.end_referential_message.fields = function(buffer
   index, indicator = qse_qsecash_marketdata_xdp_v2_6.indicator.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 3: ASCII Str.
-  index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.size
+  end
 
   return index
 end
@@ -8285,7 +8338,11 @@ qse_qsecash_marketdata_xdp_v2_6.start_referential_message.fields = function(buff
   index, indicator = qse_qsecash_marketdata_xdp_v2_6.indicator.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 3: ASCII Str.
-  index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.size
+  end
 
   return index
 end
@@ -8357,7 +8414,11 @@ qse_qsecash_marketdata_xdp_v2_6.global_market_activity_summary_message.fields = 
   index, price_scale_code = qse_qsecash_marketdata_xdp_v2_6.price_scale_code.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 3: ASCII Str.
-  index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.size
+  end
 
   return index
 end
@@ -8461,7 +8522,11 @@ qse_qsecash_marketdata_xdp_v2_6.session_timetable_message.fields = function(buff
   index, eod_time = qse_qsecash_marketdata_xdp_v2_6.eod_time.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 2: ASCII Str.
-  index, filler_ascii_str_2 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_2 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.size
+  end
 
   return index
 end
@@ -8541,7 +8606,11 @@ qse_qsecash_marketdata_xdp_v2_6.collars_message.fields = function(buffer, offset
   index, collar_type = qse_qsecash_marketdata_xdp_v2_6.collar_type.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 3: ASCII Str.
-  index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_3 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.size
+  end
 
   return index
 end
@@ -8695,7 +8764,11 @@ qse_qsecash_marketdata_xdp_v2_6.mail_message.fields = function(buffer, offset, p
   index, instrument_group_code = qse_qsecash_marketdata_xdp_v2_6.instrument_group_code.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 1: ASCII Str.
-  index, filler_ascii_str_1 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_1 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_1.size
+  end
 
   -- Priority Indicator: ASCII Ch.
   index, priority_indicator = qse_qsecash_marketdata_xdp_v2_6.priority_indicator.dissect(buffer, index, packet, parent)
@@ -8713,7 +8786,11 @@ qse_qsecash_marketdata_xdp_v2_6.mail_message.fields = function(buffer, offset, p
   index, text = qse_qsecash_marketdata_xdp_v2_6.text.dissect(buffer, index, packet, parent)
 
   -- Filler Ascii Str 2: ASCII Str.
-  index, filler_ascii_str_2 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_ascii_str_2 = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.size
+  end
 
   return index
 end
@@ -8782,7 +8859,11 @@ qse_qsecash_marketdata_xdp_v2_6.class_state_change_message.fields = function(buf
   index, session_type = qse_qsecash_marketdata_xdp_v2_6.session_type.dissect(buffer, index, packet, parent)
 
   -- Filler Binary Int 1: Binary Int.
-  index, filler_binary_int_1 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_binary_int_1 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_1.size
+  end
 
   -- Class State: ASCII Ch.
   index, class_state = qse_qsecash_marketdata_xdp_v2_6.class_state.dissect(buffer, index, packet, parent)
@@ -8856,7 +8937,11 @@ qse_qsecash_marketdata_xdp_v2_6.stock_state_change_message.fields = function(buf
   index, source_time_micro_secs = qse_qsecash_marketdata_xdp_v2_6.source_time_micro_secs.dissect(buffer, index, packet, parent)
 
   -- Filler Binary Int 2: Binary Int.
-  index, filler_binary_int_2 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_binary_int_2 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.size
+  end
 
   -- Start Date Halting: ASCII Str.
   index, start_date_halting = qse_qsecash_marketdata_xdp_v2_6.start_date_halting.dissect(buffer, index, packet, parent)
@@ -8889,7 +8974,11 @@ qse_qsecash_marketdata_xdp_v2_6.stock_state_change_message.fields = function(buf
   index, period_side = qse_qsecash_marketdata_xdp_v2_6.period_side.dissect(buffer, index, packet, parent)
 
   -- Filler Binary Int 1: Binary Int.
-  index, filler_binary_int_1 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_binary_int_1 = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_1.size
+  end
 
   return index
 end

@@ -161,6 +161,7 @@ show.structs = true
 show.headers = true
 show.session_messages = true
 show.application_messages = true
+show.padding = false
 show.sequences = true
 
 -- Register Jpx OseDerivatives GeniumInet Glimpse 2.2 Show Options
@@ -171,6 +172,7 @@ omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_structs = Pref.bool("S
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
@@ -185,6 +187,9 @@ function omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs_changed()
   end
   if show.headers ~= omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_headers then
     show.headers = omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_headers
+  end
+  if show.padding ~= omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_padding then
+    show.padding = omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_padding
   end
   if show.session_messages ~= omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_session_messages then
     show.session_messages = omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_session_messages
@@ -2095,16 +2100,32 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.ep_message.fields = function(buffer, 
   index, equilibrium_price = jpx_osederivatives_geniuminet_glimpse_v2_2.equilibrium_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 4 A: Reserved
-  index, reserved_4_a = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_4_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4_a = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_4_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_4_a.size
+  end
 
   -- Reserved 4 B: Reserved
-  index, reserved_4_b = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_4_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4_b = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_4_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_4_b.size
+  end
 
   -- Reserved 8 A: Reserved
-  index, reserved_8_a = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_8_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8_a = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_8_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_8_a.size
+  end
 
   -- Reserved 8 B: Reserved
-  index, reserved_8_b = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_8_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8_b = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_8_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_8_b.size
+  end
 
   return index
 end
@@ -2228,10 +2249,18 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.execution_notice_with_trade_informati
   index, combo_group_id = jpx_osederivatives_geniuminet_glimpse_v2_2.combo_group_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 7 A: Reserved
-  index, reserved_7_a = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7_a = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_a.size
+  end
 
   -- Reserved 7 B: Reserved
-  index, reserved_7_b = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7_b = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_b.size
+  end
 
   -- Trade Price: Price
   index, trade_price = jpx_osederivatives_geniuminet_glimpse_v2_2.trade_price.dissect(buffer, index, packet, parent)
@@ -2309,10 +2338,18 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.execution_notice_message.fields = fun
   index, combo_group_id = jpx_osederivatives_geniuminet_glimpse_v2_2.combo_group_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 7 A: Reserved
-  index, reserved_7_a = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7_a = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_a.size
+  end
 
   -- Reserved 7 B: Reserved
-  index, reserved_7_b = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7_b = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_7_b.size
+  end
 
   return index
 end
@@ -2658,7 +2695,11 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.series_information_basic_message.fiel
   index, long_name = jpx_osederivatives_geniuminet_glimpse_v2_2.long_name.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: Reserved
-  index, reserved_12 = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + jpx_osederivatives_geniuminet_glimpse_v2_2.reserved_12.size
+  end
 
   -- Financial Product: Numeric
   index, financial_product = jpx_osederivatives_geniuminet_glimpse_v2_2.financial_product.dissect(buffer, index, packet, parent)

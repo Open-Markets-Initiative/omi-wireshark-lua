@@ -62,11 +62,13 @@ local show = {}
 -- Iex IexEquities IexTpHeader Udp 1.0 Element Dissection Options
 show.headers = true
 show.structs = true
+show.padding = false
 show.indexes = true
 
 -- Register Iex IexEquities IexTpHeader Udp 1.0 Show Options
 omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_iex_iexequities_iextpheader_udp_v1_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -77,6 +79,9 @@ function omi_iex_iexequities_iextpheader_udp_v1_0.prefs_changed()
   -- Check if preferences have changed
   if show.headers ~= omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_headers then
     show.headers = omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_headers
+  end
+  if show.padding ~= omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_padding then
+    show.padding = omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_padding
   end
   if show.structs ~= omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_structs then
     show.structs = omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_structs
@@ -579,7 +584,11 @@ iex_iexequities_iextpheader_udp_v1_0.iextp_header.fields = function(buffer, offs
   index, version = iex_iexequities_iextpheader_udp_v1_0.version.dissect(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte
-  index, reserved = iex_iexequities_iextpheader_udp_v1_0.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = iex_iexequities_iextpheader_udp_v1_0.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + iex_iexequities_iextpheader_udp_v1_0.reserved.size
+  end
 
   -- Message Protocol Id: 2 Byte Unsigned Fixed Width Integer
   index, message_protocol_id = iex_iexequities_iextpheader_udp_v1_0.message_protocol_id.dissect(buffer, index, packet, parent)

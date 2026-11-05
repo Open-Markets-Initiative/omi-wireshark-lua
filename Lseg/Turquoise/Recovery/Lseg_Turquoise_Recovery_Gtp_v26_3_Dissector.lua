@@ -255,12 +255,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Lseg Turquoise Recovery Gtp 26.3 Show Options
 omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_lseg_turquoise_recovery_gtp_v26_3.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -274,6 +276,9 @@ function omi_lseg_turquoise_recovery_gtp_v26_3.prefs_changed()
   end
   if show.headers ~= omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_headers then
     show.headers = omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_headers
+  end
+  if show.padding ~= omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_padding then
+    show.padding = omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_padding
   end
   if show.structs ~= omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_structs then
     show.structs = omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_structs
@@ -5596,7 +5601,11 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_cross_message.fields = function
   index, publication_date_and_time = lseg_turquoise_recovery_gtp_v26_3.publication_date_and_time.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: UInt32
-  index, reserved_4 = lseg_turquoise_recovery_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = lseg_turquoise_recovery_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_4.size
+  end
 
   -- Nt Pre Trade Waiver Flag: Alpha
   index, nt_pre_trade_waiver_flag = lseg_turquoise_recovery_gtp_v26_3.nt_pre_trade_waiver_flag.dissect(buffer, index, packet, parent)
@@ -5605,7 +5614,11 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_cross_message.fields = function
   index, pt_algo_trade = lseg_turquoise_recovery_gtp_v26_3.pt_algo_trade.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 4: UInt32
-  index, second_reserved_4 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_4 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.second_reserved_4.size
+  end
 
   -- Pt Cancellation Flag: Alpha
   index, pt_cancellation_flag = lseg_turquoise_recovery_gtp_v26_3.pt_cancellation_flag.dissect(buffer, index, packet, parent)
@@ -5614,13 +5627,25 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_cross_message.fields = function
   index, pt_amendment_flag = lseg_turquoise_recovery_gtp_v26_3.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: UInt8
-  index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_1.size
+  end
 
   -- Reserved 3: Alpha
-  index, reserved_3 = lseg_turquoise_recovery_gtp_v26_3.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = lseg_turquoise_recovery_gtp_v26_3.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_3.size
+  end
 
   -- Reserved 20: MiFID Decimal
-  index, reserved_20 = lseg_turquoise_recovery_gtp_v26_3.reserved_20.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_20 = lseg_turquoise_recovery_gtp_v26_3.reserved_20.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_20.size
+  end
 
   -- Trading System: Alpha
   index, trading_system = lseg_turquoise_recovery_gtp_v26_3.trading_system.dissect(buffer, index, packet, parent)
@@ -5815,16 +5840,32 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_message.fields = function(buffe
   index, pt_amendment_flag = lseg_turquoise_recovery_gtp_v26_3.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: UInt8
-  index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_1.size
+  end
 
   -- Reserved 3: Alpha
-  index, reserved_3 = lseg_turquoise_recovery_gtp_v26_3.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = lseg_turquoise_recovery_gtp_v26_3.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_3.size
+  end
 
   -- Reserved 20: MiFID Decimal
-  index, reserved_20 = lseg_turquoise_recovery_gtp_v26_3.reserved_20.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_20 = lseg_turquoise_recovery_gtp_v26_3.reserved_20.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_20.size
+  end
 
   -- Reserved 4: UInt32
-  index, reserved_4 = lseg_turquoise_recovery_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = lseg_turquoise_recovery_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_4.size
+  end
 
   -- Trade Qualifier: Byte
   index, trade_qualifier = lseg_turquoise_recovery_gtp_v26_3.trade_qualifier.dissect(buffer, index, packet, parent)
@@ -6034,16 +6075,32 @@ lseg_turquoise_recovery_gtp_v26_3.statistics_snapshot_message.fields = function(
   index, best_closing_ask_size = lseg_turquoise_recovery_gtp_v26_3.best_closing_ask_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Price
-  index, reserved_8 = lseg_turquoise_recovery_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_turquoise_recovery_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_8.size
+  end
 
   -- Second Reserved 8: Price
-  index, second_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.second_reserved_8.size
+  end
 
   -- Third Reserved 8: Price
-  index, third_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.third_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.third_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.third_reserved_8.size
+  end
 
   -- Fourth Reserved 8: Price
-  index, fourth_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_8.size
+  end
 
   -- Auction Type: Byte
   index, auction_type = lseg_turquoise_recovery_gtp_v26_3.auction_type.dissect(buffer, index, packet, parent)
@@ -6172,7 +6229,11 @@ lseg_turquoise_recovery_gtp_v26_3.trade_cross_message.fields = function(buffer, 
   index, price_price_8 = lseg_turquoise_recovery_gtp_v26_3.price_price_8.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Price
-  index, reserved_8 = lseg_turquoise_recovery_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_turquoise_recovery_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_8.size
+  end
 
   -- Trade Id: UInt64
   index, trade_id = lseg_turquoise_recovery_gtp_v26_3.trade_id.dissect(buffer, index, packet, parent)
@@ -6260,13 +6321,25 @@ lseg_turquoise_recovery_gtp_v26_3.trade_message.fields = function(buffer, offset
   index, venue_of_execution_u_int_81 = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_u_int_81.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: UInt8
-  index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_1.size
+  end
 
   -- Reserved 2: UInt16
-  index, reserved_2 = lseg_turquoise_recovery_gtp_v26_3.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = lseg_turquoise_recovery_gtp_v26_3.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_2.size
+  end
 
   -- Reserved 4: UInt32
-  index, reserved_4 = lseg_turquoise_recovery_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = lseg_turquoise_recovery_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_4.size
+  end
 
   -- Trade Id: UInt64
   index, trade_id = lseg_turquoise_recovery_gtp_v26_3.trade_id.dissect(buffer, index, packet, parent)
@@ -6460,7 +6533,11 @@ lseg_turquoise_recovery_gtp_v26_3.top_of_book_message.fields = function(buffer, 
   index, bid_limit_price = lseg_turquoise_recovery_gtp_v26_3.bid_limit_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Price
-  index, reserved_8 = lseg_turquoise_recovery_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_turquoise_recovery_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_8.size
+  end
 
   -- Bid Limit Size: Size
   index, bid_limit_size = lseg_turquoise_recovery_gtp_v26_3.bid_limit_size.dissect(buffer, index, packet, parent)
@@ -6472,7 +6549,11 @@ lseg_turquoise_recovery_gtp_v26_3.top_of_book_message.fields = function(buffer, 
   index, offer_limit_price = lseg_turquoise_recovery_gtp_v26_3.offer_limit_price.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: Price
-  index, second_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.second_reserved_8.size
+  end
 
   -- Offer Limit Size: Size
   index, offer_limit_size = lseg_turquoise_recovery_gtp_v26_3.offer_limit_size.dissect(buffer, index, packet, parent)
@@ -6792,7 +6873,11 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   index, previous_days_closing_price = lseg_turquoise_recovery_gtp_v26_3.previous_days_closing_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Price
-  index, reserved_8 = lseg_turquoise_recovery_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_turquoise_recovery_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_8.size
+  end
 
   -- Dynamic Circuit Breaker Tolerances: Price
   index, dynamic_circuit_breaker_tolerances = lseg_turquoise_recovery_gtp_v26_3.dynamic_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
@@ -6801,10 +6886,18 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   index, static_circuit_breaker_tolerances = lseg_turquoise_recovery_gtp_v26_3.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
   -- First Reserved 1: UInt8
-  index, first_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.first_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, first_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.first_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.first_reserved_1.size
+  end
 
   -- Second Reserved 1: UInt8
-  index, second_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.second_reserved_1.size
+  end
 
   -- Expiration Date: Date
   index, expiration_date = lseg_turquoise_recovery_gtp_v26_3.expiration_date.dissect(buffer, index, packet, parent)
@@ -6825,13 +6918,25 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   index, last_price_in_preceding_session_date = lseg_turquoise_recovery_gtp_v26_3.last_price_in_preceding_session_date.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: UInt8
-  index, third_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.third_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.third_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.third_reserved_1.size
+  end
 
   -- Second Reserved 8: Price
-  index, second_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.second_reserved_8.size
+  end
 
   -- Third Reserved 8: Price
-  index, third_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.third_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.third_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.third_reserved_8.size
+  end
 
   -- Ex Marker Code: Alpha
   index, ex_marker_code = lseg_turquoise_recovery_gtp_v26_3.ex_marker_code.dissect(buffer, index, packet, parent)
@@ -6861,31 +6966,63 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   index, security_exchange = lseg_turquoise_recovery_gtp_v26_3.security_exchange.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: Alpha
-  index, reserved_12 = lseg_turquoise_recovery_gtp_v26_3.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = lseg_turquoise_recovery_gtp_v26_3.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_12.size
+  end
 
   -- Fourth Reserved 1: UInt8
-  index, fourth_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_1.size
+  end
 
   -- Fourth Reserved 8: Price
-  index, fourth_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_8.size
+  end
 
   -- Fifth Reserved 8: Price
-  index, fifth_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.fifth_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fifth_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.fifth_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.fifth_reserved_8.size
+  end
 
   -- Partition Id: Byte
   index, partition_id = lseg_turquoise_recovery_gtp_v26_3.partition_id.dissect(buffer, index, packet, parent)
 
   -- Sixth Reserved 8: Price
-  index, sixth_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.sixth_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, sixth_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.sixth_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.sixth_reserved_8.size
+  end
 
   -- Seventh Reserved 8: Price
-  index, seventh_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.seventh_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, seventh_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.seventh_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.seventh_reserved_8.size
+  end
 
   -- Reserved 4: UInt32
-  index, reserved_4 = lseg_turquoise_recovery_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = lseg_turquoise_recovery_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_4.size
+  end
 
   -- Reserved 2: UInt16
-  index, reserved_2 = lseg_turquoise_recovery_gtp_v26_3.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = lseg_turquoise_recovery_gtp_v26_3.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_recovery_gtp_v26_3.reserved_2.size
+  end
 
   -- Symbol: Alpha
   index, symbol = lseg_turquoise_recovery_gtp_v26_3.symbol.dissect(buffer, index, packet, parent)

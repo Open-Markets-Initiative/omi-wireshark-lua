@@ -290,12 +290,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Ice IceFutures Mdf iMpact 1.1.24 Show Options
 omi_ice_icefutures_mdf_impact_v1_1_24.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_ice_icefutures_mdf_impact_v1_1_24.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_ice_icefutures_mdf_impact_v1_1_24.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_ice_icefutures_mdf_impact_v1_1_24.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_ice_icefutures_mdf_impact_v1_1_24.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_ice_icefutures_mdf_impact_v1_1_24.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -309,6 +311,9 @@ function omi_ice_icefutures_mdf_impact_v1_1_24.prefs_changed()
   end
   if show.headers ~= omi_ice_icefutures_mdf_impact_v1_1_24.prefs.show_headers then
     show.headers = omi_ice_icefutures_mdf_impact_v1_1_24.prefs.show_headers
+  end
+  if show.padding ~= omi_ice_icefutures_mdf_impact_v1_1_24.prefs.show_padding then
+    show.padding = omi_ice_icefutures_mdf_impact_v1_1_24.prefs.show_padding
   end
   if show.structs ~= omi_ice_icefutures_mdf_impact_v1_1_24.prefs.show_structs then
     show.structs = omi_ice_icefutures_mdf_impact_v1_1_24.prefs.show_structs
@@ -8885,7 +8890,11 @@ ice_icefutures_mdf_impact_v1_1_24.market_snapshot_message.fields = function(buff
   index, last_message_sequence_id = ice_icefutures_mdf_impact_v1_1_24.last_message_sequence_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: N/A
-  index, reserved_2 = ice_icefutures_mdf_impact_v1_1_24.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = ice_icefutures_mdf_impact_v1_1_24.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + ice_icefutures_mdf_impact_v1_1_24.reserved_2.size
+  end
 
   -- Open Interest Date: Alpha
   index, open_interest_date = ice_icefutures_mdf_impact_v1_1_24.open_interest_date.dissect(buffer, index, packet, parent)

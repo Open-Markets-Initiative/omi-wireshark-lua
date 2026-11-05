@@ -125,6 +125,7 @@ show.application_messages = true
 show.structs = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Miax OnyxFutures DepthOfMarket Mach 1.0.b Show Options
@@ -132,6 +133,7 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_application_messages =
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -145,6 +147,9 @@ function omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs_changed()
   end
   if show.headers ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_headers then
     show.headers = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_headers
+  end
+  if show.padding ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_padding then
+    show.padding = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_padding
   end
   if show.repeating_groups ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_repeating_groups then
     show.repeating_groups = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_repeating_groups
@@ -2392,7 +2397,11 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_leg.fields = function(buff
   index, maturity_month_year = miax_onyxfutures_depthofmarket_mach_v1_0_b.maturity_month_year.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_8.size
+  end
 
   return index
 end
@@ -2538,7 +2547,11 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message
   index, trading_collar_variation = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: BinaryU
-  index, reserved_16 = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.size
+  end
 
   -- Number Of Legs: BinaryU
   index, number_of_legs = miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.dissect(buffer, index, packet, parent)
@@ -2686,7 +2699,11 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.
   index, trading_collar_variation = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: BinaryU
-  index, reserved_16 = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.size
+  end
 
   return index
 end

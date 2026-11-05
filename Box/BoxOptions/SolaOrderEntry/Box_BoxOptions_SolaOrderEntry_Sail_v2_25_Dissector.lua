@@ -284,6 +284,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Box BoxOptions SolaOrderEntry Sail 2.25 Show Options
@@ -293,6 +294,7 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.swap_sides = Pref.bool("Swap 
 omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -304,6 +306,9 @@ function omi_box_boxoptions_solaorderentry_sail_v2_25.prefs_changed()
   end
   if show.headers ~= omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.show_headers then
     show.headers = omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.show_headers
+  end
+  if show.padding ~= omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.show_padding then
+    show.padding = omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.show_padding
   end
   if show.structs ~= omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.show_structs then
     show.structs = omi_box_boxoptions_solaorderentry_sail_v2_25.prefs.show_structs
@@ -4979,7 +4984,11 @@ box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_notice_by_system.fie
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -5124,10 +5133,18 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_execution_cancellation_notice.field
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: String (1)
-  index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_1.size
+  end
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -5252,10 +5269,18 @@ box_boxoptions_solaorderentry_sail_v2_25.execution_cancellation_notice.fields = 
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: String (1)
-  index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_1.size
+  end
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -5468,10 +5493,18 @@ box_boxoptions_solaorderentry_sail_v2_25.execution_notice.fields = function(buff
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: String (1)
-  index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_1.size
+  end
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -5744,10 +5777,18 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_execution_notice.fields = function(
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: String (1)
-  index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_1.size
+  end
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -5839,13 +5880,21 @@ box_boxoptions_solaorderentry_sail_v2_25.excluded_instrument_notice.fields = fun
   index, group = box_boxoptions_solaorderentry_sail_v2_25.group.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: String (2)
-  index, reserved_2 = box_boxoptions_solaorderentry_sail_v2_25.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = box_boxoptions_solaorderentry_sail_v2_25.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_2.size
+  end
 
   -- Trader Id: Trader ID
   index, trader_id = box_boxoptions_solaorderentry_sail_v2_25.trader_id.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 2: String (2)
-  index, second_reserved_2 = box_boxoptions_solaorderentry_sail_v2_25.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = box_boxoptions_solaorderentry_sail_v2_25.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.second_reserved_2.size
+  end
 
   -- Nb Of Instruments: Numeric (4)
   index, nb_of_instruments = box_boxoptions_solaorderentry_sail_v2_25.nb_of_instruments.dissect(buffer, index, packet, parent)
@@ -6233,7 +6282,11 @@ box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_acknowledgement.fiel
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -6409,7 +6462,11 @@ box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_acknowledgement.f
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -6512,7 +6569,11 @@ box_boxoptions_solaorderentry_sail_v2_25.new_complex_order_instrument_acknowledg
   index, leg_verb = box_boxoptions_solaorderentry_sail_v2_25.leg_verb.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: String (1)
-  index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_1.size
+  end
 
   -- Leg Quantity Ratio: Quantity
   index, leg_quantity_ratio = box_boxoptions_solaorderentry_sail_v2_25.leg_quantity_ratio.dissect(buffer, index, packet, parent)
@@ -6670,13 +6731,21 @@ box_boxoptions_solaorderentry_sail_v2_25.order_modification_acknowledgement.fiel
   index, original_order_id = box_boxoptions_solaorderentry_sail_v2_25.original_order_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 6: Numeric (6)
-  index, reserved_6 = box_boxoptions_solaorderentry_sail_v2_25.reserved_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_6 = box_boxoptions_solaorderentry_sail_v2_25.reserved_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_6.size
+  end
 
   -- Additional Client Memo: Additional Client Memo
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -6768,7 +6837,11 @@ box_boxoptions_solaorderentry_sail_v2_25.improvement_order_acknowlegment.fields 
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -6902,13 +6975,21 @@ box_boxoptions_solaorderentry_sail_v2_25.order_acknowledgement.fields = function
   index, original_order_id = box_boxoptions_solaorderentry_sail_v2_25.original_order_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 6: Numeric (6)
-  index, reserved_6 = box_boxoptions_solaorderentry_sail_v2_25.reserved_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_6 = box_boxoptions_solaorderentry_sail_v2_25.reserved_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_6.size
+  end
 
   -- Additional Client Memo: Additional Client Memo
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -8271,7 +8352,11 @@ box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_entry.fields = fu
   index, selling_additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   -- Nb Legs: Numeric (2)
   index, nb_legs = box_boxoptions_solaorderentry_sail_v2_25.nb_legs.dissect(buffer, index, packet, parent)
@@ -8338,7 +8423,11 @@ box_boxoptions_solaorderentry_sail_v2_25.new_complex_order_instrument_occurrence
   index, leg_verb = box_boxoptions_solaorderentry_sail_v2_25.leg_verb.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: String (1)
-  index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_1.size
+  end
 
   -- Leg Quantity Ratio: Quantity
   index, leg_quantity_ratio = box_boxoptions_solaorderentry_sail_v2_25.leg_quantity_ratio.dissect(buffer, index, packet, parent)
@@ -8484,13 +8573,25 @@ box_boxoptions_solaorderentry_sail_v2_25.order_modification.fields = function(bu
   index, special_price_term = box_boxoptions_solaorderentry_sail_v2_25.special_price_term.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: String (10)
-  index, reserved_10 = box_boxoptions_solaorderentry_sail_v2_25.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = box_boxoptions_solaorderentry_sail_v2_25.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_10.size
+  end
 
   -- Reserved 1: String (1)
-  index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = box_boxoptions_solaorderentry_sail_v2_25.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_1.size
+  end
 
   -- Reserved 8: String (8)
-  index, reserved_8 = box_boxoptions_solaorderentry_sail_v2_25.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = box_boxoptions_solaorderentry_sail_v2_25.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_8.size
+  end
 
   -- Duration Type: Duration Type
   index, duration_type = box_boxoptions_solaorderentry_sail_v2_25.duration_type.dissect(buffer, index, packet, parent)
@@ -8520,7 +8621,11 @@ box_boxoptions_solaorderentry_sail_v2_25.order_modification.fields = function(bu
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -8593,7 +8698,11 @@ box_boxoptions_solaorderentry_sail_v2_25.improvement_order_entry.fields = functi
   index, auction_id_optional = box_boxoptions_solaorderentry_sail_v2_25.auction_id_optional.dissect(buffer, index, packet, parent)
 
   -- Reserved 17: String (17)
-  index, reserved_17 = box_boxoptions_solaorderentry_sail_v2_25.reserved_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_17 = box_boxoptions_solaorderentry_sail_v2_25.reserved_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_17.size
+  end
 
   -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
@@ -8608,7 +8717,11 @@ box_boxoptions_solaorderentry_sail_v2_25.improvement_order_entry.fields = functi
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -8687,7 +8800,11 @@ box_boxoptions_solaorderentry_sail_v2_25.order_entry.fields = function(buffer, o
   index, special_price_term = box_boxoptions_solaorderentry_sail_v2_25.special_price_term.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: String (10)
-  index, reserved_10 = box_boxoptions_solaorderentry_sail_v2_25.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = box_boxoptions_solaorderentry_sail_v2_25.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_10.size
+  end
 
   -- Quantity Term: Quantity Term
   index, quantity_term = box_boxoptions_solaorderentry_sail_v2_25.quantity_term.dissect(buffer, index, packet, parent)
@@ -8720,7 +8837,11 @@ box_boxoptions_solaorderentry_sail_v2_25.order_entry.fields = function(buffer, o
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -9020,7 +9141,11 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_entry.fields = function(buffer,
   index, selling_additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: String (4)
-  index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = box_boxoptions_solaorderentry_sail_v2_25.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_4.size
+  end
 
   return index
 end
@@ -9249,13 +9374,25 @@ box_boxoptions_solaorderentry_sail_v2_25.bulk_quote_data.fields = function(buffe
   index, owner_data = box_boxoptions_solaorderentry_sail_v2_25.owner_data.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: String (2)
-  index, reserved_2 = box_boxoptions_solaorderentry_sail_v2_25.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = box_boxoptions_solaorderentry_sail_v2_25.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_2.size
+  end
 
   -- Reserved 8: String (8)
-  index, reserved_8 = box_boxoptions_solaorderentry_sail_v2_25.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = box_boxoptions_solaorderentry_sail_v2_25.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.reserved_8.size
+  end
 
   -- Second Reserved 2: String (2)
-  index, second_reserved_2 = box_boxoptions_solaorderentry_sail_v2_25.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = box_boxoptions_solaorderentry_sail_v2_25.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + box_boxoptions_solaorderentry_sail_v2_25.second_reserved_2.size
+  end
 
   -- Calculation Time Interval: Calculation Time Interval
   index, calculation_time_interval = box_boxoptions_solaorderentry_sail_v2_25.calculation_time_interval.dissect(buffer, index, packet, parent)

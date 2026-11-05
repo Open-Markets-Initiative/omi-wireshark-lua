@@ -185,6 +185,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.padding = false
 show.sequences = true
 
 -- Register Nasdaq NtxOptions Cti Itch 1.3 Show Options
@@ -195,6 +196,7 @@ omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_application_messages = Pref.bool(
 omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
@@ -206,6 +208,9 @@ function omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_headers then
     show.headers = omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_padding then
+    show.padding = omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_padding
   end
   if show.session_messages ~= omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_ntxoptions_cti_itch_v1_3.prefs.show_session_messages
@@ -3217,7 +3222,11 @@ nasdaq_ntxoptions_cti_itch_v1_3.trade_message.fields = function(buffer, offset, 
   index, strategy_leg = nasdaq_ntxoptions_cti_itch_v1_3.strategy_leg.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = nasdaq_ntxoptions_cti_itch_v1_3.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nasdaq_ntxoptions_cti_itch_v1_3.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_ntxoptions_cti_itch_v1_3.reserved_8.size
+  end
 
   -- Occ Clearing Number: Integer
   index, occ_clearing_number = nasdaq_ntxoptions_cti_itch_v1_3.occ_clearing_number.dissect(buffer, index, packet, parent)
@@ -3262,7 +3271,11 @@ nasdaq_ntxoptions_cti_itch_v1_3.trade_message.fields = function(buffer, offset, 
   index, clearing_flags = nasdaq_ntxoptions_cti_itch_v1_3.clearing_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 6: Alpha
-  index, reserved_6 = nasdaq_ntxoptions_cti_itch_v1_3.reserved_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_6 = nasdaq_ntxoptions_cti_itch_v1_3.reserved_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_ntxoptions_cti_itch_v1_3.reserved_6.size
+  end
 
   -- Contra Occ Clearing Number: Integer
   index, contra_occ_clearing_number = nasdaq_ntxoptions_cti_itch_v1_3.contra_occ_clearing_number.dissect(buffer, index, packet, parent)
@@ -3292,7 +3305,11 @@ nasdaq_ntxoptions_cti_itch_v1_3.trade_message.fields = function(buffer, offset, 
   index, contra_mpid = nasdaq_ntxoptions_cti_itch_v1_3.contra_mpid.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: Alpha
-  index, second_reserved_8 = nasdaq_ntxoptions_cti_itch_v1_3.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = nasdaq_ntxoptions_cti_itch_v1_3.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_ntxoptions_cti_itch_v1_3.second_reserved_8.size
+  end
 
   -- Firm: Alphanumeric
   index, firm = nasdaq_ntxoptions_cti_itch_v1_3.firm.dissect(buffer, index, packet, parent)
@@ -3340,7 +3357,11 @@ nasdaq_ntxoptions_cti_itch_v1_3.trade_message.fields = function(buffer, offset, 
   index, tif = nasdaq_ntxoptions_cti_itch_v1_3.tif.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 8: Alpha
-  index, third_reserved_8 = nasdaq_ntxoptions_cti_itch_v1_3.third_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_8 = nasdaq_ntxoptions_cti_itch_v1_3.third_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_ntxoptions_cti_itch_v1_3.third_reserved_8.size
+  end
 
   return index
 end

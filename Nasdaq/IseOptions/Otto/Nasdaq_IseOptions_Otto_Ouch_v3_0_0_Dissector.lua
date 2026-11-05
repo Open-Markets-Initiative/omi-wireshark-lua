@@ -260,6 +260,7 @@ show.structs = true
 show.headers = true
 show.repeating_groups = true
 show.session_messages = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -272,6 +273,7 @@ omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_structs = Pref.bool("Show Stru
 omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -286,6 +288,9 @@ function omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_headers then
     show.headers = omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_padding then
+    show.padding = omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_padding
   end
   if show.repeating_groups ~= omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_repeating_groups then
     show.repeating_groups = omi_nasdaq_iseoptions_otto_ouch_v3_0_0.prefs.show_repeating_groups
@@ -4846,7 +4851,11 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.cross_order_accepted_message.fields = functio
   index, contra_stock_leg_mpid = nasdaq_iseoptions_otto_ouch_v3_0_0.contra_stock_leg_mpid.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alpha
-  index, reserved_1 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_1.size
+  end
 
   return index
 end
@@ -5428,7 +5437,11 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.flex_legs.fields = function(buffer, offset, p
   end
 
   -- Reserved 8: Integer
-  index, reserved_8 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_8.size
+  end
 
   return index
 end
@@ -5639,7 +5652,11 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.order_accepted_long_form_message.fields = fun
   index, stock_capacity = nasdaq_iseoptions_otto_ouch_v3_0_0.stock_capacity.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Integer
-  index, reserved_9 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.size
+  end
 
   -- Number Of Flex Legs: Integer
   index, number_of_flex_legs = nasdaq_iseoptions_otto_ouch_v3_0_0.number_of_flex_legs.dissect(buffer, index, packet, parent)
@@ -5693,7 +5710,11 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.flex_dac_legs.fields = function(buffer, offse
   end
 
   -- Reserved 8: Integer
-  index, reserved_8 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_8.size
+  end
 
   return index
 end
@@ -5834,7 +5855,11 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.auction_notification_message.fields = functio
   index, best_response_size = nasdaq_iseoptions_otto_ouch_v3_0_0.best_response_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Integer
-  index, reserved_9 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.size
+  end
 
   -- Number Of Flex Dac Legs: Integer
   index, number_of_flex_dac_legs = nasdaq_iseoptions_otto_ouch_v3_0_0.number_of_flex_dac_legs.dissect(buffer, index, packet, parent)
@@ -6027,7 +6052,11 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.complex_instrument_directory_message.fields =
   index, instrument_id = nasdaq_iseoptions_otto_ouch_v3_0_0.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alpha
-  index, reserved_1 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_1.size
+  end
 
   -- Num Legs: Integer
   index, num_legs = nasdaq_iseoptions_otto_ouch_v3_0_0.num_legs.dissect(buffer, index, packet, parent)
@@ -6135,7 +6164,11 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.simple_instrument_directory_message.fields = 
   index, security_symbol = nasdaq_iseoptions_otto_ouch_v3_0_0.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alpha
-  index, reserved_16 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_16.size
+  end
 
   return index
 end
@@ -7123,7 +7156,11 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.flex_leg_prices.fields = function(buffer, off
   index, leg_prices = nasdaq_iseoptions_otto_ouch_v3_0_0.leg_prices.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Integer
-  index, reserved_8 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_8.size
+  end
 
   return index
 end
@@ -7279,7 +7316,11 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.new_cross_order_message.fields = function(buf
   index, auction_duration = nasdaq_iseoptions_otto_ouch_v3_0_0.auction_duration.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Integer
-  index, reserved_9 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.size
+  end
 
   -- Primary Cl Ord Id: Alphanumeric
   index, primary_cl_ord_id = nasdaq_iseoptions_otto_ouch_v3_0_0.primary_cl_ord_id.dissect(buffer, index, packet, parent)
@@ -7848,7 +7889,11 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.new_order_long_form_message.fields = function
   index, stock_capacity = nasdaq_iseoptions_otto_ouch_v3_0_0.stock_capacity.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Integer
-  index, reserved_9 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_otto_ouch_v3_0_0.reserved_9.size
+  end
 
   -- Number Of Flex Legs: Integer
   index, number_of_flex_legs = nasdaq_iseoptions_otto_ouch_v3_0_0.number_of_flex_legs.dissect(buffer, index, packet, parent)

@@ -108,12 +108,14 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Lseg Turquoise Analytics Gtp 26.3 Show Options
 omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_lseg_turquoise_analytics_gtp_v26_3.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -127,6 +129,9 @@ function omi_lseg_turquoise_analytics_gtp_v26_3.prefs_changed()
   end
   if show.headers ~= omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_headers then
     show.headers = omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_headers
+  end
+  if show.padding ~= omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_padding then
+    show.padding = omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_padding
   end
   if show.structs ~= omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_structs then
     show.structs = omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_structs
@@ -1699,7 +1704,11 @@ lseg_turquoise_analytics_gtp_v26_3.instrument_directory_message.fields = functio
   index, tick_id = lseg_turquoise_analytics_gtp_v26_3.tick_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Price
-  index, reserved_8 = lseg_turquoise_analytics_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = lseg_turquoise_analytics_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_analytics_gtp_v26_3.reserved_8.size
+  end
 
   -- Dynamic Circuit Breaker Tolerances: Price
   index, dynamic_circuit_breaker_tolerances = lseg_turquoise_analytics_gtp_v26_3.dynamic_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
@@ -1711,7 +1720,11 @@ lseg_turquoise_analytics_gtp_v26_3.instrument_directory_message.fields = functio
   index, segment = lseg_turquoise_analytics_gtp_v26_3.segment.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: Alpha
-  index, reserved_12 = lseg_turquoise_analytics_gtp_v26_3.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = lseg_turquoise_analytics_gtp_v26_3.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_analytics_gtp_v26_3.reserved_12.size
+  end
 
   -- Security Exchange: Alpha
   index, security_exchange = lseg_turquoise_analytics_gtp_v26_3.security_exchange.dissect(buffer, index, packet, parent)
@@ -1723,22 +1736,42 @@ lseg_turquoise_analytics_gtp_v26_3.instrument_directory_message.fields = functio
   index, partition_id = lseg_turquoise_analytics_gtp_v26_3.partition_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Alpha
-  index, reserved_4 = lseg_turquoise_analytics_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = lseg_turquoise_analytics_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_analytics_gtp_v26_3.reserved_4.size
+  end
 
   -- Average Daily Turnover Adt: Price4
   index, average_daily_turnover_adt = lseg_turquoise_analytics_gtp_v26_3.average_daily_turnover_adt.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: Price
-  index, second_reserved_8 = lseg_turquoise_analytics_gtp_v26_3.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = lseg_turquoise_analytics_gtp_v26_3.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_analytics_gtp_v26_3.second_reserved_8.size
+  end
 
   -- Reserved 1: UInt8
-  index, reserved_1 = lseg_turquoise_analytics_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = lseg_turquoise_analytics_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_analytics_gtp_v26_3.reserved_1.size
+  end
 
   -- Third Reserved 8: Price
-  index, third_reserved_8 = lseg_turquoise_analytics_gtp_v26_3.third_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_8 = lseg_turquoise_analytics_gtp_v26_3.third_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_analytics_gtp_v26_3.third_reserved_8.size
+  end
 
   -- Fourth Reserved 8: Price
-  index, fourth_reserved_8 = lseg_turquoise_analytics_gtp_v26_3.fourth_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_8 = lseg_turquoise_analytics_gtp_v26_3.fourth_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_turquoise_analytics_gtp_v26_3.fourth_reserved_8.size
+  end
 
   return index
 end

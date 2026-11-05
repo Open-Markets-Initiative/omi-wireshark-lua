@@ -186,6 +186,7 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -193,6 +194,7 @@ show.sequences = true
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -207,6 +209,9 @@ function omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs_changed()
   end
   if show.headers ~= omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_headers then
     show.headers = omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_padding then
+    show.padding = omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_padding
   end
   if show.structs ~= omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_structs then
     show.structs = omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_structs
@@ -3757,7 +3762,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.options_imbalance_message.fields = functi
   index, series_seq_num = nyse_arcaoptions_topfeed_pillar_v1_2_c.series_seq_num.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary
-  index, reserved_4 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_4.size
+  end
 
   -- Paired Qty: Binary
   index, paired_qty = nyse_arcaoptions_topfeed_pillar_v1_2_c.paired_qty.dissect(buffer, index, packet, parent)
@@ -3769,7 +3778,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.options_imbalance_message.fields = functi
   index, market_imbalance_qty = nyse_arcaoptions_topfeed_pillar_v1_2_c.market_imbalance_qty.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary
-  index, reserved_2 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_2.size
+  end
 
   -- Auction Type: ASCII
   index, auction_type = nyse_arcaoptions_topfeed_pillar_v1_2_c.auction_type.dissect(buffer, index, packet, parent)
@@ -3784,7 +3797,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.options_imbalance_message.fields = functi
   index, auction_interest_clearing_price = nyse_arcaoptions_topfeed_pillar_v1_2_c.auction_interest_clearing_price.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 4: Binary
-  index, second_reserved_4 = nyse_arcaoptions_topfeed_pillar_v1_2_c.second_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_4 = nyse_arcaoptions_topfeed_pillar_v1_2_c.second_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_topfeed_pillar_v1_2_c.second_reserved_4.size
+  end
 
   -- Indicative Match Price: Signed Binary
   index, indicative_match_price = nyse_arcaoptions_topfeed_pillar_v1_2_c.indicative_match_price.dissect(buffer, index, packet, parent)
@@ -3840,7 +3857,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.correction_condition.fields = function(bu
   index, transaction = nyse_arcaoptions_topfeed_pillar_v1_2_c.transaction.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: ASCII
-  index, reserved_3 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_3.size
+  end
 
   return index
 end
@@ -4017,7 +4038,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.trade_condition.fields = function(buffer,
   index, opening = nyse_arcaoptions_topfeed_pillar_v1_2_c.opening.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.size
+  end
 
   -- Offical: ASCII
   index, offical = nyse_arcaoptions_topfeed_pillar_v1_2_c.offical.dissect(buffer, index, packet, parent)
@@ -4162,7 +4187,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.options_quote_message.fields = function(b
   index, quote_condition = nyse_arcaoptions_topfeed_pillar_v1_2_c.quote_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.size
+  end
 
   -- Ask Customer Volume: Binary
   index, ask_customer_volume = nyse_arcaoptions_topfeed_pillar_v1_2_c.ask_customer_volume.dissect(buffer, index, packet, parent)
@@ -4324,7 +4353,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.fie
   index, closing_only_indicator = nyse_arcaoptions_topfeed_pillar_v1_2_c.closing_only_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.size
+  end
 
   return index
 end
@@ -4506,7 +4539,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.security_status_message.fields = function
   index, halt_condition = nyse_arcaoptions_topfeed_pillar_v1_2_c.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary
-  index, reserved_4 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_4.size
+  end
 
   -- Price 1: Binary
   index, price_1 = nyse_arcaoptions_topfeed_pillar_v1_2_c.price_1.dissect(buffer, index, packet, parent)
@@ -4961,7 +4998,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.symbol_index_mapping_message.fields = fun
   index, symbol = nyse_arcaoptions_topfeed_pillar_v1_2_c.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_arcaoptions_topfeed_pillar_v1_2_c.market_id.dissect(buffer, index, packet, parent)
@@ -4994,7 +5035,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.symbol_index_mapping_message.fields = fun
   index, round_lot = nyse_arcaoptions_topfeed_pillar_v1_2_c.round_lot.dissect(buffer, index, packet, parent)
 
   -- Reserved 6: Binary
-  index, reserved_6 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_6 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_6.size
+  end
 
   return index
 end
@@ -5039,7 +5084,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.time_reference_message.fields = function(
   index, id = nyse_arcaoptions_topfeed_pillar_v1_2_c.id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary
-  index, reserved_4 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_4.size
+  end
 
   -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)

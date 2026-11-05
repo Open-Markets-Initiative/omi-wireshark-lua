@@ -155,12 +155,14 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Siac Opra Output Obi 6.1 Show Options
 omi_siac_opra_output_obi_v6_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_opra_output_obi_v6_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_opra_output_obi_v6_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_siac_opra_output_obi_v6_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_siac_opra_output_obi_v6_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_siac_opra_output_obi_v6_1.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
@@ -175,6 +177,9 @@ function omi_siac_opra_output_obi_v6_1.prefs_changed()
   end
   if show.headers ~= omi_siac_opra_output_obi_v6_1.prefs.show_headers then
     show.headers = omi_siac_opra_output_obi_v6_1.prefs.show_headers
+  end
+  if show.padding ~= omi_siac_opra_output_obi_v6_1.prefs.show_padding then
+    show.padding = omi_siac_opra_output_obi_v6_1.prefs.show_padding
   end
   if show.structs ~= omi_siac_opra_output_obi_v6_1.prefs.show_structs then
     show.structs = omi_siac_opra_output_obi_v6_1.prefs.show_structs
@@ -2703,7 +2708,11 @@ siac_opra_output_obi_v6_1.underlying_value_bid_and_offer_message.fields = functi
   index, security_symbol = siac_opra_output_obi_v6_1.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: unsigned integer
-  index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_opra_output_obi_v6_1.reserved_1.size
+  end
 
   -- Index Value Denominator Code: alphabetic
   index, index_value_denominator_code = siac_opra_output_obi_v6_1.index_value_denominator_code.dissect(buffer, index, packet, parent)
@@ -2771,7 +2780,11 @@ siac_opra_output_obi_v6_1.underlying_value_last_sale_message.fields = function(b
   index, security_symbol = siac_opra_output_obi_v6_1.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: unsigned integer
-  index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_opra_output_obi_v6_1.reserved_1.size
+  end
 
   -- Index Value Denominator Code: alphabetic
   index, index_value_denominator_code = siac_opra_output_obi_v6_1.index_value_denominator_code.dissect(buffer, index, packet, parent)
@@ -2780,7 +2793,11 @@ siac_opra_output_obi_v6_1.underlying_value_last_sale_message.fields = function(b
   index, index_value = siac_opra_output_obi_v6_1.scaled_index_value.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: unsigned integer
-  index, reserved_4 = siac_opra_output_obi_v6_1.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = siac_opra_output_obi_v6_1.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_opra_output_obi_v6_1.reserved_4.size
+  end
 
   return index
 end
@@ -3648,7 +3665,11 @@ siac_opra_output_obi_v6_1.long_equity_and_index_quote_message.fields = function(
   index, security_symbol = siac_opra_output_obi_v6_1.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: unsigned integer
-  index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_opra_output_obi_v6_1.reserved_1.size
+  end
 
   -- Expiration Block: Struct of 3 fields
   index, expiration_block = siac_opra_output_obi_v6_1.expiration_block.dissect(buffer, index, packet, parent)
@@ -3836,7 +3857,11 @@ siac_opra_output_obi_v6_1.equity_and_index_end_of_day_summary_message.fields = f
   index, security_symbol = siac_opra_output_obi_v6_1.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: unsigned integer
-  index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_opra_output_obi_v6_1.reserved_1.size
+  end
 
   -- Expiration Block: Struct of 3 fields
   index, expiration_block = siac_opra_output_obi_v6_1.expiration_block.dissect(buffer, index, packet, parent)
@@ -4012,7 +4037,11 @@ siac_opra_output_obi_v6_1.open_interest_message.fields = function(buffer, offset
   index, security_symbol = siac_opra_output_obi_v6_1.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: unsigned integer
-  index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_opra_output_obi_v6_1.reserved_1.size
+  end
 
   -- Expiration Block: Struct of 3 fields
   index, expiration_block = siac_opra_output_obi_v6_1.expiration_block.dissect(buffer, index, packet, parent)
@@ -4159,7 +4188,11 @@ siac_opra_output_obi_v6_1.equity_and_index_last_sale_message.fields = function(b
   index, security_symbol = siac_opra_output_obi_v6_1.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: unsigned integer
-  index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = siac_opra_output_obi_v6_1.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_opra_output_obi_v6_1.reserved_1.size
+  end
 
   -- Expiration Block: Struct of 3 fields
   index, expiration_block = siac_opra_output_obi_v6_1.expiration_block.dissect(buffer, index, packet, parent)
@@ -4183,7 +4216,11 @@ siac_opra_output_obi_v6_1.equity_and_index_last_sale_message.fields = function(b
   index, trade_identifier = siac_opra_output_obi_v6_1.trade_identifier.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: unsigned integer
-  index, reserved_4 = siac_opra_output_obi_v6_1.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = siac_opra_output_obi_v6_1.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_opra_output_obi_v6_1.reserved_4.size
+  end
 
   return index
 end

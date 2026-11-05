@@ -181,6 +181,7 @@ show.application_messages = true
 show.repeating_groups = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Hkex HkexDerivatives Lite Omd 2.0 Show Options
@@ -188,6 +189,7 @@ omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_application_messages = Pref.bo
 omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -201,6 +203,9 @@ function omi_hkex_hkexderivatives_lite_omd_v2_0.prefs_changed()
   end
   if show.headers ~= omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_headers then
     show.headers = omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_headers
+  end
+  if show.padding ~= omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_padding then
+    show.padding = omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_padding
   end
   if show.repeating_groups ~= omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_repeating_groups then
     show.repeating_groups = omi_hkex_hkexderivatives_lite_omd_v2_0.prefs.show_repeating_groups
@@ -2847,7 +2852,11 @@ hkex_hkexderivatives_lite_omd_v2_0.trade_statistics_message.fields = function(bu
   index, turnover = hkex_hkexderivatives_lite_omd_v2_0.turnover.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_3.size
+  end
 
   return index
 end
@@ -2891,7 +2900,11 @@ hkex_hkexderivatives_lite_omd_v2_0.thm_trigger.fields = function(buffer, offset,
   index, instrument_class_key = hkex_hkexderivatives_lite_omd_v2_0.instrument_class_key.dissect(buffer, index, packet, parent)
 
   -- Filler 10: String
-  index, filler_10 = hkex_hkexderivatives_lite_omd_v2_0.filler_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_10 = hkex_hkexderivatives_lite_omd_v2_0.filler_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_10.size
+  end
 
   return index
 end
@@ -3003,7 +3016,11 @@ hkex_hkexderivatives_lite_omd_v2_0.vcm_trigger.fields = function(buffer, offset,
   index, vcm_upper_price = hkex_hkexderivatives_lite_omd_v2_0.vcm_upper_price.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
-  index, filler_2 = hkex_hkexderivatives_lite_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = hkex_hkexderivatives_lite_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_2.size
+  end
 
   return index
 end
@@ -3055,7 +3072,11 @@ hkex_hkexderivatives_lite_omd_v2_0.commodity_and_class_status.fields = function(
   index, suspended = hkex_hkexderivatives_lite_omd_v2_0.suspended.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexderivatives_lite_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexderivatives_lite_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_1.size
+  end
 
   return index
 end
@@ -3107,7 +3128,11 @@ hkex_hkexderivatives_lite_omd_v2_0.instrument_status.fields = function(buffer, o
   index, instrument_status_code = hkex_hkexderivatives_lite_omd_v2_0.instrument_status_code.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
-  index, filler_2 = hkex_hkexderivatives_lite_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = hkex_hkexderivatives_lite_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_2.size
+  end
 
   return index
 end
@@ -3167,7 +3192,11 @@ hkex_hkexderivatives_lite_omd_v2_0.market_status.fields = function(buffer, offse
   index, instrument_class_key = hkex_hkexderivatives_lite_omd_v2_0.instrument_class_key.dissect(buffer, index, packet, parent)
 
   -- Filler 4: 4 Byte
-  index, filler_4 = hkex_hkexderivatives_lite_omd_v2_0.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = hkex_hkexderivatives_lite_omd_v2_0.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_4.size
+  end
 
   -- Actual Start Time: Uint64
   index, actual_start_time = hkex_hkexderivatives_lite_omd_v2_0.actual_start_time.dissect(buffer, index, packet, parent)
@@ -3179,7 +3208,11 @@ hkex_hkexderivatives_lite_omd_v2_0.market_status.fields = function(buffer, offse
   index, state = hkex_hkexderivatives_lite_omd_v2_0.state.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexderivatives_lite_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexderivatives_lite_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_1.size
+  end
 
   return index
 end
@@ -3269,7 +3302,11 @@ hkex_hkexderivatives_lite_omd_v2_0.combination_definition.fields = function(buff
   index, leg_orderbook_id = hkex_hkexderivatives_lite_omd_v2_0.leg_orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_3.size
+  end
 
   -- Leg Side: String
   index, leg_side = hkex_hkexderivatives_lite_omd_v2_0.leg_side.dissect(buffer, index, packet, parent)
@@ -3375,7 +3412,11 @@ hkex_hkexderivatives_lite_omd_v2_0.instrument_definition.fields = function(buffe
   index, first_trading_time = hkex_hkexderivatives_lite_omd_v2_0.first_trading_time.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_3.size
+  end
 
   -- Instrument Status Code: Uint8
   index, instrument_status_code = hkex_hkexderivatives_lite_omd_v2_0.instrument_status_code.dissect(buffer, index, packet, parent)
@@ -3399,7 +3440,11 @@ hkex_hkexderivatives_lite_omd_v2_0.instrument_definition.fields = function(buffe
   index, effective_tomorrow = hkex_hkexderivatives_lite_omd_v2_0.effective_tomorrow.dissect(buffer, index, packet, parent)
 
   -- Second Filler 3: String
-  index, second_filler_3 = hkex_hkexderivatives_lite_omd_v2_0.second_filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_filler_3 = hkex_hkexderivatives_lite_omd_v2_0.second_filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.second_filler_3.size
+  end
 
   return index
 end
@@ -3490,7 +3535,11 @@ hkex_hkexderivatives_lite_omd_v2_0.class_definition.fields = function(buffer, of
   index, instrument_type_key = hkex_hkexderivatives_lite_omd_v2_0.instrument_type_key.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_3.size
+  end
 
   -- Price Quotation Factor: Uint32
   index, price_quotation_factor = hkex_hkexderivatives_lite_omd_v2_0.price_quotation_factor.dissect(buffer, index, packet, parent)
@@ -3523,7 +3572,11 @@ hkex_hkexderivatives_lite_omd_v2_0.class_definition.fields = function(buffer, of
   index, effective_tomorrow = hkex_hkexderivatives_lite_omd_v2_0.effective_tomorrow.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
-  index, filler_2 = hkex_hkexderivatives_lite_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = hkex_hkexderivatives_lite_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_2.size
+  end
 
   return index
 end
@@ -3595,7 +3648,11 @@ hkex_hkexderivatives_lite_omd_v2_0.commodity_definition.fields = function(buffer
   index, effective_tomorrow = hkex_hkexderivatives_lite_omd_v2_0.effective_tomorrow.dissect(buffer, index, packet, parent)
 
   -- Filler 5: String
-  index, filler_5 = hkex_hkexderivatives_lite_omd_v2_0.filler_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_5 = hkex_hkexderivatives_lite_omd_v2_0.filler_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_5.size
+  end
 
   return index
 end
@@ -3647,7 +3704,11 @@ hkex_hkexderivatives_lite_omd_v2_0.quote_request.fields = function(buffer, offse
   index, bid_ask_flag = hkex_hkexderivatives_lite_omd_v2_0.bid_ask_flag.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_3.size
+  end
 
   return index
 end
@@ -3695,7 +3756,11 @@ hkex_hkexderivatives_lite_omd_v2_0.open_interest_message.fields = function(buffe
   index, day_indicator = hkex_hkexderivatives_lite_omd_v2_0.day_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte
-  index, filler_6 = hkex_hkexderivatives_lite_omd_v2_0.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = hkex_hkexderivatives_lite_omd_v2_0.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_6.size
+  end
 
   -- Orderbook Id: Uint32
   index, orderbook_id = hkex_hkexderivatives_lite_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
@@ -3915,7 +3980,11 @@ hkex_hkexderivatives_lite_omd_v2_0.calculated_opening_price_message.fields = fun
   index, calculated_opening_price = hkex_hkexderivatives_lite_omd_v2_0.calculated_opening_price.dissect(buffer, index, packet, parent)
 
   -- Filler 4: 4 Byte
-  index, filler_4 = hkex_hkexderivatives_lite_omd_v2_0.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = hkex_hkexderivatives_lite_omd_v2_0.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_4.size
+  end
 
   -- Calculated Opening Quantity: Uint64
   index, calculated_opening_quantity = hkex_hkexderivatives_lite_omd_v2_0.calculated_opening_quantity.dissect(buffer, index, packet, parent)
@@ -3982,7 +4051,11 @@ hkex_hkexderivatives_lite_omd_v2_0.book_entry.fields = function(buffer, offset, 
   index, side = hkex_hkexderivatives_lite_omd_v2_0.side.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexderivatives_lite_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexderivatives_lite_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_1.size
+  end
 
   -- Price Level: Uint8
   index, price_level = hkex_hkexderivatives_lite_omd_v2_0.price_level.dissect(buffer, index, packet, parent)
@@ -4044,7 +4117,11 @@ hkex_hkexderivatives_lite_omd_v2_0.aggregate_order_book_update_message.fields = 
   index, orderbook_id = hkex_hkexderivatives_lite_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = hkex_hkexderivatives_lite_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_3.size
+  end
 
   -- No Entries: Uint8
   index, no_entries = hkex_hkexderivatives_lite_omd_v2_0.no_entries.dissect(buffer, index, packet, parent)
@@ -4108,7 +4185,11 @@ hkex_hkexderivatives_lite_omd_v2_0.aggregate_implied_order.fields = function(buf
   index, side = hkex_hkexderivatives_lite_omd_v2_0.side.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexderivatives_lite_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexderivatives_lite_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexderivatives_lite_omd_v2_0.filler_1.size
+  end
 
   return index
 end

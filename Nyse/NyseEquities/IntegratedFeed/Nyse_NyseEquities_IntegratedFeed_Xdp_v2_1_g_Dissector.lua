@@ -169,12 +169,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Nyse NyseEquities IntegratedFeed Xdp 2.1.g Show Options
 omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -188,6 +190,9 @@ function omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs_changed()
   end
   if show.headers ~= omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.show_headers then
     show.headers = omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.show_padding then
+    show.padding = omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.show_padding
   end
   if show.structs ~= omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.show_structs then
     show.structs = omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.prefs.show_structs
@@ -4008,7 +4013,11 @@ nyse_nyseequities_integratedfeed_xdp_v2_1_g.security_status_message.fields = fun
   index, halt_condition = nyse_nyseequities_integratedfeed_xdp_v2_1_g.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: reserved
-  index, reserved_4 = nyse_nyseequities_integratedfeed_xdp_v2_1_g.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_nyseequities_integratedfeed_xdp_v2_1_g.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nyseequities_integratedfeed_xdp_v2_1_g.reserved_4.size
+  end
 
   -- Price 1: Binary
   index, price_1 = nyse_nyseequities_integratedfeed_xdp_v2_1_g.price_1.dissect(buffer, index, packet, parent)
@@ -4465,7 +4474,11 @@ nyse_nyseequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.fields 
   index, symbol = nyse_nyseequities_integratedfeed_xdp_v2_1_g.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: reserved
-  index, reserved_1 = nyse_nyseequities_integratedfeed_xdp_v2_1_g.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_nyseequities_integratedfeed_xdp_v2_1_g.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nyseequities_integratedfeed_xdp_v2_1_g.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_nyseequities_integratedfeed_xdp_v2_1_g.market_id.dissect(buffer, index, packet, parent)
@@ -4504,7 +4517,11 @@ nyse_nyseequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.fields 
   index, unit_of_trade = nyse_nyseequities_integratedfeed_xdp_v2_1_g.unit_of_trade.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: reserved
-  index, reserved_2 = nyse_nyseequities_integratedfeed_xdp_v2_1_g.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_nyseequities_integratedfeed_xdp_v2_1_g.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nyseequities_integratedfeed_xdp_v2_1_g.reserved_2.size
+  end
 
   return index
 end

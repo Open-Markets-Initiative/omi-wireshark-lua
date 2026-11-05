@@ -123,6 +123,7 @@ local show = {}
 show.application_messages = true
 show.headers = true
 show.structs = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -130,6 +131,7 @@ show.sequences = true
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_iex_iexequities_deep_iextp_v1_08.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -144,6 +146,9 @@ function omi_iex_iexequities_deep_iextp_v1_08.prefs_changed()
   end
   if show.headers ~= omi_iex_iexequities_deep_iextp_v1_08.prefs.show_headers then
     show.headers = omi_iex_iexequities_deep_iextp_v1_08.prefs.show_headers
+  end
+  if show.padding ~= omi_iex_iexequities_deep_iextp_v1_08.prefs.show_padding then
+    show.padding = omi_iex_iexequities_deep_iextp_v1_08.prefs.show_padding
   end
   if show.structs ~= omi_iex_iexequities_deep_iextp_v1_08.prefs.show_structs then
     show.structs = omi_iex_iexequities_deep_iextp_v1_08.prefs.show_structs
@@ -2422,7 +2427,11 @@ iex_iexequities_deep_iextp_v1_08.iextp_header.fields = function(buffer, offset, 
   index, version = iex_iexequities_deep_iextp_v1_08.version.dissect(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte
-  index, reserved = iex_iexequities_deep_iextp_v1_08.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = iex_iexequities_deep_iextp_v1_08.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + iex_iexequities_deep_iextp_v1_08.reserved.size
+  end
 
   -- Message Protocol Id: 2 Byte Unsigned Fixed Width Integer Static
   index, message_protocol_id = iex_iexequities_deep_iextp_v1_08.message_protocol_id.dissect(buffer, index, packet, parent)

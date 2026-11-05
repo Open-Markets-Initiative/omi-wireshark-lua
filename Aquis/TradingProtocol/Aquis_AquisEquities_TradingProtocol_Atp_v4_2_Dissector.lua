@@ -158,11 +158,13 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 
 -- Register Aquis AquisEquities TradingProtocol Atp 4.2 Show Options
 omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
@@ -175,6 +177,9 @@ function omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs_changed()
   end
   if show.headers ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs.show_headers then
     show.headers = omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs.show_headers
+  end
+  if show.padding ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs.show_padding then
+    show.padding = omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs.show_padding
   end
   if show.structs ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs.show_structs then
     show.structs = omi_aquis_aquisequities_tradingprotocol_atp_v4_2.prefs.show_structs
@@ -2313,7 +2318,11 @@ aquis_aquisequities_tradingprotocol_atp_v4_2.trade_capture_response_message.fiel
   index, user_tag = aquis_aquisequities_tradingprotocol_atp_v4_2.user_tag.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: u16
-  index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.size
+  end
 
   return index
 end
@@ -2698,7 +2707,11 @@ aquis_aquisequities_tradingprotocol_atp_v4_2.order_modify_response_message.field
   index, order_modify_response_flags = aquis_aquisequities_tradingprotocol_atp_v4_2.order_modify_response_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: u16
-  index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.size
+  end
 
   return index
 end
@@ -2825,7 +2838,11 @@ aquis_aquisequities_tradingprotocol_atp_v4_2.order_cancel_response_message.field
   index, user_tag = aquis_aquisequities_tradingprotocol_atp_v4_2.user_tag.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: u16
-  index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.size
+  end
 
   return index
 end
@@ -2967,7 +2984,11 @@ aquis_aquisequities_tradingprotocol_atp_v4_2.order_add_response_message.fields =
   index, order_add_response_flags = aquis_aquisequities_tradingprotocol_atp_v4_2.order_add_response_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: u16
-  index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.size
+  end
 
   return index
 end
@@ -3063,7 +3084,11 @@ aquis_aquisequities_tradingprotocol_atp_v4_2.order_modify_extended_message.field
   index, min_qty = aquis_aquisequities_tradingprotocol_atp_v4_2.min_qty.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: u64
-  index, reserved_8 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_8.size
+  end
 
   return index
 end
@@ -3398,13 +3423,21 @@ aquis_aquisequities_tradingprotocol_atp_v4_2.order_add_extended_message.fields =
   index, extended_order_flags = aquis_aquisequities_tradingprotocol_atp_v4_2.extended_order_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: u64
-  index, reserved_8 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_8.size
+  end
 
   -- Designated Order Id: u64
   index, designated_order_id = aquis_aquisequities_tradingprotocol_atp_v4_2.designated_order_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: u16
-  index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + aquis_aquisequities_tradingprotocol_atp_v4_2.reserved_2.size
+  end
 
   -- Peg Difference: s64
   index, peg_difference = aquis_aquisequities_tradingprotocol_atp_v4_2.peg_difference.dissect(buffer, index, packet, parent)

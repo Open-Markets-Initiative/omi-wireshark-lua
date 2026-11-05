@@ -133,6 +133,7 @@ show.structs = true
 show.application_messages = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Miax MiaxOptions ComplexTopOfMarket Mach 1.1 Show Options
@@ -140,6 +141,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_structs = Pref.bool
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
@@ -154,6 +156,9 @@ function omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs_changed()
   end
   if show.headers ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_headers then
     show.headers = omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_headers
+  end
+  if show.padding ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_padding then
+    show.padding = omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_padding
   end
   if show.repeating_groups ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_repeating_groups then
     show.repeating_groups = omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_repeating_groups
@@ -1930,7 +1935,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.strategy_trade_message.fields = fu
   index, trade_condition = miax_miaxoptions_complextopofmarket_mach_v1_1.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Reserved
-  index, reserved_16 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_16.size
+  end
 
   return index
 end
@@ -1979,7 +1988,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_offer.fields = function(buffe
   index, wide_offer_size = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_offer_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: BinaryU
-  index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.size
+  end
 
   -- Offer Condition: Alphanumeric
   index, offer_condition = miax_miaxoptions_complextopofmarket_mach_v1_1.offer_condition.dissect(buffer, index, packet, parent)
@@ -2031,7 +2044,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_bid.fields = function(buffer,
   index, wide_bid_size = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_bid_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: BinaryU
-  index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.size
+  end
 
   -- Bid Condition: Alphanumeric
   index, bid_condition = miax_miaxoptions_complextopofmarket_mach_v1_1.bid_condition.dissect(buffer, index, packet, parent)
@@ -2135,7 +2152,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_offer.fields = function(bu
   index, compact_offer_size = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_offer_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: BinaryU
-  index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.size
+  end
 
   -- Offer Condition: Alphanumeric
   index, offer_condition = miax_miaxoptions_complextopofmarket_mach_v1_1.offer_condition.dissect(buffer, index, packet, parent)
@@ -2187,7 +2208,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_bid.fields = function(buff
   index, compact_bid_size = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_bid_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: BinaryU
-  index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.size
+  end
 
   -- Bid Condition: Alphanumeric
   index, bid_condition = miax_miaxoptions_complextopofmarket_mach_v1_1.bid_condition.dissect(buffer, index, packet, parent)
@@ -2299,7 +2324,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_complex_top_of_market_offer_m
   index, wide_size = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: BinaryU
-  index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.size
+  end
 
   -- Top Of Market Quote Condition: Alphanumeric
   index, top_of_market_quote_condition = miax_miaxoptions_complextopofmarket_mach_v1_1.top_of_market_quote_condition.dissect(buffer, index, packet, parent)
@@ -2359,7 +2388,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_complex_top_of_market_bid_mes
   index, wide_size = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: BinaryU
-  index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.size
+  end
 
   -- Top Of Market Quote Condition: Alphanumeric
   index, top_of_market_quote_condition = miax_miaxoptions_complextopofmarket_mach_v1_1.top_of_market_quote_condition.dissect(buffer, index, packet, parent)
@@ -2419,7 +2452,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_complex_top_of_market_offe
   index, compact_size = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: BinaryU
-  index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.size
+  end
 
   -- Top Of Market Quote Condition: Alphanumeric
   index, top_of_market_quote_condition = miax_miaxoptions_complextopofmarket_mach_v1_1.top_of_market_quote_condition.dissect(buffer, index, packet, parent)
@@ -2588,7 +2625,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.leg_definition.fields = function(b
   index, leg_side = miax_miaxoptions_complextopofmarket_mach_v1_1.leg_side.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Reserved
-  index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_8.size
+  end
 
   return index
 end
@@ -2663,13 +2704,21 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.complex_strategy_definition_messag
   index, active_on_miax = miax_miaxoptions_complextopofmarket_mach_v1_1.active_on_miax.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: BinaryU
-  index, reserved_1 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_1.size
+  end
 
   -- Update Reason: Alphanumeric
   index, update_reason = miax_miaxoptions_complextopofmarket_mach_v1_1.update_reason.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_10.size
+  end
 
   -- Number Of Legs: BinaryU
   index, number_of_legs = miax_miaxoptions_complextopofmarket_mach_v1_1.number_of_legs.dissect(buffer, index, packet, parent)
@@ -2781,7 +2830,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.series_update.fields = function(bu
   index, priority_quote_width = miax_miaxoptions_complextopofmarket_mach_v1_1.priority_quote_width.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Reserved
-  index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_8.size
+  end
 
   return index
 end

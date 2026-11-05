@@ -111,12 +111,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Hkex Szse ChinaConnectRetrans Omd 1.4 Show Options
 omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -130,6 +132,9 @@ function omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs_changed()
   end
   if show.headers ~= omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.show_headers then
     show.headers = omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.show_headers
+  end
+  if show.padding ~= omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.show_padding then
+    show.padding = omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.show_padding
   end
   if show.structs ~= omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.show_structs then
     show.structs = omi_hkex_szse_chinaconnectretrans_omd_v1_4.prefs.show_structs
@@ -1427,7 +1432,11 @@ hkex_szse_chinaconnectretrans_omd_v1_4.top_of_book_message.fields = function(buf
   index, ask_price = hkex_szse_chinaconnectretrans_omd_v1_4.ask_price.dissect(buffer, index, packet, parent)
 
   -- Filler 8: String
-  index, filler_8 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_8 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler_8.size
+  end
 
   return index
 end
@@ -1495,7 +1504,11 @@ hkex_szse_chinaconnectretrans_omd_v1_4.statistics_message.fields = function(buff
   index, opening_price = hkex_szse_chinaconnectretrans_omd_v1_4.opening_price.dissect(buffer, index, packet, parent)
 
   -- Filler 12: String
-  index, filler_12 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_12 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler_12.size
+  end
 
   return index
 end
@@ -1544,7 +1557,11 @@ hkex_szse_chinaconnectretrans_omd_v1_4.security_status_message.fields = function
   index, security_trading_status = hkex_szse_chinaconnectretrans_omd_v1_4.security_trading_status.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler_3.size
+  end
 
   -- Trading Phase Code: String
   index, trading_phase_code = hkex_szse_chinaconnectretrans_omd_v1_4.trading_phase_code.dissect(buffer, index, packet, parent)
@@ -1614,7 +1631,11 @@ hkex_szse_chinaconnectretrans_omd_v1_4.security_definition_message.fields = func
   index, instrument_type = hkex_szse_chinaconnectretrans_omd_v1_4.instrument_type.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
-  index, filler_2 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler_2.size
+  end
 
   -- Security Short Name: String
   index, security_short_name = hkex_szse_chinaconnectretrans_omd_v1_4.security_short_name.dissect(buffer, index, packet, parent)
@@ -1623,7 +1644,11 @@ hkex_szse_chinaconnectretrans_omd_v1_4.security_definition_message.fields = func
   index, currency_code = hkex_szse_chinaconnectretrans_omd_v1_4.currency_code.dissect(buffer, index, packet, parent)
 
   -- Filler 60: Binary
-  index, filler_60 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_60.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_60 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_60.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler_60.size
+  end
 
   -- Security Name Gb: Binary
   index, security_name_gb = hkex_szse_chinaconnectretrans_omd_v1_4.security_name_gb.dissect(buffer, index, packet, parent)
@@ -1635,19 +1660,31 @@ hkex_szse_chinaconnectretrans_omd_v1_4.security_definition_message.fields = func
   index, previous_closing_price = hkex_szse_chinaconnectretrans_omd_v1_4.previous_closing_price.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler_1.size
+  end
 
   -- Shortsell Flag: String
   index, shortsell_flag = hkex_szse_chinaconnectretrans_omd_v1_4.shortsell_flag.dissect(buffer, index, packet, parent)
 
   -- Filler 6: String
-  index, filler_6 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler_6.size
+  end
 
   -- Listing Date: Uint32
   index, listing_date = hkex_szse_chinaconnectretrans_omd_v1_4.listing_date.dissect(buffer, index, packet, parent)
 
   -- Filler 7: String
-  index, filler_7 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_7 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler_7.size
+  end
 
   return index
 end
@@ -1697,7 +1734,11 @@ hkex_szse_chinaconnectretrans_omd_v1_4.retransmission_response_message.fields = 
   index, retrans_status = hkex_szse_chinaconnectretrans_omd_v1_4.retrans_status.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler_1.size
+  end
 
   -- Begin Seq Num: Uint32
   index, begin_seq_num = hkex_szse_chinaconnectretrans_omd_v1_4.begin_seq_num.dissect(buffer, index, packet, parent)
@@ -1749,7 +1790,11 @@ hkex_szse_chinaconnectretrans_omd_v1_4.retransmission_request_message.fields = f
   index, channel_id = hkex_szse_chinaconnectretrans_omd_v1_4.channel_id.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
-  index, filler_2 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler_2.size
+  end
 
   -- Begin Seq Num: Uint32
   index, begin_seq_num = hkex_szse_chinaconnectretrans_omd_v1_4.begin_seq_num.dissect(buffer, index, packet, parent)
@@ -1799,7 +1844,11 @@ hkex_szse_chinaconnectretrans_omd_v1_4.logon_response_message.fields = function(
   index, session_status = hkex_szse_chinaconnectretrans_omd_v1_4.session_status.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = hkex_szse_chinaconnectretrans_omd_v1_4.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler_3.size
+  end
 
   return index
 end
@@ -2144,7 +2193,11 @@ hkex_szse_chinaconnectretrans_omd_v1_4.packet_header.fields = function(buffer, o
   index, msg_count = hkex_szse_chinaconnectretrans_omd_v1_4.msg_count.dissect(buffer, index, packet, parent)
 
   -- Filler: 1 Byte
-  index, filler = hkex_szse_chinaconnectretrans_omd_v1_4.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = hkex_szse_chinaconnectretrans_omd_v1_4.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_szse_chinaconnectretrans_omd_v1_4.filler.size
+  end
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = hkex_szse_chinaconnectretrans_omd_v1_4.seq_num.dissect(buffer, index, packet, parent)

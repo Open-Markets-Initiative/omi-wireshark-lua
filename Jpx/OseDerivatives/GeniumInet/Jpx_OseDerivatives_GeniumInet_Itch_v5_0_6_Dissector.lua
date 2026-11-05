@@ -139,6 +139,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -146,6 +147,7 @@ show.sequences = true
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
@@ -161,6 +163,9 @@ function omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs_changed()
   end
   if show.headers ~= omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_headers then
     show.headers = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_headers
+  end
+  if show.padding ~= omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_padding then
+    show.padding = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_padding
   end
   if show.structs ~= omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_structs then
     show.structs = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_structs
@@ -1706,7 +1711,11 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.equilibrium_price_update.fields = func
   index, equilibrium_price = jpx_osederivatives_geniuminet_itch_v5_0_6.equilibrium_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 24: Reserved
-  index, reserved_24 = jpx_osederivatives_geniuminet_itch_v5_0_6.reserved_24.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_24 = jpx_osederivatives_geniuminet_itch_v5_0_6.reserved_24.dissect(buffer, index, packet, parent)
+  else
+    index = index + jpx_osederivatives_geniuminet_itch_v5_0_6.reserved_24.size
+  end
 
   return index
 end

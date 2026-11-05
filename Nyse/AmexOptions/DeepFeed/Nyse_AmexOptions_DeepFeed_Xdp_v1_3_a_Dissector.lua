@@ -114,12 +114,14 @@ local show = {}
 show.structs = true
 show.headers = true
 show.application_messages = true
+show.padding = false
 show.indexes = true
 
 -- Register Nyse AmexOptions DeepFeed Xdp 1.3.a Show Options
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -133,6 +135,9 @@ function omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs_changed()
   end
   if show.headers ~= omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_headers then
     show.headers = omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_padding then
+    show.padding = omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_padding
   end
   if show.structs ~= omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_structs then
     show.structs = omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_structs
@@ -1662,7 +1667,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.stream_id_message.fields = function(buffer,
   index, stream_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.stream_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: reserved
-  index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.size
+  end
 
   return index
 end
@@ -1723,7 +1732,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.series_index_mapping_message.fields = funct
   index, channel_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A 1: reserved
-  index, reserved_a_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_a_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_a_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_a_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.market_id.dissect(buffer, index, packet, parent)
@@ -1732,7 +1745,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.series_index_mapping_message.fields = funct
   index, system_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.system_id.dissect(buffer, index, packet, parent)
 
   -- Reserved B 1: reserved
-  index, reserved_b_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_b_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_b_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_b_1.size
+  end
 
   -- Stream Id: Binary
   index, stream_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.stream_id.dissect(buffer, index, packet, parent)
@@ -1838,7 +1855,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.fields = f
   index, price_resolution = nyse_amexoptions_deepfeed_xdp_v1_3_a.price_resolution.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: reserved
-  index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.size
+  end
 
   return index
 end
@@ -1926,7 +1947,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.
   index, quote_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: reserved
-  index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.size
+  end
 
   -- First Level Customer Volume: Binary
   index, first_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_customer_volume.dissect(buffer, index, packet, parent)
@@ -1938,7 +1963,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.
   index, third_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_customer_volume.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: reserved
-  index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.size
+  end
 
   return index
 end
@@ -2026,7 +2055,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.f
   index, quote_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: reserved
-  index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.size
+  end
 
   -- First Level Customer Volume: Binary
   index, first_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_customer_volume.dissect(buffer, index, packet, parent)
@@ -2038,7 +2071,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.f
   index, third_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_customer_volume.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: reserved
-  index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.size
+  end
 
   return index
 end
@@ -2102,7 +2139,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_series_status_message.fields = fun
   index, halt_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: reserved
-  index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.size
+  end
 
   return index
 end
@@ -2166,7 +2207,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_status_message.fields = function
   index, halt_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: reserved
-  index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.size
+  end
 
   return index
 end
@@ -2254,7 +2299,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.fields =
   index, quote_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: reserved
-  index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.size
+  end
 
   -- First Level Customer Volume: Binary
   index, first_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_customer_volume.dissect(buffer, index, packet, parent)
@@ -2266,7 +2315,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.fields =
   index, third_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_customer_volume.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: reserved
-  index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.size
+  end
 
   return index
 end
@@ -2354,7 +2407,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.fields = 
   index, quote_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: reserved
-  index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.size
+  end
 
   -- First Level Customer Volume: Binary
   index, first_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_customer_volume.dissect(buffer, index, packet, parent)
@@ -2366,7 +2423,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.fields = 
   index, third_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_customer_volume.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: reserved
-  index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.size
+  end
 
   return index
 end

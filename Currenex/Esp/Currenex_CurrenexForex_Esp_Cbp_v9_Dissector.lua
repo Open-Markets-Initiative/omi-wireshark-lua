@@ -19,8 +19,8 @@ omi_currenex_currenexforex_esp_cbp_v9.fields.attributed = ProtoField.new("Attrib
 omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_id = ProtoField.new("Instrument Id", "currenex.currenexforex.esp.cbp.v9.instrumentid", ftypes.STRING, nil, nil, nil, "Free form instrument definition string")
 omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_index = ProtoField.new("Instrument Index", "currenex.currenexforex.esp.cbp.v9.instrumentindex", ftypes.INT16, nil, nil, nil, "Numeric identifier for currency pair identified by the instrument id")
 omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_type = ProtoField.new("Instrument Type", "currenex.currenexforex.esp.cbp.v9.instrumenttype", ftypes.STRING, nil, nil, nil, "InstrumentType")
-omi_currenex_currenexforex_esp_cbp_v9.fields.itch_etx = ProtoField.new("Itch Etx", "currenex.currenexforex.esp.cbp.v9.itchetx", ftypes.INT8, nil, nil, nil, "End of Currenex Itch message")
-omi_currenex_currenexforex_esp_cbp_v9.fields.itch_soh = ProtoField.new("Itch Soh", "currenex.currenexforex.esp.cbp.v9.itchsoh", ftypes.INT8, nil, nil, nil, "Start of Currenex Itch message")
+omi_currenex_currenexforex_esp_cbp_v9.fields.itch_message_end = ProtoField.new("Itch Message End", "currenex.currenexforex.esp.cbp.v9.itchmessageend", ftypes.INT8, nil, nil, nil, "End of Currenex Itch message")
+omi_currenex_currenexforex_esp_cbp_v9.fields.itch_message_start = ProtoField.new("Itch Message Start", "currenex.currenexforex.esp.cbp.v9.itchmessagestart", ftypes.INT8, nil, nil, nil, "Start of Currenex Itch message")
 omi_currenex_currenexforex_esp_cbp_v9.fields.max_amount = ProtoField.new("Max Amount", "currenex.currenexforex.esp.cbp.v9.maxamount", ftypes.INT64, nil, nil, nil, "The maximum amount being offered at this Price")
 omi_currenex_currenexforex_esp_cbp_v9.fields.message_type = ProtoField.new("Message Type", "currenex.currenexforex.esp.cbp.v9.messagetype", ftypes.STRING, nil, nil, nil, "The type of message being sent")
 omi_currenex_currenexforex_esp_cbp_v9.fields.min_amount = ProtoField.new("Min Amount", "currenex.currenexforex.esp.cbp.v9.minamount", ftypes.INT64, nil, nil, nil, "The minimum amount being offered at this Price")
@@ -45,6 +45,7 @@ omi_currenex_currenexforex_esp_cbp_v9.fields.transact_time = ProtoField.new("Tra
 omi_currenex_currenexforex_esp_cbp_v9.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.esp.cbp.v9.userid", ftypes.STRING, nil, nil, nil, "User session login id")
 
 -- Currenex CurrenexForex Esp Cbp 9 Framing
+omi_currenex_currenexforex_esp_cbp_v9.fields.itch_frame = ProtoField.new("Itch Frame", "currenex.currenexforex.esp.cbp.v9.itchframe", ftypes.STRING, nil, nil, nil, "One Currenex Itch record, from SOH through ETX")
 omi_currenex_currenexforex_esp_cbp_v9.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.esp.cbp.v9.messageheader", ftypes.STRING, nil, nil, nil, "Currenex Itch Market Data Message Header")
 omi_currenex_currenexforex_esp_cbp_v9.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.esp.cbp.v9.packet", ftypes.STRING, nil, nil, nil, "Currenex Itch Udp Packet")
 
@@ -69,13 +70,15 @@ local show = {}
 
 -- Currenex CurrenexForex Esp Cbp 9 Element Dissection Options
 show.application_messages = true
-show.headers = true
 show.structs = true
+show.headers = true
+show.delimiters = false
 
 -- Register Currenex CurrenexForex Esp Cbp 9 Show Options
 omi_currenex_currenexforex_esp_cbp_v9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_currenex_currenexforex_esp_cbp_v9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_currenex_currenexforex_esp_cbp_v9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_currenex_currenexforex_esp_cbp_v9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_currenex_currenexforex_esp_cbp_v9.prefs.show_delimiters = Pref.bool("Show Delimiters", show.delimiters, "Parse and add Delimiters to protocol tree")
 
 -- Handle changed preferences
 function omi_currenex_currenexforex_esp_cbp_v9.prefs_changed()
@@ -83,6 +86,9 @@ function omi_currenex_currenexforex_esp_cbp_v9.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_currenex_currenexforex_esp_cbp_v9.prefs.show_application_messages then
     show.application_messages = omi_currenex_currenexforex_esp_cbp_v9.prefs.show_application_messages
+  end
+  if show.delimiters ~= omi_currenex_currenexforex_esp_cbp_v9.prefs.show_delimiters then
+    show.delimiters = omi_currenex_currenexforex_esp_cbp_v9.prefs.show_delimiters
   end
   if show.headers ~= omi_currenex_currenexforex_esp_cbp_v9.prefs.show_headers then
     show.headers = omi_currenex_currenexforex_esp_cbp_v9.prefs.show_headers
@@ -245,52 +251,52 @@ currenex_currenexforex_esp_cbp_v9.instrument_type.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Itch Etx
-currenex_currenexforex_esp_cbp_v9.itch_etx = {}
+-- Itch Message End
+currenex_currenexforex_esp_cbp_v9.itch_message_end = {}
 
--- Size: Itch Etx
-currenex_currenexforex_esp_cbp_v9.itch_etx.size = 1
+-- Size: Itch Message End
+currenex_currenexforex_esp_cbp_v9.itch_message_end.size = 1
 
--- Display: Itch Etx
-currenex_currenexforex_esp_cbp_v9.itch_etx.display = function(value)
-  return "Itch Etx: "..value
+-- Display: Itch Message End
+currenex_currenexforex_esp_cbp_v9.itch_message_end.display = function(value)
+  return "Itch Message End: "..value
 end
 
--- Dissect: Itch Etx
-currenex_currenexforex_esp_cbp_v9.itch_etx.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_currenexforex_esp_cbp_v9.itch_etx.size
+-- Dissect: Itch Message End
+currenex_currenexforex_esp_cbp_v9.itch_message_end.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_currenexforex_esp_cbp_v9.itch_message_end.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = currenex_currenexforex_esp_cbp_v9.itch_etx.display(value, buffer, offset, packet, parent)
+  local display = currenex_currenexforex_esp_cbp_v9.itch_message_end.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.itch_etx, range, value, display)
+  parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.itch_message_end, range, value, display)
 
   return offset + length, value
 end
 
--- Itch Soh
-currenex_currenexforex_esp_cbp_v9.itch_soh = {}
+-- Itch Message Start
+currenex_currenexforex_esp_cbp_v9.itch_message_start = {}
 
--- Size: Itch Soh
-currenex_currenexforex_esp_cbp_v9.itch_soh.size = 1
+-- Size: Itch Message Start
+currenex_currenexforex_esp_cbp_v9.itch_message_start.size = 1
 
--- Display: Itch Soh
-currenex_currenexforex_esp_cbp_v9.itch_soh.display = function(value)
+-- Display: Itch Message Start
+currenex_currenexforex_esp_cbp_v9.itch_message_start.display = function(value)
   if value == 1 then
-    return "Itch Soh: Soh"
+    return "Itch Message Start: Soh"
   end
 
-  return "Itch Soh: Unknown("..value..")"
+  return "Itch Message Start: Unknown("..value..")"
 end
 
--- Dissect: Itch Soh
-currenex_currenexforex_esp_cbp_v9.itch_soh.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_currenexforex_esp_cbp_v9.itch_soh.size
+-- Dissect: Itch Message Start
+currenex_currenexforex_esp_cbp_v9.itch_message_start.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_currenexforex_esp_cbp_v9.itch_message_start.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = currenex_currenexforex_esp_cbp_v9.itch_soh.display(value, buffer, offset, packet, parent)
+  local display = currenex_currenexforex_esp_cbp_v9.itch_message_start.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.itch_soh, range, value, display)
+  parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.itch_message_start, range, value, display)
 
   return offset + length, value
 end
@@ -1564,37 +1570,100 @@ currenex_currenexforex_esp_cbp_v9.message_header.dissect = function(buffer, offs
   end
 end
 
+-- Itch Frame
+currenex_currenexforex_esp_cbp_v9.itch_frame = {}
+
+-- Calculate size of: Itch Frame
+currenex_currenexforex_esp_cbp_v9.itch_frame.size = function(buffer, offset)
+  local index = 0
+
+  index = index + currenex_currenexforex_esp_cbp_v9.itch_message_start.size
+
+  index = index + currenex_currenexforex_esp_cbp_v9.message_header.size
+
+  -- Calculate runtime size of Message Body field
+  local message_body_offset = offset + index
+  local message_body_type = buffer(message_body_offset - 1, 1):string()
+  index = index + currenex_currenexforex_esp_cbp_v9.message_body.size(buffer, message_body_offset, message_body_type)
+
+  index = index + currenex_currenexforex_esp_cbp_v9.itch_message_end.size
+
+  return index
+end
+
+-- Display: Itch Frame
+currenex_currenexforex_esp_cbp_v9.itch_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Itch Frame
+currenex_currenexforex_esp_cbp_v9.itch_frame.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Itch Message Start: 1 Byte Fixed Width Integer Static
+  if show.delimiters then
+    index, itch_message_start = currenex_currenexforex_esp_cbp_v9.itch_message_start.dissect(buffer, index, packet, parent)
+  else
+    index = index + currenex_currenexforex_esp_cbp_v9.itch_message_start.size
+  end
+
+  -- Message Header: Struct of 3 fields
+  index, message_header = currenex_currenexforex_esp_cbp_v9.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):string()
+
+  -- Message Body: Runtime Type with 11 branches
+  index = currenex_currenexforex_esp_cbp_v9.message_body.dissect(buffer, index, packet, parent, message_type)
+
+  -- Itch Message End: 1 Byte Fixed Width Integer
+  if show.delimiters then
+    index, itch_message_end = currenex_currenexforex_esp_cbp_v9.itch_message_end.dissect(buffer, index, packet, parent)
+  else
+    index = index + currenex_currenexforex_esp_cbp_v9.itch_message_end.size
+  end
+
+  return index
+end
+
+-- Dissect: Itch Frame
+currenex_currenexforex_esp_cbp_v9.itch_frame.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.itch_frame, buffer(offset, 0))
+    local index = currenex_currenexforex_esp_cbp_v9.itch_frame.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_currenexforex_esp_cbp_v9.itch_frame.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_currenexforex_esp_cbp_v9.itch_frame.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet
 currenex_currenexforex_esp_cbp_v9.packet = {}
 
 -- Verify required size of Udp packet
 currenex_currenexforex_esp_cbp_v9.packet.requiredsize = function(buffer)
-  return buffer:len() >= currenex_currenexforex_esp_cbp_v9.itch_soh.size + currenex_currenexforex_esp_cbp_v9.message_header.size
+  return buffer:len() >= currenex_currenexforex_esp_cbp_v9.itch_message_start.size + currenex_currenexforex_esp_cbp_v9.message_header.size
 end
 
 -- Dissect Packet
 currenex_currenexforex_esp_cbp_v9.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Packet
+  -- Dependency for Itch Frame
   local end_of_payload = buffer:len()
 
+  -- Itch Frame: Struct of 4 fields
+  local message_index = 0
   while index < end_of_payload do
-
-    -- Itch Soh: 1 Byte Fixed Width Integer Static
-    index, itch_soh = currenex_currenexforex_esp_cbp_v9.itch_soh.dissect(buffer, index, packet, parent)
-
-    -- Message Header: Struct of 3 fields
-    index, message_header = currenex_currenexforex_esp_cbp_v9.message_header.dissect(buffer, index, packet, parent)
-
-    -- Dependency element: Message Type
-    local message_type = buffer(index - 1, 1):string()
-
-    -- Message Body: Runtime Type with 11 branches
-    index = currenex_currenexforex_esp_cbp_v9.message_body.dissect(buffer, index, packet, parent, message_type)
-
-    -- Itch Etx: 1 Byte Fixed Width Integer
-    index, itch_etx = currenex_currenexforex_esp_cbp_v9.itch_etx.dissect(buffer, index, packet, parent)
+    message_index = message_index + 1
+    index, itch_frame = currenex_currenexforex_esp_cbp_v9.itch_frame.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -1624,8 +1693,8 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify Itch Soh Field
-currenex_currenexforex_esp_cbp_v9.itch_soh.verify = function(buffer)
+-- Verify Itch Message Start Field
+currenex_currenexforex_esp_cbp_v9.itch_message_start.verify = function(buffer)
   -- Too short to carry the field: not this protocol
   if buffer:len() < 0 + 1 then
     return false
@@ -1646,8 +1715,8 @@ local function omi_currenex_currenexforex_esp_cbp_v9_udp_heuristic(buffer, packe
   -- Verify packet length
   if not currenex_currenexforex_esp_cbp_v9.packet.requiredsize(buffer) then return false end
 
-  -- Verify Itch Soh
-  if not currenex_currenexforex_esp_cbp_v9.itch_soh.verify(buffer) then return false end
+  -- Verify Itch Message Start
+  if not currenex_currenexforex_esp_cbp_v9.itch_message_start.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_currenex_currenexforex_esp_cbp_v9

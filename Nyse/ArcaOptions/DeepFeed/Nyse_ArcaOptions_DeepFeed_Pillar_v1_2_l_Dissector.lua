@@ -210,6 +210,7 @@ show.repeating_groups = true
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -219,6 +220,7 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_repeating_groups = Pref.b
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
@@ -237,6 +239,9 @@ function omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs_changed()
   end
   if show.headers ~= omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_headers then
     show.headers = omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_padding then
+    show.padding = omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_padding
   end
   if show.repeating_groups ~= omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_repeating_groups then
     show.repeating_groups = omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_repeating_groups
@@ -4463,7 +4468,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_non_displayed_trade_message.fiel
   index, non_displayed_trade_trade_cond_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.non_displayed_trade_trade_cond_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Binary
-  index, reserved_3 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_3.size
+  end
 
   -- Price Type: Binary
   index, price_type = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_type.dissect(buffer, index, packet, parent)
@@ -4627,7 +4636,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_add_order_refresh_message.fields
   index, firm_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.firm_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.size
+  end
 
   -- Cust Indicator: ASCII
   index, cust_indicator = nyse_arcaoptions_deepfeed_pillar_v1_2_l.cust_indicator.dissect(buffer, index, packet, parent)
@@ -4699,7 +4712,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_imbalance_message.fields = funct
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary
-  index, reserved_4 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_4.size
+  end
 
   -- Paired Qty: Binary
   index, paired_qty = nyse_arcaoptions_deepfeed_pillar_v1_2_l.paired_qty.dissect(buffer, index, packet, parent)
@@ -4711,7 +4728,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_imbalance_message.fields = funct
   index, market_imbalance_qty = nyse_arcaoptions_deepfeed_pillar_v1_2_l.market_imbalance_qty.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary
-  index, reserved_2 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_2.size
+  end
 
   -- Auction Type: ASCII
   index, auction_type = nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_type.dissect(buffer, index, packet, parent)
@@ -4726,7 +4747,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_imbalance_message.fields = funct
   index, auction_interest_clearing_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 4: Binary
-  index, second_reserved_4 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.second_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_4 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.second_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.second_reserved_4.size
+  end
 
   -- Indicative Match Price: Signed Binary
   index, indicative_match_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price_calculate.dissect(buffer, index, packet, parent)
@@ -4811,7 +4836,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_replace_order_message.fields = f
   index, side = nyse_arcaoptions_deepfeed_pillar_v1_2_l.side.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.size
+  end
 
   -- Cust Indicator: ASCII
   index, cust_indicator = nyse_arcaoptions_deepfeed_pillar_v1_2_l.cust_indicator.dissect(buffer, index, packet, parent)
@@ -4888,13 +4917,21 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_order_execution_message.fields =
   index, printable_flag = nyse_arcaoptions_deepfeed_pillar_v1_2_l.printable_flag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.size
+  end
 
   -- Trade Cond 1: ASCII
   index, trade_cond_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.trade_cond_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Binary
-  index, reserved_3 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_3.size
+  end
 
   return index
 end
@@ -4950,7 +4987,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_delete_order_message.fields = fu
   index, order_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.order_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.size
+  end
 
   return index
 end
@@ -5095,7 +5136,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_add_order_message.fields = funct
   index, firm_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.firm_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.size
+  end
 
   -- Cust Indicator: ASCII
   index, cust_indicator = nyse_arcaoptions_deepfeed_pillar_v1_2_l.cust_indicator.dissect(buffer, index, packet, parent)
@@ -5811,7 +5856,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.fi
   index, closing_only_indicator = nyse_arcaoptions_deepfeed_pillar_v1_2_l.closing_only_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.size
+  end
 
   -- Cache Outright Series Index Mapping Message record by series_index
   if show.records and not packet.visited then
@@ -5892,7 +5941,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.security_status_message.fields = functio
   index, halt_condition = nyse_arcaoptions_deepfeed_pillar_v1_2_l.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary
-  index, reserved_4 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_4.size
+  end
 
   -- Price 1: Binary
   index, price_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_1.dissect(buffer, index, packet, parent)
@@ -6029,7 +6082,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.symbol_index_mapping_message.fields = fu
   index, symbol = nyse_arcaoptions_deepfeed_pillar_v1_2_l.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.market_id.dissect(buffer, index, packet, parent)
@@ -6062,13 +6119,25 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.symbol_index_mapping_message.fields = fu
   index, round_lot = nyse_arcaoptions_deepfeed_pillar_v1_2_l.round_lot.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary
-  index, reserved_2 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_2.size
+  end
 
   -- Second Reserved 2: Binary
-  index, second_reserved_2 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.second_reserved_2.size
+  end
 
   -- Third Reserved 2: Binary
-  index, third_reserved_2 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_pillar_v1_2_l.third_reserved_2.size
+  end
 
   return index
 end

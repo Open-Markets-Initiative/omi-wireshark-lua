@@ -63,11 +63,13 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 
 -- Register Nasdaq BxEquities Drop AsciiDrop 2.1 Show Options
 omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs_changed()
@@ -78,6 +80,9 @@ function omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs.show_headers then
     show.headers = omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs.show_padding then
+    show.padding = omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs.show_padding
   end
   if show.structs ~= omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs.show_structs then
     show.structs = omi_nasdaq_bxequities_drop_asciidrop_v2_1.prefs.show_structs

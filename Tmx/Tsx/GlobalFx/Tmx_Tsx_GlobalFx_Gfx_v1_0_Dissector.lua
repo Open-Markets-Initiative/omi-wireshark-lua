@@ -69,11 +69,13 @@ local show = {}
 -- Tmx Tsx GlobalFx Gfx 1.0 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.padding = false
 show.indexes = true
 
 -- Register Tmx Tsx GlobalFx Gfx 1.0 Show Options
 omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_tmx_tsx_globalfx_gfx_v1_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -84,6 +86,9 @@ function omi_tmx_tsx_globalfx_gfx_v1_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_application_messages then
     show.application_messages = omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_application_messages
+  end
+  if show.padding ~= omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_padding then
+    show.padding = omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_padding
   end
   if show.structs ~= omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_structs then
     show.structs = omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_structs
@@ -770,7 +775,11 @@ tmx_tsx_globalfx_gfx_v1_0.reference_price_fx_spot.fields = function(buffer, offs
   local index = offset
 
   -- Unused 1: 1 Byte
-  index, unused_1 = tmx_tsx_globalfx_gfx_v1_0.unused_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, unused_1 = tmx_tsx_globalfx_gfx_v1_0.unused_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_tsx_globalfx_gfx_v1_0.unused_1.size
+  end
 
   -- Currency 1: CHAR3
   index, currency_1 = tmx_tsx_globalfx_gfx_v1_0.currency_1.dissect(buffer, index, packet, parent)
@@ -791,7 +800,11 @@ tmx_tsx_globalfx_gfx_v1_0.reference_price_fx_spot.fields = function(buffer, offs
   index, valid_for_seconds = tmx_tsx_globalfx_gfx_v1_0.valid_for_seconds.dissect(buffer, index, packet, parent)
 
   -- Unused 2: 1 Byte
-  index, unused_2 = tmx_tsx_globalfx_gfx_v1_0.unused_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, unused_2 = tmx_tsx_globalfx_gfx_v1_0.unused_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tmx_tsx_globalfx_gfx_v1_0.unused_2.size
+  end
 
   -- Number Of Tiers: UINT8
   index, number_of_tiers = tmx_tsx_globalfx_gfx_v1_0.number_of_tiers.dissect(buffer, index, packet, parent)

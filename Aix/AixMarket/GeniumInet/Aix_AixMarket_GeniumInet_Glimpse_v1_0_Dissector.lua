@@ -150,6 +150,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.padding = false
 show.sequences = true
 
 -- Register Aix AixMarket GeniumInet Glimpse 1.0 Show Options
@@ -161,6 +162,7 @@ omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_application_messages = Pref
 omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
@@ -179,6 +181,9 @@ function omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs_changed()
   end
   if show.headers ~= omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_headers then
     show.headers = omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_headers
+  end
+  if show.padding ~= omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_padding then
+    show.padding = omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_padding
   end
   if show.session_messages ~= omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_session_messages then
     show.session_messages = omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_session_messages
@@ -2409,7 +2414,11 @@ aix_aixmarket_geniuminet_glimpse_v1_0.order_book_directory_message.fields = func
   index, nominal_value = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = aix_aixmarket_geniuminet_glimpse_v1_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = aix_aixmarket_geniuminet_glimpse_v1_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + aix_aixmarket_geniuminet_glimpse_v1_0.reserved_1.size
+  end
 
   -- Underlying Order Book Id: Numeric
   index, underlying_order_book_id = aix_aixmarket_geniuminet_glimpse_v1_0.underlying_order_book_id.dissect(buffer, index, packet, parent)

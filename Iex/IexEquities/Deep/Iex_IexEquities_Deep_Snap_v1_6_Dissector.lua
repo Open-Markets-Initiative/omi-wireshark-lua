@@ -132,11 +132,13 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 
 -- Register Iex IexEquities Deep Snap 1.6 Show Options
 omi_iex_iexequities_deep_snap_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_iex_iexequities_deep_snap_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexequities_deep_snap_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_iex_iexequities_deep_snap_v1_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_iex_iexequities_deep_snap_v1_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
@@ -149,6 +151,9 @@ function omi_iex_iexequities_deep_snap_v1_6.prefs_changed()
   end
   if show.headers ~= omi_iex_iexequities_deep_snap_v1_6.prefs.show_headers then
     show.headers = omi_iex_iexequities_deep_snap_v1_6.prefs.show_headers
+  end
+  if show.padding ~= omi_iex_iexequities_deep_snap_v1_6.prefs.show_padding then
+    show.padding = omi_iex_iexequities_deep_snap_v1_6.prefs.show_padding
   end
   if show.structs ~= omi_iex_iexequities_deep_snap_v1_6.prefs.show_structs then
     show.structs = omi_iex_iexequities_deep_snap_v1_6.prefs.show_structs
@@ -2493,7 +2498,11 @@ iex_iexequities_deep_snap_v1_6.iextp_header.fields = function(buffer, offset, pa
   index, version = iex_iexequities_deep_snap_v1_6.version.dissect(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte
-  index, reserved = iex_iexequities_deep_snap_v1_6.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = iex_iexequities_deep_snap_v1_6.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + iex_iexequities_deep_snap_v1_6.reserved.size
+  end
 
   -- Message Protocol Id: 2 Byte Unsigned Fixed Width Integer
   index, message_protocol_id = iex_iexequities_deep_snap_v1_6.message_protocol_id.dissect(buffer, index, packet, parent)

@@ -234,6 +234,7 @@ show.structs = true
 show.headers = true
 show.repeating_groups = true
 show.session_messages = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -246,6 +247,7 @@ omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_structs = Pref.bool("Show Stru
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -258,6 +260,9 @@ function omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_headers then
     show.headers = omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_padding then
+    show.padding = omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_padding
   end
   if show.repeating_groups ~= omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_repeating_groups then
     show.repeating_groups = omi_nasdaq_iseoptions_quoting_sqf_v9_0.prefs.show_repeating_groups
@@ -3373,7 +3378,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.market_reentry_notification_message.fields = 
   index, message_id = nasdaq_iseoptions_quoting_sqf_v9_0.message_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_8.size
+  end
 
   return index
 end
@@ -3505,7 +3514,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.instrument_purge_notification_message.fields 
   index, sequence = nasdaq_iseoptions_quoting_sqf_v9_0.sequence.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alpha
-  index, reserved_16 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_16.size
+  end
 
   return index
 end
@@ -3551,7 +3564,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.flex_dac_legs.fields = function(buffer, offse
   end
 
   -- Reserved 8: Alpha
-  index, reserved_8 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_8.size
+  end
 
   return index
 end
@@ -3702,7 +3719,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.auction_notification_message.fields = functio
   index, best_response_size = nasdaq_iseoptions_quoting_sqf_v9_0.best_response_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Integer
-  index, reserved_9 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_9.size
+  end
 
   -- Number Of Flex Dac Legs: Integer
   index, number_of_flex_dac_legs = nasdaq_iseoptions_quoting_sqf_v9_0.number_of_flex_dac_legs.dissect(buffer, index, packet, parent)
@@ -3826,7 +3847,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.market_reentry_reply_message.fields = functio
   index, status_code = nasdaq_iseoptions_quoting_sqf_v9_0.status_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_8.size
+  end
 
   return index
 end
@@ -5256,7 +5281,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.complex_instrument_directory_message.fields =
   index, underlying_symbol = nasdaq_iseoptions_quoting_sqf_v9_0.underlying_symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Integer
-  index, reserved_1 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_1.size
+  end
 
   -- Number Of Legs: Integer
   index, number_of_legs = nasdaq_iseoptions_quoting_sqf_v9_0.number_of_legs.dissect(buffer, index, packet, parent)
@@ -5348,7 +5377,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.simple_instrument_directory_message.fields = 
   index, mpv = nasdaq_iseoptions_quoting_sqf_v9_0.mpv.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alpha
-  index, reserved_16 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_16.size
+  end
 
   return index
 end
@@ -5464,7 +5497,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.active_qp_self_replenishment_parameter_defini
   index, set_contract_limit = nasdaq_iseoptions_quoting_sqf_v9_0.set_contract_limit.dissect(buffer, index, packet, parent)
 
   -- Reserved 32: Alpha
-  index, reserved_32 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_32.size
+  end
 
   return index
 end
@@ -5544,7 +5581,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.mm_parameter_definition_notification_message.
   index, vega = nasdaq_iseoptions_quoting_sqf_v9_0.vega.dissect(buffer, index, packet, parent)
 
   -- Reserved 32: Alpha
-  index, reserved_32 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_32.size
+  end
 
   return index
 end
@@ -5724,7 +5765,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.complex_msar_accept_message.fields = function
   index, price_protection = nasdaq_iseoptions_quoting_sqf_v9_0.price_protection.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Alpha
-  index, reserved_4 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_4.size
+  end
 
   return index
 end
@@ -6403,7 +6448,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.complex_msar_request_message.fields = functio
   index, price_protection = nasdaq_iseoptions_quoting_sqf_v9_0.price_protection.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Alpha
-  index, reserved_4 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_4.size
+  end
 
   return index
 end
@@ -6709,7 +6758,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.complex_quotes.fields = function(buffer, offs
   index, stock_leg_short_sale = nasdaq_iseoptions_quoting_sqf_v9_0.stock_leg_short_sale.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Alpha
-  index, reserved_4 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_4.size
+  end
 
   return index
 end
@@ -7387,7 +7440,11 @@ nasdaq_iseoptions_quoting_sqf_v9_0.mm_parameter_definition_request_message.field
   index, vega = nasdaq_iseoptions_quoting_sqf_v9_0.vega.dissect(buffer, index, packet, parent)
 
   -- Reserved 32: Alpha
-  index, reserved_32 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = nasdaq_iseoptions_quoting_sqf_v9_0.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_quoting_sqf_v9_0.reserved_32.size
+  end
 
   return index
 end

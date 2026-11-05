@@ -2524,6 +2524,7 @@ show.structs = true
 show.application_messages = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Cboe BxeEquities BinaryOrderEntry Boe 2.0.52 Show Options
@@ -2531,6 +2532,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_structs = Pref.bool
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -2544,6 +2546,9 @@ function omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs_changed()
   end
   if show.headers ~= omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_headers then
     show.headers = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_padding then
+    show.padding = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_padding
   end
   if show.repeating_groups ~= omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_52.prefs.show_repeating_groups
@@ -9179,7 +9184,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.trade_capture_report_decline_v_2_m
   index, text = cboe_bxeequities_binaryorderentry_boe_v2_0_52.text.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -11275,7 +11284,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.trade_capture_confirm_v_2_message.
   index, contra_broker = cboe_bxeequities_binaryorderentry_boe_v2_0_52.contra_broker.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -13398,7 +13411,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.trade_capture_report_reject_v_2_me
   index, text = cboe_bxeequities_binaryorderentry_boe_v2_0_52.text.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -15461,7 +15478,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.trade_capture_report_acknowledgmen
   index, trade_report_id = cboe_bxeequities_binaryorderentry_boe_v2_0_52.trade_report_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -15837,7 +15858,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.mass_cancel_acknowledgment_v_2_mes
   index, cancelled_order_count = cboe_bxeequities_binaryorderentry_boe_v2_0_52.cancelled_order_count.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   return index
 end
@@ -15896,7 +15921,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.purge_rejected_v_2_message.fields 
   index, text = cboe_bxeequities_binaryorderentry_boe_v2_0_52.text.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   return index
 end
@@ -17584,7 +17613,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.trade_cancel_or_correct_v_2_messag
   index, orig_time = cboe_bxeequities_binaryorderentry_boe_v2_0_52.orig_time.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -19536,7 +19569,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.order_execution_v_2_message.fields
   index, contra_broker = cboe_bxeequities_binaryorderentry_boe_v2_0_52.contra_broker.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -21716,7 +21753,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.cancel_rejected_v_2_message.fields
   index, text = cboe_bxeequities_binaryorderentry_boe_v2_0_52.text.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -23785,7 +23826,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.order_cancelled_v_2_message.fields
   index, cancel_reason = cboe_bxeequities_binaryorderentry_boe_v2_0_52.cancel_reason.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -26001,7 +26046,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.user_modify_rejected_v_2_message.f
   index, text = cboe_bxeequities_binaryorderentry_boe_v2_0_52.text.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -27866,7 +27915,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.order_restated_v_2_message.fields 
   index, restatement_reason = cboe_bxeequities_binaryorderentry_boe_v2_0_52.restatement_reason.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -30079,7 +30132,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.order_modified_v_2_message.fields 
   index, order_id = cboe_bxeequities_binaryorderentry_boe_v2_0_52.order_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -32241,7 +32298,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.order_rejected_v_2_message.fields 
   index, text = cboe_bxeequities_binaryorderentry_boe_v2_0_52.text.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -34373,7 +34434,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.order_acknowledgment_v_2_message.f
   index, order_id = cboe_bxeequities_binaryorderentry_boe_v2_0_52.order_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -36229,7 +36294,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_52.purge_orders_v_2_message.fields = 
   local index = offset
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bxeequities_binaryorderentry_boe_v2_0_52.reserved_1.size
+  end
 
   -- Number Of Purge Orders V 2 Bitfields: Binary
   index, number_of_purge_orders_v_2_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_52.number_of_purge_orders_v_2_bitfields.dissect(buffer, index, packet, parent)

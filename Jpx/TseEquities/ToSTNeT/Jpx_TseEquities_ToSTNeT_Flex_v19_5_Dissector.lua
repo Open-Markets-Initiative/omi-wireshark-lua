@@ -31,11 +31,11 @@ omi_jpx_tseequities_tostnet_flex_v19_5.fields.issue_realtime_medium_classificati
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.lot_size_unit_flag = ProtoField.new("Lot Size Unit Flag", "jpx.tseequities.tostnet.flex.v19.5.lotsizeunitflag", ftypes.STRING, nil, nil, nil, "Indicates that this is the lot size unit flag.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.market_identification_flag = ProtoField.new("Market Identification Flag", "jpx.tseequities.tostnet.flex.v19.5.marketidentificationflag", ftypes.STRING, nil, nil, nil, "Indicates the flag for identifying ToSTNeT market.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.market_state_flag = ProtoField.new("Market State Flag", "jpx.tseequities.tostnet.flex.v19.5.marketstateflag", ftypes.STRING, nil, nil, nil, "Indicates the state of trading halt for the issue on the ToSTNeT.")
-omi_jpx_tseequities_tostnet_flex_v19_5.fields.message_length = ProtoField.new("Message Length", "jpx.tseequities.tostnet.flex.v19.5.messagelength", ftypes.STRING, nil, nil, nil, "Total Length: Control Code (DC1 and DC2) + Service Header Section + User Data Section (including DC3). Right-align the data, suppress space in the leading space.")
+omi_jpx_tseequities_tostnet_flex_v19_5.fields.message_length = ProtoField.new("Message Length", "jpx.tseequities.tostnet.flex.v19.5.messagelength", ftypes.UINT24, nil, nil, nil, "Total Length: Control Code (DC1 and DC2) + Service Header Section + User Data Section (including DC3). Right-align the data, suppress space in the leading space.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.message_serial_no = ProtoField.new("Message Serial No", "jpx.tseequities.tostnet.flex.v19.5.messageserialno", ftypes.STRING, nil, nil, nil, "Numbered from 1 on each Multicast Group, with the multicast group number in the first to third byte")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.message_type = ProtoField.new("Message Type", "jpx.tseequities.tostnet.flex.v19.5.messagetype", ftypes.STRING, nil, nil, nil, "Large Classification indicates Message Type, and Medium Classification indicates details and other information")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.message_type_large_classification = ProtoField.new("Message Type Large Classification", "jpx.tseequities.tostnet.flex.v19.5.messagetypelargeclassification", ftypes.STRING, nil, nil, nil, "Large Classification indicates Message Type.")
-omi_jpx_tseequities_tostnet_flex_v19_5.fields.multicast_group_number = ProtoField.new("Multicast Group Number", "jpx.tseequities.tostnet.flex.v19.5.multicastgroupnumber", ftypes.STRING, nil, nil, nil, "Multicast group number, set in the first to third byte of the Message Serial No.")
+omi_jpx_tseequities_tostnet_flex_v19_5.fields.multicast_group_number = ProtoField.new("Multicast Group Number", "jpx.tseequities.tostnet.flex.v19.5.multicastgroupnumber", ftypes.UINT16, nil, nil, nil, "Multicast group number, set in the first to third byte of the Message Serial No.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.other_medium_classification = ProtoField.new("Other Medium Classification", "jpx.tseequities.tostnet.flex.v19.5.othermediumclassification", ftypes.STRING, nil, nil, nil, "Medium Classification of a Message Type whose Large Classification 5.3.3 (3) does not list. The two bytes are on the wire either way, so they are read rather than skipped.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.price = ProtoField.new("Price", "jpx.tseequities.tostnet.flex.v19.5.price", ftypes.STRING)
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.price_c_14 = ProtoField.new("Price C 14", "jpx.tseequities.tostnet.flex.v19.5.pricec14", ftypes.DOUBLE, nil, nil, nil, "Indicates that this is the trade price.")
@@ -43,7 +43,7 @@ omi_jpx_tseequities_tostnet_flex_v19_5.fields.price_code = ProtoField.new("Price
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.reserved_2 = ProtoField.new("Reserved 2", "jpx.tseequities.tostnet.flex.v19.5.reserved2", ftypes.STRING, nil, nil, nil, "This item is reserved.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.separation_between_service_header_and_data_section = ProtoField.new("Separation Between Service Header And Data Section", "jpx.tseequities.tostnet.flex.v19.5.separationbetweenserviceheaderanddatasection", ftypes.UINT8, nil, nil, nil, "Control Code DC2 (0x12), Separation between Service Header and Data Section")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.separation_of_tag = ProtoField.new("Separation Of Tag", "jpx.tseequities.tostnet.flex.v19.5.separationoftag", ftypes.UINT8, nil, nil, nil, "Control Code DC3 (0x13) between tags, or DC1 (0x11) on the tag that ends the message")
-omi_jpx_tseequities_tostnet_flex_v19_5.fields.sequence_number = ProtoField.new("Sequence Number", "jpx.tseequities.tostnet.flex.v19.5.sequencenumber", ftypes.STRING, nil, nil, nil, "Numbered in sequence, beginning with 00000001. Space is set in the case of Backup Information, All-Day Information or Issue Basic Information, and the requested serial number which was used for the UDP message is set in Retransmission.")
+omi_jpx_tseequities_tostnet_flex_v19_5.fields.sequence_number = ProtoField.new("Sequence Number", "jpx.tseequities.tostnet.flex.v19.5.sequencenumber", ftypes.UINT32, nil, nil, nil, "Numbered in sequence, beginning with 00000001. Space is set in the case of Backup Information, All-Day Information or Issue Basic Information, and the requested serial number which was used for the UDP message is set in Retransmission.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.session_distinction = ProtoField.new("Session Distinction", "jpx.tseequities.tostnet.flex.v19.5.sessiondistinction", ftypes.STRING, nil, nil, nil, "Indicates the session in which the new information is generated. Set in Issue Real-time Message (FLEX Standard, ToSTNeT) and Index Message; for Issue Basic Message, Statistics Message and Control Message, spaces is set.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.sign = ProtoField.new("Sign", "jpx.tseequities.tostnet.flex.v19.5.sign", ftypes.STRING, nil, nil, nil, "Indicates Sign of Price.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.start_end_flag = ProtoField.new("Start End Flag", "jpx.tseequities.tostnet.flex.v19.5.startendflag", ftypes.STRING, nil, nil, nil, "Indicates the flag for identifying the distinction between start and end.")
@@ -629,7 +629,15 @@ end
 jpx_tseequities_tostnet_flex_v19_5.message_length.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_tostnet_flex_v19_5.message_length.size
   local range = buffer(offset, length)
-  local value = trim_left_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.message_length, range, value, "Message Length: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_tostnet_flex_v19_5.experts.not_a_number, "Message Length is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = jpx_tseequities_tostnet_flex_v19_5.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.message_length, range, value, display)
@@ -683,7 +691,15 @@ end
 jpx_tseequities_tostnet_flex_v19_5.multicast_group_number.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_tostnet_flex_v19_5.multicast_group_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.multicast_group_number, range, value, "Multicast Group Number: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_tostnet_flex_v19_5.experts.not_a_number, "Multicast Group Number is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = jpx_tseequities_tostnet_flex_v19_5.multicast_group_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.multicast_group_number, range, value, display)
@@ -889,7 +905,15 @@ end
 jpx_tseequities_tostnet_flex_v19_5.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_tostnet_flex_v19_5.sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.sequence_number, range, value, "Sequence Number: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_tostnet_flex_v19_5.experts.not_a_number, "Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = jpx_tseequities_tostnet_flex_v19_5.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.sequence_number, range, value, display)

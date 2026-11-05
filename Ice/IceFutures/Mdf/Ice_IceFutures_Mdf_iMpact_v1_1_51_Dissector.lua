@@ -362,6 +362,7 @@ show.application_messages = true
 show.repeating_groups = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Ice IceFutures Mdf iMpact 1.1.51 Show Options
@@ -369,6 +370,7 @@ omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_application_messages = Pref.boo
 omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_ice_icefutures_mdf_impact_v1_1_51.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -382,6 +384,9 @@ function omi_ice_icefutures_mdf_impact_v1_1_51.prefs_changed()
   end
   if show.headers ~= omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_headers then
     show.headers = omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_headers
+  end
+  if show.padding ~= omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_padding then
+    show.padding = omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_padding
   end
   if show.repeating_groups ~= omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_repeating_groups then
     show.repeating_groups = omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_repeating_groups
@@ -8734,7 +8739,11 @@ ice_icefutures_mdf_impact_v1_1_51.extra_strategy_leg_definition.fields = functio
   index, leg_underlying_market_id = ice_icefutures_mdf_impact_v1_1_51.leg_underlying_market_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: N/A
-  index, reserved_2 = ice_icefutures_mdf_impact_v1_1_51.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = ice_icefutures_mdf_impact_v1_1_51.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + ice_icefutures_mdf_impact_v1_1_51.reserved_2.size
+  end
 
   -- Leg Side: Alpha
   index, leg_side = ice_icefutures_mdf_impact_v1_1_51.leg_side.dissect(buffer, index, packet, parent)
@@ -9191,7 +9200,11 @@ ice_icefutures_mdf_impact_v1_1_51.fragment_wrapper_message.fields = function(buf
   index, fragment_length = ice_icefutures_mdf_impact_v1_1_51.fragment_length.dissect(buffer, index, packet, parent)
 
   -- Fragment Bytes: Bytes
-  index, fragment_bytes = ice_icefutures_mdf_impact_v1_1_51.fragment_bytes.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fragment_bytes = ice_icefutures_mdf_impact_v1_1_51.fragment_bytes.dissect(buffer, index, packet, parent)
+  else
+    index = index + ice_icefutures_mdf_impact_v1_1_51.fragment_bytes.size
+  end
 
   return index
 end
@@ -9608,7 +9621,11 @@ ice_icefutures_mdf_impact_v1_1_51.extra_leg_definition.fields = function(buffer,
   index, leg_market_id = ice_icefutures_mdf_impact_v1_1_51.leg_market_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: N/A
-  index, reserved_2 = ice_icefutures_mdf_impact_v1_1_51.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = ice_icefutures_mdf_impact_v1_1_51.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + ice_icefutures_mdf_impact_v1_1_51.reserved_2.size
+  end
 
   -- Leg Side: Alpha
   index, leg_side = ice_icefutures_mdf_impact_v1_1_51.leg_side.dissect(buffer, index, packet, parent)
@@ -9900,7 +9917,11 @@ ice_icefutures_mdf_impact_v1_1_51.new_futures_strategy_definition_message.fields
   index, gt_allowed = ice_icefutures_mdf_impact_v1_1_51.gt_allowed.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Numeric
-  index, reserved_4 = ice_icefutures_mdf_impact_v1_1_51.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = ice_icefutures_mdf_impact_v1_1_51.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + ice_icefutures_mdf_impact_v1_1_51.reserved_4.size
+  end
 
   -- Mifid Regulated Market: Alpha
   index, mifid_regulated_market = ice_icefutures_mdf_impact_v1_1_51.mifid_regulated_market.dissect(buffer, index, packet, parent)
@@ -11305,7 +11326,11 @@ ice_icefutures_mdf_impact_v1_1_51.market_snapshot_message.fields = function(buff
   index, last_message_sequence_id = ice_icefutures_mdf_impact_v1_1_51.last_message_sequence_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: N/A
-  index, reserved_2 = ice_icefutures_mdf_impact_v1_1_51.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = ice_icefutures_mdf_impact_v1_1_51.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + ice_icefutures_mdf_impact_v1_1_51.reserved_2.size
+  end
 
   -- Open Interest Date: Alpha
   index, open_interest_date = ice_icefutures_mdf_impact_v1_1_51.open_interest_date.dissect(buffer, index, packet, parent)

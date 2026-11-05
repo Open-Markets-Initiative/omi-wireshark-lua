@@ -177,6 +177,7 @@ show.application_messages = true
 show.headers = true
 show.structs = true
 show.repeating_groups = true
+show.padding = false
 show.indexes = true
 
 -- Register Taifex TaifexDerivatives DropCopy Tmp 2.18.7 Show Options
@@ -184,6 +185,7 @@ omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_application_message
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -197,6 +199,9 @@ function omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs_changed()
   end
   if show.headers ~= omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_headers then
     show.headers = omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_headers
+  end
+  if show.padding ~= omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_padding then
+    show.padding = omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_padding
   end
   if show.repeating_groups ~= omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_repeating_groups then
     show.repeating_groups = omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.prefs.show_repeating_groups
@@ -2508,7 +2513,11 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_drop_copy_initiate_operation_
   index, req_cm_seq = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.req_cm_seq.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: uint8[16]
-  index, reserved_16 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_16.size
+  end
 
   return index
 end
@@ -2748,7 +2757,11 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_error_report_message.fields =
   index, side = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.side.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: uint8[12]
-  index, reserved_12 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_12.size
+  end
 
   return index
 end
@@ -3488,7 +3501,11 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_order_status_report_message.f
   index, rpt_session_seq = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.rpt_session_seq.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: uint8[12]
-  index, reserved_12 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_12.size
+  end
 
   return index
 end
@@ -3776,7 +3793,11 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.long_symbol_num.fields = function(
   index, comb_op = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.comb_op.dissect(buffer, index, packet, parent)
 
   -- Reserved 33: uint8 [33]
-  index, reserved_33 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_33.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_33 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_33.dissect(buffer, index, packet, parent)
+  else
+    index = index + taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_33.size
+  end
 
   return index
 end
@@ -4102,7 +4123,11 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symbol_num.fields = function(buffe
   index, comb_op = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.comb_op.dissect(buffer, index, packet, parent)
 
   -- Reserved 13: uint8 [13]
-  index, reserved_13 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_13.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_13 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_13.dissect(buffer, index, packet, parent)
+  else
+    index = index + taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_13.size
+  end
 
   return index
 end
@@ -4683,7 +4708,11 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.final_sequential_number_notificati
   index, end_out_bound_num = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.end_out_bound_num.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: uint8[8]
-  index, reserved_8 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + taifex_taifexderivatives_dropcopy_tmp_v2_18_7.reserved_8.size
+  end
 
   return index
 end

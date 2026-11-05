@@ -200,12 +200,14 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Jse Itac MarketData Mitch 4.07 Show Options
 omi_jse_itac_marketdata_mitch_v4_07.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jse_itac_marketdata_mitch_v4_07.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jse_itac_marketdata_mitch_v4_07.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_jse_itac_marketdata_mitch_v4_07.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_jse_itac_marketdata_mitch_v4_07.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -217,6 +219,9 @@ function omi_jse_itac_marketdata_mitch_v4_07.prefs_changed()
   end
   if show.headers ~= omi_jse_itac_marketdata_mitch_v4_07.prefs.show_headers then
     show.headers = omi_jse_itac_marketdata_mitch_v4_07.prefs.show_headers
+  end
+  if show.padding ~= omi_jse_itac_marketdata_mitch_v4_07.prefs.show_padding then
+    show.padding = omi_jse_itac_marketdata_mitch_v4_07.prefs.show_padding
   end
   if show.structs ~= omi_jse_itac_marketdata_mitch_v4_07.prefs.show_structs then
     show.structs = omi_jse_itac_marketdata_mitch_v4_07.prefs.show_structs
@@ -3203,7 +3208,11 @@ jse_itac_marketdata_mitch_v4_07.top_of_book_message.fields = function(buffer, of
   index, market_order_quantity = jse_itac_marketdata_mitch_v4_07.market_order_quantity.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Byte
-  index, reserved_2 = jse_itac_marketdata_mitch_v4_07.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = jse_itac_marketdata_mitch_v4_07.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_2.size
+  end
 
   -- Splits: UInt32
   index, splits = jse_itac_marketdata_mitch_v4_07.splits.dissect(buffer, index, packet, parent)
@@ -3353,7 +3362,11 @@ jse_itac_marketdata_mitch_v4_07.extended_statistics_message.fields = function(bu
   index, number_of_trades = jse_itac_marketdata_mitch_v4_07.number_of_trades.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = jse_itac_marketdata_mitch_v4_07.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = jse_itac_marketdata_mitch_v4_07.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_8.size
+  end
 
   -- Sub Book: UInt8
   index, sub_book = jse_itac_marketdata_mitch_v4_07.sub_book.dissect(buffer, index, packet, parent)
@@ -3439,10 +3452,18 @@ jse_itac_marketdata_mitch_v4_07.statistics_message.fields = function(buffer, off
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_b.size
+  end
 
   -- Statistic Type: Alpha
   index, statistic_type = jse_itac_marketdata_mitch_v4_07.statistic_type.dissect(buffer, index, packet, parent)
@@ -3508,7 +3529,11 @@ jse_itac_marketdata_mitch_v4_07.auction_info_message.fields = function(buffer, o
   index, paired_quantity = jse_itac_marketdata_mitch_v4_07.paired_quantity.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: UInt32
-  index, reserved_4 = jse_itac_marketdata_mitch_v4_07.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = jse_itac_marketdata_mitch_v4_07.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_4.size
+  end
 
   -- Imbalance Direction: Byte
   index, imbalance_direction = jse_itac_marketdata_mitch_v4_07.imbalance_direction.dissect(buffer, index, packet, parent)
@@ -3517,10 +3542,18 @@ jse_itac_marketdata_mitch_v4_07.auction_info_message.fields = function(buffer, o
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_b.size
+  end
 
   -- Price: Price
   index, price = jse_itac_marketdata_mitch_v4_07.price.dissect(buffer, index, packet, parent)
@@ -3644,10 +3677,18 @@ jse_itac_marketdata_mitch_v4_07.recovery_trade_message.fields = function(buffer,
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_b.size
+  end
 
   -- Price: Price
   index, price = jse_itac_marketdata_mitch_v4_07.price.dissect(buffer, index, packet, parent)
@@ -3754,10 +3795,18 @@ jse_itac_marketdata_mitch_v4_07.off_book_trade_message.fields = function(buffer,
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_b.size
+  end
 
   -- Price: Price
   index, price = jse_itac_marketdata_mitch_v4_07.price.dissect(buffer, index, packet, parent)
@@ -3846,10 +3895,18 @@ jse_itac_marketdata_mitch_v4_07.auction_trade_message.fields = function(buffer, 
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_b.size
+  end
 
   -- Price: Price
   index, price = jse_itac_marketdata_mitch_v4_07.price.dissect(buffer, index, packet, parent)
@@ -3997,10 +4054,18 @@ jse_itac_marketdata_mitch_v4_07.trade_message.fields = function(buffer, offset, 
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_b.size
+  end
 
   -- Price: Price
   index, price = jse_itac_marketdata_mitch_v4_07.price.dissect(buffer, index, packet, parent)
@@ -4614,10 +4679,18 @@ jse_itac_marketdata_mitch_v4_07.add_order_message.fields = function(buffer, offs
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_b.size
+  end
 
   -- Price: Price
   index, price = jse_itac_marketdata_mitch_v4_07.price.dissect(buffer, index, packet, parent)
@@ -4719,10 +4792,18 @@ jse_itac_marketdata_mitch_v4_07.symbol_status_message.fields = function(buffer, 
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_b.size
+  end
 
   -- Trading Status: Byte
   index, trading_status = jse_itac_marketdata_mitch_v4_07.trading_status.dissect(buffer, index, packet, parent)
@@ -4914,10 +4995,18 @@ jse_itac_marketdata_mitch_v4_07.symbol_directory_message.fields = function(buffe
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_b.size
+  end
 
   -- Symbol Status: Alpha
   index, symbol_status = jse_itac_marketdata_mitch_v4_07.symbol_status.dissect(buffer, index, packet, parent)
@@ -5161,10 +5250,18 @@ jse_itac_marketdata_mitch_v4_07.snapshot_complete_message.fields = function(buff
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_b.size
+  end
 
   -- Sub Book Flags: Struct of 6 fields
   index, sub_book_flags = jse_itac_marketdata_mitch_v4_07.sub_book_flags.dissect(buffer, index, packet, parent)
@@ -5392,10 +5489,18 @@ jse_itac_marketdata_mitch_v4_07.snapshot_request_message.fields = function(buffe
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved A: Byte
-  index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_a = jse_itac_marketdata_mitch_v4_07.reserved_a.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_a.size
+  end
 
   -- Reserved B: Byte
-  index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_b = jse_itac_marketdata_mitch_v4_07.reserved_b.dissect(buffer, index, packet, parent)
+  else
+    index = index + jse_itac_marketdata_mitch_v4_07.reserved_b.size
+  end
 
   -- Sub Book Flags: Struct of 6 fields
   index, sub_book_flags = jse_itac_marketdata_mitch_v4_07.sub_book_flags.dissect(buffer, index, packet, parent)

@@ -152,6 +152,7 @@ show.records = true
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -160,6 +161,7 @@ omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.resolve_records = Pref.
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
@@ -178,6 +180,9 @@ function omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs_changed()
   end
   if show.headers ~= omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_headers then
     show.headers = omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_padding then
+    show.padding = omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_padding
   end
   if show.structs ~= omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_structs then
     show.structs = omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.prefs.show_structs
@@ -2830,7 +2835,11 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.imbalance_message.fields = functi
   index, unpaired_side = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.unpaired_side.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_1.size
+  end
 
   return index
 end
@@ -3332,7 +3341,11 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.security_status_message.fields = 
   index, halt_condition = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary
-  index, reserved_4 = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_4.size
+  end
 
   -- Price 1: Binary
   index, price_1 = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.price_1.dissect(buffer, index, packet, parent)
@@ -3470,7 +3483,11 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.symbol_index_mapping_message.fiel
   index, symbol = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.market_id.dissect(buffer, index, packet, parent)

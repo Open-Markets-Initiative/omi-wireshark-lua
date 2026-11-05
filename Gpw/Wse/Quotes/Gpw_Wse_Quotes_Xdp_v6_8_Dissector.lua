@@ -78,12 +78,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Gpw Wse Quotes Xdp 6.8 Show Options
 omi_gpw_wse_quotes_xdp_v6_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_gpw_wse_quotes_xdp_v6_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_gpw_wse_quotes_xdp_v6_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_gpw_wse_quotes_xdp_v6_8.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_gpw_wse_quotes_xdp_v6_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -95,6 +97,9 @@ function omi_gpw_wse_quotes_xdp_v6_8.prefs_changed()
   end
   if show.headers ~= omi_gpw_wse_quotes_xdp_v6_8.prefs.show_headers then
     show.headers = omi_gpw_wse_quotes_xdp_v6_8.prefs.show_headers
+  end
+  if show.padding ~= omi_gpw_wse_quotes_xdp_v6_8.prefs.show_padding then
+    show.padding = omi_gpw_wse_quotes_xdp_v6_8.prefs.show_padding
   end
   if show.structs ~= omi_gpw_wse_quotes_xdp_v6_8.prefs.show_structs then
     show.structs = omi_gpw_wse_quotes_xdp_v6_8.prefs.show_structs
@@ -1202,7 +1207,11 @@ gpw_wse_quotes_xdp_v6_8.indication_of_interest_message.fields = function(buffer,
   index, trade_type = gpw_wse_quotes_xdp_v6_8.trade_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Binary Int.
-  index, reserved_3 = gpw_wse_quotes_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = gpw_wse_quotes_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_wse_quotes_xdp_v6_8.reserved_3.size
+  end
 
   return index
 end
@@ -1310,7 +1319,11 @@ gpw_wse_quotes_xdp_v6_8.quotes_and_bbo_5_message.fields = function(buffer, offse
   index, price_scale_code = gpw_wse_quotes_xdp_v6_8.price_scale_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary Int.
-  index, reserved_1 = gpw_wse_quotes_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = gpw_wse_quotes_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_wse_quotes_xdp_v6_8.reserved_1.size
+  end
 
   return index
 end

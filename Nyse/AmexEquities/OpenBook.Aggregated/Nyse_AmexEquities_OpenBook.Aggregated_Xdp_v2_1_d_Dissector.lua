@@ -134,6 +134,7 @@ show.repeating_groups = true
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d Show Options
@@ -141,6 +142,7 @@ omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_repeating_groups 
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -154,6 +156,9 @@ function omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs_changed()
   end
   if show.headers ~= omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_headers then
     show.headers = omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_padding then
+    show.padding = omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_padding
   end
   if show.repeating_groups ~= omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_repeating_groups then
     show.repeating_groups = omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_repeating_groups
@@ -2907,7 +2912,11 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.security_status_message.fields =
   index, halt_condition = nyse_amexequities_openbookaggregated_xdp_v2_1_d.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary
-  index, reserved_4 = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_4.size
+  end
 
   -- Price 1: Binary
   index, price_1 = nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_1.dissect(buffer, index, packet, parent)
@@ -3044,7 +3053,11 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.symbol_index_mapping_message.fie
   index, symbol = nyse_amexequities_openbookaggregated_xdp_v2_1_d.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_amexequities_openbookaggregated_xdp_v2_1_d.market_id.dissect(buffer, index, packet, parent)
@@ -3083,7 +3096,11 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.symbol_index_mapping_message.fie
   index, unit_of_trade = nyse_amexequities_openbookaggregated_xdp_v2_1_d.unit_of_trade.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary
-  index, reserved_2 = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_2.size
+  end
 
   return index
 end

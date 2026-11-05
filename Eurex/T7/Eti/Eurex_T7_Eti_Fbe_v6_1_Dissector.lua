@@ -616,6 +616,7 @@ show.application_messages = true
 show.structs = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Eurex T7 Eti Fbe 6.1 Show Options
@@ -626,6 +627,7 @@ omi_eurex_t7_eti_fbe_v6_1.prefs.show_application_messages = Pref.bool("Show Appl
 omi_eurex_t7_eti_fbe_v6_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_eurex_t7_eti_fbe_v6_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_eurex_t7_eti_fbe_v6_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_eurex_t7_eti_fbe_v6_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_eurex_t7_eti_fbe_v6_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_eurex_t7_eti_fbe_v6_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -639,6 +641,9 @@ function omi_eurex_t7_eti_fbe_v6_1.prefs_changed()
   end
   if show.headers ~= omi_eurex_t7_eti_fbe_v6_1.prefs.show_headers then
     show.headers = omi_eurex_t7_eti_fbe_v6_1.prefs.show_headers
+  end
+  if show.padding ~= omi_eurex_t7_eti_fbe_v6_1.prefs.show_padding then
+    show.padding = omi_eurex_t7_eti_fbe_v6_1.prefs.show_padding
   end
   if show.repeating_groups ~= omi_eurex_t7_eti_fbe_v6_1.prefs.show_repeating_groups then
     show.repeating_groups = omi_eurex_t7_eti_fbe_v6_1.prefs.show_repeating_groups
@@ -12750,7 +12755,11 @@ eurex_t7_eti_fbe_v6_1.response_header_comp.fields = function(buffer, offset, pac
   index, msg_seq_num = eurex_t7_eti_fbe_v6_1.msg_seq_num.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -12796,7 +12805,11 @@ eurex_t7_eti_fbe_v6_1.user_logout_response.fields = function(buffer, offset, pac
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -12849,7 +12862,11 @@ eurex_t7_eti_fbe_v6_1.user_login_response.fields = function(buffer, offset, pack
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -12902,7 +12919,11 @@ eurex_t7_eti_fbe_v6_1.unsubscribe_response.fields = function(buffer, offset, pac
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -12985,7 +13006,11 @@ eurex_t7_eti_fbe_v6_1.rbc_header_me_comp.fields = function(buffer, offset, packe
   index, last_fragment = eurex_t7_eti_fbe_v6_1.last_fragment.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -13031,7 +13056,11 @@ eurex_t7_eti_fbe_v6_1.trading_session_status_broadcast.fields = function(buffer,
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_t7_eti_fbe_v6_1.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13049,7 +13078,11 @@ eurex_t7_eti_fbe_v6_1.trading_session_status_broadcast.fields = function(buffer,
   index, ref_appl_last_msg_id = eurex_t7_eti_fbe_v6_1.ref_appl_last_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -13121,7 +13154,11 @@ eurex_t7_eti_fbe_v6_1.rbc_header_comp.fields = function(buffer, offset, packet, 
   index, last_fragment = eurex_t7_eti_fbe_v6_1.last_fragment.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -13167,7 +13204,11 @@ eurex_t7_eti_fbe_v6_1.trade_broadcast.fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -13332,7 +13373,11 @@ eurex_t7_eti_fbe_v6_1.trade_broadcast.fields = function(buffer, offset, packet, 
   index, root_party_clearing_firm = eurex_t7_eti_fbe_v6_1.root_party_clearing_firm.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -13422,7 +13467,11 @@ eurex_t7_eti_fbe_v6_1.throttle_update_notification.fields = function(buffer, off
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_t7_eti_fbe_v6_1.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -13484,7 +13533,11 @@ eurex_t7_eti_fbe_v6_1.tm_trading_session_status_broadcast.fields = function(buff
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -13493,7 +13546,11 @@ eurex_t7_eti_fbe_v6_1.tm_trading_session_status_broadcast.fields = function(buff
   index, trad_ses_event = eurex_t7_eti_fbe_v6_1.trad_ses_event.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -13551,7 +13608,11 @@ eurex_t7_eti_fbe_v6_1.underlying_stip_grp_comp.fields = function(buffer, offset,
   index, underlying_stip_type = eurex_t7_eti_fbe_v6_1.underlying_stip_type.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   return index
 end
@@ -13605,7 +13666,11 @@ eurex_t7_eti_fbe_v6_1.instrument_attribute_grp_comp.fields = function(buffer, of
   index, instr_attrib_value = eurex_t7_eti_fbe_v6_1.instr_attrib_value.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -13659,7 +13724,11 @@ eurex_t7_eti_fbe_v6_1.instrument_event_grp_comp.fields = function(buffer, offset
   index, event_type = eurex_t7_eti_fbe_v6_1.event_type.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -13835,7 +13904,11 @@ eurex_t7_eti_fbe_v6_1.side_alloc_ext_grp_comp.fields = function(buffer, offset, 
   index, compliance_text = eurex_t7_eti_fbe_v6_1.compliance_text.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -13881,7 +13954,11 @@ eurex_t7_eti_fbe_v6_1.tes_upload_broadcast.fields = function(buffer, offset, pac
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -13995,7 +14072,11 @@ eurex_t7_eti_fbe_v6_1.tes_upload_broadcast.fields = function(buffer, offset, pac
   index, underlying_issuer = eurex_t7_eti_fbe_v6_1.underlying_issuer.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   -- Repeating: Side Alloc Ext Grp Comp
   for side_alloc_ext_grp_comp_index = 1, no_side_allocs do
@@ -14070,7 +14151,11 @@ eurex_t7_eti_fbe_v6_1.tes_trading_session_status_broadcast.fields = function(buf
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -14082,7 +14167,11 @@ eurex_t7_eti_fbe_v6_1.tes_trading_session_status_broadcast.fields = function(buf
   index, trad_ses_event = eurex_t7_eti_fbe_v6_1.trad_ses_event.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -14132,7 +14221,11 @@ eurex_t7_eti_fbe_v6_1.tes_trade_broadcast.fields = function(buffer, offset, pack
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -14267,7 +14360,11 @@ eurex_t7_eti_fbe_v6_1.tes_trade_broadcast.fields = function(buffer, offset, pack
   index, root_party_id_order_origination_firm = eurex_t7_eti_fbe_v6_1.root_party_id_order_origination_firm.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   return index
 end
@@ -14317,7 +14414,11 @@ eurex_t7_eti_fbe_v6_1.tes_response.fields = function(buffer, offset, packet, par
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -14376,7 +14477,11 @@ eurex_t7_eti_fbe_v6_1.tes_execution_broadcast.fields = function(buffer, offset, 
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -14406,7 +14511,11 @@ eurex_t7_eti_fbe_v6_1.tes_execution_broadcast.fields = function(buffer, offset, 
   index, message_event_source = eurex_t7_eti_fbe_v6_1.message_event_source.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -14456,7 +14565,11 @@ eurex_t7_eti_fbe_v6_1.tes_delete_broadcast.fields = function(buffer, offset, pac
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -14489,7 +14602,11 @@ eurex_t7_eti_fbe_v6_1.tes_delete_broadcast.fields = function(buffer, offset, pac
   index, trade_report_id = eurex_t7_eti_fbe_v6_1.trade_report_id.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -14563,7 +14680,11 @@ eurex_t7_eti_fbe_v6_1.side_alloc_grp_bc_comp.fields = function(buffer, offset, p
   index, trade_alloc_status = eurex_t7_eti_fbe_v6_1.trade_alloc_status.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -14609,7 +14730,11 @@ eurex_t7_eti_fbe_v6_1.tes_broadcast.fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -14726,7 +14851,11 @@ eurex_t7_eti_fbe_v6_1.tes_broadcast.fields = function(buffer, offset, packet, pa
   index, underlying_issuer = eurex_t7_eti_fbe_v6_1.underlying_issuer.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad5.size
+  end
 
   -- Repeating: Side Alloc Grp Bc Comp
   for side_alloc_grp_bc_comp_index = 1, no_side_allocs do
@@ -14801,7 +14930,11 @@ eurex_t7_eti_fbe_v6_1.tes_approve_broadcast.fields = function(buffer, offset, pa
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -14975,7 +15108,11 @@ eurex_t7_eti_fbe_v6_1.tes_approve_broadcast.fields = function(buffer, offset, pa
   index, underlying_issuer = eurex_t7_eti_fbe_v6_1.underlying_issuer.dissect(buffer, index, packet, parent)
 
   -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2v2.size
+  end
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
@@ -15045,7 +15182,11 @@ eurex_t7_eti_fbe_v6_1.subscribe_response.fields = function(buffer, offset, packe
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -15054,7 +15195,11 @@ eurex_t7_eti_fbe_v6_1.subscribe_response.fields = function(buffer, offset, packe
   index, appl_sub_id = eurex_t7_eti_fbe_v6_1.appl_sub_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -15114,7 +15259,11 @@ eurex_t7_eti_fbe_v6_1.nrbc_header_comp.fields = function(buffer, offset, packet,
   index, last_fragment = eurex_t7_eti_fbe_v6_1.last_fragment.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   return index
 end
@@ -15160,7 +15309,11 @@ eurex_t7_eti_fbe_v6_1.service_availability_market_broadcast.fields = function(bu
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nrbc Header Comp: Struct of 5 fields
   index, nrbc_header_comp = eurex_t7_eti_fbe_v6_1.nrbc_header_comp.dissect(buffer, index, packet, parent)
@@ -15172,7 +15325,11 @@ eurex_t7_eti_fbe_v6_1.service_availability_market_broadcast.fields = function(bu
   index, selective_request_for_quote_service_status = eurex_t7_eti_fbe_v6_1.selective_request_for_quote_service_status.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -15222,7 +15379,11 @@ eurex_t7_eti_fbe_v6_1.service_availability_broadcast.fields = function(buffer, o
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nrbc Header Comp: Struct of 5 fields
   index, nrbc_header_comp = eurex_t7_eti_fbe_v6_1.nrbc_header_comp.dissect(buffer, index, packet, parent)
@@ -15261,7 +15422,11 @@ eurex_t7_eti_fbe_v6_1.service_availability_broadcast.fields = function(buffer, o
   index, t_7_entry_service_rtm_status = eurex_t7_eti_fbe_v6_1.t_7_entry_service_rtm_status.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad5.size
+  end
 
   return index
 end
@@ -15311,7 +15476,11 @@ eurex_t7_eti_fbe_v6_1.srqs_status_broadcast.fields = function(buffer, offset, pa
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -15323,7 +15492,11 @@ eurex_t7_eti_fbe_v6_1.srqs_status_broadcast.fields = function(buffer, offset, pa
   index, trad_ses_event = eurex_t7_eti_fbe_v6_1.trad_ses_event.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -15373,7 +15546,11 @@ eurex_t7_eti_fbe_v6_1.srqs_quote_response.fields = function(buffer, offset, pack
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -15435,7 +15612,11 @@ eurex_t7_eti_fbe_v6_1.srqs_quote_notification.fields = function(buffer, offset, 
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -15486,7 +15667,11 @@ eurex_t7_eti_fbe_v6_1.srqs_quote_notification.fields = function(buffer, offset, 
   index, free_text_1 = eurex_t7_eti_fbe_v6_1.free_text_1.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -15568,7 +15753,11 @@ eurex_t7_eti_fbe_v6_1.target_parties_comp.fields = function(buffer, offset, pack
   index, target_party_executing_trader = eurex_t7_eti_fbe_v6_1.target_party_executing_trader.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -15634,7 +15823,11 @@ eurex_t7_eti_fbe_v6_1.quot_req_legs_grp_comp.fields = function(buffer, offset, p
   index, leg_side = eurex_t7_eti_fbe_v6_1.leg_side.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -15680,7 +15873,11 @@ eurex_t7_eti_fbe_v6_1.srqs_open_negotiation_requester_notification.fields = func
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -15767,7 +15964,11 @@ eurex_t7_eti_fbe_v6_1.srqs_open_negotiation_requester_notification.fields = func
   index, firm_negotiation_id = eurex_t7_eti_fbe_v6_1.firm_negotiation_id.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   -- Repeating: Quot Req Legs Grp Comp
   for quot_req_legs_grp_comp_index = 1, no_legs do
@@ -15827,7 +16028,11 @@ eurex_t7_eti_fbe_v6_1.srqs_open_negotiation_notification.fields = function(buffe
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -15969,7 +16174,11 @@ eurex_t7_eti_fbe_v6_1.srqs_negotiation_status_notification.fields = function(buf
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -15987,7 +16196,11 @@ eurex_t7_eti_fbe_v6_1.srqs_negotiation_status_notification.fields = function(buf
   index, firm_negotiation_id = eurex_t7_eti_fbe_v6_1.firm_negotiation_id.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -16037,7 +16250,11 @@ eurex_t7_eti_fbe_v6_1.srqs_negotiation_requester_notification.fields = function(
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -16109,7 +16326,11 @@ eurex_t7_eti_fbe_v6_1.srqs_negotiation_requester_notification.fields = function(
   index, firm_negotiation_id = eurex_t7_eti_fbe_v6_1.firm_negotiation_id.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   -- Repeating: Target Parties Comp
   for target_parties_comp_index = 1, no_target_party_i_ds do
@@ -16164,7 +16385,11 @@ eurex_t7_eti_fbe_v6_1.srqs_negotiation_notification.fields = function(buffer, of
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -16233,7 +16458,11 @@ eurex_t7_eti_fbe_v6_1.srqs_negotiation_notification.fields = function(buffer, of
   index, firm_negotiation_id = eurex_t7_eti_fbe_v6_1.firm_negotiation_id.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -16283,7 +16512,11 @@ eurex_t7_eti_fbe_v6_1.srqs_deal_response.fields = function(buffer, offset, packe
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -16310,7 +16543,11 @@ eurex_t7_eti_fbe_v6_1.srqs_deal_response.fields = function(buffer, offset, packe
   index, firm_negotiation_id = eurex_t7_eti_fbe_v6_1.firm_negotiation_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -16360,7 +16597,11 @@ eurex_t7_eti_fbe_v6_1.srqs_deal_notification.fields = function(buffer, offset, p
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -16405,7 +16646,11 @@ eurex_t7_eti_fbe_v6_1.srqs_deal_notification.fields = function(buffer, offset, p
   index, firm_negotiation_id = eurex_t7_eti_fbe_v6_1.firm_negotiation_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -16483,7 +16728,11 @@ eurex_t7_eti_fbe_v6_1.order_book_item_grp_comp.fields = function(buffer, offset,
   index, md_sub_book_type = eurex_t7_eti_fbe_v6_1.md_sub_book_type.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -16529,7 +16778,11 @@ eurex_t7_eti_fbe_v6_1.srqs_create_deal_notification.fields = function(buffer, of
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -16659,7 +16912,11 @@ eurex_t7_eti_fbe_v6_1.risk_notification_broadcast.fields = function(buffer, offs
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -16692,7 +16949,11 @@ eurex_t7_eti_fbe_v6_1.risk_notification_broadcast.fields = function(buffer, offs
   index, requesting_party_clearing_firm = eurex_t7_eti_fbe_v6_1.requesting_party_clearing_firm.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -16742,7 +17003,11 @@ eurex_t7_eti_fbe_v6_1.retransmit_response.fields = function(buffer, offset, pack
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -16757,7 +17022,11 @@ eurex_t7_eti_fbe_v6_1.retransmit_response.fields = function(buffer, offset, pack
   index, appl_total_message_count = eurex_t7_eti_fbe_v6_1.appl_total_message_count.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -16807,7 +17076,11 @@ eurex_t7_eti_fbe_v6_1.retransmit_me_message_response.fields = function(buffer, o
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -16822,7 +17095,11 @@ eurex_t7_eti_fbe_v6_1.retransmit_me_message_response.fields = function(buffer, o
   index, ref_appl_last_msg_id = eurex_t7_eti_fbe_v6_1.ref_appl_last_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -16898,7 +17175,11 @@ eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.fields = function(buffer, offse
   index, last_fragment = eurex_t7_eti_fbe_v6_1.last_fragment.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -16944,7 +17225,11 @@ eurex_t7_eti_fbe_v6_1.reject.fields = function(buffer, offset, packet, parent, s
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -16959,7 +17244,11 @@ eurex_t7_eti_fbe_v6_1.reject.fields = function(buffer, offset, packet, parent, s
   index, session_status = eurex_t7_eti_fbe_v6_1.session_status.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v6_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -17026,7 +17315,11 @@ eurex_t7_eti_fbe_v6_1.rfq_response.fields = function(buffer, offset, packet, par
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -17106,7 +17399,11 @@ eurex_t7_eti_fbe_v6_1.quote_leg_exec_grp_comp.fields = function(buffer, offset, 
   index, no_quote_events_index = eurex_t7_eti_fbe_v6_1.no_quote_events_index.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -17234,7 +17531,11 @@ eurex_t7_eti_fbe_v6_1.quote_execution_report.fields = function(buffer, offset, p
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_t7_eti_fbe_v6_1.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -17252,7 +17553,11 @@ eurex_t7_eti_fbe_v6_1.quote_execution_report.fields = function(buffer, offset, p
   index, no_quote_events = eurex_t7_eti_fbe_v6_1.no_quote_events.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   -- Repeating: Quote Event Grp Comp
   for quote_event_grp_comp_index = 1, no_quote_events do
@@ -17358,7 +17663,11 @@ eurex_t7_eti_fbe_v6_1.quote_activation_response.fields = function(buffer, offset
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -17370,7 +17679,11 @@ eurex_t7_eti_fbe_v6_1.quote_activation_response.fields = function(buffer, offset
   index, no_not_affected_securities = eurex_t7_eti_fbe_v6_1.no_not_affected_securities.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
@@ -17425,7 +17738,11 @@ eurex_t7_eti_fbe_v6_1.quote_activation_notification.fields = function(buffer, of
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_t7_eti_fbe_v6_1.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -17458,7 +17775,11 @@ eurex_t7_eti_fbe_v6_1.quote_activation_notification.fields = function(buffer, of
   index, mass_action_reason = eurex_t7_eti_fbe_v6_1.mass_action_reason.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
@@ -17513,7 +17834,11 @@ eurex_t7_eti_fbe_v6_1.party_entitlements_update_report.fields = function(buffer,
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -17546,7 +17871,11 @@ eurex_t7_eti_fbe_v6_1.party_entitlements_update_report.fields = function(buffer,
   index, party_detail_status = eurex_t7_eti_fbe_v6_1.party_detail_status.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -17596,7 +17925,11 @@ eurex_t7_eti_fbe_v6_1.party_action_report.fields = function(buffer, offset, pack
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -17700,7 +18033,11 @@ eurex_t7_eti_fbe_v6_1.instrmnt_leg_exec_grp_comp.fields = function(buffer, offse
   index, fill_ref_id = eurex_t7_eti_fbe_v6_1.fill_ref_id.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -17766,7 +18103,11 @@ eurex_t7_eti_fbe_v6_1.fills_grp_comp.fields = function(buffer, offset, packet, p
   index, fill_liquidity_ind = eurex_t7_eti_fbe_v6_1.fill_liquidity_ind.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -17892,7 +18233,11 @@ eurex_t7_eti_fbe_v6_1.order_exec_response.fields = function(buffer, offset, pack
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = eurex_t7_eti_fbe_v6_1.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -17958,7 +18303,11 @@ eurex_t7_eti_fbe_v6_1.order_exec_response.fields = function(buffer, offset, pack
   index, no_fills = eurex_t7_eti_fbe_v6_1.no_fills.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad5.size
+  end
 
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
@@ -18026,7 +18375,11 @@ eurex_t7_eti_fbe_v6_1.leg_ord_grp_comp.fields = function(buffer, offset, packet,
   index, leg_position_effect = eurex_t7_eti_fbe_v6_1.leg_position_effect.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad5.size
+  end
 
   return index
 end
@@ -18072,7 +18425,11 @@ eurex_t7_eti_fbe_v6_1.order_exec_report_broadcast.fields = function(buffer, offs
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_t7_eti_fbe_v6_1.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -18228,7 +18585,11 @@ eurex_t7_eti_fbe_v6_1.order_exec_report_broadcast.fields = function(buffer, offs
   index, crossed_indicator = eurex_t7_eti_fbe_v6_1.crossed_indicator.dissect(buffer, index, packet, parent)
 
   -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2v2.size
+  end
 
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
@@ -18293,7 +18654,11 @@ eurex_t7_eti_fbe_v6_1.order_exec_notification.fields = function(buffer, offset, 
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_t7_eti_fbe_v6_1.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -18356,7 +18721,11 @@ eurex_t7_eti_fbe_v6_1.order_exec_notification.fields = function(buffer, offset, 
   index, no_fills = eurex_t7_eti_fbe_v6_1.no_fills.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
@@ -18416,7 +18785,11 @@ eurex_t7_eti_fbe_v6_1.news_broadcast.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -18431,7 +18804,11 @@ eurex_t7_eti_fbe_v6_1.news_broadcast.fields = function(buffer, offset, packet, p
   index, headline = eurex_t7_eti_fbe_v6_1.headline.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v6_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -18498,7 +18875,11 @@ eurex_t7_eti_fbe_v6_1.new_order_response.fields = function(buffer, offset, packe
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = eurex_t7_eti_fbe_v6_1.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -18540,7 +18921,11 @@ eurex_t7_eti_fbe_v6_1.new_order_response.fields = function(buffer, offset, packe
   index, triggered = eurex_t7_eti_fbe_v6_1.triggered.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   return index
 end
@@ -18590,7 +18975,11 @@ eurex_t7_eti_fbe_v6_1.new_order_nr_response.fields = function(buffer, offset, pa
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -18626,7 +19015,11 @@ eurex_t7_eti_fbe_v6_1.new_order_nr_response.fields = function(buffer, offset, pa
   index, triggered = eurex_t7_eti_fbe_v6_1.triggered.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   return index
 end
@@ -18676,7 +19069,11 @@ eurex_t7_eti_fbe_v6_1.modify_order_response.fields = function(buffer, offset, pa
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = eurex_t7_eti_fbe_v6_1.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -18727,7 +19124,11 @@ eurex_t7_eti_fbe_v6_1.modify_order_response.fields = function(buffer, offset, pa
   index, triggered = eurex_t7_eti_fbe_v6_1.triggered.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad5.size
+  end
 
   return index
 end
@@ -18777,7 +19178,11 @@ eurex_t7_eti_fbe_v6_1.modify_order_nr_response.fields = function(buffer, offset,
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -18825,7 +19230,11 @@ eurex_t7_eti_fbe_v6_1.modify_order_nr_response.fields = function(buffer, offset,
   index, triggered = eurex_t7_eti_fbe_v6_1.triggered.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad5.size
+  end
 
   return index
 end
@@ -18895,7 +19304,11 @@ eurex_t7_eti_fbe_v6_1.quote_entry_ack_grp_comp.fields = function(buffer, offset,
   index, quote_entry_status = eurex_t7_eti_fbe_v6_1.quote_entry_status.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -18941,7 +19354,11 @@ eurex_t7_eti_fbe_v6_1.mass_quote_response.fields = function(buffer, offset, pack
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -18959,7 +19376,11 @@ eurex_t7_eti_fbe_v6_1.mass_quote_response.fields = function(buffer, offset, pack
   index, no_quote_entries = eurex_t7_eti_fbe_v6_1.no_quote_entries.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   -- Repeating: Quote Entry Ack Grp Comp
   for quote_entry_ack_grp_comp_index = 1, no_quote_entries do
@@ -19014,7 +19435,11 @@ eurex_t7_eti_fbe_v6_1.mm_parameter_definition_response.fields = function(buffer,
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -19070,7 +19495,11 @@ eurex_t7_eti_fbe_v6_1.logout_response.fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -19123,7 +19552,11 @@ eurex_t7_eti_fbe_v6_1.logon_response.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -19156,7 +19589,11 @@ eurex_t7_eti_fbe_v6_1.logon_response.fields = function(buffer, offset, packet, p
   index, default_cstm_appl_ver_sub_id = eurex_t7_eti_fbe_v6_1.default_cstm_appl_ver_sub_id.dissect(buffer, index, packet, parent)
 
   -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2v2.size
+  end
 
   return index
 end
@@ -19206,7 +19643,11 @@ eurex_t7_eti_fbe_v6_1.legal_notification_broadcast.fields = function(buffer, off
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_t7_eti_fbe_v6_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -19221,7 +19662,11 @@ eurex_t7_eti_fbe_v6_1.legal_notification_broadcast.fields = function(buffer, off
   index, user_status = eurex_t7_eti_fbe_v6_1.user_status.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad5.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v6_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -19308,7 +19753,11 @@ eurex_t7_eti_fbe_v6_1.party_details_grp_comp.fields = function(buffer, offset, p
   index, party_detail_desk_id = eurex_t7_eti_fbe_v6_1.party_detail_desk_id.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   return index
 end
@@ -19354,7 +19803,11 @@ eurex_t7_eti_fbe_v6_1.inquire_user_response.fields = function(buffer, offset, pa
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -19366,7 +19819,11 @@ eurex_t7_eti_fbe_v6_1.inquire_user_response.fields = function(buffer, offset, pa
   index, no_party_details = eurex_t7_eti_fbe_v6_1.no_party_details.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   -- Repeating: Party Details Grp Comp
   for party_details_grp_comp_index = 1, no_party_details do
@@ -19433,7 +19890,11 @@ eurex_t7_eti_fbe_v6_1.sessions_grp_comp.fields = function(buffer, offset, packet
   index, session_sub_mode = eurex_t7_eti_fbe_v6_1.session_sub_mode.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   return index
 end
@@ -19479,7 +19940,11 @@ eurex_t7_eti_fbe_v6_1.inquire_session_list_response.fields = function(buffer, of
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -19488,7 +19953,11 @@ eurex_t7_eti_fbe_v6_1.inquire_session_list_response.fields = function(buffer, of
   index, no_sessions = eurex_t7_eti_fbe_v6_1.no_sessions.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   -- Repeating: Sessions Grp Comp
   for sessions_grp_comp_index = 1, no_sessions do
@@ -19567,7 +20036,11 @@ eurex_t7_eti_fbe_v6_1.mm_parameter_grp_comp.fields = function(buffer, offset, pa
   index, product_complex = eurex_t7_eti_fbe_v6_1.product_complex.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -19613,7 +20086,11 @@ eurex_t7_eti_fbe_v6_1.inquire_mm_parameter_response.fields = function(buffer, of
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -19628,7 +20105,11 @@ eurex_t7_eti_fbe_v6_1.inquire_mm_parameter_response.fields = function(buffer, of
   index, no_mm_parameters = eurex_t7_eti_fbe_v6_1.no_mm_parameters.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   -- Repeating: Mm Parameter Grp Comp
   for mm_parameter_grp_comp_index = 1, no_mm_parameters do
@@ -19723,7 +20204,11 @@ eurex_t7_eti_fbe_v6_1.enrichment_rules_grp_comp.fields = function(buffer, offset
   index, free_text_3 = eurex_t7_eti_fbe_v6_1.free_text_3.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   return index
 end
@@ -19769,7 +20254,11 @@ eurex_t7_eti_fbe_v6_1.inquire_enrichment_rule_id_list_response.fields = function
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -19781,7 +20270,11 @@ eurex_t7_eti_fbe_v6_1.inquire_enrichment_rule_id_list_response.fields = function
   index, no_enrichment_rules = eurex_t7_eti_fbe_v6_1.no_enrichment_rules.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   -- Repeating: Enrichment Rules Grp Comp
   for enrichment_rules_grp_comp_index = 1, no_enrichment_rules do
@@ -19836,7 +20329,11 @@ eurex_t7_eti_fbe_v6_1.heartbeat_notification.fields = function(buffer, offset, p
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_t7_eti_fbe_v6_1.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -19889,7 +20386,11 @@ eurex_t7_eti_fbe_v6_1.gateway_response.fields = function(buffer, offset, packet,
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_t7_eti_fbe_v6_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -19919,7 +20420,11 @@ eurex_t7_eti_fbe_v6_1.gateway_response.fields = function(buffer, offset, packet,
   index, trad_ses_mode = eurex_t7_eti_fbe_v6_1.trad_ses_mode.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -19969,7 +20474,11 @@ eurex_t7_eti_fbe_v6_1.forced_user_logout_notification.fields = function(buffer, 
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_t7_eti_fbe_v6_1.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -19978,7 +20487,11 @@ eurex_t7_eti_fbe_v6_1.forced_user_logout_notification.fields = function(buffer, 
   index, user_status = eurex_t7_eti_fbe_v6_1.user_status.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
   index, username = eurex_t7_eti_fbe_v6_1.username.dissect(buffer, index, packet, parent)
@@ -19987,7 +20500,11 @@ eurex_t7_eti_fbe_v6_1.forced_user_logout_notification.fields = function(buffer, 
   index, var_text_len = eurex_t7_eti_fbe_v6_1.var_text_len.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v6_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -20054,7 +20571,11 @@ eurex_t7_eti_fbe_v6_1.forced_logout_notification.fields = function(buffer, offse
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_t7_eti_fbe_v6_1.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -20063,7 +20584,11 @@ eurex_t7_eti_fbe_v6_1.forced_logout_notification.fields = function(buffer, offse
   index, var_text_len = eurex_t7_eti_fbe_v6_1.var_text_len.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v6_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -20130,7 +20655,11 @@ eurex_t7_eti_fbe_v6_1.delete_order_response.fields = function(buffer, offset, pa
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = eurex_t7_eti_fbe_v6_1.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -20169,7 +20698,11 @@ eurex_t7_eti_fbe_v6_1.delete_order_response.fields = function(buffer, offset, pa
   index, product_complex = eurex_t7_eti_fbe_v6_1.product_complex.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -20219,7 +20752,11 @@ eurex_t7_eti_fbe_v6_1.delete_order_nr_response.fields = function(buffer, offset,
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -20258,7 +20795,11 @@ eurex_t7_eti_fbe_v6_1.delete_order_nr_response.fields = function(buffer, offset,
   index, product_complex = eurex_t7_eti_fbe_v6_1.product_complex.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -20308,7 +20849,11 @@ eurex_t7_eti_fbe_v6_1.delete_order_broadcast.fields = function(buffer, offset, p
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_t7_eti_fbe_v6_1.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -20365,7 +20910,11 @@ eurex_t7_eti_fbe_v6_1.delete_order_broadcast.fields = function(buffer, offset, p
   index, fix_cl_ord_id = eurex_t7_eti_fbe_v6_1.fix_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   return index
 end
@@ -20415,7 +20964,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_quote_response.fields = function(buffer, offset
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -20427,7 +20980,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_quote_response.fields = function(buffer, offset
   index, no_not_affected_securities = eurex_t7_eti_fbe_v6_1.no_not_affected_securities.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
@@ -20482,7 +21039,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_quote_broadcast.fields = function(buffer, offse
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_t7_eti_fbe_v6_1.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -20518,7 +21079,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_quote_broadcast.fields = function(buffer, offse
   index, target_party_id_desk_id = eurex_t7_eti_fbe_v6_1.target_party_id_desk_id.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
@@ -20623,7 +21188,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_order_response.fields = function(buffer, offset
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = eurex_t7_eti_fbe_v6_1.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -20635,7 +21204,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_order_response.fields = function(buffer, offset
   index, no_not_affected_orders = eurex_t7_eti_fbe_v6_1.no_not_affected_orders.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   -- Repeating: Not Affected Orders Grp Comp
   for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
@@ -20690,7 +21263,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_order_quote_event_broadcast.fields = function(b
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_t7_eti_fbe_v6_1.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -20711,7 +21288,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_order_quote_event_broadcast.fields = function(b
   index, exec_inst = eurex_t7_eti_fbe_v6_1.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2v2.size
+  end
 
   return index
 end
@@ -20761,7 +21342,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_order_nr_response.fields = function(buffer, off
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -20817,7 +21402,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_order_broadcast.fields = function(buffer, offse
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_t7_eti_fbe_v6_1.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -20859,7 +21448,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_order_broadcast.fields = function(buffer, offse
   index, side = eurex_t7_eti_fbe_v6_1.side.dissect(buffer, index, packet, parent)
 
   -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2v2.size
+  end
 
   -- Repeating: Not Affected Orders Grp Comp
   for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
@@ -20914,7 +21507,11 @@ eurex_t7_eti_fbe_v6_1.cross_request_response.fields = function(buffer, offset, p
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -20970,7 +21567,11 @@ eurex_t7_eti_fbe_v6_1.broadcast_error_notification.fields = function(buffer, off
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_t7_eti_fbe_v6_1.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -20991,7 +21592,11 @@ eurex_t7_eti_fbe_v6_1.broadcast_error_notification.fields = function(buffer, off
   index, session_status = eurex_t7_eti_fbe_v6_1.session_status.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v6_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
@@ -21058,7 +21663,11 @@ eurex_t7_eti_fbe_v6_1.add_flexible_instrument_response.fields = function(buffer,
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -21097,7 +21706,11 @@ eurex_t7_eti_fbe_v6_1.add_flexible_instrument_response.fields = function(buffer,
   index, symbol = eurex_t7_eti_fbe_v6_1.symbol.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -21171,7 +21784,11 @@ eurex_t7_eti_fbe_v6_1.instrmt_leg_grp_comp.fields = function(buffer, offset, pac
   index, leg_security_type = eurex_t7_eti_fbe_v6_1.leg_security_type.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -21217,7 +21834,11 @@ eurex_t7_eti_fbe_v6_1.add_complex_instrument_response.fields = function(buffer, 
   local index = offset
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_t7_eti_fbe_v6_1.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -21596,7 +22217,11 @@ eurex_t7_eti_fbe_v6_1.user_logout_request.fields = function(buffer, offset, pack
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -21605,7 +22230,11 @@ eurex_t7_eti_fbe_v6_1.user_logout_request.fields = function(buffer, offset, pack
   index, username = eurex_t7_eti_fbe_v6_1.username.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -21658,7 +22287,11 @@ eurex_t7_eti_fbe_v6_1.user_login_request.fields = function(buffer, offset, packe
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -21670,7 +22303,11 @@ eurex_t7_eti_fbe_v6_1.user_login_request.fields = function(buffer, offset, packe
   index, password = eurex_t7_eti_fbe_v6_1.password.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -21723,7 +22360,11 @@ eurex_t7_eti_fbe_v6_1.upload_tes_trade_request.fields = function(buffer, offset,
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -21900,7 +22541,11 @@ eurex_t7_eti_fbe_v6_1.unsubscribe_request.fields = function(buffer, offset, pack
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -21909,7 +22554,11 @@ eurex_t7_eti_fbe_v6_1.unsubscribe_request.fields = function(buffer, offset, pack
   index, ref_appl_sub_id = eurex_t7_eti_fbe_v6_1.ref_appl_sub_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -21962,7 +22611,11 @@ eurex_t7_eti_fbe_v6_1.subscribe_request.fields = function(buffer, offset, packet
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -21974,7 +22627,11 @@ eurex_t7_eti_fbe_v6_1.subscribe_request.fields = function(buffer, offset, packet
   index, ref_appl_id = eurex_t7_eti_fbe_v6_1.ref_appl_id.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -22027,7 +22684,11 @@ eurex_t7_eti_fbe_v6_1.srqs_update_negotiation_request.fields = function(buffer, 
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -22075,7 +22736,11 @@ eurex_t7_eti_fbe_v6_1.srqs_update_negotiation_request.fields = function(buffer, 
   index, party_executing_trader = eurex_t7_eti_fbe_v6_1.party_executing_trader.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   -- Repeating: Target Parties Comp
   for target_parties_comp_index = 1, no_target_party_i_ds do
@@ -22133,7 +22798,11 @@ eurex_t7_eti_fbe_v6_1.srqs_update_deal_status_request.fields = function(buffer, 
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -22207,7 +22876,11 @@ eurex_t7_eti_fbe_v6_1.srqs_open_negotiation_request.fields = function(buffer, of
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -22273,7 +22946,11 @@ eurex_t7_eti_fbe_v6_1.srqs_open_negotiation_request.fields = function(buffer, of
   index, quote_req_id = eurex_t7_eti_fbe_v6_1.quote_req_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   -- Repeating: Quot Req Legs Grp Comp
   for quot_req_legs_grp_comp_index = 1, no_legs do
@@ -22336,7 +23013,11 @@ eurex_t7_eti_fbe_v6_1.srqs_hit_quote_request.fields = function(buffer, offset, p
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -22378,7 +23059,11 @@ eurex_t7_eti_fbe_v6_1.srqs_hit_quote_request.fields = function(buffer, offset, p
   index, free_text_1 = eurex_t7_eti_fbe_v6_1.free_text_1.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -22431,7 +23116,11 @@ eurex_t7_eti_fbe_v6_1.srqs_enter_quote_request.fields = function(buffer, offset,
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -22523,7 +23212,11 @@ eurex_t7_eti_fbe_v6_1.retransmit_request.fields = function(buffer, offset, packe
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -22541,7 +23234,11 @@ eurex_t7_eti_fbe_v6_1.retransmit_request.fields = function(buffer, offset, packe
   index, ref_appl_id = eurex_t7_eti_fbe_v6_1.ref_appl_id.dissect(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad5 = eurex_t7_eti_fbe_v6_1.pad5.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad5.size
+  end
 
   return index
 end
@@ -22594,7 +23291,11 @@ eurex_t7_eti_fbe_v6_1.retransmit_me_message_request.fields = function(buffer, of
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -22615,7 +23316,11 @@ eurex_t7_eti_fbe_v6_1.retransmit_me_message_request.fields = function(buffer, of
   index, appl_end_msg_id = eurex_t7_eti_fbe_v6_1.appl_end_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   return index
 end
@@ -22668,7 +23373,11 @@ eurex_t7_eti_fbe_v6_1.rfq_request.fields = function(buffer, offset, packet, pare
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -22689,7 +23398,11 @@ eurex_t7_eti_fbe_v6_1.rfq_request.fields = function(buffer, offset, packet, pare
   index, compliance_text = eurex_t7_eti_fbe_v6_1.compliance_text.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -22742,7 +23455,11 @@ eurex_t7_eti_fbe_v6_1.quote_activation_request.fields = function(buffer, offset,
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -22775,7 +23492,11 @@ eurex_t7_eti_fbe_v6_1.quote_activation_request.fields = function(buffer, offset,
   index, executing_trader_qualifier = eurex_t7_eti_fbe_v6_1.executing_trader_qualifier.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -22828,7 +23549,11 @@ eurex_t7_eti_fbe_v6_1.new_order_single_short_request.fields = function(buffer, o
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -22941,7 +23666,11 @@ eurex_t7_eti_fbe_v6_1.new_order_single_request.fields = function(buffer, offset,
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -23108,7 +23837,11 @@ eurex_t7_eti_fbe_v6_1.new_order_complex_short_request.fields = function(buffer, 
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -23177,7 +23910,11 @@ eurex_t7_eti_fbe_v6_1.new_order_complex_short_request.fields = function(buffer, 
   index, executing_trader_qualifier = eurex_t7_eti_fbe_v6_1.executing_trader_qualifier.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -23230,7 +23967,11 @@ eurex_t7_eti_fbe_v6_1.new_order_complex_request.fields = function(buffer, offset
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -23341,7 +24082,11 @@ eurex_t7_eti_fbe_v6_1.new_order_complex_request.fields = function(buffer, offset
   index, no_legs = eurex_t7_eti_fbe_v6_1.no_legs.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
@@ -23416,7 +24161,11 @@ eurex_t7_eti_fbe_v6_1.side_alloc_grp_comp.fields = function(buffer, offset, pack
   index, party_executing_trader = eurex_t7_eti_fbe_v6_1.party_executing_trader.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -23465,7 +24214,11 @@ eurex_t7_eti_fbe_v6_1.modify_tes_trade_request.fields = function(buffer, offset,
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -23516,7 +24269,11 @@ eurex_t7_eti_fbe_v6_1.modify_tes_trade_request.fields = function(buffer, offset,
   index, trade_report_id = eurex_t7_eti_fbe_v6_1.trade_report_id.dissect(buffer, index, packet, parent)
 
   -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2v2.size
+  end
 
   -- Repeating: Side Alloc Grp Comp
   for side_alloc_grp_comp_index = 1, no_side_allocs do
@@ -23579,7 +24336,11 @@ eurex_t7_eti_fbe_v6_1.modify_order_single_short_request.fields = function(buffer
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -23695,7 +24456,11 @@ eurex_t7_eti_fbe_v6_1.modify_order_single_request.fields = function(buffer, offs
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -23821,7 +24586,11 @@ eurex_t7_eti_fbe_v6_1.modify_order_single_request.fields = function(buffer, offs
   index, fix_cl_ord_id = eurex_t7_eti_fbe_v6_1.fix_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -23874,7 +24643,11 @@ eurex_t7_eti_fbe_v6_1.modify_order_complex_short_request.fields = function(buffe
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -23946,7 +24719,11 @@ eurex_t7_eti_fbe_v6_1.modify_order_complex_short_request.fields = function(buffe
   index, executing_trader_qualifier = eurex_t7_eti_fbe_v6_1.executing_trader_qualifier.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -23999,7 +24776,11 @@ eurex_t7_eti_fbe_v6_1.modify_order_complex_request.fields = function(buffer, off
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -24119,7 +24900,11 @@ eurex_t7_eti_fbe_v6_1.modify_order_complex_request.fields = function(buffer, off
   index, no_legs = eurex_t7_eti_fbe_v6_1.no_legs.dissect(buffer, index, packet, parent)
 
   -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2v2.size
+  end
 
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
@@ -24239,7 +25024,11 @@ eurex_t7_eti_fbe_v6_1.mass_quote_request.fields = function(buffer, offset, packe
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -24287,7 +25076,11 @@ eurex_t7_eti_fbe_v6_1.mass_quote_request.fields = function(buffer, offset, packe
   index, executing_trader_qualifier = eurex_t7_eti_fbe_v6_1.executing_trader_qualifier.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   -- Repeating: Quote Entry Grp Comp
   for quote_entry_grp_comp_index = 1, no_quote_entries do
@@ -24345,7 +25138,11 @@ eurex_t7_eti_fbe_v6_1.mm_parameter_definition_request.fields = function(buffer, 
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -24375,7 +25172,11 @@ eurex_t7_eti_fbe_v6_1.mm_parameter_definition_request.fields = function(buffer, 
   index, product_complex = eurex_t7_eti_fbe_v6_1.product_complex.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad7 = eurex_t7_eti_fbe_v6_1.pad7.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad7.size
+  end
 
   return index
 end
@@ -24428,7 +25229,11 @@ eurex_t7_eti_fbe_v6_1.logout_request.fields = function(buffer, offset, packet, p
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -24484,7 +25289,11 @@ eurex_t7_eti_fbe_v6_1.logon_request.fields = function(buffer, offset, packet, pa
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -24529,7 +25338,11 @@ eurex_t7_eti_fbe_v6_1.logon_request.fields = function(buffer, offset, packet, pa
   index, application_system_vendor = eurex_t7_eti_fbe_v6_1.application_system_vendor.dissect(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad3 = eurex_t7_eti_fbe_v6_1.pad3.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad3.size
+  end
 
   return index
 end
@@ -24582,7 +25395,11 @@ eurex_t7_eti_fbe_v6_1.inquire_user_request.fields = function(buffer, offset, pac
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -24641,7 +25458,11 @@ eurex_t7_eti_fbe_v6_1.inquire_session_list_request.fields = function(buffer, off
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -24697,7 +25518,11 @@ eurex_t7_eti_fbe_v6_1.inquire_mm_parameter_request.fields = function(buffer, off
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -24759,7 +25584,11 @@ eurex_t7_eti_fbe_v6_1.inquire_enrichment_rule_id_list_request.fields = function(
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -24818,7 +25647,11 @@ eurex_t7_eti_fbe_v6_1.heartbeat.fields = function(buffer, offset, packet, parent
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   return index
 end
@@ -24871,7 +25704,11 @@ eurex_t7_eti_fbe_v6_1.gateway_request.fields = function(buffer, offset, packet, 
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -24889,7 +25726,11 @@ eurex_t7_eti_fbe_v6_1.gateway_request.fields = function(buffer, offset, packet, 
   index, password = eurex_t7_eti_fbe_v6_1.password.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -24942,7 +25783,11 @@ eurex_t7_eti_fbe_v6_1.enter_tes_trade_request.fields = function(buffer, offset, 
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -25041,7 +25886,11 @@ eurex_t7_eti_fbe_v6_1.enter_tes_trade_request.fields = function(buffer, offset, 
   index, underlying_issuer = eurex_t7_eti_fbe_v6_1.underlying_issuer.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   -- Repeating: Side Alloc Grp Comp
   for side_alloc_grp_comp_index = 1, no_side_allocs do
@@ -25119,7 +25968,11 @@ eurex_t7_eti_fbe_v6_1.delete_tes_trade_request.fields = function(buffer, offset,
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -25146,7 +25999,11 @@ eurex_t7_eti_fbe_v6_1.delete_tes_trade_request.fields = function(buffer, offset,
   index, trade_report_id = eurex_t7_eti_fbe_v6_1.trade_report_id.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   return index
 end
@@ -25199,7 +26056,11 @@ eurex_t7_eti_fbe_v6_1.delete_order_single_request.fields = function(buffer, offs
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -25238,7 +26099,11 @@ eurex_t7_eti_fbe_v6_1.delete_order_single_request.fields = function(buffer, offs
   index, fix_cl_ord_id = eurex_t7_eti_fbe_v6_1.fix_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -25291,7 +26156,11 @@ eurex_t7_eti_fbe_v6_1.delete_order_complex_request.fields = function(buffer, off
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -25330,7 +26199,11 @@ eurex_t7_eti_fbe_v6_1.delete_order_complex_request.fields = function(buffer, off
   index, fix_cl_ord_id = eurex_t7_eti_fbe_v6_1.fix_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2v2.size
+  end
 
   return index
 end
@@ -25383,7 +26256,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_quote_request.fields = function(buffer, offset,
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -25407,7 +26284,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_quote_request.fields = function(buffer, offset,
   index, executing_trader_qualifier = eurex_t7_eti_fbe_v6_1.executing_trader_qualifier.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -25460,7 +26341,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_order_request.fields = function(buffer, offset,
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -25496,7 +26381,11 @@ eurex_t7_eti_fbe_v6_1.delete_all_order_request.fields = function(buffer, offset,
   index, executing_trader_qualifier = eurex_t7_eti_fbe_v6_1.executing_trader_qualifier.dissect(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad1 = eurex_t7_eti_fbe_v6_1.pad1.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad1.size
+  end
 
   return index
 end
@@ -25549,7 +26438,11 @@ eurex_t7_eti_fbe_v6_1.cross_request.fields = function(buffer, offset, packet, pa
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -25567,7 +26460,11 @@ eurex_t7_eti_fbe_v6_1.cross_request.fields = function(buffer, offset, packet, pa
   index, compliance_text = eurex_t7_eti_fbe_v6_1.compliance_text.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad4 = eurex_t7_eti_fbe_v6_1.pad4.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad4.size
+  end
 
   return index
 end
@@ -25620,7 +26517,11 @@ eurex_t7_eti_fbe_v6_1.approve_tes_trade_request.fields = function(buffer, offset
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -25719,7 +26620,11 @@ eurex_t7_eti_fbe_v6_1.approve_tes_trade_request.fields = function(buffer, offset
   index, compliance_text = eurex_t7_eti_fbe_v6_1.compliance_text.dissect(buffer, index, packet, parent)
 
   -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad6 = eurex_t7_eti_fbe_v6_1.pad6.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad6.size
+  end
 
   return index
 end
@@ -25772,7 +26677,11 @@ eurex_t7_eti_fbe_v6_1.add_flexible_instrument_request.fields = function(buffer, 
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -25852,7 +26761,11 @@ eurex_t7_eti_fbe_v6_1.add_complex_instrument_request.fields = function(buffer, o
   index, network_msg_id = eurex_t7_eti_fbe_v6_1.network_msg_id.dissect(buffer, index, packet, parent)
 
   -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2 = eurex_t7_eti_fbe_v6_1.pad2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2.size
+  end
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_eti_fbe_v6_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -25873,7 +26786,11 @@ eurex_t7_eti_fbe_v6_1.add_complex_instrument_request.fields = function(buffer, o
   index, compliance_text = eurex_t7_eti_fbe_v6_1.compliance_text.dissect(buffer, index, packet, parent)
 
   -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad2v2 = eurex_t7_eti_fbe_v6_1.pad2v2.dissect(buffer, index, packet, parent)
+  else
+    index = index + eurex_t7_eti_fbe_v6_1.pad2v2.size
+  end
 
   -- Repeating: Instrmt Leg Grp Comp
   for instrmt_leg_grp_comp_index = 1, no_legs do

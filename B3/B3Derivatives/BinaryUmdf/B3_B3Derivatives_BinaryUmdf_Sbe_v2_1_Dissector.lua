@@ -305,6 +305,7 @@ show.application_messages = true
 show.structs = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register B3 B3Derivatives BinaryUmdf Sbe 2.1 Show Options
@@ -312,6 +313,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_application_messages = Pref.
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -325,6 +327,9 @@ function omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs_changed()
   end
   if show.headers ~= omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_headers then
     show.headers = omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_headers
+  end
+  if show.padding ~= omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_padding then
+    show.padding = omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_padding
   end
   if show.repeating_groups ~= omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_repeating_groups then
     show.repeating_groups = omi_b3_b3derivatives_binaryumdf_sbe_v2_1.prefs.show_repeating_groups
@@ -5555,7 +5560,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.trade_bust_57_message.fields = function(buf
   index, trading_session_id = b3_b3derivatives_binaryumdf_sbe_v2_1.trading_session_id.dissect(buffer, index, packet, parent)
 
   -- Offset 10 Padding 2: 2 Byte
-  index, offset_10_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_10_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_10_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_10_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_10_padding_2.size
+  end
 
   -- Md Future Price: Price
   index, md_future_price = b3_b3derivatives_binaryumdf_sbe_v2_1.md_future_price.dissect(buffer, index, packet, parent)
@@ -5570,7 +5579,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.trade_bust_57_message.fields = function(buf
   index, trade_date = b3_b3derivatives_binaryumdf_sbe_v2_1.trade_date.dissect(buffer, index, packet, parent)
 
   -- Offset 34 Padding 2: 2 Byte
-  index, offset_34_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_34_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_34_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_34_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_34_padding_2.size
+  end
 
   -- Transact Time: UTCTimestampNanos
   index, transact_time = b3_b3derivatives_binaryumdf_sbe_v2_1.transact_time.dissect(buffer, index, packet, parent)
@@ -5705,13 +5718,21 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.execution_summary_55_message.fields = funct
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_1.security_id.dissect(buffer, index, packet, parent)
 
   -- Offset 8 Padding 2: 2 Byte
-  index, offset_8_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_8_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_8_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_8_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_8_padding_2.size
+  end
 
   -- Aggressor Side: AggressorSide
   index, aggressor_side = b3_b3derivatives_binaryumdf_sbe_v2_1.aggressor_side.dissect(buffer, index, packet, parent)
 
   -- Offset 11 Padding 1: 1 Byte
-  index, offset_11_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_11_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.size
+  end
 
   -- Last Px: Price
   index, last_px = b3_b3derivatives_binaryumdf_sbe_v2_1.last_px.dissect(buffer, index, packet, parent)
@@ -5977,7 +5998,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.forward_trade_54_message.fields = function(
   index, trd_sub_type = b3_b3derivatives_binaryumdf_sbe_v2_1.trd_sub_type.dissect(buffer, index, packet, parent)
 
   -- Padding 3: 3 Byte
-  index, padding_3 = b3_b3derivatives_binaryumdf_sbe_v2_1.padding_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_3 = b3_b3derivatives_binaryumdf_sbe_v2_1.padding_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.padding_3.size
+  end
 
   return index
 end
@@ -6063,7 +6088,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.trade_53_message.fields = function(buffer, 
   index, trd_sub_type = b3_b3derivatives_binaryumdf_sbe_v2_1.trd_sub_type.dissect(buffer, index, packet, parent)
 
   -- Offset 43 Padding 1: 1 Byte
-  index, offset_43_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_43_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_43_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_43_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_43_padding_1.size
+  end
 
   -- Transact Time: UTCTimestampNanos
   index, transact_time = b3_b3derivatives_binaryumdf_sbe_v2_1.transact_time.dissect(buffer, index, packet, parent)
@@ -6128,7 +6157,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.mass_delete_orders_mb_o_52_message.fields =
   index, md_entry_type = b3_b3derivatives_binaryumdf_sbe_v2_1.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Offset 11 Padding 1: 1 Byte
-  index, offset_11_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_11_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.size
+  end
 
   -- Md Entry Position No: MDEntryPositionNo
   index, md_entry_position_no = b3_b3derivatives_binaryumdf_sbe_v2_1.md_entry_position_no.dissect(buffer, index, packet, parent)
@@ -6193,13 +6226,21 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.delete_order_mb_o_51_message.fields = funct
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_1.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
-  index, offset_9_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_9_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_1.size
+  end
 
   -- Md Entry Type: MDEntryType
   index, md_entry_type = b3_b3derivatives_binaryumdf_sbe_v2_1.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Offset 11 Padding 1: 1 Byte
-  index, offset_11_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_11_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.size
+  end
 
   -- Md Entry Position No: MDEntryPositionNo
   index, md_entry_position_no = b3_b3derivatives_binaryumdf_sbe_v2_1.md_entry_position_no.dissect(buffer, index, packet, parent)
@@ -6281,7 +6322,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.order_mb_o_50_message.fields = function(buf
   index, md_entry_type = b3_b3derivatives_binaryumdf_sbe_v2_1.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Offset 11 Padding 1: 1 Byte
-  index, offset_11_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_11_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.size
+  end
 
   -- Md Corporate Offset Price Optional: PriceOptional
   index, md_corporate_offset_price_optional = b3_b3derivatives_binaryumdf_sbe_v2_1.md_corporate_offset_price_optional.dissect(buffer, index, packet, parent)
@@ -6371,7 +6416,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.snapshot_full_refresh_header_30_message.fie
   index, tot_num_stats = b3_b3derivatives_binaryumdf_sbe_v2_1.tot_num_stats.dissect(buffer, index, packet, parent)
 
   -- Offset 26 Padding 2: 2 Byte
-  index, offset_26_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_26_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_26_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_26_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_26_padding_2.size
+  end
 
   -- Last Rpt Seq: RptSeq
   index, last_rpt_seq = b3_b3derivatives_binaryumdf_sbe_v2_1.last_rpt_seq.dissect(buffer, index, packet, parent)
@@ -6429,7 +6478,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.open_interest_29_message.fields = function(
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_1.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
-  index, offset_9_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_9_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_1.size
+  end
 
   -- Trade Date: LocalMktDate
   index, trade_date = b3_b3derivatives_binaryumdf_sbe_v2_1.trade_date.dissect(buffer, index, packet, parent)
@@ -6497,7 +6550,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.settlement_price_28_message.fields = functi
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_1.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
-  index, offset_9_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_9_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_1.size
+  end
 
   -- Trade Date: LocalMktDate
   index, trade_date = b3_b3derivatives_binaryumdf_sbe_v2_1.trade_date.dissect(buffer, index, packet, parent)
@@ -6521,7 +6578,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.settlement_price_28_message.fields = functi
   index, rpt_seq = b3_b3derivatives_binaryumdf_sbe_v2_1.rpt_seq.dissect(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
-  index, padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.padding_1.size
+  end
 
   return index
 end
@@ -6621,7 +6682,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.last_trade_price_27_message.fields = functi
   index, trd_sub_type = b3_b3derivatives_binaryumdf_sbe_v2_1.trd_sub_type.dissect(buffer, index, packet, parent)
 
   -- Padding 3: 3 Byte
-  index, padding_3 = b3_b3derivatives_binaryumdf_sbe_v2_1.padding_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_3 = b3_b3derivatives_binaryumdf_sbe_v2_1.padding_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.padding_3.size
+  end
 
   return index
 end
@@ -6877,7 +6942,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.quantity_band_21_message.fields = function(
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_1.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 3: 3 Byte
-  index, offset_9_padding_3 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_9_padding_3 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_3.size
+  end
 
   -- Avg Daily Traded Qty: QuantityVolumeOptional
   index, avg_daily_traded_qty = b3_b3derivatives_binaryumdf_sbe_v2_1.avg_daily_traded_qty.dissect(buffer, index, packet, parent)
@@ -7116,7 +7185,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.closing_price_17_message.fields = function(
   index, open_close_settl_flag = b3_b3derivatives_binaryumdf_sbe_v2_1.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Offset 10 Padding 2: 2 Byte
-  index, offset_10_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_10_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_10_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_10_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_10_padding_2.size
+  end
 
   -- Md Corporate Price: Price8
   index, md_corporate_price = b3_b3derivatives_binaryumdf_sbe_v2_1.md_corporate_price.dissect(buffer, index, packet, parent)
@@ -7261,7 +7334,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.opening_price_15_message.fields = function(
   index, open_close_settl_flag = b3_b3derivatives_binaryumdf_sbe_v2_1.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Offset 11 Padding 1: 1 Byte
-  index, offset_11_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_11_padding_1 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_11_padding_1.size
+  end
 
   -- Md Future Price: Price
   index, md_future_price = b3_b3derivatives_binaryumdf_sbe_v2_1.md_future_price.dissect(buffer, index, packet, parent)
@@ -7279,7 +7356,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.opening_price_15_message.fields = function(
   index, rpt_seq = b3_b3derivatives_binaryumdf_sbe_v2_1.rpt_seq.dissect(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index, padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.padding_2.size
+  end
 
   return index
 end
@@ -8472,7 +8553,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.security_group_phase_10_message.fields = fu
   index, security_group = b3_b3derivatives_binaryumdf_sbe_v2_1.security_group.dissect(buffer, index, packet, parent)
 
   -- Offset 3 Padding 5: 5 Byte
-  index, offset_3_padding_5 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_3_padding_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_3_padding_5 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_3_padding_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_3_padding_5.size
+  end
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_1.match_event_indicator.dissect(buffer, index, packet, parent)
@@ -8490,7 +8575,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.security_group_phase_10_message.fields = fu
   index, trade_date = b3_b3derivatives_binaryumdf_sbe_v2_1.trade_date.dissect(buffer, index, packet, parent)
 
   -- Offset 14 Padding 2: 2 Byte
-  index, offset_14_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_14_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_14_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_14_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_14_padding_2.size
+  end
 
   -- Trad Ses Open Time: UTCTimestampNanos
   index, trad_ses_open_time = b3_b3derivatives_binaryumdf_sbe_v2_1.trad_ses_open_time.dissect(buffer, index, packet, parent)
@@ -8563,7 +8652,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.security_status_3_message.fields = function
   index, trade_date = b3_b3derivatives_binaryumdf_sbe_v2_1.trade_date.dissect(buffer, index, packet, parent)
 
   -- Offset 14 Padding 2: 2 Byte
-  index, offset_14_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_14_padding_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_14_padding_2 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_14_padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_14_padding_2.size
+  end
 
   -- Trad Ses Open Time: UTCTimestampNanos
   index, trad_ses_open_time = b3_b3derivatives_binaryumdf_sbe_v2_1.trad_ses_open_time.dissect(buffer, index, packet, parent)
@@ -8617,7 +8710,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.channel_reset_11_message.fields = function(
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_1.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 1 Padding 3: 3 Byte
-  index, offset_1_padding_3 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_1_padding_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_1_padding_3 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_1_padding_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_1_padding_3.size
+  end
 
   -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_b3derivatives_binaryumdf_sbe_v2_1.md_entry_timestamp.dissect(buffer, index, packet, parent)
@@ -8669,7 +8766,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.empty_book_message.fields = function(buffer
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_1.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 3: 3 Byte
-  index, offset_9_padding_3 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, offset_9_padding_3 = b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.offset_9_padding_3.size
+  end
 
   -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_b3derivatives_binaryumdf_sbe_v2_1.md_entry_timestamp.dissect(buffer, index, packet, parent)

@@ -271,6 +271,7 @@ local show = {}
 -- Databento MarketData Normalized Dbn 2 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.padding = false
 show.indexes = true
 
 -- Register Databento MarketData Normalized Dbn 2 Show Options
@@ -279,6 +280,7 @@ omi_databento_marketdata_normalized_dbn_v2.prefs.assume_role = Pref.enum("Assume
 omi_databento_marketdata_normalized_dbn_v2.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_databento_marketdata_normalized_dbn_v2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_databento_marketdata_normalized_dbn_v2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_databento_marketdata_normalized_dbn_v2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_databento_marketdata_normalized_dbn_v2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_databento_marketdata_normalized_dbn_v2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -289,6 +291,9 @@ function omi_databento_marketdata_normalized_dbn_v2.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_databento_marketdata_normalized_dbn_v2.prefs.show_application_messages then
     show.application_messages = omi_databento_marketdata_normalized_dbn_v2.prefs.show_application_messages
+  end
+  if show.padding ~= omi_databento_marketdata_normalized_dbn_v2.prefs.show_padding then
+    show.padding = omi_databento_marketdata_normalized_dbn_v2.prefs.show_padding
   end
   if show.structs ~= omi_databento_marketdata_normalized_dbn_v2.prefs.show_structs then
     show.structs = omi_databento_marketdata_normalized_dbn_v2.prefs.show_structs
@@ -5691,7 +5696,11 @@ databento_marketdata_normalized_dbn_v2.bbo_msg.fields = function(buffer, offset,
   index, size = databento_marketdata_normalized_dbn_v2.size.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: [u8; 1]
-  index, reserved_1 = databento_marketdata_normalized_dbn_v2.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = databento_marketdata_normalized_dbn_v2.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.reserved_1.size
+  end
 
   -- Side: c_char
   index, side = databento_marketdata_normalized_dbn_v2.side.dissect(buffer, index, packet, parent)
@@ -5700,13 +5709,21 @@ databento_marketdata_normalized_dbn_v2.bbo_msg.fields = function(buffer, offset,
   index, flags = databento_marketdata_normalized_dbn_v2.flags.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: [u8; 1]
-  index, second_reserved_1 = databento_marketdata_normalized_dbn_v2.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = databento_marketdata_normalized_dbn_v2.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.second_reserved_1.size
+  end
 
   -- Ts Recv: u64
   index, ts_recv = databento_marketdata_normalized_dbn_v2.ts_recv.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: [u8; 4]
-  index, reserved_4 = databento_marketdata_normalized_dbn_v2.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = databento_marketdata_normalized_dbn_v2.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.reserved_4.size
+  end
 
   -- Sequence: u32
   index, sequence = databento_marketdata_normalized_dbn_v2.sequence.dissect(buffer, index, packet, parent)
@@ -5774,13 +5791,21 @@ databento_marketdata_normalized_dbn_v2.consolidated_bid_ask_pair.fields = functi
   index, bid_pb = databento_marketdata_normalized_dbn_v2.bid_pb.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: [u8; 2]
-  index, reserved_2 = databento_marketdata_normalized_dbn_v2.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = databento_marketdata_normalized_dbn_v2.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.reserved_2.size
+  end
 
   -- Ask Pb: u16
   index, ask_pb = databento_marketdata_normalized_dbn_v2.ask_pb.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 2: [u8; 2]
-  index, second_reserved_2 = databento_marketdata_normalized_dbn_v2.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = databento_marketdata_normalized_dbn_v2.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.second_reserved_2.size
+  end
 
   return index
 end
@@ -5834,7 +5859,11 @@ databento_marketdata_normalized_dbn_v2.cbbo_msg.fields = function(buffer, offset
   index, size = databento_marketdata_normalized_dbn_v2.size.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: [u8; 1]
-  index, reserved_1 = databento_marketdata_normalized_dbn_v2.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = databento_marketdata_normalized_dbn_v2.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.reserved_1.size
+  end
 
   -- Side: c_char
   index, side = databento_marketdata_normalized_dbn_v2.side.dissect(buffer, index, packet, parent)
@@ -5843,13 +5872,21 @@ databento_marketdata_normalized_dbn_v2.cbbo_msg.fields = function(buffer, offset
   index, flags = databento_marketdata_normalized_dbn_v2.flags.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: [u8; 1]
-  index, second_reserved_1 = databento_marketdata_normalized_dbn_v2.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = databento_marketdata_normalized_dbn_v2.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.second_reserved_1.size
+  end
 
   -- Ts Recv: u64
   index, ts_recv = databento_marketdata_normalized_dbn_v2.ts_recv.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: [u8; 8]
-  index, reserved_8 = databento_marketdata_normalized_dbn_v2.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = databento_marketdata_normalized_dbn_v2.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.reserved_8.size
+  end
 
   -- Consolidated Bid Ask Pair: Struct of 8 fields
   index, consolidated_bid_ask_pair = databento_marketdata_normalized_dbn_v2.consolidated_bid_ask_pair.dissect(buffer, index, packet, parent)
@@ -5916,7 +5953,11 @@ databento_marketdata_normalized_dbn_v2.cmbp_1_msg.fields = function(buffer, offs
   index, flags = databento_marketdata_normalized_dbn_v2.flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: [u8; 1]
-  index, reserved_1 = databento_marketdata_normalized_dbn_v2.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = databento_marketdata_normalized_dbn_v2.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.reserved_1.size
+  end
 
   -- Ts Recv: u64
   index, ts_recv = databento_marketdata_normalized_dbn_v2.ts_recv.dissect(buffer, index, packet, parent)
@@ -5925,7 +5966,11 @@ databento_marketdata_normalized_dbn_v2.cmbp_1_msg.fields = function(buffer, offs
   index, ts_in_delta = databento_marketdata_normalized_dbn_v2.ts_in_delta.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: [u8; 4]
-  index, reserved_4 = databento_marketdata_normalized_dbn_v2.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = databento_marketdata_normalized_dbn_v2.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.reserved_4.size
+  end
 
   -- Consolidated Bid Ask Pair: Struct of 8 fields
   index, consolidated_bid_ask_pair = databento_marketdata_normalized_dbn_v2.consolidated_bid_ask_pair.dissect(buffer, index, packet, parent)
@@ -6084,7 +6129,11 @@ databento_marketdata_normalized_dbn_v2.stat_msg.fields = function(buffer, offset
   index, stat_flags = databento_marketdata_normalized_dbn_v2.stat_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 6: [u8; 6]
-  index, reserved_6 = databento_marketdata_normalized_dbn_v2.reserved_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_6 = databento_marketdata_normalized_dbn_v2.reserved_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.reserved_6.size
+  end
 
   return index
 end
@@ -6356,7 +6405,11 @@ databento_marketdata_normalized_dbn_v2.imbalance_msg.fields = function(buffer, o
   index, significant_imbalance = databento_marketdata_normalized_dbn_v2.significant_imbalance.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: [u8; 1]
-  index, reserved_1 = databento_marketdata_normalized_dbn_v2.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = databento_marketdata_normalized_dbn_v2.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.reserved_1.size
+  end
 
   return index
 end
@@ -6636,7 +6689,11 @@ databento_marketdata_normalized_dbn_v2.instrument_def_msg.fields = function(buff
   index, tick_rule = databento_marketdata_normalized_dbn_v2.tick_rule.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: [u8; 10]
-  index, reserved_10 = databento_marketdata_normalized_dbn_v2.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = databento_marketdata_normalized_dbn_v2.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.reserved_10.size
+  end
 
   return index
 end
@@ -6704,7 +6761,11 @@ databento_marketdata_normalized_dbn_v2.status_msg.fields = function(buffer, offs
   index, is_short_sell_restricted = databento_marketdata_normalized_dbn_v2.is_short_sell_restricted.dissect(buffer, index, packet, parent)
 
   -- Reserved 7: [u8; 7]
-  index, reserved_7 = databento_marketdata_normalized_dbn_v2.reserved_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7 = databento_marketdata_normalized_dbn_v2.reserved_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.reserved_7.size
+  end
 
   return index
 end
@@ -7355,7 +7416,11 @@ databento_marketdata_normalized_dbn_v2.metadata.fields = function(buffer, offset
   index, symbol_cstr_len = databento_marketdata_normalized_dbn_v2.symbol_cstr_len.dissect(buffer, index, packet, parent)
 
   -- Metadata Reserved: [u8; 53]
-  index, metadata_reserved = databento_marketdata_normalized_dbn_v2.metadata_reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, metadata_reserved = databento_marketdata_normalized_dbn_v2.metadata_reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + databento_marketdata_normalized_dbn_v2.metadata_reserved.size
+  end
 
   -- Schema Definition Length: u32
   index, schema_definition_length = databento_marketdata_normalized_dbn_v2.schema_definition_length.dissect(buffer, index, packet, parent)

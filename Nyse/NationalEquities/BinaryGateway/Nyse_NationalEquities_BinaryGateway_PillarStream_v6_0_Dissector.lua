@@ -294,6 +294,7 @@ show.application_messages = true
 show.structs = true
 show.session_messages = true
 show.headers = true
+show.padding = false
 
 -- Register Nyse NationalEquities BinaryGateway PillarStream 6.0 Show Options
 omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
@@ -303,6 +304,7 @@ omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.show_application
 omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
@@ -315,6 +317,9 @@ function omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs_changed
   end
   if show.headers ~= omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.show_headers then
     show.headers = omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.show_padding then
+    show.padding = omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.show_padding
   end
   if show.session_messages ~= omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.show_session_messages then
     show.session_messages = omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.prefs.show_session_messages
@@ -5058,7 +5063,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.risk_control_alert_message
   index, mpsubid_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.mpsubid_4.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.size
+  end
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_nationalequities_binarygateway_pillarstream_v6_0.clearing_number.dissect(buffer, index, packet, parent)
@@ -5124,7 +5133,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.risk_control_alert_message
   index, reinstatement_required_by_other = nyse_nationalequities_binarygateway_pillarstream_v6_0.reinstatement_required_by_other.dissect(buffer, index, packet, parent)
 
   -- Reserved 200: zchar(200)
-  index, reserved_200 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_200.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_200 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_200.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_200.size
+  end
 
   return index
 end
@@ -5186,7 +5199,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.risk_control_acknowledgeme
   index, mpsubid_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.mpsubid_4.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.size
+  end
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_nationalequities_binarygateway_pillarstream_v6_0.clearing_number.dissect(buffer, index, packet, parent)
@@ -5267,7 +5284,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.risk_control_acknowledgeme
   index, price_scale = nyse_nationalequities_binarygateway_pillarstream_v6_0.price_scale.dissect(buffer, index, packet, parent)
 
   -- Reserved 190: zchar(190)
-  index, reserved_190 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_190.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_190 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_190.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_190.size
+  end
 
   return index
 end
@@ -5813,7 +5834,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.application_layer_reject_m
   index, user_data = nyse_nationalequities_binarygateway_pillarstream_v6_0.user_data.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.size
+  end
 
   return index
 end
@@ -6152,7 +6177,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.execution_report_message.f
   index, bitfield_execution_details = nyse_nationalequities_binarygateway_pillarstream_v6_0.bitfield_execution_details.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: zchar(3)
-  index, reserved_3 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_3.size
+  end
 
   -- Locate Reqd U 81: u8
   index, locate_reqd_u_81 = nyse_nationalequities_binarygateway_pillarstream_v6_0.locate_reqd_u_81.dissect(buffer, index, packet, parent)
@@ -6443,7 +6472,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.optional_routing_strategy_
   index, routing_strategy = nyse_nationalequities_binarygateway_pillarstream_v6_0.routing_strategy.dissect(buffer, index, packet, parent)
 
   -- Reserved 27: char(27)
-  index, reserved_27 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_27.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_27 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_27.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_27.size
+  end
 
   return index
 end
@@ -6501,7 +6534,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.optional_order_add_on.fiel
   index, locate_broker = nyse_nationalequities_binarygateway_pillarstream_v6_0.locate_broker.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: char(8)
-  index, reserved_8 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_8.size
+  end
 
   -- Offset Price: Price
   index, offset_price = nyse_nationalequities_binarygateway_pillarstream_v6_0.offset_price.dissect(buffer, index, packet, parent)
@@ -6834,7 +6871,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.session_configuration_ackn
   index, bold_designation = nyse_nationalequities_binarygateway_pillarstream_v6_0.bold_designation.dissect(buffer, index, packet, parent)
 
   -- Reserved 49: zchar(49)
-  index, reserved_49 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_49.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_49 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_49.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_49.size
+  end
 
   return index
 end
@@ -6896,7 +6937,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.mmid_configuration_message
   index, username = nyse_nationalequities_binarygateway_pillarstream_v6_0.username.dissect(buffer, index, packet, parent)
 
   -- Reserved 100: char(100)
-  index, reserved_100 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_100.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_100 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_100.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_100.size
+  end
 
   return index
 end
@@ -6958,7 +7003,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.mpid_configuration_message
   index, username = nyse_nationalequities_binarygateway_pillarstream_v6_0.username.dissect(buffer, index, packet, parent)
 
   -- Reserved 50: char(50)
-  index, reserved_50 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_50.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_50 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_50.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_50.size
+  end
 
   return index
 end
@@ -7299,7 +7348,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.equities_symbol_reference_
   index, adv_risk_range_id = nyse_nationalequities_binarygateway_pillarstream_v6_0.adv_risk_range_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 7: char(7)
-  index, reserved_7 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_7.size
+  end
 
   -- Mpv Class Id: u16
   index, mpv_class_id = nyse_nationalequities_binarygateway_pillarstream_v6_0.mpv_class_id.dissect(buffer, index, packet, parent)
@@ -7586,7 +7639,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.server_seq_msg.fields = fu
   index, seq_msg_id = nyse_nationalequities_binarygateway_pillarstream_v6_0.seq_msg_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.size
+  end
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = nyse_nationalequities_binarygateway_pillarstream_v6_0.timestamp.dissect(buffer, index, packet, parent)
@@ -7992,7 +8049,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.risk_action_request_messag
   index, mpsubid_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.mpsubid_4.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.size
+  end
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_nationalequities_binarygateway_pillarstream_v6_0.clearing_number.dissect(buffer, index, packet, parent)
@@ -8016,7 +8077,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.risk_action_request_messag
   index, risk_range_id = nyse_nationalequities_binarygateway_pillarstream_v6_0.risk_range_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 199: zchar(199)
-  index, reserved_199 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_199.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_199 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_199.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_199.size
+  end
 
   return index
 end
@@ -8078,7 +8143,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.risk_limit_update_request_
   index, mpsubid_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.mpsubid_4.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.size
+  end
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_nationalequities_binarygateway_pillarstream_v6_0.clearing_number.dissect(buffer, index, packet, parent)
@@ -8126,7 +8195,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.risk_limit_update_request_
   index, price_scale = nyse_nationalequities_binarygateway_pillarstream_v6_0.price_scale.dissect(buffer, index, packet, parent)
 
   -- Reserved 190: zchar(190)
-  index, reserved_190 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_190.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_190 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_190.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_190.size
+  end
 
   return index
 end
@@ -8683,7 +8756,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.session_configuration_requ
   index, bold_designation = nyse_nationalequities_binarygateway_pillarstream_v6_0.bold_designation.dissect(buffer, index, packet, parent)
 
   -- Reserved 49: zchar(49)
-  index, reserved_49 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_49.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_49 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_49.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_49.size
+  end
 
   return index
 end
@@ -8796,7 +8873,11 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.client_seq_msg.fields = fu
   index, seq_msg_id = nyse_nationalequities_binarygateway_pillarstream_v6_0.seq_msg_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: u32
-  index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.size
+  end
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = nyse_nationalequities_binarygateway_pillarstream_v6_0.timestamp.dissect(buffer, index, packet, parent)

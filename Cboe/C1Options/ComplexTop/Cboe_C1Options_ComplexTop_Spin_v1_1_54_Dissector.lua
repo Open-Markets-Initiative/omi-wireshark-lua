@@ -122,6 +122,7 @@ show.structs = true
 show.application_messages = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Cboe C1Options ComplexTop Spin 1.1.54 Show Options
@@ -129,6 +130,7 @@ omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_structs = Pref.bool("Show 
 omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -140,6 +142,9 @@ function omi_cboe_c1options_complextop_spin_v1_1_54.prefs_changed()
   end
   if show.headers ~= omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_headers then
     show.headers = omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_padding then
+    show.padding = omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_padding
   end
   if show.repeating_groups ~= omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_c1options_complextop_spin_v1_1_54.prefs.show_repeating_groups
@@ -1721,19 +1726,31 @@ cboe_c1options_complextop_spin_v1_1_54.trading_status_message.fields = function(
   index, complex_instrument_id = cboe_c1options_complextop_spin_v1_1_54.complex_instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Reserved
-  index, reserved_2 = cboe_c1options_complextop_spin_v1_1_54.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = cboe_c1options_complextop_spin_v1_1_54.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complextop_spin_v1_1_54.reserved_2.size
+  end
 
   -- Trading Status: Alpha
   index, trading_status = cboe_c1options_complextop_spin_v1_1_54.trading_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_c1options_complextop_spin_v1_1_54.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_c1options_complextop_spin_v1_1_54.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complextop_spin_v1_1_54.reserved_1.size
+  end
 
   -- Gth Trading Status: Alpha
   index, gth_trading_status = cboe_c1options_complextop_spin_v1_1_54.gth_trading_status.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: Reserved
-  index, second_reserved_1 = cboe_c1options_complextop_spin_v1_1_54.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = cboe_c1options_complextop_spin_v1_1_54.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complextop_spin_v1_1_54.second_reserved_1.size
+  end
 
   return index
 end
@@ -2231,7 +2248,11 @@ cboe_c1options_complextop_spin_v1_1_54.exchange_designated_complex_instrument_de
   index, edci_subtype = cboe_c1options_complextop_spin_v1_1_54.edci_subtype.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Reserved
-  index, reserved_2 = cboe_c1options_complextop_spin_v1_1_54.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = cboe_c1options_complextop_spin_v1_1_54.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c1options_complextop_spin_v1_1_54.reserved_2.size
+  end
 
   -- Leg Count: Binary
   index, leg_count = cboe_c1options_complextop_spin_v1_1_54.leg_count.dissect(buffer, index, packet, parent)

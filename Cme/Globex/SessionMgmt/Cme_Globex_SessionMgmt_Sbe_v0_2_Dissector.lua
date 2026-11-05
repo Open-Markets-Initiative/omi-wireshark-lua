@@ -129,6 +129,7 @@ show.structs = true
 show.headers = true
 show.application_messages = true
 show.repeating_groups = true
+show.padding = false
 show.indexes = true
 
 -- Register Cme Globex SessionMgmt Sbe 0.2 Show Options
@@ -139,6 +140,7 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_structs = Pref.bool("Show Structs
 omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -152,6 +154,9 @@ function omi_cme_globex_sessionmgmt_sbe_v0_2.prefs_changed()
   end
   if show.headers ~= omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_headers then
     show.headers = omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_headers
+  end
+  if show.padding ~= omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_padding then
+    show.padding = omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_padding
   end
   if show.repeating_groups ~= omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_repeating_groups then
     show.repeating_groups = omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_repeating_groups
@@ -1387,7 +1392,11 @@ cme_globex_sessionmgmt_sbe_v0_2.terminate.fields = function(buffer, offset, pack
   index, error_codes = cme_globex_sessionmgmt_sbe_v0_2.error_codes.dissect(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
-  index, padding_5 = cme_globex_sessionmgmt_sbe_v0_2.padding_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_5 = cme_globex_sessionmgmt_sbe_v0_2.padding_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_sessionmgmt_sbe_v0_2.padding_5.size
+  end
 
   return index
 end
@@ -1439,7 +1448,11 @@ cme_globex_sessionmgmt_sbe_v0_2.negotiation_response.fields = function(buffer, o
   index, secret_key_secure_id_expiration = cme_globex_sessionmgmt_sbe_v0_2.secret_key_secure_id_expiration.dissect(buffer, index, packet, parent)
 
   -- Padding 4: 4 Byte
-  index, padding_4 = cme_globex_sessionmgmt_sbe_v0_2.padding_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_4 = cme_globex_sessionmgmt_sbe_v0_2.padding_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_sessionmgmt_sbe_v0_2.padding_4.size
+  end
 
   return index
 end
@@ -1495,7 +1508,11 @@ cme_globex_sessionmgmt_sbe_v0_2.negotiation_reject.fields = function(buffer, off
   index, error_codes = cme_globex_sessionmgmt_sbe_v0_2.error_codes.dissect(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
-  index, padding_5 = cme_globex_sessionmgmt_sbe_v0_2.padding_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, padding_5 = cme_globex_sessionmgmt_sbe_v0_2.padding_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_sessionmgmt_sbe_v0_2.padding_5.size
+  end
 
   return index
 end

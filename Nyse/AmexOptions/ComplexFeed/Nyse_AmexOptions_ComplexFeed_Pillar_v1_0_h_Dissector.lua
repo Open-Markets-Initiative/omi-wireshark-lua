@@ -178,6 +178,7 @@ show.repeating_groups = true
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -187,6 +188,7 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_repeating_groups = Pre
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
@@ -205,6 +207,9 @@ function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs_changed()
   end
   if show.headers ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_headers then
     show.headers = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_padding then
+    show.padding = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_padding
   end
   if show.repeating_groups ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_repeating_groups then
     show.repeating_groups = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_repeating_groups
@@ -3563,13 +3568,25 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.options_trade_message.fields = functi
   index, trade_cond_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_cond_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.size
+  end
 
   -- Second Reserved 1: ASCII
-  index, second_reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_1.size
+  end
 
   -- Third Reserved 1: ASCII
-  index, third_reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_1.size
+  end
 
   return index
 end
@@ -3643,7 +3660,11 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.options_quote_message.fields = functi
   index, quote_condition = nyse_amexoptions_complexfeed_pillar_v1_0_h.quote_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.size
+  end
 
   -- Ask Customer Volume: Binary
   index, ask_customer_volume = nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_customer_volume.dissect(buffer, index, packet, parent)
@@ -4362,7 +4383,11 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message
   index, closing_only_indicator = nyse_amexoptions_complexfeed_pillar_v1_0_h.closing_only_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.size
+  end
 
   -- Cache Outright Series Index Mapping Message record by series_index
   if show.records and not packet.visited then
@@ -4443,7 +4468,11 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.security_status_message.fields = func
   index, halt_condition = nyse_amexoptions_complexfeed_pillar_v1_0_h.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary
-  index, reserved_4 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_4.size
+  end
 
   -- Price 1: Binary
   index, price_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.price_1.dissect(buffer, index, packet, parent)
@@ -4580,7 +4609,11 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.symbol_index_mapping_message.fields =
   index, symbol = nyse_amexoptions_complexfeed_pillar_v1_0_h.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: ASCII
-  index, reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_amexoptions_complexfeed_pillar_v1_0_h.market_id.dissect(buffer, index, packet, parent)
@@ -4613,13 +4646,25 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.symbol_index_mapping_message.fields =
   index, round_lot = nyse_amexoptions_complexfeed_pillar_v1_0_h.round_lot.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary
-  index, reserved_2 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_2.size
+  end
 
   -- Second Reserved 2: Binary
-  index, second_reserved_2 = nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_2.size
+  end
 
   -- Third Reserved 2: Binary
-  index, third_reserved_2 = nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_2 = nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_2.size
+  end
 
   return index
 end

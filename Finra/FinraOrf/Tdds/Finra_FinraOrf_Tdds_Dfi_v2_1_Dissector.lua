@@ -127,12 +127,14 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Finra FinraOrf Tdds Dfi 2.1 Show Options
 omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -144,6 +146,9 @@ function omi_finra_finraorf_tdds_dfi_v2_1.prefs_changed()
   end
   if show.headers ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_headers then
     show.headers = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_headers
+  end
+  if show.padding ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_padding then
+    show.padding = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_padding
   end
   if show.structs ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_structs then
     show.structs = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_structs
@@ -2586,7 +2591,11 @@ finra_finraorf_tdds_dfi_v2_1.closing_trade_summary_report_message.fields = funct
   index, closing_price = finra_finraorf_tdds_dfi_v2_1.closing_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = finra_finraorf_tdds_dfi_v2_1.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = finra_finraorf_tdds_dfi_v2_1.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + finra_finraorf_tdds_dfi_v2_1.reserved_1.size
+  end
 
   -- Net Change Denominator: Alphanumeric
   index, net_change_denominator = finra_finraorf_tdds_dfi_v2_1.net_change_denominator.dissect(buffer, index, packet, parent)

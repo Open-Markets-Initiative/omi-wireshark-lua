@@ -167,6 +167,7 @@ show.structs = true
 show.application_messages = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Miax SapphireOptions ComplexTopOfMarket Mach 1.0.a Show Options
@@ -174,6 +175,7 @@ omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_structs = Pre
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
@@ -188,6 +190,9 @@ function omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs_changed()
   end
   if show.headers ~= omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_headers then
     show.headers = omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_headers
+  end
+  if show.padding ~= omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_padding then
+    show.padding = omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_padding
   end
   if show.repeating_groups ~= omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_repeating_groups then
     show.repeating_groups = omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.prefs.show_repeating_groups
@@ -2995,7 +3000,11 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.strategy_last_sale_message.f
   index, size_long = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.size_long.dissect(buffer, index, packet, parent)
 
   -- Reserved 17: Alphanumeric
-  index, reserved_17 = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_17 = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_17.size
+  end
 
   return index
 end
@@ -3497,7 +3506,11 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.leg_definition.fields = func
   index, leg_side = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.leg_side.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_8.size
+  end
 
   return index
 end
@@ -3572,13 +3585,21 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_strategy_definition_
   index, active_on_sapphire = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.active_on_sapphire.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: BinaryU
-  index, reserved_1 = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_1.size
+  end
 
   -- Update Reason: Alphanumeric
   index, update_reason = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.update_reason.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
-  index, reserved_10 = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_10.size
+  end
 
   -- Number Of Legs: BinaryU
   index, number_of_legs = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.number_of_legs.dissect(buffer, index, packet, parent)
@@ -3686,7 +3707,11 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.simple_series_update_message
   index, opening_underlying_market_code = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.opening_underlying_market_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: BinaryU
-  index, reserved_12 = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_12.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_12 = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_12.size
+  end
 
   return index
 end

@@ -208,6 +208,7 @@ show.structs = true
 show.headers = true
 show.session_messages = true
 show.repeating_groups = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -220,6 +221,7 @@ omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_structs = Pref.bool("Show Structs
 omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -232,6 +234,9 @@ function omi_nasdaq_iseoptions_cti_itch_v3_0.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_headers then
     show.headers = omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_padding then
+    show.padding = omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_padding
   end
   if show.repeating_groups ~= omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_repeating_groups then
     show.repeating_groups = omi_nasdaq_iseoptions_cti_itch_v3_0.prefs.show_repeating_groups
@@ -3406,7 +3411,11 @@ nasdaq_iseoptions_cti_itch_v3_0.cancel_trade_message.fields = function(buffer, o
   index, match_id = nasdaq_iseoptions_cti_itch_v3_0.match_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = nasdaq_iseoptions_cti_itch_v3_0.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nasdaq_iseoptions_cti_itch_v3_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_cti_itch_v3_0.reserved_8.size
+  end
 
   return index
 end
@@ -3792,7 +3801,11 @@ nasdaq_iseoptions_cti_itch_v3_0.trade_message.fields = function(buffer, offset, 
   index, trade_flags = nasdaq_iseoptions_cti_itch_v3_0.trade_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Alpha
-  index, reserved_4 = nasdaq_iseoptions_cti_itch_v3_0.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nasdaq_iseoptions_cti_itch_v3_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_cti_itch_v3_0.reserved_4.size
+  end
 
   -- Transaction Type: Alpha
   index, transaction_type = nasdaq_iseoptions_cti_itch_v3_0.transaction_type.dissect(buffer, index, packet, parent)
@@ -3852,7 +3865,11 @@ nasdaq_iseoptions_cti_itch_v3_0.trade_message.fields = function(buffer, offset, 
   index, strategy_leg = nasdaq_iseoptions_cti_itch_v3_0.strategy_leg.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = nasdaq_iseoptions_cti_itch_v3_0.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nasdaq_iseoptions_cti_itch_v3_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_cti_itch_v3_0.reserved_8.size
+  end
 
   -- Occ Clearing Number: Integer
   index, occ_clearing_number = nasdaq_iseoptions_cti_itch_v3_0.occ_clearing_number.dissect(buffer, index, packet, parent)
@@ -3900,7 +3917,11 @@ nasdaq_iseoptions_cti_itch_v3_0.trade_message.fields = function(buffer, offset, 
   index, executing_broker = nasdaq_iseoptions_cti_itch_v3_0.executing_broker.dissect(buffer, index, packet, parent)
 
   -- Reserved 6: Alpha
-  index, reserved_6 = nasdaq_iseoptions_cti_itch_v3_0.reserved_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_6 = nasdaq_iseoptions_cti_itch_v3_0.reserved_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_cti_itch_v3_0.reserved_6.size
+  end
 
   -- Contra Occ Clearing Number: Integer
   index, contra_occ_clearing_number = nasdaq_iseoptions_cti_itch_v3_0.contra_occ_clearing_number.dissect(buffer, index, packet, parent)
@@ -3930,7 +3951,11 @@ nasdaq_iseoptions_cti_itch_v3_0.trade_message.fields = function(buffer, offset, 
   index, contra_mpid = nasdaq_iseoptions_cti_itch_v3_0.contra_mpid.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: Alpha
-  index, second_reserved_8 = nasdaq_iseoptions_cti_itch_v3_0.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = nasdaq_iseoptions_cti_itch_v3_0.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_cti_itch_v3_0.second_reserved_8.size
+  end
 
   -- Firm: Alphanumeric
   index, firm = nasdaq_iseoptions_cti_itch_v3_0.firm.dissect(buffer, index, packet, parent)
@@ -3978,7 +4003,11 @@ nasdaq_iseoptions_cti_itch_v3_0.trade_message.fields = function(buffer, offset, 
   index, tif = nasdaq_iseoptions_cti_itch_v3_0.tif.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 8: Alpha
-  index, third_reserved_8 = nasdaq_iseoptions_cti_itch_v3_0.third_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_8 = nasdaq_iseoptions_cti_itch_v3_0.third_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_cti_itch_v3_0.third_reserved_8.size
+  end
 
   return index
 end
@@ -4228,7 +4257,11 @@ nasdaq_iseoptions_cti_itch_v3_0.strategy_legs.fields = function(buffer, offset, 
   index, leg_ratio = nasdaq_iseoptions_cti_itch_v3_0.leg_ratio.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Alpha
-  index, reserved_8 = nasdaq_iseoptions_cti_itch_v3_0.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nasdaq_iseoptions_cti_itch_v3_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_cti_itch_v3_0.reserved_8.size
+  end
 
   return index
 end
@@ -4309,7 +4342,11 @@ nasdaq_iseoptions_cti_itch_v3_0.complex_order_strategy_message.fields = function
   index, action = nasdaq_iseoptions_cti_itch_v3_0.action.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alpha
-  index, reserved_16 = nasdaq_iseoptions_cti_itch_v3_0.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nasdaq_iseoptions_cti_itch_v3_0.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_cti_itch_v3_0.reserved_16.size
+  end
 
   -- Number Of Legs: Integer
   index, number_of_legs = nasdaq_iseoptions_cti_itch_v3_0.number_of_legs.dissect(buffer, index, packet, parent)
@@ -4413,7 +4450,11 @@ nasdaq_iseoptions_cti_itch_v3_0.options_directory_message.fields = function(buff
   index, contract_size = nasdaq_iseoptions_cti_itch_v3_0.contract_size.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alpha
-  index, reserved_16 = nasdaq_iseoptions_cti_itch_v3_0.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nasdaq_iseoptions_cti_itch_v3_0.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_cti_itch_v3_0.reserved_16.size
+  end
 
   return index
 end

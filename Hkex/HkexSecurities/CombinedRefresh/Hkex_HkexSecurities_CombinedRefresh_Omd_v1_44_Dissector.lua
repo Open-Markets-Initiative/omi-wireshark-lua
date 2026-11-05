@@ -246,6 +246,7 @@ show.application_messages = true
 show.repeating_groups = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Hkex HkexSecurities CombinedRefresh Omd 1.44 Show Options
@@ -253,6 +254,7 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_application_message
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -266,6 +268,9 @@ function omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs_changed()
   end
   if show.headers ~= omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_headers then
     show.headers = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_headers
+  end
+  if show.padding ~= omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_padding then
+    show.padding = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_padding
   end
   if show.repeating_groups ~= omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_repeating_groups then
     show.repeating_groups = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_repeating_groups
@@ -4551,7 +4556,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_status_message.fields = f
   index, suspension_indicator = hkex_hkexsecurities_combinedrefresh_omd_v1_44.suspension_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.size
+  end
 
   return index
 end
@@ -4601,7 +4610,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.trading_session_status_message.fie
   index, market_code = hkex_hkexsecurities_combinedrefresh_omd_v1_44.market_code.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.size
+  end
 
   -- Trading Session Sub Id: Uint8
   index, trading_session_sub_id = hkex_hkexsecurities_combinedrefresh_omd_v1_44.trading_session_sub_id.dissect(buffer, index, packet, parent)
@@ -4613,7 +4626,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.trading_session_status_message.fie
   index, trading_ses_control_flag = hkex_hkexsecurities_combinedrefresh_omd_v1_44.trading_ses_control_flag.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.size
+  end
 
   -- Start Date Time: Uint64
   index, start_date_time = hkex_hkexsecurities_combinedrefresh_omd_v1_44.start_date_time.dissect(buffer, index, packet, parent)
@@ -4712,7 +4729,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.market_turnover_message.fields = f
   index, currency_code = hkex_hkexsecurities_combinedrefresh_omd_v1_44.currency_code.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.size
+  end
 
   -- Turnover: Int64
   index, turnover = hkex_hkexsecurities_combinedrefresh_omd_v1_44.turnover.dissect(buffer, index, packet, parent)
@@ -4926,13 +4947,21 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.currency_rate_message.fields = fun
   index, currency_code = hkex_hkexsecurities_combinedrefresh_omd_v1_44.currency_code.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.size
+  end
 
   -- Currency Factor: Uint16
   index, currency_factor = hkex_hkexsecurities_combinedrefresh_omd_v1_44.currency_factor.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
-  index, filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.size
+  end
 
   -- Currency Rate: Uint32
   index, currency_rate = hkex_hkexsecurities_combinedrefresh_omd_v1_44.currency_rate.dissect(buffer, index, packet, parent)
@@ -5090,7 +5119,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.underlying_security.fields = funct
   index, underlying_security_code = hkex_hkexsecurities_combinedrefresh_omd_v1_44.underlying_security_code.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.size
+  end
 
   return index
 end
@@ -5264,7 +5297,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_definition_message.fields
   index, product_type = hkex_hkexsecurities_combinedrefresh_omd_v1_44.product_type.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.size
+  end
 
   -- Spread Table Code: String
   index, spread_table_code = hkex_hkexsecurities_combinedrefresh_omd_v1_44.spread_table_code.dissect(buffer, index, packet, parent)
@@ -5285,7 +5322,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_definition_message.fields
   index, lot_size = hkex_hkexsecurities_combinedrefresh_omd_v1_44.lot_size.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.size
+  end
 
   -- Previous Closing Price: Int32
   index, previous_closing_price = hkex_hkexsecurities_combinedrefresh_omd_v1_44.previous_closing_price.dissect(buffer, index, packet, parent)
@@ -5306,13 +5347,21 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_definition_message.fields
   index, dummy_security_flag = hkex_hkexsecurities_combinedrefresh_omd_v1_44.dummy_security_flag.dissect(buffer, index, packet, parent)
 
   -- Second Filler 1: String
-  index, second_filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.second_filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.second_filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.second_filler_1.size
+  end
 
   -- Stamp Duty Flag: String
   index, stamp_duty_flag = hkex_hkexsecurities_combinedrefresh_omd_v1_44.stamp_duty_flag.dissect(buffer, index, packet, parent)
 
   -- Third Filler 1: String
-  index, third_filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.third_filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.third_filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.third_filler_1.size
+  end
 
   -- Listing Date: Uint32
   index, listing_date = hkex_hkexsecurities_combinedrefresh_omd_v1_44.listing_date.dissect(buffer, index, packet, parent)
@@ -5324,7 +5373,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_definition_message.fields
   index, free_text = hkex_hkexsecurities_combinedrefresh_omd_v1_44.free_text.dissect(buffer, index, packet, parent)
 
   -- Filler 62: String
-  index, filler_62 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_62.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_62 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_62.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_62.size
+  end
 
   -- Pos Flag: String
   index, pos_flag = hkex_hkexsecurities_combinedrefresh_omd_v1_44.pos_flag.dissect(buffer, index, packet, parent)
@@ -5339,7 +5392,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_definition_message.fields
   index, domain_stmt_security_code = hkex_hkexsecurities_combinedrefresh_omd_v1_44.domain_stmt_security_code.dissect(buffer, index, packet, parent)
 
   -- Filler 37: String
-  index, filler_37 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_37.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_37 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_37.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_37.size
+  end
 
   -- Efn Flag: String
   index, efn_flag = hkex_hkexsecurities_combinedrefresh_omd_v1_44.efn_flag.dissect(buffer, index, packet, parent)
@@ -5351,7 +5408,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_definition_message.fields
   index, coupon_rate = hkex_hkexsecurities_combinedrefresh_omd_v1_44.coupon_rate.dissect(buffer, index, packet, parent)
 
   -- Fourth Filler 1: String
-  index, fourth_filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.fourth_filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.fourth_filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.fourth_filler_1.size
+  end
 
   -- Face Value: Uint64
   index, face_value = hkex_hkexsecurities_combinedrefresh_omd_v1_44.face_value.dissect(buffer, index, packet, parent)
@@ -5369,7 +5430,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_definition_message.fields
   index, investor_type = hkex_hkexsecurities_combinedrefresh_omd_v1_44.investor_type.dissect(buffer, index, packet, parent)
 
   -- Filler 44: String
-  index, filler_44 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_44.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_44 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_44.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_44.size
+  end
 
   -- Conversion Ratio: Uint32
   index, conversion_ratio = hkex_hkexsecurities_combinedrefresh_omd_v1_44.conversion_ratio.dissect(buffer, index, packet, parent)
@@ -5390,7 +5455,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_definition_message.fields
   index, style = hkex_hkexsecurities_combinedrefresh_omd_v1_44.style.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
-  index, filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.size
+  end
 
   -- Warrant Type: String
   index, warrant_type = hkex_hkexsecurities_combinedrefresh_omd_v1_44.warrant_type.dissect(buffer, index, packet, parent)
@@ -5411,7 +5480,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_definition_message.fields
   index, no_warrants_per_entitlement = hkex_hkexsecurities_combinedrefresh_omd_v1_44.no_warrants_per_entitlement.dissect(buffer, index, packet, parent)
 
   -- Filler 63: String
-  index, filler_63 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_63.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_63 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_63.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_63.size
+  end
 
   -- No Underlying Securities: Uint16
   index, no_underlying_securities = hkex_hkexsecurities_combinedrefresh_omd_v1_44.no_underlying_securities.dissect(buffer, index, packet, parent)
@@ -5521,13 +5594,21 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.order_imbalance_message.fields = f
   index, order_imbalance_direction = hkex_hkexsecurities_combinedrefresh_omd_v1_44.order_imbalance_direction.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.size
+  end
 
   -- Order Imbalance Quantity: Uint64
   index, order_imbalance_quantity = hkex_hkexsecurities_combinedrefresh_omd_v1_44.order_imbalance_quantity.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
-  index, filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.size
+  end
 
   return index
 end
@@ -5852,13 +5933,21 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_message.fields = function(buf
   index, last_fragment = hkex_hkexsecurities_combinedrefresh_omd_v1_44.last_fragment.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.size
+  end
 
   -- Release Time: Uint64
   index, release_time = hkex_hkexsecurities_combinedrefresh_omd_v1_44.release_time.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
-  index, filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.size
+  end
 
   -- No Market Codes: Uint16
   index, no_market_codes = hkex_hkexsecurities_combinedrefresh_omd_v1_44.no_market_codes.dissect(buffer, index, packet, parent)
@@ -5869,7 +5958,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_message.fields = function(buf
   end
 
   -- Second Filler 2: String
-  index, second_filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.second_filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.second_filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.second_filler_2.size
+  end
 
   -- No Security Codes: Uint16
   index, no_security_codes = hkex_hkexsecurities_combinedrefresh_omd_v1_44.no_security_codes.dissect(buffer, index, packet, parent)
@@ -5880,7 +5973,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_message.fields = function(buf
   end
 
   -- Third Filler 2: String
-  index, third_filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.third_filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_filler_2 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.third_filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.third_filler_2.size
+  end
 
   -- No News Lines: Uint16
   index, no_news_lines = hkex_hkexsecurities_combinedrefresh_omd_v1_44.no_news_lines.dissect(buffer, index, packet, parent)
@@ -6036,7 +6133,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.index_data_message.fields = functi
   index, exception = hkex_hkexsecurities_combinedrefresh_omd_v1_44.exception.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.size
+  end
 
   return index
 end
@@ -6088,7 +6189,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.index_definition_message.fields = 
   index, currency_code = hkex_hkexsecurities_combinedrefresh_omd_v1_44.currency_code.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.size
+  end
 
   return index
 end
@@ -6190,7 +6295,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_item.fields = function(buffer, 
   index, type = hkex_hkexsecurities_combinedrefresh_omd_v1_44.type.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.size
+  end
 
   return index
 end
@@ -6329,7 +6438,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.book_entry.fields = function(buffe
   index, update_action = hkex_hkexsecurities_combinedrefresh_omd_v1_44.update_action.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.size
+  end
 
   return index
 end
@@ -6385,7 +6498,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.aggregate_order_book_update_messag
   index, security_code = hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_code.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.size
+  end
 
   -- No Entries: Uint8
   index, no_entries = hkex_hkexsecurities_combinedrefresh_omd_v1_44.no_entries.dissect(buffer, index, packet, parent)
@@ -6458,7 +6575,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.add_order_message.fields = functio
   index, order_type = hkex_hkexsecurities_combinedrefresh_omd_v1_44.order_type.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_1.size
+  end
 
   -- Order Book Position: Int32
   index, order_book_position = hkex_hkexsecurities_combinedrefresh_omd_v1_44.order_book_position.dissect(buffer, index, packet, parent)
@@ -6708,7 +6829,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.packet_header.fields = function(bu
   index, msg_count = hkex_hkexsecurities_combinedrefresh_omd_v1_44.msg_count.dissect(buffer, index, packet, parent)
 
   -- Filler: 1 Byte
-  index, filler = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler.size
+  end
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = hkex_hkexsecurities_combinedrefresh_omd_v1_44.seq_num.dissect(buffer, index, packet, parent)

@@ -133,11 +133,13 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 
 -- Register A2X A2XEquities TradingProtocol Atp 2.9 Show Options
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
@@ -150,6 +152,9 @@ function omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs_changed()
   end
   if show.headers ~= omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_headers then
     show.headers = omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_headers
+  end
+  if show.padding ~= omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_padding then
+    show.padding = omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_padding
   end
   if show.structs ~= omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_structs then
     show.structs = omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_structs
@@ -1705,7 +1710,11 @@ a2x_a2xequities_tradingprotocol_atp_v2_9.trade_message.fields = function(buffer,
   index, user_tag = a2x_a2xequities_tradingprotocol_atp_v2_9.user_tag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: u8
-  index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.size
+  end
 
   return index
 end
@@ -1863,13 +1872,21 @@ a2x_a2xequities_tradingprotocol_atp_v2_9.trade_capture_message.fields = function
   index, trade_capture_type = a2x_a2xequities_tradingprotocol_atp_v2_9.trade_capture_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: u8
-  index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.size
+  end
 
   -- User Tag: u64
   index, user_tag = a2x_a2xequities_tradingprotocol_atp_v2_9.user_tag.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: u64
-  index, reserved_8 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_8.size
+  end
 
   -- Buy Account: u16
   index, buy_account = a2x_a2xequities_tradingprotocol_atp_v2_9.buy_account.dissect(buffer, index, packet, parent)
@@ -1878,7 +1895,11 @@ a2x_a2xequities_tradingprotocol_atp_v2_9.trade_capture_message.fields = function
   index, buy_order_capacity = a2x_a2xequities_tradingprotocol_atp_v2_9.buy_order_capacity.dissect(buffer, index, packet, parent)
 
   -- Reserved Long 2: u64
-  index, reserved_long_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_long_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_long_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_long_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_long_2.size
+  end
 
   -- Sell Account: u16
   index, sell_account = a2x_a2xequities_tradingprotocol_atp_v2_9.sell_account.dissect(buffer, index, packet, parent)
@@ -2105,7 +2126,11 @@ a2x_a2xequities_tradingprotocol_atp_v2_9.order_modify_response_message.fields = 
   index, user_tag = a2x_a2xequities_tradingprotocol_atp_v2_9.user_tag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: u8
-  index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.size
+  end
 
   return index
 end
@@ -2316,7 +2341,11 @@ a2x_a2xequities_tradingprotocol_atp_v2_9.order_add_response_message.fields = fun
   index, user_tag = a2x_a2xequities_tradingprotocol_atp_v2_9.user_tag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: u8
-  index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.size
+  end
 
   return index
 end
@@ -2381,25 +2410,53 @@ a2x_a2xequities_tradingprotocol_atp_v2_9.order_modify_extended_message.fields = 
   index, user_tag = a2x_a2xequities_tradingprotocol_atp_v2_9.user_tag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: u8
-  index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.size
+  end
 
   -- Reserved Byte 2: u8
-  index, reserved_byte_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_byte_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_2.size
+  end
 
   -- Reserved 4: u32
-  index, reserved_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_4.size
+  end
 
   -- Reserved Byte 3: u8
-  index, reserved_byte_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_byte_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_3.size
+  end
 
   -- Reserved Int 2: u32
-  index, reserved_int_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_int_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_2.size
+  end
 
   -- Reserved Byte 4: u8
-  index, reserved_byte_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_byte_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_4.size
+  end
 
   -- Reserved Int 3: u32
-  index, reserved_int_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_int_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_3.size
+  end
 
   -- Order Capacity: u8
   index, order_capacity = a2x_a2xequities_tradingprotocol_atp_v2_9.order_capacity.dissect(buffer, index, packet, parent)
@@ -2408,7 +2465,11 @@ a2x_a2xequities_tradingprotocol_atp_v2_9.order_modify_extended_message.fields = 
   index, display_quantity = a2x_a2xequities_tradingprotocol_atp_v2_9.display_quantity.dissect(buffer, index, packet, parent)
 
   -- Reserved Int 4: u32
-  index, reserved_int_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_int_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_4.size
+  end
 
   return index
 end
@@ -2589,25 +2650,53 @@ a2x_a2xequities_tradingprotocol_atp_v2_9.order_add_extended_message.fields = fun
   index, user_tag = a2x_a2xequities_tradingprotocol_atp_v2_9.user_tag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: u8
-  index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.size
+  end
 
   -- Reserved Byte 2: u8
-  index, reserved_byte_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_byte_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_2.size
+  end
 
   -- Reserved 4: u32
-  index, reserved_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_4.size
+  end
 
   -- Reserved Byte 3: u8
-  index, reserved_byte_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_byte_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_3.size
+  end
 
   -- Reserved Int 2: u32
-  index, reserved_int_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_int_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_2.size
+  end
 
   -- Reserved Byte 4: u8
-  index, reserved_byte_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_byte_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_4.size
+  end
 
   -- Reserved Int 3: u32
-  index, reserved_int_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_int_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_3.size
+  end
 
   -- Display Quantity: u32
   index, display_quantity = a2x_a2xequities_tradingprotocol_atp_v2_9.display_quantity.dissect(buffer, index, packet, parent)
@@ -2616,7 +2705,11 @@ a2x_a2xequities_tradingprotocol_atp_v2_9.order_add_extended_message.fields = fun
   index, min_qty = a2x_a2xequities_tradingprotocol_atp_v2_9.min_qty.dissect(buffer, index, packet, parent)
 
   -- Reserved Byte 5: u8
-  index, reserved_byte_5 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_byte_5 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_5.size
+  end
 
   return index
 end
@@ -2698,25 +2791,53 @@ a2x_a2xequities_tradingprotocol_atp_v2_9.order_add_message.fields = function(buf
   index, user_tag = a2x_a2xequities_tradingprotocol_atp_v2_9.user_tag.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: u8
-  index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_1.size
+  end
 
   -- Reserved Byte 2: u8
-  index, reserved_byte_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_byte_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_2.size
+  end
 
   -- Reserved 4: u32
-  index, reserved_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_4.size
+  end
 
   -- Reserved Byte 3: u8
-  index, reserved_byte_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_byte_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_3.size
+  end
 
   -- Reserved Int 2: u32
-  index, reserved_int_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_int_2 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_2.size
+  end
 
   -- Reserved Byte 4: u8
-  index, reserved_byte_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_byte_4 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_byte_4.size
+  end
 
   -- Reserved Int 3: u32
-  index, reserved_int_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_int_3 = a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + a2x_a2xequities_tradingprotocol_atp_v2_9.reserved_int_3.size
+  end
 
   return index
 end

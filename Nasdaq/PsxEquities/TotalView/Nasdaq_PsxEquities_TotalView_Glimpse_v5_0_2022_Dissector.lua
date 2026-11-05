@@ -132,6 +132,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.padding = false
 show.sequences = true
 
 -- Register Nasdaq PsxEquities TotalView Glimpse 5.0.2022 Show Options
@@ -142,6 +143,7 @@ omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_application_messag
 omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
@@ -155,6 +157,9 @@ function omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_headers then
     show.headers = omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_padding then
+    show.padding = omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_padding
   end
   if show.session_messages ~= omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_session_messages
@@ -1764,7 +1769,11 @@ nasdaq_psxequities_totalview_glimpse_v5_0_2022.stock_trading_action_message.fiel
   index, trading_state = nasdaq_psxequities_totalview_glimpse_v5_0_2022.trading_state.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alpha
-  index, reserved_1 = nasdaq_psxequities_totalview_glimpse_v5_0_2022.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nasdaq_psxequities_totalview_glimpse_v5_0_2022.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_psxequities_totalview_glimpse_v5_0_2022.reserved_1.size
+  end
 
   -- Reason: Alpha
   index, reason = nasdaq_psxequities_totalview_glimpse_v5_0_2022.reason.dissect(buffer, index, packet, parent)

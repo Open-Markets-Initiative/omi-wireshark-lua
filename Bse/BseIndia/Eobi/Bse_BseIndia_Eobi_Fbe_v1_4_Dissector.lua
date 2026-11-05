@@ -151,6 +151,7 @@ show.application_messages = true
 show.structs = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Bse BseIndia Eobi Fbe 1.4 Show Options
@@ -158,6 +159,7 @@ omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_application_messages = Pref.bool("Show
 omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_bse_bseindia_eobi_fbe_v1_4.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -171,6 +173,9 @@ function omi_bse_bseindia_eobi_fbe_v1_4.prefs_changed()
   end
   if show.headers ~= omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_headers then
     show.headers = omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_headers
+  end
+  if show.padding ~= omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_padding then
+    show.padding = omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_padding
   end
   if show.repeating_groups ~= omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_repeating_groups then
     show.repeating_groups = omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_repeating_groups
@@ -2000,7 +2005,11 @@ bse_bseindia_eobi_fbe_v1_4.instrmt_leg_grp.fields = function(buffer, offset, pac
   index, leg_side = bse_bseindia_eobi_fbe_v1_4.leg_side.dissect(buffer, index, packet, parent)
 
   -- Pad 3: Fixed String
-  index, pad_3 = bse_bseindia_eobi_fbe_v1_4.pad_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_3 = bse_bseindia_eobi_fbe_v1_4.pad_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_3.size
+  end
 
   return index
 end
@@ -2065,7 +2074,11 @@ bse_bseindia_eobi_fbe_v1_4.add_complex_instrument_message.fields = function(buff
   index, no_legs = bse_bseindia_eobi_fbe_v1_4.no_legs.dissect(buffer, index, packet, parent)
 
   -- Pad 1: Fixed String
-  index, pad_1 = bse_bseindia_eobi_fbe_v1_4.pad_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_1 = bse_bseindia_eobi_fbe_v1_4.pad_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_1.size
+  end
 
   -- Array Of: Instrmt Leg Grp
   for instrmt_leg_grp_index = 1, 5 do
@@ -2127,7 +2140,11 @@ bse_bseindia_eobi_fbe_v1_4.instrument_state_change_message.fields = function(buf
   index, fast_market_indicator = bse_bseindia_eobi_fbe_v1_4.fast_market_indicator.dissect(buffer, index, packet, parent)
 
   -- Pad 5: Fixed String
-  index, pad_5 = bse_bseindia_eobi_fbe_v1_4.pad_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_5 = bse_bseindia_eobi_fbe_v1_4.pad_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_5.size
+  end
 
   -- Transact Time: UTCTimestamp
   index, transact_time = bse_bseindia_eobi_fbe_v1_4.transact_time.dissect(buffer, index, packet, parent)
@@ -2187,7 +2204,11 @@ bse_bseindia_eobi_fbe_v1_4.product_state_change_message.fields = function(buffer
   index, fast_market_indicator = bse_bseindia_eobi_fbe_v1_4.fast_market_indicator.dissect(buffer, index, packet, parent)
 
   -- Pad 4: Fixed String
-  index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_4.size
+  end
 
   -- Transact Time: UTCTimestamp
   index, transact_time = bse_bseindia_eobi_fbe_v1_4.transact_time.dissect(buffer, index, packet, parent)
@@ -2360,7 +2381,11 @@ bse_bseindia_eobi_fbe_v1_4.execution_summary_message.fields = function(buffer, o
   index, trade_condition = bse_bseindia_eobi_fbe_v1_4.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Pad 6: Fixed String
-  index, pad_6 = bse_bseindia_eobi_fbe_v1_4.pad_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_6 = bse_bseindia_eobi_fbe_v1_4.pad_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_6.size
+  end
 
   -- Last Px: PriceType
   index, last_px = bse_bseindia_eobi_fbe_v1_4.last_px.dissect(buffer, index, packet, parent)
@@ -2430,7 +2455,11 @@ bse_bseindia_eobi_fbe_v1_4.md_trade_entry_grp.fields = function(buffer, offset, 
   index, md_entry_type = bse_bseindia_eobi_fbe_v1_4.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Pad 7: Fixed String
-  index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_7.size
+  end
 
   return index
 end
@@ -2488,7 +2517,11 @@ bse_bseindia_eobi_fbe_v1_4.trade_reversal_message.fields = function(buffer, offs
   index, trd_match_id = bse_bseindia_eobi_fbe_v1_4.trd_match_id.dissect(buffer, index, packet, parent)
 
   -- Pad 4: Fixed String
-  index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_4.size
+  end
 
   -- Last Qty: signed int
   index, last_qty = bse_bseindia_eobi_fbe_v1_4.last_qty.dissect(buffer, index, packet, parent)
@@ -2503,7 +2536,11 @@ bse_bseindia_eobi_fbe_v1_4.trade_reversal_message.fields = function(buffer, offs
   index, no_md_entries = bse_bseindia_eobi_fbe_v1_4.no_md_entries.dissect(buffer, index, packet, parent)
 
   -- Pad 7: Fixed String
-  index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_7.size
+  end
 
   -- Array Of: Md Trade Entry Grp
   for md_trade_entry_grp_index = 1, 15 do
@@ -2559,7 +2596,11 @@ bse_bseindia_eobi_fbe_v1_4.full_order_execution_message.fields = function(buffer
   index, side = bse_bseindia_eobi_fbe_v1_4.side.dissect(buffer, index, packet, parent)
 
   -- Pad 7: Fixed String
-  index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_7.size
+  end
 
   -- Price: PriceType
   index, price = bse_bseindia_eobi_fbe_v1_4.price.dissect(buffer, index, packet, parent)
@@ -2574,7 +2615,11 @@ bse_bseindia_eobi_fbe_v1_4.full_order_execution_message.fields = function(buffer
   index, trd_match_id = bse_bseindia_eobi_fbe_v1_4.trd_match_id.dissect(buffer, index, packet, parent)
 
   -- Pad 4: Fixed String
-  index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_4.size
+  end
 
   -- Last Qty: signed int
   index, last_qty = bse_bseindia_eobi_fbe_v1_4.last_qty.dissect(buffer, index, packet, parent)
@@ -2631,7 +2676,11 @@ bse_bseindia_eobi_fbe_v1_4.partial_order_execution_message.fields = function(buf
   index, side = bse_bseindia_eobi_fbe_v1_4.side.dissect(buffer, index, packet, parent)
 
   -- Pad 7: Fixed String
-  index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_7.size
+  end
 
   -- Price: PriceType
   index, price = bse_bseindia_eobi_fbe_v1_4.price.dissect(buffer, index, packet, parent)
@@ -2646,7 +2695,11 @@ bse_bseindia_eobi_fbe_v1_4.partial_order_execution_message.fields = function(buf
   index, trd_match_id = bse_bseindia_eobi_fbe_v1_4.trd_match_id.dissect(buffer, index, packet, parent)
 
   -- Pad 4: Fixed String
-  index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_4.size
+  end
 
   -- Last Qty: signed int
   index, last_qty = bse_bseindia_eobi_fbe_v1_4.last_qty.dissect(buffer, index, packet, parent)
@@ -2749,7 +2802,11 @@ bse_bseindia_eobi_fbe_v1_4.order_details.fields = function(buffer, offset, packe
   index, side = bse_bseindia_eobi_fbe_v1_4.side.dissect(buffer, index, packet, parent)
 
   -- Pad 7: Fixed String
-  index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_7.size
+  end
 
   -- Price: PriceType
   index, price = bse_bseindia_eobi_fbe_v1_4.price.dissect(buffer, index, packet, parent)
@@ -3188,7 +3245,11 @@ bse_bseindia_eobi_fbe_v1_4.md_instrument_entry_grp.fields = function(buffer, off
   index, md_entry_type = bse_bseindia_eobi_fbe_v1_4.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Pad 7: Fixed String
-  index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_7.size
+  end
 
   return index
 end
@@ -3269,7 +3330,11 @@ bse_bseindia_eobi_fbe_v1_4.instrument_summary_message.fields = function(buffer, 
   index, no_of_trades = bse_bseindia_eobi_fbe_v1_4.no_of_trades.dissect(buffer, index, packet, parent)
 
   -- Pad 4: Fixed String
-  index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_4.size
+  end
 
   -- Array Of: Md Instrument Entry Grp
   for md_instrument_entry_grp_index = 1, 15 do
@@ -3414,7 +3479,11 @@ bse_bseindia_eobi_fbe_v1_4.heartbeat_message.fields = function(buffer, offset, p
   index, last_msg_seq_num_processed = bse_bseindia_eobi_fbe_v1_4.last_msg_seq_num_processed.dissect(buffer, index, packet, parent)
 
   -- Pad 4: Fixed String
-  index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_4.size
+  end
 
   return index
 end
@@ -3658,7 +3727,11 @@ bse_bseindia_eobi_fbe_v1_4.packet_header.fields = function(buffer, offset, packe
   index, appl_seq_reset_indicator = bse_bseindia_eobi_fbe_v1_4.appl_seq_reset_indicator.dissect(buffer, index, packet, parent)
 
   -- Pad 5: Fixed String
-  index, pad_5 = bse_bseindia_eobi_fbe_v1_4.pad_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, pad_5 = bse_bseindia_eobi_fbe_v1_4.pad_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + bse_bseindia_eobi_fbe_v1_4.pad_5.size
+  end
 
   -- Transact Time: UTCTimestamp
   index, transact_time = bse_bseindia_eobi_fbe_v1_4.transact_time.dissect(buffer, index, packet, parent)

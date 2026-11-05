@@ -159,6 +159,7 @@ show.application_messages = true
 show.repeating_groups = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Miax OnyxFutures TopOfMarketRetransmission SesM 1.3.a Show Options
@@ -166,6 +167,7 @@ omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_applicatio
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -179,6 +181,9 @@ function omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs_change
   end
   if show.headers ~= omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_headers then
     show.headers = omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_headers
+  end
+  if show.padding ~= omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_padding then
+    show.padding = omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_padding
   end
   if show.repeating_groups ~= omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_repeating_groups then
     show.repeating_groups = omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_repeating_groups
@@ -3186,13 +3191,21 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.deprecated_instrument_leg
   index, leg_ratio_and_side = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.leg_ratio_and_side.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: BinaryU
-  index, reserved_4 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_4.size
+  end
 
   -- Maturity Date: Date
   index, maturity_date = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.maturity_date.dissect(buffer, index, packet, parent)
 
   -- Reserved 6: BinaryU
-  index, reserved_6 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_6 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_6.size
+  end
 
   return index
 end
@@ -3338,7 +3351,11 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.complex_instrument_defini
   index, trading_collar_variation = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_collar_variation.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: BinaryU
-  index, reserved_16 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_16.size
+  end
 
   -- Number Of Legs: BinaryU
   index, number_of_legs = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.number_of_legs.dissect(buffer, index, packet, parent)
@@ -3404,7 +3421,11 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_leg.fields = f
   index, maturity_date = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.maturity_date.dissect(buffer, index, packet, parent)
 
   -- Reserved 32: BinaryU
-  index, reserved_32 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_32.size
+  end
 
   return index
 end
@@ -3570,7 +3591,11 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.complex_instrument_defini
   index, first_trade_date = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.first_trade_date.dissect(buffer, index, packet, parent)
 
   -- Reserved 64: BinaryU
-  index, reserved_64 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_64.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_64 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_64.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_64.size
+  end
 
   -- Number Of Legs: BinaryU
   index, number_of_legs = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.number_of_legs.dissect(buffer, index, packet, parent)
@@ -3684,7 +3709,11 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.simple_instrument_definit
   index, instrument_listing_status = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_listing_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: BinaryU
-  index, reserved_3 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.reserved_3.size
+  end
 
   -- Currency: Alphanumeric
   index, currency = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.currency.dissect(buffer, index, packet, parent)

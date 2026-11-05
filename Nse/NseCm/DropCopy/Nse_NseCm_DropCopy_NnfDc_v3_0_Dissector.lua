@@ -167,6 +167,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 
 -- Register Nse NseCm DropCopy NnfDc 3.0 Show Options
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
@@ -175,6 +176,7 @@ omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.swap_sides = Pref.bool("Swap Sides", fal
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
@@ -187,6 +189,9 @@ function omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs_changed()
   end
   if show.headers ~= omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_headers then
     show.headers = omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_headers
+  end
+  if show.padding ~= omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_padding then
+    show.padding = omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_padding
   end
   if show.structs ~= omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_structs then
     show.structs = omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_structs
@@ -4826,7 +4831,11 @@ nse_nsecm_dropcopy_nnfdc_v3_0.request_message_header.fields = function(buffer, o
   index, func_indc = nse_nsecm_dropcopy_nnfdc_v3_0.func_indc.dissect(buffer, index, packet, parent)
 
   -- Reserve: CHAR
-  index, reserve = nse_nsecm_dropcopy_nnfdc_v3_0.reserve.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserve = nse_nsecm_dropcopy_nnfdc_v3_0.reserve.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.reserve.size
+  end
 
   return index
 end

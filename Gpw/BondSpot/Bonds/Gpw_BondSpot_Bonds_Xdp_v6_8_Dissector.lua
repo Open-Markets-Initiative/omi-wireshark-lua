@@ -78,6 +78,7 @@ show.repeating_groups = true
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Gpw BondSpot Bonds Xdp 6.8 Show Options
@@ -85,6 +86,7 @@ omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_repeating_groups = Pref.bool("Show Re
 omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -96,6 +98,9 @@ function omi_gpw_bondspot_bonds_xdp_v6_8.prefs_changed()
   end
   if show.headers ~= omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_headers then
     show.headers = omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_headers
+  end
+  if show.padding ~= omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_padding then
+    show.padding = omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_padding
   end
   if show.repeating_groups ~= omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_repeating_groups then
     show.repeating_groups = omi_gpw_bondspot_bonds_xdp_v6_8.prefs.show_repeating_groups
@@ -1168,7 +1173,11 @@ gpw_bondspot_bonds_xdp_v6_8.interest_for_settlement_day_message.fields = functio
   index, interest_scale_code = gpw_bondspot_bonds_xdp_v6_8.interest_scale_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary Int.
-  index, reserved_2 = gpw_bondspot_bonds_xdp_v6_8.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = gpw_bondspot_bonds_xdp_v6_8.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_bonds_xdp_v6_8.reserved_2.size
+  end
 
   return index
 end
@@ -1287,7 +1296,11 @@ gpw_bondspot_bonds_xdp_v6_8.accrued_interest_message.fields = function(buffer, o
   index, accrued_interest_scale_code = gpw_bondspot_bonds_xdp_v6_8.accrued_interest_scale_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Binary Int.
-  index, reserved_3 = gpw_bondspot_bonds_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = gpw_bondspot_bonds_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_bonds_xdp_v6_8.reserved_3.size
+  end
 
   -- Array Of: Accrued Interest Group
   for accrued_interest_group_index = 1, 31 do

@@ -258,6 +258,7 @@ show.repeating_groups = true
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Gpw BondSpot MarketInformation Xdp 6.8 Show Options
@@ -265,6 +266,7 @@ omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_repeating_groups = Pref.b
 omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -276,6 +278,9 @@ function omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs_changed()
   end
   if show.headers ~= omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_headers then
     show.headers = omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_headers
+  end
+  if show.padding ~= omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_padding then
+    show.padding = omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_padding
   end
   if show.repeating_groups ~= omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_repeating_groups then
     show.repeating_groups = omi_gpw_bondspot_marketinformation_xdp_v6_8.prefs.show_repeating_groups
@@ -5779,7 +5784,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.session_summary_message.fields = functio
   index, settlement_value = gpw_bondspot_marketinformation_xdp_v6_8.settlement_value.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary Int.
-  index, reserved_4 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.reserved_4.size
+  end
 
   -- Open Positions: Binary Int.
   index, open_positions = gpw_bondspot_marketinformation_xdp_v6_8.open_positions.dissect(buffer, index, packet, parent)
@@ -5908,7 +5917,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.session_summary_message.fields = functio
   index, settlement_value_scale_code = gpw_bondspot_marketinformation_xdp_v6_8.settlement_value_scale_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary Int.
-  index, reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.size
+  end
 
   -- Trading Value Scale Code: Binary Int.
   index, trading_value_scale_code = gpw_bondspot_marketinformation_xdp_v6_8.trading_value_scale_code.dissect(buffer, index, packet, parent)
@@ -5971,7 +5984,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.session_summary_message.fields = functio
   index, market = gpw_bondspot_marketinformation_xdp_v6_8.market.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: Binary Int.
-  index, second_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_1.size
+  end
 
   -- Short Sale: ASCII Str.
   index, short_sale = gpw_bondspot_marketinformation_xdp_v6_8.short_sale.dissect(buffer, index, packet, parent)
@@ -5995,22 +6012,46 @@ gpw_bondspot_marketinformation_xdp_v6_8.session_summary_message.fields = functio
   index, symbol_vega = gpw_bondspot_marketinformation_xdp_v6_8.symbol_vega.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: Binary Int.
-  index, third_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.third_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.third_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.third_reserved_1.size
+  end
 
   -- Fourth Reserved 1: Binary Int.
-  index, fourth_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.fourth_reserved_1.size
+  end
 
   -- Fifth Reserved 1: Binary Int.
-  index, fifth_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fifth_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.fifth_reserved_1.size
+  end
 
   -- Sixth Reserved 1: Binary Int.
-  index, sixth_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.sixth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, sixth_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.sixth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.sixth_reserved_1.size
+  end
 
   -- Seventh Reserved 1: Binary Int.
-  index, seventh_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.seventh_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, seventh_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.seventh_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.seventh_reserved_1.size
+  end
 
   -- Eighth Reserved 1: Binary Int.
-  index, eighth_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.eighth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, eighth_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.eighth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.eighth_reserved_1.size
+  end
 
   -- Segment: ASCII Str.
   index, segment = gpw_bondspot_marketinformation_xdp_v6_8.segment.dissect(buffer, index, packet, parent)
@@ -6037,7 +6078,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.session_summary_message.fields = functio
   index, liquidity_support_pge = gpw_bondspot_marketinformation_xdp_v6_8.liquidity_support_pge.dissect(buffer, index, packet, parent)
 
   -- Ninth Reserved 1: Binary Int.
-  index, ninth_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.ninth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, ninth_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.ninth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.ninth_reserved_1.size
+  end
 
   return index
 end
@@ -6230,7 +6275,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.referential_message.fields = function(bu
   index, prev_volume_traded = gpw_bondspot_marketinformation_xdp_v6_8.prev_volume_traded.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Binary Int.
-  index, reserved_4 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.reserved_4.size
+  end
 
   -- Source Time Micro Secs: Binary Int.
   index, source_time_micro_secs = gpw_bondspot_marketinformation_xdp_v6_8.source_time_micro_secs.dissect(buffer, index, packet, parent)
@@ -6316,7 +6365,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.referential_message.fields = function(bu
   index, cfi = gpw_bondspot_marketinformation_xdp_v6_8.cfi.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 4: Binary Int.
-  index, second_reserved_4 = gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_4 = gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_4.size
+  end
 
   -- Index Set Of Var Price Tick: ASCII Str.
   index, index_set_of_var_price_tick = gpw_bondspot_marketinformation_xdp_v6_8.index_set_of_var_price_tick.dissect(buffer, index, packet, parent)
@@ -6340,7 +6393,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.referential_message.fields = function(bu
   index, us_indicators = gpw_bondspot_marketinformation_xdp_v6_8.us_indicators.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary Int.
-  index, reserved_2 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.reserved_2.size
+  end
 
   -- Prev Day Capital Traded: Binary Int.
   index, prev_day_capital_traded = gpw_bondspot_marketinformation_xdp_v6_8.prev_day_capital_traded.dissect(buffer, index, packet, parent)
@@ -6382,13 +6439,21 @@ gpw_bondspot_marketinformation_xdp_v6_8.referential_message.fields = function(bu
   index, tax_code = gpw_bondspot_marketinformation_xdp_v6_8.tax_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary Int.
-  index, reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.size
+  end
 
   -- Lot Size Scale Code: Binary Int.
   index, lot_size_scale_code = gpw_bondspot_marketinformation_xdp_v6_8.lot_size_scale_code.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: Binary Int.
-  index, second_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_1.size
+  end
 
   -- Mnemo: ASCII Str.
   index, mnemo = gpw_bondspot_marketinformation_xdp_v6_8.mnemo.dissect(buffer, index, packet, parent)
@@ -6397,7 +6462,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.referential_message.fields = function(bu
   index, trading_code = gpw_bondspot_marketinformation_xdp_v6_8.trading_code.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 4: Binary Int.
-  index, third_reserved_4 = gpw_bondspot_marketinformation_xdp_v6_8.third_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_4 = gpw_bondspot_marketinformation_xdp_v6_8.third_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.third_reserved_4.size
+  end
 
   -- Strike Price: Binary Int.
   index, strike_price = gpw_bondspot_marketinformation_xdp_v6_8.strike_price.dissect(buffer, index, packet, parent)
@@ -6460,7 +6529,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.referential_message.fields = function(bu
   index, warrant_threshold_max_scale_code = gpw_bondspot_marketinformation_xdp_v6_8.warrant_threshold_max_scale_code.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 2: Binary Int.
-  index, second_reserved_2 = gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.second_reserved_2.size
+  end
 
   -- Warrant Threshold Min: Binary Int.
   index, warrant_threshold_min = gpw_bondspot_marketinformation_xdp_v6_8.warrant_threshold_min.dissect(buffer, index, packet, parent)
@@ -6478,7 +6551,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.referential_message.fields = function(bu
   index, multiplier = gpw_bondspot_marketinformation_xdp_v6_8.multiplier.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 4: Binary Int.
-  index, fourth_reserved_4 = gpw_bondspot_marketinformation_xdp_v6_8.fourth_reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_4 = gpw_bondspot_marketinformation_xdp_v6_8.fourth_reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.fourth_reserved_4.size
+  end
 
   -- Max Value: Binary Int.
   index, max_value = gpw_bondspot_marketinformation_xdp_v6_8.max_value.dissect(buffer, index, packet, parent)
@@ -6525,7 +6602,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.end_referential_message.fields = functio
   index, indicator = gpw_bondspot_marketinformation_xdp_v6_8.indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Binary Int.
-  index, reserved_3 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.size
+  end
 
   return index
 end
@@ -6569,7 +6650,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.start_referential_message.fields = funct
   index, indicator = gpw_bondspot_marketinformation_xdp_v6_8.indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Binary Int.
-  index, reserved_3 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.size
+  end
 
   return index
 end
@@ -6681,7 +6766,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.session_timetable_message.fields = funct
   index, instrument_group_code = gpw_bondspot_marketinformation_xdp_v6_8.instrument_group_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary Int.
-  index, reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.size
+  end
 
   -- Class Phase Number: Binary Int.
   index, class_phase_number = gpw_bondspot_marketinformation_xdp_v6_8.class_phase_number.dissect(buffer, index, packet, parent)
@@ -6769,7 +6858,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.collars_message.fields = function(buffer
   index, collar_type = gpw_bondspot_marketinformation_xdp_v6_8.collar_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Binary Int.
-  index, reserved_3 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.size
+  end
 
   return index
 end
@@ -6837,7 +6930,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.mail_message.fields = function(buffer, o
   index, text = gpw_bondspot_marketinformation_xdp_v6_8.text.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Binary Int.
-  index, reserved_3 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.reserved_3.size
+  end
 
   return index
 end
@@ -6906,7 +7003,11 @@ gpw_bondspot_marketinformation_xdp_v6_8.class_state_change_message.fields = func
   index, session_type = gpw_bondspot_marketinformation_xdp_v6_8.session_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary Int.
-  index, reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + gpw_bondspot_marketinformation_xdp_v6_8.reserved_1.size
+  end
 
   -- Class State: ASCII Ch.
   index, class_state = gpw_bondspot_marketinformation_xdp_v6_8.class_state.dissect(buffer, index, packet, parent)

@@ -142,6 +142,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -149,6 +150,7 @@ show.sequences = true
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
@@ -164,6 +166,9 @@ function omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs_changed()
   end
   if show.headers ~= omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_headers then
     show.headers = omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_headers
+  end
+  if show.padding ~= omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_padding then
+    show.padding = omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_padding
   end
   if show.structs ~= omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_structs then
     show.structs = omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_structs
@@ -1894,7 +1899,11 @@ bist_borsaistanbul_geniuminet_itch_v21_12.trade_message.fields = function(buffer
   index, trade_price = bist_borsaistanbul_geniuminet_itch_v21_12.trade_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 14: Reserved
-  index, reserved_14 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_14 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.dissect(buffer, index, packet, parent)
+  else
+    index = index + bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.size
+  end
 
   -- Printable: Alpha
   index, printable = bist_borsaistanbul_geniuminet_itch_v21_12.printable.dissect(buffer, index, packet, parent)
@@ -2181,7 +2190,11 @@ bist_borsaistanbul_geniuminet_itch_v21_12.order_executed_with_price_message.fiel
   index, combo_group_id = bist_borsaistanbul_geniuminet_itch_v21_12.combo_group_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 14: Reserved
-  index, reserved_14 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_14 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.dissect(buffer, index, packet, parent)
+  else
+    index = index + bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.size
+  end
 
   -- Trade Price: Price
   index, trade_price = bist_borsaistanbul_geniuminet_itch_v21_12.trade_price.dissect(buffer, index, packet, parent)
@@ -2258,7 +2271,11 @@ bist_borsaistanbul_geniuminet_itch_v21_12.order_executed_message.fields = functi
   index, combo_group_id = bist_borsaistanbul_geniuminet_itch_v21_12.combo_group_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 14: Reserved
-  index, reserved_14 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_14 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.dissect(buffer, index, packet, parent)
+  else
+    index = index + bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.size
+  end
 
   return index
 end
@@ -2319,7 +2336,11 @@ bist_borsaistanbul_geniuminet_itch_v21_12.add_order_with_mpid_attribution.fields
   index, side = bist_borsaistanbul_geniuminet_itch_v21_12.side.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Reserved
-  index, reserved_4 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.size
+  end
 
   -- Quantity: Numeric
   index, quantity = bist_borsaistanbul_geniuminet_itch_v21_12.quantity.dissect(buffer, index, packet, parent)

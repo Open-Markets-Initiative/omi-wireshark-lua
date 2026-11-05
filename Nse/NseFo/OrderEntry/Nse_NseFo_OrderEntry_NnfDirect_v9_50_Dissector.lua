@@ -549,6 +549,7 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Nse NseFo OrderEntry NnfDirect 9.50 Show Options
@@ -558,6 +559,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.swap_sides = Pref.bool("Swap Side
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -571,6 +573,9 @@ function omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs_changed()
   end
   if show.headers ~= omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_headers then
     show.headers = omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_headers
+  end
+  if show.padding ~= omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_padding then
+    show.padding = omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_padding
   end
   if show.structs ~= omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_structs then
     show.structs = omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_structs
@@ -9384,7 +9389,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields = function(buffer, o
   index, additional_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Filler Y: CHAR
   index, filler_y = nse_nsefo_orderentry_nnfdirect_v9_50.filler_y.dissect(buffer, index, packet, parent)
@@ -9603,7 +9612,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields = function(buffer,
   index, additional_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Filler 116: CHAR
   index, filler_116 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.dissect(buffer, index, packet, parent)
@@ -9627,13 +9640,21 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields = function(buffer,
   index, algo_id = nse_nsefo_orderentry_nnfdirect_v9_50.algo_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size
+  end
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.dissect(buffer, index, packet, parent)
 
   -- Reserved 52: CHAR
-  index, reserved_52 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_52 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.size
+  end
 
   -- Price Diff: LONG
   index, price_diff = nse_nsefo_orderentry_nnfdirect_v9_50.price_diff.dissect(buffer, index, packet, parent)
@@ -9735,7 +9756,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   index, participant_type = nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Competitor Period: SHORT
   index, competitor_period = nse_nsefo_orderentry_nnfdirect_v9_50.competitor_period.dissect(buffer, index, packet, parent)
@@ -9747,13 +9772,21 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   index, modified_cancelled_by = nse_nsefo_orderentry_nnfdirect_v9_50.modified_cancelled_by.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.size
+  end
 
   -- Reason Code: SHORT
   index, reason_code = nse_nsefo_orderentry_nnfdirect_v9_50.reason_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: LONG
-  index, reserved_4 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.size
+  end
 
   -- Token No: LONG
   index, token_no = nse_nsefo_orderentry_nnfdirect_v9_50.token_no.dissect(buffer, index, packet, parent)
@@ -9765,16 +9798,28 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   index, counter_party_broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.counter_party_broker_id.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
-  index, third_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.size
+  end
 
   -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size
+  end
 
   -- Closeout Flag: CHAR
   index, closeout_flag = nse_nsefo_orderentry_nnfdirect_v9_50.closeout_flag.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 1: CHAR
-  index, fourth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.size
+  end
 
   -- Order Type: SHORT
   index, order_type = nse_nsefo_orderentry_nnfdirect_v9_50.order_type.dissect(buffer, index, packet, parent)
@@ -9855,7 +9900,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   index, additional_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Fifth Reserved 1: CHAR
-  index, fifth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fifth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.size
+  end
 
   -- Filler 116: CHAR
   index, filler_116 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.dissect(buffer, index, packet, parent)
@@ -9879,13 +9928,21 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   index, algo_id = nse_nsefo_orderentry_nnfdirect_v9_50.algo_id.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 2: CHAR
-  index, second_reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.size
+  end
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.dissect(buffer, index, packet, parent)
 
   -- Reserved 52: CHAR
-  index, reserved_52 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_52 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.size
+  end
 
   return index
 end
@@ -10066,7 +10123,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.giveup.fields = function(buffer, offset, pa
   index, open_close = nse_nsefo_orderentry_nnfdirect_v9_50.open_close.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Participant: CHAR
   index, participant = nse_nsefo_orderentry_nnfdirect_v9_50.participant.dissect(buffer, index, packet, parent)
@@ -10163,7 +10224,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_address_unlock_approve_message.fields 
   index, user_id = nse_nsefo_orderentry_nnfdirect_v9_50.user_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 36: CHAR
-  index, reserved_36 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_36.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_36 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_36.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_36.size
+  end
 
   return index
 end
@@ -10207,7 +10272,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_address_unlock_confirm_message.fields 
   index, user_id = nse_nsefo_orderentry_nnfdirect_v9_50.user_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 36: CHAR
-  index, reserved_36 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_36.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_36 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_36.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_36.size
+  end
 
   return index
 end
@@ -10255,7 +10324,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_trade_modify_cancel_status_change_resp
   index, trd_mod_cxl_bit = nse_nsefo_orderentry_nnfdirect_v9_50.trd_mod_cxl_bit.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   return index
 end
@@ -10303,7 +10376,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.collateral_user_status_change_response_mess
   index, col_user_bit = nse_nsefo_orderentry_nnfdirect_v9_50.col_user_bit.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   return index
 end
@@ -10351,7 +10428,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.contingency_broadcast_message.fields = func
   index, status = nse_nsefo_orderentry_nnfdirect_v9_50.status.dissect(buffer, index, packet, parent)
 
   -- Reserved 200: CHAR
-  index, reserved_200 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_200.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_200 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_200.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_200.size
+  end
 
   return index
 end
@@ -10395,7 +10476,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_on_request_out_message.fields = fu
   index, box_id = nse_nsefo_orderentry_nnfdirect_v9_50.box_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: CHAR
-  index, reserved_10 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_10 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_10.size
+  end
 
   return index
 end
@@ -10760,7 +10845,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.fields = function(buffe
   index, number_of_packets = nse_nsefo_orderentry_nnfdirect_v9_50.number_of_packets.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   return index
 end
@@ -10916,7 +11005,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body.fields = func
   local index = offset
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- No Of Records: SHORT
   index, no_of_records = nse_nsefo_orderentry_nnfdirect_v9_50.no_of_records.dissect(buffer, index, packet, parent)
@@ -11283,7 +11376,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.industry_index_report_message.fields = func
   index, message_type = nse_nsefo_orderentry_nnfdirect_v9_50.message_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Number Of Industry Records: SHORT
   index, number_of_industry_records = nse_nsefo_orderentry_nnfdirect_v9_50.number_of_industry_records.dissect(buffer, index, packet, parent)
@@ -11531,7 +11628,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.enhanced_market_statistics_report_message.f
   index, message_type = nse_nsefo_orderentry_nnfdirect_v9_50.message_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Number Of Records: SHORT
   index, number_of_records = nse_nsefo_orderentry_nnfdirect_v9_50.number_of_records.dissect(buffer, index, packet, parent)
@@ -11671,7 +11772,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body.fields = function(bu
   local index = offset
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Number Of Records: SHORT
   index, number_of_records = nse_nsefo_orderentry_nnfdirect_v9_50.number_of_records.dissect(buffer, index, packet, parent)
@@ -11872,7 +11977,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.control_message_to_trader_message.fields = 
   index, action_code = nse_nsefo_orderentry_nnfdirect_v9_50.action_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Broad Cast Message Length: SHORT
   index, broad_cast_message_length = nse_nsefo_orderentry_nnfdirect_v9_50.broad_cast_message_length.dissect(buffer, index, packet, parent)
@@ -12205,7 +12314,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.fields = functio
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Trader Number: LONG
   index, trader_number = nse_nsefo_orderentry_nnfdirect_v9_50.trader_number.dissect(buffer, index, packet, parent)
@@ -12262,7 +12375,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.fields = functio
   index, counter_broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.counter_broker_id.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.size
+  end
 
   -- Token: LONG
   index, token = nse_nsefo_orderentry_nnfdirect_v9_50.token.dissect(buffer, index, packet, parent)
@@ -12280,10 +12397,18 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.fields = functio
   index, trade_book_type = nse_nsefo_orderentry_nnfdirect_v9_50.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
-  index, third_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.size
+  end
 
   -- Reserved 4: LONG
-  index, reserved_4 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.size
+  end
 
   -- Old Account Number: CHAR
   index, old_account_number = nse_nsefo_orderentry_nnfdirect_v9_50.old_account_number.dissect(buffer, index, packet, parent)
@@ -12298,13 +12423,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.fields = functio
   index, additional_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 1: CHAR
-  index, fourth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.size
+  end
 
   -- Fifth Reserved 1: CHAR
-  index, fifth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fifth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.size
+  end
 
   -- Sixth Reserved 1: CHAR
-  index, sixth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, sixth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsefo_orderentry_nnfdirect_v9_50.pan.dissect(buffer, index, packet, parent)
@@ -12316,13 +12453,21 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.fields = functio
   index, algo_id = nse_nsefo_orderentry_nnfdirect_v9_50.algo_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size
+  end
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.dissect(buffer, index, packet, parent)
 
   -- Reserved 52: CHAR
-  index, reserved_52 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_52 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.size
+  end
 
   return index
 end
@@ -12674,7 +12819,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_trailer_message.field
   local index = offset
 
   -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size
+  end
 
   return index
 end
@@ -12714,7 +12863,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_header_message.fields
   local index = offset
 
   -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size
+  end
 
   return index
 end
@@ -13263,7 +13416,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.system_information_out_message.fields = fun
   index, snap_quote_time = nse_nsefo_orderentry_nnfdirect_v9_50.snap_quote_time.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size
+  end
 
   -- Board Lot Quantity: LONG
   index, board_lot_quantity = nse_nsefo_orderentry_nnfdirect_v9_50.board_lot_quantity.dissect(buffer, index, packet, parent)
@@ -13325,7 +13482,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_off_request_out_message.fields = funct
   index, user_id = nse_nsefo_orderentry_nnfdirect_v9_50.user_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 145: CHAR
-  index, reserved_145 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_145.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_145 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_145.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_145.size
+  end
 
   return index
 end
@@ -13465,13 +13626,21 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.fields = functi
   index, user_id = nse_nsefo_orderentry_nnfdirect_v9_50.user_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: CHAR
-  index, reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.size
+  end
 
   -- Password: CHAR
   index, password = nse_nsefo_orderentry_nnfdirect_v9_50.password.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: CHAR
-  index, second_reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.size
+  end
 
   -- New Password: CHAR
   index, new_password = nse_nsefo_orderentry_nnfdirect_v9_50.new_password.dissect(buffer, index, packet, parent)
@@ -13486,7 +13655,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.fields = functi
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Branch Id: SHORT
   index, branch_id = nse_nsefo_orderentry_nnfdirect_v9_50.branch_id.dissect(buffer, index, packet, parent)
@@ -13498,13 +13671,21 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.fields = functi
   index, end_time = nse_nsefo_orderentry_nnfdirect_v9_50.end_time.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.size
+  end
 
   -- Colour: CHAR
   index, colour = nse_nsefo_orderentry_nnfdirect_v9_50.colour.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
-  index, third_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.size
+  end
 
   -- User Type: SHORT
   index, user_type = nse_nsefo_orderentry_nnfdirect_v9_50.user_type.dissect(buffer, index, packet, parent)
@@ -13513,7 +13694,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.fields = functi
   index, sequence_number = nse_nsefo_orderentry_nnfdirect_v9_50.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Reserved 14: CHAR
-  index, reserved_14 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_14.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_14 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_14.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_14.size
+  end
 
   -- Broker Status: CHAR
   index, broker_status = nse_nsefo_orderentry_nnfdirect_v9_50.broker_status.dissect(buffer, index, packet, parent)
@@ -13534,13 +13719,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.fields = functi
   index, broker_name = nse_nsefo_orderentry_nnfdirect_v9_50.broker_name.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: CHAR
-  index, reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.size
+  end
 
   -- Second Reserved 16: CHAR
-  index, second_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.size
+  end
 
   -- Third Reserved 16: CHAR
-  index, third_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.size
+  end
 
   return index
 end
@@ -13866,7 +14063,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_address_unlock_request_message.fields 
   index, user_id = nse_nsefo_orderentry_nnfdirect_v9_50.user_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 70: CHAR
-  index, reserved_70 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_70.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_70 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_70.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_70.size
+  end
 
   return index
 end
@@ -13914,7 +14115,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_trade_modify_cancel_status_change_requ
   index, trd_mod_cxl_bit = nse_nsefo_orderentry_nnfdirect_v9_50.trd_mod_cxl_bit.dissect(buffer, index, packet, parent)
 
   -- Reserved 7: CHAR
-  index, reserved_7 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_7.size
+  end
 
   return index
 end
@@ -13962,7 +14167,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.collateral_user_status_change_request_messa
   index, col_user_bit = nse_nsefo_orderentry_nnfdirect_v9_50.col_user_bit.dissect(buffer, index, packet, parent)
 
   -- Reserved 7: CHAR
-  index, reserved_7 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_7 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_7.size
+  end
 
   return index
 end
@@ -14006,7 +14215,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.reset_user_password_message.fields = functi
   index, user_id = nse_nsefo_orderentry_nnfdirect_v9_50.user_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 14: CHAR
-  index, reserved_14 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_14.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_14 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_14.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_14.size
+  end
 
   return index
 end
@@ -14053,7 +14266,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.normal_order_limit_update_message.fields = 
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- User Id: LONG
   index, user_id = nse_nsefo_orderentry_nnfdirect_v9_50.user_id.dissect(buffer, index, packet, parent)
@@ -14111,7 +14328,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.fields = function(buffer, offse
   end
 
   -- Reserved 32: CHAR
-  index, reserved_32 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_32.size
+  end
 
   -- User Order Buy Value Limit: DOUBLE
   index, user_order_buy_value_limit = nse_nsefo_orderentry_nnfdirect_v9_50.user_order_buy_value_limit.dissect(buffer, index, packet, parent)
@@ -14120,7 +14341,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.fields = function(buffer, offse
   index, user_order_sell_value_limit = nse_nsefo_orderentry_nnfdirect_v9_50.user_order_sell_value_limit.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: CHAR
-  index, reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.size
+  end
 
   return index
 end
@@ -14169,19 +14394,31 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_value_limit_update_message.field
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Branch Id: SHORT
   index, branch_id = nse_nsefo_orderentry_nnfdirect_v9_50.branch_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 26: CHAR
-  index, reserved_26 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_26.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_26 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_26.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_26.size
+  end
 
   -- User Id: LONG
   index, user_id = nse_nsefo_orderentry_nnfdirect_v9_50.user_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size
+  end
 
   -- Array Of: User Limits
   for user_limits_index = 1, 2 do
@@ -14240,7 +14477,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.fields = function(buffer, off
   index, branch_sell_value_limit = nse_nsefo_orderentry_nnfdirect_v9_50.branch_sell_value_limit.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: CHAR
-  index, reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.size
+  end
 
   return index
 end
@@ -14286,7 +14527,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_order_value_limit_update_message.fie
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 25: CHAR
-  index, reserved_25 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_25.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_25 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_25.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_25.size
+  end
 
   -- Branch Id: SHORT
   index, branch_id = nse_nsefo_orderentry_nnfdirect_v9_50.branch_id.dissect(buffer, index, packet, parent)
@@ -14400,7 +14645,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_on_request_in_message.fields = fun
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 5: CHAR
-  index, reserved_5 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_5 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_5.size
+  end
 
   -- Session Key: CHAR
   index, session_key = nse_nsefo_orderentry_nnfdirect_v9_50.session_key.dissect(buffer, index, packet, parent)
@@ -14564,7 +14813,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.fields = function(buf
   index, buy_open_close = nse_nsefo_orderentry_nnfdirect_v9_50.buy_open_close.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: LONG
-  index, reserved_4 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.size
+  end
 
   -- Buy Broker Id: CHAR
   index, buy_broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.buy_broker_id.dissect(buffer, index, packet, parent)
@@ -14588,13 +14841,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.fields = function(buf
   index, sell_account_number = nse_nsefo_orderentry_nnfdirect_v9_50.sell_account_number.dissect(buffer, index, packet, parent)
 
   -- Reserved 24: CHAR
-  index, reserved_24 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_24.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_24 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_24.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_24.size
+  end
 
   -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size
+  end
 
   -- Second Reserved 2: CHAR
-  index, second_reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.size
+  end
 
   -- Buy Pan: CHAR
   index, buy_pan = nse_nsefo_orderentry_nnfdirect_v9_50.buy_pan.dissect(buffer, index, packet, parent)
@@ -14603,7 +14868,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.fields = function(buf
   index, sell_pan = nse_nsefo_orderentry_nnfdirect_v9_50.sell_pan.dissect(buffer, index, packet, parent)
 
   -- Reserved 60: CHAR
-  index, reserved_60 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_60.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_60 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_60.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_60.size
+  end
 
   return index
 end
@@ -14679,7 +14948,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.price_modification_message.fields = functio
   index, last_activity_reference = nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.dissect(buffer, index, packet, parent)
 
   -- Reserved 24: CHAR
-  index, reserved_24 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_24.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_24 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_24.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_24.size
+  end
 
   return index
 end
@@ -15022,7 +15295,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_in_message.fields = f
   index, request_for_open_orders = nse_nsefo_orderentry_nnfdirect_v9_50.request_for_open_orders.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- St Market Status: Struct of 4 fields
   index, st_market_status = nse_nsefo_orderentry_nnfdirect_v9_50.st_market_status.dissect(buffer, index, packet, parent)
@@ -15205,13 +15482,21 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.fields = functio
   index, user_id = nse_nsefo_orderentry_nnfdirect_v9_50.user_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: CHAR
-  index, reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.size
+  end
 
   -- Password: CHAR
   index, password = nse_nsefo_orderentry_nnfdirect_v9_50.password.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: CHAR
-  index, second_reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.size
+  end
 
   -- New Password: CHAR
   index, new_password = nse_nsefo_orderentry_nnfdirect_v9_50.new_password.dissect(buffer, index, packet, parent)
@@ -15226,7 +15511,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.fields = functio
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
+  end
 
   -- Branch Id: SHORT
   index, branch_id = nse_nsefo_orderentry_nnfdirect_v9_50.branch_id.dissect(buffer, index, packet, parent)
@@ -15244,7 +15533,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.fields = functio
   index, colour = nse_nsefo_orderentry_nnfdirect_v9_50.colour.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.size
+  end
 
   -- User Type: SHORT
   index, user_type = nse_nsefo_orderentry_nnfdirect_v9_50.user_type.dissect(buffer, index, packet, parent)
@@ -15274,13 +15567,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.fields = functio
   index, broker_name = nse_nsefo_orderentry_nnfdirect_v9_50.broker_name.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: CHAR
-  index, reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.size
+  end
 
   -- Second Reserved 16: CHAR
-  index, second_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.size
+  end
 
   -- Third Reserved 16: CHAR
-  index, third_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.size
+  end
 
   return index
 end

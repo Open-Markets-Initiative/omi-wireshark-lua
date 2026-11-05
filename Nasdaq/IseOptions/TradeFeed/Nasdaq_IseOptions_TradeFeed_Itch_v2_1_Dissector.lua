@@ -136,6 +136,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -147,6 +148,7 @@ omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_application_messages = Pref
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -161,6 +163,9 @@ function omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_headers then
     show.headers = omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_padding then
+    show.padding = omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_padding
   end
   if show.session_messages ~= omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_session_messages
@@ -1502,7 +1507,11 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.trade_message.fields = function(buffer, of
   index, volume = nasdaq_iseoptions_tradefeed_itch_v2_1.volume.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alpha
-  index, reserved_16 = nasdaq_iseoptions_tradefeed_itch_v2_1.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nasdaq_iseoptions_tradefeed_itch_v2_1.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_tradefeed_itch_v2_1.reserved_16.size
+  end
 
   return index
 end
@@ -1646,7 +1655,11 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.derivative_directory_message.fields = func
   index, mpv = nasdaq_iseoptions_tradefeed_itch_v2_1.mpv.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alpha
-  index, reserved_16 = nasdaq_iseoptions_tradefeed_itch_v2_1.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nasdaq_iseoptions_tradefeed_itch_v2_1.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_tradefeed_itch_v2_1.reserved_16.size
+  end
 
   return index
 end

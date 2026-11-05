@@ -137,6 +137,7 @@ show.headers = true
 show.application_messages = true
 show.session_messages = true
 show.repeating_groups = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -149,6 +150,7 @@ omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_headers = Pref.bool("
 omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -163,6 +165,9 @@ function omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_headers then
     show.headers = omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_padding then
+    show.padding = omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_padding
   end
   if show.repeating_groups ~= omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_repeating_groups then
     show.repeating_groups = omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.prefs.show_repeating_groups
@@ -1389,7 +1394,11 @@ nasdaq_iseoptions_spreadtradefeed_itch_v2_1.complex_strategy_trade_report.fields
   index, volume = nasdaq_iseoptions_spreadtradefeed_itch_v2_1.volume.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alpha
-  index, reserved_16 = nasdaq_iseoptions_spreadtradefeed_itch_v2_1.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nasdaq_iseoptions_spreadtradefeed_itch_v2_1.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_spreadtradefeed_itch_v2_1.reserved_16.size
+  end
 
   return index
 end
@@ -1595,7 +1604,11 @@ nasdaq_iseoptions_spreadtradefeed_itch_v2_1.complex_strategy_directory_message.f
   index, underlying_symbol = nasdaq_iseoptions_spreadtradefeed_itch_v2_1.underlying_symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alpha
-  index, reserved_16 = nasdaq_iseoptions_spreadtradefeed_itch_v2_1.reserved_16.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_16 = nasdaq_iseoptions_spreadtradefeed_itch_v2_1.reserved_16.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_iseoptions_spreadtradefeed_itch_v2_1.reserved_16.size
+  end
 
   -- Number Of Legs: Integer
   index, number_of_legs = nasdaq_iseoptions_spreadtradefeed_itch_v2_1.number_of_legs.dissect(buffer, index, packet, parent)

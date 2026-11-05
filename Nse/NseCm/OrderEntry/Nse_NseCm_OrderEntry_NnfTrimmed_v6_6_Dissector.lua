@@ -128,10 +128,12 @@ local show = {}
 -- Nse NseCm OrderEntry NnfTrimmed 6.6 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.padding = false
 
 -- Register Nse NseCm OrderEntry NnfTrimmed 6.6 Show Options
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
@@ -141,6 +143,9 @@ function omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_application_messages then
     show.application_messages = omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_application_messages
+  end
+  if show.padding ~= omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_padding then
+    show.padding = omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_padding
   end
   if show.structs ~= omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_structs then
     show.structs = omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_structs
@@ -1872,13 +1877,21 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.trade_confirmation_trimmed_message.fields =
   index, algo_id = nse_nsecm_orderentry_nnftrimmed_v6_6.algo_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.size
+  end
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsecm_orderentry_nnftrimmed_v6_6.last_activity_reference.dissect(buffer, index, packet, parent)
 
   -- Reserved 52: CHAR
-  index, reserved_52 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_52.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_52 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_52.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_52.size
+  end
 
   return index
 end
@@ -2056,13 +2069,21 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.order_modify_cancel_response_trimmed_messag
   index, algo_id = nse_nsecm_orderentry_nnftrimmed_v6_6.algo_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.size
+  end
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsecm_orderentry_nnftrimmed_v6_6.last_activity_reference.dissect(buffer, index, packet, parent)
 
   -- Reserved 52: CHAR
-  index, reserved_52 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_52.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_52 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_52.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_52.size
+  end
 
   return index
 end
@@ -2236,13 +2257,21 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.order_modify_cancel_request_trimmed_message
   index, algo_id = nse_nsecm_orderentry_nnftrimmed_v6_6.algo_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.size
+  end
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsecm_orderentry_nnftrimmed_v6_6.last_activity_reference.dissect(buffer, index, packet, parent)
 
   -- Reserved 24: CHAR
-  index, reserved_24 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_24.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_24 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_24.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_24.size
+  end
 
   return index
 end
@@ -2367,10 +2396,18 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.order_entry_request_trimmed_message.fields 
   index, algo_id = nse_nsecm_orderentry_nnftrimmed_v6_6.algo_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: SHORT
-  index, reserved_2 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_2.size
+  end
 
   -- Reserved 32: CHAR
-  index, reserved_32 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_32.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_32 = nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_32.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnftrimmed_v6_6.reserved_32.size
+  end
 
   return index
 end

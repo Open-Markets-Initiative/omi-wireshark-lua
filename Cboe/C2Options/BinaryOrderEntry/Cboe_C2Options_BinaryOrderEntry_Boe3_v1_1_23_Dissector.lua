@@ -276,6 +276,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.padding = false
 show.indexes = true
 
 -- Register Cboe C2Options BinaryOrderEntry Boe3 1.1.23 Show Options
@@ -286,6 +287,7 @@ omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_application_messages
 omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -299,6 +301,9 @@ function omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs_changed()
   end
   if show.headers ~= omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_headers then
     show.headers = omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_padding then
+    show.padding = omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_padding
   end
   if show.session_messages ~= omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_session_messages then
     show.session_messages = omi_cboe_c2options_binaryorderentry_boe3_v1_1_23.prefs.show_session_messages
@@ -9004,7 +9009,11 @@ cboe_c2options_binaryorderentry_boe3_v1_1_23.modify_order_message.fields = funct
   index, cancel_orig_on_reject = cboe_c2options_binaryorderentry_boe3_v1_1_23.cancel_orig_on_reject.dissect(buffer, index, packet, parent)
 
   -- Reserved: Binary
-  index, reserved = cboe_c2options_binaryorderentry_boe3_v1_1_23.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = cboe_c2options_binaryorderentry_boe3_v1_1_23.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_c2options_binaryorderentry_boe3_v1_1_23.reserved.size
+  end
 
   -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2options_binaryorderentry_boe3_v1_1_23.scratch_pad.dissect(buffer, index, packet, parent)

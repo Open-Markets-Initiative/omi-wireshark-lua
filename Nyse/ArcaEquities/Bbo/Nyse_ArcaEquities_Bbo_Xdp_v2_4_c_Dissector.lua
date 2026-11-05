@@ -128,12 +128,14 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Nyse ArcaEquities Bbo Xdp 2.4.c Show Options
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -147,6 +149,9 @@ function omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs_changed()
   end
   if show.headers ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_headers then
     show.headers = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_headers
+  end
+  if show.padding ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_padding then
+    show.padding = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_padding
   end
   if show.structs ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_structs then
     show.structs = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_structs
@@ -2071,7 +2076,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.quote_message.fields = function(buffer, offset,
   index, rpi_indicator = nyse_arcaequities_bbo_xdp_v2_4_c.rpi_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: reserved
-  index, reserved_4 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaequities_bbo_xdp_v2_4_c.reserved_4.size
+  end
 
   return index
 end
@@ -2253,7 +2262,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.security_status_message.fields = function(buffe
   index, halt_condition = nyse_arcaequities_bbo_xdp_v2_4_c.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: reserved
-  index, reserved_4 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaequities_bbo_xdp_v2_4_c.reserved_4.size
+  end
 
   -- Price 1: Binary
   index, price_1 = nyse_arcaequities_bbo_xdp_v2_4_c.price_1.dissect(buffer, index, packet, parent)
@@ -2766,7 +2779,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.fields = function(
   index, symbol = nyse_arcaequities_bbo_xdp_v2_4_c.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: reserved
-  index, reserved_1 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaequities_bbo_xdp_v2_4_c.reserved_1.size
+  end
 
   -- Market Id: Binary
   index, market_id = nyse_arcaequities_bbo_xdp_v2_4_c.market_id.dissect(buffer, index, packet, parent)
@@ -2805,7 +2822,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.fields = function(
   index, unit_of_trade = nyse_arcaequities_bbo_xdp_v2_4_c.unit_of_trade.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: reserved
-  index, reserved_2 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaequities_bbo_xdp_v2_4_c.reserved_2.size
+  end
 
   return index
 end

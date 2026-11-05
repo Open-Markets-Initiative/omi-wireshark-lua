@@ -1265,6 +1265,7 @@ show.application_messages = true
 show.headers = true
 show.structs = true
 show.repeating_groups = true
+show.padding = false
 show.indexes = true
 
 -- Register Cboe CboeEurope TradeReporting Boe 2.0.40 Show Options
@@ -1272,6 +1273,7 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_application_messages =
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -1285,6 +1287,9 @@ function omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs_changed()
   end
   if show.headers ~= omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_headers then
     show.headers = omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_padding then
+    show.padding = omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_padding
   end
   if show.repeating_groups ~= omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_repeating_groups
@@ -5790,7 +5795,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_reject_v_2_message.fields = fun
   index, text = cboe_cboeeurope_tradereporting_boe_v2_0_40.text.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -7848,7 +7857,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_status_v_2_message.fields = fun
   index, status = cboe_cboeeurope_tradereporting_boe_v2_0_40.status.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -10024,7 +10037,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   index, text = cboe_cboeeurope_tradereporting_boe_v2_0_40.text.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -12265,7 +12282,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   index, contra_broker = cboe_cboeeurope_tradereporting_boe_v2_0_40.contra_broker.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -14515,7 +14536,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   index, text = cboe_cboeeurope_tradereporting_boe_v2_0_40.text.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -16723,7 +16748,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   index, trade_report_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
-  index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.size
+  end
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_return_bitfields.dissect(buffer, index, packet, parent)

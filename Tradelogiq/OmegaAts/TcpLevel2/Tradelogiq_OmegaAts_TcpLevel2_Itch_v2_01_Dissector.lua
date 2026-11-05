@@ -148,6 +148,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.padding = false
 show.sequences = true
 
 -- Register Tradelogiq OmegaAts TcpLevel2 Itch 2.01 Show Options
@@ -158,6 +159,7 @@ omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_application_messages = P
 omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
@@ -171,6 +173,9 @@ function omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs_changed()
   end
   if show.headers ~= omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_headers then
     show.headers = omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_headers
+  end
+  if show.padding ~= omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_padding then
+    show.padding = omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_padding
   end
   if show.session_messages ~= omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_session_messages then
     show.session_messages = omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_session_messages
@@ -1792,7 +1797,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.trade_amend_message.fields = function(b
   local index = offset
 
   -- Reserved 1: Alpha
-  index, reserved_1 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.size
+  end
 
   -- Instrument Id: Integer
   index, instrument_id = tradelogiq_omegaats_tcplevel2_itch_v2_01.instrument_id.dissect(buffer, index, packet, parent)
@@ -1856,7 +1865,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.trade_bust_message.fields = function(bu
   local index = offset
 
   -- Reserved 1: Alpha
-  index, reserved_1 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.size
+  end
 
   -- Instrument Id: Integer
   index, instrument_id = tradelogiq_omegaats_tcplevel2_itch_v2_01.instrument_id.dissect(buffer, index, packet, parent)
@@ -1945,7 +1958,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.cross_trade_message.fields = function(b
   index, settlement_type = tradelogiq_omegaats_tcplevel2_itch_v2_01.settlement_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Alpha
-  index, reserved_2 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.size
+  end
 
   return index
 end
@@ -2061,7 +2078,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.order_cancel_message.fields = function(
   local index = offset
 
   -- Reserved 1: Alpha
-  index, reserved_1 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.size
+  end
 
   -- Instrument Id: Integer
   index, instrument_id = tradelogiq_omegaats_tcplevel2_itch_v2_01.instrument_id.dissect(buffer, index, packet, parent)
@@ -2119,7 +2140,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.order_replace_message.fields = function
   local index = offset
 
   -- Reserved 1: Alpha
-  index, reserved_1 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.size
+  end
 
   -- Instrument Id: Integer
   index, instrument_id = tradelogiq_omegaats_tcplevel2_itch_v2_01.instrument_id.dissect(buffer, index, packet, parent)
@@ -2180,7 +2205,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.order_delete_message.fields = function(
   local index = offset
 
   -- Reserved 1: Alpha
-  index, reserved_1 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_1.size
+  end
 
   -- Instrument Id: Integer
   index, instrument_id = tradelogiq_omegaats_tcplevel2_itch_v2_01.instrument_id.dissect(buffer, index, packet, parent)
@@ -2261,7 +2290,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.order_executed_with_price_message.field
   index, contra_broker_id = tradelogiq_omegaats_tcplevel2_itch_v2_01.contra_broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Alpha
-  index, reserved_2 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.size
+  end
 
   return index
 end
@@ -2329,7 +2362,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.order_executed_message.fields = functio
   index, contra_broker_id = tradelogiq_omegaats_tcplevel2_itch_v2_01.contra_broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Alpha
-  index, reserved_2 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.size
+  end
 
   return index
 end
@@ -2397,7 +2434,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.add_order_message.fields = function(buf
   index, exec_broker_id = tradelogiq_omegaats_tcplevel2_itch_v2_01.exec_broker_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Alpha
-  index, reserved_2 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.size
+  end
 
   return index
 end
@@ -2522,7 +2563,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.extended_stock_directory_message.fields
   index, frequency = tradelogiq_omegaats_tcplevel2_itch_v2_01.frequency.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Alphanumeric
-  index, reserved_9 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_9.size
+  end
 
   -- Currency: Alpha
   index, currency = tradelogiq_omegaats_tcplevel2_itch_v2_01.currency.dissect(buffer, index, packet, parent)
@@ -2537,7 +2582,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.extended_stock_directory_message.fields
   index, description = tradelogiq_omegaats_tcplevel2_itch_v2_01.description.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
-  index, reserved_3 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_3.size
+  end
 
   return index
 end
@@ -2606,7 +2655,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.stock_directory_message.fields = functi
   index, dividend_indicator = tradelogiq_omegaats_tcplevel2_itch_v2_01.dividend_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 9: Alphanumeric
-  index, reserved_9 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_9 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_9.size
+  end
 
   -- Currency: Alpha
   index, currency = tradelogiq_omegaats_tcplevel2_itch_v2_01.currency.dissect(buffer, index, packet, parent)
@@ -2654,7 +2707,11 @@ tradelogiq_omegaats_tcplevel2_itch_v2_01.system_event_message.fields = function(
   index, event_code = tradelogiq_omegaats_tcplevel2_itch_v2_01.event_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Alpha
-  index, reserved_2 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + tradelogiq_omegaats_tcplevel2_itch_v2_01.reserved_2.size
+  end
 
   -- Timestamp: Integer
   index, timestamp = tradelogiq_omegaats_tcplevel2_itch_v2_01.timestamp.dissect(buffer, index, packet, parent)
