@@ -199,7 +199,13 @@ runuser -u tester -- tshark \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassembly.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassembly.json.stderr \
   || { echo "--- tshark FAILED (Reassembly) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassembly.json.stderr; exit 1; }
 
-grep "miax.pearlequities.expressorders.meo.v2.6." Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassembly.json
+fields=$(grep -c "miax.pearlequities.expressorders.meo.v2.6." Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassembly.json) \
+  || { echo "--- no miax.pearlequities.expressorders.meo.v2.6 fields (Reassembly) ---"; exit 1; }
+echo "  miax.pearlequities.expressorders.meo.v2.6 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassembly.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (Reassembly) ---"; grep -o '"Lua Error[^"]*"' Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassembly.json | sort -u | head; exit 1; }
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/Reassembly.pcap" \

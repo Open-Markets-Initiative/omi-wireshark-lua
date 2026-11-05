@@ -25,53 +25,53 @@ omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_identified = ProtoField.n
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_unused = ProtoField.new("Unused", "b3.b3derivatives.umdf.fast.v5.1.15.presenceunused", ftypes.UINT8, nil, base.HEX)
 
 -- B3 B3Derivatives Umdf Fast 5.1.15 Presence Map Fields
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_id = ProtoField.new("Md Req Id", "b3.b3derivatives.umdf.fast.v5.1.15.mdreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_rej_reason = ProtoField.new("Md Req Rej Reason", "b3.b3derivatives.umdf.fast.v5.1.15.mdreqrejreasonpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_id = ProtoField.new("MD Req ID", "b3.b3derivatives.umdf.fast.v5.1.15.mdreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_rej_reason = ProtoField.new("MD Req Rej Reason", "b3.b3derivatives.umdf.fast.v5.1.15.mdreqrejreasonpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_pos_dup_flag = ProtoField.new("Pos Dup Flag", "b3.b3derivatives.umdf.fast.v5.1.15.posdupflagpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_security_id_source = ProtoField.new("Security Id Source", "b3.b3derivatives.umdf.fast.v5.1.15.securityidsourcepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_security_id_source = ProtoField.new("Security ID Source", "b3.b3derivatives.umdf.fast.v5.1.15.securityidsourcepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_orig_time = ProtoField.new("Orig Time", "b3.b3derivatives.umdf.fast.v5.1.15.origtimepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_news_source = ProtoField.new("News Source", "b3.b3derivatives.umdf.fast.v5.1.15.newssourcepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_news_id = ProtoField.new("News Id", "b3.b3derivatives.umdf.fast.v5.1.15.newsidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_news_id = ProtoField.new("News ID", "b3.b3derivatives.umdf.fast.v5.1.15.newsidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_language_code = ProtoField.new("Language Code", "b3.b3derivatives.umdf.fast.v5.1.15.languagecodepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_headline = ProtoField.new("Headline", "b3.b3derivatives.umdf.fast.v5.1.15.headlinepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_url_link = ProtoField.new("Url Link", "b3.b3derivatives.umdf.fast.v5.1.15.urllinkpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_appl_ver_id = ProtoField.new("Appl Ver Id", "b3.b3derivatives.umdf.fast.v5.1.15.applveridpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_url_link = ProtoField.new("URL Link", "b3.b3derivatives.umdf.fast.v5.1.15.urllinkpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_appl_ver_id = ProtoField.new("Appl Ver ID", "b3.b3derivatives.umdf.fast.v5.1.15.applveridpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 
 -- B3 B3Derivatives Umdf Fast 5.1.15 Fields
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.message_type = ProtoField.new("Message Type", "b3.b3derivatives.umdf.fast.v5.1.15.messagetype", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "b3.b3derivatives.umdf.fast.v5.1.15.msgseqnum", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.sending_time_uint64 = ProtoField.new("Sending Time", "b3.b3derivatives.umdf.fast.v5.1.15.sendingtime.uint64", ftypes.UINT64)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.sending_time_string = ProtoField.new("Sending Time", "b3.b3derivatives.umdf.fast.v5.1.15.sendingtime.string", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ver_id = ProtoField.new("Appl Ver Id", "b3.b3derivatives.umdf.fast.v5.1.15.applverid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ver_id = ProtoField.new("Appl Ver ID", "b3.b3derivatives.umdf.fast.v5.1.15.applverid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.data_len = ProtoField.new("Data Len", "b3.b3derivatives.umdf.fast.v5.1.15.datalen", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.data = ProtoField.new("Data", "b3.b3derivatives.umdf.fast.v5.1.15.data", ftypes.BYTES)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.message_encoding = ProtoField.new("Message Encoding", "b3.b3derivatives.umdf.fast.v5.1.15.messageencoding", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_req_id = ProtoField.new("Md Req Id", "b3.b3derivatives.umdf.fast.v5.1.15.mdreqid", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_req_rej_reason = ProtoField.new("Md Req Rej Reason", "b3.b3derivatives.umdf.fast.v5.1.15.mdreqrejreason", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_req_id = ProtoField.new("MD Req ID", "b3.b3derivatives.umdf.fast.v5.1.15.mdreqid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_req_rej_reason = ProtoField.new("MD Req Rej Reason", "b3.b3derivatives.umdf.fast.v5.1.15.mdreqrejreason", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.text = ProtoField.new("Text", "b3.b3derivatives.umdf.fast.v5.1.15.text", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.msg_type = ProtoField.new("Msg Type", "b3.b3derivatives.umdf.fast.v5.1.15.msgtype", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.tot_no_related_sym = ProtoField.new("Tot No Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.totnorelatedsym", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.last_fragment = ProtoField.new("Last Fragment", "b3.b3derivatives.umdf.fast.v5.1.15.lastfragment", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_related_sym = ProtoField.new("No Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.norelatedsym", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.symbol = ProtoField.new("Symbol", "b3.b3derivatives.umdf.fast.v5.1.15.symbol", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id = ProtoField.new("Security Id", "b3.b3derivatives.umdf.fast.v5.1.15.securityid", ftypes.UINT64)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id_source_string = ProtoField.new("Security Id Source", "b3.b3derivatives.umdf.fast.v5.1.15.securityidsource.string", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id_source_uint32 = ProtoField.new("Security Id Source", "b3.b3derivatives.umdf.fast.v5.1.15.securityidsource.uint32", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id = ProtoField.new("Security ID", "b3.b3derivatives.umdf.fast.v5.1.15.securityid", ftypes.UINT64)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id_source_string = ProtoField.new("Security ID Source", "b3.b3derivatives.umdf.fast.v5.1.15.securityidsource.string", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id_source_uint32 = ProtoField.new("Security ID Source", "b3.b3derivatives.umdf.fast.v5.1.15.securityidsource.uint32", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_exchange = ProtoField.new("Security Exchange", "b3.b3derivatives.umdf.fast.v5.1.15.securityexchange", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_appl_i_ds = ProtoField.new("No Appl I Ds", "b3.b3derivatives.umdf.fast.v5.1.15.noapplids", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_id = ProtoField.new("Appl Id", "b3.b3derivatives.umdf.fast.v5.1.15.applid", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_md_feed_types = ProtoField.new("No Md Feed Types", "b3.b3derivatives.umdf.fast.v5.1.15.nomdfeedtypes", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_feed_type = ProtoField.new("Md Feed Type", "b3.b3derivatives.umdf.fast.v5.1.15.mdfeedtype", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_appl_ids = ProtoField.new("No Appl IDs", "b3.b3derivatives.umdf.fast.v5.1.15.noapplids", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_id = ProtoField.new("Appl ID", "b3.b3derivatives.umdf.fast.v5.1.15.applid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_md_feed_types = ProtoField.new("No MD Feed Types", "b3.b3derivatives.umdf.fast.v5.1.15.nomdfeedtypes", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_feed_type = ProtoField.new("MD Feed Type", "b3.b3derivatives.umdf.fast.v5.1.15.mdfeedtype", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.market_depth_uint32 = ProtoField.new("Market Depth", "b3.b3derivatives.umdf.fast.v5.1.15.marketdepth.uint32", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.market_depth_int32 = ProtoField.new("Market Depth", "b3.b3derivatives.umdf.fast.v5.1.15.marketdepth.int32", ftypes.INT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_security_alt_id = ProtoField.new("No Security Alt Id", "b3.b3derivatives.umdf.fast.v5.1.15.nosecurityaltid", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_id = ProtoField.new("Security Alt Id", "b3.b3derivatives.umdf.fast.v5.1.15.securityaltid", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "b3.b3derivatives.umdf.fast.v5.1.15.securityaltidsource", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_security_alt_id = ProtoField.new("No Security Alt ID", "b3.b3derivatives.umdf.fast.v5.1.15.nosecurityaltid", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_id = ProtoField.new("Security Alt ID", "b3.b3derivatives.umdf.fast.v5.1.15.securityaltid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_id_source = ProtoField.new("Security Alt ID Source", "b3.b3derivatives.umdf.fast.v5.1.15.securityaltidsource", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_underlyings = ProtoField.new("No Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.nounderlyings", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "b3.b3derivatives.umdf.fast.v5.1.15.underlyingsymbol", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "b3.b3derivatives.umdf.fast.v5.1.15.underlyingsecurityid", ftypes.UINT64)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id_source_string = ProtoField.new("Underlying Security Id Source", "b3.b3derivatives.umdf.fast.v5.1.15.underlyingsecurityidsource.string", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id_source_uint32 = ProtoField.new("Underlying Security Id Source", "b3.b3derivatives.umdf.fast.v5.1.15.underlyingsecurityidsource.uint32", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id = ProtoField.new("Underlying Security ID", "b3.b3derivatives.umdf.fast.v5.1.15.underlyingsecurityid", ftypes.UINT64)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id_source_string = ProtoField.new("Underlying Security ID Source", "b3.b3derivatives.umdf.fast.v5.1.15.underlyingsecurityidsource.string", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id_source_uint32 = ProtoField.new("Underlying Security ID Source", "b3.b3derivatives.umdf.fast.v5.1.15.underlyingsecurityidsource.uint32", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_exchange = ProtoField.new("Underlying Security Exchange", "b3.b3derivatives.umdf.fast.v5.1.15.underlyingsecurityexchange", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.index_pct = ProtoField.new("Index Pct", "b3.b3derivatives.umdf.fast.v5.1.15.indexpct", ftypes.DOUBLE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.index_theoretical_qty = ProtoField.new("Index Theoretical Qty", "b3.b3derivatives.umdf.fast.v5.1.15.indextheoreticalqty", ftypes.DOUBLE)
@@ -86,8 +86,8 @@ omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.tick_increment = ProtoField.new("T
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.tick_rule_type = ProtoField.new("Tick Rule Type", "b3.b3derivatives.umdf.fast.v5.1.15.tickruletype", ftypes.INT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_legs = ProtoField.new("No Legs", "b3.b3derivatives.umdf.fast.v5.1.15.nolegs", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_symbol = ProtoField.new("Leg Symbol", "b3.b3derivatives.umdf.fast.v5.1.15.legsymbol", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_security_id = ProtoField.new("Leg Security Id", "b3.b3derivatives.umdf.fast.v5.1.15.legsecurityid", ftypes.UINT64)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_security_id_source = ProtoField.new("Leg Security Id Source", "b3.b3derivatives.umdf.fast.v5.1.15.legsecurityidsource", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_security_id = ProtoField.new("Leg Security ID", "b3.b3derivatives.umdf.fast.v5.1.15.legsecurityid", ftypes.UINT64)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_security_id_source = ProtoField.new("Leg Security ID Source", "b3.b3derivatives.umdf.fast.v5.1.15.legsecurityidsource", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_ratio_qty_double = ProtoField.new("Leg Ratio Qty", "b3.b3derivatives.umdf.fast.v5.1.15.legratioqty.double", ftypes.DOUBLE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_ratio_qty_int32 = ProtoField.new("Leg Ratio Qty", "b3.b3derivatives.umdf.fast.v5.1.15.legratioqty.int32", ftypes.INT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_security_type = ProtoField.new("Leg Security Type", "b3.b3derivatives.umdf.fast.v5.1.15.legsecuritytype", ftypes.STRING)
@@ -122,7 +122,7 @@ omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.exercise_style = ProtoField.new("E
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.put_or_call = ProtoField.new("Put Or Call", "b3.b3derivatives.umdf.fast.v5.1.15.putorcall", ftypes.INT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "b3.b3derivatives.umdf.fast.v5.1.15.contractmultiplier", ftypes.DOUBLE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.contract_settl_month = ProtoField.new("Contract Settl Month", "b3.b3derivatives.umdf.fast.v5.1.15.contractsettlmonth", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.cfi_code = ProtoField.new("Cfi Code", "b3.b3derivatives.umdf.fast.v5.1.15.cficode", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.cfi_code = ProtoField.new("CFI Code", "b3.b3derivatives.umdf.fast.v5.1.15.cficode", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.country_of_issue = ProtoField.new("Country Of Issue", "b3.b3derivatives.umdf.fast.v5.1.15.countryofissue", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.issue_date = ProtoField.new("Issue Date", "b3.b3derivatives.umdf.fast.v5.1.15.issuedate", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.dated_date = ProtoField.new("Dated Date", "b3.b3derivatives.umdf.fast.v5.1.15.dateddate", ftypes.UINT32)
@@ -131,38 +131,38 @@ omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.end_date = ProtoField.new("End Dat
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.settl_type = ProtoField.new("Settl Type", "b3.b3derivatives.umdf.fast.v5.1.15.settltype", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.settl_date = ProtoField.new("Settl Date", "b3.b3derivatives.umdf.fast.v5.1.15.settldate", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_validity_timestamp = ProtoField.new("Security Validity Timestamp", "b3.b3derivatives.umdf.fast.v5.1.15.securityvaliditytimestamp", ftypes.UINT64)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.market_segment_id = ProtoField.new("Market Segment Id", "b3.b3derivatives.umdf.fast.v5.1.15.marketsegmentid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.market_segment_id = ProtoField.new("Market Segment ID", "b3.b3derivatives.umdf.fast.v5.1.15.marketsegmentid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.governance_indicator = ProtoField.new("Governance Indicator", "b3.b3derivatives.umdf.fast.v5.1.15.governanceindicator", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.corporate_action_event_id = ProtoField.new("Corporate Action Event Id", "b3.b3derivatives.umdf.fast.v5.1.15.corporateactioneventid", ftypes.INT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.corporate_action_event_id = ProtoField.new("Corporate Action Event ID", "b3.b3derivatives.umdf.fast.v5.1.15.corporateactioneventid", ftypes.INT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_group = ProtoField.new("Security Group", "b3.b3derivatives.umdf.fast.v5.1.15.securitygroup", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_match_type = ProtoField.new("Security Match Type", "b3.b3derivatives.umdf.fast.v5.1.15.securitymatchtype", ftypes.INT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_type = ProtoField.new("Leg Type", "b3.b3derivatives.umdf.fast.v5.1.15.legtype", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.buyers_perspective = ProtoField.new("Buyers Perspective", "b3.b3derivatives.umdf.fast.v5.1.15.buyersperspective", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.round_lot = ProtoField.new("Round Lot", "b3.b3derivatives.umdf.fast.v5.1.15.roundlot", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "b3.b3derivatives.umdf.fast.v5.1.15.mintradevol", ftypes.UINT64)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.instrument_id = ProtoField.new("Instrument Id", "b3.b3derivatives.umdf.fast.v5.1.15.instrumentid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.instrument_id = ProtoField.new("Instrument ID", "b3.b3derivatives.umdf.fast.v5.1.15.instrumentid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.pos_dup_flag = ProtoField.new("Pos Dup Flag", "b3.b3derivatives.umdf.fast.v5.1.15.posdupflag", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_md_entries = ProtoField.new("No Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.nomdentries", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_update_action = ProtoField.new("Md Update Action", "b3.b3derivatives.umdf.fast.v5.1.15.mdupdateaction", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_price_level = ProtoField.new("Md Price Level", "b3.b3derivatives.umdf.fast.v5.1.15.mdpricelevel", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_type = ProtoField.new("Md Entry Type", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrytype", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_md_entries = ProtoField.new("No MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.nomdentries", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_update_action = ProtoField.new("MD Update Action", "b3.b3derivatives.umdf.fast.v5.1.15.mdupdateaction", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_price_level = ProtoField.new("MD Price Level", "b3.b3derivatives.umdf.fast.v5.1.15.mdpricelevel", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_type = ProtoField.new("MD Entry Type", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrytype", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.rpt_seq = ProtoField.new("Rpt Seq", "b3.b3derivatives.umdf.fast.v5.1.15.rptseq", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_px = ProtoField.new("Md Entry Px", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrypx", ftypes.DOUBLE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_time_uint32 = ProtoField.new("Md Entry Time", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrytime.uint32", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_time_string = ProtoField.new("Md Entry Time", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrytime.string", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_size_int32 = ProtoField.new("Md Entry Size", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrysize.int32", ftypes.INT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_size_int64 = ProtoField.new("Md Entry Size", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrysize.int64", ftypes.INT64)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_px = ProtoField.new("MD Entry Px", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrypx", ftypes.DOUBLE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_time_uint32 = ProtoField.new("MD Entry Time", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrytime.uint32", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_time_string = ProtoField.new("MD Entry Time", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrytime.string", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_size_int32 = ProtoField.new("MD Entry Size", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrysize.int32", ftypes.INT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_size_int64 = ProtoField.new("MD Entry Size", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrysize.int64", ftypes.INT64)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.quote_condition = ProtoField.new("Quote Condition", "b3.b3derivatives.umdf.fast.v5.1.15.quotecondition", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.number_of_orders = ProtoField.new("Number Of Orders", "b3.b3derivatives.umdf.fast.v5.1.15.numberoforders", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_id_string = ProtoField.new("Trading Session Id", "b3.b3derivatives.umdf.fast.v5.1.15.tradingsessionid.string", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_id_uint32 = ProtoField.new("Trading Session Id", "b3.b3derivatives.umdf.fast.v5.1.15.tradingsessionid.uint32", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_id_string = ProtoField.new("Trading Session ID", "b3.b3derivatives.umdf.fast.v5.1.15.tradingsessionid.string", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_id_uint32 = ProtoField.new("Trading Session ID", "b3.b3derivatives.umdf.fast.v5.1.15.tradingsessionid.uint32", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trade_date = ProtoField.new("Trade Date", "b3.b3derivatives.umdf.fast.v5.1.15.tradedate", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_interest_rate = ProtoField.new("Md Entry Interest Rate", "b3.b3derivatives.umdf.fast.v5.1.15.mdentryinterestrate", ftypes.DOUBLE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_interest_rate = ProtoField.new("MD Entry Interest Rate", "b3.b3derivatives.umdf.fast.v5.1.15.mdentryinterestrate", ftypes.DOUBLE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.price_type = ProtoField.new("Price Type", "b3.b3derivatives.umdf.fast.v5.1.15.pricetype", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_date = ProtoField.new("Md Entry Date", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrydate", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_insert_date = ProtoField.new("Md Insert Date", "b3.b3derivatives.umdf.fast.v5.1.15.mdinsertdate", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_insert_time = ProtoField.new("Md Insert Time", "b3.b3derivatives.umdf.fast.v5.1.15.mdinserttime", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_stream_id = ProtoField.new("Md Stream Id", "b3.b3derivatives.umdf.fast.v5.1.15.mdstreamid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_date = ProtoField.new("MD Entry Date", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrydate", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_insert_date = ProtoField.new("MD Insert Date", "b3.b3derivatives.umdf.fast.v5.1.15.mdinsertdate", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_insert_time = ProtoField.new("MD Insert Time", "b3.b3derivatives.umdf.fast.v5.1.15.mdinserttime", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_stream_id = ProtoField.new("MD Stream ID", "b3.b3derivatives.umdf.fast.v5.1.15.mdstreamid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.price_delta = ProtoField.new("Price Delta", "b3.b3derivatives.umdf.fast.v5.1.15.pricedelta", ftypes.DOUBLE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.first_px = ProtoField.new("First Px", "b3.b3derivatives.umdf.fast.v5.1.15.firstpx", ftypes.DOUBLE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.last_px = ProtoField.new("Last Px", "b3.b3derivatives.umdf.fast.v5.1.15.lastpx", ftypes.DOUBLE)
@@ -174,11 +174,11 @@ omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.tick_direction = ProtoField.new("T
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trade_condition = ProtoField.new("Trade Condition", "b3.b3derivatives.umdf.fast.v5.1.15.tradecondition", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.open_close_settl_flag_uint32 = ProtoField.new("Open Close Settl Flag", "b3.b3derivatives.umdf.fast.v5.1.15.openclosesettlflag.uint32", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.open_close_settl_flag_string = ProtoField.new("Open Close Settl Flag", "b3.b3derivatives.umdf.fast.v5.1.15.openclosesettlflag.string", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.order_id = ProtoField.new("Order Id", "b3.b3derivatives.umdf.fast.v5.1.15.orderid", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trade_id = ProtoField.new("Trade Id", "b3.b3derivatives.umdf.fast.v5.1.15.tradeid", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_buyer = ProtoField.new("Md Entry Buyer", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrybuyer", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_seller = ProtoField.new("Md Entry Seller", "b3.b3derivatives.umdf.fast.v5.1.15.mdentryseller", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_position_no = ProtoField.new("Md Entry Position No", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrypositionno", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.order_id = ProtoField.new("Order ID", "b3.b3derivatives.umdf.fast.v5.1.15.orderid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trade_id = ProtoField.new("Trade ID", "b3.b3derivatives.umdf.fast.v5.1.15.tradeid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_buyer = ProtoField.new("MD Entry Buyer", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrybuyer", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_seller = ProtoField.new("MD Entry Seller", "b3.b3derivatives.umdf.fast.v5.1.15.mdentryseller", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_position_no = ProtoField.new("MD Entry Position No", "b3.b3derivatives.umdf.fast.v5.1.15.mdentrypositionno", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.sett_price_type = ProtoField.new("Sett Price Type", "b3.b3derivatives.umdf.fast.v5.1.15.settpricetype", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.last_trade_date = ProtoField.new("Last Trade Date", "b3.b3derivatives.umdf.fast.v5.1.15.lasttradedate", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.price_adjustment_method = ProtoField.new("Price Adjustment Method", "b3.b3derivatives.umdf.fast.v5.1.15.priceadjustmentmethod", ftypes.UINT32)
@@ -191,9 +191,9 @@ omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.price_band_midpoint_price_type = P
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.avg_daily_traded_qty = ProtoField.new("Avg Daily Traded Qty", "b3.b3derivatives.umdf.fast.v5.1.15.avgdailytradedqty", ftypes.UINT64)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.expire_date = ProtoField.new("Expire Date", "b3.b3derivatives.umdf.fast.v5.1.15.expiredate", ftypes.UINT64)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.early_termination = ProtoField.new("Early Termination", "b3.b3derivatives.umdf.fast.v5.1.15.earlytermination", ftypes.UINT64)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_cert_indicator = ProtoField.new("Btb Cert Indicator", "b3.b3derivatives.umdf.fast.v5.1.15.btbcertindicator", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_contract_info = ProtoField.new("Btb Contract Info", "b3.b3derivatives.umdf.fast.v5.1.15.btbcontractinfo", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_grace_date = ProtoField.new("Btb Grace Date", "b3.b3derivatives.umdf.fast.v5.1.15.btbgracedate", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_cert_indicator = ProtoField.new("BTB Cert Indicator", "b3.b3derivatives.umdf.fast.v5.1.15.btbcertindicator", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_contract_info = ProtoField.new("BTB Contract Info", "b3.b3derivatives.umdf.fast.v5.1.15.btbcontractinfo", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_grace_date = ProtoField.new("BTB Grace Date", "b3.b3derivatives.umdf.fast.v5.1.15.btbgracedate", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.max_trade_vol = ProtoField.new("Max Trade Vol", "b3.b3derivatives.umdf.fast.v5.1.15.maxtradevol", ftypes.UINT64)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_px = ProtoField.new("Underlying Px", "b3.b3derivatives.umdf.fast.v5.1.15.underlyingpx", ftypes.DOUBLE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_px_type = ProtoField.new("Underlying Px Type", "b3.b3derivatives.umdf.fast.v5.1.15.underlyingpxtype", ftypes.UINT32)
@@ -203,7 +203,7 @@ omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.open_close_settle_flag_uint32 = Pr
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.open_close_settle_flag_string = ProtoField.new("Open Close Settle Flag", "b3.b3derivatives.umdf.fast.v5.1.15.openclosesettleflag.string", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.settle_price_type = ProtoField.new("Settle Price Type", "b3.b3derivatives.umdf.fast.v5.1.15.settlepricetype", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_ref_price = ProtoField.new("Trading Ref Price", "b3.b3derivatives.umdf.fast.v5.1.15.tradingrefprice", ftypes.DOUBLE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "b3.b3derivatives.umdf.fast.v5.1.15.tradingsessionsubid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub ID", "b3.b3derivatives.umdf.fast.v5.1.15.tradingsessionsubid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_trading_status = ProtoField.new("Security Trading Status", "b3.b3derivatives.umdf.fast.v5.1.15.securitytradingstatus", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trad_ses_open_time_uint64 = ProtoField.new("Trad Ses Open Time", "b3.b3derivatives.umdf.fast.v5.1.15.tradsesopentime.uint64", ftypes.UINT64)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trad_ses_open_time_uint32 = ProtoField.new("Trad Ses Open Time", "b3.b3derivatives.umdf.fast.v5.1.15.tradsesopentime.uint32", ftypes.UINT32)
@@ -215,129 +215,106 @@ omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.curerncy = ProtoField.new("Curernc
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.day_cum_qty = ProtoField.new("Day Cum Qty", "b3.b3derivatives.umdf.fast.v5.1.15.daycumqty", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.orig_time = ProtoField.new("Orig Time", "b3.b3derivatives.umdf.fast.v5.1.15.origtime", ftypes.UINT64)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.news_source = ProtoField.new("News Source", "b3.b3derivatives.umdf.fast.v5.1.15.newssource", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.news_id = ProtoField.new("News Id", "b3.b3derivatives.umdf.fast.v5.1.15.newsid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.news_id = ProtoField.new("News ID", "b3.b3derivatives.umdf.fast.v5.1.15.newsid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.language_code = ProtoField.new("Language Code", "b3.b3derivatives.umdf.fast.v5.1.15.languagecode", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.headline = ProtoField.new("Headline", "b3.b3derivatives.umdf.fast.v5.1.15.headline", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.url_link = ProtoField.new("Url Link", "b3.b3derivatives.umdf.fast.v5.1.15.urllink", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.url_link = ProtoField.new("URL Link", "b3.b3derivatives.umdf.fast.v5.1.15.urllink", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.encoded_headline_len = ProtoField.new("Encoded Headline Len", "b3.b3derivatives.umdf.fast.v5.1.15.encodedheadlinelen", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.encoded_headline = ProtoField.new("Encoded Headline", "b3.b3derivatives.umdf.fast.v5.1.15.encodedheadline", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_lines_of_text = ProtoField.new("No Lines Of Text", "b3.b3derivatives.umdf.fast.v5.1.15.nolinesoftext", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.encoded_text_len = ProtoField.new("Encoded Text Len", "b3.b3derivatives.umdf.fast.v5.1.15.encodedtextlen", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.encoded_text = ProtoField.new("Encoded Text", "b3.b3derivatives.umdf.fast.v5.1.15.encodedtext", ftypes.STRING)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_routing_i_ds = ProtoField.new("No Routing I Ds", "b3.b3derivatives.umdf.fast.v5.1.15.noroutingids", ftypes.UINT32)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_routing_ids = ProtoField.new("No Routing IDs", "b3.b3derivatives.umdf.fast.v5.1.15.noroutingids", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.routing_type = ProtoField.new("Routing Type", "b3.b3derivatives.umdf.fast.v5.1.15.routingtype", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.routing_id = ProtoField.new("Routing Id", "b3.b3derivatives.umdf.fast.v5.1.15.routingid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.routing_id = ProtoField.new("Routing ID", "b3.b3derivatives.umdf.fast.v5.1.15.routingid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.encrypt_method = ProtoField.new("Encrypt Method", "b3.b3derivatives.umdf.fast.v5.1.15.encryptmethod", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.heartbeat_int = ProtoField.new("Heartbeat Int", "b3.b3derivatives.umdf.fast.v5.1.15.heartbeatint", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.default_appl_ver_id = ProtoField.new("Default Appl Ver Id", "b3.b3derivatives.umdf.fast.v5.1.15.defaultapplverid", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.default_appl_ver_id = ProtoField.new("Default Appl Ver ID", "b3.b3derivatives.umdf.fast.v5.1.15.defaultapplverid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.new_seq_no = ProtoField.new("New Seq No", "b3.b3derivatives.umdf.fast.v5.1.15.newseqno", ftypes.UINT32)
 
 -- B3 B3Derivatives Umdf Fast 5.1.15 Messages
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_non_fix = ProtoField.new("Md Non Fix Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdnonfix", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_tcp_request_reject_117 = ProtoField.new("Md Tcp Request Reject_117 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdtcprequestreject_117", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154 = ProtoField.new("Md Security List_154 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_154", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154_related_sym = ProtoField.new("Md Security List_154 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_154relatedsym", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_i_ds = ProtoField.new("Appl I Ds", "b3.b3derivatives.umdf.fast.v5.1.15.applids", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_non_fix = ProtoField.new("MD Non Fix Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdnonfix", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_tcp_request_reject_117 = ProtoField.new("MD Tcp Request Reject_117 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdtcprequestreject_117", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154 = ProtoField.new("MD Security List_154 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_154", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154_related_sym = ProtoField.new("MD Security List_154 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_154relatedsym", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ids = ProtoField.new("Appl IDs", "b3.b3derivatives.umdf.fast.v5.1.15.applids", ftypes.NONE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.feed_types = ProtoField.new("Feed Types", "b3.b3derivatives.umdf.fast.v5.1.15.feedtypes", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_i_ds = ProtoField.new("Security Alt I Ds", "b3.b3derivatives.umdf.fast.v5.1.15.securityaltids", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154_underlyings = ProtoField.new("Md Security List_154 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_154underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_ids = ProtoField.new("Security Alt IDs", "b3.b3derivatives.umdf.fast.v5.1.15.securityaltids", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154_underlyings = ProtoField.new("MD Security List_154 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_154underlyings", ftypes.NONE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.instr_attrib = ProtoField.new("Instr Attrib", "b3.b3derivatives.umdf.fast.v5.1.15.instrattrib", ftypes.NONE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.tick_rules = ProtoField.new("Tick Rules", "b3.b3derivatives.umdf.fast.v5.1.15.tickrules", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154_legs = ProtoField.new("Md Security List_154 Legs", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_154legs", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154_legs = ProtoField.new("MD Security List_154 Legs", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_154legs", ftypes.NONE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.lots = ProtoField.new("Lots", "b3.b3derivatives.umdf.fast.v5.1.15.lots", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149 = ProtoField.new("Md Security List_149 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_149", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149_related_sym = ProtoField.new("Md Security List_149 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_149relatedsym", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_i_ds = ProtoField.new("Appl I Ds", "b3.b3derivatives.umdf.fast.v5.1.15.applids", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.feed_types = ProtoField.new("Feed Types", "b3.b3derivatives.umdf.fast.v5.1.15.feedtypes", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_i_ds = ProtoField.new("Security Alt I Ds", "b3.b3derivatives.umdf.fast.v5.1.15.securityaltids", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149_underlyings = ProtoField.new("Md Security List_149 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_149underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.instr_attrib = ProtoField.new("Instr Attrib", "b3.b3derivatives.umdf.fast.v5.1.15.instrattrib", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.tick_rules = ProtoField.new("Tick Rules", "b3.b3derivatives.umdf.fast.v5.1.15.tickrules", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149_legs = ProtoField.new("Md Security List_149 Legs", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_149legs", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.lots = ProtoField.new("Lots", "b3.b3derivatives.umdf.fast.v5.1.15.lots", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148 = ProtoField.new("Md Security List_148 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_148", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148_related_sym = ProtoField.new("Md Security List_148 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_148relatedsym", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_i_ds = ProtoField.new("Appl I Ds", "b3.b3derivatives.umdf.fast.v5.1.15.applids", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.feed_types = ProtoField.new("Feed Types", "b3.b3derivatives.umdf.fast.v5.1.15.feedtypes", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_i_ds = ProtoField.new("Security Alt I Ds", "b3.b3derivatives.umdf.fast.v5.1.15.securityaltids", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148_underlyings = ProtoField.new("Md Security List_148 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_148underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.instr_attrib = ProtoField.new("Instr Attrib", "b3.b3derivatives.umdf.fast.v5.1.15.instrattrib", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.tick_rules = ProtoField.new("Tick Rules", "b3.b3derivatives.umdf.fast.v5.1.15.tickrules", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148_legs = ProtoField.new("Md Security List_148 Legs", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_148legs", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.lots = ProtoField.new("Lots", "b3.b3derivatives.umdf.fast.v5.1.15.lots", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141 = ProtoField.new("Md Security List_141 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_141", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141_related_sym = ProtoField.new("Md Security List_141 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_141relatedsym", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_i_ds = ProtoField.new("Appl I Ds", "b3.b3derivatives.umdf.fast.v5.1.15.applids", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.feed_types = ProtoField.new("Feed Types", "b3.b3derivatives.umdf.fast.v5.1.15.feedtypes", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_i_ds = ProtoField.new("Security Alt I Ds", "b3.b3derivatives.umdf.fast.v5.1.15.securityaltids", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141_underlyings = ProtoField.new("Md Security List_141 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_141underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.instr_attrib = ProtoField.new("Instr Attrib", "b3.b3derivatives.umdf.fast.v5.1.15.instrattrib", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.tick_rules = ProtoField.new("Tick Rules", "b3.b3derivatives.umdf.fast.v5.1.15.tickrules", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141_legs = ProtoField.new("Md Security List_141 Legs", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_141legs", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.lots = ProtoField.new("Lots", "b3.b3derivatives.umdf.fast.v5.1.15.lots", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_111 = ProtoField.new("Md Security List_111 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_111", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149 = ProtoField.new("MD Security List_149 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_149", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149_related_sym = ProtoField.new("MD Security List_149 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_149relatedsym", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149_underlyings = ProtoField.new("MD Security List_149 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_149underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149_legs = ProtoField.new("MD Security List_149 Legs", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_149legs", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148 = ProtoField.new("MD Security List_148 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_148", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148_related_sym = ProtoField.new("MD Security List_148 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_148relatedsym", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148_underlyings = ProtoField.new("MD Security List_148 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_148underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148_legs = ProtoField.new("MD Security List_148 Legs", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_148legs", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141 = ProtoField.new("MD Security List_141 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_141", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141_related_sym = ProtoField.new("MD Security List_141 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_141relatedsym", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141_underlyings = ProtoField.new("MD Security List_141 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_141underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141_legs = ProtoField.new("MD Security List_141 Legs", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_141legs", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_111 = ProtoField.new("MD Security List_111 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_111", ftypes.NONE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.related_symbols = ProtoField.new("Related Symbols", "b3.b3derivatives.umdf.fast.v5.1.15.relatedsymbols", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ids = ProtoField.new("Appl Ids", "b3.b3derivatives.umdf.fast.v5.1.15.applids", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.feed_types = ProtoField.new("Feed Types", "b3.b3derivatives.umdf.fast.v5.1.15.feedtypes", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_i_ds = ProtoField.new("Security Alt I Ds", "b3.b3derivatives.umdf.fast.v5.1.15.securityaltids", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_111_underlyings = ProtoField.new("Md Security List_111 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_111underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_111_legs = ProtoField.new("Md Security List_111 Legs", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_111legs", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_81 = ProtoField.new("Md Inc Refresh_81 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_81", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_81_md_entries = ProtoField.new("Md Inc Refresh_81 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_81mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_152 = ProtoField.new("Md Inc Refresh_152 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_152", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_152_md_entries = ProtoField.new("Md Inc Refresh_152 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_152mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_152_underlyings = ProtoField.new("Md Inc Refresh_152 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_152underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_150 = ProtoField.new("Md Inc Refresh_150 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_150", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_150_md_entries = ProtoField.new("Md Inc Refresh_150 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_150mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_150_underlyings = ProtoField.new("Md Inc Refresh_150 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_150underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_145 = ProtoField.new("Md Inc Refresh_145 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_145", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_145_md_entries = ProtoField.new("Md Inc Refresh_145 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_145mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_145_underlyings = ProtoField.new("Md Inc Refresh_145 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_145underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_138 = ProtoField.new("Md Inc Refresh_138 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_138", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_138_md_entries = ProtoField.new("Md Inc Refresh_138 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_138mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_138_underlyings = ProtoField.new("Md Inc Refresh_138 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_138underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_123 = ProtoField.new("Md Inc Refresh_123 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_123", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_123_md_entries = ProtoField.new("Md Inc Refresh_123 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_123mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_126 = ProtoField.new("Md Inc Refresh_126 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_126", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_126_md_entries = ProtoField.new("Md Inc Refresh_126 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_126mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_status_142 = ProtoField.new("Md Security Status_142 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritystatus_142", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_status_134 = ProtoField.new("Md Security Status_134 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritystatus_134", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_status_125 = ProtoField.new("Md Security Status_125 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritystatus_125", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_127 = ProtoField.new("Md Snapshot Full Refresh_127 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_127", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_127_md_entries = ProtoField.new("Md Snapshot Full Refresh_127 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_127mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_153 = ProtoField.new("Md Snapshot Full Refresh_153 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_153", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_153_md_entries = ProtoField.new("Md Snapshot Full Refresh_153 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_153mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_153_underlyings = ProtoField.new("Md Snapshot Full Refresh_153 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_153underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_151 = ProtoField.new("Md Snapshot Full Refresh_151 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_151", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_151_md_entries = ProtoField.new("Md Snapshot Full Refresh_151 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_151mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_151_underlyings = ProtoField.new("Md Snapshot Full Refresh_151 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_151underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_147 = ProtoField.new("Md Snapshot Full Refresh_147 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_147", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_147_md_entries = ProtoField.new("Md Snapshot Full Refresh_147 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_147mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_147_underlyings = ProtoField.new("Md Snapshot Full Refresh_147 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_147underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_146 = ProtoField.new("Md Snapshot Full Refresh_146 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_146", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_146_md_entries = ProtoField.new("Md Snapshot Full Refresh_146 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_146mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_146_underlyings = ProtoField.new("Md Snapshot Full Refresh_146 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_146underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_139 = ProtoField.new("Md Snapshot Full Refresh_139 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_139", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_139_md_entries = ProtoField.new("Md Snapshot Full Refresh_139 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_139mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_139_underlyings = ProtoField.new("Md Snapshot Full Refresh_139 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_139underlyings", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_128 = ProtoField.new("Md Snapshot Full Refresh_128 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_128", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_128_md_entries = ProtoField.new("Md Snapshot Full Refresh_128 Md Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_128mdentries", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_143 = ProtoField.new("Md News Message_143 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_143", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_143_related_sym = ProtoField.new("Md News Message_143 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_143relatedsym", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_143_lines_of_text = ProtoField.new("Md News Message_143 Lines Of Text", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_143linesoftext", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_137 = ProtoField.new("Md News Message_137 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_137", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_137_related_sym = ProtoField.new("Md News Message_137 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_137relatedsym", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_137_lines_of_text = ProtoField.new("Md News Message_137 Lines Of Text", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_137linesoftext", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_120 = ProtoField.new("Md News Message_120 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_120", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_120_related_sym = ProtoField.new("Md News Message_120 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_120relatedsym", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_111_underlyings = ProtoField.new("MD Security List_111 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_111underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_111_legs = ProtoField.new("MD Security List_111 Legs", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritylist_111legs", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_81 = ProtoField.new("MD Inc Refresh_81 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_81", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_81_md_entries = ProtoField.new("MD Inc Refresh_81 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_81mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_152 = ProtoField.new("MD Inc Refresh_152 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_152", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_152_md_entries = ProtoField.new("MD Inc Refresh_152 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_152mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_152_underlyings = ProtoField.new("MD Inc Refresh_152 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_152underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_150 = ProtoField.new("MD Inc Refresh_150 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_150", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_150_md_entries = ProtoField.new("MD Inc Refresh_150 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_150mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_150_underlyings = ProtoField.new("MD Inc Refresh_150 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_150underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_145 = ProtoField.new("MD Inc Refresh_145 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_145", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_145_md_entries = ProtoField.new("MD Inc Refresh_145 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_145mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_145_underlyings = ProtoField.new("MD Inc Refresh_145 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_145underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_138 = ProtoField.new("MD Inc Refresh_138 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_138", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_138_md_entries = ProtoField.new("MD Inc Refresh_138 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_138mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_138_underlyings = ProtoField.new("MD Inc Refresh_138 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_138underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_123 = ProtoField.new("MD Inc Refresh_123 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_123", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_123_md_entries = ProtoField.new("MD Inc Refresh_123 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_123mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_126 = ProtoField.new("MD Inc Refresh_126 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_126", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_126_md_entries = ProtoField.new("MD Inc Refresh_126 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdincrefresh_126mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_status_142 = ProtoField.new("MD Security Status_142 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritystatus_142", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_status_134 = ProtoField.new("MD Security Status_134 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritystatus_134", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_status_125 = ProtoField.new("MD Security Status_125 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsecuritystatus_125", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_127 = ProtoField.new("MD Snapshot Full Refresh_127 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_127", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_127_md_entries = ProtoField.new("MD Snapshot Full Refresh_127 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_127mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_153 = ProtoField.new("MD Snapshot Full Refresh_153 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_153", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_153_md_entries = ProtoField.new("MD Snapshot Full Refresh_153 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_153mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_153_underlyings = ProtoField.new("MD Snapshot Full Refresh_153 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_153underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_151 = ProtoField.new("MD Snapshot Full Refresh_151 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_151", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_151_md_entries = ProtoField.new("MD Snapshot Full Refresh_151 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_151mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_151_underlyings = ProtoField.new("MD Snapshot Full Refresh_151 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_151underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_147 = ProtoField.new("MD Snapshot Full Refresh_147 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_147", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_147_md_entries = ProtoField.new("MD Snapshot Full Refresh_147 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_147mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_147_underlyings = ProtoField.new("MD Snapshot Full Refresh_147 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_147underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_146 = ProtoField.new("MD Snapshot Full Refresh_146 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_146", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_146_md_entries = ProtoField.new("MD Snapshot Full Refresh_146 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_146mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_146_underlyings = ProtoField.new("MD Snapshot Full Refresh_146 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_146underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_139 = ProtoField.new("MD Snapshot Full Refresh_139 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_139", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_139_md_entries = ProtoField.new("MD Snapshot Full Refresh_139 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_139mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_139_underlyings = ProtoField.new("MD Snapshot Full Refresh_139 Underlyings", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_139underlyings", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_128 = ProtoField.new("MD Snapshot Full Refresh_128 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_128", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_128_md_entries = ProtoField.new("MD Snapshot Full Refresh_128 MD Entries", "b3.b3derivatives.umdf.fast.v5.1.15.mdsnapshotfullrefresh_128mdentries", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_143 = ProtoField.new("MD News Message_143 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_143", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_143_related_sym = ProtoField.new("MD News Message_143 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_143relatedsym", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.lines_of_text = ProtoField.new("Lines Of Text", "b3.b3derivatives.umdf.fast.v5.1.15.linesoftext", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_137 = ProtoField.new("MD News Message_137 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_137", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_137_related_sym = ProtoField.new("MD News Message_137 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_137relatedsym", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_120 = ProtoField.new("MD News Message_120 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_120", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_120_related_sym = ProtoField.new("MD News Message_120 Related Sym", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_120relatedsym", ftypes.NONE)
 omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.routing_ids = ProtoField.new("Routing Ids", "b3.b3derivatives.umdf.fast.v5.1.15.routingids", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_120_lines_of_text = ProtoField.new("Md News Message_120 Lines Of Text", "b3.b3derivatives.umdf.fast.v5.1.15.mdnewsmessage_120linesoftext", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_heartbeat_144 = ProtoField.new("Md Heartbeat_144 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdheartbeat_144", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_heartbeat_129 = ProtoField.new("Md Heartbeat_129 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdheartbeat_129", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_heartbeat_101 = ProtoField.new("Md Heartbeat_101 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdheartbeat_101", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_logon_118 = ProtoField.new("Md Logon_118 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdlogon_118", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_logout_119 = ProtoField.new("Md Logout_119 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdlogout_119", ftypes.NONE)
-omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_sequence_reset = ProtoField.new("Md Sequence Reset Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsequencereset", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_heartbeat_144 = ProtoField.new("MD Heartbeat_144 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdheartbeat_144", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_heartbeat_129 = ProtoField.new("MD Heartbeat_129 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdheartbeat_129", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_heartbeat_101 = ProtoField.new("MD Heartbeat_101 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdheartbeat_101", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_logon_118 = ProtoField.new("MD Logon_118 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdlogon_118", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_logout_119 = ProtoField.new("MD Logout_119 Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdlogout_119", ftypes.NONE)
+omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_sequence_reset = ProtoField.new("MD Sequence Reset Message", "b3.b3derivatives.umdf.fast.v5.1.15.mdsequencereset", ftypes.NONE)
 
 -----------------------------------------------------------------------
 -- Protocol Functions
@@ -1033,10 +1010,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.sending_time_sent_required_string.dissect = f
   return offset, value
 end
 
--- Appl Ver Id (Constant)
+-- Appl Ver ID (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required = {}
 
--- Dissect: Appl Ver Id (Constant)
+-- Dissect: Appl Ver ID (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1049,16 +1026,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect = funct
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ver_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ver_id, range, "")
-    absent:set_text("Appl Ver Id: No Value")
+    absent:set_text("Appl Ver ID: No Value")
   end
 
   return offset, value
 end
 
--- Appl Ver Id (Constant)
+-- Appl Ver ID (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_optional = {}
 
--- Dissect: Appl Ver Id (Constant)
+-- Dissect: Appl Ver ID (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1073,7 +1050,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_optional.dissect = funct
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ver_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ver_id, range, "")
-    absent:set_text("Appl Ver Id: No Value")
+    absent:set_text("Appl Ver ID: No Value")
   end
 
   return offset, value
@@ -1145,10 +1122,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.message_encoding.dissect = function(buffer, o
   return offset, value
 end
 
--- Md Req Id (Copy)
+-- MD Req ID (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_required = {}
 
--- Dissect: Md Req Id (Copy)
+-- Dissect: MD Req ID (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1161,7 +1138,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_required.dissect = function(bu
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Req Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Req ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1172,16 +1149,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_required.dissect = function(bu
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_req_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_req_id, range, "")
-    absent:set_text("Md Req Id: No Value")
+    absent:set_text("MD Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Md Req Id (Copy)
+-- MD Req ID (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_optional = {}
 
--- Dissect: Md Req Id (Copy)
+-- Dissect: MD Req ID (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1200,16 +1177,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_optional.dissect = function(bu
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_req_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_req_id, range, "")
-    absent:set_text("Md Req Id: No Value")
+    absent:set_text("MD Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Md Req Rej Reason
+-- MD Req Rej Reason
 b3_b3derivatives_umdf_fast_v5_1_15.md_req_rej_reason = {}
 
--- Dissect: Md Req Rej Reason
+-- Dissect: MD Req Rej Reason
 b3_b3derivatives_umdf_fast_v5_1_15.md_req_rej_reason.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1222,7 +1199,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_req_rej_reason.dissect = function(buffer, 
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Req Rej Reason was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Req Rej Reason was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1233,7 +1210,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_req_rej_reason.dissect = function(buffer, 
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_req_rej_reason, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_req_rej_reason, range, "")
-    absent:set_text("Md Req Rej Reason: No Value")
+    absent:set_text("MD Req Rej Reason: No Value")
   end
 
   return offset, value
@@ -1580,10 +1557,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.symbol_sent_optional.dissect = function(buffe
   return offset, value
 end
 
--- Security Id (Copy)
+-- Security ID (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required = {}
 
--- Dissect: Security Id (Copy)
+-- Dissect: Security ID (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1596,7 +1573,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect = function(
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Security Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Security ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1607,16 +1584,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect = function(
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id, range, UInt64(0))
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id (Copy)
+-- Security ID (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_optional = {}
 
--- Dissect: Security Id (Copy)
+-- Dissect: Security ID (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1635,16 +1612,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_optional.dissect = function(
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id, range, UInt64(0))
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id (Sent)
+-- Security ID (Sent)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_optional = {}
 
--- Dissect: Security Id (Sent)
+-- Dissect: Security ID (Sent)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1657,16 +1634,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_optional.dissect = function(
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id, range, UInt64(0))
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id (Sent)
+-- Security ID (Sent)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_required = {}
 
--- Dissect: Security Id (Sent)
+-- Dissect: Security ID (Sent)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1679,16 +1656,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_required.dissect = function(
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id, range, UInt64(0))
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id Source (Constant)
+-- Security ID Source (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_string = {}
 
--- Dissect: Security Id Source (Constant)
+-- Dissect: Security ID Source (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_string.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1701,16 +1678,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_string.d
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id_source_string, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id_source_string, range, "")
-    absent:set_text("Security Id Source: No Value")
+    absent:set_text("Security ID Source: No Value")
   end
 
   return offset, value
 end
 
--- Security Id Source (Constant)
+-- Security ID Source (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_optional = {}
 
--- Dissect: Security Id Source (Constant)
+-- Dissect: Security ID Source (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1725,16 +1702,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_optional.dissect 
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id_source_uint32, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id_source_uint32, range, 0)
-    absent:set_text("Security Id Source: No Value")
+    absent:set_text("Security ID Source: No Value")
   end
 
   return offset, value
 end
 
--- Security Id Source (Constant)
+-- Security ID Source (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32 = {}
 
--- Dissect: Security Id Source (Constant)
+-- Dissect: Security ID Source (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1747,7 +1724,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id_source_uint32, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_id_source_uint32, range, 0)
-    absent:set_text("Security Id Source: No Value")
+    absent:set_text("Security ID Source: No Value")
   end
 
   return offset, value
@@ -1819,11 +1796,11 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_sent_required.dissect = fun
   return offset, value
 end
 
--- No Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.no_appl_i_ds = {}
+-- No Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.no_appl_ids = {}
 
--- Dissect: No Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.no_appl_i_ds.dissect = function(buffer, offset, packet, parent, present, state, key)
+-- Dissect: No Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.no_appl_ids.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1832,19 +1809,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.no_appl_i_ds.dissect = function(buffer, offse
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_appl_i_ds, range, value)
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_appl_ids, range, value)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_appl_i_ds, range, 0)
-    absent:set_text("No Appl I Ds: No Value")
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_appl_ids, range, 0)
+    absent:set_text("No Appl IDs: No Value")
   end
 
   return offset, value
 end
 
--- Appl Id (Sent)
+-- Appl ID (Sent)
 b3_b3derivatives_umdf_fast_v5_1_15.appl_id_sent = {}
 
--- Dissect: Appl Id (Sent)
+-- Dissect: Appl ID (Sent)
 b3_b3derivatives_umdf_fast_v5_1_15.appl_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1857,16 +1834,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_id_sent.dissect = function(buffer, offse
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_id, range, "")
-    absent:set_text("Appl Id: No Value")
+    absent:set_text("Appl ID: No Value")
   end
 
   return offset, value
 end
 
--- Appl Id (Constant)
+-- Appl ID (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.appl_id_constant = {}
 
--- Dissect: Appl Id (Constant)
+-- Dissect: Appl ID (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.appl_id_constant.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1879,16 +1856,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_id_constant.dissect = function(buffer, o
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_id, range, "")
-    absent:set_text("Appl Id: No Value")
+    absent:set_text("Appl ID: No Value")
   end
 
   return offset, value
 end
 
--- No Md Feed Types
+-- No MD Feed Types
 b3_b3derivatives_umdf_fast_v5_1_15.no_md_feed_types = {}
 
--- Dissect: No Md Feed Types
+-- Dissect: No MD Feed Types
 b3_b3derivatives_umdf_fast_v5_1_15.no_md_feed_types.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1901,16 +1878,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.no_md_feed_types.dissect = function(buffer, o
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_md_feed_types, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_md_feed_types, range, 0)
-    absent:set_text("No Md Feed Types: No Value")
+    absent:set_text("No MD Feed Types: No Value")
   end
 
   return offset, value
 end
 
--- Md Feed Type
+-- MD Feed Type
 b3_b3derivatives_umdf_fast_v5_1_15.md_feed_type = {}
 
--- Dissect: Md Feed Type
+-- Dissect: MD Feed Type
 b3_b3derivatives_umdf_fast_v5_1_15.md_feed_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1923,7 +1900,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_feed_type.dissect = function(buffer, offse
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_feed_type, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_feed_type, range, "")
-    absent:set_text("Md Feed Type: No Value")
+    absent:set_text("MD Feed Type: No Value")
   end
 
   return offset, value
@@ -1973,10 +1950,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.market_depth_sent_optional.dissect = function
   return offset, value
 end
 
--- No Security Alt Id
+-- No Security Alt ID
 b3_b3derivatives_umdf_fast_v5_1_15.no_security_alt_id = {}
 
--- Dissect: No Security Alt Id
+-- Dissect: No Security Alt ID
 b3_b3derivatives_umdf_fast_v5_1_15.no_security_alt_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1989,16 +1966,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.no_security_alt_id.dissect = function(buffer,
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_security_alt_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_security_alt_id, range, 0)
-    absent:set_text("No Security Alt Id: No Value")
+    absent:set_text("No Security Alt ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Alt Id
+-- Security Alt ID
 b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id = {}
 
--- Dissect: Security Alt Id
+-- Dissect: Security Alt ID
 b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2011,16 +1988,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id.dissect = function(buffer, of
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_id, range, "")
-    absent:set_text("Security Alt Id: No Value")
+    absent:set_text("Security Alt ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Alt Id Source
+-- Security Alt ID Source
 b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id_source = {}
 
--- Dissect: Security Alt Id Source
+-- Dissect: Security Alt ID Source
 b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2033,7 +2010,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id_source.dissect = function(buf
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Security Alt Id Source was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Security Alt ID Source was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -2044,7 +2021,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id_source.dissect = function(buf
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_id_source, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_id_source, range, "")
-    absent:set_text("Security Alt Id Source: No Value")
+    absent:set_text("Security Alt ID Source: No Value")
   end
 
   return offset, value
@@ -2094,10 +2071,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.underlying_symbol.dissect = function(buffer, 
   return offset, value
 end
 
--- Underlying Security Id (Sent)
+-- Underlying Security ID (Sent)
 b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_sent = {}
 
--- Dissect: Underlying Security Id (Sent)
+-- Dissect: Underlying Security ID (Sent)
 b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2110,16 +2087,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_sent.dissect = functio
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id, range, UInt64(0))
-    absent:set_text("Underlying Security Id: No Value")
+    absent:set_text("Underlying Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Underlying Security Id (Delta)
+-- Underlying Security ID (Delta)
 b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta = {}
 
--- Dissect: Underlying Security Id (Delta)
+-- Dissect: Underlying Security ID (Delta)
 b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2135,16 +2112,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta.dissect = functi
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id, range, UInt64(0))
-    absent:set_text("Underlying Security Id: No Value")
+    absent:set_text("Underlying Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Underlying Security Id Source (Constant)
+-- Underlying Security ID Source (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_string = {}
 
--- Dissect: Underlying Security Id Source (Constant)
+-- Dissect: Underlying Security ID Source (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_string.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2157,16 +2134,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_requir
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id_source_string, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id_source_string, range, "")
-    absent:set_text("Underlying Security Id Source: No Value")
+    absent:set_text("Underlying Security ID Source: No Value")
   end
 
   return offset, value
 end
 
--- Underlying Security Id Source (Constant)
+-- Underlying Security ID Source (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_u_int32 = {}
 
--- Dissect: Underlying Security Id Source (Constant)
+-- Dissect: Underlying Security ID Source (Constant)
 b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_u_int32.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2179,7 +2156,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_requir
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id_source_uint32, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.underlying_security_id_source_uint32, range, 0)
-    absent:set_text("Underlying Security Id Source: No Value")
+    absent:set_text("Underlying Security ID Source: No Value")
   end
 
   return offset, value
@@ -2668,10 +2645,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.leg_symbol.dissect = function(buffer, offset,
   return offset, value
 end
 
--- Leg Security Id
+-- Leg Security ID
 b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id = {}
 
--- Dissect: Leg Security Id
+-- Dissect: Leg Security ID
 b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2684,16 +2661,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id.dissect = function(buffer, of
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_security_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_security_id, range, UInt64(0))
-    absent:set_text("Leg Security Id: No Value")
+    absent:set_text("Leg Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Leg Security Id Source
+-- Leg Security ID Source
 b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id_source = {}
 
--- Dissect: Leg Security Id Source
+-- Dissect: Leg Security ID Source
 b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2706,7 +2683,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id_source.dissect = function(buf
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_security_id_source, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.leg_security_id_source, range, "")
-    absent:set_text("Leg Security Id Source: No Value")
+    absent:set_text("Leg Security ID Source: No Value")
   end
 
   return offset, value
@@ -3939,10 +3916,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.contract_settl_month.dissect = function(buffe
   return offset, value
 end
 
--- Cfi Code
+-- CFI Code
 b3_b3derivatives_umdf_fast_v5_1_15.cfi_code = {}
 
--- Dissect: Cfi Code
+-- Dissect: CFI Code
 b3_b3derivatives_umdf_fast_v5_1_15.cfi_code.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3955,7 +3932,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.cfi_code.dissect = function(buffer, offset, p
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.cfi_code, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.cfi_code, range, "")
-    absent:set_text("Cfi Code: No Value")
+    absent:set_text("CFI Code: No Value")
   end
 
   return offset, value
@@ -4237,10 +4214,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_validity_timestamp_default.dissect =
   return offset, value
 end
 
--- Market Segment Id
+-- Market Segment ID
 b3_b3derivatives_umdf_fast_v5_1_15.market_segment_id = {}
 
--- Dissect: Market Segment Id
+-- Dissect: Market Segment ID
 b3_b3derivatives_umdf_fast_v5_1_15.market_segment_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4253,7 +4230,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.market_segment_id.dissect = function(buffer, 
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.market_segment_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.market_segment_id, range, "")
-    absent:set_text("Market Segment Id: No Value")
+    absent:set_text("Market Segment ID: No Value")
   end
 
   return offset, value
@@ -4281,10 +4258,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.governance_indicator.dissect = function(buffe
   return offset, value
 end
 
--- Corporate Action Event Id
+-- Corporate Action Event ID
 b3_b3derivatives_umdf_fast_v5_1_15.corporate_action_event_id = {}
 
--- Dissect: Corporate Action Event Id
+-- Dissect: Corporate Action Event ID
 b3_b3derivatives_umdf_fast_v5_1_15.corporate_action_event_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4297,7 +4274,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.corporate_action_event_id.dissect = function(
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.corporate_action_event_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.corporate_action_event_id, range, 0)
-    absent:set_text("Corporate Action Event Id: No Value")
+    absent:set_text("Corporate Action Event ID: No Value")
   end
 
   return offset, value
@@ -4457,10 +4434,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.min_trade_vol.dissect = function(buffer, offs
   return offset, value
 end
 
--- Instrument Id
+-- Instrument ID
 b3_b3derivatives_umdf_fast_v5_1_15.instrument_id = {}
 
--- Dissect: Instrument Id
+-- Dissect: Instrument ID
 b3_b3derivatives_umdf_fast_v5_1_15.instrument_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4473,7 +4450,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.instrument_id.dissect = function(buffer, offs
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.instrument_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.instrument_id, range, "")
-    absent:set_text("Instrument Id: No Value")
+    absent:set_text("Instrument ID: No Value")
   end
 
   return offset, value
@@ -4505,10 +4482,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.pos_dup_flag.dissect = function(buffer, offse
   return offset, value
 end
 
--- No Md Entries
+-- No MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries = {}
 
--- Dissect: No Md Entries
+-- Dissect: No MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4521,16 +4498,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect = function(buffer, offs
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_md_entries, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_md_entries, range, 0)
-    absent:set_text("No Md Entries: No Value")
+    absent:set_text("No MD Entries: No Value")
   end
 
   return offset, value
 end
 
--- Md Update Action (Copy)
+-- MD Update Action (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_0 = {}
 
--- Dissect: Md Update Action (Copy)
+-- Dissect: MD Update Action (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_0.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4549,16 +4526,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_0.dissect = function(bu
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_update_action, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_update_action, range, 0)
-    absent:set_text("Md Update Action: No Value")
+    absent:set_text("MD Update Action: No Value")
   end
 
   return offset, value
 end
 
--- Md Update Action (Copy)
+-- MD Update Action (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_1 = {}
 
--- Dissect: Md Update Action (Copy)
+-- Dissect: MD Update Action (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_1.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4571,7 +4548,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_1.dissect = function(bu
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Update Action was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Update Action was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -4582,16 +4559,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_1.dissect = function(bu
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_update_action, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_update_action, range, 0)
-    absent:set_text("Md Update Action: No Value")
+    absent:set_text("MD Update Action: No Value")
   end
 
   return offset, value
 end
 
--- Md Price Level (Default)
+-- MD Price Level (Default)
 b3_b3derivatives_umdf_fast_v5_1_15.md_price_level_default = {}
 
--- Dissect: Md Price Level (Default)
+-- Dissect: MD Price Level (Default)
 b3_b3derivatives_umdf_fast_v5_1_15.md_price_level_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4608,16 +4585,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_price_level_default.dissect = function(buf
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_price_level, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_price_level, range, 0)
-    absent:set_text("Md Price Level: No Value")
+    absent:set_text("MD Price Level: No Value")
   end
 
   return offset, value
 end
 
--- Md Price Level (Increment)
+-- MD Price Level (Increment)
 b3_b3derivatives_umdf_fast_v5_1_15.md_price_level_increment = {}
 
--- Dissect: Md Price Level (Increment)
+-- Dissect: MD Price Level (Increment)
 b3_b3derivatives_umdf_fast_v5_1_15.md_price_level_increment.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4638,16 +4615,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_price_level_increment.dissect = function(b
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_price_level, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_price_level, range, 0)
-    absent:set_text("Md Price Level: No Value")
+    absent:set_text("MD Price Level: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Type (Copy)
+-- MD Entry Type (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_j = {}
 
--- Dissect: Md Entry Type (Copy)
+-- Dissect: MD Entry Type (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_j.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4660,7 +4637,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_j.dissect = function(buffe
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Entry Type was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Entry Type was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -4671,16 +4648,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_j.dissect = function(buffe
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_type, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_type, range, "")
-    absent:set_text("Md Entry Type: No Value")
+    absent:set_text("MD Entry Type: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Type (Copy)
+-- MD Entry Type (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_0 = {}
 
--- Dissect: Md Entry Type (Copy)
+-- Dissect: MD Entry Type (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_0.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4693,7 +4670,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_0.dissect = function(buffe
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Entry Type was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Entry Type was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -4704,16 +4681,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_0.dissect = function(buffe
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_type, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_type, range, "")
-    absent:set_text("Md Entry Type: No Value")
+    absent:set_text("MD Entry Type: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Type (Default)
+-- MD Entry Type (Default)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_default = {}
 
--- Dissect: Md Entry Type (Default)
+-- Dissect: MD Entry Type (Default)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4730,7 +4707,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_default.dissect = function(buff
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_type, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_type, range, "")
-    absent:set_text("Md Entry Type: No Value")
+    absent:set_text("MD Entry Type: No Value")
   end
 
   return offset, value
@@ -4823,19 +4800,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.rpt_seq_sent.dissect = function(buffer, offse
   return offset, value
 end
 
--- Md Entry Px
+-- MD Entry Px
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px = {}
 
--- Display: Md Entry Px
+-- Display: MD Entry Px
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.display = function(value)
   if value == nil then
-    return "Md Entry Px: No Value"
+    return "MD Entry Px: No Value"
   end
 
-  return "Md Entry Px: "..value
+  return "MD Entry Px: "..value
 end
 
--- Dissect: Md Entry Px
+-- Dissect: MD Entry Px
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4878,10 +4855,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect = function(buffer, offset
   return offset, value
 end
 
--- Md Entry Time (Copy)
+-- MD Entry Time (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_required = {}
 
--- Dissect: Md Entry Time (Copy)
+-- Dissect: MD Entry Time (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4894,7 +4871,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_required.dissect = functio
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Entry Time was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Entry Time was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -4905,16 +4882,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_required.dissect = functio
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_time_uint32, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_time_uint32, range, 0)
-    absent:set_text("Md Entry Time: No Value")
+    absent:set_text("MD Entry Time: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Time (Copy)
+-- MD Entry Time (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_optional = {}
 
--- Dissect: Md Entry Time (Copy)
+-- Dissect: MD Entry Time (Copy)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4933,16 +4910,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_optional.dissect = functio
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_time_string, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_time_string, range, "")
-    absent:set_text("Md Entry Time: No Value")
+    absent:set_text("MD Entry Time: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Size (Delta)
+-- MD Entry Size (Delta)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int32 = {}
 
--- Dissect: Md Entry Size (Delta)
+-- Dissect: MD Entry Size (Delta)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int32.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4961,16 +4938,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int32.dissect = 
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_size_int32, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_size_int32, range, 0)
-    absent:set_text("Md Entry Size: No Value")
+    absent:set_text("MD Entry Size: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Size (Delta)
+-- MD Entry Size (Delta)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64 = {}
 
--- Dissect: Md Entry Size (Delta)
+-- Dissect: MD Entry Size (Delta)
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4989,7 +4966,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect = 
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_size_int64, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_size_int64, range, Int64(0))
-    absent:set_text("Md Entry Size: No Value")
+    absent:set_text("MD Entry Size: No Value")
   end
 
   return offset, value
@@ -5103,10 +5080,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.number_of_orders_copy.dissect = function(buff
   return offset, value
 end
 
--- Trading Session Id (Default)
+-- Trading Session ID (Default)
 b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_default = {}
 
--- Dissect: Trading Session Id (Default)
+-- Dissect: Trading Session ID (Default)
 b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5123,16 +5100,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_default.dissect = function
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_id_string, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_id_string, range, "")
-    absent:set_text("Trading Session Id: No Value")
+    absent:set_text("Trading Session ID: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Id (Sent)
+-- Trading Session ID (Sent)
 b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent = {}
 
--- Dissect: Trading Session Id (Sent)
+-- Dissect: Trading Session ID (Sent)
 b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5145,7 +5122,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect = function(bu
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_id_uint32, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_id_uint32, range, 0)
-    absent:set_text("Trading Session Id: No Value")
+    absent:set_text("Trading Session ID: No Value")
   end
 
   return offset, value
@@ -5195,19 +5172,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_required.dissect = function(b
   return offset, value
 end
 
--- Md Entry Interest Rate
+-- MD Entry Interest Rate
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate = {}
 
--- Display: Md Entry Interest Rate
+-- Display: MD Entry Interest Rate
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate.display = function(value)
   if value == nil then
-    return "Md Entry Interest Rate: No Value"
+    return "MD Entry Interest Rate: No Value"
   end
 
-  return "Md Entry Interest Rate: "..value
+  return "MD Entry Interest Rate: "..value
 end
 
--- Dissect: Md Entry Interest Rate
+-- Dissect: MD Entry Interest Rate
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5298,10 +5275,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.price_type_default.dissect = function(buffer,
   return offset, value
 end
 
--- Md Entry Date
+-- MD Entry Date
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date = {}
 
--- Dissect: Md Entry Date
+-- Dissect: MD Entry Date
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5320,16 +5297,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect = function(buffer, offs
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_date, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_date, range, 0)
-    absent:set_text("Md Entry Date: No Value")
+    absent:set_text("MD Entry Date: No Value")
   end
 
   return offset, value
 end
 
--- Md Insert Date
+-- MD Insert Date
 b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date = {}
 
--- Dissect: Md Insert Date
+-- Dissect: MD Insert Date
 b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5348,16 +5325,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect = function(buffer, off
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_insert_date, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_insert_date, range, 0)
-    absent:set_text("Md Insert Date: No Value")
+    absent:set_text("MD Insert Date: No Value")
   end
 
   return offset, value
 end
 
--- Md Insert Time
+-- MD Insert Time
 b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time = {}
 
--- Dissect: Md Insert Time
+-- Dissect: MD Insert Time
 b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5376,16 +5353,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect = function(buffer, off
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_insert_time, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_insert_time, range, 0)
-    absent:set_text("Md Insert Time: No Value")
+    absent:set_text("MD Insert Time: No Value")
   end
 
   return offset, value
 end
 
--- Md Stream Id (Default)
+-- MD Stream ID (Default)
 b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_optional_string_field = {}
 
--- Dissect: Md Stream Id (Default)
+-- Dissect: MD Stream ID (Default)
 b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_optional_string_field.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5402,16 +5379,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_optional_string_field.di
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_stream_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_stream_id, range, "")
-    absent:set_text("Md Stream Id: No Value")
+    absent:set_text("MD Stream ID: No Value")
   end
 
   return offset, value
 end
 
--- Md Stream Id (Default)
+-- MD Stream ID (Default)
 b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_e = {}
 
--- Dissect: Md Stream Id (Default)
+-- Dissect: MD Stream ID (Default)
 b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_e.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5428,7 +5405,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_e.dissect = function(buf
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_stream_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_stream_id, range, "")
-    absent:set_text("Md Stream Id: No Value")
+    absent:set_text("MD Stream ID: No Value")
   end
 
   return offset, value
@@ -5906,10 +5883,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.open_close_settl_flag_default_optional_string
   return offset, value
 end
 
--- Order Id
+-- Order ID
 b3_b3derivatives_umdf_fast_v5_1_15.order_id = {}
 
--- Dissect: Order Id
+-- Dissect: Order ID
 b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5926,16 +5903,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect = function(buffer, offset, p
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.order_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.order_id, range, "")
-    absent:set_text("Order Id: No Value")
+    absent:set_text("Order ID: No Value")
   end
 
   return offset, value
 end
 
--- Trade Id
+-- Trade ID
 b3_b3derivatives_umdf_fast_v5_1_15.trade_id = {}
 
--- Dissect: Trade Id
+-- Dissect: Trade ID
 b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5952,16 +5929,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect = function(buffer, offset, p
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trade_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trade_id, range, "")
-    absent:set_text("Trade Id: No Value")
+    absent:set_text("Trade ID: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Buyer
+-- MD Entry Buyer
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer = {}
 
--- Dissect: Md Entry Buyer
+-- Dissect: MD Entry Buyer
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5978,16 +5955,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect = function(buffer, off
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_buyer, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_buyer, range, "")
-    absent:set_text("Md Entry Buyer: No Value")
+    absent:set_text("MD Entry Buyer: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Seller
+-- MD Entry Seller
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller = {}
 
--- Dissect: Md Entry Seller
+-- Dissect: MD Entry Seller
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6004,16 +5981,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect = function(buffer, of
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_seller, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_seller, range, "")
-    absent:set_text("Md Entry Seller: No Value")
+    absent:set_text("MD Entry Seller: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Position No
+-- MD Entry Position No
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no = {}
 
--- Dissect: Md Entry Position No
+-- Dissect: MD Entry Position No
 b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6030,7 +6007,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect = function(buffe
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_position_no, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_entry_position_no, range, 0)
-    absent:set_text("Md Entry Position No: No Value")
+    absent:set_text("MD Entry Position No: No Value")
   end
 
   return offset, value
@@ -6433,10 +6410,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.early_termination.dissect = function(buffer, 
   return offset, value
 end
 
--- Btb Cert Indicator
+-- BTB Cert Indicator
 b3_b3derivatives_umdf_fast_v5_1_15.btb_cert_indicator = {}
 
--- Dissect: Btb Cert Indicator
+-- Dissect: BTB Cert Indicator
 b3_b3derivatives_umdf_fast_v5_1_15.btb_cert_indicator.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6449,16 +6426,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.btb_cert_indicator.dissect = function(buffer,
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_cert_indicator, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_cert_indicator, range, 0)
-    absent:set_text("Btb Cert Indicator: No Value")
+    absent:set_text("BTB Cert Indicator: No Value")
   end
 
   return offset, value
 end
 
--- Btb Contract Info
+-- BTB Contract Info
 b3_b3derivatives_umdf_fast_v5_1_15.btb_contract_info = {}
 
--- Dissect: Btb Contract Info
+-- Dissect: BTB Contract Info
 b3_b3derivatives_umdf_fast_v5_1_15.btb_contract_info.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6471,16 +6448,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.btb_contract_info.dissect = function(buffer, 
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_contract_info, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_contract_info, range, 0)
-    absent:set_text("Btb Contract Info: No Value")
+    absent:set_text("BTB Contract Info: No Value")
   end
 
   return offset, value
 end
 
--- Btb Grace Date
+-- BTB Grace Date
 b3_b3derivatives_umdf_fast_v5_1_15.btb_grace_date = {}
 
--- Dissect: Btb Grace Date
+-- Dissect: BTB Grace Date
 b3_b3derivatives_umdf_fast_v5_1_15.btb_grace_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6493,7 +6470,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.btb_grace_date.dissect = function(buffer, off
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_grace_date, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.btb_grace_date, range, 0)
-    absent:set_text("Btb Grace Date: No Value")
+    absent:set_text("BTB Grace Date: No Value")
   end
 
   return offset, value
@@ -6793,10 +6770,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.trading_ref_price.dissect = function(buffer, 
   return offset, value
 end
 
--- Trading Session Sub Id
+-- Trading Session Sub ID
 b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id = {}
 
--- Dissect: Trading Session Sub Id
+-- Dissect: Trading Session Sub ID
 b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6809,7 +6786,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect = function(buf
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_sub_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.trading_session_sub_id, range, "")
-    absent:set_text("Trading Session Sub Id: No Value")
+    absent:set_text("Trading Session Sub ID: No Value")
   end
 
   return offset, value
@@ -7155,10 +7132,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.news_source.dissect = function(buffer, offset
   return offset, value
 end
 
--- News Id
+-- News ID
 b3_b3derivatives_umdf_fast_v5_1_15.news_id = {}
 
--- Dissect: News Id
+-- Dissect: News ID
 b3_b3derivatives_umdf_fast_v5_1_15.news_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7177,7 +7154,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.news_id.dissect = function(buffer, offset, pa
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.news_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.news_id, range, "")
-    absent:set_text("News Id: No Value")
+    absent:set_text("News ID: No Value")
   end
 
   return offset, value
@@ -7239,10 +7216,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.headline.dissect = function(buffer, offset, p
   return offset, value
 end
 
--- Url Link
+-- URL Link
 b3_b3derivatives_umdf_fast_v5_1_15.url_link = {}
 
--- Dissect: Url Link
+-- Dissect: URL Link
 b3_b3derivatives_umdf_fast_v5_1_15.url_link.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7261,7 +7238,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.url_link.dissect = function(buffer, offset, p
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.url_link, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.url_link, range, "")
-    absent:set_text("Url Link: No Value")
+    absent:set_text("URL Link: No Value")
   end
 
   return offset, value
@@ -7377,11 +7354,11 @@ b3_b3derivatives_umdf_fast_v5_1_15.encoded_text.dissect = function(buffer, offse
   return offset, value
 end
 
--- No Routing I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.no_routing_i_ds = {}
+-- No Routing IDs
+b3_b3derivatives_umdf_fast_v5_1_15.no_routing_ids = {}
 
--- Dissect: No Routing I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.no_routing_i_ds.dissect = function(buffer, offset, packet, parent, present, state, key)
+-- Dissect: No Routing IDs
+b3_b3derivatives_umdf_fast_v5_1_15.no_routing_ids.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -7390,10 +7367,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.no_routing_i_ds.dissect = function(buffer, of
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_routing_i_ds, range, value)
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_routing_ids, range, value)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_routing_i_ds, range, 0)
-    absent:set_text("No Routing I Ds: No Value")
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.no_routing_ids, range, 0)
+    absent:set_text("No Routing IDs: No Value")
   end
 
   return offset, value
@@ -7425,10 +7402,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.routing_type.dissect = function(buffer, offse
   return offset, value
 end
 
--- Routing Id
+-- Routing ID
 b3_b3derivatives_umdf_fast_v5_1_15.routing_id = {}
 
--- Dissect: Routing Id
+-- Dissect: Routing ID
 b3_b3derivatives_umdf_fast_v5_1_15.routing_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7441,7 +7418,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.routing_id.dissect = function(buffer, offset,
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.routing_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.routing_id, range, "")
-    absent:set_text("Routing Id: No Value")
+    absent:set_text("Routing ID: No Value")
   end
 
   return offset, value
@@ -7491,10 +7468,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.heartbeat_int.dissect = function(buffer, offs
   return offset, value
 end
 
--- Default Appl Ver Id
+-- Default Appl Ver ID
 b3_b3derivatives_umdf_fast_v5_1_15.default_appl_ver_id = {}
 
--- Dissect: Default Appl Ver Id
+-- Dissect: Default Appl Ver ID
 b3_b3derivatives_umdf_fast_v5_1_15.default_appl_ver_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7507,7 +7484,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.default_appl_ver_id.dissect = function(buffer
     parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.default_appl_ver_id, range, value)
   else
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.default_appl_ver_id, range, "")
-    absent:set_text("Default Appl Ver Id: No Value")
+    absent:set_text("Default Appl Ver ID: No Value")
   end
 
   return offset, value
@@ -7540,7 +7517,7 @@ end
 -- Dissect B3 B3Derivatives Umdf Fast 5.1.15
 -----------------------------------------------------------------------
 
--- Md Sequence Reset Message
+-- MD Sequence Reset Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_sequence_reset = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_sequence_reset.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_sequence_reset
@@ -7548,7 +7525,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_sequence_reset.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_appl_ver_id,
 }
 
--- Dissect Fields: Md Sequence Reset Message
+-- Dissect Fields: MD Sequence Reset Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_sequence_reset.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -7562,7 +7539,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_sequence_reset.fields = function(buffer, o
   -- Sending Time: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.sending_time_sent_required_u_int64.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant, optional
+  -- Appl Ver ID: string, Constant, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- New Seq No: uInt32, sent
@@ -7571,7 +7548,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_sequence_reset.fields = function(buffer, o
   return index
 end
 
--- Dissect: Md Sequence Reset Message
+-- Dissect: MD Sequence Reset Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_sequence_reset.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -7581,17 +7558,17 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_sequence_reset.dissect = function(buffer, 
   return index
 end
 
--- Md Logout_119 Message
+-- MD Logout_119 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_logout_119 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_logout_119.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_logout_119
 
--- Dissect Fields: Md Logout_119 Message
+-- Dissect Fields: MD Logout_119 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_logout_119.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
@@ -7603,7 +7580,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_logout_119.fields = function(buffer, offse
   -- Sending Time: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.sending_time_sent_required_u_int64.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Id: string, Constant
+  -- Appl ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_id_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Text: string, sent, optional
@@ -7612,7 +7589,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_logout_119.fields = function(buffer, offse
   return index
 end
 
--- Dissect: Md Logout_119 Message
+-- Dissect: MD Logout_119 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_logout_119.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -7622,17 +7599,17 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_logout_119.dissect = function(buffer, offs
   return index
 end
 
--- Md Logon_118 Message
+-- MD Logon_118 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_logon_118 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_logon_118.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_logon_118
 
--- Dissect Fields: Md Logon_118 Message
+-- Dissect Fields: MD Logon_118 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_logon_118.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
@@ -7644,7 +7621,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_logon_118.fields = function(buffer, offset
   -- Sending Time: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.sending_time_sent_required_u_int64.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Id: string, Constant
+  -- Appl ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_id_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Encrypt Method: uInt32, Constant
@@ -7653,13 +7630,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_logon_118.fields = function(buffer, offset
   -- Heartbeat Int: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.heartbeat_int.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Default Appl Ver Id: string, Constant
+  -- Default Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.default_appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Md Logon_118 Message
+-- Dissect: MD Logon_118 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_logon_118.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -7669,7 +7646,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_logon_118.dissect = function(buffer, offse
   return index
 end
 
--- Md Heartbeat_101 Message
+-- MD Heartbeat_101 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_101 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_101.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_heartbeat_101
@@ -7677,12 +7654,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_101.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_pos_dup_flag,
 }
 
--- Dissect Fields: Md Heartbeat_101 Message
+-- Dissect Fields: MD Heartbeat_101 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_101.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
@@ -7700,7 +7677,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_101.fields = function(buffer, of
   return index
 end
 
--- Dissect: Md Heartbeat_101 Message
+-- Dissect: MD Heartbeat_101 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_101.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -7710,17 +7687,17 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_101.dissect = function(buffer, o
   return index
 end
 
--- Md Heartbeat_129 Message
+-- MD Heartbeat_129 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_129 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_129.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_heartbeat_129
 
--- Dissect Fields: Md Heartbeat_129 Message
+-- Dissect Fields: MD Heartbeat_129 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_129.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
@@ -7735,7 +7712,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_129.fields = function(buffer, of
   return index
 end
 
--- Dissect: Md Heartbeat_129 Message
+-- Dissect: MD Heartbeat_129 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_129.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -7745,17 +7722,17 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_129.dissect = function(buffer, o
   return index
 end
 
--- Md Heartbeat_144 Message
+-- MD Heartbeat_144 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_144 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_144.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_heartbeat_144
 
--- Dissect Fields: Md Heartbeat_144 Message
+-- Dissect Fields: MD Heartbeat_144 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_144.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Type: string, Constant
@@ -7770,7 +7747,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_144.fields = function(buffer, of
   return index
 end
 
--- Dissect: Md Heartbeat_144 Message
+-- Dissect: MD Heartbeat_144 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_144.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -7780,16 +7757,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_heartbeat_144.dissect = function(buffer, o
   return index
 end
 
--- Md News Message_120 Lines Of Text
-b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_lines_of_text = {}
+-- Lines Of Text
+b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text = {}
 
--- Dissect Fields: Md News Message_120 Lines Of Text
-b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_lines_of_text.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Lines Of Text
+b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
   -- Text: string, Copy
-  index, value = b3_b3derivatives_umdf_fast_v5_1_15.text_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:120|0:|4:text")
+  index, value = b3_b3derivatives_umdf_fast_v5_1_15.text_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:120|0:|4:Text")
 
   -- Encoded Text Len: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.encoded_text_len.dissect(buffer, index, packet, parent, nil, state, nil)
@@ -7800,9 +7777,9 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_lines_of_text.fields = fu
   return index
 end
 
--- Dissect: Md News Message_120 Lines Of Text
-b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_lines_of_text.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_120_lines_of_text, buffer(offset, 0))
+-- Dissect: Lines Of Text
+b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.lines_of_text, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -7816,7 +7793,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_lines_of_text.dissect = f
   presence_map = entry_map
   base = 1
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_lines_of_text.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -7833,7 +7810,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.routing_ids.fields = function(buffer, offset,
   -- Routing Type: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.routing_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Routing Id: string, sent, optional
+  -- Routing ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.routing_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -7861,18 +7838,18 @@ b3_b3derivatives_umdf_fast_v5_1_15.routing_ids.dissect = function(buffer, offset
   return index
 end
 
--- Md News Message_120 Related Sym
+-- MD News Message_120 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_related_sym = {}
 
--- Dissect Fields: Md News Message_120 Related Sym
+-- Dissect Fields: MD News Message_120 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_related_sym.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:120|0:|10:SecurityID")
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, sent
@@ -7881,7 +7858,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_related_sym.fields = func
   return index
 end
 
--- Dissect: Md News Message_120 Related Sym
+-- Dissect: MD News Message_120 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_related_sym.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_120_related_sym, buffer(offset, 0))
   local index = offset
@@ -7903,7 +7880,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_related_sym.dissect = fun
   return index
 end
 
--- Md News Message_120 Message
+-- MD News Message_120 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_120
@@ -7914,12 +7891,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120.presence = {
   [5] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_url_link,
 }
 
--- Dissect Fields: Md News Message_120 Message
+-- Dissect Fields: MD News Message_120 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
@@ -7943,7 +7920,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120.fields = function(buffer,
   -- Headline: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.headline.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "10:dictionary|3:120|0:|8:Headline")
 
-  -- Url Link: string, Copy, optional
+  -- URL Link: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.url_link.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "10:dictionary|3:120|0:|7:URLLink")
 
   -- No Related Sym: uInt32, sent, optional
@@ -7955,10 +7932,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120.fields = function(buffer,
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_related_sym.dissect(buffer, index, packet, parent, presence_map, base, state, md_news_message_120_related_sym_index)
   end
 
-  -- No Routing I Ds: uInt32, sent, optional
-  index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_routing_i_ds.dissect(buffer, index, packet, parent, nil, state, nil)
+  -- No Routing IDs: uInt32, sent, optional
+  index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_routing_ids.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Routing Ids: No Routing I Ds entries
+  -- Routing Ids: No Routing IDs entries
   local count = value or 0
   for routing_ids_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.routing_ids.dissect(buffer, index, packet, parent, presence_map, base, state, routing_ids_index)
@@ -7969,14 +7946,14 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120.fields = function(buffer,
 
   -- Lines Of Text: No Lines Of Text entries
   local count = value or 0
-  for md_news_message_120_lines_of_text_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120_lines_of_text.dissect(buffer, index, packet, parent, presence_map, base, state, md_news_message_120_lines_of_text_index)
+  for lines_of_text_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.dissect(buffer, index, packet, parent, presence_map, base, state, lines_of_text_index)
   end
 
   return index
 end
 
--- Dissect: Md News Message_120 Message
+-- Dissect: MD News Message_120 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -7986,11 +7963,11 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_120.dissect = function(buffer
   return index
 end
 
--- Md News Message_137 Lines Of Text
-b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_lines_of_text = {}
+-- Lines Of Text
+b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text = {}
 
--- Dissect Fields: Md News Message_137 Lines Of Text
-b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_lines_of_text.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Lines Of Text
+b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
@@ -8006,9 +7983,9 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_lines_of_text.fields = fu
   return index
 end
 
--- Dissect: Md News Message_137 Lines Of Text
-b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_lines_of_text.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_137_lines_of_text, buffer(offset, 0))
+-- Dissect: Lines Of Text
+b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.lines_of_text, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -8022,24 +7999,24 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_lines_of_text.dissect = f
   presence_map = entry_map
   base = 1
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_lines_of_text.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Md News Message_137 Related Sym
+-- MD News Message_137 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_related_sym = {}
 
--- Dissect Fields: Md News Message_137 Related Sym
+-- Dissect Fields: MD News Message_137 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_related_sym.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:137|0:|10:SecurityID")
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, sent
@@ -8048,7 +8025,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_related_sym.fields = func
   return index
 end
 
--- Dissect: Md News Message_137 Related Sym
+-- Dissect: MD News Message_137 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_related_sym.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_137_related_sym, buffer(offset, 0))
   local index = offset
@@ -8070,7 +8047,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_related_sym.dissect = fun
   return index
 end
 
--- Md News Message_137 Message
+-- MD News Message_137 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_137
@@ -8083,12 +8060,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137.presence = {
   [7] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_url_link,
 }
 
--- Dissect Fields: Md News Message_137 Message
+-- Dissect Fields: MD News Message_137 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
@@ -8106,7 +8083,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137.fields = function(buffer,
   -- News Source: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.news_source.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "10:dictionary|3:137|0:|10:NewsSource")
 
-  -- News Id: string, Copy, optional
+  -- News ID: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.news_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "10:dictionary|3:137|0:|6:NewsID")
 
   -- Language Code: string, Copy, optional
@@ -8115,7 +8092,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137.fields = function(buffer,
   -- Headline: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.headline.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "10:dictionary|3:137|0:|8:Headline")
 
-  -- Url Link: string, Copy, optional
+  -- URL Link: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.url_link.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "10:dictionary|3:137|0:|7:URLLink")
 
   -- Encoded Headline Len: uInt32, sent, optional
@@ -8138,14 +8115,14 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137.fields = function(buffer,
 
   -- Lines Of Text: No Lines Of Text entries
   local count = value or 0
-  for md_news_message_137_lines_of_text_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137_lines_of_text.dissect(buffer, index, packet, parent, presence_map, base, state, md_news_message_137_lines_of_text_index)
+  for lines_of_text_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.dissect(buffer, index, packet, parent, presence_map, base, state, lines_of_text_index)
   end
 
   return index
 end
 
--- Dissect: Md News Message_137 Message
+-- Dissect: MD News Message_137 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -8155,11 +8132,11 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_137.dissect = function(buffer
   return index
 end
 
--- Md News Message_143 Lines Of Text
-b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_lines_of_text = {}
+-- Lines Of Text
+b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text = {}
 
--- Dissect Fields: Md News Message_143 Lines Of Text
-b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_lines_of_text.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Lines Of Text
+b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
@@ -8175,9 +8152,9 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_lines_of_text.fields = fu
   return index
 end
 
--- Dissect: Md News Message_143 Lines Of Text
-b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_lines_of_text.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_143_lines_of_text, buffer(offset, 0))
+-- Dissect: Lines Of Text
+b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.lines_of_text, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -8191,24 +8168,24 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_lines_of_text.dissect = f
   presence_map = entry_map
   base = 1
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_lines_of_text.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Md News Message_143 Related Sym
+-- MD News Message_143 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_related_sym = {}
 
--- Dissect Fields: Md News Message_143 Related Sym
+-- Dissect Fields: MD News Message_143 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_related_sym.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:143|0:|10:SecurityID")
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, sent
@@ -8217,7 +8194,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_related_sym.fields = func
   return index
 end
 
--- Dissect: Md News Message_143 Related Sym
+-- Dissect: MD News Message_143 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_related_sym.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_143_related_sym, buffer(offset, 0))
   local index = offset
@@ -8239,7 +8216,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_related_sym.dissect = fun
   return index
 end
 
--- Md News Message_143 Message
+-- MD News Message_143 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_news_message_143
@@ -8252,12 +8229,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143.presence = {
   [7] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_url_link,
 }
 
--- Dissect Fields: Md News Message_143 Message
+-- Dissect Fields: MD News Message_143 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Type: string, Constant
@@ -8275,7 +8252,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143.fields = function(buffer,
   -- News Source: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.news_source.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "10:dictionary|3:143|0:|10:NewsSource")
 
-  -- News Id: string, Copy, optional
+  -- News ID: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.news_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "10:dictionary|3:143|0:|6:NewsID")
 
   -- Language Code: string, Copy, optional
@@ -8284,7 +8261,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143.fields = function(buffer,
   -- Headline: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.headline.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "10:dictionary|3:143|0:|8:Headline")
 
-  -- Url Link: string, Copy, optional
+  -- URL Link: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.url_link.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "10:dictionary|3:143|0:|7:URLLink")
 
   -- Encoded Headline Len: uInt32, sent, optional
@@ -8307,14 +8284,14 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143.fields = function(buffer,
 
   -- Lines Of Text: No Lines Of Text entries
   local count = value or 0
-  for md_news_message_143_lines_of_text_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143_lines_of_text.dissect(buffer, index, packet, parent, presence_map, base, state, md_news_message_143_lines_of_text_index)
+  for lines_of_text_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.lines_of_text.dissect(buffer, index, packet, parent, presence_map, base, state, lines_of_text_index)
   end
 
   return index
 end
 
--- Dissect: Md News Message_143 Message
+-- Dissect: MD News Message_143 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -8324,39 +8301,39 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_news_message_143.dissect = function(buffer
   return index
 end
 
--- Md Snapshot Full Refresh_128 Md Entries
+-- MD Snapshot Full Refresh_128 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128_md_entries = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_128 Md Entries
+-- Dissect Fields: MD Snapshot Full Refresh_128 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, Default
+  -- MD Entry Type: string, Default
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Curerncy: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.curerncy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 2], nil }, state, { nil, "10:dictionary|3:128|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Size: int64, Delta, optional
+  -- MD Entry Size: int64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:128|0:|11:MDEntrySize")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "10:dictionary|3:128|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "10:dictionary|3:128|0:|12:MDInsertTime")
 
   -- Trade Volume: uInt64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_volume_delta_optional_u_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:128|0:|11:TradeVolume")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "10:dictionary|3:128|0:|11:MDEntryDate")
 
-  -- Md Entry Time: string, Copy, optional
+  -- MD Entry Time: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 6], state, "10:dictionary|3:128|0:|11:MDEntryTime")
 
   -- Tick Direction: string, Default, optional
@@ -8365,13 +8342,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128_md_entries.field
   -- Net Chg Prev Day: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.net_chg_prev_day.dissect(buffer, index, packet, parent, { presence_map[base + 8], nil }, state, { nil, "10:dictionary|3:128|0:|31:decimal-mantissaNetChgPrevDay" })
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_e.dissect(buffer, index, packet, parent, presence_map[base + 9], state, nil)
 
   -- Price Type: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_default.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, Default, optional
@@ -8386,16 +8363,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128_md_entries.field
   -- Open Close Settle Flag: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settle_flag_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 14], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 15], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 16], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 17], state, nil)
 
   -- Quote Condition: string, Default, optional
@@ -8404,7 +8381,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128_md_entries.field
   -- Number Of Orders: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.number_of_orders_copy.dissect(buffer, index, packet, parent, presence_map[base + 19], state, "10:dictionary|3:128|0:|14:NumberOfOrders")
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 20], state, nil)
 
   -- Day Cum Qty: uInt32, Default, optional
@@ -8431,7 +8408,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128_md_entries.field
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_128 Md Entries
+-- Dissect: MD Snapshot Full Refresh_128 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_128_md_entries, buffer(offset, 0))
   local index = offset
@@ -8453,7 +8430,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128_md_entries.disse
   return index
 end
 
--- Md Snapshot Full Refresh_128 Message
+-- MD Snapshot Full Refresh_128 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_128
@@ -8461,7 +8438,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_id,
 }
 
--- Dissect Fields: Md Snapshot Full Refresh_128 Message
+-- Dissect Fields: MD Snapshot Full Refresh_128 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -8472,7 +8449,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128.fields = functio
   -- Msg Seq Num: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.msg_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Sending Time: uInt64, sent
@@ -8487,7 +8464,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128.fields = functio
   -- Trade Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Req Id: string, Copy, optional
+  -- MD Req ID: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:128|0:|7:MDReqID")
 
   -- Market Depth: int32, sent, optional
@@ -8496,19 +8473,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128.fields = functio
   -- Rpt Seq: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.rpt_seq_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_snapshot_full_refresh_128_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_snapshot_full_refresh_128_md_entries_index)
@@ -8517,7 +8494,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128.fields = functio
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_128 Message
+-- Dissect: MD Snapshot Full Refresh_128 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -8527,18 +8504,18 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_128.dissect = functi
   return index
 end
 
--- Md Snapshot Full Refresh_139 Underlyings
+-- MD Snapshot Full Refresh_139 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_underlyings = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_139 Underlyings
+-- Dissect Fields: MD Snapshot Full Refresh_139 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: uInt64, Delta
+  -- Underlying Security ID: uInt64, Delta
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:139|0:|20:UnderlyingSecurityID")
 
-  -- Underlying Security Id Source: uInt32, Constant
+  -- Underlying Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -8553,7 +8530,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_underlyings.fiel
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_139 Underlyings
+-- Dissect: MD Snapshot Full Refresh_139 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_139_underlyings, buffer(offset, 0))
   local index = offset
@@ -8575,45 +8552,45 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_underlyings.diss
   return index
 end
 
--- Md Snapshot Full Refresh_139 Md Entries
+-- MD Snapshot Full Refresh_139 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_md_entries = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_139 Md Entries
+-- Dissect Fields: MD Snapshot Full Refresh_139 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, Default
+  -- MD Entry Type: string, Default
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Currency: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.currency_default.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 2], nil }, state, { nil, "10:dictionary|3:139|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Interest Rate: decimal, sent, optional
+  -- MD Entry Interest Rate: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate.dissect(buffer, index, packet, parent, { presence_map[base + 3], nil }, state, { nil, "10:dictionary|3:139|0:|37:decimal-mantissaMDEntryInterestRate" })
 
   -- Index Seq: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.index_seq_sent_optional_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Size: int32, Delta, optional
+  -- MD Entry Size: int32, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int32.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:139|0:|11:MDEntrySize")
 
   -- Trade Volume: uInt64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_volume_delta_optional_u_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:139|0:|11:TradeVolume")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "10:dictionary|3:139|0:|11:MDEntryDate")
 
-  -- Md Entry Time: string, Copy, optional
+  -- MD Entry Time: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "10:dictionary|3:139|0:|11:MDEntryTime")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 6], state, "10:dictionary|3:139|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 7], state, "10:dictionary|3:139|0:|12:MDInsertTime")
 
   -- Tick Direction: string, Default, optional
@@ -8622,13 +8599,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_md_entries.field
   -- Net Chg Prev Day: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.net_chg_prev_day.dissect(buffer, index, packet, parent, { presence_map[base + 9], nil }, state, { nil, "10:dictionary|3:139|0:|31:decimal-mantissaNetChgPrevDay" })
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_e.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
   -- Price Type: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_default.dissect(buffer, index, packet, parent, presence_map[base + 11], state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, Default, optional
@@ -8637,7 +8614,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_md_entries.field
   -- Trad Ses Open Time: uInt64, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trad_ses_open_time_default_optional_u_int64.dissect(buffer, index, packet, parent, presence_map[base + 13], state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Event: uInt32, sent, optional
@@ -8649,16 +8626,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_md_entries.field
   -- Open Close Settl Flag: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settl_flag_default_optional_string.dissect(buffer, index, packet, parent, presence_map[base + 15], state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 16], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 17], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 19], state, nil)
 
   -- Quote Condition: string, Default, optional
@@ -8667,7 +8644,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_md_entries.field
   -- Number Of Orders: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.number_of_orders_copy.dissect(buffer, index, packet, parent, presence_map[base + 21], state, "10:dictionary|3:139|0:|14:NumberOfOrders")
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 22], state, nil)
 
   -- Seller Days: uInt32, Default, optional
@@ -8724,7 +8701,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_md_entries.field
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_139 Md Entries
+-- Dissect: MD Snapshot Full Refresh_139 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_139_md_entries, buffer(offset, 0))
   local index = offset
@@ -8746,7 +8723,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_md_entries.disse
   return index
 end
 
--- Md Snapshot Full Refresh_139 Message
+-- MD Snapshot Full Refresh_139 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_139
@@ -8754,7 +8731,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_id,
 }
 
--- Dissect Fields: Md Snapshot Full Refresh_139 Message
+-- Dissect Fields: MD Snapshot Full Refresh_139 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -8765,7 +8742,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139.fields = functio
   -- Msg Seq Num: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.msg_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Sending Time: uInt64, sent
@@ -8780,7 +8757,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139.fields = functio
   -- Trade Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Req Id: string, Copy, optional
+  -- MD Req ID: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:139|0:|7:MDReqID")
 
   -- Market Depth: int32, sent, optional
@@ -8789,19 +8766,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139.fields = functio
   -- Rpt Seq: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.rpt_seq_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_snapshot_full_refresh_139_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_snapshot_full_refresh_139_md_entries_index)
@@ -8810,7 +8787,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139.fields = functio
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_139 Message
+-- Dissect: MD Snapshot Full Refresh_139 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -8820,18 +8797,18 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_139.dissect = functi
   return index
 end
 
--- Md Snapshot Full Refresh_146 Underlyings
+-- MD Snapshot Full Refresh_146 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_underlyings = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_146 Underlyings
+-- Dissect Fields: MD Snapshot Full Refresh_146 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: uInt64, Delta
+  -- Underlying Security ID: uInt64, Delta
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:146|0:|20:UnderlyingSecurityID")
 
-  -- Underlying Security Id Source: uInt32, Constant
+  -- Underlying Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -8846,7 +8823,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_underlyings.fiel
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_146 Underlyings
+-- Dissect: MD Snapshot Full Refresh_146 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_146_underlyings, buffer(offset, 0))
   local index = offset
@@ -8868,45 +8845,45 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_underlyings.diss
   return index
 end
 
--- Md Snapshot Full Refresh_146 Md Entries
+-- MD Snapshot Full Refresh_146 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_md_entries = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_146 Md Entries
+-- Dissect Fields: MD Snapshot Full Refresh_146 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, Default
+  -- MD Entry Type: string, Default
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Currency: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.currency_default.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 2], nil }, state, { nil, "10:dictionary|3:146|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Interest Rate: decimal, sent, optional
+  -- MD Entry Interest Rate: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate.dissect(buffer, index, packet, parent, { presence_map[base + 3], nil }, state, { nil, "10:dictionary|3:146|0:|37:decimal-mantissaMDEntryInterestRate" })
 
   -- Index Seq: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.index_seq_sent_optional_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Size: int32, Delta, optional
+  -- MD Entry Size: int32, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int32.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:146|0:|11:MDEntrySize")
 
   -- Trade Volume: uInt64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_volume_delta_optional_u_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:146|0:|11:TradeVolume")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "10:dictionary|3:146|0:|11:MDEntryDate")
 
-  -- Md Entry Time: string, Copy, optional
+  -- MD Entry Time: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "10:dictionary|3:146|0:|11:MDEntryTime")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 6], state, "10:dictionary|3:146|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 7], state, "10:dictionary|3:146|0:|12:MDInsertTime")
 
   -- Tick Direction: string, Default, optional
@@ -8915,13 +8892,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_md_entries.field
   -- Net Chg Prev Day: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.net_chg_prev_day.dissect(buffer, index, packet, parent, { presence_map[base + 9], nil }, state, { nil, "10:dictionary|3:146|0:|31:decimal-mantissaNetChgPrevDay" })
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_e.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
   -- Price Type: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_default.dissect(buffer, index, packet, parent, presence_map[base + 11], state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, Default, optional
@@ -8930,7 +8907,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_md_entries.field
   -- Trad Ses Open Time: uInt64, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trad_ses_open_time_default_optional_u_int64.dissect(buffer, index, packet, parent, presence_map[base + 13], state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Event: uInt32, sent, optional
@@ -8942,16 +8919,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_md_entries.field
   -- Open Close Settl Flag: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settl_flag_default_optional_u_int32.dissect(buffer, index, packet, parent, presence_map[base + 15], state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 16], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 17], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 19], state, nil)
 
   -- Quote Condition: string, Default, optional
@@ -8960,7 +8937,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_md_entries.field
   -- Number Of Orders: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.number_of_orders_copy.dissect(buffer, index, packet, parent, presence_map[base + 21], state, "10:dictionary|3:146|0:|14:NumberOfOrders")
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 22], state, nil)
 
   -- Seller Days: uInt32, Default, optional
@@ -9017,7 +8994,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_md_entries.field
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_146 Md Entries
+-- Dissect: MD Snapshot Full Refresh_146 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_146_md_entries, buffer(offset, 0))
   local index = offset
@@ -9039,7 +9016,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_md_entries.disse
   return index
 end
 
--- Md Snapshot Full Refresh_146 Message
+-- MD Snapshot Full Refresh_146 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_146
@@ -9047,7 +9024,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_id,
 }
 
--- Dissect Fields: Md Snapshot Full Refresh_146 Message
+-- Dissect Fields: MD Snapshot Full Refresh_146 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -9058,7 +9035,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146.fields = functio
   -- Msg Seq Num: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.msg_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Sending Time: uInt64, sent
@@ -9073,7 +9050,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146.fields = functio
   -- Trade Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Req Id: string, Copy, optional
+  -- MD Req ID: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:146|0:|7:MDReqID")
 
   -- Market Depth: int32, sent, optional
@@ -9082,19 +9059,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146.fields = functio
   -- Rpt Seq: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.rpt_seq_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_snapshot_full_refresh_146_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_snapshot_full_refresh_146_md_entries_index)
@@ -9103,7 +9080,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146.fields = functio
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_146 Message
+-- Dissect: MD Snapshot Full Refresh_146 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -9113,18 +9090,18 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_146.dissect = functi
   return index
 end
 
--- Md Snapshot Full Refresh_147 Underlyings
+-- MD Snapshot Full Refresh_147 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_underlyings = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_147 Underlyings
+-- Dissect Fields: MD Snapshot Full Refresh_147 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: uInt64, Delta
+  -- Underlying Security ID: uInt64, Delta
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:147|0:|20:UnderlyingSecurityID")
 
-  -- Underlying Security Id Source: uInt32, Constant
+  -- Underlying Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -9139,7 +9116,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_underlyings.fiel
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_147 Underlyings
+-- Dissect: MD Snapshot Full Refresh_147 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_147_underlyings, buffer(offset, 0))
   local index = offset
@@ -9161,45 +9138,45 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_underlyings.diss
   return index
 end
 
--- Md Snapshot Full Refresh_147 Md Entries
+-- MD Snapshot Full Refresh_147 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_md_entries = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_147 Md Entries
+-- Dissect Fields: MD Snapshot Full Refresh_147 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, Default
+  -- MD Entry Type: string, Default
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Currency: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.currency_default.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 2], nil }, state, { nil, "10:dictionary|3:147|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Interest Rate: decimal, sent, optional
+  -- MD Entry Interest Rate: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate.dissect(buffer, index, packet, parent, { presence_map[base + 3], nil }, state, { nil, "10:dictionary|3:147|0:|37:decimal-mantissaMDEntryInterestRate" })
 
   -- Index Seq: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.index_seq_sent_optional_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Size: int64, Delta, optional
+  -- MD Entry Size: int64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:147|0:|11:MDEntrySize")
 
   -- Trade Volume: uInt64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_volume_delta_optional_u_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:147|0:|11:TradeVolume")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "10:dictionary|3:147|0:|11:MDEntryDate")
 
-  -- Md Entry Time: string, Copy, optional
+  -- MD Entry Time: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "10:dictionary|3:147|0:|11:MDEntryTime")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 6], state, "10:dictionary|3:147|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 7], state, "10:dictionary|3:147|0:|12:MDInsertTime")
 
   -- Tick Direction: string, Default, optional
@@ -9208,13 +9185,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_md_entries.field
   -- Net Chg Prev Day: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.net_chg_prev_day.dissect(buffer, index, packet, parent, { presence_map[base + 9], nil }, state, { nil, "10:dictionary|3:147|0:|31:decimal-mantissaNetChgPrevDay" })
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_e.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
   -- Price Type: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_default.dissect(buffer, index, packet, parent, presence_map[base + 11], state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, Default, optional
@@ -9223,7 +9200,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_md_entries.field
   -- Trad Ses Open Time: uInt64, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trad_ses_open_time_default_optional_u_int64.dissect(buffer, index, packet, parent, presence_map[base + 13], state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Event: uInt32, sent, optional
@@ -9235,16 +9212,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_md_entries.field
   -- Open Close Settl Flag: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settl_flag_default_optional_u_int32.dissect(buffer, index, packet, parent, presence_map[base + 15], state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 16], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 17], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 19], state, nil)
 
   -- Quote Condition: string, Default, optional
@@ -9253,7 +9230,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_md_entries.field
   -- Number Of Orders: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.number_of_orders_copy.dissect(buffer, index, packet, parent, presence_map[base + 21], state, "10:dictionary|3:147|0:|14:NumberOfOrders")
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 22], state, nil)
 
   -- Seller Days: uInt32, Default, optional
@@ -9310,7 +9287,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_md_entries.field
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_147 Md Entries
+-- Dissect: MD Snapshot Full Refresh_147 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_147_md_entries, buffer(offset, 0))
   local index = offset
@@ -9332,7 +9309,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_md_entries.disse
   return index
 end
 
--- Md Snapshot Full Refresh_147 Message
+-- MD Snapshot Full Refresh_147 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_147
@@ -9340,7 +9317,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_id,
 }
 
--- Dissect Fields: Md Snapshot Full Refresh_147 Message
+-- Dissect Fields: MD Snapshot Full Refresh_147 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -9351,7 +9328,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147.fields = functio
   -- Msg Seq Num: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.msg_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Sending Time: uInt64, sent
@@ -9366,7 +9343,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147.fields = functio
   -- Trade Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Req Id: string, Copy, optional
+  -- MD Req ID: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:147|0:|7:MDReqID")
 
   -- Market Depth: int32, sent, optional
@@ -9375,19 +9352,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147.fields = functio
   -- Rpt Seq: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.rpt_seq_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_snapshot_full_refresh_147_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_snapshot_full_refresh_147_md_entries_index)
@@ -9396,7 +9373,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147.fields = functio
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_147 Message
+-- Dissect: MD Snapshot Full Refresh_147 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -9406,18 +9383,18 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_147.dissect = functi
   return index
 end
 
--- Md Snapshot Full Refresh_151 Underlyings
+-- MD Snapshot Full Refresh_151 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_underlyings = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_151 Underlyings
+-- Dissect Fields: MD Snapshot Full Refresh_151 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: uInt64, Delta
+  -- Underlying Security ID: uInt64, Delta
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:151|0:|20:UnderlyingSecurityID")
 
-  -- Underlying Security Id Source: uInt32, Constant
+  -- Underlying Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -9432,7 +9409,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_underlyings.fiel
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_151 Underlyings
+-- Dissect: MD Snapshot Full Refresh_151 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_151_underlyings, buffer(offset, 0))
   local index = offset
@@ -9454,45 +9431,45 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_underlyings.diss
   return index
 end
 
--- Md Snapshot Full Refresh_151 Md Entries
+-- MD Snapshot Full Refresh_151 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_md_entries = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_151 Md Entries
+-- Dissect Fields: MD Snapshot Full Refresh_151 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, Default
+  -- MD Entry Type: string, Default
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Currency: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.currency_default.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 2], nil }, state, { nil, "10:dictionary|3:151|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Interest Rate: decimal, sent, optional
+  -- MD Entry Interest Rate: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate.dissect(buffer, index, packet, parent, { presence_map[base + 3], nil }, state, { nil, "10:dictionary|3:151|0:|37:decimal-mantissaMDEntryInterestRate" })
 
   -- Index Seq: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.index_seq_sent_optional_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Size: int64, Delta, optional
+  -- MD Entry Size: int64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:151|0:|11:MDEntrySize")
 
   -- Trade Volume: uInt64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_volume_delta_optional_u_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:151|0:|11:TradeVolume")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "10:dictionary|3:151|0:|11:MDEntryDate")
 
-  -- Md Entry Time: string, Copy, optional
+  -- MD Entry Time: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "10:dictionary|3:151|0:|11:MDEntryTime")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 6], state, "10:dictionary|3:151|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 7], state, "10:dictionary|3:151|0:|12:MDInsertTime")
 
   -- Tick Direction: string, Default, optional
@@ -9501,13 +9478,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_md_entries.field
   -- Net Chg Prev Day: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.net_chg_prev_day.dissect(buffer, index, packet, parent, { presence_map[base + 9], nil }, state, { nil, "10:dictionary|3:151|0:|31:decimal-mantissaNetChgPrevDay" })
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_e.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
   -- Price Type: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_default.dissect(buffer, index, packet, parent, presence_map[base + 11], state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, Default, optional
@@ -9516,7 +9493,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_md_entries.field
   -- Trad Ses Open Time: uInt64, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trad_ses_open_time_default_optional_u_int64.dissect(buffer, index, packet, parent, presence_map[base + 13], state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Event: uInt32, sent, optional
@@ -9528,16 +9505,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_md_entries.field
   -- Open Close Settl Flag: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settl_flag_default_optional_u_int32.dissect(buffer, index, packet, parent, presence_map[base + 15], state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 16], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 17], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 19], state, nil)
 
   -- Quote Condition: string, Default, optional
@@ -9546,7 +9523,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_md_entries.field
   -- Number Of Orders: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.number_of_orders_copy.dissect(buffer, index, packet, parent, presence_map[base + 21], state, "10:dictionary|3:151|0:|14:NumberOfOrders")
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 22], state, nil)
 
   -- Seller Days: uInt32, Default, optional
@@ -9585,13 +9562,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_md_entries.field
   -- Early Termination: uInt64, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.early_termination.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Cert Indicator: uInt32, sent, optional
+  -- BTB Cert Indicator: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_cert_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Contract Info: uInt32, sent, optional
+  -- BTB Contract Info: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_contract_info.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Grace Date: uInt32, sent, optional
+  -- BTB Grace Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_grace_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Max Trade Vol: uInt64, sent, optional
@@ -9612,7 +9589,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_md_entries.field
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_151 Md Entries
+-- Dissect: MD Snapshot Full Refresh_151 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_151_md_entries, buffer(offset, 0))
   local index = offset
@@ -9634,7 +9611,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_md_entries.disse
   return index
 end
 
--- Md Snapshot Full Refresh_151 Message
+-- MD Snapshot Full Refresh_151 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_151
@@ -9642,7 +9619,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_id,
 }
 
--- Dissect Fields: Md Snapshot Full Refresh_151 Message
+-- Dissect Fields: MD Snapshot Full Refresh_151 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -9653,7 +9630,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151.fields = functio
   -- Msg Seq Num: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.msg_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Sending Time: uInt64, sent
@@ -9668,7 +9645,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151.fields = functio
   -- Trade Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Req Id: string, Copy, optional
+  -- MD Req ID: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:151|0:|7:MDReqID")
 
   -- Market Depth: int32, sent, optional
@@ -9677,19 +9654,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151.fields = functio
   -- Rpt Seq: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.rpt_seq_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_snapshot_full_refresh_151_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_snapshot_full_refresh_151_md_entries_index)
@@ -9698,7 +9675,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151.fields = functio
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_151 Message
+-- Dissect: MD Snapshot Full Refresh_151 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -9708,18 +9685,18 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_151.dissect = functi
   return index
 end
 
--- Md Snapshot Full Refresh_153 Underlyings
+-- MD Snapshot Full Refresh_153 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_underlyings = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_153 Underlyings
+-- Dissect Fields: MD Snapshot Full Refresh_153 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: uInt64, Delta
+  -- Underlying Security ID: uInt64, Delta
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:153|0:|20:UnderlyingSecurityID")
 
-  -- Underlying Security Id Source: uInt32, Constant
+  -- Underlying Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -9734,7 +9711,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_underlyings.fiel
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_153 Underlyings
+-- Dissect: MD Snapshot Full Refresh_153 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_153_underlyings, buffer(offset, 0))
   local index = offset
@@ -9756,45 +9733,45 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_underlyings.diss
   return index
 end
 
--- Md Snapshot Full Refresh_153 Md Entries
+-- MD Snapshot Full Refresh_153 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_153 Md Entries
+-- Dissect Fields: MD Snapshot Full Refresh_153 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, Default
+  -- MD Entry Type: string, Default
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Currency: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.currency_default.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 2], nil }, state, { nil, "10:dictionary|3:153|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Interest Rate: decimal, sent, optional
+  -- MD Entry Interest Rate: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate.dissect(buffer, index, packet, parent, { presence_map[base + 3], nil }, state, { nil, "10:dictionary|3:153|0:|37:decimal-mantissaMDEntryInterestRate" })
 
   -- Index Seq: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.index_seq_sent_optional_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Size: int64, Delta, optional
+  -- MD Entry Size: int64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:153|0:|11:MDEntrySize")
 
   -- Trade Volume: uInt64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_volume_delta_optional_u_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:153|0:|11:TradeVolume")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "10:dictionary|3:153|0:|11:MDEntryDate")
 
-  -- Md Entry Time: string, Copy, optional
+  -- MD Entry Time: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "10:dictionary|3:153|0:|11:MDEntryTime")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 6], state, "10:dictionary|3:153|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 7], state, "10:dictionary|3:153|0:|12:MDInsertTime")
 
   -- Tick Direction: string, Default, optional
@@ -9803,7 +9780,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries.field
   -- Net Chg Prev Day: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.net_chg_prev_day.dissect(buffer, index, packet, parent, { presence_map[base + 9], nil }, state, { nil, "10:dictionary|3:153|0:|31:decimal-mantissaNetChgPrevDay" })
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_e.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
   -- Price Delta: decimal, sent, optional
@@ -9818,7 +9795,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries.field
   -- Price Type: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_default.dissect(buffer, index, packet, parent, presence_map[base + 14], state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, Default, optional
@@ -9827,7 +9804,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries.field
   -- Trad Ses Open Time: uInt64, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trad_ses_open_time_default_optional_u_int64.dissect(buffer, index, packet, parent, presence_map[base + 16], state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Event: uInt32, sent, optional
@@ -9839,16 +9816,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries.field
   -- Open Close Settl Flag: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settl_flag_default_optional_u_int32.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 19], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 20], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 21], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 22], state, nil)
 
   -- Quote Condition: string, Default, optional
@@ -9857,7 +9834,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries.field
   -- Number Of Orders: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.number_of_orders_copy.dissect(buffer, index, packet, parent, presence_map[base + 24], state, "10:dictionary|3:153|0:|14:NumberOfOrders")
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 25], state, nil)
 
   -- Seller Days: uInt32, Default, optional
@@ -9896,13 +9873,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries.field
   -- Early Termination: uInt64, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.early_termination.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Cert Indicator: uInt32, sent, optional
+  -- BTB Cert Indicator: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_cert_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Contract Info: uInt32, sent, optional
+  -- BTB Contract Info: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_contract_info.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Grace Date: uInt32, sent, optional
+  -- BTB Grace Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_grace_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Max Trade Vol: uInt64, sent, optional
@@ -9923,7 +9900,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries.field
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_153 Md Entries
+-- Dissect: MD Snapshot Full Refresh_153 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_153_md_entries, buffer(offset, 0))
   local index = offset
@@ -9945,7 +9922,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries.disse
   return index
 end
 
--- Md Snapshot Full Refresh_153 Message
+-- MD Snapshot Full Refresh_153 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_153
@@ -9953,7 +9930,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_id,
 }
 
--- Dissect Fields: Md Snapshot Full Refresh_153 Message
+-- Dissect Fields: MD Snapshot Full Refresh_153 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -9964,7 +9941,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153.fields = functio
   -- Msg Seq Num: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.msg_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Sending Time: uInt64, sent
@@ -9979,7 +9956,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153.fields = functio
   -- Trade Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Req Id: string, Copy, optional
+  -- MD Req ID: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:153|0:|7:MDReqID")
 
   -- Market Depth: int32, sent, optional
@@ -9988,19 +9965,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153.fields = functio
   -- Rpt Seq: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.rpt_seq_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_snapshot_full_refresh_153_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_snapshot_full_refresh_153_md_entries_index)
@@ -10009,7 +9986,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153.fields = functio
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_153 Message
+-- Dissect: MD Snapshot Full Refresh_153 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -10019,39 +9996,39 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_153.dissect = functi
   return index
 end
 
--- Md Snapshot Full Refresh_127 Md Entries
+-- MD Snapshot Full Refresh_127 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127_md_entries = {}
 
--- Dissect Fields: Md Snapshot Full Refresh_127 Md Entries
+-- Dissect Fields: MD Snapshot Full Refresh_127 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, Default
+  -- MD Entry Type: string, Default
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Curerncy: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.curerncy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 2], nil }, state, { nil, "10:dictionary|3:127|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Size: int64, Delta, optional
+  -- MD Entry Size: int64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:127|0:|11:MDEntrySize")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "10:dictionary|3:127|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "10:dictionary|3:127|0:|12:MDInsertTime")
 
   -- Trade Volume: uInt32, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_volume_delta_optional_u_int32.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:127|0:|11:TradeVolume")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "10:dictionary|3:127|0:|11:MDEntryDate")
 
-  -- Md Entry Time: string, Copy, optional
+  -- MD Entry Time: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 6], state, "10:dictionary|3:127|0:|11:MDEntryTime")
 
   -- Tick Direction: string, Default, optional
@@ -10060,13 +10037,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127_md_entries.field
   -- Net Chg Prev Day: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.net_chg_prev_day.dissect(buffer, index, packet, parent, { presence_map[base + 8], nil }, state, { nil, "10:dictionary|3:127|0:|31:decimal-mantissaNetChgPrevDay" })
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_e.dissect(buffer, index, packet, parent, presence_map[base + 9], state, nil)
 
   -- Price Type: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_default.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, Default, optional
@@ -10081,16 +10058,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127_md_entries.field
   -- Open Close Settle Flag: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settle_flag_default.dissect(buffer, index, packet, parent, presence_map[base + 14], state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 15], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 16], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 17], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
   -- Quote Condition: string, Default, optional
@@ -10099,7 +10076,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127_md_entries.field
   -- Number Of Orders: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.number_of_orders_copy.dissect(buffer, index, packet, parent, presence_map[base + 20], state, "10:dictionary|3:127|0:|14:NumberOfOrders")
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 21], state, nil)
 
   -- Day Cum Qty: uInt32, Default, optional
@@ -10126,7 +10103,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127_md_entries.field
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_127 Md Entries
+-- Dissect: MD Snapshot Full Refresh_127 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_127_md_entries, buffer(offset, 0))
   local index = offset
@@ -10148,7 +10125,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127_md_entries.disse
   return index
 end
 
--- Md Snapshot Full Refresh_127 Message
+-- MD Snapshot Full Refresh_127 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_snapshot_full_refresh_127
@@ -10156,7 +10133,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_id,
 }
 
--- Dissect Fields: Md Snapshot Full Refresh_127 Message
+-- Dissect Fields: MD Snapshot Full Refresh_127 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -10167,7 +10144,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127.fields = functio
   -- Msg Seq Num: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.msg_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Sending Time: uInt64, sent
@@ -10182,7 +10159,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127.fields = functio
   -- Trade Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Req Id: string, Copy, optional
+  -- MD Req ID: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:127|0:|7:MDReqID")
 
   -- Market Depth: int32, sent, optional
@@ -10191,19 +10168,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127.fields = functio
   -- Rpt Seq: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.rpt_seq_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_snapshot_full_refresh_127_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_snapshot_full_refresh_127_md_entries_index)
@@ -10212,7 +10189,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127.fields = functio
   return index
 end
 
--- Dissect: Md Snapshot Full Refresh_127 Message
+-- Dissect: MD Snapshot Full Refresh_127 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -10222,7 +10199,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_snapshot_full_refresh_127.dissect = functi
   return index
 end
 
--- Md Security Status_125 Message
+-- MD Security Status_125 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_125 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_125.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_status_125
@@ -10230,12 +10207,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_125.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_security_id_source,
 }
 
--- Dissect Fields: Md Security Status_125 Message
+-- Dissect Fields: MD Security Status_125 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_125.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
@@ -10256,16 +10233,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_125.fields = function(buff
   -- Symbol: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.symbol_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent, optional
+  -- Security ID: uInt64, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Security Exchange: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, sent, optional
@@ -10283,7 +10260,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_125.fields = function(buff
   return index
 end
 
--- Dissect: Md Security Status_125 Message
+-- Dissect: MD Security Status_125 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_125.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -10293,7 +10270,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_125.dissect = function(buf
   return index
 end
 
--- Md Security Status_134 Message
+-- MD Security Status_134 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_134 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_134.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_status_134
@@ -10301,12 +10278,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_134.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_security_id_source,
 }
 
--- Dissect Fields: Md Security Status_134 Message
+-- Dissect Fields: MD Security Status_134 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_134.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
@@ -10324,22 +10301,22 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_134.fields = function(buff
   -- Symbol: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.symbol_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent, optional
+  -- Security ID: uInt64, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Security Exchange: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_trading_status_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trad Ses Open Time: uInt64, sent, optional
@@ -10357,7 +10334,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_134.fields = function(buff
   return index
 end
 
--- Dissect: Md Security Status_134 Message
+-- Dissect: MD Security Status_134 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_134.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -10367,7 +10344,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_134.dissect = function(buf
   return index
 end
 
--- Md Security Status_142 Message
+-- MD Security Status_142 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_142 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_142.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_status_142
@@ -10375,12 +10352,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_142.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_security_id_source,
 }
 
--- Dissect Fields: Md Security Status_142 Message
+-- Dissect Fields: MD Security Status_142 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_142.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Type: string, Constant
@@ -10395,22 +10372,22 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_142.fields = function(buff
   -- Security Group: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_group_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent, optional
+  -- Security ID: uInt64, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Security Exchange: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_trading_status_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trad Ses Open Time: uInt64, sent, optional
@@ -10428,7 +10405,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_142.fields = function(buff
   return index
 end
 
--- Dissect: Md Security Status_142 Message
+-- Dissect: MD Security Status_142 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_142.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -10438,33 +10415,33 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_status_142.dissect = function(buf
   return index
 end
 
--- Md Inc Refresh_126 Md Entries
+-- MD Inc Refresh_126 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126_md_entries = {}
 
--- Dissect Fields: Md Inc Refresh_126 Md Entries
+-- Dissect Fields: MD Inc Refresh_126 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, Copy
+  -- MD Update Action: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_1.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:126|0:|14:MDUpdateAction")
 
-  -- Md Price Level: uInt32, Increment, optional
+  -- MD Price Level: uInt32, Increment, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_price_level_increment.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "10:dictionary|3:126|0:|12:MDPriceLevel")
 
-  -- Md Entry Type: string, Copy
+  -- MD Entry Type: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_0.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "10:dictionary|3:126|0:|11:MDEntryType")
 
   -- Symbol: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.symbol_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "10:dictionary|3:126|0:|10:SecurityID")
 
   -- Rpt Seq: uInt32, Increment
@@ -10473,7 +10450,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126_md_entries.fields = functi
   -- Quote Condition: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.quote_condition.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 6], nil }, state, { nil, "10:dictionary|3:126|0:|27:decimal-mantissaMDEntryPx" })
 
   -- Number Of Orders: uInt32, Default, optional
@@ -10482,28 +10459,28 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126_md_entries.fields = functi
   -- Price Type: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, Copy
+  -- MD Entry Time: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 8], state, "10:dictionary|3:126|0:|11:MDEntryTime")
 
-  -- Md Entry Size: int64, Delta, optional
+  -- MD Entry Size: int64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:126|0:|11:MDEntrySize")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 9], state, "10:dictionary|3:126|0:|11:MDEntryDate")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 10], state, "10:dictionary|3:126|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 11], state, "10:dictionary|3:126|0:|12:MDInsertTime")
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_optional_string_field.dissect(buffer, index, packet, parent, presence_map[base + 12], state, nil)
 
   -- Currency: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.currency_copy.dissect(buffer, index, packet, parent, presence_map[base + 13], state, "10:dictionary|3:126|0:|8:Currency")
 
-  -- Trading Session Id: string, Default, optional
+  -- Trading Session ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_default.dissect(buffer, index, packet, parent, presence_map[base + 14], state, nil)
 
   -- Net Chg Prev Day: decimal, sent, optional
@@ -10524,19 +10501,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126_md_entries.fields = functi
   -- Open Close Settle Flag: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settle_flag_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 19], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 20], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 21], state, nil)
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 22], state, nil)
 
   -- Settl Type: string, Default, optional
@@ -10566,7 +10543,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126_md_entries.fields = functi
   return index
 end
 
--- Dissect: Md Inc Refresh_126 Md Entries
+-- Dissect: MD Inc Refresh_126 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_126_md_entries, buffer(offset, 0))
   local index = offset
@@ -10588,17 +10565,17 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126_md_entries.dissect = funct
   return index
 end
 
--- Md Inc Refresh_126 Message
+-- MD Inc Refresh_126 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_126
 
--- Dissect Fields: Md Inc Refresh_126 Message
+-- Dissect Fields: MD Inc Refresh_126 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
@@ -10613,10 +10590,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126.fields = function(buffer, 
   -- Trade Date: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_inc_refresh_126_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_inc_refresh_126_md_entries_index)
@@ -10625,7 +10602,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126.fields = function(buffer, 
   return index
 end
 
--- Dissect: Md Inc Refresh_126 Message
+-- Dissect: MD Inc Refresh_126 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -10635,33 +10612,33 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_126.dissect = function(buffer,
   return index
 end
 
--- Md Inc Refresh_123 Md Entries
+-- MD Inc Refresh_123 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123_md_entries = {}
 
--- Dissect Fields: Md Inc Refresh_123 Md Entries
+-- Dissect Fields: MD Inc Refresh_123 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, Copy
+  -- MD Update Action: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_1.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:123|0:|14:MDUpdateAction")
 
-  -- Md Price Level: uInt32, Increment, optional
+  -- MD Price Level: uInt32, Increment, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_price_level_increment.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "10:dictionary|3:123|0:|12:MDPriceLevel")
 
-  -- Md Entry Type: string, Copy
+  -- MD Entry Type: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_0.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "10:dictionary|3:123|0:|11:MDEntryType")
 
   -- Symbol: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.symbol_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "10:dictionary|3:123|0:|10:SecurityID")
 
   -- Rpt Seq: uInt32, Increment
@@ -10670,7 +10647,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123_md_entries.fields = functi
   -- Quote Condition: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.quote_condition.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 6], nil }, state, { nil, "10:dictionary|3:123|0:|27:decimal-mantissaMDEntryPx" })
 
   -- Number Of Orders: uInt32, Default, optional
@@ -10679,28 +10656,28 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123_md_entries.fields = functi
   -- Price Type: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, Copy
+  -- MD Entry Time: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 8], state, "10:dictionary|3:123|0:|11:MDEntryTime")
 
-  -- Md Entry Size: int32, Delta, optional
+  -- MD Entry Size: int32, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int32.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:123|0:|11:MDEntrySize")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 9], state, "10:dictionary|3:123|0:|11:MDEntryDate")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 10], state, "10:dictionary|3:123|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 11], state, "10:dictionary|3:123|0:|12:MDInsertTime")
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_optional_string_field.dissect(buffer, index, packet, parent, presence_map[base + 12], state, nil)
 
   -- Currency: string, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.currency_copy.dissect(buffer, index, packet, parent, presence_map[base + 13], state, "10:dictionary|3:123|0:|8:Currency")
 
-  -- Trading Session Id: string, Default, optional
+  -- Trading Session ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_default.dissect(buffer, index, packet, parent, presence_map[base + 14], state, nil)
 
   -- Net Chg Prev Day: decimal, sent, optional
@@ -10721,19 +10698,19 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123_md_entries.fields = functi
   -- Open Close Settle Flag: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settle_flag_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 19], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 20], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 21], state, nil)
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 22], state, nil)
 
   -- Settl Type: string, Default, optional
@@ -10763,7 +10740,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123_md_entries.fields = functi
   return index
 end
 
--- Dissect: Md Inc Refresh_123 Md Entries
+-- Dissect: MD Inc Refresh_123 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_123_md_entries, buffer(offset, 0))
   local index = offset
@@ -10785,17 +10762,17 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123_md_entries.dissect = funct
   return index
 end
 
--- Md Inc Refresh_123 Message
+-- MD Inc Refresh_123 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_123
 
--- Dissect Fields: Md Inc Refresh_123 Message
+-- Dissect Fields: MD Inc Refresh_123 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
@@ -10810,10 +10787,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123.fields = function(buffer, 
   -- Trade Date: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_inc_refresh_123_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_inc_refresh_123_md_entries_index)
@@ -10822,7 +10799,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123.fields = function(buffer, 
   return index
 end
 
--- Dissect: Md Inc Refresh_123 Message
+-- Dissect: MD Inc Refresh_123 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -10832,18 +10809,18 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_123.dissect = function(buffer,
   return index
 end
 
--- Md Inc Refresh_138 Underlyings
+-- MD Inc Refresh_138 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_underlyings = {}
 
--- Dissect Fields: Md Inc Refresh_138 Underlyings
+-- Dissect Fields: MD Inc Refresh_138 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: uInt64, Delta
+  -- Underlying Security ID: uInt64, Delta
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:138|0:|20:UnderlyingSecurityID")
 
-  -- Underlying Security Id Source: uInt32, Constant
+  -- Underlying Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -10858,7 +10835,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_underlyings.fields = funct
   return index
 end
 
--- Dissect: Md Inc Refresh_138 Underlyings
+-- Dissect: MD Inc Refresh_138 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_138_underlyings, buffer(offset, 0))
   local index = offset
@@ -10880,27 +10857,27 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_underlyings.dissect = func
   return index
 end
 
--- Md Inc Refresh_138 Md Entries
+-- MD Inc Refresh_138 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_md_entries = {}
 
--- Dissect Fields: Md Inc Refresh_138 Md Entries
+-- Dissect Fields: MD Inc Refresh_138 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, Copy
+  -- MD Update Action: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_1.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:138|0:|14:MDUpdateAction")
 
-  -- Md Entry Type: string, Copy
+  -- MD Entry Type: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_0.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "10:dictionary|3:138|0:|11:MDEntryType")
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "10:dictionary|3:138|0:|10:SecurityID")
 
   -- Rpt Seq: uInt32, Increment
@@ -10909,10 +10886,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_md_entries.fields = functi
   -- Quote Condition: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.quote_condition.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 5], nil }, state, { nil, "10:dictionary|3:138|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Interest Rate: decimal, sent, optional
+  -- MD Entry Interest Rate: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate.dissect(buffer, index, packet, parent, { presence_map[base + 6], nil }, state, { nil, "10:dictionary|3:138|0:|37:decimal-mantissaMDEntryInterestRate" })
 
   -- Number Of Orders: uInt32, Default, optional
@@ -10921,22 +10898,22 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_md_entries.fields = functi
   -- Price Type: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, Copy
+  -- MD Entry Time: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 8], state, "10:dictionary|3:138|0:|11:MDEntryTime")
 
-  -- Md Entry Size: int64, Delta, optional
+  -- MD Entry Size: int64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:138|0:|11:MDEntrySize")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 9], state, "10:dictionary|3:138|0:|11:MDEntryDate")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 10], state, "10:dictionary|3:138|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 11], state, "10:dictionary|3:138|0:|12:MDInsertTime")
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_optional_string_field.dissect(buffer, index, packet, parent, presence_map[base + 12], state, nil)
 
   -- Currency: string, Copy, optional
@@ -10957,25 +10934,25 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_md_entries.fields = functi
   -- Trade Condition: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_condition_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Open Close Settl Flag: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settl_flag_sent_optional_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 17], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 19], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 20], state, nil)
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 21], state, nil)
 
   -- Sett Price Type: uInt32, sent, optional
@@ -11032,7 +11009,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_md_entries.fields = functi
   return index
 end
 
--- Dissect: Md Inc Refresh_138 Md Entries
+-- Dissect: MD Inc Refresh_138 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_138_md_entries, buffer(offset, 0))
   local index = offset
@@ -11054,17 +11031,17 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_md_entries.dissect = funct
   return index
 end
 
--- Md Inc Refresh_138 Message
+-- MD Inc Refresh_138 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_138
 
--- Dissect Fields: Md Inc Refresh_138 Message
+-- Dissect Fields: MD Inc Refresh_138 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Type: string, Constant
@@ -11079,10 +11056,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138.fields = function(buffer, 
   -- Trade Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_inc_refresh_138_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_inc_refresh_138_md_entries_index)
@@ -11091,7 +11068,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138.fields = function(buffer, 
   return index
 end
 
--- Dissect: Md Inc Refresh_138 Message
+-- Dissect: MD Inc Refresh_138 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -11101,18 +11078,18 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_138.dissect = function(buffer,
   return index
 end
 
--- Md Inc Refresh_145 Underlyings
+-- MD Inc Refresh_145 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_underlyings = {}
 
--- Dissect Fields: Md Inc Refresh_145 Underlyings
+-- Dissect Fields: MD Inc Refresh_145 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: uInt64, Delta
+  -- Underlying Security ID: uInt64, Delta
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:145|0:|20:UnderlyingSecurityID")
 
-  -- Underlying Security Id Source: uInt32, Constant
+  -- Underlying Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -11127,7 +11104,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_underlyings.fields = funct
   return index
 end
 
--- Dissect: Md Inc Refresh_145 Underlyings
+-- Dissect: MD Inc Refresh_145 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_145_underlyings, buffer(offset, 0))
   local index = offset
@@ -11149,27 +11126,27 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_underlyings.dissect = func
   return index
 end
 
--- Md Inc Refresh_145 Md Entries
+-- MD Inc Refresh_145 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_md_entries = {}
 
--- Dissect Fields: Md Inc Refresh_145 Md Entries
+-- Dissect Fields: MD Inc Refresh_145 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, Copy
+  -- MD Update Action: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_1.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:145|0:|14:MDUpdateAction")
 
-  -- Md Entry Type: string, Copy
+  -- MD Entry Type: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_0.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "10:dictionary|3:145|0:|11:MDEntryType")
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "10:dictionary|3:145|0:|10:SecurityID")
 
   -- Rpt Seq: uInt32, Increment
@@ -11178,10 +11155,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_md_entries.fields = functi
   -- Quote Condition: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.quote_condition.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 5], nil }, state, { nil, "10:dictionary|3:145|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Interest Rate: decimal, sent, optional
+  -- MD Entry Interest Rate: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate.dissect(buffer, index, packet, parent, { presence_map[base + 6], nil }, state, { nil, "10:dictionary|3:145|0:|37:decimal-mantissaMDEntryInterestRate" })
 
   -- Number Of Orders: uInt32, Default, optional
@@ -11190,22 +11167,22 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_md_entries.fields = functi
   -- Price Type: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, Copy
+  -- MD Entry Time: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 8], state, "10:dictionary|3:145|0:|11:MDEntryTime")
 
-  -- Md Entry Size: int64, Delta, optional
+  -- MD Entry Size: int64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:145|0:|11:MDEntrySize")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 9], state, "10:dictionary|3:145|0:|11:MDEntryDate")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 10], state, "10:dictionary|3:145|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 11], state, "10:dictionary|3:145|0:|12:MDInsertTime")
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_optional_string_field.dissect(buffer, index, packet, parent, presence_map[base + 12], state, nil)
 
   -- Currency: string, Copy, optional
@@ -11226,25 +11203,25 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_md_entries.fields = functi
   -- Trade Condition: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_condition_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Open Close Settl Flag: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settl_flag_sent_optional_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 17], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 19], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 20], state, nil)
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 21], state, nil)
 
   -- Sett Price Type: uInt32, sent, optional
@@ -11301,7 +11278,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_md_entries.fields = functi
   return index
 end
 
--- Dissect: Md Inc Refresh_145 Md Entries
+-- Dissect: MD Inc Refresh_145 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_145_md_entries, buffer(offset, 0))
   local index = offset
@@ -11323,17 +11300,17 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_md_entries.dissect = funct
   return index
 end
 
--- Md Inc Refresh_145 Message
+-- MD Inc Refresh_145 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_145
 
--- Dissect Fields: Md Inc Refresh_145 Message
+-- Dissect Fields: MD Inc Refresh_145 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Type: string, Constant
@@ -11348,10 +11325,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145.fields = function(buffer, 
   -- Trade Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_inc_refresh_145_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_inc_refresh_145_md_entries_index)
@@ -11360,7 +11337,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145.fields = function(buffer, 
   return index
 end
 
--- Dissect: Md Inc Refresh_145 Message
+-- Dissect: MD Inc Refresh_145 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -11370,18 +11347,18 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_145.dissect = function(buffer,
   return index
 end
 
--- Md Inc Refresh_150 Underlyings
+-- MD Inc Refresh_150 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_underlyings = {}
 
--- Dissect Fields: Md Inc Refresh_150 Underlyings
+-- Dissect Fields: MD Inc Refresh_150 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: uInt64, Delta
+  -- Underlying Security ID: uInt64, Delta
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:150|0:|20:UnderlyingSecurityID")
 
-  -- Underlying Security Id Source: uInt32, Constant
+  -- Underlying Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -11396,7 +11373,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_underlyings.fields = funct
   return index
 end
 
--- Dissect: Md Inc Refresh_150 Underlyings
+-- Dissect: MD Inc Refresh_150 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_150_underlyings, buffer(offset, 0))
   local index = offset
@@ -11418,27 +11395,27 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_underlyings.dissect = func
   return index
 end
 
--- Md Inc Refresh_150 Md Entries
+-- MD Inc Refresh_150 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_md_entries = {}
 
--- Dissect Fields: Md Inc Refresh_150 Md Entries
+-- Dissect Fields: MD Inc Refresh_150 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, Copy
+  -- MD Update Action: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_1.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:150|0:|14:MDUpdateAction")
 
-  -- Md Entry Type: string, Copy
+  -- MD Entry Type: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_0.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "10:dictionary|3:150|0:|11:MDEntryType")
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "10:dictionary|3:150|0:|10:SecurityID")
 
   -- Rpt Seq: uInt32, Increment
@@ -11447,10 +11424,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_md_entries.fields = functi
   -- Quote Condition: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.quote_condition.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 5], nil }, state, { nil, "10:dictionary|3:150|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Interest Rate: decimal, sent, optional
+  -- MD Entry Interest Rate: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate.dissect(buffer, index, packet, parent, { presence_map[base + 6], nil }, state, { nil, "10:dictionary|3:150|0:|37:decimal-mantissaMDEntryInterestRate" })
 
   -- Number Of Orders: uInt32, Default, optional
@@ -11459,22 +11436,22 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_md_entries.fields = functi
   -- Price Type: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, Copy
+  -- MD Entry Time: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 8], state, "10:dictionary|3:150|0:|11:MDEntryTime")
 
-  -- Md Entry Size: int64, Delta, optional
+  -- MD Entry Size: int64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:150|0:|11:MDEntrySize")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 9], state, "10:dictionary|3:150|0:|11:MDEntryDate")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 10], state, "10:dictionary|3:150|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 11], state, "10:dictionary|3:150|0:|12:MDInsertTime")
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_optional_string_field.dissect(buffer, index, packet, parent, presence_map[base + 12], state, nil)
 
   -- Currency: string, Copy, optional
@@ -11495,25 +11472,25 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_md_entries.fields = functi
   -- Trade Condition: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_condition_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Open Close Settl Flag: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settl_flag_sent_optional_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 17], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 19], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 20], state, nil)
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 21], state, nil)
 
   -- Sett Price Type: uInt32, sent, optional
@@ -11552,13 +11529,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_md_entries.fields = functi
   -- Early Termination: uInt64, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.early_termination.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Cert Indicator: uInt32, sent, optional
+  -- BTB Cert Indicator: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_cert_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Contract Info: uInt32, sent, optional
+  -- BTB Contract Info: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_contract_info.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Grace Date: uInt32, sent, optional
+  -- BTB Grace Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_grace_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Max Trade Vol: uInt64, sent, optional
@@ -11579,7 +11556,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_md_entries.fields = functi
   return index
 end
 
--- Dissect: Md Inc Refresh_150 Md Entries
+-- Dissect: MD Inc Refresh_150 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_150_md_entries, buffer(offset, 0))
   local index = offset
@@ -11601,17 +11578,17 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_md_entries.dissect = funct
   return index
 end
 
--- Md Inc Refresh_150 Message
+-- MD Inc Refresh_150 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_150
 
--- Dissect Fields: Md Inc Refresh_150 Message
+-- Dissect Fields: MD Inc Refresh_150 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Type: string, Constant
@@ -11626,10 +11603,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150.fields = function(buffer, 
   -- Trade Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_inc_refresh_150_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_inc_refresh_150_md_entries_index)
@@ -11638,7 +11615,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150.fields = function(buffer, 
   return index
 end
 
--- Dissect: Md Inc Refresh_150 Message
+-- Dissect: MD Inc Refresh_150 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -11648,18 +11625,18 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_150.dissect = function(buffer,
   return index
 end
 
--- Md Inc Refresh_152 Underlyings
+-- MD Inc Refresh_152 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_underlyings = {}
 
--- Dissect Fields: Md Inc Refresh_152 Underlyings
+-- Dissect Fields: MD Inc Refresh_152 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: uInt64, Delta
+  -- Underlying Security ID: uInt64, Delta
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_delta.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:152|0:|20:UnderlyingSecurityID")
 
-  -- Underlying Security Id Source: uInt32, Constant
+  -- Underlying Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -11674,7 +11651,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_underlyings.fields = funct
   return index
 end
 
--- Dissect: Md Inc Refresh_152 Underlyings
+-- Dissect: MD Inc Refresh_152 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_152_underlyings, buffer(offset, 0))
   local index = offset
@@ -11696,27 +11673,27 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_underlyings.dissect = func
   return index
 end
 
--- Md Inc Refresh_152 Md Entries
+-- MD Inc Refresh_152 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_md_entries = {}
 
--- Dissect Fields: Md Inc Refresh_152 Md Entries
+-- Dissect Fields: MD Inc Refresh_152 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, Copy
+  -- MD Update Action: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_1.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:152|0:|14:MDUpdateAction")
 
-  -- Md Entry Type: string, Copy
+  -- MD Entry Type: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_0.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "10:dictionary|3:152|0:|11:MDEntryType")
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "10:dictionary|3:152|0:|10:SecurityID")
 
   -- Rpt Seq: uInt32, Increment
@@ -11725,10 +11702,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_md_entries.fields = functi
   -- Quote Condition: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.quote_condition.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 5], nil }, state, { nil, "10:dictionary|3:152|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Interest Rate: decimal, sent, optional
+  -- MD Entry Interest Rate: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_interest_rate.dissect(buffer, index, packet, parent, { presence_map[base + 6], nil }, state, { nil, "10:dictionary|3:152|0:|37:decimal-mantissaMDEntryInterestRate" })
 
   -- Number Of Orders: uInt32, Default, optional
@@ -11737,22 +11714,22 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_md_entries.fields = functi
   -- Price Type: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.price_type_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, Copy
+  -- MD Entry Time: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 8], state, "10:dictionary|3:152|0:|11:MDEntryTime")
 
-  -- Md Entry Size: int64, Delta, optional
+  -- MD Entry Size: int64, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int64.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|3:152|0:|11:MDEntrySize")
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_date.dissect(buffer, index, packet, parent, presence_map[base + 9], state, "10:dictionary|3:152|0:|11:MDEntryDate")
 
-  -- Md Insert Date: uInt32, Copy, optional
+  -- MD Insert Date: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_date.dissect(buffer, index, packet, parent, presence_map[base + 10], state, "10:dictionary|3:152|0:|12:MDInsertDate")
 
-  -- Md Insert Time: uInt32, Copy, optional
+  -- MD Insert Time: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_insert_time.dissect(buffer, index, packet, parent, presence_map[base + 11], state, "10:dictionary|3:152|0:|12:MDInsertTime")
 
-  -- Md Stream Id: string, Default, optional
+  -- MD Stream ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_stream_id_default_optional_string_field.dissect(buffer, index, packet, parent, presence_map[base + 12], state, nil)
 
   -- Price Delta: decimal, sent, optional
@@ -11782,25 +11759,25 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_md_entries.fields = functi
   -- Trade Condition: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_condition_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Open Close Settl Flag: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.open_close_settl_flag_sent_optional_u_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, Default, optional
+  -- Order ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.order_id.dissect(buffer, index, packet, parent, presence_map[base + 20], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 21], state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 22], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 23], state, nil)
 
-  -- Md Entry Position No: uInt32, Default, optional
+  -- MD Entry Position No: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_position_no.dissect(buffer, index, packet, parent, presence_map[base + 24], state, nil)
 
   -- Sett Price Type: uInt32, sent, optional
@@ -11839,13 +11816,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_md_entries.fields = functi
   -- Early Termination: uInt64, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.early_termination.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Cert Indicator: uInt32, sent, optional
+  -- BTB Cert Indicator: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_cert_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Contract Info: uInt32, sent, optional
+  -- BTB Contract Info: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_contract_info.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Btb Grace Date: uInt32, sent, optional
+  -- BTB Grace Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.btb_grace_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Max Trade Vol: uInt64, sent, optional
@@ -11866,7 +11843,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_md_entries.fields = functi
   return index
 end
 
--- Dissect: Md Inc Refresh_152 Md Entries
+-- Dissect: MD Inc Refresh_152 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_152_md_entries, buffer(offset, 0))
   local index = offset
@@ -11888,17 +11865,17 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_md_entries.dissect = funct
   return index
 end
 
--- Md Inc Refresh_152 Message
+-- MD Inc Refresh_152 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_152
 
--- Dissect Fields: Md Inc Refresh_152 Message
+-- Dissect Fields: MD Inc Refresh_152 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Type: string, Constant
@@ -11913,10 +11890,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152.fields = function(buffer, 
   -- Trade Date: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trade_date_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_inc_refresh_152_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_inc_refresh_152_md_entries_index)
@@ -11925,7 +11902,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152.fields = function(buffer, 
   return index
 end
 
--- Dissect: Md Inc Refresh_152 Message
+-- Dissect: MD Inc Refresh_152 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -11935,39 +11912,39 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_152.dissect = function(buffer,
   return index
 end
 
--- Md Inc Refresh_81 Md Entries
+-- MD Inc Refresh_81 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81_md_entries = {}
 
--- Dissect Fields: Md Inc Refresh_81 Md Entries
+-- Dissect Fields: MD Inc Refresh_81 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, Copy, optional
+  -- MD Update Action: uInt32, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_update_action_copy_0.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|2:81|0:|14:MDUpdateAction")
 
-  -- Md Price Level: uInt32, Default, optional
+  -- MD Price Level: uInt32, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_price_level_default.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Entry Type: string, Copy
+  -- MD Entry Type: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_type_copy_j.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "10:dictionary|2:81|0:|11:MDEntryType")
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_optional.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Security Id: uInt64, Copy, optional
+  -- Security ID: uInt64, Copy, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "10:dictionary|2:81|0:|10:SecurityID")
 
   -- Rpt Seq: uInt32, Increment, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.rpt_seq_increment_optional.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "10:dictionary|2:81|0:|6:RptSeq")
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 6], nil }, state, { nil, "10:dictionary|2:81|0:|27:decimal-mantissaMDEntryPx" })
 
-  -- Md Entry Time: uInt32, Copy
+  -- MD Entry Time: uInt32, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_time_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 7], state, "10:dictionary|2:81|0:|11:MDEntryTime")
 
-  -- Md Entry Size: int32, Delta, optional
+  -- MD Entry Size: int32, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_entry_size_delta_optional_int32.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|2:81|0:|11:MDEntrySize")
 
   -- Quote Condition: string, Default, optional
@@ -11976,13 +11953,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81_md_entries.fields = functio
   -- Number Of Orders: uInt32, Delta, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.number_of_orders_delta.dissect(buffer, index, packet, parent, nil, state, "10:dictionary|2:81|0:|14:NumberOfOrders")
 
-  -- Trading Session Id: string, Default, optional
+  -- Trading Session ID: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.trading_session_id_default.dissect(buffer, index, packet, parent, presence_map[base + 9], state, nil)
 
   return index
 end
 
--- Dissect: Md Inc Refresh_81 Md Entries
+-- Dissect: MD Inc Refresh_81 MD Entries
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_81_md_entries, buffer(offset, 0))
   local index = offset
@@ -12004,7 +11981,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81_md_entries.dissect = functi
   return index
 end
 
--- Md Inc Refresh_81 Message
+-- MD Inc Refresh_81 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_inc_refresh_81
@@ -12012,12 +11989,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81.presence = {
   [2] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_pos_dup_flag,
 }
 
--- Dissect Fields: Md Inc Refresh_81 Message
+-- Dissect Fields: MD Inc Refresh_81 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
@@ -12032,10 +12009,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81.fields = function(buffer, o
   -- Pos Dup Flag: string, Default, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.pos_dup_flag.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for md_inc_refresh_81_md_entries_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, md_inc_refresh_81_md_entries_index)
@@ -12044,7 +12021,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81.fields = function(buffer, o
   return index
 end
 
--- Dissect: Md Inc Refresh_81 Message
+-- Dissect: MD Inc Refresh_81 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -12054,10 +12031,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_inc_refresh_81.dissect = function(buffer, 
   return index
 end
 
--- Md Security List_111 Legs
+-- MD Security List_111 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_legs = {}
 
--- Dissect Fields: Md Security List_111 Legs
+-- Dissect Fields: MD Security List_111 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_legs.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -12065,10 +12042,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_legs.fields = function(b
   -- Leg Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_symbol.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id: uInt64, sent
+  -- Leg Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id Source: string, Constant
+  -- Leg Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Leg Ratio Qty: int32, Copy
@@ -12086,7 +12063,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_legs.fields = function(b
   return index
 end
 
--- Dissect: Md Security List_111 Legs
+-- Dissect: MD Security List_111 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_legs.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_111_legs, buffer(offset, 0))
   local index = offset
@@ -12108,10 +12085,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_legs.dissect = function(
   return index
 end
 
--- Md Security List_111 Underlyings
+-- MD Security List_111 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_underlyings = {}
 
--- Dissect Fields: Md Security List_111 Underlyings
+-- Dissect Fields: MD Security List_111 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -12119,10 +12096,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_underlyings.fields = fun
   -- Underlying Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_symbol.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id: uInt64, sent
+  -- Underlying Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id Source: string, Constant
+  -- Underlying Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -12131,7 +12108,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_underlyings.fields = fun
   return index
 end
 
--- Dissect: Md Security List_111 Underlyings
+-- Dissect: MD Security List_111 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_111_underlyings, buffer(offset, 0))
   local index = offset
@@ -12147,26 +12124,26 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111_underlyings.dissect = fu
   return index
 end
 
--- Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds = {}
+-- Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids = {}
 
--- Dissect Fields: Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Alt Id: string, sent
+  -- Security Alt ID: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id Source: string, Copy
+  -- Security Alt ID Source: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id_source.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:111|0:|19:SecurityAltIDSource")
 
   return index
 end
 
--- Dissect: Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_i_ds, buffer(offset, 0))
+-- Dissect: Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -12180,7 +12157,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect = function(buffer, 
   presence_map = entry_map
   base = 1
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -12194,7 +12171,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.feed_types.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Md Feed Type: string, sent
+  -- MD Feed Type: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_feed_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Market Depth: uInt32, sent
@@ -12219,21 +12196,21 @@ b3_b3derivatives_umdf_fast_v5_1_15.feed_types.dissect = function(buffer, offset,
   return index
 end
 
--- Appl Ids
+-- Appl IDs
 b3_b3derivatives_umdf_fast_v5_1_15.appl_ids = {}
 
--- Dissect Fields: Appl Ids
+-- Dissect Fields: Appl IDs
 b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Feed Types: uInt32, sent, optional
+  -- No MD Feed Types: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_feed_types.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Feed Types: No Md Feed Types entries
+  -- Feed Types: No MD Feed Types entries
   local count = value or 0
   for feed_types_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.feed_types.dissect(buffer, index, packet, parent, presence_map, base, state, feed_types_index)
@@ -12242,7 +12219,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.fields = function(buffer, offset, pa
   return index
 end
 
--- Dissect: Appl Ids
+-- Dissect: Appl IDs
 b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ids, buffer(offset, 0))
   local index = offset
@@ -12269,31 +12246,31 @@ b3_b3derivatives_umdf_fast_v5_1_15.related_symbols.fields = function(buffer, off
   -- Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.symbol_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:111|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Appl Ids: uInt32, sent
+  -- No Appl IDs: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_appl_ids.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ids: No Appl Ids entries
+  -- Appl IDs: No Appl IDs entries
   local count = value or 0
   for appl_ids_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.dissect(buffer, index, packet, parent, presence_map, base, state, appl_ids_index)
   end
 
-  -- No Security Alt Id: uInt32, sent, optional
+  -- No Security Alt ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt I Ds: No Security Alt Id entries
+  -- Security Alt IDs: No Security Alt ID entries
   local count = value or 0
-  for security_alt_i_ds_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_i_ds_index)
+  for security_alt_ids_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_ids_index)
   end
 
   -- No Underlyings: uInt32, sent, optional
@@ -12335,7 +12312,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.related_symbols.fields = function(buffer, off
   -- Max Order Qty: uInt32, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.max_order_qty_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Instrument Id: string, sent
+  -- Instrument ID: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.instrument_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Currency: string, sent
@@ -12374,7 +12351,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.related_symbols.fields = function(buffer, off
   -- Contract Settl Month: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.contract_settl_month.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cfi Code: string, sent
+  -- CFI Code: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.cfi_code.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Country Of Issue: string, sent
@@ -12429,12 +12406,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.related_symbols.dissect = function(buffer, of
   return index
 end
 
--- Md Security List_111 Message
+-- MD Security List_111 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_111
 
--- Dissect Fields: Md Security List_111 Message
+-- Dissect Fields: MD Security List_111 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -12442,7 +12419,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111.fields = function(buffer
   -- Message Type: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.message_type_constant_y_2.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -12469,7 +12446,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111.fields = function(buffer
   return index
 end
 
--- Dissect: Md Security List_111 Message
+-- Dissect: MD Security List_111 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_111.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -12512,10 +12489,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.lots.dissect = function(buffer, offset, packe
   return index
 end
 
--- Md Security List_141 Legs
+-- MD Security List_141 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_legs = {}
 
--- Dissect Fields: Md Security List_141 Legs
+-- Dissect Fields: MD Security List_141 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_legs.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -12523,10 +12500,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_legs.fields = function(b
   -- Leg Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_symbol.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id: uInt64, sent
+  -- Leg Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id Source: string, Constant
+  -- Leg Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Leg Ratio Qty: int32, Copy
@@ -12544,7 +12521,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_legs.fields = function(b
   return index
 end
 
--- Dissect: Md Security List_141 Legs
+-- Dissect: MD Security List_141 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_legs.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141_legs, buffer(offset, 0))
   local index = offset
@@ -12644,10 +12621,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.instr_attrib.dissect = function(buffer, offse
   return index
 end
 
--- Md Security List_141 Underlyings
+-- MD Security List_141 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_underlyings = {}
 
--- Dissect Fields: Md Security List_141 Underlyings
+-- Dissect Fields: MD Security List_141 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -12655,10 +12632,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_underlyings.fields = fun
   -- Underlying Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_symbol.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id: uInt64, sent
+  -- Underlying Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id Source: string, Constant
+  -- Underlying Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -12670,7 +12647,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_underlyings.fields = fun
   return index
 end
 
--- Dissect: Md Security List_141 Underlyings
+-- Dissect: MD Security List_141 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141_underlyings, buffer(offset, 0))
   local index = offset
@@ -12692,26 +12669,26 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_underlyings.dissect = fu
   return index
 end
 
--- Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds = {}
+-- Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids = {}
 
--- Dissect Fields: Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Alt Id: string, sent
+  -- Security Alt ID: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id Source: string, Copy
+  -- Security Alt ID Source: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id_source.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:141|0:|19:SecurityAltIDSource")
 
   return index
 end
 
--- Dissect: Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_i_ds, buffer(offset, 0))
+-- Dissect: Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -12725,7 +12702,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect = function(buffer, 
   presence_map = entry_map
   base = 1
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -12739,7 +12716,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.feed_types.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Md Feed Type: string, sent
+  -- MD Feed Type: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_feed_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Market Depth: uInt32, sent
@@ -12764,21 +12741,21 @@ b3_b3derivatives_umdf_fast_v5_1_15.feed_types.dissect = function(buffer, offset,
   return index
 end
 
--- Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds = {}
+-- Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids = {}
 
--- Dissect Fields: Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Feed Types: uInt32, sent, optional
+  -- No MD Feed Types: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_feed_types.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Feed Types: No Md Feed Types entries
+  -- Feed Types: No MD Feed Types entries
   local count = value or 0
   for feed_types_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.feed_types.dissect(buffer, index, packet, parent, presence_map, base, state, feed_types_index)
@@ -12787,9 +12764,9 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields = function(buffer, offset, p
   return index
 end
 
--- Dissect: Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_i_ds, buffer(offset, 0))
+-- Dissect: Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -12797,16 +12774,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect = function(buffer, offset, 
     subtree:append_text(" "..iteration)
   end
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Md Security List_141 Related Sym
+-- MD Security List_141 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_related_sym = {}
 
--- Dissect Fields: Md Security List_141 Related Sym
+-- Dissect Fields: MD Security List_141 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_related_sym.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -12814,31 +12791,31 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_related_sym.fields = fun
   -- Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.symbol_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:141|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Appl I Ds: uInt32, sent
-  index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_appl_i_ds.dissect(buffer, index, packet, parent, nil, state, nil)
+  -- No Appl IDs: uInt32, sent
+  index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_appl_ids.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl I Ds: No Appl I Ds entries
+  -- Appl IDs: No Appl IDs entries
   local count = value or 0
-  for appl_i_ds_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, appl_i_ds_index)
+  for appl_ids_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.dissect(buffer, index, packet, parent, presence_map, base, state, appl_ids_index)
   end
 
-  -- No Security Alt Id: uInt32, sent, optional
+  -- No Security Alt ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt I Ds: No Security Alt Id entries
+  -- Security Alt IDs: No Security Alt ID entries
   local count = value or 0
-  for security_alt_i_ds_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_i_ds_index)
+  for security_alt_ids_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_ids_index)
   end
 
   -- No Underlyings: uInt32, sent, optional
@@ -12964,7 +12941,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_related_sym.fields = fun
   -- Contract Settl Month: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.contract_settl_month.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cfi Code: string, sent
+  -- CFI Code: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.cfi_code.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Country Of Issue: string, sent
@@ -12991,13 +12968,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_related_sym.fields = fun
   -- Security Validity Timestamp: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_validity_timestamp_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent, optional
+  -- Market Segment ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.market_segment_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Governance Indicator: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.governance_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Corporate Action Event Id: int32, sent, optional
+  -- Corporate Action Event ID: int32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.corporate_action_event_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Group: string, sent
@@ -13009,7 +12986,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_related_sym.fields = fun
   return index
 end
 
--- Dissect: Md Security List_141 Related Sym
+-- Dissect: MD Security List_141 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_related_sym.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141_related_sym, buffer(offset, 0))
   local index = offset
@@ -13031,12 +13008,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141_related_sym.dissect = fu
   return index
 end
 
--- Md Security List_141 Message
+-- MD Security List_141 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_141
 
--- Dissect Fields: Md Security List_141 Message
+-- Dissect Fields: MD Security List_141 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -13044,7 +13021,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141.fields = function(buffer
   -- Msg Type: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.msg_type_constant_y.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -13071,7 +13048,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141.fields = function(buffer
   return index
 end
 
--- Dissect: Md Security List_141 Message
+-- Dissect: MD Security List_141 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_141.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -13114,10 +13091,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.lots.dissect = function(buffer, offset, packe
   return index
 end
 
--- Md Security List_148 Legs
+-- MD Security List_148 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_legs = {}
 
--- Dissect Fields: Md Security List_148 Legs
+-- Dissect Fields: MD Security List_148 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_legs.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -13125,10 +13102,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_legs.fields = function(b
   -- Leg Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_symbol.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id: uInt64, sent
+  -- Leg Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id Source: string, Constant
+  -- Leg Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Leg Ratio Qty: int32, Copy
@@ -13146,7 +13123,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_legs.fields = function(b
   return index
 end
 
--- Dissect: Md Security List_148 Legs
+-- Dissect: MD Security List_148 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_legs.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148_legs, buffer(offset, 0))
   local index = offset
@@ -13246,10 +13223,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.instr_attrib.dissect = function(buffer, offse
   return index
 end
 
--- Md Security List_148 Underlyings
+-- MD Security List_148 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_underlyings = {}
 
--- Dissect Fields: Md Security List_148 Underlyings
+-- Dissect Fields: MD Security List_148 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -13257,10 +13234,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_underlyings.fields = fun
   -- Underlying Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_symbol.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id: uInt64, sent
+  -- Underlying Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id Source: string, Constant
+  -- Underlying Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -13272,7 +13249,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_underlyings.fields = fun
   return index
 end
 
--- Dissect: Md Security List_148 Underlyings
+-- Dissect: MD Security List_148 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148_underlyings, buffer(offset, 0))
   local index = offset
@@ -13294,26 +13271,26 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_underlyings.dissect = fu
   return index
 end
 
--- Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds = {}
+-- Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids = {}
 
--- Dissect Fields: Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Alt Id: string, sent
+  -- Security Alt ID: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id Source: string, Copy
+  -- Security Alt ID Source: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id_source.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:148|0:|19:SecurityAltIDSource")
 
   return index
 end
 
--- Dissect: Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_i_ds, buffer(offset, 0))
+-- Dissect: Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -13327,7 +13304,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect = function(buffer, 
   presence_map = entry_map
   base = 1
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -13341,7 +13318,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.feed_types.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Md Feed Type: string, sent
+  -- MD Feed Type: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_feed_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Market Depth: uInt32, sent
@@ -13366,21 +13343,21 @@ b3_b3derivatives_umdf_fast_v5_1_15.feed_types.dissect = function(buffer, offset,
   return index
 end
 
--- Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds = {}
+-- Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids = {}
 
--- Dissect Fields: Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Feed Types: uInt32, sent, optional
+  -- No MD Feed Types: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_feed_types.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Feed Types: No Md Feed Types entries
+  -- Feed Types: No MD Feed Types entries
   local count = value or 0
   for feed_types_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.feed_types.dissect(buffer, index, packet, parent, presence_map, base, state, feed_types_index)
@@ -13389,9 +13366,9 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields = function(buffer, offset, p
   return index
 end
 
--- Dissect: Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_i_ds, buffer(offset, 0))
+-- Dissect: Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -13399,16 +13376,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect = function(buffer, offset, 
     subtree:append_text(" "..iteration)
   end
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Md Security List_148 Related Sym
+-- MD Security List_148 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_related_sym = {}
 
--- Dissect Fields: Md Security List_148 Related Sym
+-- Dissect Fields: MD Security List_148 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_related_sym.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -13416,31 +13393,31 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_related_sym.fields = fun
   -- Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.symbol_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:148|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Appl I Ds: uInt32, sent
-  index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_appl_i_ds.dissect(buffer, index, packet, parent, nil, state, nil)
+  -- No Appl IDs: uInt32, sent
+  index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_appl_ids.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl I Ds: No Appl I Ds entries
+  -- Appl IDs: No Appl IDs entries
   local count = value or 0
-  for appl_i_ds_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, appl_i_ds_index)
+  for appl_ids_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.dissect(buffer, index, packet, parent, presence_map, base, state, appl_ids_index)
   end
 
-  -- No Security Alt Id: uInt32, sent, optional
+  -- No Security Alt ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt I Ds: No Security Alt Id entries
+  -- Security Alt IDs: No Security Alt ID entries
   local count = value or 0
-  for security_alt_i_ds_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_i_ds_index)
+  for security_alt_ids_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_ids_index)
   end
 
   -- No Underlyings: uInt32, sent, optional
@@ -13566,7 +13543,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_related_sym.fields = fun
   -- Contract Settl Month: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.contract_settl_month.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cfi Code: string, sent
+  -- CFI Code: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.cfi_code.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Country Of Issue: string, sent
@@ -13593,13 +13570,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_related_sym.fields = fun
   -- Security Validity Timestamp: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_validity_timestamp_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent, optional
+  -- Market Segment ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.market_segment_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Governance Indicator: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.governance_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Corporate Action Event Id: int32, sent, optional
+  -- Corporate Action Event ID: int32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.corporate_action_event_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Group: string, sent
@@ -13611,7 +13588,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_related_sym.fields = fun
   return index
 end
 
--- Dissect: Md Security List_148 Related Sym
+-- Dissect: MD Security List_148 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_related_sym.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148_related_sym, buffer(offset, 0))
   local index = offset
@@ -13633,12 +13610,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148_related_sym.dissect = fu
   return index
 end
 
--- Md Security List_148 Message
+-- MD Security List_148 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_148
 
--- Dissect Fields: Md Security List_148 Message
+-- Dissect Fields: MD Security List_148 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -13646,7 +13623,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148.fields = function(buffer
   -- Msg Type: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.msg_type_constant_y.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -13673,7 +13650,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148.fields = function(buffer
   return index
 end
 
--- Dissect: Md Security List_148 Message
+-- Dissect: MD Security List_148 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_148.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -13716,10 +13693,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.lots.dissect = function(buffer, offset, packe
   return index
 end
 
--- Md Security List_149 Legs
+-- MD Security List_149 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_legs = {}
 
--- Dissect Fields: Md Security List_149 Legs
+-- Dissect Fields: MD Security List_149 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_legs.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -13727,10 +13704,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_legs.fields = function(b
   -- Leg Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_symbol.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id: uInt64, sent
+  -- Leg Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id Source: string, Constant
+  -- Leg Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Leg Ratio Qty: int32, Copy
@@ -13748,7 +13725,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_legs.fields = function(b
   return index
 end
 
--- Dissect: Md Security List_149 Legs
+-- Dissect: MD Security List_149 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_legs.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149_legs, buffer(offset, 0))
   local index = offset
@@ -13848,10 +13825,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.instr_attrib.dissect = function(buffer, offse
   return index
 end
 
--- Md Security List_149 Underlyings
+-- MD Security List_149 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_underlyings = {}
 
--- Dissect Fields: Md Security List_149 Underlyings
+-- Dissect Fields: MD Security List_149 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -13859,10 +13836,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_underlyings.fields = fun
   -- Underlying Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_symbol.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id: uInt64, sent
+  -- Underlying Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id Source: string, Constant
+  -- Underlying Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -13877,7 +13854,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_underlyings.fields = fun
   return index
 end
 
--- Dissect: Md Security List_149 Underlyings
+-- Dissect: MD Security List_149 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149_underlyings, buffer(offset, 0))
   local index = offset
@@ -13899,26 +13876,26 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_underlyings.dissect = fu
   return index
 end
 
--- Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds = {}
+-- Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids = {}
 
--- Dissect Fields: Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Alt Id: string, sent
+  -- Security Alt ID: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id Source: string, Copy
+  -- Security Alt ID Source: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id_source.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:149|0:|19:SecurityAltIDSource")
 
   return index
 end
 
--- Dissect: Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_i_ds, buffer(offset, 0))
+-- Dissect: Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -13932,7 +13909,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect = function(buffer, 
   presence_map = entry_map
   base = 1
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -13946,7 +13923,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.feed_types.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Md Feed Type: string, sent
+  -- MD Feed Type: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_feed_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Market Depth: uInt32, sent
@@ -13971,21 +13948,21 @@ b3_b3derivatives_umdf_fast_v5_1_15.feed_types.dissect = function(buffer, offset,
   return index
 end
 
--- Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds = {}
+-- Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids = {}
 
--- Dissect Fields: Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Feed Types: uInt32, sent, optional
+  -- No MD Feed Types: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_feed_types.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Feed Types: No Md Feed Types entries
+  -- Feed Types: No MD Feed Types entries
   local count = value or 0
   for feed_types_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.feed_types.dissect(buffer, index, packet, parent, presence_map, base, state, feed_types_index)
@@ -13994,9 +13971,9 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields = function(buffer, offset, p
   return index
 end
 
--- Dissect: Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_i_ds, buffer(offset, 0))
+-- Dissect: Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -14004,16 +13981,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect = function(buffer, offset, 
     subtree:append_text(" "..iteration)
   end
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Md Security List_149 Related Sym
+-- MD Security List_149 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_related_sym = {}
 
--- Dissect Fields: Md Security List_149 Related Sym
+-- Dissect Fields: MD Security List_149 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_related_sym.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -14021,31 +13998,31 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_related_sym.fields = fun
   -- Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.symbol_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:149|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Appl I Ds: uInt32, sent
-  index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_appl_i_ds.dissect(buffer, index, packet, parent, nil, state, nil)
+  -- No Appl IDs: uInt32, sent
+  index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_appl_ids.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl I Ds: No Appl I Ds entries
+  -- Appl IDs: No Appl IDs entries
   local count = value or 0
-  for appl_i_ds_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, appl_i_ds_index)
+  for appl_ids_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.dissect(buffer, index, packet, parent, presence_map, base, state, appl_ids_index)
   end
 
-  -- No Security Alt Id: uInt32, sent, optional
+  -- No Security Alt ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt I Ds: No Security Alt Id entries
+  -- Security Alt IDs: No Security Alt ID entries
   local count = value or 0
-  for security_alt_i_ds_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_i_ds_index)
+  for security_alt_ids_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_ids_index)
   end
 
   -- No Underlyings: uInt32, sent, optional
@@ -14171,7 +14148,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_related_sym.fields = fun
   -- Contract Settl Month: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.contract_settl_month.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cfi Code: string, sent
+  -- CFI Code: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.cfi_code.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Country Of Issue: string, sent
@@ -14198,13 +14175,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_related_sym.fields = fun
   -- Security Validity Timestamp: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_validity_timestamp_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent, optional
+  -- Market Segment ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.market_segment_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Governance Indicator: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.governance_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Corporate Action Event Id: int32, sent, optional
+  -- Corporate Action Event ID: int32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.corporate_action_event_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Group: string, sent
@@ -14216,7 +14193,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_related_sym.fields = fun
   return index
 end
 
--- Dissect: Md Security List_149 Related Sym
+-- Dissect: MD Security List_149 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_related_sym.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149_related_sym, buffer(offset, 0))
   local index = offset
@@ -14238,12 +14215,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149_related_sym.dissect = fu
   return index
 end
 
--- Md Security List_149 Message
+-- MD Security List_149 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_149
 
--- Dissect Fields: Md Security List_149 Message
+-- Dissect Fields: MD Security List_149 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -14251,7 +14228,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149.fields = function(buffer
   -- Msg Type: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.msg_type_constant_y.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -14278,7 +14255,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149.fields = function(buffer
   return index
 end
 
--- Dissect: Md Security List_149 Message
+-- Dissect: MD Security List_149 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_149.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -14321,10 +14298,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.lots.dissect = function(buffer, offset, packe
   return index
 end
 
--- Md Security List_154 Legs
+-- MD Security List_154 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_legs = {}
 
--- Dissect Fields: Md Security List_154 Legs
+-- Dissect Fields: MD Security List_154 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_legs.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -14332,10 +14309,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_legs.fields = function(b
   -- Leg Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_symbol.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id: uInt64, sent
+  -- Leg Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id Source: string, Constant
+  -- Leg Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.leg_security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Leg Ratio Qty: decimal, sent
@@ -14353,7 +14330,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_legs.fields = function(b
   return index
 end
 
--- Dissect: Md Security List_154 Legs
+-- Dissect: MD Security List_154 Legs
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_legs.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154_legs, buffer(offset, 0))
   local index = offset
@@ -14453,10 +14430,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.instr_attrib.dissect = function(buffer, offse
   return index
 end
 
--- Md Security List_154 Underlyings
+-- MD Security List_154 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_underlyings = {}
 
--- Dissect Fields: Md Security List_154 Underlyings
+-- Dissect Fields: MD Security List_154 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_underlyings.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -14464,10 +14441,10 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_underlyings.fields = fun
   -- Underlying Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_symbol.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id: uInt64, sent
+  -- Underlying Security ID: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id Source: string, Constant
+  -- Underlying Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.underlying_security_id_source_constant_required_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Underlying Security Exchange: string, Constant
@@ -14482,7 +14459,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_underlyings.fields = fun
   return index
 end
 
--- Dissect: Md Security List_154 Underlyings
+-- Dissect: MD Security List_154 Underlyings
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_underlyings.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154_underlyings, buffer(offset, 0))
   local index = offset
@@ -14504,26 +14481,26 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_underlyings.dissect = fu
   return index
 end
 
--- Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds = {}
+-- Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids = {}
 
--- Dissect Fields: Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Alt Id: string, sent
+  -- Security Alt ID: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id Source: string, Copy
+  -- Security Alt ID Source: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_id_source.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:154|0:|19:SecurityAltIDSource")
 
   return index
 end
 
--- Dissect: Security Alt I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_i_ds, buffer(offset, 0))
+-- Dissect: Security Alt IDs
+b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.security_alt_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -14537,7 +14514,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect = function(buffer, 
   presence_map = entry_map
   base = 1
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -14551,7 +14528,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.feed_types.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Md Feed Type: string, sent
+  -- MD Feed Type: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_feed_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Market Depth: uInt32, sent
@@ -14576,21 +14553,21 @@ b3_b3derivatives_umdf_fast_v5_1_15.feed_types.dissect = function(buffer, offset,
   return index
 end
 
--- Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds = {}
+-- Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids = {}
 
--- Dissect Fields: Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Feed Types: uInt32, sent, optional
+  -- No MD Feed Types: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_md_feed_types.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Feed Types: No Md Feed Types entries
+  -- Feed Types: No MD Feed Types entries
   local count = value or 0
   for feed_types_index = 1, count do
     index = b3_b3derivatives_umdf_fast_v5_1_15.feed_types.dissect(buffer, index, packet, parent, presence_map, base, state, feed_types_index)
@@ -14599,9 +14576,9 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields = function(buffer, offset, p
   return index
 end
 
--- Dissect: Appl I Ds
-b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_i_ds, buffer(offset, 0))
+-- Dissect: Appl IDs
+b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.appl_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -14609,16 +14586,16 @@ b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect = function(buffer, offset, 
     subtree:append_text(" "..iteration)
   end
 
-  index = b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Md Security List_154 Related Sym
+-- MD Security List_154 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_related_sym = {}
 
--- Dissect Fields: Md Security List_154 Related Sym
+-- Dissect Fields: MD Security List_154 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_related_sym.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -14626,31 +14603,31 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_related_sym.fields = fun
   -- Symbol: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.symbol_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, Copy
+  -- Security ID: uInt64, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:154|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_id_source_constant_required_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_exchange_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Appl I Ds: uInt32, sent
-  index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_appl_i_ds.dissect(buffer, index, packet, parent, nil, state, nil)
+  -- No Appl IDs: uInt32, sent
+  index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_appl_ids.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl I Ds: No Appl I Ds entries
+  -- Appl IDs: No Appl IDs entries
   local count = value or 0
-  for appl_i_ds_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.appl_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, appl_i_ds_index)
+  for appl_ids_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.appl_ids.dissect(buffer, index, packet, parent, presence_map, base, state, appl_ids_index)
   end
 
-  -- No Security Alt Id: uInt32, sent, optional
+  -- No Security Alt ID: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.no_security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt I Ds: No Security Alt Id entries
+  -- Security Alt IDs: No Security Alt ID entries
   local count = value or 0
-  for security_alt_i_ds_index = 1, count do
-    index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_i_ds_index)
+  for security_alt_ids_index = 1, count do
+    index = b3_b3derivatives_umdf_fast_v5_1_15.security_alt_ids.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_ids_index)
   end
 
   -- No Underlyings: uInt32, sent, optional
@@ -14776,7 +14753,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_related_sym.fields = fun
   -- Contract Settl Month: uInt32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.contract_settl_month.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cfi Code: string, sent
+  -- CFI Code: string, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.cfi_code.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Country Of Issue: string, sent
@@ -14803,13 +14780,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_related_sym.fields = fun
   -- Security Validity Timestamp: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.security_validity_timestamp_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent, optional
+  -- Market Segment ID: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.market_segment_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Governance Indicator: string, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.governance_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Corporate Action Event Id: int32, sent, optional
+  -- Corporate Action Event ID: int32, sent, optional
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.corporate_action_event_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Group: string, sent
@@ -14821,7 +14798,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_related_sym.fields = fun
   return index
 end
 
--- Dissect: Md Security List_154 Related Sym
+-- Dissect: MD Security List_154 Related Sym
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_related_sym.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154_related_sym, buffer(offset, 0))
   local index = offset
@@ -14843,12 +14820,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154_related_sym.dissect = fu
   return index
 end
 
--- Md Security List_154 Message
+-- MD Security List_154 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_security_list_154
 
--- Dissect Fields: Md Security List_154 Message
+-- Dissect Fields: MD Security List_154 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -14856,7 +14833,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154.fields = function(buffer
   -- Msg Type: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.msg_type_constant_y.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -14883,7 +14860,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154.fields = function(buffer
   return index
 end
 
--- Dissect: Md Security List_154 Message
+-- Dissect: MD Security List_154 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -14893,7 +14870,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_security_list_154.dissect = function(buffe
   return index
 end
 
--- Md Tcp Request Reject_117 Message
+-- MD Tcp Request Reject_117 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_tcp_request_reject_117 = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_tcp_request_reject_117.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_tcp_request_reject_117
@@ -14902,7 +14879,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_tcp_request_reject_117.presence = {
   [3] = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.presence_md_req_rej_reason,
 }
 
--- Dissect Fields: Md Tcp Request Reject_117 Message
+-- Dissect Fields: MD Tcp Request Reject_117 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_tcp_request_reject_117.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -14916,13 +14893,13 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_tcp_request_reject_117.fields = function(b
   -- Sending Time: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.sending_time_sent_required_u_int64.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Req Id: string, Copy
+  -- MD Req ID: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_req_id_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "10:dictionary|3:117|0:|7:MDReqID")
 
-  -- Md Req Rej Reason: string, Copy
+  -- MD Req Rej Reason: string, Copy
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.md_req_rej_reason.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "10:dictionary|3:117|0:|14:MDReqRejReason")
 
   -- Text: string, sent, optional
@@ -14931,7 +14908,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_tcp_request_reject_117.fields = function(b
   return index
 end
 
--- Dissect: Md Tcp Request Reject_117 Message
+-- Dissect: MD Tcp Request Reject_117 Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_tcp_request_reject_117.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -14941,12 +14918,12 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_tcp_request_reject_117.dissect = function(
   return index
 end
 
--- Md Non Fix Message
+-- MD Non Fix Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_non_fix = {}
 
 b3_b3derivatives_umdf_fast_v5_1_15.md_non_fix.node = omi_b3_b3derivatives_umdf_fast_v5_1_15.fields.md_non_fix
 
--- Dissect Fields: Md Non Fix Message
+-- Dissect Fields: MD Non Fix Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_non_fix.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -14960,7 +14937,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_non_fix.fields = function(buffer, offset, 
   -- Sending Time: uInt64, sent
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.sending_time_sent_required_u_int64.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = b3_b3derivatives_umdf_fast_v5_1_15.appl_ver_id_constant_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Data Len: uInt32, sent
@@ -14975,7 +14952,7 @@ b3_b3derivatives_umdf_fast_v5_1_15.md_non_fix.fields = function(buffer, offset, 
   return index
 end
 
--- Dissect: Md Non Fix Message
+-- Dissect: MD Non Fix Message
 b3_b3derivatives_umdf_fast_v5_1_15.md_non_fix.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset

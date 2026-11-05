@@ -119,7 +119,13 @@ runuser -u tester -- tshark \
   > Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json 2> Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json.stderr \
   || { echo "--- tshark FAILED (Reassembly) ---"; cat Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json.stderr; exit 1; }
 
-grep "cme.globex.ilink3.sbe.v8.5." Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json
+fields=$(grep -c "cme.globex.ilink3.sbe.v8.5." Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json) \
+  || { echo "--- no cme.globex.ilink3.sbe.v8.5 fields (Reassembly) ---"; exit 1; }
+echo "  cme.globex.ilink3.sbe.v8.5 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (Reassembly) ---"; grep -o '"Lua Error[^"]*"' Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json | sort -u | head; exit 1; }
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/Reassembly.pcap" \

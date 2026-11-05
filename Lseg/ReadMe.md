@@ -1,4 +1,4 @@
-[![Lseg](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Images/Logo.png)](https://www.lseg.com)
+[![Lseg](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Lseg/Images/Logo.png)](https://www.lseg.com)
 
 
 ## London Stock Exchange

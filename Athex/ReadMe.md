@@ -1,4 +1,4 @@
-[![Athex](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Athex/Images/Logo.png)](https://www.athexgroup.gr)
+[![Athex](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Athex/Images/Logo.png)](https://www.athexgroup.gr)
 
 
 ## Athens Exchange Group
@@ -11,13 +11,7 @@
 | [AthexDerivatives][AthexDerivatives.Exchange] | [Relaxed][Athex.AthexDerivatives.Relaxed] | [Ids][Omi.Encoding.Ids] | [5.2][Athex.AthexDerivatives.Relaxed.Ids.v5.2.Dissector] | 11/1/2019 | 2575 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Athex.AthexDerivatives.Relaxed.Ids.v5.2.Url] - [pdf][Athex.AthexDerivatives.Relaxed.Ids.v5.2.Pdf] |
 | [AthexSecurities][AthexSecurities.Exchange] | [RealTime][Athex.AthexSecurities.RealTime] | [Ids][Omi.Encoding.Ids] | [5.2][Athex.AthexSecurities.RealTime.Ids.v5.2.Dissector] | 11/1/2019 | 4393 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Athex.AthexSecurities.RealTime.Ids.v5.2.Url] - [pdf][Athex.AthexSecurities.RealTime.Ids.v5.2.Pdf] |
 | [AthexSecurities][AthexSecurities.Exchange] | [Relaxed][Athex.AthexSecurities.Relaxed] | [Ids][Omi.Encoding.Ids] | [5.2][Athex.AthexSecurities.Relaxed.Ids.v5.2.Dissector] | 11/1/2019 | 2575 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Athex.AthexSecurities.Relaxed.Ids.v5.2.Url] - [pdf][Athex.AthexSecurities.Relaxed.Ids.v5.2.Pdf] |
-
-
-### Protocols
-
-| Division | [Protocol][Omi.Athex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Athex.Specifications] |
-| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Oasis][Oasis.Platform] | [Mdfs][Athex.Oasis.Mdfs] | [Fast][Omi.Encoding.Fast] | [9][Athex.Oasis.Mdfs.Fast.v9.Dissector] | 12/2/2025 | 8958 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Athex.Oasis.Mdfs.Fast.v9.Url] - [pdf][Athex.Oasis.Mdfs.Fast.v9.Pdf] - [xml][Athex.Oasis.Mdfs.Fast.v9.Xml] |
+| [Oasis][Oasis.Platform] | [Mdfs][Athex.Oasis.Mdfs] | [Fast][Omi.Encoding.Fast] | [9][Athex.Oasis.Mdfs.Fast.v9.Dissector] | 12/2/2025 | 8914 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Athex.Oasis.Mdfs.Fast.v9.Url] - [pdf][Athex.Oasis.Mdfs.Fast.v9.Pdf] - [xml][Athex.Oasis.Mdfs.Fast.v9.Xml] |
 
 
 <p align="center"><a href="https://www.athexgroup.gr" title="Athens Exchange Group Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Athens_Stock_Exchange" title="Athens Exchange Group on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

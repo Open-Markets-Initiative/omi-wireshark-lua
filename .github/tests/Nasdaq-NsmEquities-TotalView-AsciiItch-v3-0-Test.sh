@@ -182,6 +182,12 @@ runuser -u tester -- tshark \
   > Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json 2> Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json.stderr; exit 1; }
 
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0." Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json
+fields=$(grep -c "nasdaq.nsmequities.totalview.asciiitch.v3.0." Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json) \
+  || { echo "--- no nasdaq.nsmequities.totalview.asciiitch.v3.0 fields (MultipleMessages) ---"; exit 1; }
+echo "  nasdaq.nsmequities.totalview.asciiitch.v3.0 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'nasdaq.nsmequities.totalview.asciiitch.v3.0.' Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

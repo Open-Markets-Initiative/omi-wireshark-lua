@@ -32,35 +32,35 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.presence_message_encoding
 -- Moex Asts MarketDataMulticast Fast 2025.10 Fields
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.message_type = ProtoField.new("Message Type", "moex.asts.marketdatamulticast.fast.v2025.10.messagetype", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.begin_string = ProtoField.new("Begin String", "moex.asts.marketdatamulticast.fast.v2025.10.beginstring", ftypes.STRING)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sender_comp_id = ProtoField.new("Sender Comp Id", "moex.asts.marketdatamulticast.fast.v2025.10.sendercompid", ftypes.STRING)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.target_comp_id = ProtoField.new("Target Comp Id", "moex.asts.marketdatamulticast.fast.v2025.10.targetcompid", ftypes.STRING)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "moex.asts.marketdatamulticast.fast.v2025.10.sendercompid", ftypes.STRING)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.target_comp_id = ProtoField.new("Target Comp ID", "moex.asts.marketdatamulticast.fast.v2025.10.targetcompid", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "moex.asts.marketdatamulticast.fast.v2025.10.msgseqnum", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sending_time = ProtoField.new("Sending Time", "moex.asts.marketdatamulticast.fast.v2025.10.sendingtime", ftypes.UINT64)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "moex.asts.marketdatamulticast.fast.v2025.10.heartbtint", ftypes.INT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.username = ProtoField.new("Username", "moex.asts.marketdatamulticast.fast.v2025.10.username", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.password = ProtoField.new("Password", "moex.asts.marketdatamulticast.fast.v2025.10.password", ftypes.STRING)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.default_appl_ver_id = ProtoField.new("Default Appl Ver Id", "moex.asts.marketdatamulticast.fast.v2025.10.defaultapplverid", ftypes.STRING)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.default_appl_ver_id = ProtoField.new("Default Appl Ver ID", "moex.asts.marketdatamulticast.fast.v2025.10.defaultapplverid", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.text = ProtoField.new("Text", "moex.asts.marketdatamulticast.fast.v2025.10.text", ftypes.STRING)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.appl_ver_id = ProtoField.new("Appl Ver Id", "moex.asts.marketdatamulticast.fast.v2025.10.applverid", ftypes.STRING)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_id = ProtoField.new("Trading Session Id", "moex.asts.marketdatamulticast.fast.v2025.10.tradingsessionid", ftypes.STRING)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.appl_ver_id = ProtoField.new("Appl Ver ID", "moex.asts.marketdatamulticast.fast.v2025.10.applverid", ftypes.STRING)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_id = ProtoField.new("Trading Session ID", "moex.asts.marketdatamulticast.fast.v2025.10.tradingsessionid", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.symbol = ProtoField.new("Symbol", "moex.asts.marketdatamulticast.fast.v2025.10.symbol", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "moex.asts.marketdatamulticast.fast.v2025.10.lastmsgseqnumprocessed", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.rpt_seq = ProtoField.new("Rpt Seq", "moex.asts.marketdatamulticast.fast.v2025.10.rptseq", ftypes.INT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.last_fragment = ProtoField.new("Last Fragment", "moex.asts.marketdatamulticast.fast.v2025.10.lastfragment", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.route_first = ProtoField.new("Route First", "moex.asts.marketdatamulticast.fast.v2025.10.routefirst", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "moex.asts.marketdatamulticast.fast.v2025.10.tradsesstatus", ftypes.INT32)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_security_trading_status = ProtoField.new("Md Security Trading Status", "moex.asts.marketdatamulticast.fast.v2025.10.mdsecuritytradingstatus", ftypes.INT32)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_security_trading_status = ProtoField.new("MD Security Trading Status", "moex.asts.marketdatamulticast.fast.v2025.10.mdsecuritytradingstatus", ftypes.INT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.auction_indicator = ProtoField.new("Auction Indicator", "moex.asts.marketdatamulticast.fast.v2025.10.auctionindicator", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "moex.asts.marketdatamulticast.fast.v2025.10.netchgprevday", ftypes.DOUBLE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.price_improvement = ProtoField.new("Price Improvement", "moex.asts.marketdatamulticast.fast.v2025.10.priceimprovement", ftypes.DOUBLE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.no_md_entries = ProtoField.new("No Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.nomdentries", ftypes.UINT32)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type = ProtoField.new("Md Entry Type", "moex.asts.marketdatamulticast.fast.v2025.10.mdentrytype", ftypes.STRING)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_id = ProtoField.new("Md Entry Id", "moex.asts.marketdatamulticast.fast.v2025.10.mdentryid", ftypes.STRING)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date = ProtoField.new("Md Entry Date", "moex.asts.marketdatamulticast.fast.v2025.10.mdentrydate", ftypes.UINT32)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time = ProtoField.new("Md Entry Time", "moex.asts.marketdatamulticast.fast.v2025.10.mdentrytime", ftypes.UINT32)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.no_md_entries = ProtoField.new("No MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.nomdentries", ftypes.UINT32)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type = ProtoField.new("MD Entry Type", "moex.asts.marketdatamulticast.fast.v2025.10.mdentrytype", ftypes.STRING)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_id = ProtoField.new("MD Entry ID", "moex.asts.marketdatamulticast.fast.v2025.10.mdentryid", ftypes.STRING)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date = ProtoField.new("MD Entry Date", "moex.asts.marketdatamulticast.fast.v2025.10.mdentrydate", ftypes.UINT32)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time = ProtoField.new("MD Entry Time", "moex.asts.marketdatamulticast.fast.v2025.10.mdentrytime", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.orig_time = ProtoField.new("Orig Time", "moex.asts.marketdatamulticast.fast.v2025.10.origtime", ftypes.UINT32)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_px = ProtoField.new("Md Entry Px", "moex.asts.marketdatamulticast.fast.v2025.10.mdentrypx", ftypes.DOUBLE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_size = ProtoField.new("Md Entry Size", "moex.asts.marketdatamulticast.fast.v2025.10.mdentrysize", ftypes.DOUBLE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_px = ProtoField.new("MD Entry Px", "moex.asts.marketdatamulticast.fast.v2025.10.mdentrypx", ftypes.DOUBLE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_size = ProtoField.new("MD Entry Size", "moex.asts.marketdatamulticast.fast.v2025.10.mdentrysize", ftypes.DOUBLE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.quote_condition = ProtoField.new("Quote Condition", "moex.asts.marketdatamulticast.fast.v2025.10.quotecondition", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trade_condition = ProtoField.new("Trade Condition", "moex.asts.marketdatamulticast.fast.v2025.10.tradecondition", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "moex.asts.marketdatamulticast.fast.v2025.10.openclosesettlflag", ftypes.STRING)
@@ -68,7 +68,7 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.ord_type = ProtoField.new
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.effective_time = ProtoField.new("Effective Time", "moex.asts.marketdatamulticast.fast.v2025.10.effectivetime", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.start_time = ProtoField.new("Start Time", "moex.asts.marketdatamulticast.fast.v2025.10.starttime", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.accrued_interest_amt = ProtoField.new("Accrued Interest Amt", "moex.asts.marketdatamulticast.fast.v2025.10.accruedinterestamt", ftypes.DOUBLE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.chg_from_wa_price = ProtoField.new("Chg From Wa Price", "moex.asts.marketdatamulticast.fast.v2025.10.chgfromwaprice", ftypes.DOUBLE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.chg_from_wa_price = ProtoField.new("Chg From WA Price", "moex.asts.marketdatamulticast.fast.v2025.10.chgfromwaprice", ftypes.DOUBLE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.chg_open_interest = ProtoField.new("Chg Open Interest", "moex.asts.marketdatamulticast.fast.v2025.10.chgopeninterest", ftypes.DOUBLE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.bid_market_size = ProtoField.new("Bid Market Size", "moex.asts.marketdatamulticast.fast.v2025.10.bidmarketsize", ftypes.DOUBLE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.ask_market_size = ProtoField.new("Ask Market Size", "moex.asts.marketdatamulticast.fast.v2025.10.askmarketsize", ftypes.DOUBLE)
@@ -97,20 +97,20 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.nominal_value = ProtoFiel
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.repo_to_px = ProtoField.new("Repo To Px", "moex.asts.marketdatamulticast.fast.v2025.10.repotopx", ftypes.DOUBLE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.buy_back_px = ProtoField.new("Buy Back Px", "moex.asts.marketdatamulticast.fast.v2025.10.buybackpx", ftypes.DOUBLE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.buy_back_date = ProtoField.new("Buy Back Date", "moex.asts.marketdatamulticast.fast.v2025.10.buybackdate", ftypes.UINT32)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.cx_flag = ProtoField.new("Cx Flag", "moex.asts.marketdatamulticast.fast.v2025.10.cxflag", ftypes.UINT32)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "moex.asts.marketdatamulticast.fast.v2025.10.tradingsessionsubid", ftypes.STRING)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.pml_upper_limit = ProtoField.new("Pml Upper Limit", "moex.asts.marketdatamulticast.fast.v2025.10.pmlupperlimit", ftypes.DOUBLE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.pml_lower_limit = ProtoField.new("Pml Lower Limit", "moex.asts.marketdatamulticast.fast.v2025.10.pmllowerlimit", ftypes.DOUBLE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action = ProtoField.new("Md Update Action", "moex.asts.marketdatamulticast.fast.v2025.10.mdupdateaction", ftypes.UINT32)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.cx_flag = ProtoField.new("CX Flag", "moex.asts.marketdatamulticast.fast.v2025.10.cxflag", ftypes.UINT32)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub ID", "moex.asts.marketdatamulticast.fast.v2025.10.tradingsessionsubid", ftypes.STRING)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.pml_upper_limit = ProtoField.new("PML Upper Limit", "moex.asts.marketdatamulticast.fast.v2025.10.pmlupperlimit", ftypes.DOUBLE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.pml_lower_limit = ProtoField.new("PML Lower Limit", "moex.asts.marketdatamulticast.fast.v2025.10.pmllowerlimit", ftypes.DOUBLE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action = ProtoField.new("MD Update Action", "moex.asts.marketdatamulticast.fast.v2025.10.mdupdateaction", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.repo_term = ProtoField.new("Repo Term", "moex.asts.marketdatamulticast.fast.v2025.10.repoterm", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.liquidity_type = ProtoField.new("Liquidity Type", "moex.asts.marketdatamulticast.fast.v2025.10.liquiditytype", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trade_session_date = ProtoField.new("Trade Session Date", "moex.asts.marketdatamulticast.fast.v2025.10.tradesessiondate", ftypes.UINT32)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.ref_order_id = ProtoField.new("Ref Order Id", "moex.asts.marketdatamulticast.fast.v2025.10.reforderid", ftypes.STRING)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.ref_order_id = ProtoField.new("Ref Order ID", "moex.asts.marketdatamulticast.fast.v2025.10.reforderid", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.last_update_time = ProtoField.new("Last Update Time", "moex.asts.marketdatamulticast.fast.v2025.10.lastupdatetime", ftypes.UINT64)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.message_encoding = ProtoField.new("Message Encoding", "moex.asts.marketdatamulticast.fast.v2025.10.messageencoding", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.tot_num_reports = ProtoField.new("Tot Num Reports", "moex.asts.marketdatamulticast.fast.v2025.10.totnumreports", ftypes.INT32)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_id = ProtoField.new("Security Id", "moex.asts.marketdatamulticast.fast.v2025.10.securityid", ftypes.BYTES)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_id_source = ProtoField.new("Security Id Source", "moex.asts.marketdatamulticast.fast.v2025.10.securityidsource", ftypes.BYTES)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_id = ProtoField.new("Security ID", "moex.asts.marketdatamulticast.fast.v2025.10.securityid", ftypes.BYTES)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_id_source = ProtoField.new("Security ID Source", "moex.asts.marketdatamulticast.fast.v2025.10.securityidsource", ftypes.BYTES)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.product = ProtoField.new("Product", "moex.asts.marketdatamulticast.fast.v2025.10.product", ftypes.INT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.evening_session = ProtoField.new("Evening Session", "moex.asts.marketdatamulticast.fast.v2025.10.eveningsession", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.morning_session = ProtoField.new("Morning Session", "moex.asts.marketdatamulticast.fast.v2025.10.morningsession", ftypes.UINT32)
@@ -122,7 +122,7 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.subordbond = ProtoField.n
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.gc_pool_id = ProtoField.new("Gc Pool Id", "moex.asts.marketdatamulticast.fast.v2025.10.gcpoolid", ftypes.BYTES)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.high_risk = ProtoField.new("High Risk", "moex.asts.marketdatamulticast.fast.v2025.10.highrisk", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.coupon_start_date = ProtoField.new("Coupon Start Date", "moex.asts.marketdatamulticast.fast.v2025.10.couponstartdate", ftypes.UINT32)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.cfi_code = ProtoField.new("Cfi Code", "moex.asts.marketdatamulticast.fast.v2025.10.cficode", ftypes.BYTES)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.cfi_code = ProtoField.new("CFI Code", "moex.asts.marketdatamulticast.fast.v2025.10.cficode", ftypes.BYTES)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_type = ProtoField.new("Security Type", "moex.asts.marketdatamulticast.fast.v2025.10.securitytype", ftypes.BYTES)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.maturity_date = ProtoField.new("Maturity Date", "moex.asts.marketdatamulticast.fast.v2025.10.maturitydate", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.orig_issue_amt = ProtoField.new("Orig Issue Amt", "moex.asts.marketdatamulticast.fast.v2025.10.origissueamt", ftypes.DOUBLE)
@@ -144,7 +144,7 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.no_trading_session_rules 
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_trading_status = ProtoField.new("Security Trading Status", "moex.asts.marketdatamulticast.fast.v2025.10.securitytradingstatus", ftypes.INT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.order_note = ProtoField.new("Order Note", "moex.asts.marketdatamulticast.fast.v2025.10.ordernote", ftypes.INT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_currency = ProtoField.new("Settl Currency", "moex.asts.marketdatamulticast.fast.v2025.10.settlcurrency", ftypes.STRING)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.state_security_id = ProtoField.new("State Security Id", "moex.asts.marketdatamulticast.fast.v2025.10.statesecurityid", ftypes.BYTES)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.state_security_id = ProtoField.new("State Security ID", "moex.asts.marketdatamulticast.fast.v2025.10.statesecurityid", ftypes.BYTES)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.encoded_short_security_desc = ProtoField.new("Encoded Short Security Desc", "moex.asts.marketdatamulticast.fast.v2025.10.encodedshortsecuritydesc", ftypes.BYTES)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.market_code = ProtoField.new("Market Code", "moex.asts.marketdatamulticast.fast.v2025.10.marketcode", ftypes.BYTES)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.min_price_increment = ProtoField.new("Min Price Increment", "moex.asts.marketdatamulticast.fast.v2025.10.minpriceincrement", ftypes.DOUBLE)
@@ -163,29 +163,29 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.num_of_days_to_maturity =
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.a = ProtoField.new("A Message", "moex.asts.marketdatamulticast.fast.v2025.10.a", ftypes.NONE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields._5 = ProtoField.new("5 Message", "moex.asts.marketdatamulticast.fast.v2025.10.5", ftypes.NONE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.w_generic = ProtoField.new("W- Generic Message", "moex.asts.marketdatamulticast.fast.v2025.10.wgeneric", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.w_generic_group_md_entries = ProtoField.new("W- Generic Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.wgenericgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.w_generic_group_md_entries = ProtoField.new("W- Generic Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.wgenericgroupmdentries", ftypes.NONE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.x_generic = ProtoField.new("X- Generic Message", "moex.asts.marketdatamulticast.fast.v2025.10.xgeneric", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.x_generic_group_md_entries = ProtoField.new("X- Generic Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xgenericgroupmdentries", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolsfond = ProtoField.new("W-ols-fond Message", "moex.asts.marketdatamulticast.fast.v2025.10.wolsfond", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolsfond_group_md_entries = ProtoField.new("W-ols-fond Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.wolsfondgroupmdentries", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolscurr = ProtoField.new("W-ols-curr Message", "moex.asts.marketdatamulticast.fast.v2025.10.wolscurr", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolscurr_group_md_entries = ProtoField.new("W-ols-curr Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.wolscurrgroupmdentries", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlsfond = ProtoField.new("W-tls-fond Message", "moex.asts.marketdatamulticast.fast.v2025.10.wtlsfond", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlsfond_group_md_entries = ProtoField.new("W-tls-fond Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.wtlsfondgroupmdentries", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlscurr = ProtoField.new("W-tls-curr Message", "moex.asts.marketdatamulticast.fast.v2025.10.wtlscurr", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlscurr_group_md_entries = ProtoField.new("W-tls-curr Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.wtlscurrgroupmdentries", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrfond = ProtoField.new("X-msr-fond Message", "moex.asts.marketdatamulticast.fast.v2025.10.xmsrfond", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrfond_group_md_entries = ProtoField.new("X-msr-fond Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xmsrfondgroupmdentries", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrcurr = ProtoField.new("X-msr-curr Message", "moex.asts.marketdatamulticast.fast.v2025.10.xmsrcurr", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrcurr_group_md_entries = ProtoField.new("X-msr-curr Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xmsrcurrgroupmdentries", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrfond = ProtoField.new("X-olr-fond Message", "moex.asts.marketdatamulticast.fast.v2025.10.xolrfond", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrfond_group_md_entries = ProtoField.new("X-olr-fond Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xolrfondgroupmdentries", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrcurr = ProtoField.new("X-olr-curr Message", "moex.asts.marketdatamulticast.fast.v2025.10.xolrcurr", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrcurr_group_md_entries = ProtoField.new("X-olr-curr Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xolrcurrgroupmdentries", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrfond = ProtoField.new("X-tlr-fond Message", "moex.asts.marketdatamulticast.fast.v2025.10.xtlrfond", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrfond_group_md_entries = ProtoField.new("X-tlr-fond Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xtlrfondgroupmdentries", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrcurr = ProtoField.new("X-tlr-curr Message", "moex.asts.marketdatamulticast.fast.v2025.10.xtlrcurr", ftypes.NONE)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrcurr_group_md_entries = ProtoField.new("X-tlr-curr Group Md Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xtlrcurrgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.x_generic_group_md_entries = ProtoField.new("X- Generic Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xgenericgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolsfond = ProtoField.new("W-OLS-FOND Message", "moex.asts.marketdatamulticast.fast.v2025.10.wolsfond", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolsfond_group_md_entries = ProtoField.new("W-OLS-FOND Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.wolsfondgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolscurr = ProtoField.new("W-OLS-CURR Message", "moex.asts.marketdatamulticast.fast.v2025.10.wolscurr", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolscurr_group_md_entries = ProtoField.new("W-OLS-CURR Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.wolscurrgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlsfond = ProtoField.new("W-TLS-FOND Message", "moex.asts.marketdatamulticast.fast.v2025.10.wtlsfond", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlsfond_group_md_entries = ProtoField.new("W-TLS-FOND Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.wtlsfondgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlscurr = ProtoField.new("W-TLS-CURR Message", "moex.asts.marketdatamulticast.fast.v2025.10.wtlscurr", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlscurr_group_md_entries = ProtoField.new("W-TLS-CURR Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.wtlscurrgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrfond = ProtoField.new("X-MSR-FOND Message", "moex.asts.marketdatamulticast.fast.v2025.10.xmsrfond", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrfond_group_md_entries = ProtoField.new("X-MSR-FOND Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xmsrfondgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrcurr = ProtoField.new("X-MSR-CURR Message", "moex.asts.marketdatamulticast.fast.v2025.10.xmsrcurr", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrcurr_group_md_entries = ProtoField.new("X-MSR-CURR Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xmsrcurrgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrfond = ProtoField.new("X-OLR-FOND Message", "moex.asts.marketdatamulticast.fast.v2025.10.xolrfond", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrfond_group_md_entries = ProtoField.new("X-OLR-FOND Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xolrfondgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrcurr = ProtoField.new("X-OLR-CURR Message", "moex.asts.marketdatamulticast.fast.v2025.10.xolrcurr", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrcurr_group_md_entries = ProtoField.new("X-OLR-CURR Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xolrcurrgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrfond = ProtoField.new("X-TLR-FOND Message", "moex.asts.marketdatamulticast.fast.v2025.10.xtlrfond", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrfond_group_md_entries = ProtoField.new("X-TLR-FOND Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xtlrfondgroupmdentries", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrcurr = ProtoField.new("X-TLR-CURR Message", "moex.asts.marketdatamulticast.fast.v2025.10.xtlrcurr", ftypes.NONE)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrcurr_group_md_entries = ProtoField.new("X-TLR-CURR Group MD Entries", "moex.asts.marketdatamulticast.fast.v2025.10.xtlrcurrgroupmdentries", ftypes.NONE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.d = ProtoField.new("D Message", "moex.asts.marketdatamulticast.fast.v2025.10.d", ftypes.NONE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.group_instr_attrib = ProtoField.new("Group Instr Attrib", "moex.asts.marketdatamulticast.fast.v2025.10.groupinstrattrib", ftypes.NONE)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.market_segment_grp = ProtoField.new("Market Segment Grp", "moex.asts.marketdatamulticast.fast.v2025.10.marketsegmentgrp", ftypes.NONE)
@@ -800,10 +800,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect = function(buff
   return offset, value
 end
 
--- Sender Comp Id
+-- Sender Comp ID
 moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id = {}
 
--- Dissect: Sender Comp Id
+-- Dissect: Sender Comp ID
 moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -816,16 +816,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect = function(bu
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sender_comp_id, range, "")
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
 end
 
--- Target Comp Id
+-- Target Comp ID
 moex_asts_marketdatamulticast_fast_v2025_10.target_comp_id = {}
 
--- Dissect: Target Comp Id
+-- Dissect: Target Comp ID
 moex_asts_marketdatamulticast_fast_v2025_10.target_comp_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -838,7 +838,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.target_comp_id.dissect = function(bu
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.target_comp_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.target_comp_id, range, "")
-    absent:set_text("Target Comp Id: No Value")
+    absent:set_text("Target Comp ID: No Value")
   end
 
   return offset, value
@@ -989,10 +989,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.password.dissect = function(buffer, 
   return offset, value
 end
 
--- Default Appl Ver Id
+-- Default Appl Ver ID
 moex_asts_marketdatamulticast_fast_v2025_10.default_appl_ver_id = {}
 
--- Dissect: Default Appl Ver Id
+-- Dissect: Default Appl Ver ID
 moex_asts_marketdatamulticast_fast_v2025_10.default_appl_ver_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1005,7 +1005,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.default_appl_ver_id.dissect = functi
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.default_appl_ver_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.default_appl_ver_id, range, "")
-    absent:set_text("Default Appl Ver Id: No Value")
+    absent:set_text("Default Appl Ver ID: No Value")
   end
 
   return offset, value
@@ -1033,10 +1033,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.text.dissect = function(buffer, offs
   return offset, value
 end
 
--- Appl Ver Id
+-- Appl Ver ID
 moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id = {}
 
--- Dissect: Appl Ver Id
+-- Dissect: Appl Ver ID
 moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1049,16 +1049,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect = function(buffe
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.appl_ver_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.appl_ver_id, range, "")
-    absent:set_text("Appl Ver Id: No Value")
+    absent:set_text("Appl Ver ID: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Id (Sent)
+-- Trading Session ID (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional = {}
 
--- Dissect: Trading Session Id (Sent)
+-- Dissect: Trading Session ID (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1071,16 +1071,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dis
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_id, range, "")
-    absent:set_text("Trading Session Id: No Value")
+    absent:set_text("Trading Session ID: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Id (Copy)
+-- Trading Session ID (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_copy = {}
 
--- Dissect: Trading Session Id (Copy)
+-- Dissect: Trading Session ID (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1099,16 +1099,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_copy.dissect = fu
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_id, range, "")
-    absent:set_text("Trading Session Id: No Value")
+    absent:set_text("Trading Session ID: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Id (Sent)
+-- Trading Session ID (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_required = {}
 
--- Dissect: Trading Session Id (Sent)
+-- Dissect: Trading Session ID (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1121,7 +1121,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_required.dis
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_id, range, "")
-    absent:set_text("Trading Session Id: No Value")
+    absent:set_text("Trading Session ID: No Value")
   end
 
   return offset, value
@@ -1353,10 +1353,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.trad_ses_status_sent_required.dissec
   return offset, value
 end
 
--- Md Security Trading Status
+-- MD Security Trading Status
 moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status = {}
 
--- Dissect: Md Security Trading Status
+-- Dissect: MD Security Trading Status
 moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1369,7 +1369,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status.dissect =
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_security_trading_status, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_security_trading_status, range, 0)
-    absent:set_text("Md Security Trading Status: No Value")
+    absent:set_text("MD Security Trading Status: No Value")
   end
 
   return offset, value
@@ -1487,10 +1487,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.price_improvement.dissect = function
   return offset, value
 end
 
--- No Md Entries
+-- No MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries = {}
 
--- Dissect: No Md Entries
+-- Dissect: No MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1503,16 +1503,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect = function(buf
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.no_md_entries, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.no_md_entries, range, 0)
-    absent:set_text("No Md Entries: No Value")
+    absent:set_text("No MD Entries: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Type (Sent)
+-- MD Entry Type (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional = {}
 
--- Dissect: Md Entry Type (Sent)
+-- Dissect: MD Entry Type (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1525,16 +1525,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional.dissect 
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, "")
-    absent:set_text("Md Entry Type: No Value")
+    absent:set_text("MD Entry Type: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Type (Copy)
+-- MD Entry Type (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy = {}
 
--- Dissect: Md Entry Type (Copy)
+-- Dissect: MD Entry Type (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1553,16 +1553,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy.dissect = functio
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, "")
-    absent:set_text("Md Entry Type: No Value")
+    absent:set_text("MD Entry Type: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Type (Sent)
+-- MD Entry Type (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required = {}
 
--- Dissect: Md Entry Type (Sent)
+-- Dissect: MD Entry Type (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1575,16 +1575,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required.dissect 
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, "")
-    absent:set_text("Md Entry Type: No Value")
+    absent:set_text("MD Entry Type: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Id
+-- MD Entry ID
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id = {}
 
--- Dissect: Md Entry Id
+-- Dissect: MD Entry ID
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1597,16 +1597,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect = function(buffe
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_id, range, "")
-    absent:set_text("Md Entry Id: No Value")
+    absent:set_text("MD Entry ID: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Date (Sent)
+-- MD Entry Date (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent = {}
 
--- Dissect: Md Entry Date (Sent)
+-- Dissect: MD Entry Date (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1619,16 +1619,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.dissect = functio
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, 0)
-    absent:set_text("Md Entry Date: No Value")
+    absent:set_text("MD Entry Date: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Date (Copy)
+-- MD Entry Date (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy = {}
 
--- Dissect: Md Entry Date (Copy)
+-- Dissect: MD Entry Date (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1647,16 +1647,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.dissect = functio
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, 0)
-    absent:set_text("Md Entry Date: No Value")
+    absent:set_text("MD Entry Date: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Time (Sent)
+-- MD Entry Time (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent = {}
 
--- Dissect: Md Entry Time (Sent)
+-- Dissect: MD Entry Time (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1669,16 +1669,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.dissect = functio
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, 0)
-    absent:set_text("Md Entry Time: No Value")
+    absent:set_text("MD Entry Time: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Time (Copy)
+-- MD Entry Time (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy = {}
 
--- Dissect: Md Entry Time (Copy)
+-- Dissect: MD Entry Time (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1697,7 +1697,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.dissect = functio
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, 0)
-    absent:set_text("Md Entry Time: No Value")
+    absent:set_text("MD Entry Time: No Value")
   end
 
   return offset, value
@@ -1753,19 +1753,19 @@ moex_asts_marketdatamulticast_fast_v2025_10.orig_time_copy.dissect = function(bu
   return offset, value
 end
 
--- Md Entry Px (Sent)
+-- MD Entry Px (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_sent = {}
 
--- Display: Md Entry Px (Sent)
+-- Display: MD Entry Px (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_sent.display = function(value)
   if value == nil then
-    return "Md Entry Px: No Value"
+    return "MD Entry Px: No Value"
   end
 
-  return "Md Entry Px: "..value
+  return "MD Entry Px: "..value
 end
 
--- Dissect: Md Entry Px (Sent)
+-- Dissect: MD Entry Px (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1798,19 +1798,19 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_sent.dissect = function(
   return offset, value
 end
 
--- Md Entry Px (Copy)
+-- MD Entry Px (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_copy = {}
 
--- Display: Md Entry Px (Copy)
+-- Display: MD Entry Px (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_copy.display = function(value)
   if value == nil then
-    return "Md Entry Px: No Value"
+    return "MD Entry Px: No Value"
   end
 
-  return "Md Entry Px: "..value
+  return "MD Entry Px: "..value
 end
 
--- Dissect: Md Entry Px (Copy)
+-- Dissect: MD Entry Px (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1850,19 +1850,19 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_copy.dissect = function(
   return offset, value
 end
 
--- Md Entry Size (Sent)
+-- MD Entry Size (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_sent = {}
 
--- Display: Md Entry Size (Sent)
+-- Display: MD Entry Size (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_sent.display = function(value)
   if value == nil then
-    return "Md Entry Size: No Value"
+    return "MD Entry Size: No Value"
   end
 
-  return "Md Entry Size: "..value
+  return "MD Entry Size: "..value
 end
 
--- Dissect: Md Entry Size (Sent)
+-- Dissect: MD Entry Size (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1895,19 +1895,19 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_sent.dissect = functio
   return offset, value
 end
 
--- Md Entry Size (Copy)
+-- MD Entry Size (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_copy = {}
 
--- Display: Md Entry Size (Copy)
+-- Display: MD Entry Size (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_copy.display = function(value)
   if value == nil then
-    return "Md Entry Size: No Value"
+    return "MD Entry Size: No Value"
   end
 
-  return "Md Entry Size: "..value
+  return "MD Entry Size: "..value
 end
 
--- Dissect: Md Entry Size (Copy)
+-- Dissect: MD Entry Size (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2204,19 +2204,19 @@ moex_asts_marketdatamulticast_fast_v2025_10.accrued_interest_amt_copy.dissect = 
   return offset, value
 end
 
--- Chg From Wa Price
+-- Chg From WA Price
 moex_asts_marketdatamulticast_fast_v2025_10.chg_from_wa_price = {}
 
--- Display: Chg From Wa Price
+-- Display: Chg From WA Price
 moex_asts_marketdatamulticast_fast_v2025_10.chg_from_wa_price.display = function(value)
   if value == nil then
-    return "Chg From Wa Price: No Value"
+    return "Chg From WA Price: No Value"
   end
 
-  return "Chg From Wa Price: "..value
+  return "Chg From WA Price: "..value
 end
 
--- Dissect: Chg From Wa Price
+-- Dissect: Chg From WA Price
 moex_asts_marketdatamulticast_fast_v2025_10.chg_from_wa_price.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3700,10 +3700,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_copy.dissect = functio
   return offset, value
 end
 
--- Cx Flag
+-- CX Flag
 moex_asts_marketdatamulticast_fast_v2025_10.cx_flag = {}
 
--- Dissect: Cx Flag
+-- Dissect: CX Flag
 moex_asts_marketdatamulticast_fast_v2025_10.cx_flag.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3716,16 +3716,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.cx_flag.dissect = function(buffer, o
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.cx_flag, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.cx_flag, range, 0)
-    absent:set_text("Cx Flag: No Value")
+    absent:set_text("CX Flag: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Sub Id (Sent)
+-- Trading Session Sub ID (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent = {}
 
--- Dissect: Trading Session Sub Id (Sent)
+-- Dissect: Trading Session Sub ID (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3738,16 +3738,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent.dissect 
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_sub_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_sub_id, range, "")
-    absent:set_text("Trading Session Sub Id: No Value")
+    absent:set_text("Trading Session Sub ID: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Sub Id (Copy)
+-- Trading Session Sub ID (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_copy = {}
 
--- Dissect: Trading Session Sub Id (Copy)
+-- Dissect: Trading Session Sub ID (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3766,25 +3766,25 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_copy.dissect 
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_sub_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trading_session_sub_id, range, "")
-    absent:set_text("Trading Session Sub Id: No Value")
+    absent:set_text("Trading Session Sub ID: No Value")
   end
 
   return offset, value
 end
 
--- Pml Upper Limit
+-- PML Upper Limit
 moex_asts_marketdatamulticast_fast_v2025_10.pml_upper_limit = {}
 
--- Display: Pml Upper Limit
+-- Display: PML Upper Limit
 moex_asts_marketdatamulticast_fast_v2025_10.pml_upper_limit.display = function(value)
   if value == nil then
-    return "Pml Upper Limit: No Value"
+    return "PML Upper Limit: No Value"
   end
 
-  return "Pml Upper Limit: "..value
+  return "PML Upper Limit: "..value
 end
 
--- Dissect: Pml Upper Limit
+-- Dissect: PML Upper Limit
 moex_asts_marketdatamulticast_fast_v2025_10.pml_upper_limit.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3817,19 +3817,19 @@ moex_asts_marketdatamulticast_fast_v2025_10.pml_upper_limit.dissect = function(b
   return offset, value
 end
 
--- Pml Lower Limit
+-- PML Lower Limit
 moex_asts_marketdatamulticast_fast_v2025_10.pml_lower_limit = {}
 
--- Display: Pml Lower Limit
+-- Display: PML Lower Limit
 moex_asts_marketdatamulticast_fast_v2025_10.pml_lower_limit.display = function(value)
   if value == nil then
-    return "Pml Lower Limit: No Value"
+    return "PML Lower Limit: No Value"
   end
 
-  return "Pml Lower Limit: "..value
+  return "PML Lower Limit: "..value
 end
 
--- Dissect: Pml Lower Limit
+-- Dissect: PML Lower Limit
 moex_asts_marketdatamulticast_fast_v2025_10.pml_lower_limit.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3862,10 +3862,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.pml_lower_limit.dissect = function(b
   return offset, value
 end
 
--- Md Update Action (Sent)
+-- MD Update Action (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent = {}
 
--- Dissect: Md Update Action (Sent)
+-- Dissect: MD Update Action (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3878,16 +3878,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.dissect = func
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, 0)
-    absent:set_text("Md Update Action: No Value")
+    absent:set_text("MD Update Action: No Value")
   end
 
   return offset, value
 end
 
--- Md Update Action (Copy)
+-- MD Update Action (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_copy = {}
 
--- Dissect: Md Update Action (Copy)
+-- Dissect: MD Update Action (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3906,7 +3906,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_copy.dissect = func
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, 0)
-    absent:set_text("Md Update Action: No Value")
+    absent:set_text("MD Update Action: No Value")
   end
 
   return offset, value
@@ -4012,10 +4012,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.trade_session_date_sent.dissect = fu
   return offset, value
 end
 
--- Ref Order Id (Copy)
+-- Ref Order ID (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_copy = {}
 
--- Dissect: Ref Order Id (Copy)
+-- Dissect: Ref Order ID (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4034,16 +4034,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_copy.dissect = function
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.ref_order_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.ref_order_id, range, "")
-    absent:set_text("Ref Order Id: No Value")
+    absent:set_text("Ref Order ID: No Value")
   end
 
   return offset, value
 end
 
--- Ref Order Id (Sent)
+-- Ref Order ID (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_sent = {}
 
--- Dissect: Ref Order Id (Sent)
+-- Dissect: Ref Order ID (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4056,7 +4056,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_sent.dissect = function
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.ref_order_id, range, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.ref_order_id, range, "")
-    absent:set_text("Ref Order Id: No Value")
+    absent:set_text("Ref Order ID: No Value")
   end
 
   return offset, value
@@ -4132,10 +4132,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.tot_num_reports.dissect = function(b
   return offset, value
 end
 
--- Security Id
+-- Security ID
 moex_asts_marketdatamulticast_fast_v2025_10.security_id = {}
 
--- Dissect: Security Id
+-- Dissect: Security ID
 moex_asts_marketdatamulticast_fast_v2025_10.security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4148,16 +4148,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.security_id.dissect = function(buffe
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_id, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_id, buffer(start, 0))
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id Source
+-- Security ID Source
 moex_asts_marketdatamulticast_fast_v2025_10.security_id_source = {}
 
--- Dissect: Security Id Source
+-- Dissect: Security ID Source
 moex_asts_marketdatamulticast_fast_v2025_10.security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4170,7 +4170,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.security_id_source.dissect = functio
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_id_source, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_id_source, buffer(start, 0))
-    absent:set_text("Security Id Source: No Value")
+    absent:set_text("Security ID Source: No Value")
   end
 
   return offset, value
@@ -4418,10 +4418,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.coupon_start_date.dissect = function
   return offset, value
 end
 
--- Cfi Code
+-- CFI Code
 moex_asts_marketdatamulticast_fast_v2025_10.cfi_code = {}
 
--- Dissect: Cfi Code
+-- Dissect: CFI Code
 moex_asts_marketdatamulticast_fast_v2025_10.cfi_code.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4434,7 +4434,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.cfi_code.dissect = function(buffer, 
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.cfi_code, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.cfi_code, buffer(start, 0))
-    absent:set_text("Cfi Code: No Value")
+    absent:set_text("CFI Code: No Value")
   end
 
   return offset, value
@@ -4994,10 +4994,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.settl_currency.dissect = function(bu
   return offset, value
 end
 
--- State Security Id
+-- State Security ID
 moex_asts_marketdatamulticast_fast_v2025_10.state_security_id = {}
 
--- Dissect: State Security Id
+-- Dissect: State Security ID
 moex_asts_marketdatamulticast_fast_v2025_10.state_security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5010,7 +5010,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.state_security_id.dissect = function
     parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.state_security_id, value)
   else
     local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.state_security_id, buffer(start, 0))
-    absent:set_text("State Security Id: No Value")
+    absent:set_text("State Security ID: No Value")
   end
 
   return offset, value
@@ -5553,7 +5553,7 @@ moex_asts_marketdatamulticast_fast_v2025_10._0.fields = function(buffer, offset,
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5588,13 +5588,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.h.fields = function(buffer, offset, 
   -- Message Type: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.message_type_constant_h.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5609,7 +5609,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.h.fields = function(buffer, offset, 
   -- Text: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.text.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, sent
+  -- Trading Session ID: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -5638,13 +5638,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.f.fields = function(buffer, offset, 
   -- Message Type: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.message_type_constant_f.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5656,10 +5656,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.f.fields = function(buffer, offset, 
   -- Symbol: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.symbol_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, sent, optional
+  -- Trading Session ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: int32, sent, optional
@@ -5689,10 +5689,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.trading_session_rules_grp.fields = f
   local index = offset
   local value = nil
 
-  -- Trading Session Id: string, sent
+  -- Trading Session ID: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: int32, sent, optional
@@ -5812,13 +5812,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.d.fields = function(buffer, offset, 
   -- Message Type: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.message_type_constant_d.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, Increment
@@ -5836,10 +5836,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.d.fields = function(buffer, offset, 
   -- Symbol: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.symbol_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: byteVector, sent, optional
+  -- Security ID: byteVector, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: byteVector, sent, optional
+  -- Security ID Source: byteVector, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Product: int32, sent, optional
@@ -5875,7 +5875,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.d.fields = function(buffer, offset, 
   -- Coupon Start Date: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.coupon_start_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cfi Code: byteVector, sent, optional
+  -- CFI Code: byteVector, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.cfi_code.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Type: byteVector, sent, optional
@@ -5941,7 +5941,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.d.fields = function(buffer, offset, 
   -- Price Type: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.price_type_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- State Security Id: byteVector, sent, optional
+  -- State Security ID: byteVector, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.state_security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Encoded Short Security Desc: byteVector, sent, optional
@@ -6005,21 +6005,21 @@ moex_asts_marketdatamulticast_fast_v2025_10.d.dissect = function(buffer, offset,
   return index
 end
 
--- X-tlr-curr Group Md Entries
+-- X-TLR-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr_group_md_entries = {}
 
--- Dissect Fields: X-tlr-curr Group Md Entries
+-- Dissect Fields: X-TLR-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, sent, optional
+  -- MD Update Action: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent, optional
@@ -6031,19 +6031,19 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr_group_md_entries.fields = f
   -- Order Side: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.order_side_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Size: decimal, sent, optional
+  -- MD Entry Size: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Ref Order Id: string, sent, optional
+  -- Ref Order ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, sent, optional
+  -- MD Entry Time: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Orig Time: uInt32, sent, optional
@@ -6073,10 +6073,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr_group_md_entries.fields = f
   -- Buy Back Date: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, sent, optional
+  -- Trading Session ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trading Session: string, sent, optional
@@ -6088,7 +6088,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr_group_md_entries.fields = f
   return index
 end
 
--- Dissect: X-tlr-curr Group Md Entries
+-- Dissect: X-TLR-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrcurr_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -6104,12 +6104,12 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr_group_md_entries.dissect = 
   return index
 end
 
--- X-tlr-curr Message
+-- X-TLR-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr = {}
 
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrcurr
 
--- Dissect Fields: X-tlr-curr Message
+-- Dissect Fields: X-TLR-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -6117,13 +6117,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr.fields = function(buffer, o
   -- Message Type: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.message_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6132,10 +6132,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr.fields = function(buffer, o
   -- Sending Time: uInt64, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for xtlrcurr_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, xtlrcurr_group_md_entries_index)
@@ -6144,7 +6144,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr.fields = function(buffer, o
   return index
 end
 
--- Dissect: X-tlr-curr Message
+-- Dissect: X-TLR-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -6154,21 +6154,21 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrcurr.dissect = function(buffer, 
   return index
 end
 
--- X-tlr-fond Group Md Entries
+-- X-TLR-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond_group_md_entries = {}
 
--- Dissect Fields: X-tlr-fond Group Md Entries
+-- Dissect Fields: X-TLR-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, sent, optional
+  -- MD Update Action: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent, optional
@@ -6180,19 +6180,19 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond_group_md_entries.fields = f
   -- Order Side: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.order_side_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Size: decimal, sent, optional
+  -- MD Entry Size: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Ref Order Id: string, sent, optional
+  -- Ref Order ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, sent, optional
+  -- MD Entry Time: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Orig Time: uInt32, sent, optional
@@ -6240,10 +6240,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond_group_md_entries.fields = f
   -- Security Statistics: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.security_statistics_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, sent, optional
+  -- Trading Session ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trade Session Date: uInt32, sent, optional
@@ -6252,7 +6252,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond_group_md_entries.fields = f
   return index
 end
 
--- Dissect: X-tlr-fond Group Md Entries
+-- Dissect: X-TLR-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrfond_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -6274,12 +6274,12 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond_group_md_entries.dissect = 
   return index
 end
 
--- X-tlr-fond Message
+-- X-TLR-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond = {}
 
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xtlrfond
 
--- Dissect Fields: X-tlr-fond Message
+-- Dissect Fields: X-TLR-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -6287,13 +6287,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond.fields = function(buffer, o
   -- Message Type: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.message_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6302,10 +6302,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond.fields = function(buffer, o
   -- Sending Time: uInt64, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for xtlrfond_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, xtlrfond_group_md_entries_index)
@@ -6314,7 +6314,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond.fields = function(buffer, o
   return index
 end
 
--- Dissect: X-tlr-fond Message
+-- Dissect: X-TLR-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -6324,21 +6324,21 @@ moex_asts_marketdatamulticast_fast_v2025_10.xtlrfond.dissect = function(buffer, 
   return index
 end
 
--- X-olr-curr Group Md Entries
+-- X-OLR-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr_group_md_entries = {}
 
--- Dissect Fields: X-olr-curr Group Md Entries
+-- Dissect Fields: X-OLR-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, Copy, optional
+  -- MD Update Action: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|14:MDUpdateAction")
 
-  -- Md Entry Type: string, Copy, optional
+  -- MD Entry Type: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|11:MDEntryType")
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, Copy, optional
@@ -6347,16 +6347,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr_group_md_entries.fields = f
   -- Rpt Seq: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.rpt_seq_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, Copy, optional
+  -- MD Entry Px: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_copy.dissect(buffer, index, packet, parent, { presence_map[base + 3], false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
 
-  -- Md Entry Size: decimal, Copy, optional
+  -- MD Entry Size: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_copy.dissect(buffer, index, packet, parent, { presence_map[base + 4], false }, state, { "6:global|0:|11:MDEntrySize|E", "6:global|0:|11:MDEntrySize|M" })
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "6:global|0:|11:MDEntryDate")
 
-  -- Md Entry Time: uInt32, Copy, optional
+  -- MD Entry Time: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.dissect(buffer, index, packet, parent, presence_map[base + 6], state, "6:global|0:|11:MDEntryTime")
 
   -- Orig Time: uInt32, Copy, optional
@@ -6365,10 +6365,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr_group_md_entries.fields = f
   -- Order Status: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.order_status_copy.dissect(buffer, index, packet, parent, presence_map[base + 8], state, "6:global|0:|11:OrderStatus")
 
-  -- Trading Session Id: string, Copy, optional
+  -- Trading Session ID: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 9], state, "6:global|0:|16:TradingSessionID")
 
-  -- Trading Session Sub Id: string, Copy, optional
+  -- Trading Session Sub ID: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 10], state, "6:global|0:|19:TradingSessionSubID")
 
   -- Trading Session: string, Copy, optional
@@ -6380,7 +6380,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr_group_md_entries.fields = f
   return index
 end
 
--- Dissect: X-olr-curr Group Md Entries
+-- Dissect: X-OLR-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrcurr_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -6402,12 +6402,12 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr_group_md_entries.dissect = 
   return index
 end
 
--- X-olr-curr Message
+-- X-OLR-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr = {}
 
 moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrcurr
 
--- Dissect Fields: X-olr-curr Message
+-- Dissect Fields: X-OLR-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -6415,13 +6415,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr.fields = function(buffer, o
   -- Message Type: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.message_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6430,10 +6430,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr.fields = function(buffer, o
   -- Sending Time: uInt64, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for xolrcurr_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, xolrcurr_group_md_entries_index)
@@ -6442,7 +6442,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr.fields = function(buffer, o
   return index
 end
 
--- Dissect: X-olr-curr Message
+-- Dissect: X-OLR-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -6452,21 +6452,21 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrcurr.dissect = function(buffer, 
   return index
 end
 
--- X-olr-fond Group Md Entries
+-- X-OLR-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xolrfond_group_md_entries = {}
 
--- Dissect Fields: X-olr-fond Group Md Entries
+-- Dissect Fields: X-OLR-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xolrfond_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, sent, optional
+  -- MD Update Action: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Type: string, Copy, optional
+  -- MD Entry Type: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|11:MDEntryType")
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, Copy, optional
@@ -6475,16 +6475,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrfond_group_md_entries.fields = f
   -- Rpt Seq: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.rpt_seq_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, Copy, optional
+  -- MD Entry Px: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_copy.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
 
-  -- Md Entry Size: decimal, Copy, optional
+  -- MD Entry Size: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_copy.dissect(buffer, index, packet, parent, { presence_map[base + 3], false }, state, { "6:global|0:|11:MDEntrySize|E", "6:global|0:|11:MDEntrySize|M" })
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|11:MDEntryDate")
 
-  -- Md Entry Time: uInt32, Copy, optional
+  -- MD Entry Time: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "6:global|0:|11:MDEntryTime")
 
   -- Orig Time: uInt32, Copy, optional
@@ -6511,10 +6511,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrfond_group_md_entries.fields = f
   -- Liquidity Type: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.liquidity_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, Copy, optional
+  -- Trading Session ID: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 13], state, "6:global|0:|16:TradingSessionID")
 
-  -- Trading Session Sub Id: string, Copy, optional
+  -- Trading Session Sub ID: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 14], state, "6:global|0:|19:TradingSessionSubID")
 
   -- Trade Session Date: uInt32, sent, optional
@@ -6523,7 +6523,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrfond_group_md_entries.fields = f
   return index
 end
 
--- Dissect: X-olr-fond Group Md Entries
+-- Dissect: X-OLR-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xolrfond_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrfond_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -6545,12 +6545,12 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrfond_group_md_entries.dissect = 
   return index
 end
 
--- X-olr-fond Message
+-- X-OLR-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.xolrfond = {}
 
 moex_asts_marketdatamulticast_fast_v2025_10.xolrfond.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xolrfond
 
--- Dissect Fields: X-olr-fond Message
+-- Dissect Fields: X-OLR-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.xolrfond.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -6558,13 +6558,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrfond.fields = function(buffer, o
   -- Message Type: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.message_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6573,10 +6573,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrfond.fields = function(buffer, o
   -- Sending Time: uInt64, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for xolrfond_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.xolrfond_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, xolrfond_group_md_entries_index)
@@ -6585,7 +6585,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrfond.fields = function(buffer, o
   return index
 end
 
--- Dissect: X-olr-fond Message
+-- Dissect: X-OLR-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.xolrfond.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -6595,21 +6595,21 @@ moex_asts_marketdatamulticast_fast_v2025_10.xolrfond.dissect = function(buffer, 
   return index
 end
 
--- X-msr-curr Group Md Entries
+-- X-MSR-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr_group_md_entries = {}
 
--- Dissect Fields: X-msr-curr Group Md Entries
+-- Dissect Fields: X-MSR-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, sent, optional
+  -- MD Update Action: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Type: string, sent, optional
+  -- MD Entry Type: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent, optional
@@ -6630,16 +6630,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr_group_md_entries.fields = f
   -- Bid Nb Or: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.bid_nb_or.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Size: decimal, sent, optional
+  -- MD Entry Size: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, sent, optional
+  -- MD Entry Time: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Start Time: uInt32, sent, optional
@@ -6657,7 +6657,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr_group_md_entries.fields = f
   -- Net Chg Prev Day: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.net_chg_prev_day.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Chg From Wa Price: decimal, sent, optional
+  -- Chg From WA Price: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.chg_from_wa_price.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   -- Chg Open Interest: decimal, sent, optional
@@ -6681,13 +6681,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr_group_md_entries.fields = f
   -- Settle Type: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.settle_type_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cx Flag: uInt32, sent, optional
+  -- CX Flag: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.cx_flag.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, sent, optional
+  -- Trading Session ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trading Session: string, sent, optional
@@ -6696,16 +6696,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr_group_md_entries.fields = f
   -- Security Statistics: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.security_statistics_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Pml Upper Limit: decimal, sent, optional
+  -- PML Upper Limit: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.pml_upper_limit.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Pml Lower Limit: decimal, sent, optional
+  -- PML Lower Limit: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.pml_lower_limit.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   return index
 end
 
--- Dissect: X-msr-curr Group Md Entries
+-- Dissect: X-MSR-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrcurr_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -6721,12 +6721,12 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr_group_md_entries.dissect = 
   return index
 end
 
--- X-msr-curr Message
+-- X-MSR-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr = {}
 
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrcurr
 
--- Dissect Fields: X-msr-curr Message
+-- Dissect Fields: X-MSR-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -6734,13 +6734,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr.fields = function(buffer, o
   -- Message Type: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.message_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6752,10 +6752,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr.fields = function(buffer, o
   -- Last Update Time: uInt64, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.last_update_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for xmsrcurr_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, xmsrcurr_group_md_entries_index)
@@ -6764,7 +6764,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr.fields = function(buffer, o
   return index
 end
 
--- Dissect: X-msr-curr Message
+-- Dissect: X-MSR-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -6774,21 +6774,21 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrcurr.dissect = function(buffer, 
   return index
 end
 
--- X-msr-fond Group Md Entries
+-- X-MSR-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond_group_md_entries = {}
 
--- Dissect Fields: X-msr-fond Group Md Entries
+-- Dissect Fields: X-MSR-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, sent, optional
+  -- MD Update Action: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Type: string, sent, optional
+  -- MD Entry Type: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent, optional
@@ -6809,16 +6809,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond_group_md_entries.fields = f
   -- Bid Nb Or: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.bid_nb_or.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Size: decimal, sent, optional
+  -- MD Entry Size: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, sent, optional
+  -- MD Entry Time: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Start Time: uInt32, sent, optional
@@ -6842,7 +6842,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond_group_md_entries.fields = f
   -- Accrued Interest Amt: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.accrued_interest_amt_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Chg From Wa Price: decimal, sent, optional
+  -- Chg From WA Price: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.chg_from_wa_price.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   -- Chg Open Interest: decimal, sent, optional
@@ -6887,25 +6887,25 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond_group_md_entries.fields = f
   -- Settle Type: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.settle_type_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cx Flag: uInt32, sent, optional
+  -- CX Flag: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.cx_flag.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, sent, optional
+  -- Trading Session ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Pml Upper Limit: decimal, sent, optional
+  -- PML Upper Limit: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.pml_upper_limit.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Pml Lower Limit: decimal, sent, optional
+  -- PML Lower Limit: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.pml_lower_limit.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   return index
 end
 
--- Dissect: X-msr-fond Group Md Entries
+-- Dissect: X-MSR-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrfond_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -6921,12 +6921,12 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond_group_md_entries.dissect = 
   return index
 end
 
--- X-msr-fond Message
+-- X-MSR-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond = {}
 
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.xmsrfond
 
--- Dissect Fields: X-msr-fond Message
+-- Dissect Fields: X-MSR-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -6934,13 +6934,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond.fields = function(buffer, o
   -- Message Type: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.message_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6952,10 +6952,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond.fields = function(buffer, o
   -- Last Update Time: uInt64, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.last_update_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for xmsrfond_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, xmsrfond_group_md_entries_index)
@@ -6964,7 +6964,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond.fields = function(buffer, o
   return index
 end
 
--- Dissect: X-msr-fond Message
+-- Dissect: X-MSR-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -6974,24 +6974,24 @@ moex_asts_marketdatamulticast_fast_v2025_10.xmsrfond.dissect = function(buffer, 
   return index
 end
 
--- W-tls-curr Group Md Entries
+-- W-TLS-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr_group_md_entries = {}
 
--- Dissect Fields: W-tls-curr Group Md Entries
+-- Dissect Fields: W-TLS-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|11:MDEntryDate")
 
-  -- Md Entry Time: uInt32, Copy, optional
+  -- MD Entry Time: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|11:MDEntryTime")
 
   -- Orig Time: uInt32, Copy, optional
@@ -7000,10 +7000,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr_group_md_entries.fields = f
   -- Order Side: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.order_side_copy.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|9:OrderSide")
 
-  -- Md Entry Px: decimal, Copy, optional
+  -- MD Entry Px: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_copy.dissect(buffer, index, packet, parent, { presence_map[base + 4], false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
 
-  -- Md Entry Size: decimal, Copy, optional
+  -- MD Entry Size: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_copy.dissect(buffer, index, packet, parent, { presence_map[base + 5], false }, state, { "6:global|0:|11:MDEntrySize|E", "6:global|0:|11:MDEntrySize|M" })
 
   -- Trade Value: decimal, Copy, optional
@@ -7036,16 +7036,16 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr_group_md_entries.fields = f
   -- Security Statistics: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.security_statistics_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, Copy, optional
+  -- Trading Session Sub ID: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 14], state, "6:global|0:|19:TradingSessionSubID")
 
-  -- Ref Order Id: string, Copy, optional
+  -- Ref Order ID: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 15], state, "6:global|0:|10:RefOrderID")
 
   return index
 end
 
--- Dissect: W-tls-curr Group Md Entries
+-- Dissect: W-TLS-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlscurr_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -7067,12 +7067,12 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr_group_md_entries.dissect = 
   return index
 end
 
--- W-tls-curr Message
+-- W-TLS-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr = {}
 
 moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlscurr
 
--- Dissect Fields: W-tls-curr Message
+-- Dissect Fields: W-TLS-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -7083,10 +7083,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr.fields = function(buffer, o
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -7110,19 +7110,19 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr.fields = function(buffer, o
   -- Trad Ses Status: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trad_ses_status_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, sent, optional
+  -- Trading Session ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.symbol_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Security Trading Status: int32, sent, optional
+  -- MD Security Trading Status: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for wtlscurr_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, wtlscurr_group_md_entries_index)
@@ -7131,7 +7131,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr.fields = function(buffer, o
   return index
 end
 
--- Dissect: W-tls-curr Message
+-- Dissect: W-TLS-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -7141,24 +7141,24 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlscurr.dissect = function(buffer, 
   return index
 end
 
--- W-tls-fond Group Md Entries
+-- W-TLS-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond_group_md_entries = {}
 
--- Dissect Fields: W-tls-fond Group Md Entries
+-- Dissect Fields: W-TLS-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|11:MDEntryDate")
 
-  -- Md Entry Time: uInt32, Copy, optional
+  -- MD Entry Time: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|11:MDEntryTime")
 
   -- Orig Time: uInt32, Copy, optional
@@ -7167,10 +7167,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond_group_md_entries.fields = f
   -- Order Side: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.order_side_copy.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|9:OrderSide")
 
-  -- Md Entry Px: decimal, Copy, optional
+  -- MD Entry Px: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_copy.dissect(buffer, index, packet, parent, { presence_map[base + 4], false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
 
-  -- Md Entry Size: decimal, Copy, optional
+  -- MD Entry Size: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_copy.dissect(buffer, index, packet, parent, { presence_map[base + 5], false }, state, { "6:global|0:|11:MDEntrySize|E", "6:global|0:|11:MDEntrySize|M" })
 
   -- Accrued Interest Amt: decimal, Copy, optional
@@ -7215,10 +7215,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond_group_md_entries.fields = f
   -- Security Statistics: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.security_statistics_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, Copy, optional
+  -- Trading Session Sub ID: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 17], state, "6:global|0:|19:TradingSessionSubID")
 
-  -- Ref Order Id: string, Copy, optional
+  -- Ref Order ID: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.ref_order_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 18], state, "6:global|0:|10:RefOrderID")
 
   -- Trade Session Date: uInt32, Copy, optional
@@ -7227,7 +7227,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond_group_md_entries.fields = f
   return index
 end
 
--- Dissect: W-tls-fond Group Md Entries
+-- Dissect: W-TLS-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlsfond_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -7249,12 +7249,12 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond_group_md_entries.dissect = 
   return index
 end
 
--- W-tls-fond Message
+-- W-TLS-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond = {}
 
 moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wtlsfond
 
--- Dissect Fields: W-tls-fond Message
+-- Dissect Fields: W-TLS-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -7265,10 +7265,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond.fields = function(buffer, o
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -7292,22 +7292,22 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond.fields = function(buffer, o
   -- Trad Ses Status: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trad_ses_status_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, sent, optional
+  -- Trading Session ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.symbol_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Security Trading Status: int32, sent, optional
+  -- MD Security Trading Status: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Auction Indicator: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.auction_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for wtlsfond_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, wtlsfond_group_md_entries_index)
@@ -7316,7 +7316,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond.fields = function(buffer, o
   return index
 end
 
--- Dissect: W-tls-fond Message
+-- Dissect: W-TLS-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -7326,33 +7326,33 @@ moex_asts_marketdatamulticast_fast_v2025_10.wtlsfond.dissect = function(buffer, 
   return index
 end
 
--- W-ols-curr Group Md Entries
+-- W-OLS-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wolscurr_group_md_entries = {}
 
--- Dissect Fields: W-ols-curr Group Md Entries
+-- Dissect Fields: W-OLS-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wolscurr_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, Copy, optional
+  -- MD Entry Type: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|11:MDEntryType")
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|11:MDEntryDate")
 
-  -- Md Entry Time: uInt32, Copy, optional
+  -- MD Entry Time: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|11:MDEntryTime")
 
   -- Orig Time: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.orig_time_copy.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|8:OrigTime")
 
-  -- Md Entry Px: decimal, Copy, optional
+  -- MD Entry Px: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_copy.dissect(buffer, index, packet, parent, { presence_map[base + 4], false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
 
-  -- Md Entry Size: decimal, Copy, optional
+  -- MD Entry Size: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_copy.dissect(buffer, index, packet, parent, { presence_map[base + 5], false }, state, { "6:global|0:|11:MDEntrySize|E", "6:global|0:|11:MDEntrySize|M" })
 
   -- Order Status: string, Copy, optional
@@ -7364,13 +7364,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolscurr_group_md_entries.fields = f
   -- Security Statistics: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.security_statistics_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, Copy, optional
+  -- Trading Session Sub ID: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 7], state, "6:global|0:|19:TradingSessionSubID")
 
   return index
 end
 
--- Dissect: W-ols-curr Group Md Entries
+-- Dissect: W-OLS-CURR Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wolscurr_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolscurr_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -7392,12 +7392,12 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolscurr_group_md_entries.dissect = 
   return index
 end
 
--- W-ols-curr Message
+-- W-OLS-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.wolscurr = {}
 
 moex_asts_marketdatamulticast_fast_v2025_10.wolscurr.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolscurr
 
--- Dissect Fields: W-ols-curr Message
+-- Dissect Fields: W-OLS-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.wolscurr.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -7408,10 +7408,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolscurr.fields = function(buffer, o
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -7435,19 +7435,19 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolscurr.fields = function(buffer, o
   -- Trad Ses Status: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trad_ses_status_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, sent, optional
+  -- Trading Session ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.symbol_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Security Trading Status: int32, sent, optional
+  -- MD Security Trading Status: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for wolscurr_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.wolscurr_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, wolscurr_group_md_entries_index)
@@ -7456,7 +7456,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolscurr.fields = function(buffer, o
   return index
 end
 
--- Dissect: W-ols-curr Message
+-- Dissect: W-OLS-CURR Message
 moex_asts_marketdatamulticast_fast_v2025_10.wolscurr.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -7466,33 +7466,33 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolscurr.dissect = function(buffer, 
   return index
 end
 
--- W-ols-fond Group Md Entries
+-- W-OLS-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wolsfond_group_md_entries = {}
 
--- Dissect Fields: W-ols-fond Group Md Entries
+-- Dissect Fields: W-OLS-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wolsfond_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, Copy, optional
+  -- MD Entry Type: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|11:MDEntryType")
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, Copy, optional
+  -- MD Entry Date: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|11:MDEntryDate")
 
-  -- Md Entry Time: uInt32, Copy, optional
+  -- MD Entry Time: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|11:MDEntryTime")
 
   -- Orig Time: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.orig_time_copy.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|8:OrigTime")
 
-  -- Md Entry Px: decimal, Copy, optional
+  -- MD Entry Px: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_copy.dissect(buffer, index, packet, parent, { presence_map[base + 4], false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
 
-  -- Md Entry Size: decimal, Copy, optional
+  -- MD Entry Size: decimal, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_copy.dissect(buffer, index, packet, parent, { presence_map[base + 5], false }, state, { "6:global|0:|11:MDEntrySize|E", "6:global|0:|11:MDEntrySize|M" })
 
   -- Yield: decimal, Copy, optional
@@ -7516,7 +7516,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolsfond_group_md_entries.fields = f
   -- Liquidity Type: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.liquidity_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, Copy, optional
+  -- Trading Session Sub ID: string, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 10], state, "6:global|0:|19:TradingSessionSubID")
 
   -- Trade Session Date: uInt32, Copy, optional
@@ -7525,7 +7525,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolsfond_group_md_entries.fields = f
   return index
 end
 
--- Dissect: W-ols-fond Group Md Entries
+-- Dissect: W-OLS-FOND Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.wolsfond_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolsfond_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -7547,12 +7547,12 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolsfond_group_md_entries.dissect = 
   return index
 end
 
--- W-ols-fond Message
+-- W-OLS-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.wolsfond = {}
 
 moex_asts_marketdatamulticast_fast_v2025_10.wolsfond.node = omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.wolsfond
 
--- Dissect Fields: W-ols-fond Message
+-- Dissect Fields: W-OLS-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.wolsfond.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -7563,10 +7563,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolsfond.fields = function(buffer, o
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -7590,22 +7590,22 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolsfond.fields = function(buffer, o
   -- Trad Ses Status: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trad_ses_status_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, sent, optional
+  -- Trading Session ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.symbol_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Security Trading Status: int32, sent, optional
+  -- MD Security Trading Status: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Auction Indicator: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.auction_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for wolsfond_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.wolsfond_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, wolsfond_group_md_entries_index)
@@ -7614,7 +7614,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolsfond.fields = function(buffer, o
   return index
 end
 
--- Dissect: W-ols-fond Message
+-- Dissect: W-OLS-FOND Message
 moex_asts_marketdatamulticast_fast_v2025_10.wolsfond.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
@@ -7624,27 +7624,27 @@ moex_asts_marketdatamulticast_fast_v2025_10.wolsfond.dissect = function(buffer, 
   return index
 end
 
--- X- Generic Group Md Entries
+-- X- Generic Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.x_generic_group_md_entries = {}
 
--- Dissect Fields: X- Generic Group Md Entries
+-- Dissect Fields: X- Generic Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.x_generic_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, sent, optional
+  -- MD Update Action: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Type: string, sent, optional
+  -- MD Entry Type: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Rpt Seq: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.rpt_seq_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Orig Time: uInt32, sent, optional
@@ -7659,7 +7659,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.x_generic_group_md_entries.fields = 
   -- Settle Type: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.settle_type_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, sent, optional
+  -- MD Entry Time: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Effective Time: uInt32, sent, optional
@@ -7671,10 +7671,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.x_generic_group_md_entries.fields = 
   -- Symbol: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.symbol_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Size: decimal, sent, optional
+  -- MD Entry Size: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   -- Quote Condition: string, sent, optional
@@ -7698,7 +7698,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.x_generic_group_md_entries.fields = 
   -- Accrued Interest Amt: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.accrued_interest_amt_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Chg From Wa Price: decimal, sent, optional
+  -- Chg From WA Price: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.chg_from_wa_price.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   -- Chg Open Interest: decimal, sent, optional
@@ -7776,22 +7776,22 @@ moex_asts_marketdatamulticast_fast_v2025_10.x_generic_group_md_entries.fields = 
   -- Buy Back Date: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cx Flag: uInt32, sent, optional
+  -- CX Flag: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.cx_flag.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Repo Term: uInt32, Copy, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.repo_term.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|8:RepoTerm")
 
-  -- Trading Session Id: string, sent, optional
+  -- Trading Session ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: X- Generic Group Md Entries
+-- Dissect: X- Generic Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.x_generic_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.x_generic_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -7826,13 +7826,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.x_generic.fields = function(buffer, 
   -- Message Type: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.message_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -7841,10 +7841,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.x_generic.fields = function(buffer, 
   -- Sending Time: uInt64, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for x_generic_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.x_generic_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, x_generic_group_md_entries_index)
@@ -7863,33 +7863,33 @@ moex_asts_marketdatamulticast_fast_v2025_10.x_generic.dissect = function(buffer,
   return index
 end
 
--- W- Generic Group Md Entries
+-- W- Generic Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.w_generic_group_md_entries = {}
 
--- Dissect Fields: W- Generic Group Md Entries
+-- Dissect Fields: W- Generic Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.w_generic_group_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, sent, optional
+  -- MD Entry Type: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt32, sent, optional
+  -- MD Entry Time: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Orig Time: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.orig_time_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_px_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Size: decimal, sent, optional
+  -- MD Entry Size: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_size_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   -- Quote Condition: string, sent, optional
@@ -7913,7 +7913,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.w_generic_group_md_entries.fields = 
   -- Accrued Interest Amt: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.accrued_interest_amt_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Chg From Wa Price: decimal, sent, optional
+  -- Chg From WA Price: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.chg_from_wa_price.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   -- Chg Open Interest: decimal, sent, optional
@@ -8000,22 +8000,22 @@ moex_asts_marketdatamulticast_fast_v2025_10.w_generic_group_md_entries.fields = 
   -- Buy Back Date: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cx Flag: uInt32, sent, optional
+  -- CX Flag: uInt32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.cx_flag.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_sub_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Pml Upper Limit: decimal, sent, optional
+  -- PML Upper Limit: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.pml_upper_limit.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Pml Lower Limit: decimal, sent, optional
+  -- PML Lower Limit: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.pml_lower_limit.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   return index
 end
 
--- Dissect: W- Generic Group Md Entries
+-- Dissect: W- Generic Group MD Entries
 moex_asts_marketdatamulticast_fast_v2025_10.w_generic_group_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.w_generic_group_md_entries, buffer(offset, 0))
   local index = offset
@@ -8047,10 +8047,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.w_generic.fields = function(buffer, 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -8059,7 +8059,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.w_generic.fields = function(buffer, 
   -- Sending Time: uInt64, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, sent, optional
+  -- Trading Session ID: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent
@@ -8080,7 +8080,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.w_generic.fields = function(buffer, 
   -- Trad Ses Status: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.trad_ses_status_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Security Trading Status: int32, sent, optional
+  -- MD Security Trading Status: int32, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Auction Indicator: uInt32, sent, optional
@@ -8092,10 +8092,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.w_generic.fields = function(buffer, 
   -- Price Improvement: decimal, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.price_improvement.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Group Md Entries: No Md Entries entries
+  -- Group MD Entries: No MD Entries entries
   local count = value or 0
   for w_generic_group_md_entries_index = 1, count do
     index = moex_asts_marketdatamulticast_fast_v2025_10.w_generic_group_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, w_generic_group_md_entries_index)
@@ -8130,10 +8130,10 @@ moex_asts_marketdatamulticast_fast_v2025_10._5.fields = function(buffer, offset,
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -8174,10 +8174,10 @@ moex_asts_marketdatamulticast_fast_v2025_10.a.fields = function(buffer, offset, 
   -- Begin String: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.begin_string.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -8195,7 +8195,7 @@ moex_asts_marketdatamulticast_fast_v2025_10.a.fields = function(buffer, offset, 
   -- Password: string, sent, optional
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.password.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Default Appl Ver Id: string, sent
+  -- Default Appl Ver ID: string, sent
   index, value = moex_asts_marketdatamulticast_fast_v2025_10.default_appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index

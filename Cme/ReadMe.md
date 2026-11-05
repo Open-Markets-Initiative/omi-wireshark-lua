@@ -1,4 +1,4 @@
-[![Cme](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cme/Images/Logo.png)](https://www.cmegroup.com)
+[![Cme](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Cme/Images/Logo.png)](https://www.cmegroup.com)
 
 
 ## CME Group

@@ -3076,7 +3076,6 @@ register_filehandler(omi_ice_icedataservices_brazilbmf_ctf_v2019_12_02_lines_rea
 --   Specification: CTF_Wire_Protocol_2017-10-10.pdf
 --
 -- Script:
---   Generator: 0.1.0.0
 --   Compiler: 2.0
 --   License: GPL-2.0-or-later
 --   Authors: Omi Developers

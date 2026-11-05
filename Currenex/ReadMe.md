@@ -1,4 +1,4 @@
-[![Currenex](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Currenex/Images/Logo.png)](https://currenex.com)
+[![Currenex](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Currenex/Images/Logo.png)](https://currenex.com)
 
 
 ## Currenex

@@ -1,4 +1,4 @@
-[![BruceAts](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BruceAts/Images/Logo.png)](https://www.brucemarkets.com)
+[![BruceAts](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/BruceAts/Images/Logo.png)](https://www.brucemarkets.com)
 
 
 ## Bruce ATS

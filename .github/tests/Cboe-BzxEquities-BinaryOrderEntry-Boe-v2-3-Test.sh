@@ -286,6 +286,12 @@ runuser -u tester -- tshark \
   > Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json 2> Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json.stderr; exit 1; }
 
-grep "cboe.bzxequities.binaryorderentry.boe.v2.3." Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json
+fields=$(grep -c "cboe.bzxequities.binaryorderentry.boe.v2.3." Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json) \
+  || { echo "--- no cboe.bzxequities.binaryorderentry.boe.v2.3 fields (MultipleMessages) ---"; exit 1; }
+echo "  cboe.bzxequities.binaryorderentry.boe.v2.3 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'cboe.bzxequities.binaryorderentry.boe.v2.3.' Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

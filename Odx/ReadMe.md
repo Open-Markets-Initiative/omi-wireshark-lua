@@ -1,4 +1,4 @@
-[![Odx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Odx/Images/Logo.png)](https://www.odx.co.jp/en)
+[![Odx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Odx/Images/Logo.png)](https://www.odx.co.jp/en)
 
 
 ## Osaka Digital Exchange

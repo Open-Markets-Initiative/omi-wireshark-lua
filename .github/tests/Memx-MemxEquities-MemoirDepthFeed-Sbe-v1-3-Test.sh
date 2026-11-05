@@ -128,6 +128,12 @@ runuser -u tester -- tshark \
   > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json.stderr; exit 1; }
 
-grep "memx.memxequities.memoirdepthfeed.sbe.v1.3." Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json
+fields=$(grep -c "memx.memxequities.memoirdepthfeed.sbe.v1.3." Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json) \
+  || { echo "--- no memx.memxequities.memoirdepthfeed.sbe.v1.3 fields (MultipleMessages) ---"; exit 1; }
+echo "  memx.memxequities.memoirdepthfeed.sbe.v1.3 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'memx.memxequities.memoirdepthfeed.sbe.v1.3.' Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

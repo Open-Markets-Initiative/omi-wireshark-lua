@@ -26,29 +26,29 @@ omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_unused = ProtoField.new(
 
 -- Eurex T7 UnderlyingTicker Fast 8.1 Presence Map Fields
 omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.underlyingticker.fast.v8.1.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_sender_comp_id = ProtoField.new("Sender Comp Id", "eurex.t7.underlyingticker.fast.v8.1.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_sender_comp_id = ProtoField.new("Sender Comp ID", "eurex.t7.underlyingticker.fast.v8.1.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 
 -- Eurex T7 UnderlyingTicker Fast 8.1 Fields
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.sender_comp_id = ProtoField.new("Sender Comp Id", "eurex.t7.underlyingticker.fast.v8.1.sendercompid", ftypes.UINT32)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "eurex.t7.underlyingticker.fast.v8.1.sendercompid", ftypes.UINT32)
 omi_eurex_t7_underlyingticker_fast_v8_1.fields.packet_seq_num = ProtoField.new("Packet Seq Num", "eurex.t7.underlyingticker.fast.v8.1.packetseqnum", ftypes.UINT32)
 omi_eurex_t7_underlyingticker_fast_v8_1.fields.sending_time = ProtoField.new("Sending Time", "eurex.t7.underlyingticker.fast.v8.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_eurex_t7_underlyingticker_fast_v8_1.fields.msg_type = ProtoField.new("Msg Type", "eurex.t7.underlyingticker.fast.v8.1.msgtype", ftypes.STRING)
 omi_eurex_t7_underlyingticker_fast_v8_1.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.underlyingticker.fast.v8.1.msgseqnum", ftypes.UINT32)
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.no_md_entries = ProtoField.new("No Md Entries", "eurex.t7.underlyingticker.fast.v8.1.nomdentries", ftypes.UINT32)
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_entry_type = ProtoField.new("Md Entry Type", "eurex.t7.underlyingticker.fast.v8.1.mdentrytype", ftypes.UINT32)
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_update_action = ProtoField.new("Md Update Action", "eurex.t7.underlyingticker.fast.v8.1.mdupdateaction", ftypes.UINT32)
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.security_id = ProtoField.new("Security Id", "eurex.t7.underlyingticker.fast.v8.1.securityid", ftypes.STRING)
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.security_id_source = ProtoField.new("Security Id Source", "eurex.t7.underlyingticker.fast.v8.1.securityidsource", ftypes.STRING)
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_entry_px = ProtoField.new("Md Entry Px", "eurex.t7.underlyingticker.fast.v8.1.mdentrypx", ftypes.DOUBLE)
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_entry_size = ProtoField.new("Md Entry Size", "eurex.t7.underlyingticker.fast.v8.1.mdentrysize", ftypes.DOUBLE)
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_entry_time = ProtoField.new("Md Entry Time", "eurex.t7.underlyingticker.fast.v8.1.mdentrytime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.no_md_entries = ProtoField.new("No MD Entries", "eurex.t7.underlyingticker.fast.v8.1.nomdentries", ftypes.UINT32)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_entry_type = ProtoField.new("MD Entry Type", "eurex.t7.underlyingticker.fast.v8.1.mdentrytype", ftypes.UINT32)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_update_action = ProtoField.new("MD Update Action", "eurex.t7.underlyingticker.fast.v8.1.mdupdateaction", ftypes.UINT32)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.security_id = ProtoField.new("Security ID", "eurex.t7.underlyingticker.fast.v8.1.securityid", ftypes.STRING)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.security_id_source = ProtoField.new("Security ID Source", "eurex.t7.underlyingticker.fast.v8.1.securityidsource", ftypes.STRING)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_entry_px = ProtoField.new("MD Entry Px", "eurex.t7.underlyingticker.fast.v8.1.mdentrypx", ftypes.DOUBLE)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_entry_size = ProtoField.new("MD Entry Size", "eurex.t7.underlyingticker.fast.v8.1.mdentrysize", ftypes.DOUBLE)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_entry_time = ProtoField.new("MD Entry Time", "eurex.t7.underlyingticker.fast.v8.1.mdentrytime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_eurex_t7_underlyingticker_fast_v8_1.fields.currency = ProtoField.new("Currency", "eurex.t7.underlyingticker.fast.v8.1.currency", ftypes.STRING)
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_stream_id = ProtoField.new("Md Stream Id", "eurex.t7.underlyingticker.fast.v8.1.mdstreamid", ftypes.STRING)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_stream_id = ProtoField.new("MD Stream ID", "eurex.t7.underlyingticker.fast.v8.1.mdstreamid", ftypes.STRING)
 
 -- Eurex T7 UnderlyingTicker Fast 8.1 Messages
 omi_eurex_t7_underlyingticker_fast_v8_1.fields.packet_header = ProtoField.new("Packet Header Framing", "eurex.t7.underlyingticker.fast.v8.1.packetheader", ftypes.NONE)
 omi_eurex_t7_underlyingticker_fast_v8_1.fields.ticker_message = ProtoField.new("Ticker Message Message", "eurex.t7.underlyingticker.fast.v8.1.tickermessage", ftypes.NONE)
-omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_inc_grp = ProtoField.new("Md Inc Grp", "eurex.t7.underlyingticker.fast.v8.1.mdincgrp", ftypes.NONE)
+omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_inc_grp = ProtoField.new("MD Inc Grp", "eurex.t7.underlyingticker.fast.v8.1.mdincgrp", ftypes.NONE)
 
 -----------------------------------------------------------------------
 -- Protocol Functions
@@ -458,10 +458,10 @@ end
 -- Eurex T7 UnderlyingTicker Fast 8.1 Fields
 -----------------------------------------------------------------------
 
--- Sender Comp Id (Sent)
+-- Sender Comp ID (Sent)
 eurex_t7_underlyingticker_fast_v8_1.sender_comp_id_sent = {}
 
--- Dissect: Sender Comp Id (Sent)
+-- Dissect: Sender Comp ID (Sent)
 eurex_t7_underlyingticker_fast_v8_1.sender_comp_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -474,16 +474,16 @@ eurex_t7_underlyingticker_fast_v8_1.sender_comp_id_sent.dissect = function(buffe
     parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.sender_comp_id, range, 0)
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
 end
 
--- Sender Comp Id (Copy)
+-- Sender Comp ID (Copy)
 eurex_t7_underlyingticker_fast_v8_1.sender_comp_id_copy = {}
 
--- Dissect: Sender Comp Id (Copy)
+-- Dissect: Sender Comp ID (Copy)
 eurex_t7_underlyingticker_fast_v8_1.sender_comp_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -496,7 +496,7 @@ eurex_t7_underlyingticker_fast_v8_1.sender_comp_id_copy.dissect = function(buffe
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Comp Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Comp ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -507,7 +507,7 @@ eurex_t7_underlyingticker_fast_v8_1.sender_comp_id_copy.dissect = function(buffe
     parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.sender_comp_id, range, 0)
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
@@ -616,10 +616,10 @@ eurex_t7_underlyingticker_fast_v8_1.msg_seq_num.dissect = function(buffer, offse
   return offset, value
 end
 
--- No Md Entries
+-- No MD Entries
 eurex_t7_underlyingticker_fast_v8_1.no_md_entries = {}
 
--- Dissect: No Md Entries
+-- Dissect: No MD Entries
 eurex_t7_underlyingticker_fast_v8_1.no_md_entries.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -632,59 +632,59 @@ eurex_t7_underlyingticker_fast_v8_1.no_md_entries.dissect = function(buffer, off
     parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.no_md_entries, range, value)
   else
     local absent = parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.no_md_entries, range, 0)
-    absent:set_text("No Md Entries: No Value")
+    absent:set_text("No MD Entries: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Type
+-- MD Entry Type
 eurex_t7_underlyingticker_fast_v8_1.md_entry_type = {}
 
--- Display: Md Entry Type
+-- Display: MD Entry Type
 eurex_t7_underlyingticker_fast_v8_1.md_entry_type.display = function(value)
   if value == nil then
-    return "Md Entry Type: No Value"
+    return "MD Entry Type: No Value"
   end
 
   if value == 0 then
-    return "Md Entry Type: Bid (0)"
+    return "MD Entry Type: Bid (0)"
   end
   if value == 1 then
-    return "Md Entry Type: Offer (1)"
+    return "MD Entry Type: Offer (1)"
   end
   if value == 2 then
-    return "Md Entry Type: Trade (2)"
+    return "MD Entry Type: Trade (2)"
   end
   if value == 3 then
-    return "Md Entry Type: EmptyBook (J)"
+    return "MD Entry Type: EmptyBook (J)"
   end
   if value == 4 then
-    return "Md Entry Type: AuctionClearingPrice (Q)"
+    return "MD Entry Type: AuctionClearingPrice (Q)"
   end
   if value == 5 then
-    return "Md Entry Type: SettlementPrice (6)"
+    return "MD Entry Type: SettlementPrice (6)"
   end
   if value == 6 then
-    return "Md Entry Type: OpenInterest (C)"
+    return "MD Entry Type: OpenInterest (C)"
   end
   if value == 7 then
-    return "Md Entry Type: TradeVolume (B)"
+    return "MD Entry Type: TradeVolume (B)"
   end
   if value == 8 then
-    return "Md Entry Type: MarketBid (b)"
+    return "MD Entry Type: MarketBid (b)"
   end
   if value == 9 then
-    return "Md Entry Type: MarketOffer (c)"
+    return "MD Entry Type: MarketOffer (c)"
   end
   if value == 10 then
-    return "Md Entry Type: Imbalance (A)"
+    return "MD Entry Type: Imbalance (A)"
   end
 
-  return "Md Entry Type: Unknown("..value..")"
+  return "MD Entry Type: Unknown("..value..")"
 end
 
--- Dissect: Md Entry Type
+-- Dissect: MD Entry Type
 eurex_t7_underlyingticker_fast_v8_1.md_entry_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -697,7 +697,7 @@ eurex_t7_underlyingticker_fast_v8_1.md_entry_type.dissect = function(buffer, off
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Entry Type was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Entry Type was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -716,38 +716,38 @@ eurex_t7_underlyingticker_fast_v8_1.md_entry_type.dissect = function(buffer, off
   return offset, value
 end
 
--- Md Update Action
+-- MD Update Action
 eurex_t7_underlyingticker_fast_v8_1.md_update_action = {}
 
--- Display: Md Update Action
+-- Display: MD Update Action
 eurex_t7_underlyingticker_fast_v8_1.md_update_action.display = function(value)
   if value == nil then
-    return "Md Update Action: No Value"
+    return "MD Update Action: No Value"
   end
 
   if value == 0 then
-    return "Md Update Action: New (0)"
+    return "MD Update Action: New (0)"
   end
   if value == 1 then
-    return "Md Update Action: Change (1)"
+    return "MD Update Action: Change (1)"
   end
   if value == 2 then
-    return "Md Update Action: Delete (2)"
+    return "MD Update Action: Delete (2)"
   end
   if value == 3 then
-    return "Md Update Action: DeleteThru (3)"
+    return "MD Update Action: DeleteThru (3)"
   end
   if value == 4 then
-    return "Md Update Action: DeleteFrom (4)"
+    return "MD Update Action: DeleteFrom (4)"
   end
   if value == 5 then
-    return "Md Update Action: Overlay (5)"
+    return "MD Update Action: Overlay (5)"
   end
 
-  return "Md Update Action: Unknown("..value..")"
+  return "MD Update Action: Unknown("..value..")"
 end
 
--- Dissect: Md Update Action
+-- Dissect: MD Update Action
 eurex_t7_underlyingticker_fast_v8_1.md_update_action.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -768,10 +768,10 @@ eurex_t7_underlyingticker_fast_v8_1.md_update_action.dissect = function(buffer, 
   return offset, value
 end
 
--- Security Id
+-- Security ID
 eurex_t7_underlyingticker_fast_v8_1.security_id = {}
 
--- Dissect: Security Id
+-- Dissect: Security ID
 eurex_t7_underlyingticker_fast_v8_1.security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -785,16 +785,16 @@ eurex_t7_underlyingticker_fast_v8_1.security_id.dissect = function(buffer, offse
     parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.security_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.security_id, range, "")
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id Source
+-- Security ID Source
 eurex_t7_underlyingticker_fast_v8_1.security_id_source = {}
 
--- Dissect: Security Id Source
+-- Dissect: Security ID Source
 eurex_t7_underlyingticker_fast_v8_1.security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -807,25 +807,25 @@ eurex_t7_underlyingticker_fast_v8_1.security_id_source.dissect = function(buffer
     parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.security_id_source, range, value)
   else
     local absent = parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.security_id_source, range, "")
-    absent:set_text("Security Id Source: No Value")
+    absent:set_text("Security ID Source: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Px
+-- MD Entry Px
 eurex_t7_underlyingticker_fast_v8_1.md_entry_px = {}
 
--- Display: Md Entry Px
+-- Display: MD Entry Px
 eurex_t7_underlyingticker_fast_v8_1.md_entry_px.display = function(value)
   if value == nil then
-    return "Md Entry Px: No Value"
+    return "MD Entry Px: No Value"
   end
 
-  return "Md Entry Px: "..value
+  return "MD Entry Px: "..value
 end
 
--- Dissect: Md Entry Px
+-- Dissect: MD Entry Px
 eurex_t7_underlyingticker_fast_v8_1.md_entry_px.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -867,19 +867,19 @@ eurex_t7_underlyingticker_fast_v8_1.md_entry_px.dissect = function(buffer, offse
   return offset, value
 end
 
--- Md Entry Size
+-- MD Entry Size
 eurex_t7_underlyingticker_fast_v8_1.md_entry_size = {}
 
--- Display: Md Entry Size
+-- Display: MD Entry Size
 eurex_t7_underlyingticker_fast_v8_1.md_entry_size.display = function(value)
   if value == nil then
-    return "Md Entry Size: No Value"
+    return "MD Entry Size: No Value"
   end
 
-  return "Md Entry Size: "..value
+  return "MD Entry Size: "..value
 end
 
--- Dissect: Md Entry Size
+-- Dissect: MD Entry Size
 eurex_t7_underlyingticker_fast_v8_1.md_entry_size.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -921,10 +921,10 @@ eurex_t7_underlyingticker_fast_v8_1.md_entry_size.dissect = function(buffer, off
   return offset, value
 end
 
--- Md Entry Time
+-- MD Entry Time
 eurex_t7_underlyingticker_fast_v8_1.md_entry_time = {}
 
--- Dissect: Md Entry Time
+-- Dissect: MD Entry Time
 eurex_t7_underlyingticker_fast_v8_1.md_entry_time.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -941,7 +941,7 @@ eurex_t7_underlyingticker_fast_v8_1.md_entry_time.dissect = function(buffer, off
 
   if value == nil then
     local absent = parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_entry_time, range, NSTime.new(0, 0))
-    absent:set_text("Md Entry Time: No Value")
+    absent:set_text("MD Entry Time: No Value")
   else
     local seconds = (value / Int64(1000000000)):tonumber()
     local nanos = (value % Int64(1000000000)):tonumber()
@@ -979,10 +979,10 @@ eurex_t7_underlyingticker_fast_v8_1.currency.dissect = function(buffer, offset, 
   return offset, value
 end
 
--- Md Stream Id
+-- MD Stream ID
 eurex_t7_underlyingticker_fast_v8_1.md_stream_id = {}
 
--- Dissect: Md Stream Id
+-- Dissect: MD Stream ID
 eurex_t7_underlyingticker_fast_v8_1.md_stream_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -995,7 +995,7 @@ eurex_t7_underlyingticker_fast_v8_1.md_stream_id.dissect = function(buffer, offs
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Stream Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Stream ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1006,7 +1006,7 @@ eurex_t7_underlyingticker_fast_v8_1.md_stream_id.dissect = function(buffer, offs
     parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_stream_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_stream_id, range, "")
-    absent:set_text("Md Stream Id: No Value")
+    absent:set_text("MD Stream ID: No Value")
   end
 
   return offset, value
@@ -1017,45 +1017,45 @@ end
 -- Dissect Eurex T7 UnderlyingTicker Fast 8.1
 -----------------------------------------------------------------------
 
--- Md Inc Grp
+-- MD Inc Grp
 eurex_t7_underlyingticker_fast_v8_1.md_inc_grp = {}
 
--- Dissect Fields: Md Inc Grp
+-- Dissect Fields: MD Inc Grp
 eurex_t7_underlyingticker_fast_v8_1.md_inc_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: uInt32, Copy
+  -- MD Entry Type: uInt32, Copy
   index, value = eurex_t7_underlyingticker_fast_v8_1.md_entry_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|11:MDEntryType")
 
-  -- Md Update Action: uInt32, Constant
+  -- MD Update Action: uInt32, Constant
   index, value = eurex_t7_underlyingticker_fast_v8_1.md_update_action.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: string, Delta
+  -- Security ID: string, Delta
   index, value = eurex_t7_underlyingticker_fast_v8_1.security_id.dissect(buffer, index, packet, parent, nil, state, "8:template|41:https://www.deutsche-boerse.com/eurticker|13:TickerMessage|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_underlyingticker_fast_v8_1.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, Delta
+  -- MD Entry Px: decimal, Delta
   index, value = eurex_t7_underlyingticker_fast_v8_1.md_entry_px.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
 
-  -- Md Entry Size: decimal, Delta, optional
+  -- MD Entry Size: decimal, Delta, optional
   index, value = eurex_t7_underlyingticker_fast_v8_1.md_entry_size.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|11:MDEntrySize|E", "6:global|0:|11:MDEntrySize|M" })
 
-  -- Md Entry Time: timestamp, Delta, optional
+  -- MD Entry Time: timestamp, Delta, optional
   index, value = eurex_t7_underlyingticker_fast_v8_1.md_entry_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:MDEntryTime")
 
   -- Currency: string, Copy, optional
   index, value = eurex_t7_underlyingticker_fast_v8_1.currency.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|8:Currency")
 
-  -- Md Stream Id: string, Copy
+  -- MD Stream ID: string, Copy
   index, value = eurex_t7_underlyingticker_fast_v8_1.md_stream_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|10:MDStreamID")
 
   return index
 end
 
--- Dissect: Md Inc Grp
+-- Dissect: MD Inc Grp
 eurex_t7_underlyingticker_fast_v8_1.md_inc_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.md_inc_grp, buffer(offset, 0))
   local index = offset
@@ -1097,13 +1097,13 @@ eurex_t7_underlyingticker_fast_v8_1.ticker_message.fields = function(buffer, off
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_underlyingticker_fast_v8_1.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_underlyingticker_fast_v8_1.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = eurex_t7_underlyingticker_fast_v8_1.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Inc Grp: No Md Entries entries
+  -- MD Inc Grp: No MD Entries entries
   local count = value or 0
   for md_inc_grp_index = 1, count do
     index = eurex_t7_underlyingticker_fast_v8_1.md_inc_grp.dissect(buffer, index, packet, parent, presence_map, base, state, md_inc_grp_index)
@@ -1132,7 +1132,7 @@ eurex_t7_underlyingticker_fast_v8_1.packet_header.fields = function(buffer, offs
   local index = offset
   local value = nil
 
-  -- Sender Comp Id: uInt32, sent
+  -- Sender Comp ID: uInt32, sent
   index, value = eurex_t7_underlyingticker_fast_v8_1.sender_comp_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Packet Seq Num: byteVector, sent

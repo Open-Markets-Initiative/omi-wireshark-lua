@@ -1493,7 +1493,7 @@ cme_globex_mdp3_sbe_v1_13.decay_start_date.display = function(value)
     return "Decay Start Date: No Value"
   end
 
-  return "Decay Start Date: "..value
+  return string.format("Decay Start Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Decay Start Date
@@ -6639,7 +6639,7 @@ cme_globex_mdp3_sbe_v1_13.trading_reference_date.display = function(value)
     return "Trading Reference Date: No Value"
   end
 
-  return "Trading Reference Date: "..value
+  return string.format("Trading Reference Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trading Reference Date

@@ -1,4 +1,4 @@
-[![Taifex](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Taifex/Images/Logo.png)](https://www.taifex.com.tw)
+[![Taifex](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Taifex/Images/Logo.png)](https://www.taifex.com.tw)
 
 
 ## Taiwan Futures Exchange

@@ -20,6 +20,7 @@ omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.algo_trade_flag = Pro
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.atp_seq_no = ProtoField.new("Atp Seq No", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.atpseqno", ftypes.UINT32, nil, nil, nil, "The next sequence number that the trading Member is expecting to receive on messages from Aquis")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.bust_timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.busttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the trade was busted by Aquis")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.bust_timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.busttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the trade was busted by Aquis")
+omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.cancel_reason = ProtoField.new("Cancel Reason", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.cancelreason", ftypes.UINT8, {[1]="Member Request", [2]="Aquis Forced Cancel", [3]="Market Close", [4]="Expired", [5]="Reserved", [6]="Aborted", [7]="Self Trade Prevention", [8]="Cancel On Disconnect", [9]="Post Only Cancel", [10]="Cancel Residual Quantity", [11]="Post Only Cancel Resting", [12]="Minimum Resting Value"}, base.DEC, 0x1F, "Reason code if rejected or cancelled; otherwise zero")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.cancellation_timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.cancellationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the cancellation was accepted or rejected by the Aquis system")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.cancellation_timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.cancellationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the cancellation was accepted or rejected by the Aquis system")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.ccp_code = ProtoField.new("Ccp Code", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.ccpcode", ftypes.UINT8, nil, nil, nil, "Clearing CCP code")
@@ -36,6 +37,7 @@ omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.lis_only = ProtoField
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.logout_reason_code = ProtoField.new("Logout Reason Code", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.logoutreasoncode", ftypes.UINT8, nil, nil, nil, "Reason code for logout")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.market_data_id = ProtoField.new("Market Data Id", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.marketdataid", ftypes.UINT32, nil, nil, nil, "The ID of this order as seen in the Aquis market data")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.min_qty = ProtoField.new("Min Qty", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.minqty", ftypes.UINT32, nil, nil, nil, "Minimum quantity (shares) of an order to be executed")
+omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.modification_reason = ProtoField.new("Modification Reason", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.modificationreason", ftypes.UINT8, {[1]="Modification Accepted", [2]="Order Cancelled"}, base.DEC, 0x1F, "Reason code if rejected or cancelled; otherwise zero")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.modification_timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.modificationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the modification was accepted or rejected by the Aquis system")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.modification_timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.modificationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the modification was accepted or rejected by the Aquis system")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.msglength", ftypes.UINT16, nil, nil, nil, "Length of message including this header")
@@ -57,6 +59,7 @@ omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.protocol_version = Pr
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.quantity = ProtoField.new("Quantity", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.reason_code = ProtoField.new("Reason Code", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.reasoncode", ftypes.UINT8, nil, base.DEC, 0x1F, "Reason code if rejected or cancelled; otherwise zero")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.reason_text = ProtoField.new("Reason Text", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.reasontext", ftypes.STRING, nil, nil, nil, "Text describing reason for logout")
+omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.reject_reason = ProtoField.new("Reject Reason", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.rejectreason", ftypes.UINT8, {[1]="Not Authorised To Trade", [2]="Invalid Quantity", [3]="Invalid Price", [4]="Unknown Security", [5]="Price Does Not Conform To Tick", [6]="Invalid Order Type", [7]="Invalid Side", [8]="Invalid Order Capacity", [9]="Market Is Closed", [10]="Halted", [11]="Suspended", [12]="Invalid Time In Force", [13]="Order Not Found Not Open", [15]="Failed Price Range Check", [16]="Invalid Clearing Account", [17]="Not Supported", [18]="Max Value Exceeded", [19]="Auction Ended", [20]="Drop Feed Down", [21]="Technical Reject", [23]="Stock Restricted", [24]="Minimum Consideration", [27]="Invalid", [29]="Bad Date", [30]="Duplicate", [31]="Reject Internal"}, base.DEC, 0x1F, "Reason code if rejected or cancelled; otherwise zero")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.request_ref = ProtoField.new("Request Ref", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.requestref", ftypes.UINT32, nil, nil, nil, "Sequence number (msgSeqNo) of the trading Member's request message")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.result_code = ProtoField.new("Result Code", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.resultcode", ftypes.UINT8, nil, nil, nil, "Login result code")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.security_id_long = ProtoField.new("Security Id Long", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.securityidlong", ftypes.UINT32, nil, nil, nil, "Numeric security identifier")
@@ -67,6 +70,9 @@ omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.short_code_2 = ProtoF
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.short_code_3 = ProtoField.new("Short Code 3", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.shortcode3", ftypes.UINT32, nil, nil, nil, "Short code for party 3, as qualified by tableSelect3")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.side = ProtoField.new("Side", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.status = ProtoField.new("Status", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.status", ftypes.STRING, nil, nil, nil, "Status of order and reject or cancel code")
+omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.status_cancel_reason = ProtoField.new("Status Cancel Reason", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.statuscancelreason", ftypes.STRING, nil, nil, nil, "Order status and reason code")
+omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.status_modification_reason = ProtoField.new("Status Modification Reason", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.statusmodificationreason", ftypes.STRING, nil, nil, nil, "Order status and reason code")
+omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.status_reject_reason = ProtoField.new("Status Reject Reason", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.statusrejectreason", ftypes.STRING, nil, nil, nil, "Order status and reason code")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.stp_enable = ProtoField.new("Stp Enable", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.stpenable", ftypes.UINT8, {[0]="No Restriction", [1]="Self Trade Prevention Enabled"}, base.DEC, 0x01, "Self-trade prevention")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.table_select_1 = ProtoField.new("Table Select 1", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.tableselect1", ftypes.STRING, nil, nil, nil, "Party role qualifier and role for party 1")
 omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.table_select_2 = ProtoField.new("Table Select 2", "aquis.aquisequities.tradingprotocol.atp.v2.10.3.tableselect2", ftypes.STRING, nil, nil, nil, "Party role qualifier and role for party 2")
@@ -1814,6 +1820,111 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_flags.diss
   return offset + size, value
 end
 
+-- Status Modification Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_modification_reason = {}
+
+-- Size: Status Modification Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_modification_reason.size = 1
+
+-- Display: Status Modification Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_modification_reason.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Modification Reason: 5 Bits
+  flags[#flags + 1] = "Modification Reason: "..bit.rshift(bit.band(value, 0x1F), 0)
+  -- Order Status: 3 Bits
+  flags[#flags + 1] = "Order Status: "..bit.rshift(bit.band(value, 0xE0), 5)
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Status Modification Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_modification_reason.bits = function(range, value, packet, parent)
+
+  -- Modification Reason: 5 Bit Unsigned Fixed Width Integer Enum with 2 values
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.modification_reason, range, value)
+
+  -- Order Status: 3 Bit Unsigned Fixed Width Integer Enum with 6 values
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.order_status, range, value)
+end
+
+-- Dissect: Status Modification Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_modification_reason.dissect = function(buffer, offset, packet, parent)
+  local size = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_modification_reason.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_modification_reason.display(range, value, packet, parent)
+  local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.status_modification_reason, range, display)
+
+  if show.structs then
+    aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_modification_reason.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Status Reject Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason = {}
+
+-- Size: Status Reject Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason.size = 1
+
+-- Display: Status Reject Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Reject Reason: 5 Bits
+  flags[#flags + 1] = "Reject Reason: "..bit.rshift(bit.band(value, 0x1F), 0)
+  -- Order Status: 3 Bits
+  flags[#flags + 1] = "Order Status: "..bit.rshift(bit.band(value, 0xE0), 5)
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Status Reject Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason.bits = function(range, value, packet, parent)
+
+  -- Reject Reason: 5 Bit Unsigned Fixed Width Integer Enum with 26 values
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.reject_reason, range, value)
+
+  -- Order Status: 3 Bit Unsigned Fixed Width Integer Enum with 6 values
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.order_status, range, value)
+end
+
+-- Dissect: Status Reject Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local size = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason.display(range, value, packet, parent)
+  local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.status_reject_reason, range, display)
+
+  if show.structs then
+    aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Order Modify Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status = {}
+
+-- Dispatch: Order Modify Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.dispatch = {
+  [4] = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason.dissect,
+}
+
+-- Dissect: Order Modify Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.dissect = function(buffer, offset, packet, parent, order_status)
+  local dissect = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.dispatch[bit.rshift(bit.band(status_reject_reason, 0xE0), 5)]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Status Modification Reason
+  return aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_modification_reason.dissect(buffer, offset, packet, parent)
+end
+
 -- Order Modify Response Message
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_message = {}
 
@@ -1821,7 +1932,7 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_message = 
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_message.size =
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_ref.size + 
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.request_ref.size + 
-  aquis_aquisequities_tradingprotocol_atp_v2_10_3.status.size + 
+  aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.size + 
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.modification_timestamp.size + 
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.user_tag.size + 
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_flags.size
@@ -1841,8 +1952,8 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_message.fi
   -- Request Ref: u32
   index, request_ref = aquis_aquisequities_tradingprotocol_atp_v2_10_3.request_ref.dissect(buffer, index, packet, parent)
 
-  -- Status: Struct of 2 fields
-  index, status = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status.dissect(buffer, index, packet, parent)
+  -- Order Modify Response Status: Runtime Type with 2 branches
+  index = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.dissect(buffer, index, packet, parent, order_status)
 
   -- Modification Timestamp: time
   index, modification_timestamp = aquis_aquisequities_tradingprotocol_atp_v2_10_3.modification_timestamp.dissect(buffer, index, packet, parent)
@@ -1874,6 +1985,69 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_message.di
   end
 end
 
+-- Status Cancel Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason = {}
+
+-- Size: Status Cancel Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason.size = 1
+
+-- Display: Status Cancel Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Cancel Reason: 5 Bits
+  flags[#flags + 1] = "Cancel Reason: "..bit.rshift(bit.band(value, 0x1F), 0)
+  -- Order Status: 3 Bits
+  flags[#flags + 1] = "Order Status: "..bit.rshift(bit.band(value, 0xE0), 5)
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Status Cancel Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason.bits = function(range, value, packet, parent)
+
+  -- Cancel Reason: 5 Bit Unsigned Fixed Width Integer Enum with 12 values
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.cancel_reason, range, value)
+
+  -- Order Status: 3 Bit Unsigned Fixed Width Integer Enum with 6 values
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.order_status, range, value)
+end
+
+-- Dissect: Status Cancel Reason
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason.dissect = function(buffer, offset, packet, parent)
+  local size = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason.display(range, value, packet, parent)
+  local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v2_10_3.fields.status_cancel_reason, range, display)
+
+  if show.structs then
+    aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Order Cancel Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status = {}
+
+-- Dispatch: Order Cancel Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.dispatch = {
+  [3] = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason.dissect,
+  [4] = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason.dissect,
+}
+
+-- Dissect: Order Cancel Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.dissect = function(buffer, offset, packet, parent, order_status)
+  local dissect = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.dispatch[bit.rshift(bit.band(status_cancel_reason, 0xE0), 5)]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Status
+  return aquis_aquisequities_tradingprotocol_atp_v2_10_3.status.dissect(buffer, offset, packet, parent)
+end
+
 -- Order Cancel Response Message
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_message = {}
 
@@ -1881,7 +2055,7 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_message = 
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_message.size =
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_ref.size + 
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.request_ref.size + 
-  aquis_aquisequities_tradingprotocol_atp_v2_10_3.status.size + 
+  aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.size + 
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.cancellation_timestamp.size + 
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.user_tag.size
 
@@ -1900,8 +2074,8 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_message.fi
   -- Request Ref: u32
   index, request_ref = aquis_aquisequities_tradingprotocol_atp_v2_10_3.request_ref.dissect(buffer, index, packet, parent)
 
-  -- Status: Struct of 2 fields
-  index, status = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status.dissect(buffer, index, packet, parent)
+  -- Order Cancel Response Status: Runtime Type with 3 branches
+  index = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.dissect(buffer, index, packet, parent, order_status)
 
   -- Cancellation Timestamp: time
   index, cancellation_timestamp = aquis_aquisequities_tradingprotocol_atp_v2_10_3.cancellation_timestamp.dissect(buffer, index, packet, parent)
@@ -1976,6 +2150,26 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_flags.dissect
   return offset + size, value
 end
 
+-- Order Add Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status = {}
+
+-- Dispatch: Order Add Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.dispatch = {
+  [3] = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason.dissect,
+  [4] = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason.dissect,
+}
+
+-- Dissect: Order Add Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.dissect = function(buffer, offset, packet, parent, order_status)
+  local dissect = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.dispatch[bit.rshift(bit.band(status_cancel_reason, 0xE0), 5)]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Status
+  return aquis_aquisequities_tradingprotocol_atp_v2_10_3.status.dissect(buffer, offset, packet, parent)
+end
+
 -- Order Add Response Message
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_message = {}
 
@@ -1983,7 +2177,7 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_message = {}
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_message.size =
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_ref.size + 
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.market_data_id.size + 
-  aquis_aquisequities_tradingprotocol_atp_v2_10_3.status.size + 
+  aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.size + 
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.traded_quantity.size + 
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.timestamp.size + 
   aquis_aquisequities_tradingprotocol_atp_v2_10_3.user_tag.size + 
@@ -2004,8 +2198,8 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_message.field
   -- Market Data Id: u32
   index, market_data_id = aquis_aquisequities_tradingprotocol_atp_v2_10_3.market_data_id.dissect(buffer, index, packet, parent)
 
-  -- Status: Struct of 2 fields
-  index, status = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status.dissect(buffer, index, packet, parent)
+  -- Order Add Response Status: Runtime Type with 3 branches
+  index = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.dissect(buffer, index, packet, parent, order_status)
 
   -- Traded Quantity: u32
   index, traded_quantity = aquis_aquisequities_tradingprotocol_atp_v2_10_3.traded_quantity.dissect(buffer, index, packet, parent)

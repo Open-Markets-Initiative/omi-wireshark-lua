@@ -1,4 +1,4 @@
-[![CixAts](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/CixAts/Images/Logo.png)](https://www.thecix.ca)
+[![CixAts](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/CixAts/Images/Logo.png)](https://www.thecix.ca)
 
 
 ## CIX Trading Inc.

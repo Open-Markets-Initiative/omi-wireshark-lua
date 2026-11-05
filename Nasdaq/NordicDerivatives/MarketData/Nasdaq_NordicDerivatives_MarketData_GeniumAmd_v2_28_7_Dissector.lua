@@ -1376,24 +1376,6 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id = {}
 -- Size: Order Book Id
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.size = 4
 
--- Display: Order Book Id
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.display = function(value)
-  return "Order Book Id: "..value
-end
-
--- Dissect: Order Book Id
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.order_book_id, range, value, display)
-
-  return offset + length, value
-end
-
-
 -- Lookup: Order Book Id
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.lookup = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.size
@@ -1429,6 +1411,23 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.lookup = fun
   end
 
   return offset + length, value, record
+end
+
+-- Display: Order Book Id
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.display = function(value)
+  return "Order Book Id: "..value
+end
+
+-- Dissect: Order Book Id
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.order_book_id, range, value, display)
+
+  return offset + length, value
 end
 
 -- Physical Delivery

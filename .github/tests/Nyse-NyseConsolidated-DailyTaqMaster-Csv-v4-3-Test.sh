@@ -10,7 +10,13 @@ runuser -u tester -- tshark \
   > Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json 2> Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json.stderr \
   || { echo "--- tshark FAILED (Master.excerpt.gz) ---"; cat Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json.stderr; exit 1; }
 
-grep "nyse.nyseconsolidated.dailytaqmaster.csv.v4.3." Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json
+fields=$(grep -c "nyse.nyseconsolidated.dailytaqmaster.csv.v4.3." Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json) \
+  || { echo "--- no nyse.nyseconsolidated.dailytaqmaster.csv.v4.3 fields (Master.excerpt.gz) ---"; exit 1; }
+echo "  nyse.nyseconsolidated.dailytaqmaster.csv.v4.3 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (Master.excerpt.gz) ---"; grep -o '"Lua Error[^"]*"' Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json | sort -u | head; exit 1; }
 
 [ "$(grep -c -F '"nyse.nyseconsolidated.dailytaqmaster.csv.v4.3.record.security"' Nyse.NyseConsolidated.DailyTaqMaster.Csv.v4.3.Master.json)" -eq 23 ] || { echo "--- 23 Security records expected (Master.excerpt.gz) ---"; exit 1; }
 

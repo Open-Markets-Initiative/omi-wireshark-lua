@@ -71,6 +71,12 @@ runuser -u tester -- tshark \
   > Cboe.BzxEquities.MulticastDepthOfBook.Spin.v2.20.4.Multiplemessages.json 2> Cboe.BzxEquities.MulticastDepthOfBook.Spin.v2.20.4.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Cboe.BzxEquities.MulticastDepthOfBook.Spin.v2.20.4.Multiplemessages.json.stderr; exit 1; }
 
-grep "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4." Cboe.BzxEquities.MulticastDepthOfBook.Spin.v2.20.4.Multiplemessages.json
+fields=$(grep -c "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4." Cboe.BzxEquities.MulticastDepthOfBook.Spin.v2.20.4.Multiplemessages.json) \
+  || { echo "--- no cboe.bzxequities.multicastdepthofbook.spin.v2.20.4 fields (MultipleMessages) ---"; exit 1; }
+echo "  cboe.bzxequities.multicastdepthofbook.spin.v2.20.4 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Cboe.BzxEquities.MulticastDepthOfBook.Spin.v2.20.4.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Cboe.BzxEquities.MulticastDepthOfBook.Spin.v2.20.4.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.' Cboe.BzxEquities.MulticastDepthOfBook.Spin.v2.20.4.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

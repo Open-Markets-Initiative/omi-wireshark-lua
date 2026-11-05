@@ -1,4 +1,4 @@
-[![Szse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Szse/Images/Logo.png)](https://www.szse.cn)
+[![Szse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Szse/Images/Logo.png)](https://www.szse.cn)
 
 
 ## Shenzhen Stock Exchange

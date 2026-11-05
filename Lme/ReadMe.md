@@ -1,4 +1,4 @@
-[![Lme](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lme/Images/Logo.png)](https://www.lme.com)
+[![Lme](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Lme/Images/Logo.png)](https://www.lme.com)
 
 
 ## The London Metal Exchange

@@ -1,4 +1,4 @@
-[![Gpw](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Images/Logo.png)](https://www.gpw.pl)
+[![Gpw](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Gpw/Images/Logo.png)](https://www.gpw.pl)
 
 
 ## Giełda Papierów Wartościowych w Warszawie

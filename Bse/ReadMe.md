@@ -1,4 +1,4 @@
-[![Bse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bse/Images/Logo.png)](https://www.bseindia.com)
+[![Bse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Bse/Images/Logo.png)](https://www.bseindia.com)
 
 
 ## BSE Limited
@@ -7,7 +7,13 @@
 
 | Division | [Protocol][Omi.Bse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Bse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [BseIndia][BseIndia.Exchange] | [Emdi][Bse.BseIndia.Emdi] | [Fast][Omi.Encoding.Fast] | [600.003.300.600003420][Bse.BseIndia.Emdi.Fast.v600.003.300.600003420.Dissector] | 4/5/2024 | 4526 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.Emdi.Fast.v600.003.300.600003420.Xml] |
+| [BseIndia][BseIndia.Exchange] | [Emdi][Bse.BseIndia.Emdi] | [Fast][Omi.Encoding.Fast] | [600.003.300.600003750][Bse.BseIndia.Emdi.Fast.v600.003.300.600003750.Dissector] | 6/29/2026 | 4795 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.Emdi.Fast.v600.003.300.600003750.Xml] - [url][Bse.BseIndia.Emdi.Fast.v600.003.300.600003750.Url] - [pdf][Bse.BseIndia.Emdi.Fast.v600.003.300.600003750.Pdf] |
+| [BseIndia][BseIndia.Exchange] | [EmdiSnapshot][Bse.BseIndia.EmdiSnapshot] | [Fast][Omi.Encoding.Fast] | [502.002.420.600003420][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003420.Dissector] | 4/5/2024 | 2268 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003420.Xml] |
+| [BseIndia][BseIndia.Exchange] | [EmdiSnapshot][Bse.BseIndia.EmdiSnapshot] | [Fast][Omi.Encoding.Fast] | [502.002.420.600003750][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003750.Dissector] | 6/29/2026 | 2418 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003750.Xml] - [url][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003750.Url] - [pdf][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003750.Pdf] |
 | [BseIndia][BseIndia.Exchange] | [Eobi][Bse.BseIndia.Eobi] | [Fbe][Omi.Encoding.Fbe] | [1.4][Bse.BseIndia.Eobi.Fbe.v1.4.Dissector] | 7/14/2025 | 3916 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Bse.BseIndia.Eobi.Fbe.v1.4.Url] - [pdf][Bse.BseIndia.Eobi.Fbe.v1.4.Pdf] |
+| [BseIndia][BseIndia.Exchange] | [Mdi][Bse.BseIndia.Mdi] | [Fast][Omi.Encoding.Fast] | [502.002.420.600003420][Bse.BseIndia.Mdi.Fast.v502.002.420.600003420.Dissector] | 4/5/2024 | 5010 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.Mdi.Fast.v502.002.420.600003420.Xml] |
+| [BseIndia][BseIndia.Exchange] | [Mdi][Bse.BseIndia.Mdi] | [Fast][Omi.Encoding.Fast] | [502.002.420.600003750][Bse.BseIndia.Mdi.Fast.v502.002.420.600003750.Dissector] | 6/29/2026 | 5415 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.Mdi.Fast.v502.002.420.600003750.Xml] - [url][Bse.BseIndia.Mdi.Fast.v502.002.420.600003750.Url] - [pdf][Bse.BseIndia.Mdi.Fast.v502.002.420.600003750.Pdf] |
 
 
 ### Order Entry
@@ -15,18 +21,6 @@
 | Division | [Protocol][Omi.Bse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Bse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [BseIndia][BseIndia.Exchange] | [Eti][Bse.BseIndia.Eti] | [Fbe][Omi.Encoding.Fbe] | [1.6.14][Bse.BseIndia.Eti.Fbe.v1.6.14.Dissector] | 3/30/2026 | 19023 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bse.BseIndia.Eti.Fbe.v1.6.14.Url] - [pdf][Bse.BseIndia.Eti.Fbe.v1.6.14.Pdf] - [xml][Bse.BseIndia.Eti.Fbe.v1.6.14.Xml] |
-
-
-### Protocols
-
-| Division | [Protocol][Omi.Bse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Bse.Specifications] |
-| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BseIndia][BseIndia.Exchange] | [Emdi][Bse.BseIndia.Emdi] | [Fast][Omi.Encoding.Fast] | [600.003.300.600003420][Bse.BseIndia.Emdi.Fast.v600.003.300.600003420.Dissector] | 4/5/2024 | 4526 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.Emdi.Fast.v600.003.300.600003420.Xml] |
-| [BseIndia][BseIndia.Exchange] | [Emdi][Bse.BseIndia.Emdi] | [Fast][Omi.Encoding.Fast] | [600.003.300.600003750][Bse.BseIndia.Emdi.Fast.v600.003.300.600003750.Dissector] | 6/29/2026 | 4795 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.Emdi.Fast.v600.003.300.600003750.Xml] - [url][Bse.BseIndia.Emdi.Fast.v600.003.300.600003750.Url] - [pdf][Bse.BseIndia.Emdi.Fast.v600.003.300.600003750.Pdf] |
-| [BseIndia][BseIndia.Exchange] | [EmdiSnapshot][Bse.BseIndia.EmdiSnapshot] | [Fast][Omi.Encoding.Fast] | [502.002.420.600003420][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003420.Dissector] | 4/5/2024 | 2268 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003420.Xml] |
-| [BseIndia][BseIndia.Exchange] | [EmdiSnapshot][Bse.BseIndia.EmdiSnapshot] | [Fast][Omi.Encoding.Fast] | [502.002.420.600003750][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003750.Dissector] | 6/29/2026 | 2418 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003750.Xml] - [url][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003750.Url] - [pdf][Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003750.Pdf] |
-| [BseIndia][BseIndia.Exchange] | [Mdi][Bse.BseIndia.Mdi] | [Fast][Omi.Encoding.Fast] | [502.002.420.600003420][Bse.BseIndia.Mdi.Fast.v502.002.420.600003420.Dissector] | 4/5/2024 | 5010 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.Mdi.Fast.v502.002.420.600003420.Xml] |
-| [BseIndia][BseIndia.Exchange] | [Mdi][Bse.BseIndia.Mdi] | [Fast][Omi.Encoding.Fast] | [502.002.420.600003750][Bse.BseIndia.Mdi.Fast.v502.002.420.600003750.Dissector] | 6/29/2026 | 5415 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [xml][Bse.BseIndia.Mdi.Fast.v502.002.420.600003750.Xml] - [url][Bse.BseIndia.Mdi.Fast.v502.002.420.600003750.Url] - [pdf][Bse.BseIndia.Mdi.Fast.v502.002.420.600003750.Pdf] |
 
 
 <p align="center"><a href="https://www.bseindia.com" title="BSE Limited Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/bseindia" title="BSE Limited on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Bombay_Stock_Exchange" title="BSE Limited on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

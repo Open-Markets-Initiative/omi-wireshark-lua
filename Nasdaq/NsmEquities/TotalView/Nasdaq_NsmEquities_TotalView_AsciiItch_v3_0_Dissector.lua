@@ -1917,24 +1917,6 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6 = {}
 -- Size: Stock Alphanumeric 6
 nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size = 6
 
--- Display: Stock Alphanumeric 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.display = function(value)
-  return "Stock Alphanumeric 6: "..value
-end
-
--- Dissect: Stock Alphanumeric 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock_alphanumeric_6, range, value, display)
-
-  return offset + length, value
-end
-
-
 -- Lookup: Stock Alphanumeric 6
 nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size
@@ -1977,6 +1959,23 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup = functi
   end
 
   return offset + length, value, record
+end
+
+-- Display: Stock Alphanumeric 6
+nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.display = function(value)
+  return "Stock Alphanumeric 6: "..value
+end
+
+-- Dissect: Stock Alphanumeric 6
+nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock_alphanumeric_6, range, value, display)
+
+  return offset + length, value
 end
 
 -- Text

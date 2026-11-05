@@ -25,16 +25,16 @@ omi_athex_oasis_mdfs_fast_v9.fields.presence_identified = ProtoField.new("Templa
 omi_athex_oasis_mdfs_fast_v9.fields.presence_unused = ProtoField.new("Unused", "athex.oasis.mdfs.fast.v9.presenceunused", ftypes.UINT8, nil, base.HEX)
 
 -- Athex Oasis Mdfs Fast 9 Presence Map Fields
-omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums = ProtoField.new("No Athex Recovery Seq Nums", "athex.oasis.mdfs.fast.v9.noathexrecoveryseqnumspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_athex_oasis_mdfs_fast_v9.fields.presence_no_athex_recovery_seq_nums = ProtoField.new("No ATHEX Recovery Seq Nums", "athex.oasis.mdfs.fast.v9.noathexrecoveryseqnumspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "athex.oasis.mdfs.fast.v9.lastmsgseqnumprocessedpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator = ProtoField.new("Athex Snapshot Indicator", "athex.oasis.mdfs.fast.v9.athexsnapshotindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator = ProtoField.new("Athex Fragment Indicator", "athex.oasis.mdfs.fast.v9.athexfragmentindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_athex_oasis_mdfs_fast_v9.fields.presence_trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "athex.oasis.mdfs.fast.v9.tradingsessionsubidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_snapshot_indicator = ProtoField.new("ATHEX Snapshot Indicator", "athex.oasis.mdfs.fast.v9.athexsnapshotindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_fragment_indicator = ProtoField.new("ATHEX Fragment Indicator", "athex.oasis.mdfs.fast.v9.athexfragmentindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_athex_oasis_mdfs_fast_v9.fields.presence_trading_session_sub_id = ProtoField.new("Trading Session Sub ID", "athex.oasis.mdfs.fast.v9.tradingsessionsubidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_security_status_grp = ProtoField.new("Security Status Grp", "athex.oasis.mdfs.fast.v9.securitystatusgrppresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_auction_type = ProtoField.new("Athex Auction Type", "athex.oasis.mdfs.fast.v9.athexauctiontypepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_auction_type = ProtoField.new("ATHEX Auction Type", "athex.oasis.mdfs.fast.v9.athexauctiontypepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_trading_session_grp = ProtoField.new("Trading Session Grp", "athex.oasis.mdfs.fast.v9.tradingsessiongrppresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_system_status = ProtoField.new("Athex System Status", "athex.oasis.mdfs.fast.v9.athexsystemstatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_athex_oasis_mdfs_fast_v9.fields.presence_md_book_type = ProtoField.new("Md Book Type", "athex.oasis.mdfs.fast.v9.mdbooktypepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_athex_oasis_mdfs_fast_v9.fields.presence_athex_system_status = ProtoField.new("ATHEX System Status", "athex.oasis.mdfs.fast.v9.athexsystemstatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_athex_oasis_mdfs_fast_v9.fields.presence_md_book_type = ProtoField.new("MD Book Type", "athex.oasis.mdfs.fast.v9.mdbooktypepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_instrument_grp = ProtoField.new("Instrument Grp", "athex.oasis.mdfs.fast.v9.instrumentgrppresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_athex_oasis_mdfs_fast_v9.fields.presence_no_underlyings = ProtoField.new("No Underlyings", "athex.oasis.mdfs.fast.v9.nounderlyingspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 
@@ -42,77 +42,77 @@ omi_athex_oasis_mdfs_fast_v9.fields.presence_no_underlyings = ProtoField.new("No
 omi_athex_oasis_mdfs_fast_v9.fields.begin_string = ProtoField.new("Begin String", "athex.oasis.mdfs.fast.v9.beginstring", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.body_length = ProtoField.new("Body Length", "athex.oasis.mdfs.fast.v9.bodylength", ftypes.INT32)
 omi_athex_oasis_mdfs_fast_v9.fields.msg_type = ProtoField.new("Msg Type", "athex.oasis.mdfs.fast.v9.msgtype", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.sender_comp_id = ProtoField.new("Sender Comp Id", "athex.oasis.mdfs.fast.v9.sendercompid", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.target_comp_id = ProtoField.new("Target Comp Id", "athex.oasis.mdfs.fast.v9.targetcompid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "athex.oasis.mdfs.fast.v9.sendercompid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.target_comp_id = ProtoField.new("Target Comp ID", "athex.oasis.mdfs.fast.v9.targetcompid", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "athex.oasis.mdfs.fast.v9.msgseqnum", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.sending_time = ProtoField.new("Sending Time", "athex.oasis.mdfs.fast.v9.sendingtime", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "athex.oasis.mdfs.fast.v9.lastmsgseqnumprocessed", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.no_athex_recovery_seq_nums = ProtoField.new("No Athex Recovery Seq Nums", "athex.oasis.mdfs.fast.v9.noathexrecoveryseqnums", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_seq_num = ProtoField.new("Athex Recovery Seq Num", "athex.oasis.mdfs.fast.v9.athexrecoveryseqnum", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.appl_id = ProtoField.new("Appl Id", "athex.oasis.mdfs.fast.v9.applid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.no_athex_recovery_seq_nums = ProtoField.new("No ATHEX Recovery Seq Nums", "athex.oasis.mdfs.fast.v9.noathexrecoveryseqnums", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_seq_num = ProtoField.new("ATHEX Recovery Seq Num", "athex.oasis.mdfs.fast.v9.athexrecoveryseqnum", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.appl_id = ProtoField.new("Appl ID", "athex.oasis.mdfs.fast.v9.applid", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "athex.oasis.mdfs.fast.v9.applseqnum", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.checksum = ProtoField.new("Checksum", "athex.oasis.mdfs.fast.v9.checksum", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_snapshot_indicator = ProtoField.new("Athex Snapshot Indicator", "athex.oasis.mdfs.fast.v9.athexsnapshotindicator", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_fragment_indicator = ProtoField.new("Athex Fragment Indicator", "athex.oasis.mdfs.fast.v9.athexfragmentindicator", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_snapshot_indicator = ProtoField.new("ATHEX Snapshot Indicator", "athex.oasis.mdfs.fast.v9.athexsnapshotindicator", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_fragment_indicator = ProtoField.new("ATHEX Fragment Indicator", "athex.oasis.mdfs.fast.v9.athexfragmentindicator", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.symbol = ProtoField.new("Symbol", "athex.oasis.mdfs.fast.v9.symbol", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_security_category = ProtoField.new("Athex Security Category", "athex.oasis.mdfs.fast.v9.athexsecuritycategory", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_security_category = ProtoField.new("ATHEX Security Category", "athex.oasis.mdfs.fast.v9.athexsecuritycategory", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.security_type = ProtoField.new("Security Type", "athex.oasis.mdfs.fast.v9.securitytype", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.security_exchange = ProtoField.new("Security Exchange", "athex.oasis.mdfs.fast.v9.securityexchange", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_market_id = ProtoField.new("Athex Market Id", "athex.oasis.mdfs.fast.v9.athexmarketid", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "athex.oasis.mdfs.fast.v9.tradingsessionsubid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_market_id = ProtoField.new("ATHEX Market ID", "athex.oasis.mdfs.fast.v9.athexmarketid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub ID", "athex.oasis.mdfs.fast.v9.tradingsessionsubid", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.security_trading_status = ProtoField.new("Security Trading Status", "athex.oasis.mdfs.fast.v9.securitytradingstatus", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.halt_reason = ProtoField.new("Halt Reason", "athex.oasis.mdfs.fast.v9.haltreason", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_auction_type = ProtoField.new("Athex Auction Type", "athex.oasis.mdfs.fast.v9.athexauctiontype", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_auction_type = ProtoField.new("ATHEX Auction Type", "athex.oasis.mdfs.fast.v9.athexauctiontype", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.transact_time = ProtoField.new("Transact Time", "athex.oasis.mdfs.fast.v9.transacttime", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_board_id = ProtoField.new("Athex Board Id", "athex.oasis.mdfs.fast.v9.athexboardid", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.trading_session_id = ProtoField.new("Trading Session Id", "athex.oasis.mdfs.fast.v9.tradingsessionid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_board_id = ProtoField.new("ATHEX Board ID", "athex.oasis.mdfs.fast.v9.athexboardid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.trading_session_id = ProtoField.new("Trading Session ID", "athex.oasis.mdfs.fast.v9.tradingsessionid", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "athex.oasis.mdfs.fast.v9.tradsesstatus", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_system_status = ProtoField.new("Athex System Status", "athex.oasis.mdfs.fast.v9.athexsystemstatus", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_system_status = ProtoField.new("ATHEX System Status", "athex.oasis.mdfs.fast.v9.athexsystemstatus", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.language_code = ProtoField.new("Language Code", "athex.oasis.mdfs.fast.v9.languagecode", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.headline = ProtoField.new("Headline", "athex.oasis.mdfs.fast.v9.headline", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.no_lines_of_text = ProtoField.new("No Lines Of Text", "athex.oasis.mdfs.fast.v9.nolinesoftext", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.text = ProtoField.new("Text", "athex.oasis.mdfs.fast.v9.text", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.md_book_type = ProtoField.new("Md Book Type", "athex.oasis.mdfs.fast.v9.mdbooktype", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.md_book_type = ProtoField.new("MD Book Type", "athex.oasis.mdfs.fast.v9.mdbooktype", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "athex.oasis.mdfs.fast.v9.contractmultiplier", ftypes.DOUBLE)
 omi_athex_oasis_mdfs_fast_v9.fields.accrued_interest_amt = ProtoField.new("Accrued Interest Amt", "athex.oasis.mdfs.fast.v9.accruedinterestamt", ftypes.DOUBLE)
-omi_athex_oasis_mdfs_fast_v9.fields.security_id = ProtoField.new("Security Id", "athex.oasis.mdfs.fast.v9.securityid", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.security_id_source = ProtoField.new("Security Id Source", "athex.oasis.mdfs.fast.v9.securityidsource", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.security_id = ProtoField.new("Security ID", "athex.oasis.mdfs.fast.v9.securityid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.security_id_source = ProtoField.new("Security ID Source", "athex.oasis.mdfs.fast.v9.securityidsource", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "athex.oasis.mdfs.fast.v9.financialinstrumentfullname", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.cfi_code = ProtoField.new("Cfi Code", "athex.oasis.mdfs.fast.v9.cficode", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.cfi_code = ProtoField.new("CFI Code", "athex.oasis.mdfs.fast.v9.cficode", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "athex.oasis.mdfs.fast.v9.unitofmeasureqty", ftypes.DOUBLE)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_unit_of_measure = ProtoField.new("Athexapa Unit Of Measure", "athex.oasis.mdfs.fast.v9.athexapaunitofmeasure", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_unit_of_measure = ProtoField.new("ATHEXAPA Unit Of Measure", "athex.oasis.mdfs.fast.v9.athexapaunitofmeasure", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.put_or_call = ProtoField.new("Put Or Call", "athex.oasis.mdfs.fast.v9.putorcall", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.strike_price = ProtoField.new("Strike Price", "athex.oasis.mdfs.fast.v9.strikeprice", ftypes.DOUBLE)
 omi_athex_oasis_mdfs_fast_v9.fields.strike_currency = ProtoField.new("Strike Currency", "athex.oasis.mdfs.fast.v9.strikecurrency", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_strike_price_type_uint32 = ProtoField.new("Athexapa Strike Price Type", "athex.oasis.mdfs.fast.v9.athexapastrikepricetype.uint32", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_strike_price_type_string = ProtoField.new("Athexapa Strike Price Type", "athex.oasis.mdfs.fast.v9.athexapastrikepricetype.string", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_strike_price_type_uint32 = ProtoField.new("ATHEXAPA Strike Price Type", "athex.oasis.mdfs.fast.v9.athexapastrikepricetype.uint32", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_strike_price_type_string = ProtoField.new("ATHEXAPA Strike Price Type", "athex.oasis.mdfs.fast.v9.athexapastrikepricetype.string", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.exercise_style = ProtoField.new("Exercise Style", "athex.oasis.mdfs.fast.v9.exercisestyle", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.maturity_date = ProtoField.new("Maturity Date", "athex.oasis.mdfs.fast.v9.maturitydate", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.settl_method = ProtoField.new("Settl Method", "athex.oasis.mdfs.fast.v9.settlmethod", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.no_underlyings = ProtoField.new("No Underlyings", "athex.oasis.mdfs.fast.v9.nounderlyings", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "athex.oasis.mdfs.fast.v9.underlyingsecurityid", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.underlying_security_id_source = ProtoField.new("Underlying Security Id Source", "athex.oasis.mdfs.fast.v9.underlyingsecurityidsource", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.underlying_security_id = ProtoField.new("Underlying Security ID", "athex.oasis.mdfs.fast.v9.underlyingsecurityid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.underlying_security_id_source = ProtoField.new("Underlying Security ID Source", "athex.oasis.mdfs.fast.v9.underlyingsecurityidsource", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.underlying_index_curve_unit = ProtoField.new("Underlying Index Curve Unit", "athex.oasis.mdfs.fast.v9.underlyingindexcurveunit", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.underlying_index_curve_period = ProtoField.new("Underlying Index Curve Period", "athex.oasis.mdfs.fast.v9.underlyingindexcurveperiod", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.no_md_entries = ProtoField.new("No Md Entries", "athex.oasis.mdfs.fast.v9.nomdentries", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.md_entry_type = ProtoField.new("Md Entry Type", "athex.oasis.mdfs.fast.v9.mdentrytype", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.md_entry_px = ProtoField.new("Md Entry Px", "athex.oasis.mdfs.fast.v9.mdentrypx", ftypes.DOUBLE)
-omi_athex_oasis_mdfs_fast_v9.fields.md_entry_size = ProtoField.new("Md Entry Size", "athex.oasis.mdfs.fast.v9.mdentrysize", ftypes.DOUBLE)
-omi_athex_oasis_mdfs_fast_v9.fields.md_origin_type = ProtoField.new("Md Origin Type", "athex.oasis.mdfs.fast.v9.mdorigintype", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.no_md_entries = ProtoField.new("No MD Entries", "athex.oasis.mdfs.fast.v9.nomdentries", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.md_entry_type = ProtoField.new("MD Entry Type", "athex.oasis.mdfs.fast.v9.mdentrytype", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.md_entry_px = ProtoField.new("MD Entry Px", "athex.oasis.mdfs.fast.v9.mdentrypx", ftypes.DOUBLE)
+omi_athex_oasis_mdfs_fast_v9.fields.md_entry_size = ProtoField.new("MD Entry Size", "athex.oasis.mdfs.fast.v9.mdentrysize", ftypes.DOUBLE)
+omi_athex_oasis_mdfs_fast_v9.fields.md_origin_type = ProtoField.new("MD Origin Type", "athex.oasis.mdfs.fast.v9.mdorigintype", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.market_depth = ProtoField.new("Market Depth", "athex.oasis.mdfs.fast.v9.marketdepth", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.md_price_level = ProtoField.new("Md Price Level", "athex.oasis.mdfs.fast.v9.mdpricelevel", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.md_price_level = ProtoField.new("MD Price Level", "athex.oasis.mdfs.fast.v9.mdpricelevel", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.number_of_orders = ProtoField.new("Number Of Orders", "athex.oasis.mdfs.fast.v9.numberoforders", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.md_entry_position_no = ProtoField.new("Md Entry Position No", "athex.oasis.mdfs.fast.v9.mdentrypositionno", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.order_id = ProtoField.new("Order Id", "athex.oasis.mdfs.fast.v9.orderid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.md_entry_position_no = ProtoField.new("MD Entry Position No", "athex.oasis.mdfs.fast.v9.mdentrypositionno", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.order_id = ProtoField.new("Order ID", "athex.oasis.mdfs.fast.v9.orderid", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.ord_status = ProtoField.new("Ord Status", "athex.oasis.mdfs.fast.v9.ordstatus", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.cum_qty = ProtoField.new("Cum Qty", "athex.oasis.mdfs.fast.v9.cumqty", ftypes.DOUBLE)
 omi_athex_oasis_mdfs_fast_v9.fields.time_in_force = ProtoField.new("Time In Force", "athex.oasis.mdfs.fast.v9.timeinforce", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.ord_type = ProtoField.new("Ord Type", "athex.oasis.mdfs.fast.v9.ordtype", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_special_condition = ProtoField.new("Athex Special Condition", "athex.oasis.mdfs.fast.v9.athexspecialcondition", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_condition_volume = ProtoField.new("Athex Condition Volume", "athex.oasis.mdfs.fast.v9.athexconditionvolume", ftypes.DOUBLE)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_order_entry_date = ProtoField.new("Athex Order Entry Date", "athex.oasis.mdfs.fast.v9.athexorderentrydate", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_special_condition = ProtoField.new("ATHEX Special Condition", "athex.oasis.mdfs.fast.v9.athexspecialcondition", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_condition_volume = ProtoField.new("ATHEX Condition Volume", "athex.oasis.mdfs.fast.v9.athexconditionvolume", ftypes.DOUBLE)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_order_entry_date = ProtoField.new("ATHEX Order Entry Date", "athex.oasis.mdfs.fast.v9.athexorderentrydate", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.trade_condition = ProtoField.new("Trade Condition", "athex.oasis.mdfs.fast.v9.tradecondition", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.trade_id = ProtoField.new("Trade Id", "athex.oasis.mdfs.fast.v9.tradeid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.trade_id = ProtoField.new("Trade ID", "athex.oasis.mdfs.fast.v9.tradeid", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.order_category = ProtoField.new("Order Category", "athex.oasis.mdfs.fast.v9.ordercategory", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.no_trd_reg_publications = ProtoField.new("No Trd Reg Publications", "athex.oasis.mdfs.fast.v9.notrdregpublications", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.trd_reg_publication_type = ProtoField.new("Trd Reg Publication Type", "athex.oasis.mdfs.fast.v9.trdregpublicationtype", ftypes.UINT32)
@@ -121,134 +121,90 @@ omi_athex_oasis_mdfs_fast_v9.fields.no_trade_price_conditions = ProtoField.new("
 omi_athex_oasis_mdfs_fast_v9.fields.trade_price_condition = ProtoField.new("Trade Price Condition", "athex.oasis.mdfs.fast.v9.tradepricecondition", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.algorithmic_trade_indicator = ProtoField.new("Algorithmic Trade Indicator", "athex.oasis.mdfs.fast.v9.algorithmictradeindicator", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.trade_publish_indicator = ProtoField.new("Trade Publish Indicator", "athex.oasis.mdfs.fast.v9.tradepublishindicator", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_total_volume = ProtoField.new("Athex Total Volume", "athex.oasis.mdfs.fast.v9.athextotalvolume", ftypes.DOUBLE)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_trade_value = ProtoField.new("Athex Trade Value", "athex.oasis.mdfs.fast.v9.athextradevalue", ftypes.DOUBLE)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_index_type = ProtoField.new("Athex Index Type", "athex.oasis.mdfs.fast.v9.athexindextype", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_total_volume = ProtoField.new("ATHEX Total Volume", "athex.oasis.mdfs.fast.v9.athextotalvolume", ftypes.DOUBLE)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_trade_value = ProtoField.new("ATHEX Trade Value", "athex.oasis.mdfs.fast.v9.athextradevalue", ftypes.DOUBLE)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_index_type = ProtoField.new("ATHEX Index Type", "athex.oasis.mdfs.fast.v9.athexindextype", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.low_limit_price = ProtoField.new("Low Limit Price", "athex.oasis.mdfs.fast.v9.lowlimitprice", ftypes.DOUBLE)
 omi_athex_oasis_mdfs_fast_v9.fields.high_limit_price = ProtoField.new("High Limit Price", "athex.oasis.mdfs.fast.v9.highlimitprice", ftypes.DOUBLE)
 omi_athex_oasis_mdfs_fast_v9.fields.no_trade_types = ProtoField.new("No Trade Types", "athex.oasis.mdfs.fast.v9.notradetypes", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.trade_type = ProtoField.new("Trade Type", "athex.oasis.mdfs.fast.v9.tradetype", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.trade_sub_type = ProtoField.new("Trade Sub Type", "athex.oasis.mdfs.fast.v9.tradesubtype", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_report_status = ProtoField.new("Athexapa Report Status", "athex.oasis.mdfs.fast.v9.athexapareportstatus", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.no_party_i_ds = ProtoField.new("No Party I Ds", "athex.oasis.mdfs.fast.v9.nopartyids", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.party_id = ProtoField.new("Party Id", "athex.oasis.mdfs.fast.v9.partyid", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.party_id_source = ProtoField.new("Party Id Source", "athex.oasis.mdfs.fast.v9.partyidsource", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_report_status = ProtoField.new("ATHEXAPA Report Status", "athex.oasis.mdfs.fast.v9.athexapareportstatus", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.no_party_ids = ProtoField.new("No Party IDs", "athex.oasis.mdfs.fast.v9.nopartyids", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.party_id = ProtoField.new("Party ID", "athex.oasis.mdfs.fast.v9.partyid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.party_id_source = ProtoField.new("Party ID Source", "athex.oasis.mdfs.fast.v9.partyidsource", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.price_type = ProtoField.new("Price Type", "athex.oasis.mdfs.fast.v9.pricetype", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_price_currency = ProtoField.new("Athexapa Price Currency", "athex.oasis.mdfs.fast.v9.athexapapricecurrency", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_price_multiplier = ProtoField.new("Athexapa Price Multiplier", "athex.oasis.mdfs.fast.v9.athexapapricemultiplier", ftypes.DOUBLE)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_size_currency = ProtoField.new("Athexapa Size Currency", "athex.oasis.mdfs.fast.v9.athexapasizecurrency", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trade_value_currency = ProtoField.new("Athexapa Trade Value Currency", "athex.oasis.mdfs.fast.v9.athexapatradevaluecurrency", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_price_currency = ProtoField.new("ATHEXAPA Price Currency", "athex.oasis.mdfs.fast.v9.athexapapricecurrency", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_price_multiplier = ProtoField.new("ATHEXAPA Price Multiplier", "athex.oasis.mdfs.fast.v9.athexapapricemultiplier", ftypes.DOUBLE)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_size_currency = ProtoField.new("ATHEXAPA Size Currency", "athex.oasis.mdfs.fast.v9.athexapasizecurrency", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trade_value_currency = ProtoField.new("ATHEXAPA Trade Value Currency", "athex.oasis.mdfs.fast.v9.athexapatradevaluecurrency", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.expire_date = ProtoField.new("Expire Date", "athex.oasis.mdfs.fast.v9.expiredate", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.last_mkt = ProtoField.new("Last Mkt", "athex.oasis.mdfs.fast.v9.lastmkt", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.side = ProtoField.new("Side", "athex.oasis.mdfs.fast.v9.side", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.quote_id = ProtoField.new("Quote Id", "athex.oasis.mdfs.fast.v9.quoteid", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_quote_liquidity = ProtoField.new("Athexapa Quote Liquidity", "athex.oasis.mdfs.fast.v9.athexapaquoteliquidity", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trade_id_indicator = ProtoField.new("Athexapa Trade Id Indicator", "athex.oasis.mdfs.fast.v9.athexapatradeidindicator", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.no_athexapa_regulatory_report_types = ProtoField.new("No Athexapa Regulatory Report Types", "athex.oasis.mdfs.fast.v9.noathexaparegulatoryreporttypes", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.quote_id = ProtoField.new("Quote ID", "athex.oasis.mdfs.fast.v9.quoteid", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_quote_liquidity = ProtoField.new("ATHEXAPA Quote Liquidity", "athex.oasis.mdfs.fast.v9.athexapaquoteliquidity", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trade_id_indicator = ProtoField.new("ATHEXAPA Trade ID Indicator", "athex.oasis.mdfs.fast.v9.athexapatradeidindicator", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.no_athexapa_regulatory_report_types = ProtoField.new("No ATHEXAPA Regulatory Report Types", "athex.oasis.mdfs.fast.v9.noathexaparegulatoryreporttypes", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.regulatory_report_type = ProtoField.new("Regulatory Report Type", "athex.oasis.mdfs.fast.v9.regulatoryreporttype", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.number_of_trades = ProtoField.new("Number Of Trades", "athex.oasis.mdfs.fast.v9.numberoftrades", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_transaction_to_be_cleared = ProtoField.new("Athexapa Transaction To Be Cleared", "athex.oasis.mdfs.fast.v9.athexapatransactiontobecleared", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_venue_of_publication = ProtoField.new("Athexapa Venue Of Publication", "athex.oasis.mdfs.fast.v9.athexapavenueofpublication", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_third_country_venue = ProtoField.new("Athexapa Third Country Venue", "athex.oasis.mdfs.fast.v9.athexapathirdcountryvenue", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.md_update_action = ProtoField.new("Md Update Action", "athex.oasis.mdfs.fast.v9.mdupdateaction", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_transaction_to_be_cleared = ProtoField.new("ATHEXAPA Transaction To Be Cleared", "athex.oasis.mdfs.fast.v9.athexapatransactiontobecleared", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_venue_of_publication = ProtoField.new("ATHEXAPA Venue Of Publication", "athex.oasis.mdfs.fast.v9.athexapavenueofpublication", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_third_country_venue = ProtoField.new("ATHEXAPA Third Country Venue", "athex.oasis.mdfs.fast.v9.athexapathirdcountryvenue", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.md_update_action = ProtoField.new("MD Update Action", "athex.oasis.mdfs.fast.v9.mdupdateaction", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.previously_reported = ProtoField.new("Previously Reported", "athex.oasis.mdfs.fast.v9.previouslyreported", ftypes.STRING)
-omi_athex_oasis_mdfs_fast_v9.fields.no_athexapa_trd_types = ProtoField.new("No Athexapa Trd Types", "athex.oasis.mdfs.fast.v9.noathexapatrdtypes", ftypes.UINT32)
+omi_athex_oasis_mdfs_fast_v9.fields.no_athexapa_trd_types = ProtoField.new("No ATHEXAPA Trd Types", "athex.oasis.mdfs.fast.v9.noathexapatrdtypes", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.trd_type = ProtoField.new("Trd Type", "athex.oasis.mdfs.fast.v9.trdtype", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "athex.oasis.mdfs.fast.v9.trdsubtype", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.secondary_trd_type = ProtoField.new("Secondary Trd Type", "athex.oasis.mdfs.fast.v9.secondarytrdtype", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_emission_allowance = ProtoField.new("Athexapa Emission Allowance", "athex.oasis.mdfs.fast.v9.athexapaemissionallowance", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_emission_allowance = ProtoField.new("ATHEXAPA Emission Allowance", "athex.oasis.mdfs.fast.v9.athexapaemissionallowance", ftypes.STRING)
 
 -- Athex Oasis Mdfs Fast 9 Messages
 omi_athex_oasis_mdfs_fast_v9.fields.heartbeat_17 = ProtoField.new("Heartbeat_17 Message", "athex.oasis.mdfs.fast.v9.heartbeat_17", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_grp = ProtoField.new("Athex Recovery Grp", "athex.oasis.mdfs.fast.v9.athexrecoverygrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_grp = ProtoField.new("ATHEX Recovery Grp", "athex.oasis.mdfs.fast.v9.athexrecoverygrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.security_status_18 = ProtoField.new("Security Status_18 Message", "athex.oasis.mdfs.fast.v9.securitystatus_18", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_grp = ProtoField.new("Athex Recovery Grp", "athex.oasis.mdfs.fast.v9.athexrecoverygrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.security_status_grp = ProtoField.new("Security Status Grp", "athex.oasis.mdfs.fast.v9.securitystatusgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.trading_session_status_19 = ProtoField.new("Trading Session Status_19 Message", "athex.oasis.mdfs.fast.v9.tradingsessionstatus_19", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_grp = ProtoField.new("Athex Recovery Grp", "athex.oasis.mdfs.fast.v9.athexrecoverygrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.trading_session_grp = ProtoField.new("Trading Session Grp", "athex.oasis.mdfs.fast.v9.tradingsessiongrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.news_20 = ProtoField.new("News_20 Message", "athex.oasis.mdfs.fast.v9.news_20", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_grp = ProtoField.new("Athex Recovery Grp", "athex.oasis.mdfs.fast.v9.athexrecoverygrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.lines_of_text_grp = ProtoField.new("Lines Of Text Grp", "athex.oasis.mdfs.fast.v9.linesoftextgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21 = ProtoField.new("Market Data Snapshot Full Refresh_21 Message", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_21", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.instrument_grp = ProtoField.new("Instrument Grp", "athex.oasis.mdfs.fast.v9.instrumentgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.bonds_instrument_grp = ProtoField.new("Bonds Instrument Grp", "athex.oasis.mdfs.fast.v9.bondsinstrumentgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.apaotc_instrument_grp = ProtoField.new("Apaotc Instrument Grp", "athex.oasis.mdfs.fast.v9.apaotcinstrumentgrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.apaotc_instrument_grp = ProtoField.new("APAOTC Instrument Grp", "athex.oasis.mdfs.fast.v9.apaotcinstrumentgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.und_instrmt_grp = ProtoField.new("Und Instrmt Grp", "athex.oasis.mdfs.fast.v9.undinstrmtgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21_md_full_grp = ProtoField.new("Market Data Snapshot Full Refresh_21 Md Full Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_21mdfullgrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21_md_full_grp = ProtoField.new("Market Data Snapshot Full Refresh_21 MD Full Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_21mdfullgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.price_depth_grp = ProtoField.new("Price Depth Grp", "athex.oasis.mdfs.fast.v9.pricedepthgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.order_depth_grp = ProtoField.new("Order Depth Grp", "athex.oasis.mdfs.fast.v9.orderdepthgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21_trade_grp = ProtoField.new("Market Data Snapshot Full Refresh_21 Trade Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_21tradegrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.trd_reg_publication_grp = ProtoField.new("Trd Reg Publication Grp", "athex.oasis.mdfs.fast.v9.trdregpublicationgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.trade_price_condition_grp = ProtoField.new("Trade Price Condition Grp", "athex.oasis.mdfs.fast.v9.tradepriceconditiongrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.price_limits_grp = ProtoField.new("Price Limits Grp", "athex.oasis.mdfs.fast.v9.pricelimitsgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21_apaotc_trade_grp = ProtoField.new("Market Data Snapshot Full Refresh_21 Apaotc Trade Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_21apaotctradegrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21_apaotc_trade_grp = ProtoField.new("Market Data Snapshot Full Refresh_21 APAOTC Trade Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_21apaotctradegrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.trade_type_grp = ProtoField.new("Trade Type Grp", "athex.oasis.mdfs.fast.v9.tradetypegrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.parties_grp = ProtoField.new("Parties Grp", "athex.oasis.mdfs.fast.v9.partiesgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.apaotc_pre_trade_grp = ProtoField.new("Apaotc Pre Trade Grp", "athex.oasis.mdfs.fast.v9.apaotcpretradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21_apaotc_post_trade_grp = ProtoField.new("Market Data Snapshot Full Refresh_21 Apaotc Post Trade Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_21apaotcposttradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_regulatory_report_type_grp = ProtoField.new("Athexapa Regulatory Report Type Grp", "athex.oasis.mdfs.fast.v9.athexaparegulatoryreporttypegrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.apaotc_pre_trade_grp = ProtoField.new("APAOTC Pre Trade Grp", "athex.oasis.mdfs.fast.v9.apaotcpretradegrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21_apaotc_post_trade_grp = ProtoField.new("Market Data Snapshot Full Refresh_21 APAOTC Post Trade Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_21apaotcposttradegrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_regulatory_report_type_grp = ProtoField.new("ATHEXAPA Regulatory Report Type Grp", "athex.oasis.mdfs.fast.v9.athexaparegulatoryreporttypegrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22 = ProtoField.new("Market Data Incremental Refresh_22 Message", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_22", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_grp = ProtoField.new("Athex Recovery Grp", "athex.oasis.mdfs.fast.v9.athexrecoverygrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22_md_inc_grp = ProtoField.new("Market Data Incremental Refresh_22 Md Inc Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_22mdincgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.bonds_instrument_grp = ProtoField.new("Bonds Instrument Grp", "athex.oasis.mdfs.fast.v9.bondsinstrumentgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.apaotc_instrument_grp = ProtoField.new("Apaotc Instrument Grp", "athex.oasis.mdfs.fast.v9.apaotcinstrumentgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.price_depth_grp = ProtoField.new("Price Depth Grp", "athex.oasis.mdfs.fast.v9.pricedepthgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.order_depth_grp = ProtoField.new("Order Depth Grp", "athex.oasis.mdfs.fast.v9.orderdepthgrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22_md_inc_grp = ProtoField.new("Market Data Incremental Refresh_22 MD Inc Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_22mdincgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22_trade_grp = ProtoField.new("Market Data Incremental Refresh_22 Trade Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_22tradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.trd_reg_publication_grp = ProtoField.new("Trd Reg Publication Grp", "athex.oasis.mdfs.fast.v9.trdregpublicationgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.trade_price_condition_grp = ProtoField.new("Trade Price Condition Grp", "athex.oasis.mdfs.fast.v9.tradepriceconditiongrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.price_limits_grp = ProtoField.new("Price Limits Grp", "athex.oasis.mdfs.fast.v9.pricelimitsgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22_apaotc_trade_grp = ProtoField.new("Market Data Incremental Refresh_22 Apaotc Trade Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_22apaotctradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.und_instrmt_grp = ProtoField.new("Und Instrmt Grp", "athex.oasis.mdfs.fast.v9.undinstrmtgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.trade_type_grp = ProtoField.new("Trade Type Grp", "athex.oasis.mdfs.fast.v9.tradetypegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.parties_grp = ProtoField.new("Parties Grp", "athex.oasis.mdfs.fast.v9.partiesgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.apaotc_pre_trade_grp = ProtoField.new("Apaotc Pre Trade Grp", "athex.oasis.mdfs.fast.v9.apaotcpretradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22_apaotc_post_trade_grp = ProtoField.new("Market Data Incremental Refresh_22 Apaotc Post Trade Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_22apaotcposttradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_regulatory_report_type_grp = ProtoField.new("Athexapa Regulatory Report Type Grp", "athex.oasis.mdfs.fast.v9.athexaparegulatoryreporttypegrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22_apaotc_trade_grp = ProtoField.new("Market Data Incremental Refresh_22 APAOTC Trade Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_22apaotctradegrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22_apaotc_post_trade_grp = ProtoField.new("Market Data Incremental Refresh_22 APAOTC Post Trade Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_22apaotcposttradegrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.heartbeat_9 = ProtoField.new("Heartbeat_9 Message", "athex.oasis.mdfs.fast.v9.heartbeat_9", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.security_status_10 = ProtoField.new("Security Status_10 Message", "athex.oasis.mdfs.fast.v9.securitystatus_10", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.security_status_grp = ProtoField.new("Security Status Grp", "athex.oasis.mdfs.fast.v9.securitystatusgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.trading_session_status_11 = ProtoField.new("Trading Session Status_11 Message", "athex.oasis.mdfs.fast.v9.tradingsessionstatus_11", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.news_12 = ProtoField.new("News_12 Message", "athex.oasis.mdfs.fast.v9.news_12", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.lines_of_text_grp = ProtoField.new("Lines Of Text Grp", "athex.oasis.mdfs.fast.v9.linesoftextgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15 = ProtoField.new("Market Data Snapshot Full Refresh_15 Message", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_15", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.instrument_grp = ProtoField.new("Instrument Grp", "athex.oasis.mdfs.fast.v9.instrumentgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.bonds_instrument_grp = ProtoField.new("Bonds Instrument Grp", "athex.oasis.mdfs.fast.v9.bondsinstrumentgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.apaotc_instrument_grp = ProtoField.new("Apaotc Instrument Grp", "athex.oasis.mdfs.fast.v9.apaotcinstrumentgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.und_instrmt_grp = ProtoField.new("Und Instrmt Grp", "athex.oasis.mdfs.fast.v9.undinstrmtgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15_md_full_grp = ProtoField.new("Market Data Snapshot Full Refresh_15 Md Full Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_15mdfullgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.price_depth_grp = ProtoField.new("Price Depth Grp", "athex.oasis.mdfs.fast.v9.pricedepthgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.order_depth_grp = ProtoField.new("Order Depth Grp", "athex.oasis.mdfs.fast.v9.orderdepthgrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15_md_full_grp = ProtoField.new("Market Data Snapshot Full Refresh_15 MD Full Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_15mdfullgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15_trade_grp = ProtoField.new("Market Data Snapshot Full Refresh_15 Trade Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_15tradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.trd_reg_publication_grp = ProtoField.new("Trd Reg Publication Grp", "athex.oasis.mdfs.fast.v9.trdregpublicationgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.trade_price_condition_grp = ProtoField.new("Trade Price Condition Grp", "athex.oasis.mdfs.fast.v9.tradepriceconditiongrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.price_limits_grp = ProtoField.new("Price Limits Grp", "athex.oasis.mdfs.fast.v9.pricelimitsgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15_apaotc_trade_grp = ProtoField.new("Market Data Snapshot Full Refresh_15 Apaotc Trade Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_15apaotctradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.trade_type_grp = ProtoField.new("Trade Type Grp", "athex.oasis.mdfs.fast.v9.tradetypegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.parties_grp = ProtoField.new("Parties Grp", "athex.oasis.mdfs.fast.v9.partiesgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.apaotc_pre_trade_grp = ProtoField.new("Apaotc Pre Trade Grp", "athex.oasis.mdfs.fast.v9.apaotcpretradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15_apaotc_post_trade_grp = ProtoField.new("Market Data Snapshot Full Refresh_15 Apaotc Post Trade Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_15apaotcposttradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trd_types_grp = ProtoField.new("Athexapa Trd Types Grp", "athex.oasis.mdfs.fast.v9.athexapatrdtypesgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_regulatory_report_type_grp = ProtoField.new("Athexapa Regulatory Report Type Grp", "athex.oasis.mdfs.fast.v9.athexaparegulatoryreporttypegrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15_apaotc_trade_grp = ProtoField.new("Market Data Snapshot Full Refresh_15 APAOTC Trade Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_15apaotctradegrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15_apaotc_post_trade_grp = ProtoField.new("Market Data Snapshot Full Refresh_15 APAOTC Post Trade Grp", "athex.oasis.mdfs.fast.v9.marketdatasnapshotfullrefresh_15apaotcposttradegrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trd_types_grp = ProtoField.new("ATHEXAPA Trd Types Grp", "athex.oasis.mdfs.fast.v9.athexapatrdtypesgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16 = ProtoField.new("Market Data Incremental Refresh_16 Message", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_16", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16_md_inc_grp = ProtoField.new("Market Data Incremental Refresh_16 Md Inc Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_16mdincgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.bonds_instrument_grp = ProtoField.new("Bonds Instrument Grp", "athex.oasis.mdfs.fast.v9.bondsinstrumentgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.apaotc_instrument_grp = ProtoField.new("Apaotc Instrument Grp", "athex.oasis.mdfs.fast.v9.apaotcinstrumentgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.price_depth_grp = ProtoField.new("Price Depth Grp", "athex.oasis.mdfs.fast.v9.pricedepthgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.order_depth_grp = ProtoField.new("Order Depth Grp", "athex.oasis.mdfs.fast.v9.orderdepthgrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16_md_inc_grp = ProtoField.new("Market Data Incremental Refresh_16 MD Inc Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_16mdincgrp", ftypes.NONE)
 omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16_trade_grp = ProtoField.new("Market Data Incremental Refresh_16 Trade Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_16tradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.trd_reg_publication_grp = ProtoField.new("Trd Reg Publication Grp", "athex.oasis.mdfs.fast.v9.trdregpublicationgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.trade_price_condition_grp = ProtoField.new("Trade Price Condition Grp", "athex.oasis.mdfs.fast.v9.tradepriceconditiongrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.price_limits_grp = ProtoField.new("Price Limits Grp", "athex.oasis.mdfs.fast.v9.pricelimitsgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16_apaotc_trade_grp = ProtoField.new("Market Data Incremental Refresh_16 Apaotc Trade Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_16apaotctradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.und_instrmt_grp = ProtoField.new("Und Instrmt Grp", "athex.oasis.mdfs.fast.v9.undinstrmtgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.trade_type_grp = ProtoField.new("Trade Type Grp", "athex.oasis.mdfs.fast.v9.tradetypegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.parties_grp = ProtoField.new("Parties Grp", "athex.oasis.mdfs.fast.v9.partiesgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.apaotc_pre_trade_grp = ProtoField.new("Apaotc Pre Trade Grp", "athex.oasis.mdfs.fast.v9.apaotcpretradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16_apaotc_post_trade_grp = ProtoField.new("Market Data Incremental Refresh_16 Apaotc Post Trade Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_16apaotcposttradegrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trd_types_grp = ProtoField.new("Athexapa Trd Types Grp", "athex.oasis.mdfs.fast.v9.athexapatrdtypesgrp", ftypes.NONE)
-omi_athex_oasis_mdfs_fast_v9.fields.athexapa_regulatory_report_type_grp = ProtoField.new("Athexapa Regulatory Report Type Grp", "athex.oasis.mdfs.fast.v9.athexaparegulatoryreporttypegrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16_apaotc_trade_grp = ProtoField.new("Market Data Incremental Refresh_16 APAOTC Trade Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_16apaotctradegrp", ftypes.NONE)
+omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16_apaotc_post_trade_grp = ProtoField.new("Market Data Incremental Refresh_16 APAOTC Post Trade Grp", "athex.oasis.mdfs.fast.v9.marketdataincrementalrefresh_16apaotcposttradegrp", ftypes.NONE)
 
 -----------------------------------------------------------------------
 -- Protocol Functions
@@ -834,10 +790,10 @@ athex_oasis_mdfs_fast_v9.msg_type_constant_x.dissect = function(buffer, offset, 
   return offset, value
 end
 
--- Sender Comp Id
+-- Sender Comp ID
 athex_oasis_mdfs_fast_v9.sender_comp_id = {}
 
--- Dissect: Sender Comp Id
+-- Dissect: Sender Comp ID
 athex_oasis_mdfs_fast_v9.sender_comp_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -850,16 +806,16 @@ athex_oasis_mdfs_fast_v9.sender_comp_id.dissect = function(buffer, offset, packe
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.sender_comp_id, range, "")
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
 end
 
--- Target Comp Id
+-- Target Comp ID
 athex_oasis_mdfs_fast_v9.target_comp_id = {}
 
--- Dissect: Target Comp Id
+-- Dissect: Target Comp ID
 athex_oasis_mdfs_fast_v9.target_comp_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -872,7 +828,7 @@ athex_oasis_mdfs_fast_v9.target_comp_id.dissect = function(buffer, offset, packe
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.target_comp_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.target_comp_id, range, "")
-    absent:set_text("Target Comp Id: No Value")
+    absent:set_text("Target Comp ID: No Value")
   end
 
   return offset, value
@@ -970,10 +926,10 @@ athex_oasis_mdfs_fast_v9.last_msg_seq_num_processed_default.dissect = function(b
   return offset, value
 end
 
--- No Athex Recovery Seq Nums
+-- No ATHEX Recovery Seq Nums
 athex_oasis_mdfs_fast_v9.no_athex_recovery_seq_nums = {}
 
--- Dissect: No Athex Recovery Seq Nums
+-- Dissect: No ATHEX Recovery Seq Nums
 athex_oasis_mdfs_fast_v9.no_athex_recovery_seq_nums.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -990,16 +946,16 @@ athex_oasis_mdfs_fast_v9.no_athex_recovery_seq_nums.dissect = function(buffer, o
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_athex_recovery_seq_nums, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_athex_recovery_seq_nums, range, 0)
-    absent:set_text("No Athex Recovery Seq Nums: No Value")
+    absent:set_text("No ATHEX Recovery Seq Nums: No Value")
   end
 
   return offset, value
 end
 
--- Athex Recovery Seq Num
+-- ATHEX Recovery Seq Num
 athex_oasis_mdfs_fast_v9.athex_recovery_seq_num = {}
 
--- Dissect: Athex Recovery Seq Num
+-- Dissect: ATHEX Recovery Seq Num
 athex_oasis_mdfs_fast_v9.athex_recovery_seq_num.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1012,16 +968,16 @@ athex_oasis_mdfs_fast_v9.athex_recovery_seq_num.dissect = function(buffer, offse
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_seq_num, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_seq_num, range, 0)
-    absent:set_text("Athex Recovery Seq Num: No Value")
+    absent:set_text("ATHEX Recovery Seq Num: No Value")
   end
 
   return offset, value
 end
 
--- Appl Id
+-- Appl ID
 athex_oasis_mdfs_fast_v9.appl_id = {}
 
--- Dissect: Appl Id
+-- Dissect: Appl ID
 athex_oasis_mdfs_fast_v9.appl_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1034,7 +990,7 @@ athex_oasis_mdfs_fast_v9.appl_id.dissect = function(buffer, offset, packet, pare
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.appl_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.appl_id, range, "")
-    absent:set_text("Appl Id: No Value")
+    absent:set_text("Appl ID: No Value")
   end
 
   return offset, value
@@ -1084,10 +1040,10 @@ athex_oasis_mdfs_fast_v9.checksum.dissect = function(buffer, offset, packet, par
   return offset, value
 end
 
--- Athex Snapshot Indicator
+-- ATHEX Snapshot Indicator
 athex_oasis_mdfs_fast_v9.athex_snapshot_indicator = {}
 
--- Dissect: Athex Snapshot Indicator
+-- Dissect: ATHEX Snapshot Indicator
 athex_oasis_mdfs_fast_v9.athex_snapshot_indicator.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1104,16 +1060,16 @@ athex_oasis_mdfs_fast_v9.athex_snapshot_indicator.dissect = function(buffer, off
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_snapshot_indicator, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_snapshot_indicator, range, 0)
-    absent:set_text("Athex Snapshot Indicator: No Value")
+    absent:set_text("ATHEX Snapshot Indicator: No Value")
   end
 
   return offset, value
 end
 
--- Athex Fragment Indicator
+-- ATHEX Fragment Indicator
 athex_oasis_mdfs_fast_v9.athex_fragment_indicator = {}
 
--- Dissect: Athex Fragment Indicator
+-- Dissect: ATHEX Fragment Indicator
 athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1130,7 +1086,7 @@ athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect = function(buffer, off
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_fragment_indicator, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_fragment_indicator, range, 0)
-    absent:set_text("Athex Fragment Indicator: No Value")
+    absent:set_text("ATHEX Fragment Indicator: No Value")
   end
 
   return offset, value
@@ -1184,10 +1140,10 @@ athex_oasis_mdfs_fast_v9.symbol_default.dissect = function(buffer, offset, packe
   return offset, value
 end
 
--- Athex Security Category (Sent)
+-- ATHEX Security Category (Sent)
 athex_oasis_mdfs_fast_v9.athex_security_category_sent = {}
 
--- Dissect: Athex Security Category (Sent)
+-- Dissect: ATHEX Security Category (Sent)
 athex_oasis_mdfs_fast_v9.athex_security_category_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1200,16 +1156,16 @@ athex_oasis_mdfs_fast_v9.athex_security_category_sent.dissect = function(buffer,
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_security_category, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_security_category, range, 0)
-    absent:set_text("Athex Security Category: No Value")
+    absent:set_text("ATHEX Security Category: No Value")
   end
 
   return offset, value
 end
 
--- Athex Security Category (Default)
+-- ATHEX Security Category (Default)
 athex_oasis_mdfs_fast_v9.athex_security_category_default = {}
 
--- Dissect: Athex Security Category (Default)
+-- Dissect: ATHEX Security Category (Default)
 athex_oasis_mdfs_fast_v9.athex_security_category_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1226,7 +1182,7 @@ athex_oasis_mdfs_fast_v9.athex_security_category_default.dissect = function(buff
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_security_category, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_security_category, range, 0)
-    absent:set_text("Athex Security Category: No Value")
+    absent:set_text("ATHEX Security Category: No Value")
   end
 
   return offset, value
@@ -1328,10 +1284,10 @@ athex_oasis_mdfs_fast_v9.security_exchange_default.dissect = function(buffer, of
   return offset, value
 end
 
--- Athex Market Id (Sent)
+-- ATHEX Market ID (Sent)
 athex_oasis_mdfs_fast_v9.athex_market_id_sent = {}
 
--- Dissect: Athex Market Id (Sent)
+-- Dissect: ATHEX Market ID (Sent)
 athex_oasis_mdfs_fast_v9.athex_market_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1344,16 +1300,16 @@ athex_oasis_mdfs_fast_v9.athex_market_id_sent.dissect = function(buffer, offset,
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_market_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_market_id, range, "")
-    absent:set_text("Athex Market Id: No Value")
+    absent:set_text("ATHEX Market ID: No Value")
   end
 
   return offset, value
 end
 
--- Athex Market Id (Default)
+-- ATHEX Market ID (Default)
 athex_oasis_mdfs_fast_v9.athex_market_id_default = {}
 
--- Dissect: Athex Market Id (Default)
+-- Dissect: ATHEX Market ID (Default)
 athex_oasis_mdfs_fast_v9.athex_market_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1370,16 +1326,16 @@ athex_oasis_mdfs_fast_v9.athex_market_id_default.dissect = function(buffer, offs
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_market_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_market_id, range, "")
-    absent:set_text("Athex Market Id: No Value")
+    absent:set_text("ATHEX Market ID: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Sub Id (Default)
+-- Trading Session Sub ID (Default)
 athex_oasis_mdfs_fast_v9.trading_session_sub_id_default = {}
 
--- Dissect: Trading Session Sub Id (Default)
+-- Dissect: Trading Session Sub ID (Default)
 athex_oasis_mdfs_fast_v9.trading_session_sub_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1396,16 +1352,16 @@ athex_oasis_mdfs_fast_v9.trading_session_sub_id_default.dissect = function(buffe
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.trading_session_sub_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.trading_session_sub_id, range, "")
-    absent:set_text("Trading Session Sub Id: No Value")
+    absent:set_text("Trading Session Sub ID: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Sub Id (Sent)
+-- Trading Session Sub ID (Sent)
 athex_oasis_mdfs_fast_v9.trading_session_sub_id_sent = {}
 
--- Dissect: Trading Session Sub Id (Sent)
+-- Dissect: Trading Session Sub ID (Sent)
 athex_oasis_mdfs_fast_v9.trading_session_sub_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1418,7 +1374,7 @@ athex_oasis_mdfs_fast_v9.trading_session_sub_id_sent.dissect = function(buffer, 
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.trading_session_sub_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.trading_session_sub_id, range, "")
-    absent:set_text("Trading Session Sub Id: No Value")
+    absent:set_text("Trading Session Sub ID: No Value")
   end
 
   return offset, value
@@ -1472,10 +1428,10 @@ athex_oasis_mdfs_fast_v9.halt_reason.dissect = function(buffer, offset, packet, 
   return offset, value
 end
 
--- Athex Auction Type
+-- ATHEX Auction Type
 athex_oasis_mdfs_fast_v9.athex_auction_type = {}
 
--- Dissect: Athex Auction Type
+-- Dissect: ATHEX Auction Type
 athex_oasis_mdfs_fast_v9.athex_auction_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1492,7 +1448,7 @@ athex_oasis_mdfs_fast_v9.athex_auction_type.dissect = function(buffer, offset, p
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_auction_type, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_auction_type, range, 0)
-    absent:set_text("Athex Auction Type: No Value")
+    absent:set_text("ATHEX Auction Type: No Value")
   end
 
   return offset, value
@@ -1546,10 +1502,10 @@ athex_oasis_mdfs_fast_v9.transact_time_default.dissect = function(buffer, offset
   return offset, value
 end
 
--- Athex Board Id (Sent)
+-- ATHEX Board ID (Sent)
 athex_oasis_mdfs_fast_v9.athex_board_id_sent = {}
 
--- Dissect: Athex Board Id (Sent)
+-- Dissect: ATHEX Board ID (Sent)
 athex_oasis_mdfs_fast_v9.athex_board_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1562,16 +1518,16 @@ athex_oasis_mdfs_fast_v9.athex_board_id_sent.dissect = function(buffer, offset, 
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_board_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_board_id, range, "")
-    absent:set_text("Athex Board Id: No Value")
+    absent:set_text("ATHEX Board ID: No Value")
   end
 
   return offset, value
 end
 
--- Athex Board Id (Default)
+-- ATHEX Board ID (Default)
 athex_oasis_mdfs_fast_v9.athex_board_id_default = {}
 
--- Dissect: Athex Board Id (Default)
+-- Dissect: ATHEX Board ID (Default)
 athex_oasis_mdfs_fast_v9.athex_board_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1588,16 +1544,16 @@ athex_oasis_mdfs_fast_v9.athex_board_id_default.dissect = function(buffer, offse
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_board_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_board_id, range, "")
-    absent:set_text("Athex Board Id: No Value")
+    absent:set_text("ATHEX Board ID: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Id
+-- Trading Session ID
 athex_oasis_mdfs_fast_v9.trading_session_id = {}
 
--- Dissect: Trading Session Id
+-- Dissect: Trading Session ID
 athex_oasis_mdfs_fast_v9.trading_session_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1610,7 +1566,7 @@ athex_oasis_mdfs_fast_v9.trading_session_id.dissect = function(buffer, offset, p
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.trading_session_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.trading_session_id, range, "")
-    absent:set_text("Trading Session Id: No Value")
+    absent:set_text("Trading Session ID: No Value")
   end
 
   return offset, value
@@ -1638,10 +1594,10 @@ athex_oasis_mdfs_fast_v9.trad_ses_status.dissect = function(buffer, offset, pack
   return offset, value
 end
 
--- Athex System Status
+-- ATHEX System Status
 athex_oasis_mdfs_fast_v9.athex_system_status = {}
 
--- Dissect: Athex System Status
+-- Dissect: ATHEX System Status
 athex_oasis_mdfs_fast_v9.athex_system_status.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1658,7 +1614,7 @@ athex_oasis_mdfs_fast_v9.athex_system_status.dissect = function(buffer, offset, 
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_system_status, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_system_status, range, "")
-    absent:set_text("Athex System Status: No Value")
+    absent:set_text("ATHEX System Status: No Value")
   end
 
   return offset, value
@@ -1752,10 +1708,10 @@ athex_oasis_mdfs_fast_v9.text.dissect = function(buffer, offset, packet, parent,
   return offset, value
 end
 
--- Md Book Type
+-- MD Book Type
 athex_oasis_mdfs_fast_v9.md_book_type = {}
 
--- Dissect: Md Book Type
+-- Dissect: MD Book Type
 athex_oasis_mdfs_fast_v9.md_book_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1772,7 +1728,7 @@ athex_oasis_mdfs_fast_v9.md_book_type.dissect = function(buffer, offset, packet,
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_book_type, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_book_type, range, 0)
-    absent:set_text("Md Book Type: No Value")
+    absent:set_text("MD Book Type: No Value")
   end
 
   return offset, value
@@ -1868,10 +1824,10 @@ athex_oasis_mdfs_fast_v9.accrued_interest_amt.dissect = function(buffer, offset,
   return offset, value
 end
 
--- Security Id
+-- Security ID
 athex_oasis_mdfs_fast_v9.security_id = {}
 
--- Dissect: Security Id
+-- Dissect: Security ID
 athex_oasis_mdfs_fast_v9.security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1884,16 +1840,16 @@ athex_oasis_mdfs_fast_v9.security_id.dissect = function(buffer, offset, packet, 
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.security_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.security_id, range, "")
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id Source
+-- Security ID Source
 athex_oasis_mdfs_fast_v9.security_id_source = {}
 
--- Dissect: Security Id Source
+-- Dissect: Security ID Source
 athex_oasis_mdfs_fast_v9.security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1906,7 +1862,7 @@ athex_oasis_mdfs_fast_v9.security_id_source.dissect = function(buffer, offset, p
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.security_id_source, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.security_id_source, range, "")
-    absent:set_text("Security Id Source: No Value")
+    absent:set_text("Security ID Source: No Value")
   end
 
   return offset, value
@@ -1938,10 +1894,10 @@ athex_oasis_mdfs_fast_v9.financial_instrument_full_name.dissect = function(buffe
   return offset, value
 end
 
--- Cfi Code
+-- CFI Code
 athex_oasis_mdfs_fast_v9.cfi_code = {}
 
--- Dissect: Cfi Code
+-- Dissect: CFI Code
 athex_oasis_mdfs_fast_v9.cfi_code.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1958,7 +1914,7 @@ athex_oasis_mdfs_fast_v9.cfi_code.dissect = function(buffer, offset, packet, par
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.cfi_code, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.cfi_code, range, "")
-    absent:set_text("Cfi Code: No Value")
+    absent:set_text("CFI Code: No Value")
   end
 
   return offset, value
@@ -2013,10 +1969,10 @@ athex_oasis_mdfs_fast_v9.unit_of_measure_qty.dissect = function(buffer, offset, 
   return offset, value
 end
 
--- Athexapa Unit Of Measure
+-- ATHEXAPA Unit Of Measure
 athex_oasis_mdfs_fast_v9.athexapa_unit_of_measure = {}
 
--- Dissect: Athexapa Unit Of Measure
+-- Dissect: ATHEXAPA Unit Of Measure
 athex_oasis_mdfs_fast_v9.athexapa_unit_of_measure.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2033,7 +1989,7 @@ athex_oasis_mdfs_fast_v9.athexapa_unit_of_measure.dissect = function(buffer, off
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_unit_of_measure, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_unit_of_measure, range, "")
-    absent:set_text("Athexapa Unit Of Measure: No Value")
+    absent:set_text("ATHEXAPA Unit Of Measure: No Value")
   end
 
   return offset, value
@@ -2140,10 +2096,10 @@ athex_oasis_mdfs_fast_v9.strike_currency.dissect = function(buffer, offset, pack
   return offset, value
 end
 
--- Athexapa Strike Price Type (Default)
+-- ATHEXAPA Strike Price Type (Default)
 athex_oasis_mdfs_fast_v9.athexapa_strike_price_type_default_optional_u_int32 = {}
 
--- Dissect: Athexapa Strike Price Type (Default)
+-- Dissect: ATHEXAPA Strike Price Type (Default)
 athex_oasis_mdfs_fast_v9.athexapa_strike_price_type_default_optional_u_int32.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2160,16 +2116,16 @@ athex_oasis_mdfs_fast_v9.athexapa_strike_price_type_default_optional_u_int32.dis
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_strike_price_type_uint32, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_strike_price_type_uint32, range, 0)
-    absent:set_text("Athexapa Strike Price Type: No Value")
+    absent:set_text("ATHEXAPA Strike Price Type: No Value")
   end
 
   return offset, value
 end
 
--- Athexapa Strike Price Type (Default)
+-- ATHEXAPA Strike Price Type (Default)
 athex_oasis_mdfs_fast_v9.athexapa_strike_price_type_default_optional_string = {}
 
--- Dissect: Athexapa Strike Price Type (Default)
+-- Dissect: ATHEXAPA Strike Price Type (Default)
 athex_oasis_mdfs_fast_v9.athexapa_strike_price_type_default_optional_string.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2186,7 +2142,7 @@ athex_oasis_mdfs_fast_v9.athexapa_strike_price_type_default_optional_string.diss
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_strike_price_type_string, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_strike_price_type_string, range, "")
-    absent:set_text("Athexapa Strike Price Type: No Value")
+    absent:set_text("ATHEXAPA Strike Price Type: No Value")
   end
 
   return offset, value
@@ -2296,10 +2252,10 @@ athex_oasis_mdfs_fast_v9.no_underlyings.dissect = function(buffer, offset, packe
   return offset, value
 end
 
--- Underlying Security Id
+-- Underlying Security ID
 athex_oasis_mdfs_fast_v9.underlying_security_id = {}
 
--- Dissect: Underlying Security Id
+-- Dissect: Underlying Security ID
 athex_oasis_mdfs_fast_v9.underlying_security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2316,16 +2272,16 @@ athex_oasis_mdfs_fast_v9.underlying_security_id.dissect = function(buffer, offse
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.underlying_security_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.underlying_security_id, range, "")
-    absent:set_text("Underlying Security Id: No Value")
+    absent:set_text("Underlying Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Underlying Security Id Source
+-- Underlying Security ID Source
 athex_oasis_mdfs_fast_v9.underlying_security_id_source = {}
 
--- Dissect: Underlying Security Id Source
+-- Dissect: Underlying Security ID Source
 athex_oasis_mdfs_fast_v9.underlying_security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2342,7 +2298,7 @@ athex_oasis_mdfs_fast_v9.underlying_security_id_source.dissect = function(buffer
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.underlying_security_id_source, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.underlying_security_id_source, range, "")
-    absent:set_text("Underlying Security Id Source: No Value")
+    absent:set_text("Underlying Security ID Source: No Value")
   end
 
   return offset, value
@@ -2400,10 +2356,10 @@ athex_oasis_mdfs_fast_v9.underlying_index_curve_period.dissect = function(buffer
   return offset, value
 end
 
--- No Md Entries
+-- No MD Entries
 athex_oasis_mdfs_fast_v9.no_md_entries = {}
 
--- Dissect: No Md Entries
+-- Dissect: No MD Entries
 athex_oasis_mdfs_fast_v9.no_md_entries.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2416,16 +2372,16 @@ athex_oasis_mdfs_fast_v9.no_md_entries.dissect = function(buffer, offset, packet
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_md_entries, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_md_entries, range, 0)
-    absent:set_text("No Md Entries: No Value")
+    absent:set_text("No MD Entries: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Type
+-- MD Entry Type
 athex_oasis_mdfs_fast_v9.md_entry_type = {}
 
--- Dissect: Md Entry Type
+-- Dissect: MD Entry Type
 athex_oasis_mdfs_fast_v9.md_entry_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2438,25 +2394,25 @@ athex_oasis_mdfs_fast_v9.md_entry_type.dissect = function(buffer, offset, packet
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_entry_type, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_entry_type, range, "")
-    absent:set_text("Md Entry Type: No Value")
+    absent:set_text("MD Entry Type: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Px
+-- MD Entry Px
 athex_oasis_mdfs_fast_v9.md_entry_px = {}
 
--- Display: Md Entry Px
+-- Display: MD Entry Px
 athex_oasis_mdfs_fast_v9.md_entry_px.display = function(value)
   if value == nil then
-    return "Md Entry Px: No Value"
+    return "MD Entry Px: No Value"
   end
 
-  return "Md Entry Px: "..value
+  return "MD Entry Px: "..value
 end
 
--- Dissect: Md Entry Px
+-- Dissect: MD Entry Px
 athex_oasis_mdfs_fast_v9.md_entry_px.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2493,19 +2449,19 @@ athex_oasis_mdfs_fast_v9.md_entry_px.dissect = function(buffer, offset, packet, 
   return offset, value
 end
 
--- Md Entry Size
+-- MD Entry Size
 athex_oasis_mdfs_fast_v9.md_entry_size = {}
 
--- Display: Md Entry Size
+-- Display: MD Entry Size
 athex_oasis_mdfs_fast_v9.md_entry_size.display = function(value)
   if value == nil then
-    return "Md Entry Size: No Value"
+    return "MD Entry Size: No Value"
   end
 
-  return "Md Entry Size: "..value
+  return "MD Entry Size: "..value
 end
 
--- Dissect: Md Entry Size
+-- Dissect: MD Entry Size
 athex_oasis_mdfs_fast_v9.md_entry_size.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2542,10 +2498,10 @@ athex_oasis_mdfs_fast_v9.md_entry_size.dissect = function(buffer, offset, packet
   return offset, value
 end
 
--- Md Origin Type
+-- MD Origin Type
 athex_oasis_mdfs_fast_v9.md_origin_type = {}
 
--- Dissect: Md Origin Type
+-- Dissect: MD Origin Type
 athex_oasis_mdfs_fast_v9.md_origin_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2562,7 +2518,7 @@ athex_oasis_mdfs_fast_v9.md_origin_type.dissect = function(buffer, offset, packe
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_origin_type, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_origin_type, range, 0)
-    absent:set_text("Md Origin Type: No Value")
+    absent:set_text("MD Origin Type: No Value")
   end
 
   return offset, value
@@ -2590,10 +2546,10 @@ athex_oasis_mdfs_fast_v9.market_depth.dissect = function(buffer, offset, packet,
   return offset, value
 end
 
--- Md Price Level
+-- MD Price Level
 athex_oasis_mdfs_fast_v9.md_price_level = {}
 
--- Dissect: Md Price Level
+-- Dissect: MD Price Level
 athex_oasis_mdfs_fast_v9.md_price_level.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2610,7 +2566,7 @@ athex_oasis_mdfs_fast_v9.md_price_level.dissect = function(buffer, offset, packe
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_price_level, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_price_level, range, 0)
-    absent:set_text("Md Price Level: No Value")
+    absent:set_text("MD Price Level: No Value")
   end
 
   return offset, value
@@ -2642,10 +2598,10 @@ athex_oasis_mdfs_fast_v9.number_of_orders.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Md Entry Position No
+-- MD Entry Position No
 athex_oasis_mdfs_fast_v9.md_entry_position_no = {}
 
--- Dissect: Md Entry Position No
+-- Dissect: MD Entry Position No
 athex_oasis_mdfs_fast_v9.md_entry_position_no.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2658,16 +2614,16 @@ athex_oasis_mdfs_fast_v9.md_entry_position_no.dissect = function(buffer, offset,
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_entry_position_no, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_entry_position_no, range, 0)
-    absent:set_text("Md Entry Position No: No Value")
+    absent:set_text("MD Entry Position No: No Value")
   end
 
   return offset, value
 end
 
--- Order Id
+-- Order ID
 athex_oasis_mdfs_fast_v9.order_id = {}
 
--- Dissect: Order Id
+-- Dissect: Order ID
 athex_oasis_mdfs_fast_v9.order_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2680,7 +2636,7 @@ athex_oasis_mdfs_fast_v9.order_id.dissect = function(buffer, offset, packet, par
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.order_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.order_id, range, "")
-    absent:set_text("Order Id: No Value")
+    absent:set_text("Order ID: No Value")
   end
 
   return offset, value
@@ -2801,10 +2757,10 @@ athex_oasis_mdfs_fast_v9.ord_type.dissect = function(buffer, offset, packet, par
   return offset, value
 end
 
--- Athex Special Condition
+-- ATHEX Special Condition
 athex_oasis_mdfs_fast_v9.athex_special_condition = {}
 
--- Dissect: Athex Special Condition
+-- Dissect: ATHEX Special Condition
 athex_oasis_mdfs_fast_v9.athex_special_condition.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2821,25 +2777,25 @@ athex_oasis_mdfs_fast_v9.athex_special_condition.dissect = function(buffer, offs
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_special_condition, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_special_condition, range, "")
-    absent:set_text("Athex Special Condition: No Value")
+    absent:set_text("ATHEX Special Condition: No Value")
   end
 
   return offset, value
 end
 
--- Athex Condition Volume
+-- ATHEX Condition Volume
 athex_oasis_mdfs_fast_v9.athex_condition_volume = {}
 
--- Display: Athex Condition Volume
+-- Display: ATHEX Condition Volume
 athex_oasis_mdfs_fast_v9.athex_condition_volume.display = function(value)
   if value == nil then
-    return "Athex Condition Volume: No Value"
+    return "ATHEX Condition Volume: No Value"
   end
 
-  return "Athex Condition Volume: "..value
+  return "ATHEX Condition Volume: "..value
 end
 
--- Dissect: Athex Condition Volume
+-- Dissect: ATHEX Condition Volume
 athex_oasis_mdfs_fast_v9.athex_condition_volume.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2876,10 +2832,10 @@ athex_oasis_mdfs_fast_v9.athex_condition_volume.dissect = function(buffer, offse
   return offset, value
 end
 
--- Athex Order Entry Date
+-- ATHEX Order Entry Date
 athex_oasis_mdfs_fast_v9.athex_order_entry_date = {}
 
--- Dissect: Athex Order Entry Date
+-- Dissect: ATHEX Order Entry Date
 athex_oasis_mdfs_fast_v9.athex_order_entry_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2892,7 +2848,7 @@ athex_oasis_mdfs_fast_v9.athex_order_entry_date.dissect = function(buffer, offse
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_order_entry_date, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_order_entry_date, range, "")
-    absent:set_text("Athex Order Entry Date: No Value")
+    absent:set_text("ATHEX Order Entry Date: No Value")
   end
 
   return offset, value
@@ -2924,10 +2880,10 @@ athex_oasis_mdfs_fast_v9.trade_condition.dissect = function(buffer, offset, pack
   return offset, value
 end
 
--- Trade Id
+-- Trade ID
 athex_oasis_mdfs_fast_v9.trade_id = {}
 
--- Dissect: Trade Id
+-- Dissect: Trade ID
 athex_oasis_mdfs_fast_v9.trade_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2944,7 +2900,7 @@ athex_oasis_mdfs_fast_v9.trade_id.dissect = function(buffer, offset, packet, par
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.trade_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.trade_id, range, "")
-    absent:set_text("Trade Id: No Value")
+    absent:set_text("Trade ID: No Value")
   end
 
   return offset, value
@@ -3146,19 +3102,19 @@ athex_oasis_mdfs_fast_v9.trade_publish_indicator.dissect = function(buffer, offs
   return offset, value
 end
 
--- Athex Total Volume
+-- ATHEX Total Volume
 athex_oasis_mdfs_fast_v9.athex_total_volume = {}
 
--- Display: Athex Total Volume
+-- Display: ATHEX Total Volume
 athex_oasis_mdfs_fast_v9.athex_total_volume.display = function(value)
   if value == nil then
-    return "Athex Total Volume: No Value"
+    return "ATHEX Total Volume: No Value"
   end
 
-  return "Athex Total Volume: "..value
+  return "ATHEX Total Volume: "..value
 end
 
--- Dissect: Athex Total Volume
+-- Dissect: ATHEX Total Volume
 athex_oasis_mdfs_fast_v9.athex_total_volume.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3195,19 +3151,19 @@ athex_oasis_mdfs_fast_v9.athex_total_volume.dissect = function(buffer, offset, p
   return offset, value
 end
 
--- Athex Trade Value
+-- ATHEX Trade Value
 athex_oasis_mdfs_fast_v9.athex_trade_value = {}
 
--- Display: Athex Trade Value
+-- Display: ATHEX Trade Value
 athex_oasis_mdfs_fast_v9.athex_trade_value.display = function(value)
   if value == nil then
-    return "Athex Trade Value: No Value"
+    return "ATHEX Trade Value: No Value"
   end
 
-  return "Athex Trade Value: "..value
+  return "ATHEX Trade Value: "..value
 end
 
--- Dissect: Athex Trade Value
+-- Dissect: ATHEX Trade Value
 athex_oasis_mdfs_fast_v9.athex_trade_value.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3244,10 +3200,10 @@ athex_oasis_mdfs_fast_v9.athex_trade_value.dissect = function(buffer, offset, pa
   return offset, value
 end
 
--- Athex Index Type
+-- ATHEX Index Type
 athex_oasis_mdfs_fast_v9.athex_index_type = {}
 
--- Dissect: Athex Index Type
+-- Dissect: ATHEX Index Type
 athex_oasis_mdfs_fast_v9.athex_index_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3264,7 +3220,7 @@ athex_oasis_mdfs_fast_v9.athex_index_type.dissect = function(buffer, offset, pac
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_index_type, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_index_type, range, "")
-    absent:set_text("Athex Index Type: No Value")
+    absent:set_text("ATHEX Index Type: No Value")
   end
 
   return offset, value
@@ -3438,10 +3394,10 @@ athex_oasis_mdfs_fast_v9.trade_sub_type.dissect = function(buffer, offset, packe
   return offset, value
 end
 
--- Athexapa Report Status
+-- ATHEXAPA Report Status
 athex_oasis_mdfs_fast_v9.athexapa_report_status = {}
 
--- Dissect: Athexapa Report Status
+-- Dissect: ATHEXAPA Report Status
 athex_oasis_mdfs_fast_v9.athexapa_report_status.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3454,17 +3410,17 @@ athex_oasis_mdfs_fast_v9.athexapa_report_status.dissect = function(buffer, offse
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_report_status, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_report_status, range, "")
-    absent:set_text("Athexapa Report Status: No Value")
+    absent:set_text("ATHEXAPA Report Status: No Value")
   end
 
   return offset, value
 end
 
--- No Party I Ds
-athex_oasis_mdfs_fast_v9.no_party_i_ds = {}
+-- No Party IDs
+athex_oasis_mdfs_fast_v9.no_party_ids = {}
 
--- Dissect: No Party I Ds
-athex_oasis_mdfs_fast_v9.no_party_i_ds.dissect = function(buffer, offset, packet, parent, present, state, key)
+-- Dissect: No Party IDs
+athex_oasis_mdfs_fast_v9.no_party_ids.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -3473,19 +3429,19 @@ athex_oasis_mdfs_fast_v9.no_party_i_ds.dissect = function(buffer, offset, packet
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_party_i_ds, range, value)
+    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_party_ids, range, value)
   else
-    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_party_i_ds, range, 0)
-    absent:set_text("No Party I Ds: No Value")
+    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_party_ids, range, 0)
+    absent:set_text("No Party IDs: No Value")
   end
 
   return offset, value
 end
 
--- Party Id
+-- Party ID
 athex_oasis_mdfs_fast_v9.party_id = {}
 
--- Dissect: Party Id
+-- Dissect: Party ID
 athex_oasis_mdfs_fast_v9.party_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3498,16 +3454,16 @@ athex_oasis_mdfs_fast_v9.party_id.dissect = function(buffer, offset, packet, par
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.party_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.party_id, range, "")
-    absent:set_text("Party Id: No Value")
+    absent:set_text("Party ID: No Value")
   end
 
   return offset, value
 end
 
--- Party Id Source
+-- Party ID Source
 athex_oasis_mdfs_fast_v9.party_id_source = {}
 
--- Dissect: Party Id Source
+-- Dissect: Party ID Source
 athex_oasis_mdfs_fast_v9.party_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3520,7 +3476,7 @@ athex_oasis_mdfs_fast_v9.party_id_source.dissect = function(buffer, offset, pack
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.party_id_source, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.party_id_source, range, "")
-    absent:set_text("Party Id Source: No Value")
+    absent:set_text("Party ID Source: No Value")
   end
 
   return offset, value
@@ -3552,10 +3508,10 @@ athex_oasis_mdfs_fast_v9.price_type.dissect = function(buffer, offset, packet, p
   return offset, value
 end
 
--- Athexapa Price Currency
+-- ATHEXAPA Price Currency
 athex_oasis_mdfs_fast_v9.athexapa_price_currency = {}
 
--- Dissect: Athexapa Price Currency
+-- Dissect: ATHEXAPA Price Currency
 athex_oasis_mdfs_fast_v9.athexapa_price_currency.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3572,25 +3528,25 @@ athex_oasis_mdfs_fast_v9.athexapa_price_currency.dissect = function(buffer, offs
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_price_currency, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_price_currency, range, "")
-    absent:set_text("Athexapa Price Currency: No Value")
+    absent:set_text("ATHEXAPA Price Currency: No Value")
   end
 
   return offset, value
 end
 
--- Athexapa Price Multiplier
+-- ATHEXAPA Price Multiplier
 athex_oasis_mdfs_fast_v9.athexapa_price_multiplier = {}
 
--- Display: Athexapa Price Multiplier
+-- Display: ATHEXAPA Price Multiplier
 athex_oasis_mdfs_fast_v9.athexapa_price_multiplier.display = function(value)
   if value == nil then
-    return "Athexapa Price Multiplier: No Value"
+    return "ATHEXAPA Price Multiplier: No Value"
   end
 
-  return "Athexapa Price Multiplier: "..value
+  return "ATHEXAPA Price Multiplier: "..value
 end
 
--- Dissect: Athexapa Price Multiplier
+-- Dissect: ATHEXAPA Price Multiplier
 athex_oasis_mdfs_fast_v9.athexapa_price_multiplier.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3627,10 +3583,10 @@ athex_oasis_mdfs_fast_v9.athexapa_price_multiplier.dissect = function(buffer, of
   return offset, value
 end
 
--- Athexapa Size Currency
+-- ATHEXAPA Size Currency
 athex_oasis_mdfs_fast_v9.athexapa_size_currency = {}
 
--- Dissect: Athexapa Size Currency
+-- Dissect: ATHEXAPA Size Currency
 athex_oasis_mdfs_fast_v9.athexapa_size_currency.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3647,16 +3603,16 @@ athex_oasis_mdfs_fast_v9.athexapa_size_currency.dissect = function(buffer, offse
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_size_currency, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_size_currency, range, "")
-    absent:set_text("Athexapa Size Currency: No Value")
+    absent:set_text("ATHEXAPA Size Currency: No Value")
   end
 
   return offset, value
 end
 
--- Athexapa Trade Value Currency
+-- ATHEXAPA Trade Value Currency
 athex_oasis_mdfs_fast_v9.athexapa_trade_value_currency = {}
 
--- Dissect: Athexapa Trade Value Currency
+-- Dissect: ATHEXAPA Trade Value Currency
 athex_oasis_mdfs_fast_v9.athexapa_trade_value_currency.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3673,7 +3629,7 @@ athex_oasis_mdfs_fast_v9.athexapa_trade_value_currency.dissect = function(buffer
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trade_value_currency, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trade_value_currency, range, "")
-    absent:set_text("Athexapa Trade Value Currency: No Value")
+    absent:set_text("ATHEXAPA Trade Value Currency: No Value")
   end
 
   return offset, value
@@ -3749,10 +3705,10 @@ athex_oasis_mdfs_fast_v9.side.dissect = function(buffer, offset, packet, parent,
   return offset, value
 end
 
--- Quote Id
+-- Quote ID
 athex_oasis_mdfs_fast_v9.quote_id = {}
 
--- Dissect: Quote Id
+-- Dissect: Quote ID
 athex_oasis_mdfs_fast_v9.quote_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3765,16 +3721,16 @@ athex_oasis_mdfs_fast_v9.quote_id.dissect = function(buffer, offset, packet, par
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.quote_id, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.quote_id, range, "")
-    absent:set_text("Quote Id: No Value")
+    absent:set_text("Quote ID: No Value")
   end
 
   return offset, value
 end
 
--- Athexapa Quote Liquidity
+-- ATHEXAPA Quote Liquidity
 athex_oasis_mdfs_fast_v9.athexapa_quote_liquidity = {}
 
--- Dissect: Athexapa Quote Liquidity
+-- Dissect: ATHEXAPA Quote Liquidity
 athex_oasis_mdfs_fast_v9.athexapa_quote_liquidity.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3787,16 +3743,16 @@ athex_oasis_mdfs_fast_v9.athexapa_quote_liquidity.dissect = function(buffer, off
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_quote_liquidity, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_quote_liquidity, range, 0)
-    absent:set_text("Athexapa Quote Liquidity: No Value")
+    absent:set_text("ATHEXAPA Quote Liquidity: No Value")
   end
 
   return offset, value
 end
 
--- Athexapa Trade Id Indicator
+-- ATHEXAPA Trade ID Indicator
 athex_oasis_mdfs_fast_v9.athexapa_trade_id_indicator = {}
 
--- Dissect: Athexapa Trade Id Indicator
+-- Dissect: ATHEXAPA Trade ID Indicator
 athex_oasis_mdfs_fast_v9.athexapa_trade_id_indicator.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3809,16 +3765,16 @@ athex_oasis_mdfs_fast_v9.athexapa_trade_id_indicator.dissect = function(buffer, 
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trade_id_indicator, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trade_id_indicator, range, 0)
-    absent:set_text("Athexapa Trade Id Indicator: No Value")
+    absent:set_text("ATHEXAPA Trade ID Indicator: No Value")
   end
 
   return offset, value
 end
 
--- No Athexapa Regulatory Report Types
+-- No ATHEXAPA Regulatory Report Types
 athex_oasis_mdfs_fast_v9.no_athexapa_regulatory_report_types = {}
 
--- Dissect: No Athexapa Regulatory Report Types
+-- Dissect: No ATHEXAPA Regulatory Report Types
 athex_oasis_mdfs_fast_v9.no_athexapa_regulatory_report_types.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3835,7 +3791,7 @@ athex_oasis_mdfs_fast_v9.no_athexapa_regulatory_report_types.dissect = function(
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_athexapa_regulatory_report_types, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_athexapa_regulatory_report_types, range, 0)
-    absent:set_text("No Athexapa Regulatory Report Types: No Value")
+    absent:set_text("No ATHEXAPA Regulatory Report Types: No Value")
   end
 
   return offset, value
@@ -3889,10 +3845,10 @@ athex_oasis_mdfs_fast_v9.number_of_trades.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Athexapa Transaction To Be Cleared
+-- ATHEXAPA Transaction To Be Cleared
 athex_oasis_mdfs_fast_v9.athexapa_transaction_to_be_cleared = {}
 
--- Dissect: Athexapa Transaction To Be Cleared
+-- Dissect: ATHEXAPA Transaction To Be Cleared
 athex_oasis_mdfs_fast_v9.athexapa_transaction_to_be_cleared.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3905,16 +3861,16 @@ athex_oasis_mdfs_fast_v9.athexapa_transaction_to_be_cleared.dissect = function(b
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_transaction_to_be_cleared, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_transaction_to_be_cleared, range, "")
-    absent:set_text("Athexapa Transaction To Be Cleared: No Value")
+    absent:set_text("ATHEXAPA Transaction To Be Cleared: No Value")
   end
 
   return offset, value
 end
 
--- Athexapa Venue Of Publication
+-- ATHEXAPA Venue Of Publication
 athex_oasis_mdfs_fast_v9.athexapa_venue_of_publication = {}
 
--- Dissect: Athexapa Venue Of Publication
+-- Dissect: ATHEXAPA Venue Of Publication
 athex_oasis_mdfs_fast_v9.athexapa_venue_of_publication.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3927,16 +3883,16 @@ athex_oasis_mdfs_fast_v9.athexapa_venue_of_publication.dissect = function(buffer
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_venue_of_publication, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_venue_of_publication, range, "")
-    absent:set_text("Athexapa Venue Of Publication: No Value")
+    absent:set_text("ATHEXAPA Venue Of Publication: No Value")
   end
 
   return offset, value
 end
 
--- Athexapa Third Country Venue
+-- ATHEXAPA Third Country Venue
 athex_oasis_mdfs_fast_v9.athexapa_third_country_venue = {}
 
--- Dissect: Athexapa Third Country Venue
+-- Dissect: ATHEXAPA Third Country Venue
 athex_oasis_mdfs_fast_v9.athexapa_third_country_venue.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3953,16 +3909,16 @@ athex_oasis_mdfs_fast_v9.athexapa_third_country_venue.dissect = function(buffer,
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_third_country_venue, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_third_country_venue, range, "")
-    absent:set_text("Athexapa Third Country Venue: No Value")
+    absent:set_text("ATHEXAPA Third Country Venue: No Value")
   end
 
   return offset, value
 end
 
--- Md Update Action
+-- MD Update Action
 athex_oasis_mdfs_fast_v9.md_update_action = {}
 
--- Dissect: Md Update Action
+-- Dissect: MD Update Action
 athex_oasis_mdfs_fast_v9.md_update_action.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3975,7 +3931,7 @@ athex_oasis_mdfs_fast_v9.md_update_action.dissect = function(buffer, offset, pac
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_update_action, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_update_action, range, "")
-    absent:set_text("Md Update Action: No Value")
+    absent:set_text("MD Update Action: No Value")
   end
 
   return offset, value
@@ -4007,10 +3963,10 @@ athex_oasis_mdfs_fast_v9.previously_reported.dissect = function(buffer, offset, 
   return offset, value
 end
 
--- No Athexapa Trd Types
+-- No ATHEXAPA Trd Types
 athex_oasis_mdfs_fast_v9.no_athexapa_trd_types = {}
 
--- Dissect: No Athexapa Trd Types
+-- Dissect: No ATHEXAPA Trd Types
 athex_oasis_mdfs_fast_v9.no_athexapa_trd_types.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4023,7 +3979,7 @@ athex_oasis_mdfs_fast_v9.no_athexapa_trd_types.dissect = function(buffer, offset
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_athexapa_trd_types, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.no_athexapa_trd_types, range, 0)
-    absent:set_text("No Athexapa Trd Types: No Value")
+    absent:set_text("No ATHEXAPA Trd Types: No Value")
   end
 
   return offset, value
@@ -4107,10 +4063,10 @@ athex_oasis_mdfs_fast_v9.secondary_trd_type.dissect = function(buffer, offset, p
   return offset, value
 end
 
--- Athexapa Emission Allowance
+-- ATHEXAPA Emission Allowance
 athex_oasis_mdfs_fast_v9.athexapa_emission_allowance = {}
 
--- Dissect: Athexapa Emission Allowance
+-- Dissect: ATHEXAPA Emission Allowance
 athex_oasis_mdfs_fast_v9.athexapa_emission_allowance.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4127,7 +4083,7 @@ athex_oasis_mdfs_fast_v9.athexapa_emission_allowance.dissect = function(buffer, 
     parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_emission_allowance, range, value)
   else
     local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_emission_allowance, range, "")
-    absent:set_text("Athexapa Emission Allowance: No Value")
+    absent:set_text("ATHEXAPA Emission Allowance: No Value")
   end
 
   return offset, value
@@ -4138,10 +4094,10 @@ end
 -- Dissect Athex Oasis Mdfs Fast 9
 -----------------------------------------------------------------------
 
--- Athexapa Regulatory Report Type Grp
+-- ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp = {}
 
--- Dissect Fields: Athexapa Regulatory Report Type Grp
+-- Dissect Fields: ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -4152,7 +4108,7 @@ athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.fields = function(b
   return index
 end
 
--- Dissect: Athexapa Regulatory Report Type Grp
+-- Dissect: ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_regulatory_report_type_grp, buffer(offset, 0))
   local index = offset
@@ -4168,10 +4124,10 @@ athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect = function(
   return index
 end
 
--- Athexapa Trd Types Grp
+-- ATHEXAPA Trd Types Grp
 athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp = {}
 
--- Dissect Fields: Athexapa Trd Types Grp
+-- Dissect Fields: ATHEXAPA Trd Types Grp
 athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -4188,7 +4144,7 @@ athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp.fields = function(buffer, offset
   return index
 end
 
--- Dissect: Athexapa Trd Types Grp
+-- Dissect: ATHEXAPA Trd Types Grp
 athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trd_types_grp, buffer(offset, 0))
   local index = offset
@@ -4210,48 +4166,48 @@ athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp.dissect = function(buffer, offse
   return index
 end
 
--- Market Data Incremental Refresh_16 Apaotc Post Trade Grp
+-- Market Data Incremental Refresh_16 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_post_trade_grp = {}
 
--- Dissect Fields: Market Data Incremental Refresh_16 Apaotc Post Trade Grp
+-- Dissect Fields: Market Data Incremental Refresh_16 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_post_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Athexapa Trade Id Indicator: uInt32, sent
+  -- ATHEXAPA Trade ID Indicator: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_trade_id_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Athexapa Trd Types: uInt32, sent
+  -- No ATHEXAPA Trd Types: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.no_athexapa_trd_types.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Trd Types Grp: No Athexapa Trd Types entries
+  -- ATHEXAPA Trd Types Grp: No ATHEXAPA Trd Types entries
   local count = value or 0
   for athexapa_trd_types_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp.dissect(buffer, index, packet, parent, presence_map, base, state, athexapa_trd_types_grp_index)
   end
 
-  -- No Athexapa Regulatory Report Types: uInt32, Default, optional
+  -- No ATHEXAPA Regulatory Report Types: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.no_athexapa_regulatory_report_types.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athexapa Regulatory Report Type Grp: No Athexapa Regulatory Report Types entries
+  -- ATHEXAPA Regulatory Report Type Grp: No ATHEXAPA Regulatory Report Types entries
   local count = value or 0
   for athexapa_regulatory_report_type_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect(buffer, index, packet, parent, presence_map, base, state, athexapa_regulatory_report_type_grp_index)
   end
 
-  -- Athexapa Transaction To Be Cleared: string, sent
+  -- ATHEXAPA Transaction To Be Cleared: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_transaction_to_be_cleared.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Emission Allowance: string, Default, optional
+  -- ATHEXAPA Emission Allowance: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_emission_allowance.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athexapa Third Country Venue: string, Default, optional
+  -- ATHEXAPA Third Country Venue: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_third_country_venue.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
   return index
 end
 
--- Dissect: Market Data Incremental Refresh_16 Apaotc Post Trade Grp
+-- Dissect: Market Data Incremental Refresh_16 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_post_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16_apaotc_post_trade_grp, buffer(offset, 0))
   local index = offset
@@ -4268,10 +4224,10 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_post_trade_gr
   return index
 end
 
--- Apaotc Pre Trade Grp
+-- APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp = {}
 
--- Dissect Fields: Apaotc Pre Trade Grp
+-- Dissect Fields: APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -4279,16 +4235,16 @@ athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.fields = function(buffer, offset, 
   -- Side: string, sent
   index, value = athex_oasis_mdfs_fast_v9.side.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Quote Id: string, sent
+  -- Quote ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.quote_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Quote Liquidity: uInt32, sent
+  -- ATHEXAPA Quote Liquidity: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_quote_liquidity.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Apaotc Pre Trade Grp
+-- Dissect: APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.apaotc_pre_trade_grp, buffer(offset, 0))
   local index = offset
@@ -4307,10 +4263,10 @@ athex_oasis_mdfs_fast_v9.parties_grp.fields = function(buffer, offset, packet, p
   local index = offset
   local value = nil
 
-  -- Party Id: string, sent
+  -- Party ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.party_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Id Source: string, sent
+  -- Party ID Source: string, sent
   index, value = athex_oasis_mdfs_fast_v9.party_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -4379,10 +4335,10 @@ athex_oasis_mdfs_fast_v9.und_instrmt_grp.fields = function(buffer, offset, packe
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: string, Default, optional
+  -- Underlying Security ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.underlying_security_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Underlying Security Id Source: string, Default, optional
+  -- Underlying Security ID Source: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.underlying_security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Underlying Index Curve Unit: string, Default, optional
@@ -4416,10 +4372,10 @@ athex_oasis_mdfs_fast_v9.und_instrmt_grp.dissect = function(buffer, offset, pack
   return index
 end
 
--- Market Data Incremental Refresh_16 Apaotc Trade Grp
+-- Market Data Incremental Refresh_16 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_trade_grp = {}
 
--- Dissect Fields: Market Data Incremental Refresh_16 Apaotc Trade Grp
+-- Dissect Fields: Market Data Incremental Refresh_16 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -4442,13 +4398,13 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_trade_grp.fie
     index = athex_oasis_mdfs_fast_v9.trade_type_grp.dissect(buffer, index, packet, parent, presence_map, base, state, trade_type_grp_index)
   end
 
-  -- Athexapa Report Status: string, sent
+  -- ATHEXAPA Report Status: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_report_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Party I Ds: uInt32, sent
-  index, value = athex_oasis_mdfs_fast_v9.no_party_i_ds.dissect(buffer, index, packet, parent, nil, state, nil)
+  -- No Party IDs: uInt32, sent
+  index, value = athex_oasis_mdfs_fast_v9.no_party_ids.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Parties Grp: No Party I Ds entries
+  -- Parties Grp: No Party IDs entries
   local count = value or 0
   for parties_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.parties_grp.dissect(buffer, index, packet, parent, presence_map, base, state, parties_grp_index)
@@ -4457,27 +4413,27 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_trade_grp.fie
   -- Price Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.price_type.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athexapa Price Currency: string, Default, optional
+  -- ATHEXAPA Price Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_price_currency.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- Athexapa Price Multiplier: decimal, Default, optional
+  -- ATHEXAPA Price Multiplier: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_price_multiplier.dissect(buffer, index, packet, parent, { presence_map[base + 3], false }, state, nil)
 
-  -- Athexapa Size Currency: string, Default, optional
+  -- ATHEXAPA Size Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_size_currency.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
-  -- Athexapa Trade Value Currency: string, Default, optional
+  -- ATHEXAPA Trade Value Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_trade_value_currency.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
   -- Expire Date: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.expire_date.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Apaotc Pre Trade Grp: group, optional
+  -- APAOTC Pre Trade Grp: group, optional
   if presence_map[base + 7] then
     index = athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Apaotc Post Trade Grp: group, optional
+  -- APAOTC Post Trade Grp: group, optional
   if presence_map[base + 8] then
     index = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_post_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
@@ -4485,7 +4441,7 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_trade_grp.fie
   return index
 end
 
--- Dissect: Market Data Incremental Refresh_16 Apaotc Trade Grp
+-- Dissect: Market Data Incremental Refresh_16 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16_apaotc_trade_grp, buffer(offset, 0))
   local index = offset
@@ -4610,13 +4566,13 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_trade_grp.fields = f
   -- Trade Condition: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trade_condition.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Origin Type: uInt32, Default, optional
+  -- MD Origin Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_origin_type.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- Trading Session Sub Id: string, Default, optional
+  -- Trading Session Sub ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trading_session_sub_id_default.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
   -- Order Category: string, Default, optional
@@ -4649,10 +4605,10 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_trade_grp.fields = f
   -- Previously Reported: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.previously_reported.dissect(buffer, index, packet, parent, presence_map[base + 9], state, nil)
 
-  -- Athex Total Volume: decimal, Default, optional
+  -- ATHEX Total Volume: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_total_volume.dissect(buffer, index, packet, parent, { presence_map[base + 10], false }, state, nil)
 
-  -- Athex Trade Value: decimal, Default, optional
+  -- ATHEX Trade Value: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_trade_value.dissect(buffer, index, packet, parent, { presence_map[base + 11], false }, state, nil)
 
   return index
@@ -4683,10 +4639,10 @@ athex_oasis_mdfs_fast_v9.order_depth_grp.fields = function(buffer, offset, packe
   local index = offset
   local value = nil
 
-  -- Md Entry Position No: uInt32, sent
+  -- MD Entry Position No: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.md_entry_position_no.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, sent
+  -- Order ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.order_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Ord Status: string, sent
@@ -4701,13 +4657,13 @@ athex_oasis_mdfs_fast_v9.order_depth_grp.fields = function(buffer, offset, packe
   -- Ord Type: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.ord_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Special Condition: string, Default, optional
+  -- ATHEX Special Condition: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_special_condition.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athex Condition Volume: decimal, Default, optional
+  -- ATHEX Condition Volume: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_condition_volume.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
-  -- Athex Order Entry Date: string, sent
+  -- ATHEX Order Entry Date: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_order_entry_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -4741,7 +4697,7 @@ athex_oasis_mdfs_fast_v9.price_depth_grp.fields = function(buffer, offset, packe
   -- Market Depth: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.market_depth.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Price Level: uInt32, Default, optional
+  -- MD Price Level: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_price_level.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Number Of Orders: uInt32, Default, optional
@@ -4767,30 +4723,30 @@ athex_oasis_mdfs_fast_v9.price_depth_grp.dissect = function(buffer, offset, pack
   return index
 end
 
--- Apaotc Instrument Grp
+-- APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp = {}
 
--- Dissect Fields: Apaotc Instrument Grp
+-- Dissect Fields: APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Id: string, sent
+  -- Security ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: string, sent
+  -- Security ID Source: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Financial Instrument Full Name: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.financial_instrument_full_name.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Cfi Code: string, Default, optional
+  -- CFI Code: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.cfi_code.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Unit Of Measure Qty: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.unit_of_measure_qty.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
-  -- Athexapa Unit Of Measure: string, Default, optional
+  -- ATHEXAPA Unit Of Measure: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_unit_of_measure.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
   -- Put Or Call: uInt32, Default, optional
@@ -4802,7 +4758,7 @@ athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset,
   -- Strike Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.strike_currency.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Athexapa Strike Price Type: string, Default, optional
+  -- ATHEXAPA Strike Price Type: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_strike_price_type_default_optional_string.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
   -- Exercise Style: uInt32, Default, optional
@@ -4817,7 +4773,7 @@ athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset,
   return index
 end
 
--- Dissect: Apaotc Instrument Grp
+-- Dissect: APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.apaotc_instrument_grp, buffer(offset, 0))
   local index = offset
@@ -4862,21 +4818,21 @@ athex_oasis_mdfs_fast_v9.bonds_instrument_grp.dissect = function(buffer, offset,
   return index
 end
 
--- Market Data Incremental Refresh_16 Md Inc Grp
+-- Market Data Incremental Refresh_16 MD Inc Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_md_inc_grp = {}
 
--- Dissect Fields: Market Data Incremental Refresh_16 Md Inc Grp
+-- Dissect Fields: Market Data Incremental Refresh_16 MD Inc Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_md_inc_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: string, sent
+  -- MD Update Action: string, sent
   index, value = athex_oasis_mdfs_fast_v9.md_update_action.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.symbol_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Security Category: uInt32, Default, optional
+  -- ATHEX Security Category: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_security_category_default.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Security Type: string, Default, optional
@@ -4890,24 +4846,24 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_md_inc_grp.fields = 
     index = athex_oasis_mdfs_fast_v9.bonds_instrument_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Athex Market Id: string, Default, optional
+  -- ATHEX Market ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_market_id_default.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
-  -- Apaotc Instrument Grp: group, optional
+  -- APAOTC Instrument Grp: group, optional
   if presence_map[base + 5] then
     index = athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = athex_oasis_mdfs_fast_v9.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Board Id: string, Default, optional
+  -- ATHEX Board ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_board_id_default.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Md Entry Px: decimal, Default, optional
+  -- MD Entry Px: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 7], false }, state, nil)
 
-  -- Md Entry Size: decimal, Default, optional
+  -- MD Entry Size: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_entry_size.dissect(buffer, index, packet, parent, { presence_map[base + 8], false }, state, nil)
 
   -- Price Depth Grp: group, optional
@@ -4925,7 +4881,7 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_md_inc_grp.fields = 
     index = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Athex Index Type: string, Default, optional
+  -- ATHEX Index Type: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_index_type.dissect(buffer, index, packet, parent, presence_map[base + 12], state, nil)
 
   -- Price Limits Grp: group, optional
@@ -4933,7 +4889,7 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_md_inc_grp.fields = 
     index = athex_oasis_mdfs_fast_v9.price_limits_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Apaotc Trade Grp: group, optional
+  -- APAOTC Trade Grp: group, optional
   if presence_map[base + 14] then
     index = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_apaotc_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
@@ -4944,7 +4900,7 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_md_inc_grp.fields = 
   return index
 end
 
--- Dissect: Market Data Incremental Refresh_16 Md Inc Grp
+-- Dissect: Market Data Incremental Refresh_16 MD Inc Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_md_inc_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_16_md_inc_grp, buffer(offset, 0))
   local index = offset
@@ -4989,10 +4945,10 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16.fields = function(bu
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5001,22 +4957,22 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16.fields = function(bu
   -- Sending Time: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Fragment Indicator: uInt32, Default, optional
+  -- ATHEX Fragment Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Book Type: uInt32, Default, optional
+  -- MD Book Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_book_type.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Inc Grp: No Md Entries entries
+  -- MD Inc Grp: No MD Entries entries
   local count = value or 0
   for market_data_incremental_refresh_16_md_inc_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16_md_inc_grp.dissect(buffer, index, packet, parent, presence_map, base, state, market_data_incremental_refresh_16_md_inc_grp_index)
@@ -5038,10 +4994,10 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_16.dissect = function(b
   return index
 end
 
--- Athexapa Regulatory Report Type Grp
+-- ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp = {}
 
--- Dissect Fields: Athexapa Regulatory Report Type Grp
+-- Dissect Fields: ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -5052,7 +5008,7 @@ athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.fields = function(b
   return index
 end
 
--- Dissect: Athexapa Regulatory Report Type Grp
+-- Dissect: ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_regulatory_report_type_grp, buffer(offset, 0))
   local index = offset
@@ -5068,10 +5024,10 @@ athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect = function(
   return index
 end
 
--- Athexapa Trd Types Grp
+-- ATHEXAPA Trd Types Grp
 athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp = {}
 
--- Dissect Fields: Athexapa Trd Types Grp
+-- Dissect Fields: ATHEXAPA Trd Types Grp
 athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -5088,7 +5044,7 @@ athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp.fields = function(buffer, offset
   return index
 end
 
--- Dissect: Athexapa Trd Types Grp
+-- Dissect: ATHEXAPA Trd Types Grp
 athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_trd_types_grp, buffer(offset, 0))
   local index = offset
@@ -5110,48 +5066,48 @@ athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp.dissect = function(buffer, offse
   return index
 end
 
--- Market Data Snapshot Full Refresh_15 Apaotc Post Trade Grp
+-- Market Data Snapshot Full Refresh_15 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_post_trade_grp = {}
 
--- Dissect Fields: Market Data Snapshot Full Refresh_15 Apaotc Post Trade Grp
+-- Dissect Fields: Market Data Snapshot Full Refresh_15 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_post_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Athexapa Trade Id Indicator: uInt32, sent
+  -- ATHEXAPA Trade ID Indicator: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_trade_id_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Athexapa Trd Types: uInt32, sent
+  -- No ATHEXAPA Trd Types: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.no_athexapa_trd_types.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Trd Types Grp: No Athexapa Trd Types entries
+  -- ATHEXAPA Trd Types Grp: No ATHEXAPA Trd Types entries
   local count = value or 0
   for athexapa_trd_types_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.athexapa_trd_types_grp.dissect(buffer, index, packet, parent, presence_map, base, state, athexapa_trd_types_grp_index)
   end
 
-  -- No Athexapa Regulatory Report Types: uInt32, Default, optional
+  -- No ATHEXAPA Regulatory Report Types: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.no_athexapa_regulatory_report_types.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athexapa Regulatory Report Type Grp: No Athexapa Regulatory Report Types entries
+  -- ATHEXAPA Regulatory Report Type Grp: No ATHEXAPA Regulatory Report Types entries
   local count = value or 0
   for athexapa_regulatory_report_type_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect(buffer, index, packet, parent, presence_map, base, state, athexapa_regulatory_report_type_grp_index)
   end
 
-  -- Athexapa Transaction To Be Cleared: string, sent
+  -- ATHEXAPA Transaction To Be Cleared: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_transaction_to_be_cleared.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Emission Allowance: string, Default, optional
+  -- ATHEXAPA Emission Allowance: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_emission_allowance.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athexapa Third Country Venue: string, Default, optional
+  -- ATHEXAPA Third Country Venue: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_third_country_venue.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
   return index
 end
 
--- Dissect: Market Data Snapshot Full Refresh_15 Apaotc Post Trade Grp
+-- Dissect: Market Data Snapshot Full Refresh_15 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_post_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15_apaotc_post_trade_grp, buffer(offset, 0))
   local index = offset
@@ -5168,10 +5124,10 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_post_trade_
   return index
 end
 
--- Apaotc Pre Trade Grp
+-- APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp = {}
 
--- Dissect Fields: Apaotc Pre Trade Grp
+-- Dissect Fields: APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -5179,16 +5135,16 @@ athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.fields = function(buffer, offset, 
   -- Side: string, sent
   index, value = athex_oasis_mdfs_fast_v9.side.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Quote Id: string, sent
+  -- Quote ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.quote_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Quote Liquidity: uInt32, sent
+  -- ATHEXAPA Quote Liquidity: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_quote_liquidity.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Apaotc Pre Trade Grp
+-- Dissect: APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.apaotc_pre_trade_grp, buffer(offset, 0))
   local index = offset
@@ -5207,10 +5163,10 @@ athex_oasis_mdfs_fast_v9.parties_grp.fields = function(buffer, offset, packet, p
   local index = offset
   local value = nil
 
-  -- Party Id: string, sent
+  -- Party ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.party_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Id Source: string, sent
+  -- Party ID Source: string, sent
   index, value = athex_oasis_mdfs_fast_v9.party_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -5271,10 +5227,10 @@ athex_oasis_mdfs_fast_v9.trade_type_grp.dissect = function(buffer, offset, packe
   return index
 end
 
--- Market Data Snapshot Full Refresh_15 Apaotc Trade Grp
+-- Market Data Snapshot Full Refresh_15 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_trade_grp = {}
 
--- Dissect Fields: Market Data Snapshot Full Refresh_15 Apaotc Trade Grp
+-- Dissect Fields: Market Data Snapshot Full Refresh_15 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -5288,13 +5244,13 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_trade_grp.f
     index = athex_oasis_mdfs_fast_v9.trade_type_grp.dissect(buffer, index, packet, parent, presence_map, base, state, trade_type_grp_index)
   end
 
-  -- Athexapa Report Status: string, sent
+  -- ATHEXAPA Report Status: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_report_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Party I Ds: uInt32, sent
-  index, value = athex_oasis_mdfs_fast_v9.no_party_i_ds.dissect(buffer, index, packet, parent, nil, state, nil)
+  -- No Party IDs: uInt32, sent
+  index, value = athex_oasis_mdfs_fast_v9.no_party_ids.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Parties Grp: No Party I Ds entries
+  -- Parties Grp: No Party IDs entries
   local count = value or 0
   for parties_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.parties_grp.dissect(buffer, index, packet, parent, presence_map, base, state, parties_grp_index)
@@ -5303,27 +5259,27 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_trade_grp.f
   -- Price Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.price_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athexapa Price Currency: string, Default, optional
+  -- ATHEXAPA Price Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_price_currency.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athexapa Price Multiplier: decimal, Default, optional
+  -- ATHEXAPA Price Multiplier: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_price_multiplier.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
-  -- Athexapa Size Currency: string, Default, optional
+  -- ATHEXAPA Size Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_size_currency.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Athexapa Trade Value Currency: string, Default, optional
+  -- ATHEXAPA Trade Value Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_trade_value_currency.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Expire Date: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.expire_date.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Apaotc Pre Trade Grp: group, optional
+  -- APAOTC Pre Trade Grp: group, optional
   if presence_map[base + 6] then
     index = athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Apaotc Post Trade Grp: group, optional
+  -- APAOTC Post Trade Grp: group, optional
   if presence_map[base + 7] then
     index = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_post_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
@@ -5331,7 +5287,7 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_trade_grp.f
   return index
 end
 
--- Dissect: Market Data Snapshot Full Refresh_15 Apaotc Trade Grp
+-- Dissect: Market Data Snapshot Full Refresh_15 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15_apaotc_trade_grp, buffer(offset, 0))
   local index = offset
@@ -5456,13 +5412,13 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_trade_grp.fields =
   -- Trade Condition: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trade_condition.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Origin Type: uInt32, Default, optional
+  -- MD Origin Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_origin_type.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- Trading Session Sub Id: string, Default, optional
+  -- Trading Session Sub ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trading_session_sub_id_default.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
   -- Order Category: string, Default, optional
@@ -5495,10 +5451,10 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_trade_grp.fields =
   -- Previously Reported: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.previously_reported.dissect(buffer, index, packet, parent, presence_map[base + 9], state, nil)
 
-  -- Athex Total Volume: decimal, Default, optional
+  -- ATHEX Total Volume: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_total_volume.dissect(buffer, index, packet, parent, { presence_map[base + 10], false }, state, nil)
 
-  -- Athex Trade Value: decimal, Default, optional
+  -- ATHEX Trade Value: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_trade_value.dissect(buffer, index, packet, parent, { presence_map[base + 11], false }, state, nil)
 
   return index
@@ -5529,10 +5485,10 @@ athex_oasis_mdfs_fast_v9.order_depth_grp.fields = function(buffer, offset, packe
   local index = offset
   local value = nil
 
-  -- Md Entry Position No: uInt32, sent
+  -- MD Entry Position No: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.md_entry_position_no.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, sent
+  -- Order ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.order_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Ord Status: string, sent
@@ -5547,13 +5503,13 @@ athex_oasis_mdfs_fast_v9.order_depth_grp.fields = function(buffer, offset, packe
   -- Ord Type: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.ord_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Special Condition: string, Default, optional
+  -- ATHEX Special Condition: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_special_condition.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athex Condition Volume: decimal, Default, optional
+  -- ATHEX Condition Volume: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_condition_volume.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
-  -- Athex Order Entry Date: string, sent
+  -- ATHEX Order Entry Date: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_order_entry_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -5587,7 +5543,7 @@ athex_oasis_mdfs_fast_v9.price_depth_grp.fields = function(buffer, offset, packe
   -- Market Depth: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.market_depth.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Price Level: uInt32, Default, optional
+  -- MD Price Level: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_price_level.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Number Of Orders: uInt32, Default, optional
@@ -5613,24 +5569,24 @@ athex_oasis_mdfs_fast_v9.price_depth_grp.dissect = function(buffer, offset, pack
   return index
 end
 
--- Market Data Snapshot Full Refresh_15 Md Full Grp
+-- Market Data Snapshot Full Refresh_15 MD Full Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_md_full_grp = {}
 
--- Dissect Fields: Market Data Snapshot Full Refresh_15 Md Full Grp
+-- Dissect Fields: Market Data Snapshot Full Refresh_15 MD Full Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_md_full_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = athex_oasis_mdfs_fast_v9.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Board Id: string, Default, optional
+  -- ATHEX Board ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_board_id_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Md Entry Px: decimal, Default, optional
+  -- MD Entry Px: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 1], false }, state, nil)
 
-  -- Md Entry Size: decimal, Default, optional
+  -- MD Entry Size: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_entry_size.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
   -- Price Depth Grp: group, optional
@@ -5648,7 +5604,7 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_md_full_grp.fields
     index = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Athex Index Type: string, Default, optional
+  -- ATHEX Index Type: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_index_type.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
   -- Price Limits Grp: group, optional
@@ -5656,7 +5612,7 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_md_full_grp.fields
     index = athex_oasis_mdfs_fast_v9.price_limits_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Apaotc Trade Grp: group, optional
+  -- APAOTC Trade Grp: group, optional
   if presence_map[base + 8] then
     index = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_apaotc_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
@@ -5667,7 +5623,7 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_md_full_grp.fields
   return index
 end
 
--- Dissect: Market Data Snapshot Full Refresh_15 Md Full Grp
+-- Dissect: Market Data Snapshot Full Refresh_15 MD Full Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_md_full_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_15_md_full_grp, buffer(offset, 0))
   local index = offset
@@ -5697,10 +5653,10 @@ athex_oasis_mdfs_fast_v9.und_instrmt_grp.fields = function(buffer, offset, packe
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: string, Default, optional
+  -- Underlying Security ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.underlying_security_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Underlying Security Id Source: string, Default, optional
+  -- Underlying Security ID Source: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.underlying_security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Underlying Index Curve Unit: string, Default, optional
@@ -5734,30 +5690,30 @@ athex_oasis_mdfs_fast_v9.und_instrmt_grp.dissect = function(buffer, offset, pack
   return index
 end
 
--- Apaotc Instrument Grp
+-- APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp = {}
 
--- Dissect Fields: Apaotc Instrument Grp
+-- Dissect Fields: APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Id: string, sent
+  -- Security ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: string, sent
+  -- Security ID Source: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Financial Instrument Full Name: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.financial_instrument_full_name.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Cfi Code: string, Default, optional
+  -- CFI Code: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.cfi_code.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Unit Of Measure Qty: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.unit_of_measure_qty.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
-  -- Athexapa Unit Of Measure: string, Default, optional
+  -- ATHEXAPA Unit Of Measure: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_unit_of_measure.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
   -- Put Or Call: uInt32, Default, optional
@@ -5769,7 +5725,7 @@ athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset,
   -- Strike Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.strike_currency.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Athexapa Strike Price Type: string, Default, optional
+  -- ATHEXAPA Strike Price Type: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_strike_price_type_default_optional_string.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
   -- Exercise Style: uInt32, Default, optional
@@ -5784,7 +5740,7 @@ athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset,
   return index
 end
 
--- Dissect: Apaotc Instrument Grp
+-- Dissect: APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.apaotc_instrument_grp, buffer(offset, 0))
   local index = offset
@@ -5840,7 +5796,7 @@ athex_oasis_mdfs_fast_v9.instrument_grp.fields = function(buffer, offset, packet
   -- Symbol: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.symbol_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Security Category: uInt32, Default, optional
+  -- ATHEX Security Category: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_security_category_default.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Security Type: string, Default, optional
@@ -5854,10 +5810,10 @@ athex_oasis_mdfs_fast_v9.instrument_grp.fields = function(buffer, offset, packet
     index = athex_oasis_mdfs_fast_v9.bonds_instrument_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Athex Market Id: string, Default, optional
+  -- ATHEX Market ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_market_id_default.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
-  -- Apaotc Instrument Grp: group, optional
+  -- APAOTC Instrument Grp: group, optional
   if presence_map[base + 5] then
     index = athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
@@ -5908,10 +5864,10 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15.fields = function(
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_w.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5923,19 +5879,19 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15.fields = function(
   -- Last Msg Seq Num Processed: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.last_msg_seq_num_processed_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Snapshot Indicator: uInt32, Default, optional
+  -- ATHEX Snapshot Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_snapshot_indicator.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Fragment Indicator: uInt32, Default, optional
+  -- ATHEX Fragment Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Book Type: uInt32, Default, optional
+  -- MD Book Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_book_type.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
   -- Instrument Grp: group, optional
@@ -5952,10 +5908,10 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15.fields = function(
     index = athex_oasis_mdfs_fast_v9.und_instrmt_grp.dissect(buffer, index, packet, parent, presence_map, base, state, und_instrmt_grp_index)
   end
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Full Grp: No Md Entries entries
+  -- MD Full Grp: No MD Entries entries
   local count = value or 0
   for market_data_snapshot_full_refresh_15_md_full_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_15_md_full_grp.dissect(buffer, index, packet, parent, presence_map, base, state, market_data_snapshot_full_refresh_15_md_full_grp_index)
@@ -6031,10 +5987,10 @@ athex_oasis_mdfs_fast_v9.news_12.fields = function(buffer, offset, packet, paren
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_b.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6046,13 +6002,13 @@ athex_oasis_mdfs_fast_v9.news_12.fields = function(buffer, offset, packet, paren
   -- Last Msg Seq Num Processed: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.last_msg_seq_num_processed_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Snapshot Indicator: uInt32, Default, optional
+  -- ATHEX Snapshot Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_snapshot_indicator.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athex Fragment Indicator: uInt32, Default, optional
+  -- ATHEX Fragment Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent
@@ -6116,10 +6072,10 @@ athex_oasis_mdfs_fast_v9.trading_session_status_11.fields = function(buffer, off
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_h.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6131,13 +6087,13 @@ athex_oasis_mdfs_fast_v9.trading_session_status_11.fields = function(buffer, off
   -- Last Msg Seq Num Processed: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.last_msg_seq_num_processed_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Snapshot Indicator: uInt32, Default, optional
+  -- ATHEX Snapshot Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_snapshot_indicator.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athex Fragment Indicator: uInt32, Default, optional
+  -- ATHEX Fragment Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent
@@ -6146,16 +6102,16 @@ athex_oasis_mdfs_fast_v9.trading_session_status_11.fields = function(buffer, off
   -- Security Exchange: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_exchange_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Market Id: string, sent
+  -- ATHEX Market ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_market_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Board Id: string, sent
+  -- ATHEX Board ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_board_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, Constant
+  -- Trading Session ID: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.trading_session_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent
+  -- Trading Session Sub ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.trading_session_sub_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trad Ses Status: uInt32, sent
@@ -6240,10 +6196,10 @@ athex_oasis_mdfs_fast_v9.security_status_10.fields = function(buffer, offset, pa
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_f.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6255,13 +6211,13 @@ athex_oasis_mdfs_fast_v9.security_status_10.fields = function(buffer, offset, pa
   -- Last Msg Seq Num Processed: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.last_msg_seq_num_processed_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Snapshot Indicator: uInt32, Default, optional
+  -- ATHEX Snapshot Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_snapshot_indicator.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athex Fragment Indicator: uInt32, Default, optional
+  -- ATHEX Fragment Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent
@@ -6270,7 +6226,7 @@ athex_oasis_mdfs_fast_v9.security_status_10.fields = function(buffer, offset, pa
   -- Symbol: string, sent
   index, value = athex_oasis_mdfs_fast_v9.symbol_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Security Category: uInt32, sent
+  -- ATHEX Security Category: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_security_category_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Type: string, sent
@@ -6279,10 +6235,10 @@ athex_oasis_mdfs_fast_v9.security_status_10.fields = function(buffer, offset, pa
   -- Security Exchange: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_exchange_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Market Id: string, sent
+  -- ATHEX Market ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_market_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, Default, optional
+  -- Trading Session Sub ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trading_session_sub_id_default.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
   -- Security Status Grp: group, optional
@@ -6328,10 +6284,10 @@ athex_oasis_mdfs_fast_v9.heartbeat_9.fields = function(buffer, offset, packet, p
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_0.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6343,7 +6299,7 @@ athex_oasis_mdfs_fast_v9.heartbeat_9.fields = function(buffer, offset, packet, p
   -- Last Msg Seq Num Processed: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.last_msg_seq_num_processed_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent
@@ -6365,10 +6321,10 @@ athex_oasis_mdfs_fast_v9.heartbeat_9.dissect = function(buffer, offset, packet, 
   return index
 end
 
--- Athexapa Regulatory Report Type Grp
+-- ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp = {}
 
--- Dissect Fields: Athexapa Regulatory Report Type Grp
+-- Dissect Fields: ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -6379,7 +6335,7 @@ athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.fields = function(b
   return index
 end
 
--- Dissect: Athexapa Regulatory Report Type Grp
+-- Dissect: ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_regulatory_report_type_grp, buffer(offset, 0))
   local index = offset
@@ -6395,21 +6351,21 @@ athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect = function(
   return index
 end
 
--- Market Data Incremental Refresh_22 Apaotc Post Trade Grp
+-- Market Data Incremental Refresh_22 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_post_trade_grp = {}
 
--- Dissect Fields: Market Data Incremental Refresh_22 Apaotc Post Trade Grp
+-- Dissect Fields: Market Data Incremental Refresh_22 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_post_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Athexapa Trade Id Indicator: uInt32, sent
+  -- ATHEXAPA Trade ID Indicator: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_trade_id_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Athexapa Regulatory Report Types: uInt32, Default, optional
+  -- No ATHEXAPA Regulatory Report Types: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.no_athexapa_regulatory_report_types.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athexapa Regulatory Report Type Grp: No Athexapa Regulatory Report Types entries
+  -- ATHEXAPA Regulatory Report Type Grp: No ATHEXAPA Regulatory Report Types entries
   local count = value or 0
   for athexapa_regulatory_report_type_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect(buffer, index, packet, parent, presence_map, base, state, athexapa_regulatory_report_type_grp_index)
@@ -6418,19 +6374,19 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_post_trade_gr
   -- Number Of Trades: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.number_of_trades.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athexapa Transaction To Be Cleared: string, sent
+  -- ATHEXAPA Transaction To Be Cleared: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_transaction_to_be_cleared.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Venue Of Publication: string, sent
+  -- ATHEXAPA Venue Of Publication: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_venue_of_publication.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Third Country Venue: string, Default, optional
+  -- ATHEXAPA Third Country Venue: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_third_country_venue.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
   return index
 end
 
--- Dissect: Market Data Incremental Refresh_22 Apaotc Post Trade Grp
+-- Dissect: Market Data Incremental Refresh_22 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_post_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22_apaotc_post_trade_grp, buffer(offset, 0))
   local index = offset
@@ -6447,10 +6403,10 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_post_trade_gr
   return index
 end
 
--- Apaotc Pre Trade Grp
+-- APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp = {}
 
--- Dissect Fields: Apaotc Pre Trade Grp
+-- Dissect Fields: APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -6458,16 +6414,16 @@ athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.fields = function(buffer, offset, 
   -- Side: string, sent
   index, value = athex_oasis_mdfs_fast_v9.side.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Quote Id: string, sent
+  -- Quote ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.quote_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Quote Liquidity: uInt32, sent
+  -- ATHEXAPA Quote Liquidity: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_quote_liquidity.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Apaotc Pre Trade Grp
+-- Dissect: APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.apaotc_pre_trade_grp, buffer(offset, 0))
   local index = offset
@@ -6486,10 +6442,10 @@ athex_oasis_mdfs_fast_v9.parties_grp.fields = function(buffer, offset, packet, p
   local index = offset
   local value = nil
 
-  -- Party Id: string, sent
+  -- Party ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.party_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Id Source: string, sent
+  -- Party ID Source: string, sent
   index, value = athex_oasis_mdfs_fast_v9.party_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -6558,10 +6514,10 @@ athex_oasis_mdfs_fast_v9.und_instrmt_grp.fields = function(buffer, offset, packe
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: string, Default, optional
+  -- Underlying Security ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.underlying_security_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Underlying Security Id Source: string, Default, optional
+  -- Underlying Security ID Source: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.underlying_security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Underlying Index Curve Unit: string, Default, optional
@@ -6595,10 +6551,10 @@ athex_oasis_mdfs_fast_v9.und_instrmt_grp.dissect = function(buffer, offset, pack
   return index
 end
 
--- Market Data Incremental Refresh_22 Apaotc Trade Grp
+-- Market Data Incremental Refresh_22 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_trade_grp = {}
 
--- Dissect Fields: Market Data Incremental Refresh_22 Apaotc Trade Grp
+-- Dissect Fields: Market Data Incremental Refresh_22 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -6621,13 +6577,13 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_trade_grp.fie
     index = athex_oasis_mdfs_fast_v9.trade_type_grp.dissect(buffer, index, packet, parent, presence_map, base, state, trade_type_grp_index)
   end
 
-  -- Athexapa Report Status: string, sent
+  -- ATHEXAPA Report Status: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_report_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Party I Ds: uInt32, sent
-  index, value = athex_oasis_mdfs_fast_v9.no_party_i_ds.dissect(buffer, index, packet, parent, nil, state, nil)
+  -- No Party IDs: uInt32, sent
+  index, value = athex_oasis_mdfs_fast_v9.no_party_ids.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Parties Grp: No Party I Ds entries
+  -- Parties Grp: No Party IDs entries
   local count = value or 0
   for parties_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.parties_grp.dissect(buffer, index, packet, parent, presence_map, base, state, parties_grp_index)
@@ -6636,16 +6592,16 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_trade_grp.fie
   -- Price Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.price_type.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athexapa Price Currency: string, Default, optional
+  -- ATHEXAPA Price Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_price_currency.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- Athexapa Price Multiplier: decimal, Default, optional
+  -- ATHEXAPA Price Multiplier: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_price_multiplier.dissect(buffer, index, packet, parent, { presence_map[base + 3], false }, state, nil)
 
-  -- Athexapa Size Currency: string, Default, optional
+  -- ATHEXAPA Size Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_size_currency.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
-  -- Athexapa Trade Value Currency: string, Default, optional
+  -- ATHEXAPA Trade Value Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_trade_value_currency.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
   -- Expire Date: string, Default, optional
@@ -6654,12 +6610,12 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_trade_grp.fie
   -- Last Mkt: string, sent
   index, value = athex_oasis_mdfs_fast_v9.last_mkt.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Apaotc Pre Trade Grp: group, optional
+  -- APAOTC Pre Trade Grp: group, optional
   if presence_map[base + 7] then
     index = athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Apaotc Post Trade Grp: group, optional
+  -- APAOTC Post Trade Grp: group, optional
   if presence_map[base + 8] then
     index = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_post_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
@@ -6667,7 +6623,7 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_trade_grp.fie
   return index
 end
 
--- Dissect: Market Data Incremental Refresh_22 Apaotc Trade Grp
+-- Dissect: Market Data Incremental Refresh_22 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22_apaotc_trade_grp, buffer(offset, 0))
   local index = offset
@@ -6792,7 +6748,7 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_trade_grp.fields = f
   -- Trade Condition: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trade_condition.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Order Category: string, Default, optional
@@ -6822,10 +6778,10 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_trade_grp.fields = f
   -- Trade Publish Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trade_publish_indicator.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Athex Total Volume: decimal, Default, optional
+  -- ATHEX Total Volume: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_total_volume.dissect(buffer, index, packet, parent, { presence_map[base + 7], false }, state, nil)
 
-  -- Athex Trade Value: decimal, Default, optional
+  -- ATHEX Trade Value: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_trade_value.dissect(buffer, index, packet, parent, { presence_map[base + 8], false }, state, nil)
 
   return index
@@ -6856,10 +6812,10 @@ athex_oasis_mdfs_fast_v9.order_depth_grp.fields = function(buffer, offset, packe
   local index = offset
   local value = nil
 
-  -- Md Entry Position No: uInt32, sent
+  -- MD Entry Position No: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.md_entry_position_no.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, sent
+  -- Order ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.order_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Ord Status: string, sent
@@ -6874,13 +6830,13 @@ athex_oasis_mdfs_fast_v9.order_depth_grp.fields = function(buffer, offset, packe
   -- Ord Type: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.ord_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Special Condition: string, Default, optional
+  -- ATHEX Special Condition: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_special_condition.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athex Condition Volume: decimal, Default, optional
+  -- ATHEX Condition Volume: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_condition_volume.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
-  -- Athex Order Entry Date: string, sent
+  -- ATHEX Order Entry Date: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_order_entry_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -6914,7 +6870,7 @@ athex_oasis_mdfs_fast_v9.price_depth_grp.fields = function(buffer, offset, packe
   -- Market Depth: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.market_depth.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Price Level: uInt32, Default, optional
+  -- MD Price Level: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_price_level.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Number Of Orders: uInt32, Default, optional
@@ -6940,30 +6896,30 @@ athex_oasis_mdfs_fast_v9.price_depth_grp.dissect = function(buffer, offset, pack
   return index
 end
 
--- Apaotc Instrument Grp
+-- APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp = {}
 
--- Dissect Fields: Apaotc Instrument Grp
+-- Dissect Fields: APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Id: string, sent
+  -- Security ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: string, sent
+  -- Security ID Source: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Financial Instrument Full Name: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.financial_instrument_full_name.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Cfi Code: string, Default, optional
+  -- CFI Code: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.cfi_code.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Unit Of Measure Qty: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.unit_of_measure_qty.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
-  -- Athexapa Unit Of Measure: string, Default, optional
+  -- ATHEXAPA Unit Of Measure: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_unit_of_measure.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
   -- Put Or Call: uInt32, Default, optional
@@ -6975,7 +6931,7 @@ athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset,
   -- Strike Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.strike_currency.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Athexapa Strike Price Type: uInt32, Default, optional
+  -- ATHEXAPA Strike Price Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_strike_price_type_default_optional_u_int32.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
   -- Exercise Style: uInt32, Default, optional
@@ -6990,7 +6946,7 @@ athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset,
   return index
 end
 
--- Dissect: Apaotc Instrument Grp
+-- Dissect: APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.apaotc_instrument_grp, buffer(offset, 0))
   local index = offset
@@ -7035,21 +6991,21 @@ athex_oasis_mdfs_fast_v9.bonds_instrument_grp.dissect = function(buffer, offset,
   return index
 end
 
--- Market Data Incremental Refresh_22 Md Inc Grp
+-- Market Data Incremental Refresh_22 MD Inc Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_md_inc_grp = {}
 
--- Dissect Fields: Market Data Incremental Refresh_22 Md Inc Grp
+-- Dissect Fields: Market Data Incremental Refresh_22 MD Inc Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_md_inc_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: string, sent
+  -- MD Update Action: string, sent
   index, value = athex_oasis_mdfs_fast_v9.md_update_action.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.symbol_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Security Category: uInt32, Default, optional
+  -- ATHEX Security Category: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_security_category_default.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Security Type: string, Default, optional
@@ -7063,30 +7019,30 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_md_inc_grp.fields = 
     index = athex_oasis_mdfs_fast_v9.bonds_instrument_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Athex Market Id: string, Default, optional
+  -- ATHEX Market ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_market_id_default.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Apaotc Instrument Grp: group, optional
+  -- APAOTC Instrument Grp: group, optional
   if presence_map[base + 6] then
     index = athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = athex_oasis_mdfs_fast_v9.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Board Id: string, Default, optional
+  -- ATHEX Board ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_board_id_default.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
-  -- Md Entry Px: decimal, Default, optional
+  -- MD Entry Px: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 8], false }, state, nil)
 
-  -- Md Entry Size: decimal, Default, optional
+  -- MD Entry Size: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_entry_size.dissect(buffer, index, packet, parent, { presence_map[base + 9], false }, state, nil)
 
-  -- Md Origin Type: uInt32, Default, optional
+  -- MD Origin Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_origin_type.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
-  -- Trading Session Sub Id: string, Default, optional
+  -- Trading Session Sub ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trading_session_sub_id_default.dissect(buffer, index, packet, parent, presence_map[base + 11], state, nil)
 
   -- Price Depth Grp: group, optional
@@ -7104,7 +7060,7 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_md_inc_grp.fields = 
     index = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Athex Index Type: string, Default, optional
+  -- ATHEX Index Type: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_index_type.dissect(buffer, index, packet, parent, presence_map[base + 15], state, nil)
 
   -- Price Limits Grp: group, optional
@@ -7112,7 +7068,7 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_md_inc_grp.fields = 
     index = athex_oasis_mdfs_fast_v9.price_limits_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Apaotc Trade Grp: group, optional
+  -- APAOTC Trade Grp: group, optional
   if presence_map[base + 17] then
     index = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_apaotc_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
@@ -7123,7 +7079,7 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_md_inc_grp.fields = 
   return index
 end
 
--- Dissect: Market Data Incremental Refresh_22 Md Inc Grp
+-- Dissect: Market Data Incremental Refresh_22 MD Inc Grp
 athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_md_inc_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_incremental_refresh_22_md_inc_grp, buffer(offset, 0))
   local index = offset
@@ -7145,21 +7101,21 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_md_inc_grp.dissect =
   return index
 end
 
--- Athex Recovery Grp
+-- ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp = {}
 
--- Dissect Fields: Athex Recovery Grp
+-- Dissect Fields: ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Athex Recovery Seq Num: uInt32, sent
+  -- ATHEX Recovery Seq Num: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_recovery_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Athex Recovery Grp
+-- Dissect: ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_grp, buffer(offset, 0))
   local index = offset
@@ -7199,10 +7155,10 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22.fields = function(bu
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -7211,31 +7167,31 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22.fields = function(bu
   -- Sending Time: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Fragment Indicator: uInt32, Default, optional
+  -- ATHEX Fragment Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- No Athex Recovery Seq Nums: uInt32, Default, optional
+  -- No ATHEX Recovery Seq Nums: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.no_athex_recovery_seq_nums.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athex Recovery Grp: No Athex Recovery Seq Nums entries
+  -- ATHEX Recovery Grp: No ATHEX Recovery Seq Nums entries
   local count = value or 0
   for athex_recovery_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.athex_recovery_grp.dissect(buffer, index, packet, parent, presence_map, base, state, athex_recovery_grp_index)
   end
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Book Type: uInt32, Default, optional
+  -- MD Book Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_book_type.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Inc Grp: No Md Entries entries
+  -- MD Inc Grp: No MD Entries entries
   local count = value or 0
   for market_data_incremental_refresh_22_md_inc_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22_md_inc_grp.dissect(buffer, index, packet, parent, presence_map, base, state, market_data_incremental_refresh_22_md_inc_grp_index)
@@ -7257,10 +7213,10 @@ athex_oasis_mdfs_fast_v9.market_data_incremental_refresh_22.dissect = function(b
   return index
 end
 
--- Athexapa Regulatory Report Type Grp
+-- ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp = {}
 
--- Dissect Fields: Athexapa Regulatory Report Type Grp
+-- Dissect Fields: ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -7271,7 +7227,7 @@ athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.fields = function(b
   return index
 end
 
--- Dissect: Athexapa Regulatory Report Type Grp
+-- Dissect: ATHEXAPA Regulatory Report Type Grp
 athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athexapa_regulatory_report_type_grp, buffer(offset, 0))
   local index = offset
@@ -7287,21 +7243,21 @@ athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect = function(
   return index
 end
 
--- Market Data Snapshot Full Refresh_21 Apaotc Post Trade Grp
+-- Market Data Snapshot Full Refresh_21 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_post_trade_grp = {}
 
--- Dissect Fields: Market Data Snapshot Full Refresh_21 Apaotc Post Trade Grp
+-- Dissect Fields: Market Data Snapshot Full Refresh_21 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_post_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Athexapa Trade Id Indicator: uInt32, sent
+  -- ATHEXAPA Trade ID Indicator: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_trade_id_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Athexapa Regulatory Report Types: uInt32, Default, optional
+  -- No ATHEXAPA Regulatory Report Types: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.no_athexapa_regulatory_report_types.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athexapa Regulatory Report Type Grp: No Athexapa Regulatory Report Types entries
+  -- ATHEXAPA Regulatory Report Type Grp: No ATHEXAPA Regulatory Report Types entries
   local count = value or 0
   for athexapa_regulatory_report_type_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.athexapa_regulatory_report_type_grp.dissect(buffer, index, packet, parent, presence_map, base, state, athexapa_regulatory_report_type_grp_index)
@@ -7310,19 +7266,19 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_post_trade_
   -- Number Of Trades: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.number_of_trades.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athexapa Transaction To Be Cleared: string, sent
+  -- ATHEXAPA Transaction To Be Cleared: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_transaction_to_be_cleared.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Venue Of Publication: string, sent
+  -- ATHEXAPA Venue Of Publication: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_venue_of_publication.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Third Country Venue: string, Default, optional
+  -- ATHEXAPA Third Country Venue: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_third_country_venue.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
   return index
 end
 
--- Dissect: Market Data Snapshot Full Refresh_21 Apaotc Post Trade Grp
+-- Dissect: Market Data Snapshot Full Refresh_21 APAOTC Post Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_post_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21_apaotc_post_trade_grp, buffer(offset, 0))
   local index = offset
@@ -7339,10 +7295,10 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_post_trade_
   return index
 end
 
--- Apaotc Pre Trade Grp
+-- APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp = {}
 
--- Dissect Fields: Apaotc Pre Trade Grp
+-- Dissect Fields: APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -7350,16 +7306,16 @@ athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.fields = function(buffer, offset, 
   -- Side: string, sent
   index, value = athex_oasis_mdfs_fast_v9.side.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Quote Id: string, sent
+  -- Quote ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.quote_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athexapa Quote Liquidity: uInt32, sent
+  -- ATHEXAPA Quote Liquidity: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_quote_liquidity.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Apaotc Pre Trade Grp
+-- Dissect: APAOTC Pre Trade Grp
 athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.apaotc_pre_trade_grp, buffer(offset, 0))
   local index = offset
@@ -7378,10 +7334,10 @@ athex_oasis_mdfs_fast_v9.parties_grp.fields = function(buffer, offset, packet, p
   local index = offset
   local value = nil
 
-  -- Party Id: string, sent
+  -- Party ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.party_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Id Source: string, sent
+  -- Party ID Source: string, sent
   index, value = athex_oasis_mdfs_fast_v9.party_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -7442,10 +7398,10 @@ athex_oasis_mdfs_fast_v9.trade_type_grp.dissect = function(buffer, offset, packe
   return index
 end
 
--- Market Data Snapshot Full Refresh_21 Apaotc Trade Grp
+-- Market Data Snapshot Full Refresh_21 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_trade_grp = {}
 
--- Dissect Fields: Market Data Snapshot Full Refresh_21 Apaotc Trade Grp
+-- Dissect Fields: Market Data Snapshot Full Refresh_21 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_trade_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
@@ -7459,13 +7415,13 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_trade_grp.f
     index = athex_oasis_mdfs_fast_v9.trade_type_grp.dissect(buffer, index, packet, parent, presence_map, base, state, trade_type_grp_index)
   end
 
-  -- Athexapa Report Status: string, sent
+  -- ATHEXAPA Report Status: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athexapa_report_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Party I Ds: uInt32, sent
-  index, value = athex_oasis_mdfs_fast_v9.no_party_i_ds.dissect(buffer, index, packet, parent, nil, state, nil)
+  -- No Party IDs: uInt32, sent
+  index, value = athex_oasis_mdfs_fast_v9.no_party_ids.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Parties Grp: No Party I Ds entries
+  -- Parties Grp: No Party IDs entries
   local count = value or 0
   for parties_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.parties_grp.dissect(buffer, index, packet, parent, presence_map, base, state, parties_grp_index)
@@ -7474,16 +7430,16 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_trade_grp.f
   -- Price Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.price_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athexapa Price Currency: string, Default, optional
+  -- ATHEXAPA Price Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_price_currency.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athexapa Price Multiplier: decimal, Default, optional
+  -- ATHEXAPA Price Multiplier: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_price_multiplier.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
-  -- Athexapa Size Currency: string, Default, optional
+  -- ATHEXAPA Size Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_size_currency.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Athexapa Trade Value Currency: string, Default, optional
+  -- ATHEXAPA Trade Value Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_trade_value_currency.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Expire Date: string, Default, optional
@@ -7492,12 +7448,12 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_trade_grp.f
   -- Last Mkt: string, sent
   index, value = athex_oasis_mdfs_fast_v9.last_mkt.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Apaotc Pre Trade Grp: group, optional
+  -- APAOTC Pre Trade Grp: group, optional
   if presence_map[base + 6] then
     index = athex_oasis_mdfs_fast_v9.apaotc_pre_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Apaotc Post Trade Grp: group, optional
+  -- APAOTC Post Trade Grp: group, optional
   if presence_map[base + 7] then
     index = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_post_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
@@ -7505,7 +7461,7 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_trade_grp.f
   return index
 end
 
--- Dissect: Market Data Snapshot Full Refresh_21 Apaotc Trade Grp
+-- Dissect: Market Data Snapshot Full Refresh_21 APAOTC Trade Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_trade_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21_apaotc_trade_grp, buffer(offset, 0))
   local index = offset
@@ -7630,7 +7586,7 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_trade_grp.fields =
   -- Trade Condition: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trade_condition.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Trade Id: string, Default, optional
+  -- Trade ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trade_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Order Category: string, Default, optional
@@ -7660,10 +7616,10 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_trade_grp.fields =
   -- Trade Publish Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trade_publish_indicator.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Athex Total Volume: decimal, Default, optional
+  -- ATHEX Total Volume: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_total_volume.dissect(buffer, index, packet, parent, { presence_map[base + 7], false }, state, nil)
 
-  -- Athex Trade Value: decimal, Default, optional
+  -- ATHEX Trade Value: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_trade_value.dissect(buffer, index, packet, parent, { presence_map[base + 8], false }, state, nil)
 
   return index
@@ -7694,10 +7650,10 @@ athex_oasis_mdfs_fast_v9.order_depth_grp.fields = function(buffer, offset, packe
   local index = offset
   local value = nil
 
-  -- Md Entry Position No: uInt32, sent
+  -- MD Entry Position No: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.md_entry_position_no.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, sent
+  -- Order ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.order_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Ord Status: string, sent
@@ -7712,13 +7668,13 @@ athex_oasis_mdfs_fast_v9.order_depth_grp.fields = function(buffer, offset, packe
   -- Ord Type: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.ord_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Special Condition: string, Default, optional
+  -- ATHEX Special Condition: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_special_condition.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athex Condition Volume: decimal, Default, optional
+  -- ATHEX Condition Volume: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_condition_volume.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
-  -- Athex Order Entry Date: string, sent
+  -- ATHEX Order Entry Date: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_order_entry_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -7752,7 +7708,7 @@ athex_oasis_mdfs_fast_v9.price_depth_grp.fields = function(buffer, offset, packe
   -- Market Depth: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.market_depth.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Price Level: uInt32, Default, optional
+  -- MD Price Level: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_price_level.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
   -- Number Of Orders: uInt32, Default, optional
@@ -7778,30 +7734,30 @@ athex_oasis_mdfs_fast_v9.price_depth_grp.dissect = function(buffer, offset, pack
   return index
 end
 
--- Market Data Snapshot Full Refresh_21 Md Full Grp
+-- Market Data Snapshot Full Refresh_21 MD Full Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_md_full_grp = {}
 
--- Dissect Fields: Market Data Snapshot Full Refresh_21 Md Full Grp
+-- Dissect Fields: Market Data Snapshot Full Refresh_21 MD Full Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_md_full_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = athex_oasis_mdfs_fast_v9.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Board Id: string, Default, optional
+  -- ATHEX Board ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_board_id_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Md Entry Px: decimal, Default, optional
+  -- MD Entry Px: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_entry_px.dissect(buffer, index, packet, parent, { presence_map[base + 1], false }, state, nil)
 
-  -- Md Entry Size: decimal, Default, optional
+  -- MD Entry Size: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_entry_size.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
-  -- Md Origin Type: uInt32, Default, optional
+  -- MD Origin Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_origin_type.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Trading Session Sub Id: string, Default, optional
+  -- Trading Session Sub ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trading_session_sub_id_default.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Price Depth Grp: group, optional
@@ -7819,7 +7775,7 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_md_full_grp.fields
     index = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Athex Index Type: string, Default, optional
+  -- ATHEX Index Type: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_index_type.dissect(buffer, index, packet, parent, presence_map[base + 8], state, nil)
 
   -- Price Limits Grp: group, optional
@@ -7827,7 +7783,7 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_md_full_grp.fields
     index = athex_oasis_mdfs_fast_v9.price_limits_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Apaotc Trade Grp: group, optional
+  -- APAOTC Trade Grp: group, optional
   if presence_map[base + 10] then
     index = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_apaotc_trade_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
@@ -7838,7 +7794,7 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_md_full_grp.fields
   return index
 end
 
--- Dissect: Market Data Snapshot Full Refresh_21 Md Full Grp
+-- Dissect: Market Data Snapshot Full Refresh_21 MD Full Grp
 athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_md_full_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.market_data_snapshot_full_refresh_21_md_full_grp, buffer(offset, 0))
   local index = offset
@@ -7868,10 +7824,10 @@ athex_oasis_mdfs_fast_v9.und_instrmt_grp.fields = function(buffer, offset, packe
   local index = offset
   local value = nil
 
-  -- Underlying Security Id: string, Default, optional
+  -- Underlying Security ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.underlying_security_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Underlying Security Id Source: string, Default, optional
+  -- Underlying Security ID Source: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.underlying_security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Underlying Index Curve Unit: string, Default, optional
@@ -7905,30 +7861,30 @@ athex_oasis_mdfs_fast_v9.und_instrmt_grp.dissect = function(buffer, offset, pack
   return index
 end
 
--- Apaotc Instrument Grp
+-- APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp = {}
 
--- Dissect Fields: Apaotc Instrument Grp
+-- Dissect Fields: APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Id: string, sent
+  -- Security ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: string, sent
+  -- Security ID Source: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Financial Instrument Full Name: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.financial_instrument_full_name.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Cfi Code: string, Default, optional
+  -- CFI Code: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.cfi_code.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Unit Of Measure Qty: decimal, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.unit_of_measure_qty.dissect(buffer, index, packet, parent, { presence_map[base + 2], false }, state, nil)
 
-  -- Athexapa Unit Of Measure: string, Default, optional
+  -- ATHEXAPA Unit Of Measure: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_unit_of_measure.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
   -- Put Or Call: uInt32, Default, optional
@@ -7940,7 +7896,7 @@ athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset,
   -- Strike Currency: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.strike_currency.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Athexapa Strike Price Type: uInt32, Default, optional
+  -- ATHEXAPA Strike Price Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athexapa_strike_price_type_default_optional_u_int32.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
   -- Exercise Style: uInt32, Default, optional
@@ -7955,7 +7911,7 @@ athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.fields = function(buffer, offset,
   return index
 end
 
--- Dissect: Apaotc Instrument Grp
+-- Dissect: APAOTC Instrument Grp
 athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.apaotc_instrument_grp, buffer(offset, 0))
   local index = offset
@@ -8011,7 +7967,7 @@ athex_oasis_mdfs_fast_v9.instrument_grp.fields = function(buffer, offset, packet
   -- Symbol: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.symbol_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Security Category: uInt32, Default, optional
+  -- ATHEX Security Category: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_security_category_default.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Security Type: string, Default, optional
@@ -8025,10 +7981,10 @@ athex_oasis_mdfs_fast_v9.instrument_grp.fields = function(buffer, offset, packet
     index = athex_oasis_mdfs_fast_v9.bonds_instrument_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Athex Market Id: string, Default, optional
+  -- ATHEX Market ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_market_id_default.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Apaotc Instrument Grp: group, optional
+  -- APAOTC Instrument Grp: group, optional
   if presence_map[base + 6] then
     index = athex_oasis_mdfs_fast_v9.apaotc_instrument_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
@@ -8079,10 +8035,10 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21.fields = function(
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_w.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -8094,19 +8050,19 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21.fields = function(
   -- Last Msg Seq Num Processed: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.last_msg_seq_num_processed_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Snapshot Indicator: uInt32, Default, optional
+  -- ATHEX Snapshot Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_snapshot_indicator.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Fragment Indicator: uInt32, Default, optional
+  -- ATHEX Fragment Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Book Type: uInt32, Default, optional
+  -- MD Book Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.md_book_type.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
   -- Instrument Grp: group, optional
@@ -8123,10 +8079,10 @@ athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21.fields = function(
     index = athex_oasis_mdfs_fast_v9.und_instrmt_grp.dissect(buffer, index, packet, parent, presence_map, base, state, und_instrmt_grp_index)
   end
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Full Grp: No Md Entries entries
+  -- MD Full Grp: No MD Entries entries
   local count = value or 0
   for market_data_snapshot_full_refresh_21_md_full_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.market_data_snapshot_full_refresh_21_md_full_grp.dissect(buffer, index, packet, parent, presence_map, base, state, market_data_snapshot_full_refresh_21_md_full_grp_index)
@@ -8178,21 +8134,21 @@ athex_oasis_mdfs_fast_v9.lines_of_text_grp.dissect = function(buffer, offset, pa
   return index
 end
 
--- Athex Recovery Grp
+-- ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp = {}
 
--- Dissect Fields: Athex Recovery Grp
+-- Dissect Fields: ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Athex Recovery Seq Num: uInt32, sent
+  -- ATHEX Recovery Seq Num: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_recovery_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Athex Recovery Grp
+-- Dissect: ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_grp, buffer(offset, 0))
   local index = offset
@@ -8233,10 +8189,10 @@ athex_oasis_mdfs_fast_v9.news_20.fields = function(buffer, offset, packet, paren
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_b.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -8248,22 +8204,22 @@ athex_oasis_mdfs_fast_v9.news_20.fields = function(buffer, offset, packet, paren
   -- Last Msg Seq Num Processed: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.last_msg_seq_num_processed_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Snapshot Indicator: uInt32, Default, optional
+  -- ATHEX Snapshot Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_snapshot_indicator.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athex Fragment Indicator: uInt32, Default, optional
+  -- ATHEX Fragment Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- No Athex Recovery Seq Nums: uInt32, Default, optional
+  -- No ATHEX Recovery Seq Nums: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.no_athex_recovery_seq_nums.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Athex Recovery Grp: No Athex Recovery Seq Nums entries
+  -- ATHEX Recovery Grp: No ATHEX Recovery Seq Nums entries
   local count = value or 0
   for athex_recovery_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.athex_recovery_grp.dissect(buffer, index, packet, parent, presence_map, base, state, athex_recovery_grp_index)
   end
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent
@@ -8314,16 +8270,16 @@ athex_oasis_mdfs_fast_v9.trading_session_grp.fields = function(buffer, offset, p
   -- Security Exchange: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_exchange_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Market Id: string, sent
+  -- ATHEX Market ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_market_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Board Id: string, sent
+  -- ATHEX Board ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_board_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: string, Constant
+  -- Trading Session ID: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.trading_session_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, sent
+  -- Trading Session Sub ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.trading_session_sub_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trad Ses Status: uInt32, sent
@@ -8343,21 +8299,21 @@ athex_oasis_mdfs_fast_v9.trading_session_grp.dissect = function(buffer, offset, 
   return index
 end
 
--- Athex Recovery Grp
+-- ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp = {}
 
--- Dissect Fields: Athex Recovery Grp
+-- Dissect Fields: ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Athex Recovery Seq Num: uInt32, sent
+  -- ATHEX Recovery Seq Num: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_recovery_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Athex Recovery Grp
+-- Dissect: ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_grp, buffer(offset, 0))
   local index = offset
@@ -8401,10 +8357,10 @@ athex_oasis_mdfs_fast_v9.trading_session_status_19.fields = function(buffer, off
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_h.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -8416,22 +8372,22 @@ athex_oasis_mdfs_fast_v9.trading_session_status_19.fields = function(buffer, off
   -- Last Msg Seq Num Processed: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.last_msg_seq_num_processed_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Snapshot Indicator: uInt32, Default, optional
+  -- ATHEX Snapshot Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_snapshot_indicator.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athex Fragment Indicator: uInt32, Default, optional
+  -- ATHEX Fragment Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- No Athex Recovery Seq Nums: uInt32, Default, optional
+  -- No ATHEX Recovery Seq Nums: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.no_athex_recovery_seq_nums.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Athex Recovery Grp: No Athex Recovery Seq Nums entries
+  -- ATHEX Recovery Grp: No ATHEX Recovery Seq Nums entries
   local count = value or 0
   for athex_recovery_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.athex_recovery_grp.dissect(buffer, index, packet, parent, presence_map, base, state, athex_recovery_grp_index)
   end
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent
@@ -8442,10 +8398,10 @@ athex_oasis_mdfs_fast_v9.trading_session_status_19.fields = function(buffer, off
     index = athex_oasis_mdfs_fast_v9.trading_session_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Athex System Status: string, Default, optional
+  -- ATHEX System Status: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_system_status.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Athex Auction Type: uInt32, Default, optional
+  -- ATHEX Auction Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_auction_type.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
   -- Transact Time: string, sent
@@ -8501,21 +8457,21 @@ athex_oasis_mdfs_fast_v9.security_status_grp.dissect = function(buffer, offset, 
   return index
 end
 
--- Athex Recovery Grp
+-- ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp = {}
 
--- Dissect Fields: Athex Recovery Grp
+-- Dissect Fields: ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Athex Recovery Seq Num: uInt32, sent
+  -- ATHEX Recovery Seq Num: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_recovery_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Athex Recovery Grp
+-- Dissect: ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_grp, buffer(offset, 0))
   local index = offset
@@ -8559,10 +8515,10 @@ athex_oasis_mdfs_fast_v9.security_status_18.fields = function(buffer, offset, pa
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_f.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -8574,22 +8530,22 @@ athex_oasis_mdfs_fast_v9.security_status_18.fields = function(buffer, offset, pa
   -- Last Msg Seq Num Processed: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.last_msg_seq_num_processed_default.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Snapshot Indicator: uInt32, Default, optional
+  -- ATHEX Snapshot Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_snapshot_indicator.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Athex Fragment Indicator: uInt32, Default, optional
+  -- ATHEX Fragment Indicator: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_fragment_indicator.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- No Athex Recovery Seq Nums: uInt32, Default, optional
+  -- No ATHEX Recovery Seq Nums: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.no_athex_recovery_seq_nums.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Athex Recovery Grp: No Athex Recovery Seq Nums entries
+  -- ATHEX Recovery Grp: No ATHEX Recovery Seq Nums entries
   local count = value or 0
   for athex_recovery_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.athex_recovery_grp.dissect(buffer, index, packet, parent, presence_map, base, state, athex_recovery_grp_index)
   end
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent
@@ -8598,7 +8554,7 @@ athex_oasis_mdfs_fast_v9.security_status_18.fields = function(buffer, offset, pa
   -- Symbol: string, sent
   index, value = athex_oasis_mdfs_fast_v9.symbol_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Security Category: uInt32, sent
+  -- ATHEX Security Category: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_security_category_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Type: string, sent
@@ -8607,10 +8563,10 @@ athex_oasis_mdfs_fast_v9.security_status_18.fields = function(buffer, offset, pa
   -- Security Exchange: string, sent
   index, value = athex_oasis_mdfs_fast_v9.security_exchange_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Athex Market Id: string, sent
+  -- ATHEX Market ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_market_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: string, Default, optional
+  -- Trading Session Sub ID: string, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.trading_session_sub_id_default.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Security Status Grp: group, optional
@@ -8618,7 +8574,7 @@ athex_oasis_mdfs_fast_v9.security_status_18.fields = function(buffer, offset, pa
     index = athex_oasis_mdfs_fast_v9.security_status_grp.dissect(buffer, index, packet, parent, presence_map, base, state, nil)
   end
 
-  -- Athex Auction Type: uInt32, Default, optional
+  -- ATHEX Auction Type: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.athex_auction_type.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
   -- Transact Time: string, sent
@@ -8640,21 +8596,21 @@ athex_oasis_mdfs_fast_v9.security_status_18.dissect = function(buffer, offset, p
   return index
 end
 
--- Athex Recovery Grp
+-- ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp = {}
 
--- Dissect Fields: Athex Recovery Grp
+-- Dissect Fields: ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Athex Recovery Seq Num: uInt32, sent
+  -- ATHEX Recovery Seq Num: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.athex_recovery_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Athex Recovery Grp
+-- Dissect: ATHEX Recovery Grp
 athex_oasis_mdfs_fast_v9.athex_recovery_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_grp, buffer(offset, 0))
   local index = offset
@@ -8692,10 +8648,10 @@ athex_oasis_mdfs_fast_v9.heartbeat_17.fields = function(buffer, offset, packet, 
   -- Msg Type: string, Constant
   index, value = athex_oasis_mdfs_fast_v9.msg_type_constant_0.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, sent
+  -- Sender Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Target Comp Id: string, sent
+  -- Target Comp ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.target_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -8707,16 +8663,16 @@ athex_oasis_mdfs_fast_v9.heartbeat_17.fields = function(buffer, offset, packet, 
   -- Last Msg Seq Num Processed: uInt32, sent
   index, value = athex_oasis_mdfs_fast_v9.last_msg_seq_num_processed_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Athex Recovery Seq Nums: uInt32, Default, optional
+  -- No ATHEX Recovery Seq Nums: uInt32, Default, optional
   index, value = athex_oasis_mdfs_fast_v9.no_athex_recovery_seq_nums.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Athex Recovery Grp: No Athex Recovery Seq Nums entries
+  -- ATHEX Recovery Grp: No ATHEX Recovery Seq Nums entries
   local count = value or 0
   for athex_recovery_grp_index = 1, count do
     index = athex_oasis_mdfs_fast_v9.athex_recovery_grp.dissect(buffer, index, packet, parent, presence_map, base, state, athex_recovery_grp_index)
   end
 
-  -- Appl Id: string, sent
+  -- Appl ID: string, sent
   index, value = athex_oasis_mdfs_fast_v9.appl_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Appl Seq Num: uInt32, sent

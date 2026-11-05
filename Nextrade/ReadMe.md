@@ -1,4 +1,4 @@
-[![Nextrade](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nextrade/Images/Logo.png)](https://nextrade.co.kr)
+[![Nextrade](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Nextrade/Images/Logo.png)](https://nextrade.co.kr)
 
 
 ## Nextrade

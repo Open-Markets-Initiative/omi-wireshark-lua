@@ -26,12 +26,12 @@ omi_eurex_t7_rdi_fast_v14_1.fields.presence_unused = ProtoField.new("Unused", "e
 
 -- Eurex T7 Rdi Fast 14.1 Presence Map Fields
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.rdi.fast.v14.1.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_rdi_fast_v14_1.fields.presence_market_id = ProtoField.new("Market Id", "eurex.t7.rdi.fast.v14.1.marketidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_rdi_fast_v14_1.fields.presence_market_id = ProtoField.new("Market ID", "eurex.t7.rdi.fast.v14.1.marketidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_effective_business_date = ProtoField.new("Effective Business Date", "eurex.t7.rdi.fast.v14.1.effectivebusinessdatepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_next_effective_business_date = ProtoField.new("Next Effective Business Date", "eurex.t7.rdi.fast.v14.1.nexteffectivebusinessdatepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_market_segment_status = ProtoField.new("Market Segment Status", "eurex.t7.rdi.fast.v14.1.marketsegmentstatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_rdi_fast_v14_1.fields.presence_partition_id = ProtoField.new("Partition Id", "eurex.t7.rdi.fast.v14.1.partitionidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_rdi_fast_v14_1.fields.presence_capacity_group_id = ProtoField.new("Capacity Group Id", "eurex.t7.rdi.fast.v14.1.capacitygroupidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_rdi_fast_v14_1.fields.presence_partition_id = ProtoField.new("Partition ID", "eurex.t7.rdi.fast.v14.1.partitionidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_rdi_fast_v14_1.fields.presence_capacity_group_id = ProtoField.new("Capacity Group ID", "eurex.t7.rdi.fast.v14.1.capacitygroupidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_negotiation_duration = ProtoField.new("Negotiation Duration", "eurex.t7.rdi.fast.v14.1.negotiationdurationpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_cross_match_instruction_default = ProtoField.new("Cross Match Instruction Default", "eurex.t7.rdi.fast.v14.1.crossmatchinstructiondefaultpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_derivatives_descriptor_group = ProtoField.new("Derivatives Descriptor Group", "eurex.t7.rdi.fast.v14.1.derivativesdescriptorgrouppresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -40,7 +40,7 @@ omi_eurex_t7_rdi_fast_v14_1.fields.presence_no_instrument_scopes = ProtoField.ne
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_base_trdg_rules_derivatives = ProtoField.new("Base Trdg Rules Derivatives", "eurex.t7.rdi.fast.v14.1.basetrdgrulesderivativespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_base_trdg_rules_cash = ProtoField.new("Base Trdg Rules Cash", "eurex.t7.rdi.fast.v14.1.basetrdgrulescashpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_no_match_rules = ProtoField.new("No Match Rules", "eurex.t7.rdi.fast.v14.1.nomatchrulespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_rdi_fast_v14_1.fields.presence_no_md_feed_types = ProtoField.new("No Md Feed Types", "eurex.t7.rdi.fast.v14.1.nomdfeedtypespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_rdi_fast_v14_1.fields.presence_no_md_feed_types = ProtoField.new("No MD Feed Types", "eurex.t7.rdi.fast.v14.1.nomdfeedtypespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_security_type = ProtoField.new("Security Type", "eurex.t7.rdi.fast.v14.1.securitytypepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_security_status = ProtoField.new("Security Status", "eurex.t7.rdi.fast.v14.1.securitystatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_security_exchange = ProtoField.new("Security Exchange", "eurex.t7.rdi.fast.v14.1.securityexchangepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -57,43 +57,43 @@ omi_eurex_t7_rdi_fast_v14_1.fields.presence_related_instrument_grp = ProtoField.
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_security_update_action = ProtoField.new("Security Update Action", "eurex.t7.rdi.fast.v14.1.securityupdateactionpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_prior_settl_price = ProtoField.new("Prior Settl Price", "eurex.t7.rdi.fast.v14.1.priorsettlpricepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_settl_price = ProtoField.new("Settl Price", "eurex.t7.rdi.fast.v14.1.settlpricepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_rdi_fast_v14_1.fields.presence_sender_sub_id = ProtoField.new("Sender Sub Id", "eurex.t7.rdi.fast.v14.1.sendersubidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_rdi_fast_v14_1.fields.presence_md_report_event = ProtoField.new("Md Report Event", "eurex.t7.rdi.fast.v14.1.mdreporteventpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_rdi_fast_v14_1.fields.presence_sender_sub_id = ProtoField.new("Sender Sub ID", "eurex.t7.rdi.fast.v14.1.sendersubidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_rdi_fast_v14_1.fields.presence_md_report_event = ProtoField.new("MD Report Event", "eurex.t7.rdi.fast.v14.1.mdreporteventpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_tot_no_market_segment_reports = ProtoField.new("Tot No Market Segment Reports", "eurex.t7.rdi.fast.v14.1.totnomarketsegmentreportspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_rdi_fast_v14_1.fields.presence_tot_no_instrument_reports = ProtoField.new("Tot No Instrument Reports", "eurex.t7.rdi.fast.v14.1.totnoinstrumentreportspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_rdi_fast_v14_1.fields.presence_sender_comp_id = ProtoField.new("Sender Comp Id", "eurex.t7.rdi.fast.v14.1.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_rdi_fast_v14_1.fields.presence_sender_comp_id = ProtoField.new("Sender Comp ID", "eurex.t7.rdi.fast.v14.1.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 
 -- Eurex T7 Rdi Fast 14.1 Fields
-omi_eurex_t7_rdi_fast_v14_1.fields.sender_comp_id = ProtoField.new("Sender Comp Id", "eurex.t7.rdi.fast.v14.1.sendercompid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "eurex.t7.rdi.fast.v14.1.sendercompid", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.packet_seq_num = ProtoField.new("Packet Seq Num", "eurex.t7.rdi.fast.v14.1.packetseqnum", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.sending_time = ProtoField.new("Sending Time", "eurex.t7.rdi.fast.v14.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_eurex_t7_rdi_fast_v14_1.fields.msg_type = ProtoField.new("Msg Type", "eurex.t7.rdi.fast.v14.1.msgtype", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.rdi.fast.v14.1.msgseqnum", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.market_id = ProtoField.new("Market Id", "eurex.t7.rdi.fast.v14.1.marketid", ftypes.STRING)
-omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_id = ProtoField.new("Market Segment Id", "eurex.t7.rdi.fast.v14.1.marketsegmentid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.market_id = ProtoField.new("Market ID", "eurex.t7.rdi.fast.v14.1.marketid", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_id = ProtoField.new("Market Segment ID", "eurex.t7.rdi.fast.v14.1.marketsegmentid", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.effective_business_date = ProtoField.new("Effective Business Date", "eurex.t7.rdi.fast.v14.1.effectivebusinessdate", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.next_effective_business_date = ProtoField.new("Next Effective Business Date", "eurex.t7.rdi.fast.v14.1.nexteffectivebusinessdate", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.market_segment = ProtoField.new("Market Segment", "eurex.t7.rdi.fast.v14.1.marketsegment", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_status = ProtoField.new("Market Segment Status", "eurex.t7.rdi.fast.v14.1.marketsegmentstatus", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.partition_id = ProtoField.new("Partition Id", "eurex.t7.rdi.fast.v14.1.partitionid", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.capacity_group_id = ProtoField.new("Capacity Group Id", "eurex.t7.rdi.fast.v14.1.capacitygroupid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.partition_id = ProtoField.new("Partition ID", "eurex.t7.rdi.fast.v14.1.partitionid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.capacity_group_id = ProtoField.new("Capacity Group ID", "eurex.t7.rdi.fast.v14.1.capacitygroupid", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.negotiation_duration = ProtoField.new("Negotiation Duration", "eurex.t7.rdi.fast.v14.1.negotiationduration", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.cross_match_instruction_default = ProtoField.new("Cross Match Instruction Default", "eurex.t7.rdi.fast.v14.1.crossmatchinstructiondefault", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.currency = ProtoField.new("Currency", "eurex.t7.rdi.fast.v14.1.currency", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_desc = ProtoField.new("Market Segment Desc", "eurex.t7.rdi.fast.v14.1.marketsegmentdesc", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_symbol = ProtoField.new("Market Segment Symbol", "eurex.t7.rdi.fast.v14.1.marketsegmentsymbol", ftypes.STRING)
-omi_eurex_t7_rdi_fast_v14_1.fields.parent_mkt_segm_id = ProtoField.new("Parent Mkt Segm Id", "eurex.t7.rdi.fast.v14.1.parentmktsegmid", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.parent_mkt_segm_id = ProtoField.new("Parent Mkt Segm ID", "eurex.t7.rdi.fast.v14.1.parentmktsegmid", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.max_diff_exp_months = ProtoField.new("Max Diff Exp Months", "eurex.t7.rdi.fast.v14.1.maxdiffexpmonths", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.us_approval = ProtoField.new("Us Approval", "eurex.t7.rdi.fast.v14.1.usapproval", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.us_approval = ProtoField.new("US Approval", "eurex.t7.rdi.fast.v14.1.usapproval", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_type = ProtoField.new("Market Segment Type", "eurex.t7.rdi.fast.v14.1.marketsegmenttype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_sub_type = ProtoField.new("Market Segment Sub Type", "eurex.t7.rdi.fast.v14.1.marketsegmentsubtype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.decay_split = ProtoField.new("Decay Split", "eurex.t7.rdi.fast.v14.1.decaysplit", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.max_offset_rfq_expire_time = ProtoField.new("Max Offset Rfq Expire Time", "eurex.t7.rdi.fast.v14.1.maxoffsetrfqexpiretime", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.offset_stp_effective_time = ProtoField.new("Offset Stp Effective Time", "eurex.t7.rdi.fast.v14.1.offsetstpeffectivetime", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.tsl_market_group_id = ProtoField.new("Tsl Market Group Id", "eurex.t7.rdi.fast.v14.1.tslmarketgroupid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.max_offset_rfq_expire_time = ProtoField.new("Max Offset RFQ Expire Time", "eurex.t7.rdi.fast.v14.1.maxoffsetrfqexpiretime", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.offset_stp_effective_time = ProtoField.new("Offset STP Effective Time", "eurex.t7.rdi.fast.v14.1.offsetstpeffectivetime", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.tsl_market_group_id = ProtoField.new("Tsl Market Group ID", "eurex.t7.rdi.fast.v14.1.tslmarketgroupid", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.tsl_market_group = ProtoField.new("Tsl Market Group", "eurex.t7.rdi.fast.v14.1.tslmarketgroup", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.independent_system_operator = ProtoField.new("Independent System Operator", "eurex.t7.rdi.fast.v14.1.independentsystemoperator", ftypes.STRING)
-omi_eurex_t7_rdi_fast_v14_1.fields.location_id = ProtoField.new("Location Id", "eurex.t7.rdi.fast.v14.1.locationid", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.location_id = ProtoField.new("Location ID", "eurex.t7.rdi.fast.v14.1.locationid", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.product_type = ProtoField.new("Product Type", "eurex.t7.rdi.fast.v14.1.producttype", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.commodity_product_class = ProtoField.new("Commodity Product Class", "eurex.t7.rdi.fast.v14.1.commodityproductclass", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.commodity_unit = ProtoField.new("Commodity Unit", "eurex.t7.rdi.fast.v14.1.commodityunit", ftypes.UINT32)
@@ -101,25 +101,25 @@ omi_eurex_t7_rdi_fast_v14_1.fields.location_type = ProtoField.new("Location Type
 omi_eurex_t7_rdi_fast_v14_1.fields.max_trade_vol = ProtoField.new("Max Trade Vol", "eurex.t7.rdi.fast.v14.1.maxtradevol", ftypes.DOUBLE)
 omi_eurex_t7_rdi_fast_v14_1.fields.max_trade_val = ProtoField.new("Max Trade Val", "eurex.t7.rdi.fast.v14.1.maxtradeval", ftypes.UINT64)
 omi_eurex_t7_rdi_fast_v14_1.fields.max_calendar_spread_vol = ProtoField.new("Max Calendar Spread Vol", "eurex.t7.rdi.fast.v14.1.maxcalendarspreadvol", ftypes.DOUBLE)
-omi_eurex_t7_rdi_fast_v14_1.fields.max_tes_vol = ProtoField.new("Max Tes Vol", "eurex.t7.rdi.fast.v14.1.maxtesvol", ftypes.DOUBLE)
+omi_eurex_t7_rdi_fast_v14_1.fields.max_tes_vol = ProtoField.new("Max TES Vol", "eurex.t7.rdi.fast.v14.1.maxtesvol", ftypes.DOUBLE)
 omi_eurex_t7_rdi_fast_v14_1.fields.no_quantity_scaling_factors = ProtoField.new("No Quantity Scaling Factors", "eurex.t7.rdi.fast.v14.1.noquantityscalingfactors", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.quantity_scaling_factor = ProtoField.new("Quantity Scaling Factor", "eurex.t7.rdi.fast.v14.1.quantityscalingfactor", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_exchange = ProtoField.new("Underlying Security Exchange", "eurex.t7.rdi.fast.v14.1.underlyingsecurityexchange", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "eurex.t7.rdi.fast.v14.1.underlyingsymbol", ftypes.STRING)
-omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_string = ProtoField.new("Underlying Security Id", "eurex.t7.rdi.fast.v14.1.underlyingsecurityid.string", ftypes.STRING)
-omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_int64 = ProtoField.new("Underlying Security Id", "eurex.t7.rdi.fast.v14.1.underlyingsecurityid.int64", ftypes.INT64)
-omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_source = ProtoField.new("Underlying Security Id Source", "eurex.t7.rdi.fast.v14.1.underlyingsecurityidsource", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_string = ProtoField.new("Underlying Security ID", "eurex.t7.rdi.fast.v14.1.underlyingsecurityid.string", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_int64 = ProtoField.new("Underlying Security ID", "eurex.t7.rdi.fast.v14.1.underlyingsecurityid.int64", ftypes.INT64)
+omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_source = ProtoField.new("Underlying Security ID Source", "eurex.t7.rdi.fast.v14.1.underlyingsecurityidsource", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.underlying_prev_close_px = ProtoField.new("Underlying Prev Close Px", "eurex.t7.rdi.fast.v14.1.underlyingprevclosepx", ftypes.DOUBLE)
 omi_eurex_t7_rdi_fast_v14_1.fields.no_instrument_scopes = ProtoField.new("No Instrument Scopes", "eurex.t7.rdi.fast.v14.1.noinstrumentscopes", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_scope_operator = ProtoField.new("Instrument Scope Operator", "eurex.t7.rdi.fast.v14.1.instrumentscopeoperator", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_scope_security_type = ProtoField.new("Instrument Scope Security Type", "eurex.t7.rdi.fast.v14.1.instrumentscopesecuritytype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_scope_security_sub_type = ProtoField.new("Instrument Scope Security Sub Type", "eurex.t7.rdi.fast.v14.1.instrumentscopesecuritysubtype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.no_related_market_segments = ProtoField.new("No Related Market Segments", "eurex.t7.rdi.fast.v14.1.norelatedmarketsegments", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.related_market_segment_id = ProtoField.new("Related Market Segment Id", "eurex.t7.rdi.fast.v14.1.relatedmarketsegmentid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.related_market_segment_id = ProtoField.new("Related Market Segment ID", "eurex.t7.rdi.fast.v14.1.relatedmarketsegmentid", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.market_segments_relationship = ProtoField.new("Market Segments Relationship", "eurex.t7.rdi.fast.v14.1.marketsegmentsrelationship", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.allow_one_product_strip = ProtoField.new("Allow One Product Strip", "eurex.t7.rdi.fast.v14.1.allowoneproductstrip", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.no_tick_rules = ProtoField.new("No Tick Rules", "eurex.t7.rdi.fast.v14.1.notickrules", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.tick_rule_id = ProtoField.new("Tick Rule Id", "eurex.t7.rdi.fast.v14.1.tickruleid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.tick_rule_id = ProtoField.new("Tick Rule ID", "eurex.t7.rdi.fast.v14.1.tickruleid", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.start_tick_price_range = ProtoField.new("Start Tick Price Range", "eurex.t7.rdi.fast.v14.1.starttickpricerange", ftypes.DOUBLE)
 omi_eurex_t7_rdi_fast_v14_1.fields.end_tick_price_range = ProtoField.new("End Tick Price Range", "eurex.t7.rdi.fast.v14.1.endtickpricerange", ftypes.DOUBLE)
 omi_eurex_t7_rdi_fast_v14_1.fields.tick_increment = ProtoField.new("Tick Increment", "eurex.t7.rdi.fast.v14.1.tickincrement", ftypes.DOUBLE)
@@ -127,7 +127,7 @@ omi_eurex_t7_rdi_fast_v14_1.fields.no_tick_rule_scopes = ProtoField.new("No Tick
 omi_eurex_t7_rdi_fast_v14_1.fields.tick_rule_product_complex = ProtoField.new("Tick Rule Product Complex", "eurex.t7.rdi.fast.v14.1.tickruleproductcomplex", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.trd_type = ProtoField.new("Trd Type", "eurex.t7.rdi.fast.v14.1.trdtype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.no_price_range_rules = ProtoField.new("No Price Range Rules", "eurex.t7.rdi.fast.v14.1.nopricerangerules", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.price_range_rule_id = ProtoField.new("Price Range Rule Id", "eurex.t7.rdi.fast.v14.1.pricerangeruleid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.price_range_rule_id = ProtoField.new("Price Range Rule ID", "eurex.t7.rdi.fast.v14.1.pricerangeruleid", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.price_range_product_complex = ProtoField.new("Price Range Product Complex", "eurex.t7.rdi.fast.v14.1.pricerangeproductcomplex", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.start_price_range = ProtoField.new("Start Price Range", "eurex.t7.rdi.fast.v14.1.startpricerange", ftypes.DOUBLE)
 omi_eurex_t7_rdi_fast_v14_1.fields.end_price_range = ProtoField.new("End Price Range", "eurex.t7.rdi.fast.v14.1.endpricerange", ftypes.DOUBLE)
@@ -137,9 +137,9 @@ omi_eurex_t7_rdi_fast_v14_1.fields.quote_side_indicator = ProtoField.new("Quote 
 omi_eurex_t7_rdi_fast_v14_1.fields.quote_side_model_type = ProtoField.new("Quote Side Model Type", "eurex.t7.rdi.fast.v14.1.quotesidemodeltype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.fast_market_percentage = ProtoField.new("Fast Market Percentage", "eurex.t7.rdi.fast.v14.1.fastmarketpercentage", ftypes.DOUBLE)
 omi_eurex_t7_rdi_fast_v14_1.fields.check_market_order = ProtoField.new("Check Market Order", "eurex.t7.rdi.fast.v14.1.checkmarketorder", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.no_hhi_intervals = ProtoField.new("No Hhi Intervals", "eurex.t7.rdi.fast.v14.1.nohhiintervals", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.hhi_indicator = ProtoField.new("Hhi Indicator", "eurex.t7.rdi.fast.v14.1.hhiindicator", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.hhi_interval_end = ProtoField.new("Hhi Interval End", "eurex.t7.rdi.fast.v14.1.hhiintervalend", ftypes.DOUBLE)
+omi_eurex_t7_rdi_fast_v14_1.fields.no_hhi_intervals = ProtoField.new("No HHI Intervals", "eurex.t7.rdi.fast.v14.1.nohhiintervals", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.hhi_indicator = ProtoField.new("HHI Indicator", "eurex.t7.rdi.fast.v14.1.hhiindicator", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.hhi_interval_end = ProtoField.new("HHI Interval End", "eurex.t7.rdi.fast.v14.1.hhiintervalend", ftypes.DOUBLE)
 omi_eurex_t7_rdi_fast_v14_1.fields.no_quote_size_rules = ProtoField.new("No Quote Size Rules", "eurex.t7.rdi.fast.v14.1.noquotesizerules", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.min_bid_size = ProtoField.new("Min Bid Size", "eurex.t7.rdi.fast.v14.1.minbidsize", ftypes.DOUBLE)
 omi_eurex_t7_rdi_fast_v14_1.fields.min_offer_size = ProtoField.new("Min Offer Size", "eurex.t7.rdi.fast.v14.1.minoffersize", ftypes.DOUBLE)
@@ -157,27 +157,27 @@ omi_eurex_t7_rdi_fast_v14_1.fields.no_match_rules = ProtoField.new("No Match Rul
 omi_eurex_t7_rdi_fast_v14_1.fields.match_rule_product_complex = ProtoField.new("Match Rule Product Complex", "eurex.t7.rdi.fast.v14.1.matchruleproductcomplex", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.match_algorithm = ProtoField.new("Match Algorithm", "eurex.t7.rdi.fast.v14.1.matchalgorithm", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.match_type = ProtoField.new("Match Type", "eurex.t7.rdi.fast.v14.1.matchtype", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.no_md_feed_types = ProtoField.new("No Md Feed Types", "eurex.t7.rdi.fast.v14.1.nomdfeedtypes", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.md_feed_type = ProtoField.new("Md Feed Type", "eurex.t7.rdi.fast.v14.1.mdfeedtype", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.md_book_type = ProtoField.new("Md Book Type", "eurex.t7.rdi.fast.v14.1.mdbooktype", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.no_md_feed_types = ProtoField.new("No MD Feed Types", "eurex.t7.rdi.fast.v14.1.nomdfeedtypes", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.md_feed_type = ProtoField.new("MD Feed Type", "eurex.t7.rdi.fast.v14.1.mdfeedtype", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.md_book_type = ProtoField.new("MD Book Type", "eurex.t7.rdi.fast.v14.1.mdbooktype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.market_depth = ProtoField.new("Market Depth", "eurex.t7.rdi.fast.v14.1.marketdepth", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.market_depth_time_interval = ProtoField.new("Market Depth Time Interval", "eurex.t7.rdi.fast.v14.1.marketdepthtimeinterval", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.md_recovery_time_interval = ProtoField.new("Md Recovery Time Interval", "eurex.t7.rdi.fast.v14.1.mdrecoverytimeinterval", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.primary_service_location_id = ProtoField.new("Primary Service Location Id", "eurex.t7.rdi.fast.v14.1.primaryservicelocationid", ftypes.STRING)
-omi_eurex_t7_rdi_fast_v14_1.fields.primary_service_location_sub_id = ProtoField.new("Primary Service Location Sub Id", "eurex.t7.rdi.fast.v14.1.primaryservicelocationsubid", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.secondary_service_location_id = ProtoField.new("Secondary Service Location Id", "eurex.t7.rdi.fast.v14.1.secondaryservicelocationid", ftypes.STRING)
-omi_eurex_t7_rdi_fast_v14_1.fields.secondary_service_location_sub_id = ProtoField.new("Secondary Service Location Sub Id", "eurex.t7.rdi.fast.v14.1.secondaryservicelocationsubid", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.security_id = ProtoField.new("Security Id", "eurex.t7.rdi.fast.v14.1.securityid", ftypes.INT64)
-omi_eurex_t7_rdi_fast_v14_1.fields.security_id_source = ProtoField.new("Security Id Source", "eurex.t7.rdi.fast.v14.1.securityidsource", ftypes.STRING)
-omi_eurex_t7_rdi_fast_v14_1.fields.no_security_alt_id = ProtoField.new("No Security Alt Id", "eurex.t7.rdi.fast.v14.1.nosecurityaltid", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.security_alt_id = ProtoField.new("Security Alt Id", "eurex.t7.rdi.fast.v14.1.securityaltid", ftypes.STRING)
-omi_eurex_t7_rdi_fast_v14_1.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "eurex.t7.rdi.fast.v14.1.securityaltidsource", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.md_recovery_time_interval = ProtoField.new("MD Recovery Time Interval", "eurex.t7.rdi.fast.v14.1.mdrecoverytimeinterval", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.primary_service_location_id = ProtoField.new("Primary Service Location ID", "eurex.t7.rdi.fast.v14.1.primaryservicelocationid", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.primary_service_location_sub_id = ProtoField.new("Primary Service Location Sub ID", "eurex.t7.rdi.fast.v14.1.primaryservicelocationsubid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.secondary_service_location_id = ProtoField.new("Secondary Service Location ID", "eurex.t7.rdi.fast.v14.1.secondaryservicelocationid", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.secondary_service_location_sub_id = ProtoField.new("Secondary Service Location Sub ID", "eurex.t7.rdi.fast.v14.1.secondaryservicelocationsubid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.security_id = ProtoField.new("Security ID", "eurex.t7.rdi.fast.v14.1.securityid", ftypes.INT64)
+omi_eurex_t7_rdi_fast_v14_1.fields.security_id_source = ProtoField.new("Security ID Source", "eurex.t7.rdi.fast.v14.1.securityidsource", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.no_security_alt_id = ProtoField.new("No Security Alt ID", "eurex.t7.rdi.fast.v14.1.nosecurityaltid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.security_alt_id = ProtoField.new("Security Alt ID", "eurex.t7.rdi.fast.v14.1.securityaltid", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.security_alt_id_source = ProtoField.new("Security Alt ID Source", "eurex.t7.rdi.fast.v14.1.securityaltidsource", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.security_type = ProtoField.new("Security Type", "eurex.t7.rdi.fast.v14.1.securitytype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.security_status = ProtoField.new("Security Status", "eurex.t7.rdi.fast.v14.1.securitystatus", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.security_desc = ProtoField.new("Security Desc", "eurex.t7.rdi.fast.v14.1.securitydesc", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.security_exchange = ProtoField.new("Security Exchange", "eurex.t7.rdi.fast.v14.1.securityexchange", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.product_complex = ProtoField.new("Product Complex", "eurex.t7.rdi.fast.v14.1.productcomplex", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.cfi_code = ProtoField.new("Cfi Code", "eurex.t7.rdi.fast.v14.1.cficode", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.cfi_code = ProtoField.new("CFI Code", "eurex.t7.rdi.fast.v14.1.cficode", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.display_name = ProtoField.new("Display Name", "eurex.t7.rdi.fast.v14.1.displayname", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.contract_identification_eligibility = ProtoField.new("Contract Identification Eligibility", "eurex.t7.rdi.fast.v14.1.contractidentificationeligibility", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.is_primary = ProtoField.new("Is Primary", "eurex.t7.rdi.fast.v14.1.isprimary", ftypes.UINT32)
@@ -221,8 +221,8 @@ omi_eurex_t7_rdi_fast_v14_1.fields.leg_ratio_multiplier = ProtoField.new("Leg Ra
 omi_eurex_t7_rdi_fast_v14_1.fields.price_notation = ProtoField.new("Price Notation", "eurex.t7.rdi.fast.v14.1.pricenotation", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.no_legs = ProtoField.new("No Legs", "eurex.t7.rdi.fast.v14.1.nolegs", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "eurex.t7.rdi.fast.v14.1.legsymbol", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.leg_security_id = ProtoField.new("Leg Security Id", "eurex.t7.rdi.fast.v14.1.legsecurityid", ftypes.INT64)
-omi_eurex_t7_rdi_fast_v14_1.fields.leg_security_id_source = ProtoField.new("Leg Security Id Source", "eurex.t7.rdi.fast.v14.1.legsecurityidsource", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.leg_security_id = ProtoField.new("Leg Security ID", "eurex.t7.rdi.fast.v14.1.legsecurityid", ftypes.INT64)
+omi_eurex_t7_rdi_fast_v14_1.fields.leg_security_id_source = ProtoField.new("Leg Security ID Source", "eurex.t7.rdi.fast.v14.1.legsecurityidsource", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.leg_security_type = ProtoField.new("Leg Security Type", "eurex.t7.rdi.fast.v14.1.legsecuritytype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.leg_side = ProtoField.new("Leg Side", "eurex.t7.rdi.fast.v14.1.legside", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "eurex.t7.rdi.fast.v14.1.legratioqty", ftypes.UINT32)
@@ -230,14 +230,14 @@ omi_eurex_t7_rdi_fast_v14_1.fields.leg_price = ProtoField.new("Leg Price", "eure
 omi_eurex_t7_rdi_fast_v14_1.fields.related_price = ProtoField.new("Related Price", "eurex.t7.rdi.fast.v14.1.relatedprice", ftypes.DOUBLE)
 omi_eurex_t7_rdi_fast_v14_1.fields.related_price_type = ProtoField.new("Related Price Type", "eurex.t7.rdi.fast.v14.1.relatedpricetype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.trading_style = ProtoField.new("Trading Style", "eurex.t7.rdi.fast.v14.1.tradingstyle", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.underlying_market_segment_id = ProtoField.new("Underlying Market Segment Id", "eurex.t7.rdi.fast.v14.1.underlyingmarketsegmentid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.underlying_market_segment_id = ProtoField.new("Underlying Market Segment ID", "eurex.t7.rdi.fast.v14.1.underlyingmarketsegmentid", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "eurex.t7.rdi.fast.v14.1.unitofmeasure", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.asset_type = ProtoField.new("Asset Type", "eurex.t7.rdi.fast.v14.1.assettype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.asset_sub_type = ProtoField.new("Asset Sub Type", "eurex.t7.rdi.fast.v14.1.assetsubtype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.display_name_alias = ProtoField.new("Display Name Alias", "eurex.t7.rdi.fast.v14.1.displaynamealias", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.period_alias = ProtoField.new("Period Alias", "eurex.t7.rdi.fast.v14.1.periodalias", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.transact_time = ProtoField.new("Transact Time", "eurex.t7.rdi.fast.v14.1.transacttime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_eurex_t7_rdi_fast_v14_1.fields.ref_tick_table_id = ProtoField.new("Ref Tick Table Id", "eurex.t7.rdi.fast.v14.1.refticktableid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.ref_tick_table_id = ProtoField.new("Ref Tick Table ID", "eurex.t7.rdi.fast.v14.1.refticktableid", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.settl_currency = ProtoField.new("Settl Currency", "eurex.t7.rdi.fast.v14.1.settlcurrency", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.deposit_type = ProtoField.new("Deposit Type", "eurex.t7.rdi.fast.v14.1.deposittype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.issue_date = ProtoField.new("Issue Date", "eurex.t7.rdi.fast.v14.1.issuedate", ftypes.UINT32)
@@ -246,10 +246,10 @@ omi_eurex_t7_rdi_fast_v14_1.fields.quoting_start_time = ProtoField.new("Quoting 
 omi_eurex_t7_rdi_fast_v14_1.fields.quoting_end_time = ProtoField.new("Quoting End Time", "eurex.t7.rdi.fast.v14.1.quotingendtime", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_auction_type = ProtoField.new("Instrument Auction Type", "eurex.t7.rdi.fast.v14.1.instrumentauctiontype", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.midpoint_trading = ProtoField.new("Midpoint Trading", "eurex.t7.rdi.fast.v14.1.midpointtrading", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.midpoint_exec_venue_id = ProtoField.new("Midpoint Exec Venue Id", "eurex.t7.rdi.fast.v14.1.midpointexecvenueid", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.midpoint_exec_venue_id = ProtoField.new("Midpoint Exec Venue ID", "eurex.t7.rdi.fast.v14.1.midpointexecvenueid", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.no_instrument_parties = ProtoField.new("No Instrument Parties", "eurex.t7.rdi.fast.v14.1.noinstrumentparties", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.instrument_party_id = ProtoField.new("Instrument Party Id", "eurex.t7.rdi.fast.v14.1.instrumentpartyid", ftypes.STRING)
-omi_eurex_t7_rdi_fast_v14_1.fields.instrument_party_id_source = ProtoField.new("Instrument Party Id Source", "eurex.t7.rdi.fast.v14.1.instrumentpartyidsource", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.instrument_party_id = ProtoField.new("Instrument Party ID", "eurex.t7.rdi.fast.v14.1.instrumentpartyid", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.instrument_party_id_source = ProtoField.new("Instrument Party ID Source", "eurex.t7.rdi.fast.v14.1.instrumentpartyidsource", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_party_role = ProtoField.new("Instrument Party Role", "eurex.t7.rdi.fast.v14.1.instrumentpartyrole", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_party_role_qualifier = ProtoField.new("Instrument Party Role Qualifier", "eurex.t7.rdi.fast.v14.1.instrumentpartyrolequalifier", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.coupon_rate = ProtoField.new("Coupon Rate", "eurex.t7.rdi.fast.v14.1.couponrate", ftypes.DOUBLE)
@@ -286,8 +286,8 @@ omi_eurex_t7_rdi_fast_v14_1.fields.min_price_increment_amount = ProtoField.new("
 omi_eurex_t7_rdi_fast_v14_1.fields.maturity_date = ProtoField.new("Maturity Date", "eurex.t7.rdi.fast.v14.1.maturitydate", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "eurex.t7.rdi.fast.v14.1.maturitymonthyear", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.security_sub_type = ProtoField.new("Security Sub Type", "eurex.t7.rdi.fast.v14.1.securitysubtype", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.related_security_id = ProtoField.new("Related Security Id", "eurex.t7.rdi.fast.v14.1.relatedsecurityid", ftypes.INT64)
-omi_eurex_t7_rdi_fast_v14_1.fields.related_security_id_source = ProtoField.new("Related Security Id Source", "eurex.t7.rdi.fast.v14.1.relatedsecurityidsource", ftypes.STRING)
+omi_eurex_t7_rdi_fast_v14_1.fields.related_security_id = ProtoField.new("Related Security ID", "eurex.t7.rdi.fast.v14.1.relatedsecurityid", ftypes.INT64)
+omi_eurex_t7_rdi_fast_v14_1.fields.related_security_id_source = ProtoField.new("Related Security ID Source", "eurex.t7.rdi.fast.v14.1.relatedsecurityidsource", ftypes.STRING)
 omi_eurex_t7_rdi_fast_v14_1.fields.no_market_segments = ProtoField.new("No Market Segments", "eurex.t7.rdi.fast.v14.1.nomarketsegments", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.implied_market_indicator = ProtoField.new("Implied Market Indicator", "eurex.t7.rdi.fast.v14.1.impliedmarketindicator", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.multileg_model = ProtoField.new("Multileg Model", "eurex.t7.rdi.fast.v14.1.multilegmodel", ftypes.UINT32)
@@ -295,8 +295,8 @@ omi_eurex_t7_rdi_fast_v14_1.fields.price_type = ProtoField.new("Price Type", "eu
 omi_eurex_t7_rdi_fast_v14_1.fields.post_trade_anonymity = ProtoField.new("Post Trade Anonymity", "eurex.t7.rdi.fast.v14.1.posttradeanonymity", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.settl_business_days = ProtoField.new("Settl Business Days", "eurex.t7.rdi.fast.v14.1.settlbusinessdays", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.no_trading_session_rules = ProtoField.new("No Trading Session Rules", "eurex.t7.rdi.fast.v14.1.notradingsessionrules", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.trading_session_id = ProtoField.new("Trading Session Id", "eurex.t7.rdi.fast.v14.1.tradingsessionid", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "eurex.t7.rdi.fast.v14.1.tradingsessionsubid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.trading_session_id = ProtoField.new("Trading Session ID", "eurex.t7.rdi.fast.v14.1.tradingsessionid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub ID", "eurex.t7.rdi.fast.v14.1.tradingsessionsubid", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.security_update_action = ProtoField.new("Security Update Action", "eurex.t7.rdi.fast.v14.1.securityupdateaction", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.no_clearing_price_parameters = ProtoField.new("No Clearing Price Parameters", "eurex.t7.rdi.fast.v14.1.noclearingpriceparameters", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.business_day_type = ProtoField.new("Business Day Type", "eurex.t7.rdi.fast.v14.1.businessdaytype", ftypes.UINT32)
@@ -324,15 +324,15 @@ omi_eurex_t7_rdi_fast_v14_1.fields.accrued_collection_parameter = ProtoField.new
 omi_eurex_t7_rdi_fast_v14_1.fields.current_accrued_interest_amt = ProtoField.new("Current Accrued Interest Amt", "eurex.t7.rdi.fast.v14.1.currentaccruedinterestamt", ftypes.DOUBLE)
 omi_eurex_t7_rdi_fast_v14_1.fields.conversion_mode = ProtoField.new("Conversion Mode", "eurex.t7.rdi.fast.v14.1.conversionmode", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.conversion_mode_qualifier = ProtoField.new("Conversion Mode Qualifier", "eurex.t7.rdi.fast.v14.1.conversionmodequalifier", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.md_report_count = ProtoField.new("Md Report Count", "eurex.t7.rdi.fast.v14.1.mdreportcount", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.sender_sub_id = ProtoField.new("Sender Sub Id", "eurex.t7.rdi.fast.v14.1.sendersubid", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.md_report_count = ProtoField.new("MD Report Count", "eurex.t7.rdi.fast.v14.1.mdreportcount", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.sender_sub_id = ProtoField.new("Sender Sub ID", "eurex.t7.rdi.fast.v14.1.sendersubid", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "eurex.t7.rdi.fast.v14.1.lastmsgseqnumprocessed", ftypes.UINT32)
-omi_eurex_t7_rdi_fast_v14_1.fields.md_report_event = ProtoField.new("Md Report Event", "eurex.t7.rdi.fast.v14.1.mdreportevent", ftypes.UINT32)
+omi_eurex_t7_rdi_fast_v14_1.fields.md_report_event = ProtoField.new("MD Report Event", "eurex.t7.rdi.fast.v14.1.mdreportevent", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.tot_no_market_segment_reports = ProtoField.new("Tot No Market Segment Reports", "eurex.t7.rdi.fast.v14.1.totnomarketsegmentreports", ftypes.UINT32)
 omi_eurex_t7_rdi_fast_v14_1.fields.tot_no_instrument_reports = ProtoField.new("Tot No Instrument Reports", "eurex.t7.rdi.fast.v14.1.totnoinstrumentreports", ftypes.UINT32)
 
 -- Eurex T7 Rdi Fast 14.1 Messages
-omi_eurex_t7_rdi_fast_v14_1.fields.rd_packet_header = ProtoField.new("Rd Packet Header Framing", "eurex.t7.rdi.fast.v14.1.rdpacketheader", ftypes.NONE)
+omi_eurex_t7_rdi_fast_v14_1.fields.rd_packet_header = ProtoField.new("RD Packet Header Framing", "eurex.t7.rdi.fast.v14.1.rdpacketheader", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.product_snapshot = ProtoField.new("Product Snapshot Message", "eurex.t7.rdi.fast.v14.1.productsnapshot", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.product_snapshot_derivatives_descriptor_group = ProtoField.new("Product Snapshot Derivatives Descriptor Group", "eurex.t7.rdi.fast.v14.1.productsnapshotderivativesdescriptorgroup", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.quantity_scaling_factors = ProtoField.new("Quantity Scaling Factors", "eurex.t7.rdi.fast.v14.1.quantityscalingfactors", ftypes.NONE)
@@ -343,7 +343,7 @@ omi_eurex_t7_rdi_fast_v14_1.fields.base_trdg_rules = ProtoField.new("Base Trdg R
 omi_eurex_t7_rdi_fast_v14_1.fields.tick_rules = ProtoField.new("Tick Rules", "eurex.t7.rdi.fast.v14.1.tickrules", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.tick_rule_scopes = ProtoField.new("Tick Rule Scopes", "eurex.t7.rdi.fast.v14.1.tickrulescopes", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.product_snapshot_price_range_rules = ProtoField.new("Product Snapshot Price Range Rules", "eurex.t7.rdi.fast.v14.1.productsnapshotpricerangerules", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.hhi_intervals = ProtoField.new("Hhi Intervals", "eurex.t7.rdi.fast.v14.1.hhiintervals", ftypes.NONE)
+omi_eurex_t7_rdi_fast_v14_1.fields.hhi_intervals = ProtoField.new("HHI Intervals", "eurex.t7.rdi.fast.v14.1.hhiintervals", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.base_trdg_rules_derivatives = ProtoField.new("Base Trdg Rules Derivatives", "eurex.t7.rdi.fast.v14.1.basetrdgrulesderivatives", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.product_snapshot_quote_size_rules = ProtoField.new("Product Snapshot Quote Size Rules", "eurex.t7.rdi.fast.v14.1.productsnapshotquotesizerules", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.flex_rules = ProtoField.new("Flex Rules", "eurex.t7.rdi.fast.v14.1.flexrules", ftypes.NONE)
@@ -372,24 +372,10 @@ omi_eurex_t7_rdi_fast_v14_1.fields.instrument_snapshot_quote_size_rules = ProtoF
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_snapshot_price_range_rules = ProtoField.new("Instrument Snapshot Price Range Rules", "eurex.t7.rdi.fast.v14.1.instrumentsnapshotpricerangerules", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.trading_session_rules = ProtoField.new("Trading Session Rules", "eurex.t7.rdi.fast.v14.1.tradingsessionrules", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_incremental = ProtoField.new("Instrument Incremental Message", "eurex.t7.rdi.fast.v14.1.instrumentincremental", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.security_alt = ProtoField.new("Security Alt", "eurex.t7.rdi.fast.v14.1.securityalt", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_incremental_derivatives_descriptor_group = ProtoField.new("Instrument Incremental Derivatives Descriptor Group", "eurex.t7.rdi.fast.v14.1.instrumentincrementalderivativesdescriptorgroup", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_incremental_simple_instrument_descriptor_group = ProtoField.new("Instrument Incremental Simple Instrument Descriptor Group", "eurex.t7.rdi.fast.v14.1.instrumentincrementalsimpleinstrumentdescriptorgroup", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.complex_instrument_descriptor_group = ProtoField.new("Complex Instrument Descriptor Group", "eurex.t7.rdi.fast.v14.1.complexinstrumentdescriptorgroup", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.instrmt_leg_grp = ProtoField.new("Instrmt Leg Grp", "eurex.t7.rdi.fast.v14.1.instrmtleggrp", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.cash_descriptor_group = ProtoField.new("Cash Descriptor Group", "eurex.t7.rdi.fast.v14.1.cashdescriptorgroup", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.instrument_parties = ProtoField.new("Instrument Parties", "eurex.t7.rdi.fast.v14.1.instrumentparties", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.bonds_and_warrants_group = ProtoField.new("Bonds And Warrants Group", "eurex.t7.rdi.fast.v14.1.bondsandwarrantsgroup", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.volatility_corridor_group = ProtoField.new("Volatility Corridor Group", "eurex.t7.rdi.fast.v14.1.volatilitycorridorgroup", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.single_volatility_parameters_group = ProtoField.new("Single Volatility Parameters Group", "eurex.t7.rdi.fast.v14.1.singlevolatilityparametersgroup", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.security_classification_grp = ProtoField.new("Security Classification Grp", "eurex.t7.rdi.fast.v14.1.securityclassificationgrp", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.instrument_attributes = ProtoField.new("Instrument Attributes", "eurex.t7.rdi.fast.v14.1.instrumentattributes", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.events = ProtoField.new("Events", "eurex.t7.rdi.fast.v14.1.events", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.related_instrument_grp = ProtoField.new("Related Instrument Grp", "eurex.t7.rdi.fast.v14.1.relatedinstrumentgrp", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_grp = ProtoField.new("Market Segment Grp", "eurex.t7.rdi.fast.v14.1.marketsegmentgrp", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_incremental_quote_size_rules = ProtoField.new("Instrument Incremental Quote Size Rules", "eurex.t7.rdi.fast.v14.1.instrumentincrementalquotesizerules", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.instrument_incremental_price_range_rules = ProtoField.new("Instrument Incremental Price Range Rules", "eurex.t7.rdi.fast.v14.1.instrumentincrementalpricerangerules", ftypes.NONE)
-omi_eurex_t7_rdi_fast_v14_1.fields.trading_session_rules = ProtoField.new("Trading Session Rules", "eurex.t7.rdi.fast.v14.1.tradingsessionrules", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.variance_futures_status = ProtoField.new("Variance Futures Status Message", "eurex.t7.rdi.fast.v14.1.variancefuturesstatus", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.variance_futures_status_clearing_price_parameters = ProtoField.new("Variance Futures Status Clearing Price Parameters", "eurex.t7.rdi.fast.v14.1.variancefuturesstatusclearingpriceparameters", ftypes.NONE)
 omi_eurex_t7_rdi_fast_v14_1.fields.total_return_futures_status = ProtoField.new("Total Return Futures Status Message", "eurex.t7.rdi.fast.v14.1.totalreturnfuturesstatus", ftypes.NONE)
@@ -807,10 +793,10 @@ end
 -- Eurex T7 Rdi Fast 14.1 Fields
 -----------------------------------------------------------------------
 
--- Sender Comp Id (Sent)
+-- Sender Comp ID (Sent)
 eurex_t7_rdi_fast_v14_1.sender_comp_id_sent = {}
 
--- Dissect: Sender Comp Id (Sent)
+-- Dissect: Sender Comp ID (Sent)
 eurex_t7_rdi_fast_v14_1.sender_comp_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -823,16 +809,16 @@ eurex_t7_rdi_fast_v14_1.sender_comp_id_sent.dissect = function(buffer, offset, p
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.sender_comp_id, range, 0)
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
 end
 
--- Sender Comp Id (Copy)
+-- Sender Comp ID (Copy)
 eurex_t7_rdi_fast_v14_1.sender_comp_id_copy = {}
 
--- Dissect: Sender Comp Id (Copy)
+-- Dissect: Sender Comp ID (Copy)
 eurex_t7_rdi_fast_v14_1.sender_comp_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -845,7 +831,7 @@ eurex_t7_rdi_fast_v14_1.sender_comp_id_copy.dissect = function(buffer, offset, p
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Comp Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Comp ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -856,7 +842,7 @@ eurex_t7_rdi_fast_v14_1.sender_comp_id_copy.dissect = function(buffer, offset, p
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.sender_comp_id, range, 0)
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
@@ -1219,10 +1205,10 @@ eurex_t7_rdi_fast_v14_1.msg_seq_num.dissect = function(buffer, offset, packet, p
   return offset, value
 end
 
--- Market Id
+-- Market ID
 eurex_t7_rdi_fast_v14_1.market_id = {}
 
--- Dissect: Market Id
+-- Dissect: Market ID
 eurex_t7_rdi_fast_v14_1.market_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1235,7 +1221,7 @@ eurex_t7_rdi_fast_v14_1.market_id.dissect = function(buffer, offset, packet, par
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Market Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Market ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1246,16 +1232,16 @@ eurex_t7_rdi_fast_v14_1.market_id.dissect = function(buffer, offset, packet, par
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.market_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.market_id, range, "")
-    absent:set_text("Market Id: No Value")
+    absent:set_text("Market ID: No Value")
   end
 
   return offset, value
 end
 
--- Market Segment Id (Delta)
+-- Market Segment ID (Delta)
 eurex_t7_rdi_fast_v14_1.market_segment_id_delta = {}
 
--- Dissect: Market Segment Id (Delta)
+-- Dissect: Market Segment ID (Delta)
 eurex_t7_rdi_fast_v14_1.market_segment_id_delta.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1271,16 +1257,16 @@ eurex_t7_rdi_fast_v14_1.market_segment_id_delta.dissect = function(buffer, offse
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_id, range, 0)
-    absent:set_text("Market Segment Id: No Value")
+    absent:set_text("Market Segment ID: No Value")
   end
 
   return offset, value
 end
 
--- Market Segment Id (Copy)
+-- Market Segment ID (Copy)
 eurex_t7_rdi_fast_v14_1.market_segment_id_copy = {}
 
--- Dissect: Market Segment Id (Copy)
+-- Dissect: Market Segment ID (Copy)
 eurex_t7_rdi_fast_v14_1.market_segment_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1293,7 +1279,7 @@ eurex_t7_rdi_fast_v14_1.market_segment_id_copy.dissect = function(buffer, offset
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Market Segment Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Market Segment ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1304,7 +1290,7 @@ eurex_t7_rdi_fast_v14_1.market_segment_id_copy.dissect = function(buffer, offset
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.market_segment_id, range, 0)
-    absent:set_text("Market Segment Id: No Value")
+    absent:set_text("Market Segment ID: No Value")
   end
 
   return offset, value
@@ -1453,10 +1439,10 @@ eurex_t7_rdi_fast_v14_1.market_segment_status.dissect = function(buffer, offset,
   return offset, value
 end
 
--- Partition Id
+-- Partition ID
 eurex_t7_rdi_fast_v14_1.partition_id = {}
 
--- Dissect: Partition Id
+-- Dissect: Partition ID
 eurex_t7_rdi_fast_v14_1.partition_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1469,7 +1455,7 @@ eurex_t7_rdi_fast_v14_1.partition_id.dissect = function(buffer, offset, packet, 
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Partition Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Partition ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1480,16 +1466,16 @@ eurex_t7_rdi_fast_v14_1.partition_id.dissect = function(buffer, offset, packet, 
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.partition_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.partition_id, range, 0)
-    absent:set_text("Partition Id: No Value")
+    absent:set_text("Partition ID: No Value")
   end
 
   return offset, value
 end
 
--- Capacity Group Id
+-- Capacity Group ID
 eurex_t7_rdi_fast_v14_1.capacity_group_id = {}
 
--- Dissect: Capacity Group Id
+-- Dissect: Capacity Group ID
 eurex_t7_rdi_fast_v14_1.capacity_group_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1502,7 +1488,7 @@ eurex_t7_rdi_fast_v14_1.capacity_group_id.dissect = function(buffer, offset, pac
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Capacity Group Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Capacity Group ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1513,7 +1499,7 @@ eurex_t7_rdi_fast_v14_1.capacity_group_id.dissect = function(buffer, offset, pac
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.capacity_group_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.capacity_group_id, range, 0)
-    absent:set_text("Capacity Group Id: No Value")
+    absent:set_text("Capacity Group ID: No Value")
   end
 
   return offset, value
@@ -1674,10 +1660,10 @@ eurex_t7_rdi_fast_v14_1.market_segment_symbol.dissect = function(buffer, offset,
   return offset, value
 end
 
--- Parent Mkt Segm Id
+-- Parent Mkt Segm ID
 eurex_t7_rdi_fast_v14_1.parent_mkt_segm_id = {}
 
--- Dissect: Parent Mkt Segm Id
+-- Dissect: Parent Mkt Segm ID
 eurex_t7_rdi_fast_v14_1.parent_mkt_segm_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1696,7 +1682,7 @@ eurex_t7_rdi_fast_v14_1.parent_mkt_segm_id.dissect = function(buffer, offset, pa
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.parent_mkt_segm_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.parent_mkt_segm_id, range, "")
-    absent:set_text("Parent Mkt Segm Id: No Value")
+    absent:set_text("Parent Mkt Segm ID: No Value")
   end
 
   return offset, value
@@ -1730,29 +1716,29 @@ eurex_t7_rdi_fast_v14_1.max_diff_exp_months.dissect = function(buffer, offset, p
   return offset, value
 end
 
--- Us Approval
+-- US Approval
 eurex_t7_rdi_fast_v14_1.us_approval = {}
 
--- Display: Us Approval
+-- Display: US Approval
 eurex_t7_rdi_fast_v14_1.us_approval.display = function(value)
   if value == nil then
-    return "Us Approval: No Value"
+    return "US Approval: No Value"
   end
 
   if value == 0 then
-    return "Us Approval: NoApproval (None)"
+    return "US Approval: NoApproval (None)"
   end
   if value == 1 then
-    return "Us Approval: CFTCApproved (CFTC)"
+    return "US Approval: CFTCApproved (CFTC)"
   end
   if value == 2 then
-    return "Us Approval: SECApproved (SEC)"
+    return "US Approval: SECApproved (SEC)"
   end
 
-  return "Us Approval: Unknown("..value..")"
+  return "US Approval: Unknown("..value..")"
 end
 
--- Dissect: Us Approval
+-- Dissect: US Approval
 eurex_t7_rdi_fast_v14_1.us_approval.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1917,10 +1903,10 @@ eurex_t7_rdi_fast_v14_1.decay_split.dissect = function(buffer, offset, packet, p
   return offset, value
 end
 
--- Max Offset Rfq Expire Time
+-- Max Offset RFQ Expire Time
 eurex_t7_rdi_fast_v14_1.max_offset_rfq_expire_time = {}
 
--- Dissect: Max Offset Rfq Expire Time
+-- Dissect: Max Offset RFQ Expire Time
 eurex_t7_rdi_fast_v14_1.max_offset_rfq_expire_time.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1939,16 +1925,16 @@ eurex_t7_rdi_fast_v14_1.max_offset_rfq_expire_time.dissect = function(buffer, of
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.max_offset_rfq_expire_time, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.max_offset_rfq_expire_time, range, 0)
-    absent:set_text("Max Offset Rfq Expire Time: No Value")
+    absent:set_text("Max Offset RFQ Expire Time: No Value")
   end
 
   return offset, value
 end
 
--- Offset Stp Effective Time
+-- Offset STP Effective Time
 eurex_t7_rdi_fast_v14_1.offset_stp_effective_time = {}
 
--- Dissect: Offset Stp Effective Time
+-- Dissect: Offset STP Effective Time
 eurex_t7_rdi_fast_v14_1.offset_stp_effective_time.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1967,16 +1953,16 @@ eurex_t7_rdi_fast_v14_1.offset_stp_effective_time.dissect = function(buffer, off
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.offset_stp_effective_time, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.offset_stp_effective_time, range, 0)
-    absent:set_text("Offset Stp Effective Time: No Value")
+    absent:set_text("Offset STP Effective Time: No Value")
   end
 
   return offset, value
 end
 
--- Tsl Market Group Id
+-- Tsl Market Group ID
 eurex_t7_rdi_fast_v14_1.tsl_market_group_id = {}
 
--- Dissect: Tsl Market Group Id
+-- Dissect: Tsl Market Group ID
 eurex_t7_rdi_fast_v14_1.tsl_market_group_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1995,7 +1981,7 @@ eurex_t7_rdi_fast_v14_1.tsl_market_group_id.dissect = function(buffer, offset, p
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.tsl_market_group_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.tsl_market_group_id, range, 0)
-    absent:set_text("Tsl Market Group Id: No Value")
+    absent:set_text("Tsl Market Group ID: No Value")
   end
 
   return offset, value
@@ -2053,10 +2039,10 @@ eurex_t7_rdi_fast_v14_1.independent_system_operator.dissect = function(buffer, o
   return offset, value
 end
 
--- Location Id
+-- Location ID
 eurex_t7_rdi_fast_v14_1.location_id = {}
 
--- Dissect: Location Id
+-- Dissect: Location ID
 eurex_t7_rdi_fast_v14_1.location_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2073,7 +2059,7 @@ eurex_t7_rdi_fast_v14_1.location_id.dissect = function(buffer, offset, packet, p
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.location_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.location_id, range, "")
-    absent:set_text("Location Id: No Value")
+    absent:set_text("Location ID: No Value")
   end
 
   return offset, value
@@ -2405,19 +2391,19 @@ eurex_t7_rdi_fast_v14_1.max_calendar_spread_vol.dissect = function(buffer, offse
   return offset, value
 end
 
--- Max Tes Vol
+-- Max TES Vol
 eurex_t7_rdi_fast_v14_1.max_tes_vol = {}
 
--- Display: Max Tes Vol
+-- Display: Max TES Vol
 eurex_t7_rdi_fast_v14_1.max_tes_vol.display = function(value)
   if value == nil then
-    return "Max Tes Vol: No Value"
+    return "Max TES Vol: No Value"
   end
 
-  return "Max Tes Vol: "..value
+  return "Max TES Vol: "..value
 end
 
--- Dissect: Max Tes Vol
+-- Dissect: Max TES Vol
 eurex_t7_rdi_fast_v14_1.max_tes_vol.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2588,10 +2574,10 @@ eurex_t7_rdi_fast_v14_1.underlying_symbol.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Underlying Security Id (Delta)
+-- Underlying Security ID (Delta)
 eurex_t7_rdi_fast_v14_1.underlying_security_id_delta = {}
 
--- Dissect: Underlying Security Id (Delta)
+-- Dissect: Underlying Security ID (Delta)
 eurex_t7_rdi_fast_v14_1.underlying_security_id_delta.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2608,16 +2594,16 @@ eurex_t7_rdi_fast_v14_1.underlying_security_id_delta.dissect = function(buffer, 
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_string, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_string, range, "")
-    absent:set_text("Underlying Security Id: No Value")
+    absent:set_text("Underlying Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Underlying Security Id (Sent)
+-- Underlying Security ID (Sent)
 eurex_t7_rdi_fast_v14_1.underlying_security_id_sent = {}
 
--- Dissect: Underlying Security Id (Sent)
+-- Dissect: Underlying Security ID (Sent)
 eurex_t7_rdi_fast_v14_1.underlying_security_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2630,16 +2616,16 @@ eurex_t7_rdi_fast_v14_1.underlying_security_id_sent.dissect = function(buffer, o
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_int64, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_int64, range, Int64(0))
-    absent:set_text("Underlying Security Id: No Value")
+    absent:set_text("Underlying Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Underlying Security Id Source (Default)
+-- Underlying Security ID Source (Default)
 eurex_t7_rdi_fast_v14_1.underlying_security_id_source_default = {}
 
--- Dissect: Underlying Security Id Source (Default)
+-- Dissect: Underlying Security ID Source (Default)
 eurex_t7_rdi_fast_v14_1.underlying_security_id_source_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2656,16 +2642,16 @@ eurex_t7_rdi_fast_v14_1.underlying_security_id_source_default.dissect = function
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_source, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_source, range, "")
-    absent:set_text("Underlying Security Id Source: No Value")
+    absent:set_text("Underlying Security ID Source: No Value")
   end
 
   return offset, value
 end
 
--- Underlying Security Id Source (Constant)
+-- Underlying Security ID Source (Constant)
 eurex_t7_rdi_fast_v14_1.underlying_security_id_source_constant = {}
 
--- Dissect: Underlying Security Id Source (Constant)
+-- Dissect: Underlying Security ID Source (Constant)
 eurex_t7_rdi_fast_v14_1.underlying_security_id_source_constant.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2678,7 +2664,7 @@ eurex_t7_rdi_fast_v14_1.underlying_security_id_source_constant.dissect = functio
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_source, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.underlying_security_id_source, range, "")
-    absent:set_text("Underlying Security Id Source: No Value")
+    absent:set_text("Underlying Security ID Source: No Value")
   end
 
   return offset, value
@@ -2936,10 +2922,10 @@ eurex_t7_rdi_fast_v14_1.no_related_market_segments.dissect = function(buffer, of
   return offset, value
 end
 
--- Related Market Segment Id
+-- Related Market Segment ID
 eurex_t7_rdi_fast_v14_1.related_market_segment_id = {}
 
--- Dissect: Related Market Segment Id
+-- Dissect: Related Market Segment ID
 eurex_t7_rdi_fast_v14_1.related_market_segment_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2955,7 +2941,7 @@ eurex_t7_rdi_fast_v14_1.related_market_segment_id.dissect = function(buffer, off
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.related_market_segment_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.related_market_segment_id, range, 0)
-    absent:set_text("Related Market Segment Id: No Value")
+    absent:set_text("Related Market Segment ID: No Value")
   end
 
   return offset, value
@@ -3100,10 +3086,10 @@ eurex_t7_rdi_fast_v14_1.no_tick_rules.dissect = function(buffer, offset, packet,
   return offset, value
 end
 
--- Tick Rule Id
+-- Tick Rule ID
 eurex_t7_rdi_fast_v14_1.tick_rule_id = {}
 
--- Dissect: Tick Rule Id
+-- Dissect: Tick Rule ID
 eurex_t7_rdi_fast_v14_1.tick_rule_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3116,7 +3102,7 @@ eurex_t7_rdi_fast_v14_1.tick_rule_id.dissect = function(buffer, offset, packet, 
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Tick Rule Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Tick Rule ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -3127,7 +3113,7 @@ eurex_t7_rdi_fast_v14_1.tick_rule_id.dissect = function(buffer, offset, packet, 
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.tick_rule_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.tick_rule_id, range, 0)
-    absent:set_text("Tick Rule Id: No Value")
+    absent:set_text("Tick Rule ID: No Value")
   end
 
   return offset, value
@@ -3539,10 +3525,10 @@ eurex_t7_rdi_fast_v14_1.no_price_range_rules_constant.dissect = function(buffer,
   return offset, value
 end
 
--- Price Range Rule Id
+-- Price Range Rule ID
 eurex_t7_rdi_fast_v14_1.price_range_rule_id = {}
 
--- Dissect: Price Range Rule Id
+-- Dissect: Price Range Rule ID
 eurex_t7_rdi_fast_v14_1.price_range_rule_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3555,7 +3541,7 @@ eurex_t7_rdi_fast_v14_1.price_range_rule_id.dissect = function(buffer, offset, p
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Price Range Rule Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Price Range Rule ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -3566,7 +3552,7 @@ eurex_t7_rdi_fast_v14_1.price_range_rule_id.dissect = function(buffer, offset, p
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.price_range_rule_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.price_range_rule_id, range, 0)
-    absent:set_text("Price Range Rule Id: No Value")
+    absent:set_text("Price Range Rule ID: No Value")
   end
 
   return offset, value
@@ -4048,10 +4034,10 @@ eurex_t7_rdi_fast_v14_1.check_market_order.dissect = function(buffer, offset, pa
   return offset, value
 end
 
--- No Hhi Intervals
+-- No HHI Intervals
 eurex_t7_rdi_fast_v14_1.no_hhi_intervals = {}
 
--- Dissect: No Hhi Intervals
+-- Dissect: No HHI Intervals
 eurex_t7_rdi_fast_v14_1.no_hhi_intervals.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4070,16 +4056,16 @@ eurex_t7_rdi_fast_v14_1.no_hhi_intervals.dissect = function(buffer, offset, pack
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.no_hhi_intervals, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.no_hhi_intervals, range, 0)
-    absent:set_text("No Hhi Intervals: No Value")
+    absent:set_text("No HHI Intervals: No Value")
   end
 
   return offset, value
 end
 
--- Hhi Indicator
+-- HHI Indicator
 eurex_t7_rdi_fast_v14_1.hhi_indicator = {}
 
--- Dissect: Hhi Indicator
+-- Dissect: HHI Indicator
 eurex_t7_rdi_fast_v14_1.hhi_indicator.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4094,7 +4080,7 @@ eurex_t7_rdi_fast_v14_1.hhi_indicator.dissect = function(buffer, offset, packet,
   state.values[key] = value
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Hhi Indicator was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "HHI Indicator was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -4105,25 +4091,25 @@ eurex_t7_rdi_fast_v14_1.hhi_indicator.dissect = function(buffer, offset, packet,
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.hhi_indicator, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.hhi_indicator, range, 0)
-    absent:set_text("Hhi Indicator: No Value")
+    absent:set_text("HHI Indicator: No Value")
   end
 
   return offset, value
 end
 
--- Hhi Interval End
+-- HHI Interval End
 eurex_t7_rdi_fast_v14_1.hhi_interval_end = {}
 
--- Display: Hhi Interval End
+-- Display: HHI Interval End
 eurex_t7_rdi_fast_v14_1.hhi_interval_end.display = function(value)
   if value == nil then
-    return "Hhi Interval End: No Value"
+    return "HHI Interval End: No Value"
   end
 
-  return "Hhi Interval End: "..value
+  return "HHI Interval End: "..value
 end
 
--- Dissect: Hhi Interval End
+-- Dissect: HHI Interval End
 eurex_t7_rdi_fast_v14_1.hhi_interval_end.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4990,10 +4976,10 @@ eurex_t7_rdi_fast_v14_1.match_type.dissect = function(buffer, offset, packet, pa
   return offset, value
 end
 
--- No Md Feed Types
+-- No MD Feed Types
 eurex_t7_rdi_fast_v14_1.no_md_feed_types = {}
 
--- Dissect: No Md Feed Types
+-- Dissect: No MD Feed Types
 eurex_t7_rdi_fast_v14_1.no_md_feed_types.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5006,7 +4992,7 @@ eurex_t7_rdi_fast_v14_1.no_md_feed_types.dissect = function(buffer, offset, pack
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "No Md Feed Types was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "No MD Feed Types was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -5017,35 +5003,35 @@ eurex_t7_rdi_fast_v14_1.no_md_feed_types.dissect = function(buffer, offset, pack
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.no_md_feed_types, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.no_md_feed_types, range, 0)
-    absent:set_text("No Md Feed Types: No Value")
+    absent:set_text("No MD Feed Types: No Value")
   end
 
   return offset, value
 end
 
--- Md Feed Type
+-- MD Feed Type
 eurex_t7_rdi_fast_v14_1.md_feed_type = {}
 
--- Display: Md Feed Type
+-- Display: MD Feed Type
 eurex_t7_rdi_fast_v14_1.md_feed_type.display = function(value)
   if value == nil then
-    return "Md Feed Type: No Value"
+    return "MD Feed Type: No Value"
   end
 
   if value == 0 then
-    return "Md Feed Type: HighIncremental (HI)"
+    return "MD Feed Type: HighIncremental (HI)"
   end
   if value == 1 then
-    return "Md Feed Type: HighSnapshot (HS)"
+    return "MD Feed Type: HighSnapshot (HS)"
   end
   if value == 2 then
-    return "Md Feed Type: Low (L)"
+    return "MD Feed Type: Low (L)"
   end
 
-  return "Md Feed Type: Unknown("..value..")"
+  return "MD Feed Type: Unknown("..value..")"
 end
 
--- Dissect: Md Feed Type
+-- Dissect: MD Feed Type
 eurex_t7_rdi_fast_v14_1.md_feed_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5070,29 +5056,29 @@ eurex_t7_rdi_fast_v14_1.md_feed_type.dissect = function(buffer, offset, packet, 
   return offset, value
 end
 
--- Md Book Type
+-- MD Book Type
 eurex_t7_rdi_fast_v14_1.md_book_type = {}
 
--- Display: Md Book Type
+-- Display: MD Book Type
 eurex_t7_rdi_fast_v14_1.md_book_type.display = function(value)
   if value == nil then
-    return "Md Book Type: No Value"
+    return "MD Book Type: No Value"
   end
 
   if value == 0 then
-    return "Md Book Type: TopOfBook (1)"
+    return "MD Book Type: TopOfBook (1)"
   end
   if value == 1 then
-    return "Md Book Type: PriceDepth (2)"
+    return "MD Book Type: PriceDepth (2)"
   end
   if value == 2 then
-    return "Md Book Type: OrderDepth (3)"
+    return "MD Book Type: OrderDepth (3)"
   end
 
-  return "Md Book Type: Unknown("..value..")"
+  return "MD Book Type: Unknown("..value..")"
 end
 
--- Dissect: Md Book Type
+-- Dissect: MD Book Type
 eurex_t7_rdi_fast_v14_1.md_book_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5173,10 +5159,10 @@ eurex_t7_rdi_fast_v14_1.market_depth_time_interval.dissect = function(buffer, of
   return offset, value
 end
 
--- Md Recovery Time Interval
+-- MD Recovery Time Interval
 eurex_t7_rdi_fast_v14_1.md_recovery_time_interval = {}
 
--- Dissect: Md Recovery Time Interval
+-- Dissect: MD Recovery Time Interval
 eurex_t7_rdi_fast_v14_1.md_recovery_time_interval.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5195,16 +5181,16 @@ eurex_t7_rdi_fast_v14_1.md_recovery_time_interval.dissect = function(buffer, off
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.md_recovery_time_interval, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.md_recovery_time_interval, range, 0)
-    absent:set_text("Md Recovery Time Interval: No Value")
+    absent:set_text("MD Recovery Time Interval: No Value")
   end
 
   return offset, value
 end
 
--- Primary Service Location Id
+-- Primary Service Location ID
 eurex_t7_rdi_fast_v14_1.primary_service_location_id = {}
 
--- Dissect: Primary Service Location Id
+-- Dissect: Primary Service Location ID
 eurex_t7_rdi_fast_v14_1.primary_service_location_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5218,16 +5204,16 @@ eurex_t7_rdi_fast_v14_1.primary_service_location_id.dissect = function(buffer, o
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.primary_service_location_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.primary_service_location_id, range, "")
-    absent:set_text("Primary Service Location Id: No Value")
+    absent:set_text("Primary Service Location ID: No Value")
   end
 
   return offset, value
 end
 
--- Primary Service Location Sub Id
+-- Primary Service Location Sub ID
 eurex_t7_rdi_fast_v14_1.primary_service_location_sub_id = {}
 
--- Dissect: Primary Service Location Sub Id
+-- Dissect: Primary Service Location Sub ID
 eurex_t7_rdi_fast_v14_1.primary_service_location_sub_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5243,16 +5229,16 @@ eurex_t7_rdi_fast_v14_1.primary_service_location_sub_id.dissect = function(buffe
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.primary_service_location_sub_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.primary_service_location_sub_id, range, 0)
-    absent:set_text("Primary Service Location Sub Id: No Value")
+    absent:set_text("Primary Service Location Sub ID: No Value")
   end
 
   return offset, value
 end
 
--- Secondary Service Location Id
+-- Secondary Service Location ID
 eurex_t7_rdi_fast_v14_1.secondary_service_location_id = {}
 
--- Dissect: Secondary Service Location Id
+-- Dissect: Secondary Service Location ID
 eurex_t7_rdi_fast_v14_1.secondary_service_location_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5269,16 +5255,16 @@ eurex_t7_rdi_fast_v14_1.secondary_service_location_id.dissect = function(buffer,
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.secondary_service_location_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.secondary_service_location_id, range, "")
-    absent:set_text("Secondary Service Location Id: No Value")
+    absent:set_text("Secondary Service Location ID: No Value")
   end
 
   return offset, value
 end
 
--- Secondary Service Location Sub Id
+-- Secondary Service Location Sub ID
 eurex_t7_rdi_fast_v14_1.secondary_service_location_sub_id = {}
 
--- Dissect: Secondary Service Location Sub Id
+-- Dissect: Secondary Service Location Sub ID
 eurex_t7_rdi_fast_v14_1.secondary_service_location_sub_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5297,16 +5283,16 @@ eurex_t7_rdi_fast_v14_1.secondary_service_location_sub_id.dissect = function(buf
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.secondary_service_location_sub_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.secondary_service_location_sub_id, range, 0)
-    absent:set_text("Secondary Service Location Sub Id: No Value")
+    absent:set_text("Secondary Service Location Sub ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id
+-- Security ID
 eurex_t7_rdi_fast_v14_1.security_id = {}
 
--- Dissect: Security Id
+-- Dissect: Security ID
 eurex_t7_rdi_fast_v14_1.security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5322,29 +5308,29 @@ eurex_t7_rdi_fast_v14_1.security_id.dissect = function(buffer, offset, packet, p
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.security_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.security_id, range, Int64(0))
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id Source
+-- Security ID Source
 eurex_t7_rdi_fast_v14_1.security_id_source = {}
 
--- Display: Security Id Source
+-- Display: Security ID Source
 eurex_t7_rdi_fast_v14_1.security_id_source.display = function(value)
   if value == nil then
-    return "Security Id Source: No Value"
+    return "Security ID Source: No Value"
   end
 
   if value == "M" then
-    return "Security Id Source: Marketplace (M)"
+    return "Security ID Source: Marketplace (M)"
   end
 
-  return "Security Id Source: "..value
+  return "Security ID Source: "..value
 end
 
--- Dissect: Security Id Source
+-- Dissect: Security ID Source
 eurex_t7_rdi_fast_v14_1.security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5365,10 +5351,10 @@ eurex_t7_rdi_fast_v14_1.security_id_source.dissect = function(buffer, offset, pa
   return offset, value
 end
 
--- No Security Alt Id
+-- No Security Alt ID
 eurex_t7_rdi_fast_v14_1.no_security_alt_id = {}
 
--- Dissect: No Security Alt Id
+-- Dissect: No Security Alt ID
 eurex_t7_rdi_fast_v14_1.no_security_alt_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5381,16 +5367,16 @@ eurex_t7_rdi_fast_v14_1.no_security_alt_id.dissect = function(buffer, offset, pa
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.no_security_alt_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.no_security_alt_id, range, 0)
-    absent:set_text("No Security Alt Id: No Value")
+    absent:set_text("No Security Alt ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Alt Id
+-- Security Alt ID
 eurex_t7_rdi_fast_v14_1.security_alt_id = {}
 
--- Dissect: Security Alt Id
+-- Dissect: Security Alt ID
 eurex_t7_rdi_fast_v14_1.security_alt_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5404,16 +5390,16 @@ eurex_t7_rdi_fast_v14_1.security_alt_id.dissect = function(buffer, offset, packe
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.security_alt_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.security_alt_id, range, "")
-    absent:set_text("Security Alt Id: No Value")
+    absent:set_text("Security Alt ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Alt Id Source
+-- Security Alt ID Source
 eurex_t7_rdi_fast_v14_1.security_alt_id_source = {}
 
--- Dissect: Security Alt Id Source
+-- Dissect: Security Alt ID Source
 eurex_t7_rdi_fast_v14_1.security_alt_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5426,7 +5412,7 @@ eurex_t7_rdi_fast_v14_1.security_alt_id_source.dissect = function(buffer, offset
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Security Alt Id Source was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Security Alt ID Source was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -5437,7 +5423,7 @@ eurex_t7_rdi_fast_v14_1.security_alt_id_source.dissect = function(buffer, offset
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.security_alt_id_source, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.security_alt_id_source, range, "")
-    absent:set_text("Security Alt Id Source: No Value")
+    absent:set_text("Security Alt ID Source: No Value")
   end
 
   return offset, value
@@ -5983,10 +5969,10 @@ eurex_t7_rdi_fast_v14_1.product_complex.dissect = function(buffer, offset, packe
   return offset, value
 end
 
--- Cfi Code
+-- CFI Code
 eurex_t7_rdi_fast_v14_1.cfi_code = {}
 
--- Dissect: Cfi Code
+-- Dissect: CFI Code
 eurex_t7_rdi_fast_v14_1.cfi_code.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6005,7 +5991,7 @@ eurex_t7_rdi_fast_v14_1.cfi_code.dissect = function(buffer, offset, packet, pare
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.cfi_code, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.cfi_code, range, "")
-    absent:set_text("Cfi Code: No Value")
+    absent:set_text("CFI Code: No Value")
   end
 
   return offset, value
@@ -7852,10 +7838,10 @@ eurex_t7_rdi_fast_v14_1.leg_symbol.dissect = function(buffer, offset, packet, pa
   return offset, value
 end
 
--- Leg Security Id
+-- Leg Security ID
 eurex_t7_rdi_fast_v14_1.leg_security_id = {}
 
--- Dissect: Leg Security Id
+-- Dissect: Leg Security ID
 eurex_t7_rdi_fast_v14_1.leg_security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7871,16 +7857,16 @@ eurex_t7_rdi_fast_v14_1.leg_security_id.dissect = function(buffer, offset, packe
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.leg_security_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.leg_security_id, range, Int64(0))
-    absent:set_text("Leg Security Id: No Value")
+    absent:set_text("Leg Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Leg Security Id Source
+-- Leg Security ID Source
 eurex_t7_rdi_fast_v14_1.leg_security_id_source = {}
 
--- Dissect: Leg Security Id Source
+-- Dissect: Leg Security ID Source
 eurex_t7_rdi_fast_v14_1.leg_security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7893,7 +7879,7 @@ eurex_t7_rdi_fast_v14_1.leg_security_id_source.dissect = function(buffer, offset
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.leg_security_id_source, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.leg_security_id_source, range, "")
-    absent:set_text("Leg Security Id Source: No Value")
+    absent:set_text("Leg Security ID Source: No Value")
   end
 
   return offset, value
@@ -8215,10 +8201,10 @@ eurex_t7_rdi_fast_v14_1.trading_style.dissect = function(buffer, offset, packet,
   return offset, value
 end
 
--- Underlying Market Segment Id
+-- Underlying Market Segment ID
 eurex_t7_rdi_fast_v14_1.underlying_market_segment_id = {}
 
--- Dissect: Underlying Market Segment Id
+-- Dissect: Underlying Market Segment ID
 eurex_t7_rdi_fast_v14_1.underlying_market_segment_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -8231,7 +8217,7 @@ eurex_t7_rdi_fast_v14_1.underlying_market_segment_id.dissect = function(buffer, 
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Underlying Market Segment Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Underlying Market Segment ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -8242,7 +8228,7 @@ eurex_t7_rdi_fast_v14_1.underlying_market_segment_id.dissect = function(buffer, 
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.underlying_market_segment_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.underlying_market_segment_id, range, 0)
-    absent:set_text("Underlying Market Segment Id: No Value")
+    absent:set_text("Underlying Market Segment ID: No Value")
   end
 
   return offset, value
@@ -8478,10 +8464,10 @@ eurex_t7_rdi_fast_v14_1.transact_time_delta_required.dissect = function(buffer, 
   return offset, value
 end
 
--- Ref Tick Table Id
+-- Ref Tick Table ID
 eurex_t7_rdi_fast_v14_1.ref_tick_table_id = {}
 
--- Dissect: Ref Tick Table Id
+-- Dissect: Ref Tick Table ID
 eurex_t7_rdi_fast_v14_1.ref_tick_table_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -8494,7 +8480,7 @@ eurex_t7_rdi_fast_v14_1.ref_tick_table_id.dissect = function(buffer, offset, pac
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Ref Tick Table Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Ref Tick Table ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -8505,7 +8491,7 @@ eurex_t7_rdi_fast_v14_1.ref_tick_table_id.dissect = function(buffer, offset, pac
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.ref_tick_table_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.ref_tick_table_id, range, 0)
-    absent:set_text("Ref Tick Table Id: No Value")
+    absent:set_text("Ref Tick Table ID: No Value")
   end
 
   return offset, value
@@ -8817,10 +8803,10 @@ eurex_t7_rdi_fast_v14_1.midpoint_trading.dissect = function(buffer, offset, pack
   return offset, value
 end
 
--- Midpoint Exec Venue Id
+-- Midpoint Exec Venue ID
 eurex_t7_rdi_fast_v14_1.midpoint_exec_venue_id = {}
 
--- Dissect: Midpoint Exec Venue Id
+-- Dissect: Midpoint Exec Venue ID
 eurex_t7_rdi_fast_v14_1.midpoint_exec_venue_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -8839,7 +8825,7 @@ eurex_t7_rdi_fast_v14_1.midpoint_exec_venue_id.dissect = function(buffer, offset
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.midpoint_exec_venue_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.midpoint_exec_venue_id, range, "")
-    absent:set_text("Midpoint Exec Venue Id: No Value")
+    absent:set_text("Midpoint Exec Venue ID: No Value")
   end
 
   return offset, value
@@ -8867,10 +8853,10 @@ eurex_t7_rdi_fast_v14_1.no_instrument_parties.dissect = function(buffer, offset,
   return offset, value
 end
 
--- Instrument Party Id
+-- Instrument Party ID
 eurex_t7_rdi_fast_v14_1.instrument_party_id = {}
 
--- Dissect: Instrument Party Id
+-- Dissect: Instrument Party ID
 eurex_t7_rdi_fast_v14_1.instrument_party_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -8883,7 +8869,7 @@ eurex_t7_rdi_fast_v14_1.instrument_party_id.dissect = function(buffer, offset, p
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Instrument Party Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Instrument Party ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -8894,29 +8880,29 @@ eurex_t7_rdi_fast_v14_1.instrument_party_id.dissect = function(buffer, offset, p
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.instrument_party_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.instrument_party_id, range, "")
-    absent:set_text("Instrument Party Id: No Value")
+    absent:set_text("Instrument Party ID: No Value")
   end
 
   return offset, value
 end
 
--- Instrument Party Id Source
+-- Instrument Party ID Source
 eurex_t7_rdi_fast_v14_1.instrument_party_id_source = {}
 
--- Display: Instrument Party Id Source
+-- Display: Instrument Party ID Source
 eurex_t7_rdi_fast_v14_1.instrument_party_id_source.display = function(value)
   if value == nil then
-    return "Instrument Party Id Source: No Value"
+    return "Instrument Party ID Source: No Value"
   end
 
   if value == 0 then
-    return "Instrument Party Id Source: Proprietary (D)"
+    return "Instrument Party ID Source: Proprietary (D)"
   end
 
-  return "Instrument Party Id Source: Unknown("..value..")"
+  return "Instrument Party ID Source: Unknown("..value..")"
 end
 
--- Dissect: Instrument Party Id Source
+-- Dissect: Instrument Party ID Source
 eurex_t7_rdi_fast_v14_1.instrument_party_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -8929,7 +8915,7 @@ eurex_t7_rdi_fast_v14_1.instrument_party_id_source.dissect = function(buffer, of
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Instrument Party Id Source was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Instrument Party ID Source was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -10501,10 +10487,10 @@ eurex_t7_rdi_fast_v14_1.security_sub_type.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Related Security Id
+-- Related Security ID
 eurex_t7_rdi_fast_v14_1.related_security_id = {}
 
--- Dissect: Related Security Id
+-- Dissect: Related Security ID
 eurex_t7_rdi_fast_v14_1.related_security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -10520,16 +10506,16 @@ eurex_t7_rdi_fast_v14_1.related_security_id.dissect = function(buffer, offset, p
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.related_security_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.related_security_id, range, Int64(0))
-    absent:set_text("Related Security Id: No Value")
+    absent:set_text("Related Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Related Security Id Source
+-- Related Security ID Source
 eurex_t7_rdi_fast_v14_1.related_security_id_source = {}
 
--- Dissect: Related Security Id Source
+-- Dissect: Related Security ID Source
 eurex_t7_rdi_fast_v14_1.related_security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -10542,7 +10528,7 @@ eurex_t7_rdi_fast_v14_1.related_security_id_source.dissect = function(buffer, of
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.related_security_id_source, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.related_security_id_source, range, "")
-    absent:set_text("Related Security Id Source: No Value")
+    absent:set_text("Related Security ID Source: No Value")
   end
 
   return offset, value
@@ -10810,35 +10796,35 @@ eurex_t7_rdi_fast_v14_1.no_trading_session_rules.dissect = function(buffer, offs
   return offset, value
 end
 
--- Trading Session Id
+-- Trading Session ID
 eurex_t7_rdi_fast_v14_1.trading_session_id = {}
 
--- Display: Trading Session Id
+-- Display: Trading Session ID
 eurex_t7_rdi_fast_v14_1.trading_session_id.display = function(value)
   if value == nil then
-    return "Trading Session Id: No Value"
+    return "Trading Session ID: No Value"
   end
 
   if value == 0 then
-    return "Trading Session Id: Day (1)"
+    return "Trading Session ID: Day (1)"
   end
   if value == 1 then
-    return "Trading Session Id: Morning (3)"
+    return "Trading Session ID: Morning (3)"
   end
   if value == 2 then
-    return "Trading Session Id: Evening (5)"
+    return "Trading Session ID: Evening (5)"
   end
   if value == 3 then
-    return "Trading Session Id: AfterHours (6)"
+    return "Trading Session ID: AfterHours (6)"
   end
   if value == 4 then
-    return "Trading Session Id: Holiday (7)"
+    return "Trading Session ID: Holiday (7)"
   end
 
-  return "Trading Session Id: Unknown("..value..")"
+  return "Trading Session ID: Unknown("..value..")"
 end
 
--- Dissect: Trading Session Id
+-- Dissect: Trading Session ID
 eurex_t7_rdi_fast_v14_1.trading_session_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -10859,50 +10845,50 @@ eurex_t7_rdi_fast_v14_1.trading_session_id.dissect = function(buffer, offset, pa
   return offset, value
 end
 
--- Trading Session Sub Id
+-- Trading Session Sub ID
 eurex_t7_rdi_fast_v14_1.trading_session_sub_id = {}
 
--- Display: Trading Session Sub Id
+-- Display: Trading Session Sub ID
 eurex_t7_rdi_fast_v14_1.trading_session_sub_id.display = function(value)
   if value == nil then
-    return "Trading Session Sub Id: No Value"
+    return "Trading Session Sub ID: No Value"
   end
 
   if value == 0 then
-    return "Trading Session Sub Id: PreTrading (1)"
+    return "Trading Session Sub ID: PreTrading (1)"
   end
   if value == 1 then
-    return "Trading Session Sub Id: Continuous (3)"
+    return "Trading Session Sub ID: Continuous (3)"
   end
   if value == 2 then
-    return "Trading Session Sub Id: Closing (4)"
+    return "Trading Session Sub ID: Closing (4)"
   end
   if value == 3 then
-    return "Trading Session Sub Id: PostTrading (5)"
+    return "Trading Session Sub ID: PostTrading (5)"
   end
   if value == 4 then
-    return "Trading Session Sub Id: ScheduledIntradayAuction (6)"
+    return "Trading Session Sub ID: ScheduledIntradayAuction (6)"
   end
   if value == 5 then
-    return "Trading Session Sub Id: Quiescent (7)"
+    return "Trading Session Sub ID: Quiescent (7)"
   end
   if value == 6 then
-    return "Trading Session Sub Id: AnyAuction (8)"
+    return "Trading Session Sub ID: AnyAuction (8)"
   end
   if value == 7 then
-    return "Trading Session Sub Id: OutOfMainSessionTrading (10)"
+    return "Trading Session Sub ID: OutOfMainSessionTrading (10)"
   end
   if value == 8 then
-    return "Trading Session Sub Id: ContinuousAuctionIssuer (103)"
+    return "Trading Session Sub ID: ContinuousAuctionIssuer (103)"
   end
   if value == 9 then
-    return "Trading Session Sub Id: ContinuousAuctionSpecialist (104)"
+    return "Trading Session Sub ID: ContinuousAuctionSpecialist (104)"
   end
 
-  return "Trading Session Sub Id: Unknown("..value..")"
+  return "Trading Session Sub ID: Unknown("..value..")"
 end
 
--- Dissect: Trading Session Sub Id
+-- Dissect: Trading Session Sub ID
 eurex_t7_rdi_fast_v14_1.trading_session_sub_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -10915,7 +10901,7 @@ eurex_t7_rdi_fast_v14_1.trading_session_sub_id.dissect = function(buffer, offset
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Trading Session Sub Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Trading Session Sub ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -12114,10 +12100,10 @@ eurex_t7_rdi_fast_v14_1.conversion_mode_qualifier.dissect = function(buffer, off
   return offset, value
 end
 
--- Md Report Count
+-- MD Report Count
 eurex_t7_rdi_fast_v14_1.md_report_count = {}
 
--- Dissect: Md Report Count
+-- Dissect: MD Report Count
 eurex_t7_rdi_fast_v14_1.md_report_count.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -12130,16 +12116,16 @@ eurex_t7_rdi_fast_v14_1.md_report_count.dissect = function(buffer, offset, packe
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.md_report_count, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.md_report_count, range, 0)
-    absent:set_text("Md Report Count: No Value")
+    absent:set_text("MD Report Count: No Value")
   end
 
   return offset, value
 end
 
--- Sender Sub Id
+-- Sender Sub ID
 eurex_t7_rdi_fast_v14_1.sender_sub_id = {}
 
--- Dissect: Sender Sub Id
+-- Dissect: Sender Sub ID
 eurex_t7_rdi_fast_v14_1.sender_sub_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -12152,7 +12138,7 @@ eurex_t7_rdi_fast_v14_1.sender_sub_id.dissect = function(buffer, offset, packet,
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Sub Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Sub ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -12163,7 +12149,7 @@ eurex_t7_rdi_fast_v14_1.sender_sub_id.dissect = function(buffer, offset, packet,
     parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.sender_sub_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.sender_sub_id, range, 0)
-    absent:set_text("Sender Sub Id: No Value")
+    absent:set_text("Sender Sub ID: No Value")
   end
 
   return offset, value
@@ -12219,56 +12205,56 @@ eurex_t7_rdi_fast_v14_1.last_msg_seq_num_processed_sent.dissect = function(buffe
   return offset, value
 end
 
--- Md Report Event
+-- MD Report Event
 eurex_t7_rdi_fast_v14_1.md_report_event = {}
 
--- Display: Md Report Event
+-- Display: MD Report Event
 eurex_t7_rdi_fast_v14_1.md_report_event.display = function(value)
   if value == nil then
-    return "Md Report Event: No Value"
+    return "MD Report Event: No Value"
   end
 
   if value == 0 then
-    return "Md Report Event: StartOfReferenceData (1)"
+    return "MD Report Event: StartOfReferenceData (1)"
   end
   if value == 1 then
-    return "Md Report Event: EndOfReferenceData (2)"
+    return "MD Report Event: EndOfReferenceData (2)"
   end
   if value == 2 then
-    return "Md Report Event: StartOfOtcTrades (3)"
+    return "MD Report Event: StartOfOtcTrades (3)"
   end
   if value == 3 then
-    return "Md Report Event: EndOfOtcTrades (4)"
+    return "MD Report Event: EndOfOtcTrades (4)"
   end
   if value == 4 then
-    return "Md Report Event: StartOfExchTrades (5)"
+    return "MD Report Event: StartOfExchTrades (5)"
   end
   if value == 5 then
-    return "Md Report Event: EndOfExchTrades (6)"
+    return "MD Report Event: EndOfExchTrades (6)"
   end
   if value == 6 then
-    return "Md Report Event: StartOfOpenInterest (7)"
+    return "MD Report Event: StartOfOpenInterest (7)"
   end
   if value == 7 then
-    return "Md Report Event: EndOfOpenInterest (8)"
+    return "MD Report Event: EndOfOpenInterest (8)"
   end
   if value == 8 then
-    return "Md Report Event: StartOfSettlement (9)"
+    return "MD Report Event: StartOfSettlement (9)"
   end
   if value == 9 then
-    return "Md Report Event: EndOfSettlement (10)"
+    return "MD Report Event: EndOfSettlement (10)"
   end
   if value == 10 then
-    return "Md Report Event: StartOfStatisticMetaData (11)"
+    return "MD Report Event: StartOfStatisticMetaData (11)"
   end
   if value == 11 then
-    return "Md Report Event: EndOfStatisticMetaData (12)"
+    return "MD Report Event: EndOfStatisticMetaData (12)"
   end
 
-  return "Md Report Event: Unknown("..value..")"
+  return "MD Report Event: Unknown("..value..")"
 end
 
--- Dissect: Md Report Event
+-- Dissect: MD Report Event
 eurex_t7_rdi_fast_v14_1.md_report_event.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -12281,7 +12267,7 @@ eurex_t7_rdi_fast_v14_1.md_report_event.dissect = function(buffer, offset, packe
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Report Event was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Report Event was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -12378,10 +12364,10 @@ eurex_t7_rdi_fast_v14_1.beacon.fields = function(buffer, offset, packet, parent,
   -- Msg Type: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.msg_type_constant_0.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|12:SenderCompID")
 
-  -- Sender Sub Id: uInt32, Copy
+  -- Sender Sub ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.sender_sub_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|11:SenderSubID")
 
   -- Last Msg Seq Num Processed: uInt32, sent
@@ -12420,19 +12406,19 @@ eurex_t7_rdi_fast_v14_1.market_data_report.fields = function(buffer, offset, pac
   -- Msg Type: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.msg_type_constant_dr.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Report Count: uInt32, sent, optional
+  -- MD Report Count: uInt32, sent, optional
   index, value = eurex_t7_rdi_fast_v14_1.md_report_count.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Sub Id: uInt32, Copy
+  -- Sender Sub ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.sender_sub_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|11:SenderSubID")
 
-  -- Market Id: string, Copy
+  -- Market ID: string, Copy
   index, value = eurex_t7_rdi_fast_v14_1.market_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|8:MarketID")
 
   -- Last Msg Seq Num Processed: uInt32, Delta, optional
   index, value = eurex_t7_rdi_fast_v14_1.last_msg_seq_num_processed_delta.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|22:LastMsgSeqNumProcessed")
 
-  -- Md Report Event: uInt32, Copy
+  -- MD Report Event: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.md_report_event.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|13:MDReportEvent")
 
   -- Transact Time: timestamp, Delta
@@ -12518,13 +12504,13 @@ eurex_t7_rdi_fast_v14_1.trade_at_reference_price_status.fields = function(buffer
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_rdi_fast_v14_1.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Market Segment Id: uInt32, Delta
+  -- Market Segment ID: uInt32, Delta
   index, value = eurex_t7_rdi_fast_v14_1.market_segment_id_delta.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|15:MarketSegmentID")
 
-  -- Security Id: int64, Delta
+  -- Security ID: int64, Delta
   index, value = eurex_t7_rdi_fast_v14_1.security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Type: uInt32, Constant
@@ -12648,13 +12634,13 @@ eurex_t7_rdi_fast_v14_1.total_return_futures_status.fields = function(buffer, of
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_rdi_fast_v14_1.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Market Segment Id: uInt32, Delta
+  -- Market Segment ID: uInt32, Delta
   index, value = eurex_t7_rdi_fast_v14_1.market_segment_id_delta.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|15:MarketSegmentID")
 
-  -- Security Id: int64, Delta
+  -- Security ID: int64, Delta
   index, value = eurex_t7_rdi_fast_v14_1.security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Type: uInt32, Constant
@@ -12776,13 +12762,13 @@ eurex_t7_rdi_fast_v14_1.variance_futures_status.fields = function(buffer, offset
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_rdi_fast_v14_1.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Market Segment Id: uInt32, Delta
+  -- Market Segment ID: uInt32, Delta
   index, value = eurex_t7_rdi_fast_v14_1.market_segment_id_delta.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|15:MarketSegmentID")
 
-  -- Security Id: int64, Delta
+  -- Security ID: int64, Delta
   index, value = eurex_t7_rdi_fast_v14_1.security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Type: uInt32, Constant
@@ -12818,10 +12804,10 @@ eurex_t7_rdi_fast_v14_1.trading_session_rules.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Trading Session Id: uInt32, Constant
+  -- Trading Session ID: uInt32, Constant
   index, value = eurex_t7_rdi_fast_v14_1.trading_session_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: uInt32, Copy
+  -- Trading Session Sub ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.trading_session_sub_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|19:TradingSessionSubID")
 
   return index
@@ -12857,7 +12843,7 @@ eurex_t7_rdi_fast_v14_1.instrument_incremental_price_range_rules.fields = functi
   local index = offset
   local value = nil
 
-  -- Price Range Rule Id: uInt32, Copy
+  -- Price Range Rule ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.price_range_rule_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|16:PriceRangeRuleID")
 
   return index
@@ -12932,7 +12918,7 @@ eurex_t7_rdi_fast_v14_1.market_segment_grp.fields = function(buffer, offset, pac
   local index = offset
   local value = nil
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|15:MarketSegmentID")
 
   -- Implied Market Indicator: uInt32, Copy, optional
@@ -13010,10 +12996,10 @@ eurex_t7_rdi_fast_v14_1.related_instrument_grp.fields = function(buffer, offset,
   local index = offset
   local value = nil
 
-  -- Related Security Id: int64, Delta
+  -- Related Security ID: int64, Delta
   index, value = eurex_t7_rdi_fast_v14_1.related_security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|17:RelatedSecurityID")
 
-  -- Related Security Id Source: string, Constant
+  -- Related Security ID Source: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.related_security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -13296,10 +13282,10 @@ eurex_t7_rdi_fast_v14_1.instrument_parties.fields = function(buffer, offset, pac
   local index = offset
   local value = nil
 
-  -- Instrument Party Id: string, Copy
+  -- Instrument Party ID: string, Copy
   index, value = eurex_t7_rdi_fast_v14_1.instrument_party_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|17:InstrumentPartyID")
 
-  -- Instrument Party Id Source: uInt32, Copy
+  -- Instrument Party ID Source: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.instrument_party_id_source.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|23:InstrumentPartyIDSource")
 
   -- Instrument Party Role: uInt32, Copy
@@ -13341,7 +13327,7 @@ eurex_t7_rdi_fast_v14_1.cash_descriptor_group.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Ref Tick Table Id: uInt32, Copy
+  -- Ref Tick Table ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.ref_tick_table_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|14:RefTickTableID")
 
   -- Currency: string, Default
@@ -13380,7 +13366,7 @@ eurex_t7_rdi_fast_v14_1.cash_descriptor_group.fields = function(buffer, offset, 
   -- Midpoint Trading: uInt32, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.midpoint_trading.dissect(buffer, index, packet, parent, presence_map[base + 11], state, "6:global|0:|15:MidpointTrading")
 
-  -- Midpoint Exec Venue Id: string, Copy, optional
+  -- Midpoint Exec Venue ID: string, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.midpoint_exec_venue_id.dissect(buffer, index, packet, parent, presence_map[base + 12], state, "6:global|0:|19:MidpointExecVenueID")
 
   -- No Instrument Parties: uInt32, sent, optional
@@ -13447,10 +13433,10 @@ eurex_t7_rdi_fast_v14_1.instrmt_leg_grp.fields = function(buffer, offset, packet
   -- Leg Symbol: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.leg_symbol.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:LegSymbol")
 
-  -- Leg Security Id: int64, Delta
+  -- Leg Security ID: int64, Delta
   index, value = eurex_t7_rdi_fast_v14_1.leg_security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|13:LegSecurityID")
 
-  -- Leg Security Id Source: string, Constant
+  -- Leg Security ID Source: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.leg_security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Leg Security Type: uInt32, Default
@@ -13641,7 +13627,7 @@ eurex_t7_rdi_fast_v14_1.instrument_incremental_derivatives_descriptor_group.fiel
   local index = offset
   local value = nil
 
-  -- Cfi Code: string, Copy, optional
+  -- CFI Code: string, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.cfi_code.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|7:CFICode")
 
   -- Display Name: string, Copy, optional
@@ -13712,10 +13698,10 @@ eurex_t7_rdi_fast_v14_1.security_alt.fields = function(buffer, offset, packet, p
   local index = offset
   local value = nil
 
-  -- Security Alt Id: string, Delta
+  -- Security Alt ID: string, Delta
   index, value = eurex_t7_rdi_fast_v14_1.security_alt_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|13:SecurityAltID")
 
-  -- Security Alt Id Source: string, Copy
+  -- Security Alt ID Source: string, Copy
   index, value = eurex_t7_rdi_fast_v14_1.security_alt_id_source.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|19:SecurityAltIDSource")
 
   return index
@@ -13780,16 +13766,16 @@ eurex_t7_rdi_fast_v14_1.instrument_incremental.fields = function(buffer, offset,
   -- Security Update Action: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.security_update_action.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|20:SecurityUpdateAction")
 
-  -- Security Id: int64, Delta
+  -- Security ID: int64, Delta
   index, value = eurex_t7_rdi_fast_v14_1.security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Security Alt Id: uInt32, sent, optional
+  -- No Security Alt ID: uInt32, sent, optional
   index, value = eurex_t7_rdi_fast_v14_1.no_security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt: No Security Alt Id entries
+  -- Security Alt: No Security Alt ID entries
   local count = value or 0
   for security_alt_index = 1, count do
     index = eurex_t7_rdi_fast_v14_1.security_alt.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_index)
@@ -13894,10 +13880,10 @@ eurex_t7_rdi_fast_v14_1.trading_session_rules.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Trading Session Id: uInt32, Constant
+  -- Trading Session ID: uInt32, Constant
   index, value = eurex_t7_rdi_fast_v14_1.trading_session_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Sub Id: uInt32, Copy
+  -- Trading Session Sub ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.trading_session_sub_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|19:TradingSessionSubID")
 
   return index
@@ -13933,7 +13919,7 @@ eurex_t7_rdi_fast_v14_1.instrument_snapshot_price_range_rules.fields = function(
   local index = offset
   local value = nil
 
-  -- Price Range Rule Id: uInt32, Copy
+  -- Price Range Rule ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.price_range_rule_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|16:PriceRangeRuleID")
 
   return index
@@ -14008,7 +13994,7 @@ eurex_t7_rdi_fast_v14_1.market_segment_grp.fields = function(buffer, offset, pac
   local index = offset
   local value = nil
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|15:MarketSegmentID")
 
   -- Implied Market Indicator: uInt32, Copy, optional
@@ -14086,10 +14072,10 @@ eurex_t7_rdi_fast_v14_1.related_instrument_grp.fields = function(buffer, offset,
   local index = offset
   local value = nil
 
-  -- Related Security Id: int64, Delta
+  -- Related Security ID: int64, Delta
   index, value = eurex_t7_rdi_fast_v14_1.related_security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|17:RelatedSecurityID")
 
-  -- Related Security Id Source: string, Constant
+  -- Related Security ID Source: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.related_security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -14372,10 +14358,10 @@ eurex_t7_rdi_fast_v14_1.instrument_parties.fields = function(buffer, offset, pac
   local index = offset
   local value = nil
 
-  -- Instrument Party Id: string, Copy
+  -- Instrument Party ID: string, Copy
   index, value = eurex_t7_rdi_fast_v14_1.instrument_party_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|17:InstrumentPartyID")
 
-  -- Instrument Party Id Source: uInt32, Copy
+  -- Instrument Party ID Source: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.instrument_party_id_source.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|23:InstrumentPartyIDSource")
 
   -- Instrument Party Role: uInt32, Copy
@@ -14417,7 +14403,7 @@ eurex_t7_rdi_fast_v14_1.cash_descriptor_group.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Ref Tick Table Id: uInt32, Copy
+  -- Ref Tick Table ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.ref_tick_table_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|14:RefTickTableID")
 
   -- Currency: string, Default
@@ -14456,7 +14442,7 @@ eurex_t7_rdi_fast_v14_1.cash_descriptor_group.fields = function(buffer, offset, 
   -- Midpoint Trading: uInt32, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.midpoint_trading.dissect(buffer, index, packet, parent, presence_map[base + 11], state, "6:global|0:|15:MidpointTrading")
 
-  -- Midpoint Exec Venue Id: string, Copy, optional
+  -- Midpoint Exec Venue ID: string, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.midpoint_exec_venue_id.dissect(buffer, index, packet, parent, presence_map[base + 12], state, "6:global|0:|19:MidpointExecVenueID")
 
   -- No Instrument Parties: uInt32, sent, optional
@@ -14520,13 +14506,13 @@ eurex_t7_rdi_fast_v14_1.underlying_instrument.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Underlying Market Segment Id: uInt32, Copy
+  -- Underlying Market Segment ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.underlying_market_segment_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|25:UnderlyingMarketSegmentID")
 
-  -- Underlying Security Id: int64, sent
+  -- Underlying Security ID: int64, sent
   index, value = eurex_t7_rdi_fast_v14_1.underlying_security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id Source: string, Constant
+  -- Underlying Security ID Source: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.underlying_security_id_source_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -14560,10 +14546,10 @@ eurex_t7_rdi_fast_v14_1.instrmt_leg_grp.fields = function(buffer, offset, packet
   -- Leg Symbol: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.leg_symbol.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:LegSymbol")
 
-  -- Leg Security Id: int64, Delta
+  -- Leg Security ID: int64, Delta
   index, value = eurex_t7_rdi_fast_v14_1.leg_security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|13:LegSecurityID")
 
-  -- Leg Security Id Source: string, Constant
+  -- Leg Security ID Source: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.leg_security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Leg Security Type: uInt32, Default
@@ -14799,7 +14785,7 @@ eurex_t7_rdi_fast_v14_1.instrument_snapshot_derivatives_descriptor_group.fields 
   local index = offset
   local value = nil
 
-  -- Cfi Code: string, Copy, optional
+  -- CFI Code: string, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.cfi_code.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|7:CFICode")
 
   -- Display Name: string, Copy, optional
@@ -14875,10 +14861,10 @@ eurex_t7_rdi_fast_v14_1.security_alt.fields = function(buffer, offset, packet, p
   local index = offset
   local value = nil
 
-  -- Security Alt Id: string, Delta
+  -- Security Alt ID: string, Delta
   index, value = eurex_t7_rdi_fast_v14_1.security_alt_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|13:SecurityAltID")
 
-  -- Security Alt Id Source: string, Copy
+  -- Security Alt ID Source: string, Copy
   index, value = eurex_t7_rdi_fast_v14_1.security_alt_id_source.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|19:SecurityAltIDSource")
 
   return index
@@ -14939,16 +14925,16 @@ eurex_t7_rdi_fast_v14_1.instrument_snapshot.fields = function(buffer, offset, pa
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_rdi_fast_v14_1.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Security Id: int64, Delta
+  -- Security ID: int64, Delta
   index, value = eurex_t7_rdi_fast_v14_1.security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_rdi_fast_v14_1.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Security Alt Id: uInt32, sent, optional
+  -- No Security Alt ID: uInt32, sent, optional
   index, value = eurex_t7_rdi_fast_v14_1.no_security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt: No Security Alt Id entries
+  -- Security Alt: No Security Alt ID entries
   local count = value or 0
   for security_alt_index = 1, count do
     index = eurex_t7_rdi_fast_v14_1.security_alt.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_index)
@@ -15053,10 +15039,10 @@ eurex_t7_rdi_fast_v14_1.feeds.fields = function(buffer, offset, packet, parent, 
   local index = offset
   local value = nil
 
-  -- Md Feed Type: uInt32, Default
+  -- MD Feed Type: uInt32, Default
   index, value = eurex_t7_rdi_fast_v14_1.md_feed_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Md Book Type: uInt32, Default
+  -- MD Book Type: uInt32, Default
   index, value = eurex_t7_rdi_fast_v14_1.md_book_type.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Market Depth: uInt32, Copy, optional
@@ -15065,19 +15051,19 @@ eurex_t7_rdi_fast_v14_1.feeds.fields = function(buffer, offset, packet, parent, 
   -- Market Depth Time Interval: uInt32, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.market_depth_time_interval.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|23:MarketDepthTimeInterval")
 
-  -- Md Recovery Time Interval: uInt32, Copy, optional
+  -- MD Recovery Time Interval: uInt32, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.md_recovery_time_interval.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|22:MDRecoveryTimeInterval")
 
-  -- Primary Service Location Id: string, Delta
+  -- Primary Service Location ID: string, Delta
   index, value = eurex_t7_rdi_fast_v14_1.primary_service_location_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|24:PrimaryServiceLocationID")
 
-  -- Primary Service Location Sub Id: uInt32, Delta
+  -- Primary Service Location Sub ID: uInt32, Delta
   index, value = eurex_t7_rdi_fast_v14_1.primary_service_location_sub_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|27:PrimaryServiceLocationSubID")
 
-  -- Secondary Service Location Id: string, Delta, optional
+  -- Secondary Service Location ID: string, Delta, optional
   index, value = eurex_t7_rdi_fast_v14_1.secondary_service_location_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|26:SecondaryServiceLocationID")
 
-  -- Secondary Service Location Sub Id: uInt32, Delta, optional
+  -- Secondary Service Location Sub ID: uInt32, Delta, optional
   index, value = eurex_t7_rdi_fast_v14_1.secondary_service_location_sub_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|29:SecondaryServiceLocationSubID")
 
   return index
@@ -15359,24 +15345,24 @@ eurex_t7_rdi_fast_v14_1.base_trdg_rules_derivatives.dissect = function(buffer, o
   return index
 end
 
--- Hhi Intervals
+-- HHI Intervals
 eurex_t7_rdi_fast_v14_1.hhi_intervals = {}
 
--- Dissect Fields: Hhi Intervals
+-- Dissect Fields: HHI Intervals
 eurex_t7_rdi_fast_v14_1.hhi_intervals.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Hhi Indicator: uInt32, Increment
+  -- HHI Indicator: uInt32, Increment
   index, value = eurex_t7_rdi_fast_v14_1.hhi_indicator.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|12:HHIIndicator")
 
-  -- Hhi Interval End: decimal, sent
+  -- HHI Interval End: decimal, sent
   index, value = eurex_t7_rdi_fast_v14_1.hhi_interval_end.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   return index
 end
 
--- Dissect: Hhi Intervals
+-- Dissect: HHI Intervals
 eurex_t7_rdi_fast_v14_1.hhi_intervals.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_eurex_t7_rdi_fast_v14_1.fields.hhi_intervals, buffer(offset, 0))
   local index = offset
@@ -15406,7 +15392,7 @@ eurex_t7_rdi_fast_v14_1.product_snapshot_price_range_rules.fields = function(buf
   local index = offset
   local value = nil
 
-  -- Price Range Rule Id: uInt32, Copy
+  -- Price Range Rule ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.price_range_rule_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|16:PriceRangeRuleID")
 
   -- Price Range Product Complex: uInt32, Copy
@@ -15490,7 +15476,7 @@ eurex_t7_rdi_fast_v14_1.tick_rules.fields = function(buffer, offset, packet, par
   local index = offset
   local value = nil
 
-  -- Tick Rule Id: uInt32, Copy
+  -- Tick Rule ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.tick_rule_id.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|10:TickRuleID")
 
   -- Start Tick Price Range: decimal, Delta
@@ -15574,10 +15560,10 @@ eurex_t7_rdi_fast_v14_1.base_trdg_rules.fields = function(buffer, offset, packet
   -- Check Market Order: uInt32, Default, optional
   index, value = eurex_t7_rdi_fast_v14_1.check_market_order.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
-  -- No Hhi Intervals: uInt32, Copy, optional
+  -- No HHI Intervals: uInt32, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.no_hhi_intervals.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "6:global|0:|14:NoHHIIntervals")
 
-  -- Hhi Intervals: No Hhi Intervals entries
+  -- HHI Intervals: No HHI Intervals entries
   local count = value or 0
   for hhi_intervals_index = 1, count do
     index = eurex_t7_rdi_fast_v14_1.hhi_intervals.dissect(buffer, index, packet, parent, presence_map, base, state, hhi_intervals_index)
@@ -15611,7 +15597,7 @@ eurex_t7_rdi_fast_v14_1.related_market_segments.fields = function(buffer, offset
   local index = offset
   local value = nil
 
-  -- Related Market Segment Id: uInt32, Delta
+  -- Related Market Segment ID: uInt32, Delta
   index, value = eurex_t7_rdi_fast_v14_1.related_market_segment_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|22:RelatedMarketSegmentID")
 
   -- Market Segments Relationship: uInt32, Copy
@@ -15701,10 +15687,10 @@ eurex_t7_rdi_fast_v14_1.underlying_descriptor_group.fields = function(buffer, of
   -- Underlying Symbol: string, Delta, optional
   index, value = eurex_t7_rdi_fast_v14_1.underlying_symbol.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|16:UnderlyingSymbol")
 
-  -- Underlying Security Id: string, Delta, optional
+  -- Underlying Security ID: string, Delta, optional
   index, value = eurex_t7_rdi_fast_v14_1.underlying_security_id_delta.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|20:UnderlyingSecurityID")
 
-  -- Underlying Security Id Source: string, Default, optional
+  -- Underlying Security ID Source: string, Default, optional
   index, value = eurex_t7_rdi_fast_v14_1.underlying_security_id_source_default.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Underlying Prev Close Px: decimal, Delta, optional
@@ -15777,13 +15763,13 @@ eurex_t7_rdi_fast_v14_1.product_snapshot_derivatives_descriptor_group.fields = f
   -- Market Segment Symbol: string, Delta, optional
   index, value = eurex_t7_rdi_fast_v14_1.market_segment_symbol.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|19:MarketSegmentSymbol")
 
-  -- Parent Mkt Segm Id: string, Copy, optional
+  -- Parent Mkt Segm ID: string, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.parent_mkt_segm_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|15:ParentMktSegmID")
 
   -- Max Diff Exp Months: uInt32, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.max_diff_exp_months.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|16:MaxDiffExpMonths")
 
-  -- Us Approval: uInt32, Default, optional
+  -- US Approval: uInt32, Default, optional
   index, value = eurex_t7_rdi_fast_v14_1.us_approval.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
   -- Market Segment Type: uInt32, Default, optional
@@ -15795,13 +15781,13 @@ eurex_t7_rdi_fast_v14_1.product_snapshot_derivatives_descriptor_group.fields = f
   -- Decay Split: uInt32, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.decay_split.dissect(buffer, index, packet, parent, presence_map[base + 6], state, "6:global|0:|10:DecaySplit")
 
-  -- Max Offset Rfq Expire Time: uInt32, Copy, optional
+  -- Max Offset RFQ Expire Time: uInt32, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.max_offset_rfq_expire_time.dissect(buffer, index, packet, parent, presence_map[base + 7], state, "6:global|0:|22:MaxOffsetRFQExpireTime")
 
-  -- Offset Stp Effective Time: uInt32, Copy, optional
+  -- Offset STP Effective Time: uInt32, Copy, optional
   index, value = eurex_t7_rdi_fast_v14_1.offset_stp_effective_time.dissect(buffer, index, packet, parent, presence_map[base + 8], state, "6:global|0:|22:OffsetSTPEffectiveTime")
 
-  -- Tsl Market Group Id: uInt32, Delta, optional
+  -- Tsl Market Group ID: uInt32, Delta, optional
   index, value = eurex_t7_rdi_fast_v14_1.tsl_market_group_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|16:TslMarketGroupID")
 
   -- Tsl Market Group: string, Delta, optional
@@ -15810,7 +15796,7 @@ eurex_t7_rdi_fast_v14_1.product_snapshot_derivatives_descriptor_group.fields = f
   -- Independent System Operator: string, Delta, optional
   index, value = eurex_t7_rdi_fast_v14_1.independent_system_operator.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|25:IndependentSystemOperator")
 
-  -- Location Id: string, Delta, optional
+  -- Location ID: string, Delta, optional
   index, value = eurex_t7_rdi_fast_v14_1.location_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|10:LocationID")
 
   -- Product Type: string, Copy, optional
@@ -15834,7 +15820,7 @@ eurex_t7_rdi_fast_v14_1.product_snapshot_derivatives_descriptor_group.fields = f
   -- Max Calendar Spread Vol: decimal, Delta, optional
   index, value = eurex_t7_rdi_fast_v14_1.max_calendar_spread_vol.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|20:MaxCalendarSpreadVol|E", "6:global|0:|20:MaxCalendarSpreadVol|M" })
 
-  -- Max Tes Vol: decimal, Delta, optional
+  -- Max TES Vol: decimal, Delta, optional
   index, value = eurex_t7_rdi_fast_v14_1.max_tes_vol.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|9:MaxTESVol|E", "6:global|0:|9:MaxTESVol|M" })
 
   -- No Quantity Scaling Factors: uInt32, sent, optional
@@ -15900,10 +15886,10 @@ eurex_t7_rdi_fast_v14_1.product_snapshot.fields = function(buffer, offset, packe
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_rdi_fast_v14_1.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Market Id: string, Copy
+  -- Market ID: string, Copy
   index, value = eurex_t7_rdi_fast_v14_1.market_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|8:MarketID")
 
-  -- Market Segment Id: uInt32, Delta
+  -- Market Segment ID: uInt32, Delta
   index, value = eurex_t7_rdi_fast_v14_1.market_segment_id_delta.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|15:MarketSegmentID")
 
   -- Effective Business Date: uInt32, Copy
@@ -15918,10 +15904,10 @@ eurex_t7_rdi_fast_v14_1.product_snapshot.fields = function(buffer, offset, packe
   -- Market Segment Status: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.market_segment_status.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|19:MarketSegmentStatus")
 
-  -- Partition Id: uInt32, Copy
+  -- Partition ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.partition_id.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "6:global|0:|11:PartitionID")
 
-  -- Capacity Group Id: uInt32, Copy
+  -- Capacity Group ID: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.capacity_group_id.dissect(buffer, index, packet, parent, presence_map[base + 6], state, "6:global|0:|15:CapacityGroupID")
 
   -- Negotiation Duration: uInt32, Copy, optional
@@ -15980,10 +15966,10 @@ eurex_t7_rdi_fast_v14_1.product_snapshot.fields = function(buffer, offset, packe
     index = eurex_t7_rdi_fast_v14_1.match_rules.dissect(buffer, index, packet, parent, presence_map, base, state, match_rules_index)
   end
 
-  -- No Md Feed Types: uInt32, Copy
+  -- No MD Feed Types: uInt32, Copy
   index, value = eurex_t7_rdi_fast_v14_1.no_md_feed_types.dissect(buffer, index, packet, parent, presence_map[base + 15], state, "6:global|0:|13:NoMDFeedTypes")
 
-  -- Feeds: No Md Feed Types entries
+  -- Feeds: No MD Feed Types entries
   local count = value or 0
   for feeds_index = 1, count do
     index = eurex_t7_rdi_fast_v14_1.feeds.dissect(buffer, index, packet, parent, presence_map, base, state, feeds_index)
@@ -16002,17 +15988,17 @@ eurex_t7_rdi_fast_v14_1.product_snapshot.dissect = function(buffer, offset, pack
   return index
 end
 
--- Rd Packet Header Framing
+-- RD Packet Header Framing
 eurex_t7_rdi_fast_v14_1.rd_packet_header = {}
 
 eurex_t7_rdi_fast_v14_1.rd_packet_header.node = omi_eurex_t7_rdi_fast_v14_1.fields.rd_packet_header
 
--- Dissect Fields: Rd Packet Header Framing
+-- Dissect Fields: RD Packet Header Framing
 eurex_t7_rdi_fast_v14_1.rd_packet_header.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Sender Comp Id: uInt32, sent
+  -- Sender Comp ID: uInt32, sent
   index, value = eurex_t7_rdi_fast_v14_1.sender_comp_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Packet Seq Num: byteVector, sent
@@ -16024,7 +16010,7 @@ eurex_t7_rdi_fast_v14_1.rd_packet_header.fields = function(buffer, offset, packe
   return index
 end
 
--- Dissect: Rd Packet Header Framing
+-- Dissect: RD Packet Header Framing
 eurex_t7_rdi_fast_v14_1.rd_packet_header.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset

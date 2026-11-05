@@ -1,4 +1,4 @@
-[![Biva](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Biva/Images/Logo.png)](https://www.biva.mx)
+[![Biva](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Biva/Images/Logo.png)](https://www.biva.mx)
 
 
 ## Bolsa Institucional de Valores

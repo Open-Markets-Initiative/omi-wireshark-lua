@@ -251,6 +251,12 @@ runuser -u tester -- tshark \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.Multiplemessages.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.Multiplemessages.json.stderr; exit 1; }
 
-grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g." Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.Multiplemessages.json
+fields=$(grep -c "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g." Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.Multiplemessages.json) \
+  || { echo "--- no nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g fields (MultipleMessages) ---"; exit 1; }
+echo "  nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.' Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

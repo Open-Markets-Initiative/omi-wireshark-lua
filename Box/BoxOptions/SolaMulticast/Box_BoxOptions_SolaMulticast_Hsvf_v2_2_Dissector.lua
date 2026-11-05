@@ -6871,27 +6871,14 @@ end
 -- Instrument Description
 box_boxoptions_solamulticast_hsvf_v2_2.instrument_description = {}
 
--- Calculate size of: Instrument Description
-box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.root_symbol.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.expiry_month_code.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_1.size
-
-  -- Calculate runtime size of Strike Price Fraction Pair field
-  local strike_price_fraction_pair_offset = offset + index
-  local strike_price_fraction_pair_type = buffer(strike_price_fraction_pair_offset + 7, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.strike_price_fraction_pair.size(buffer, strike_price_fraction_pair_offset, strike_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.expiry_year.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.expiry_day.size
-
-  return index
-end
+-- Size: Instrument Description
+box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.root_symbol.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.expiry_month_code.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_1.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.strike_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.expiry_year.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.expiry_day.size
 
 -- Display: Instrument Description
 box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.display = function(packet, parent, length)
@@ -6947,26 +6934,15 @@ end
 -- End Of Auction Or Exposition On Option Message
 box_boxoptions_solamulticast_hsvf_v2_2.end_of_auction_or_exposition_on_option_message = {}
 
--- Calculate size of: End Of Auction Or Exposition On Option Message
-box_boxoptions_solamulticast_hsvf_v2_2.end_of_auction_or_exposition_on_option_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size(buffer, offset + index)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.deletion_type.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.order_sequence_number.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.improvement_order_side.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.improvement_phase_sequential_number.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.auction_type.size
-
-  return index
-end
+-- Size: End Of Auction Or Exposition On Option Message
+box_boxoptions_solamulticast_hsvf_v2_2.end_of_auction_or_exposition_on_option_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.deletion_type.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.order_sequence_number.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.improvement_order_side.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.improvement_phase_sequential_number.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.auction_type.size
 
 -- Display: End Of Auction Or Exposition On Option Message
 box_boxoptions_solamulticast_hsvf_v2_2.end_of_auction_or_exposition_on_option_message.display = function(packet, parent, length)
@@ -7453,45 +7429,23 @@ end
 -- Start Of Exposition On Complex Order Message
 box_boxoptions_solamulticast_hsvf_v2_2.start_of_exposition_on_complex_order_message = {}
 
--- Calculate size of: Start Of Exposition On Complex Order Message
-box_boxoptions_solamulticast_hsvf_v2_2.start_of_exposition_on_complex_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.order_side.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.type_of_order.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.limit_entered_for_an_order_sign.size
-
-  -- Calculate runtime size of Limit Entered For An Order Fraction Pair field
-  local limit_entered_for_an_order_fraction_pair_offset = offset + index
-  local limit_entered_for_an_order_fraction_pair_type = buffer(limit_entered_for_an_order_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.limit_entered_for_an_order_fraction_pair.size(buffer, limit_entered_for_an_order_fraction_pair_offset, limit_entered_for_an_order_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.order_quantity.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.order_sequence_number.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_6.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.type_of_clearing_account.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_1.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.end_of_the_exposition.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.auction_type.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.firm_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.cmta.size
-
-  return index
-end
+-- Size: Start Of Exposition On Complex Order Message
+box_boxoptions_solamulticast_hsvf_v2_2.start_of_exposition_on_complex_order_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.order_side.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.type_of_order.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.limit_entered_for_an_order_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.limit_entered_for_an_order_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.order_quantity.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.order_sequence_number.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_6.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.type_of_clearing_account.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_1.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.end_of_the_exposition.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.auction_type.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.firm_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.cmta.size
 
 -- Display: Start Of Exposition On Complex Order Message
 box_boxoptions_solamulticast_hsvf_v2_2.start_of_exposition_on_complex_order_message.display = function(packet, parent, length)
@@ -7574,43 +7528,22 @@ end
 -- Start Of Exposition On Option Message
 box_boxoptions_solamulticast_hsvf_v2_2.start_of_exposition_on_option_message = {}
 
--- Calculate size of: Start Of Exposition On Option Message
-box_boxoptions_solamulticast_hsvf_v2_2.start_of_exposition_on_option_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size(buffer, offset + index)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.order_side.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.type_of_order.size
-
-  -- Calculate runtime size of Limit Entered For An Order Fraction Pair field
-  local limit_entered_for_an_order_fraction_pair_offset = offset + index
-  local limit_entered_for_an_order_fraction_pair_type = buffer(limit_entered_for_an_order_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.limit_entered_for_an_order_fraction_pair.size(buffer, limit_entered_for_an_order_fraction_pair_offset, limit_entered_for_an_order_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.order_quantity.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.order_sequence_number.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_6.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.type_of_clearing_account.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_1.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.end_of_the_exposition.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.auction_type.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.firm_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.cmta.size
-
-  return index
-end
+-- Size: Start Of Exposition On Option Message
+box_boxoptions_solamulticast_hsvf_v2_2.start_of_exposition_on_option_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.order_side.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.type_of_order.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.limit_entered_for_an_order_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.order_quantity.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.order_sequence_number.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_6.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.type_of_clearing_account.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_1.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.end_of_the_exposition.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.auction_type.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.firm_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.cmta.size
 
 -- Display: Start Of Exposition On Option Message
 box_boxoptions_solamulticast_hsvf_v2_2.start_of_exposition_on_option_message.display = function(packet, parent, length)
@@ -8121,39 +8054,20 @@ end
 -- Start Of Auction On Complex Order Message
 box_boxoptions_solamulticast_hsvf_v2_2.start_of_auction_on_complex_order_message = {}
 
--- Calculate size of: Start Of Auction On Complex Order Message
-box_boxoptions_solamulticast_hsvf_v2_2.start_of_auction_on_complex_order_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.improvement_phase_sequential_number.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.initial_order_price_sign.size
-
-  -- Calculate runtime size of Initial Order Price Fraction Pair field
-  local initial_order_price_fraction_pair_offset = offset + index
-  local initial_order_price_fraction_pair_type = buffer(initial_order_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.initial_order_price_fraction_pair.size(buffer, initial_order_price_fraction_pair_offset, initial_order_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.initial_order_quantity.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.initial_order_side.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.improvement_phase_expiry_time.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_4.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.minimum_quantity_for_improvement_order.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.percentage_assured_to_initial_order.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.auction_type.size
-
-  return index
-end
+-- Size: Start Of Auction On Complex Order Message
+box_boxoptions_solamulticast_hsvf_v2_2.start_of_auction_on_complex_order_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.improvement_phase_sequential_number.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.initial_order_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.initial_order_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.initial_order_quantity.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.initial_order_side.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.improvement_phase_expiry_time.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_4.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.minimum_quantity_for_improvement_order.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.percentage_assured_to_initial_order.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.auction_type.size
 
 -- Display: Start Of Auction On Complex Order Message
 box_boxoptions_solamulticast_hsvf_v2_2.start_of_auction_on_complex_order_message.display = function(packet, parent, length)
@@ -8227,39 +8141,20 @@ end
 -- Start Of Auction On Option Message
 box_boxoptions_solamulticast_hsvf_v2_2.start_of_auction_on_option_message = {}
 
--- Calculate size of: Start Of Auction On Option Message
-box_boxoptions_solamulticast_hsvf_v2_2.start_of_auction_on_option_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size(buffer, offset + index)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.improvement_phase_sequential_number.size
-
-  -- Calculate runtime size of Initial Order Price Fraction Pair field
-  local initial_order_price_fraction_pair_offset = offset + index
-  local initial_order_price_fraction_pair_type = buffer(initial_order_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.initial_order_price_fraction_pair.size(buffer, initial_order_price_fraction_pair_offset, initial_order_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.initial_order_quantity.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.initial_order_side.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.improvement_phase_expiry_time.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_4.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.minimum_quantity_for_improvement_order.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.percentage_assured_to_initial_order.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.auction_type.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_1.size
-
-  return index
-end
+-- Size: Start Of Auction On Option Message
+box_boxoptions_solamulticast_hsvf_v2_2.start_of_auction_on_option_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.improvement_phase_sequential_number.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.initial_order_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.initial_order_quantity.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.initial_order_side.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.improvement_phase_expiry_time.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_4.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.minimum_quantity_for_improvement_order.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.percentage_assured_to_initial_order.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.auction_type.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_1.size
 
 -- Display: Start Of Auction On Option Message
 box_boxoptions_solamulticast_hsvf_v2_2.start_of_auction_on_option_message.display = function(packet, parent, length)
@@ -11474,71 +11369,27 @@ end
 -- Complex Order Summary Message
 box_boxoptions_solamulticast_hsvf_v2_2.complex_order_summary_message = {}
 
--- Calculate size of: Complex Order Summary Message
-box_boxoptions_solamulticast_hsvf_v2_2.complex_order_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_price_sign.size
-
-  -- Calculate runtime size of Bid Price Fraction Pair field
-  local bid_price_fraction_pair_offset = offset + index
-  local bid_price_fraction_pair_type = buffer(bid_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_price_fraction_pair.size(buffer, bid_price_fraction_pair_offset, bid_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_price_sign.size
-
-  -- Calculate runtime size of Ask Price Fraction Pair field
-  local ask_price_fraction_pair_offset = offset + index
-  local ask_price_fraction_pair_type = buffer(ask_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_price_fraction_pair.size(buffer, ask_price_fraction_pair_offset, ask_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.last_price_sign.size
-
-  -- Calculate runtime size of Last Price Fraction Pair field
-  local last_price_fraction_pair_offset = offset + index
-  local last_price_fraction_pair_type = buffer(last_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.last_price_fraction_pair.size(buffer, last_price_fraction_pair_offset, last_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.open_price_sign.size
-
-  -- Calculate runtime size of Open Price Fraction Pair field
-  local open_price_fraction_pair_offset = offset + index
-  local open_price_fraction_pair_type = buffer(open_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.open_price_fraction_pair.size(buffer, open_price_fraction_pair_offset, open_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.high_price_sign.size
-
-  -- Calculate runtime size of High Price Fraction Pair field
-  local high_price_fraction_pair_offset = offset + index
-  local high_price_fraction_pair_type = buffer(high_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.high_price_fraction_pair.size(buffer, high_price_fraction_pair_offset, high_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.low_price_sign.size
-
-  -- Calculate runtime size of Low Price Fraction Pair field
-  local low_price_fraction_pair_offset = offset + index
-  local low_price_fraction_pair_type = buffer(low_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.low_price_fraction_pair.size(buffer, low_price_fraction_pair_offset, low_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Fraction Pair field
-  local net_change_fraction_pair_offset = offset + index
-  local net_change_fraction_pair_type = buffer(net_change_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.net_change_fraction_pair.size(buffer, net_change_fraction_pair_offset, net_change_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.volume.size
-
-  return index
-end
+-- Size: Complex Order Summary Message
+box_boxoptions_solamulticast_hsvf_v2_2.complex_order_summary_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.last_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.last_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.open_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.open_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.high_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.high_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.low_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.low_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.net_change_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.net_change_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.volume.size
 
 -- Display: Complex Order Summary Message
 box_boxoptions_solamulticast_hsvf_v2_2.complex_order_summary_message.display = function(packet, parent, length)
@@ -12126,72 +11977,26 @@ end
 -- Option Summary Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_summary_message = {}
 
--- Calculate size of: Option Summary Message
-box_boxoptions_solamulticast_hsvf_v2_2.option_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size(buffer, offset + index)
-
-  -- Calculate runtime size of Bid Price Fraction Pair field
-  local bid_price_fraction_pair_offset = offset + index
-  local bid_price_fraction_pair_type = buffer(bid_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_price_fraction_pair.size(buffer, bid_price_fraction_pair_offset, bid_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size
-
-  -- Calculate runtime size of Ask Price Fraction Pair field
-  local ask_price_fraction_pair_offset = offset + index
-  local ask_price_fraction_pair_type = buffer(ask_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_price_fraction_pair.size(buffer, ask_price_fraction_pair_offset, ask_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size
-
-  -- Calculate runtime size of Last Price Fraction Pair field
-  local last_price_fraction_pair_offset = offset + index
-  local last_price_fraction_pair_type = buffer(last_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.last_price_fraction_pair.size(buffer, last_price_fraction_pair_offset, last_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_7.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.tick.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.volume.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Fraction Pair field
-  local net_change_fraction_pair_offset = offset + index
-  local net_change_fraction_pair_type = buffer(net_change_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.net_change_fraction_pair.size(buffer, net_change_fraction_pair_offset, net_change_fraction_pair_type)
-
-  -- Calculate runtime size of Open Price Fraction Pair field
-  local open_price_fraction_pair_offset = offset + index
-  local open_price_fraction_pair_type = buffer(open_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.open_price_fraction_pair.size(buffer, open_price_fraction_pair_offset, open_price_fraction_pair_type)
-
-  -- Calculate runtime size of High Price Fraction Pair field
-  local high_price_fraction_pair_offset = offset + index
-  local high_price_fraction_pair_type = buffer(high_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.high_price_fraction_pair.size(buffer, high_price_fraction_pair_offset, high_price_fraction_pair_type)
-
-  -- Calculate runtime size of Low Price Fraction Pair field
-  local low_price_fraction_pair_offset = offset + index
-  local low_price_fraction_pair_type = buffer(low_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.low_price_fraction_pair.size(buffer, low_price_fraction_pair_offset, low_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.option_marker.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.underlying_symbol.size
-
-  -- Calculate runtime size of Reference Price Fraction Pair field
-  local reference_price_fraction_pair_offset = offset + index
-  local reference_price_fraction_pair_type = buffer(reference_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.reference_price_fraction_pair.size(buffer, reference_price_fraction_pair_offset, reference_price_fraction_pair_type)
-
-  return index
-end
+-- Size: Option Summary Message
+box_boxoptions_solamulticast_hsvf_v2_2.option_summary_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.last_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_7.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.tick.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.volume.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.net_change_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.net_change_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.open_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.high_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.low_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.option_marker.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.underlying_symbol.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.reference_price_fraction_pair.size
 
 -- Display: Option Summary Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_summary_message.display = function(packet, parent, length)
@@ -14811,51 +14616,23 @@ end
 -- Option Instrument Keys Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_instrument_keys_message = {}
 
--- Calculate size of: Option Instrument Keys Message
-box_boxoptions_solamulticast_hsvf_v2_2.option_instrument_keys_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size(buffer, offset + index)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.strike_price_currency.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.maximum_number_of_contracts_per_order.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.minimum_number_of_contracts_per_order.size
-
-  -- Calculate runtime size of Maximum Threshold Price Fraction Pair field
-  local maximum_threshold_price_fraction_pair_offset = offset + index
-  local maximum_threshold_price_fraction_pair_type = buffer(maximum_threshold_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.maximum_threshold_price_fraction_pair.size(buffer, maximum_threshold_price_fraction_pair_offset, maximum_threshold_price_fraction_pair_type)
-
-  -- Calculate runtime size of Minimum Threshold Price Fraction Pair field
-  local minimum_threshold_price_fraction_pair_offset = offset + index
-  local minimum_threshold_price_fraction_pair_type = buffer(minimum_threshold_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.minimum_threshold_price_fraction_pair.size(buffer, minimum_threshold_price_fraction_pair_offset, minimum_threshold_price_fraction_pair_type)
-
-  -- Calculate runtime size of Tick Increment Fraction Pair field
-  local tick_increment_fraction_pair_offset = offset + index
-  local tick_increment_fraction_pair_type = buffer(tick_increment_fraction_pair_offset - 0, 6):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.tick_increment_fraction_pair.size(buffer, tick_increment_fraction_pair_offset, tick_increment_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.option_type.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.market_flow_indicator.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.group_instrument.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_external_code.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.option_marker.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.underlying_symbol_root.size
-
-  return index
-end
+-- Size: Option Instrument Keys Message
+box_boxoptions_solamulticast_hsvf_v2_2.option_instrument_keys_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.strike_price_currency.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.maximum_number_of_contracts_per_order.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.minimum_number_of_contracts_per_order.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.maximum_threshold_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.minimum_threshold_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.tick_increment_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.option_type.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.market_flow_indicator.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.group_instrument.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_external_code.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.option_marker.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.underlying_symbol_root.size
 
 -- Display: Option Instrument Keys Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_instrument_keys_message.display = function(packet, parent, length)
@@ -15381,33 +15158,17 @@ end
 -- Complex Order Trade Cancellation Message
 box_boxoptions_solamulticast_hsvf_v2_2.complex_order_trade_cancellation_message = {}
 
--- Calculate size of: Complex Order Trade Cancellation Message
-box_boxoptions_solamulticast_hsvf_v2_2.complex_order_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.volume.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.trade_price_sign.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.opra_trade_marker.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_5.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.timestamp.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.price_indicator_marker.size
-
-  return index
-end
+-- Size: Complex Order Trade Cancellation Message
+box_boxoptions_solamulticast_hsvf_v2_2.complex_order_trade_cancellation_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.volume.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.trade_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.trade_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.opra_trade_marker.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_5.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.timestamp.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.price_indicator_marker.size
 
 -- Display: Complex Order Trade Cancellation Message
 box_boxoptions_solamulticast_hsvf_v2_2.complex_order_trade_cancellation_message.display = function(packet, parent, length)
@@ -15472,33 +15233,17 @@ end
 -- Option Trade Cancellation Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_trade_cancellation_message = {}
 
--- Calculate size of: Option Trade Cancellation Message
-box_boxoptions_solamulticast_hsvf_v2_2.option_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size(buffer, offset + index)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.opra_trade_marker.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_5.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.timestamp.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_8.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.price_indicator_marker.size
-
-  return index
-end
+-- Size: Option Trade Cancellation Message
+box_boxoptions_solamulticast_hsvf_v2_2.option_trade_cancellation_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.volume.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.trade_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.opra_trade_marker.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_5.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.timestamp.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_8.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.price_indicator_marker.size
 
 -- Display: Option Trade Cancellation Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_trade_cancellation_message.display = function(packet, parent, length)
@@ -16607,36 +16352,17 @@ end
 -- Complex Market Depth Level
 box_boxoptions_solamulticast_hsvf_v2_2.complex_market_depth_level = {}
 
--- Calculate size of: Complex Market Depth Level
-box_boxoptions_solamulticast_hsvf_v2_2.complex_market_depth_level.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.level_of_market_depth.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_price_sign.size
-
-  -- Calculate runtime size of Bid Price Quote Fraction Pair field
-  local bid_price_quote_fraction_pair_offset = offset + index
-  local bid_price_quote_fraction_pair_type = buffer(bid_price_quote_fraction_pair_offset - 0, 6):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_price_quote_fraction_pair.size(buffer, bid_price_quote_fraction_pair_offset, bid_price_quote_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.number_of_bid_orders.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_price_sign.size
-
-  -- Calculate runtime size of Ask Price Quote Fraction Pair field
-  local ask_price_quote_fraction_pair_offset = offset + index
-  local ask_price_quote_fraction_pair_type = buffer(ask_price_quote_fraction_pair_offset - 0, 6):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_price_quote_fraction_pair.size(buffer, ask_price_quote_fraction_pair_offset, ask_price_quote_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.number_of_ask_orders.size
-
-  return index
-end
+-- Size: Complex Market Depth Level
+box_boxoptions_solamulticast_hsvf_v2_2.complex_market_depth_level.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.level_of_market_depth.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_price_quote_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.number_of_bid_orders.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_price_quote_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.number_of_ask_orders.size
 
 -- Display: Complex Market Depth Level
 box_boxoptions_solamulticast_hsvf_v2_2.complex_market_depth_level.display = function(packet, parent, length)
@@ -16736,9 +16462,8 @@ box_boxoptions_solamulticast_hsvf_v2_2.complex_order_market_depth_message.size =
 
   -- Calculate field size from count
   local complex_market_depth_level_count = buffer(offset + index - 1, 1):string()
-  for i = 1, complex_market_depth_level_count do
-    index = index + box_boxoptions_solamulticast_hsvf_v2_2.complex_market_depth_level.size(buffer, offset + index)
-  end
+  index = index + complex_market_depth_level_count * 31
+
   return index
 end
 
@@ -16792,32 +16517,15 @@ end
 -- Market Depth Level
 box_boxoptions_solamulticast_hsvf_v2_2.market_depth_level = {}
 
--- Calculate size of: Market Depth Level
-box_boxoptions_solamulticast_hsvf_v2_2.market_depth_level.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.level_of_market_depth.size
-
-  -- Calculate runtime size of Bid Price Quote Fraction Pair field
-  local bid_price_quote_fraction_pair_offset = offset + index
-  local bid_price_quote_fraction_pair_type = buffer(bid_price_quote_fraction_pair_offset - 0, 6):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_price_quote_fraction_pair.size(buffer, bid_price_quote_fraction_pair_offset, bid_price_quote_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.number_of_bid_orders.size
-
-  -- Calculate runtime size of Ask Price Quote Fraction Pair field
-  local ask_price_quote_fraction_pair_offset = offset + index
-  local ask_price_quote_fraction_pair_type = buffer(ask_price_quote_fraction_pair_offset - 0, 6):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_price_quote_fraction_pair.size(buffer, ask_price_quote_fraction_pair_offset, ask_price_quote_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.number_of_ask_orders.size
-
-  return index
-end
+-- Size: Market Depth Level
+box_boxoptions_solamulticast_hsvf_v2_2.market_depth_level.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.level_of_market_depth.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_price_quote_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.number_of_bid_orders.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_price_quote_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.number_of_ask_orders.size
 
 -- Display: Market Depth Level
 box_boxoptions_solamulticast_hsvf_v2_2.market_depth_level.display = function(packet, parent, length)
@@ -16903,7 +16611,7 @@ box_boxoptions_solamulticast_hsvf_v2_2.option_market_depth_message.size = functi
 
   index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
 
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size(buffer, offset + index)
+  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size
 
   index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_status_marker.size
 
@@ -16911,9 +16619,8 @@ box_boxoptions_solamulticast_hsvf_v2_2.option_market_depth_message.size = functi
 
   -- Calculate field size from count
   local market_depth_level_count = buffer(offset + index - 1, 1):string()
-  for i = 1, market_depth_level_count do
-    index = index + box_boxoptions_solamulticast_hsvf_v2_2.market_depth_level.size(buffer, offset + index)
-  end
+  index = index + market_depth_level_count * 29
+
   return index
 end
 
@@ -17115,40 +16822,19 @@ end
 -- Complex Order Quote Message
 box_boxoptions_solamulticast_hsvf_v2_2.complex_order_quote_message = {}
 
--- Calculate size of: Complex Order Quote Message
-box_boxoptions_solamulticast_hsvf_v2_2.complex_order_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_price_sign.size
-
-  -- Calculate runtime size of Bid Price Quote Fraction Pair field
-  local bid_price_quote_fraction_pair_offset = offset + index
-  local bid_price_quote_fraction_pair_type = buffer(bid_price_quote_fraction_pair_offset - 0, 6):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_price_quote_fraction_pair.size(buffer, bid_price_quote_fraction_pair_offset, bid_price_quote_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_price_sign.size
-
-  -- Calculate runtime size of Ask Price Quote Fraction Pair field
-  local ask_price_quote_fraction_pair_offset = offset + index
-  local ask_price_quote_fraction_pair_type = buffer(ask_price_quote_fraction_pair_offset - 0, 6):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_price_quote_fraction_pair.size(buffer, ask_price_quote_fraction_pair_offset, ask_price_quote_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_status_marker.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.public_customer_bid_size.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.public_customer_ask_size.size
-
-  return index
-end
+-- Size: Complex Order Quote Message
+box_boxoptions_solamulticast_hsvf_v2_2.complex_order_quote_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_price_quote_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_price_quote_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_status_marker.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.public_customer_bid_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.public_customer_ask_size.size
 
 -- Display: Complex Order Quote Message
 box_boxoptions_solamulticast_hsvf_v2_2.complex_order_quote_message.display = function(packet, parent, length)
@@ -17234,38 +16920,18 @@ end
 -- Option Quote Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_quote_message = {}
 
--- Calculate size of: Option Quote Message
-box_boxoptions_solamulticast_hsvf_v2_2.option_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size(buffer, offset + index)
-
-  -- Calculate runtime size of Bid Price Quote Fraction Pair field
-  local bid_price_quote_fraction_pair_offset = offset + index
-  local bid_price_quote_fraction_pair_type = buffer(bid_price_quote_fraction_pair_offset - 0, 6):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_price_quote_fraction_pair.size(buffer, bid_price_quote_fraction_pair_offset, bid_price_quote_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size
-
-  -- Calculate runtime size of Ask Price Quote Fraction Pair field
-  local ask_price_quote_fraction_pair_offset = offset + index
-  local ask_price_quote_fraction_pair_type = buffer(ask_price_quote_fraction_pair_offset - 0, 6):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_price_quote_fraction_pair.size(buffer, ask_price_quote_fraction_pair_offset, ask_price_quote_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_1.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_status_marker.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.public_customer_bid_size.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.public_customer_ask_size.size
-
-  return index
-end
+-- Size: Option Quote Message
+box_boxoptions_solamulticast_hsvf_v2_2.option_quote_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_price_quote_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.bid_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_price_quote_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.ask_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_1.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_status_marker.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.public_customer_bid_size.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.public_customer_ask_size.size
 
 -- Display: Option Quote Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_quote_message.display = function(packet, parent, length)
@@ -17348,18 +17014,11 @@ end
 -- Option Request For Quote Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_request_for_quote_message = {}
 
--- Calculate size of: Option Request For Quote Message
-box_boxoptions_solamulticast_hsvf_v2_2.option_request_for_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size(buffer, offset + index)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.requested_size.size
-
-  return index
-end
+-- Size: Option Request For Quote Message
+box_boxoptions_solamulticast_hsvf_v2_2.option_request_for_quote_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.requested_size.size
 
 -- Display: Option Request For Quote Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_request_for_quote_message.display = function(packet, parent, length)
@@ -17403,40 +17062,19 @@ end
 -- Strategy Trade Message
 box_boxoptions_solamulticast_hsvf_v2_2.strategy_trade_message = {}
 
--- Calculate size of: Strategy Trade Message
-box_boxoptions_solamulticast_hsvf_v2_2.strategy_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.volume.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.trade_price_sign.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Fraction Pair field
-  local net_change_fraction_pair_offset = offset + index
-  local net_change_fraction_pair_type = buffer(net_change_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.net_change_fraction_pair.size(buffer, net_change_fraction_pair_offset, net_change_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.opra_trade_marker.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_5.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.timestamp.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.price_indicator_marker.size
-
-  return index
-end
+-- Size: Strategy Trade Message
+box_boxoptions_solamulticast_hsvf_v2_2.strategy_trade_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.complex_order_instrument_symbol.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.volume.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.trade_price_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.trade_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.net_change_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.net_change_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.opra_trade_marker.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_5.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.timestamp.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.price_indicator_marker.size
 
 -- Display: Strategy Trade Message
 box_boxoptions_solamulticast_hsvf_v2_2.strategy_trade_message.display = function(packet, parent, length)
@@ -17510,40 +17148,19 @@ end
 -- Option Trade Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_trade_message = {}
 
--- Calculate size of: Option Trade Message
-box_boxoptions_solamulticast_hsvf_v2_2.option_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size(buffer, offset + index)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Fraction Pair field
-  local net_change_fraction_pair_offset = offset + index
-  local net_change_fraction_pair_type = buffer(net_change_fraction_pair_offset + 6, 1):string()
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.net_change_fraction_pair.size(buffer, net_change_fraction_pair_offset, net_change_fraction_pair_type)
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.opra_trade_marker.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_5.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.timestamp.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.filler_8.size
-
-  index = index + box_boxoptions_solamulticast_hsvf_v2_2.price_indicator_marker.size
-
-  return index
-end
+-- Size: Option Trade Message
+box_boxoptions_solamulticast_hsvf_v2_2.option_trade_message.size =
+  box_boxoptions_solamulticast_hsvf_v2_2.exchange_id.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.instrument_description.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.volume.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.trade_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.net_change_sign.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.net_change_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.opra_trade_marker.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_5.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.timestamp.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.filler_8.size + 
+  box_boxoptions_solamulticast_hsvf_v2_2.price_indicator_marker.size
 
 -- Display: Option Trade Message
 box_boxoptions_solamulticast_hsvf_v2_2.option_trade_message.display = function(packet, parent, length)

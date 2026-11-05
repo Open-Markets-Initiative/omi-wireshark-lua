@@ -190,6 +190,12 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.Umdf.Fast.v5.1.19.Multiplemessages.json 2> B3.B3Derivatives.Umdf.Fast.v5.1.19.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat B3.B3Derivatives.Umdf.Fast.v5.1.19.Multiplemessages.json.stderr; exit 1; }
 
-grep "b3.b3derivatives.umdf.fast.v5.1.19." B3.B3Derivatives.Umdf.Fast.v5.1.19.Multiplemessages.json
+fields=$(grep -c "b3.b3derivatives.umdf.fast.v5.1.19." B3.B3Derivatives.Umdf.Fast.v5.1.19.Multiplemessages.json) \
+  || { echo "--- no b3.b3derivatives.umdf.fast.v5.1.19 fields (MultipleMessages) ---"; exit 1; }
+echo "  b3.b3derivatives.umdf.fast.v5.1.19 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' B3.B3Derivatives.Umdf.Fast.v5.1.19.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' B3.B3Derivatives.Umdf.Fast.v5.1.19.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'b3.b3derivatives.umdf.fast.v5.1.19.templateid' B3.B3Derivatives.Umdf.Fast.v5.1.19.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

@@ -10,7 +10,13 @@ runuser -u tester -- tshark \
   > Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json 2> Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json.stderr \
   || { echo "--- tshark FAILED (Trades.excerpt.gz) ---"; cat Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json.stderr; exit 1; }
 
-grep "nyse.nyseconsolidated.dailytaqtrades.csv.v4.3." Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json
+fields=$(grep -c "nyse.nyseconsolidated.dailytaqtrades.csv.v4.3." Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json) \
+  || { echo "--- no nyse.nyseconsolidated.dailytaqtrades.csv.v4.3 fields (Trades.excerpt.gz) ---"; exit 1; }
+echo "  nyse.nyseconsolidated.dailytaqtrades.csv.v4.3 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (Trades.excerpt.gz) ---"; grep -o '"Lua Error[^"]*"' Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json | sort -u | head; exit 1; }
 
 [ "$(grep -c -F '"nyse.nyseconsolidated.dailytaqtrades.csv.v4.3.record.trade"' Nyse.NyseConsolidated.DailyTaqTrades.Csv.v4.3.Trades.json)" -eq 21 ] || { echo "--- 21 Trade records expected (Trades.excerpt.gz) ---"; exit 1; }
 

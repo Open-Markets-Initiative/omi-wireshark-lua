@@ -1,4 +1,4 @@
-[![Cnsx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cnsx/Images/Logo.png)](https://thecse.com)
+[![Cnsx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Cnsx/Images/Logo.png)](https://thecse.com)
 
 
 ## Canadian Securities Exchange

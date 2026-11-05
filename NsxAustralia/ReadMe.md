@@ -1,4 +1,4 @@
-[![NsxAustralia](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/NsxAustralia/Images/Logo.png)](https://www.nsx.com.au)
+[![NsxAustralia](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/NsxAustralia/Images/Logo.png)](https://www.nsx.com.au)
 
 
 ## Nation Stock Exchange of Australia

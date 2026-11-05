@@ -1,4 +1,4 @@
-[![Sgx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Sgx/Images/Logo.png)](https://www.sgx.com)
+[![Sgx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Sgx/Images/Logo.png)](https://www.sgx.com)
 
 
 ## Singapore Exchange

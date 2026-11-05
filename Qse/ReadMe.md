@@ -1,4 +1,4 @@
-[![Qse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Qse/Images/Logo.png)](https://www.qe.com.qa)
+[![Qse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Qse/Images/Logo.png)](https://www.qe.com.qa)
 
 
 ## Qatar Stock Exchange

@@ -1,4 +1,4 @@
-[![Bme](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bme/Images/Logo.png)](https://www.bolsasymercados.es)
+[![Bme](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Bme/Images/Logo.png)](https://www.bolsasymercados.es)
 
 
 ## Bolsas y Mercados Españoles

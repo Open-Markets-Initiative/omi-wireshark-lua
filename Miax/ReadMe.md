@@ -1,4 +1,4 @@
-[![Miax](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Miax/Images/Logo.png)](https://www.miaxglobal.com)
+[![Miax](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Miax/Images/Logo.png)](https://www.miaxglobal.com)
 
 
 ## Miami International Holdings

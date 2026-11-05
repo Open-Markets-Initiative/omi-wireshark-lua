@@ -29,6 +29,12 @@ runuser -u tester -- tshark \
   > Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json 2> Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json.stderr; exit 1; }
 
-grep "box.boxoptions.solamulticast.hsvf.v1.8." Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json
+fields=$(grep -c "box.boxoptions.solamulticast.hsvf.v1.8." Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json) \
+  || { echo "--- no box.boxoptions.solamulticast.hsvf.v1.8 fields (MultipleMessages) ---"; exit 1; }
+echo "  box.boxoptions.solamulticast.hsvf.v1.8 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'box.boxoptions.solamulticast.hsvf.v1.8.' Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

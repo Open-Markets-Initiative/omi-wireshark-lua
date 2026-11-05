@@ -1,4 +1,4 @@
-[![Ltse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Ltse/Images/Logo.png)](https://ltse.com)
+[![Ltse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Ltse/Images/Logo.png)](https://ltse.com)
 
 
 ## Long-Term Stock Exchange

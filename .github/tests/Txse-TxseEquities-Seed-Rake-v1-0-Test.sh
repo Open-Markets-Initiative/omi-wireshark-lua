@@ -62,7 +62,13 @@ runuser -u tester -- tshark \
   > Txse.TxseEquities.Seed.Rake.v1.0.Reassembly.json 2> Txse.TxseEquities.Seed.Rake.v1.0.Reassembly.json.stderr \
   || { echo "--- tshark FAILED (Reassembly) ---"; cat Txse.TxseEquities.Seed.Rake.v1.0.Reassembly.json.stderr; exit 1; }
 
-grep "txse.txseequities.seed.rake.v1.0." Txse.TxseEquities.Seed.Rake.v1.0.Reassembly.json
+fields=$(grep -c "txse.txseequities.seed.rake.v1.0." Txse.TxseEquities.Seed.Rake.v1.0.Reassembly.json) \
+  || { echo "--- no txse.txseequities.seed.rake.v1.0 fields (Reassembly) ---"; exit 1; }
+echo "  txse.txseequities.seed.rake.v1.0 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Txse.TxseEquities.Seed.Rake.v1.0.Reassembly.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (Reassembly) ---"; grep -o '"Lua Error[^"]*"' Txse.TxseEquities.Seed.Rake.v1.0.Reassembly.json | sort -u | head; exit 1; }
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Txse/TxseEquities.Seed.Rake.v1.0/Reassembly.pcap" \

@@ -1,4 +1,4 @@
-[![Memx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Memx/Images/Logo.png)](https://www.memx.com)
+[![Memx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Memx/Images/Logo.png)](https://www.memx.com)
 
 
 ## The Members Exchange

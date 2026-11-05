@@ -1411,24 +1411,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code = {}
 -- Size: Locate Code
 nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.size = 2
 
--- Display: Locate Code
-nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.display = function(value)
-  return "Locate Code: "..value
-end
-
--- Dissect: Locate Code
-nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.locate_code, range, value, display)
-
-  return offset + length, value
-end
-
-
 -- Lookup: Locate Code
 nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.lookup = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.size
@@ -1515,6 +1497,23 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.lookup = function(buffer
   end
 
   return offset + length, value, record
+end
+
+-- Display: Locate Code
+nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.display = function(value)
+  return "Locate Code: "..value
+end
+
+-- Dissect: Locate Code
+nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.locate_code, range, value, display)
+
+  return offset + length, value
 end
 
 -- Lower Auction Collar Price
@@ -1991,8 +1990,33 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.near_execution_time = {}
 nasdaq_nsmequities_totalview_itch_v5_0_2026.near_execution_time.size = 8
 
 -- Display: Near Execution Time
-nasdaq_nsmequities_totalview_itch_v5_0_2026.near_execution_time.display = function(value)
-  return "Near Execution Time: "..value
+nasdaq_nsmequities_totalview_itch_v5_0_2026.near_execution_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp_format == 0 then
+    return "Near Execution Time: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      return "Near Execution Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%09d", nanoseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Near Execution Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Near Execution Time
@@ -2920,24 +2944,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate = {}
 -- Size: Stock Locate
 nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.size = 2
 
--- Display: Stock Locate
-nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.display = function(value)
-  return "Stock Locate: "..value
-end
-
--- Dissect: Stock Locate
-nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.stock_locate, range, value, display)
-
-  return offset + length, value
-end
-
-
 -- Lookup: Stock Locate
 nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.lookup = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.size
@@ -3024,6 +3030,23 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.lookup = function(buffe
   end
 
   return offset + length, value, record
+end
+
+-- Display: Stock Locate
+nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.display = function(value)
+  return "Stock Locate: "..value
+end
+
+-- Dissect: Stock Locate
+nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.stock_locate, range, value, display)
+
+  return offset + length, value
 end
 
 -- Timestamp

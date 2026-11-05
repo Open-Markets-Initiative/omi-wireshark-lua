@@ -1,4 +1,4 @@
-[![Jnx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Jnx/Images/Logo.png)](https://www.japannext.co.jp/en)
+[![Jnx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Jnx/Images/Logo.png)](https://www.japannext.co.jp/en)
 
 
 ## Japannext Securities

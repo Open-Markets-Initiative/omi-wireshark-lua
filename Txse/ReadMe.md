@@ -1,4 +1,4 @@
-[![Txse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Txse/Images/Logo.png)](https://www.txse.com)
+[![Txse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Txse/Images/Logo.png)](https://www.txse.com)
 
 
 ## Texas Stock Exchange

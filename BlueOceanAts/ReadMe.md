@@ -1,4 +1,4 @@
-[![BlueOceanAts](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Images/Logo.png)](https://blueocean-tech.io/)
+[![BlueOceanAts](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/BlueOceanAts/Images/Logo.png)](https://blueocean-tech.io/)
 
 
 ## Blue Ocean Technologies

@@ -27,64 +27,64 @@ omi_moex_spectra_fastgate_fast_v9_9_0.fields.presence_unused = ProtoField.new("U
 -- Moex Spectra FastGate Fast 9.9.0 Presence Map Fields
 
 -- Moex Spectra FastGate Fast 9.9.0 Fields
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.appl_ver_id = ProtoField.new("Appl Ver Id", "moex.spectra.fastgate.fast.v9.9.0.applverid", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.appl_ver_id = ProtoField.new("Appl Ver ID", "moex.spectra.fastgate.fast.v9.9.0.applverid", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.message_type = ProtoField.new("Message Type", "moex.spectra.fastgate.fast.v9.9.0.messagetype", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.sender_comp_id = ProtoField.new("Sender Comp Id", "moex.spectra.fastgate.fast.v9.9.0.sendercompid", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "moex.spectra.fastgate.fast.v9.9.0.sendercompid", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "moex.spectra.fastgate.fast.v9.9.0.msgseqnum", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.sending_time = ProtoField.new("Sending Time", "moex.spectra.fastgate.fast.v9.9.0.sendingtime", ftypes.UINT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.last_fragment = ProtoField.new("Last Fragment", "moex.spectra.fastgate.fast.v9.9.0.lastfragment", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_md_entries = ProtoField.new("No Md Entries", "moex.spectra.fastgate.fast.v9.9.0.nomdentries", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_update_action = ProtoField.new("Md Update Action", "moex.spectra.fastgate.fast.v9.9.0.mdupdateaction", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "moex.spectra.fastgate.fast.v9.9.0.mdentrytype", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_id = ProtoField.new("Security Id", "moex.spectra.fastgate.fast.v9.9.0.securityid", ftypes.UINT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_id_source = ProtoField.new("Security Id Source", "moex.spectra.fastgate.fast.v9.9.0.securityidsource", ftypes.UINT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_md_entries = ProtoField.new("No MD Entries", "moex.spectra.fastgate.fast.v9.9.0.nomdentries", ftypes.UINT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_update_action = ProtoField.new("MD Update Action", "moex.spectra.fastgate.fast.v9.9.0.mdupdateaction", ftypes.UINT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_type = ProtoField.new("MD Entry Type", "moex.spectra.fastgate.fast.v9.9.0.mdentrytype", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_id = ProtoField.new("Security ID", "moex.spectra.fastgate.fast.v9.9.0.securityid", ftypes.UINT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_id_source = ProtoField.new("Security ID Source", "moex.spectra.fastgate.fast.v9.9.0.securityidsource", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.symbol = ProtoField.new("Symbol", "moex.spectra.fastgate.fast.v9.9.0.symbol", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_group = ProtoField.new("Security Group", "moex.spectra.fastgate.fast.v9.9.0.securitygroup", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.exchange_trading_session_id = ProtoField.new("Exchange Trading Session Id", "moex.spectra.fastgate.fast.v9.9.0.exchangetradingsessionid", ftypes.UINT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.exchange_trading_session_id = ProtoField.new("Exchange Trading Session ID", "moex.spectra.fastgate.fast.v9.9.0.exchangetradingsessionid", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.rpt_seq = ProtoField.new("Rpt Seq", "moex.spectra.fastgate.fast.v9.9.0.rptseq", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.market_depth = ProtoField.new("Market Depth", "moex.spectra.fastgate.fast.v9.9.0.marketdepth", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_price_level = ProtoField.new("Md Price Level", "moex.spectra.fastgate.fast.v9.9.0.mdpricelevel", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_id = ProtoField.new("Md Entry Id", "moex.spectra.fastgate.fast.v9.9.0.mdentryid", ftypes.INT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_px_double = ProtoField.new("Md Entry Px", "moex.spectra.fastgate.fast.v9.9.0.mdentrypx.double", ftypes.DOUBLE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_px_string = ProtoField.new("Md Entry Px", "moex.spectra.fastgate.fast.v9.9.0.mdentrypx.string", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "moex.spectra.fastgate.fast.v9.9.0.mdentrysize", ftypes.INT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_date = ProtoField.new("Md Entry Date", "moex.spectra.fastgate.fast.v9.9.0.mdentrydate", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "moex.spectra.fastgate.fast.v9.9.0.mdentrytime", ftypes.UINT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_price_level = ProtoField.new("MD Price Level", "moex.spectra.fastgate.fast.v9.9.0.mdpricelevel", ftypes.UINT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_id = ProtoField.new("MD Entry ID", "moex.spectra.fastgate.fast.v9.9.0.mdentryid", ftypes.INT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_px_double = ProtoField.new("MD Entry Px", "moex.spectra.fastgate.fast.v9.9.0.mdentrypx.double", ftypes.DOUBLE)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_px_string = ProtoField.new("MD Entry Px", "moex.spectra.fastgate.fast.v9.9.0.mdentrypx.string", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_size = ProtoField.new("MD Entry Size", "moex.spectra.fastgate.fast.v9.9.0.mdentrysize", ftypes.INT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_date = ProtoField.new("MD Entry Date", "moex.spectra.fastgate.fast.v9.9.0.mdentrydate", ftypes.UINT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_time = ProtoField.new("MD Entry Time", "moex.spectra.fastgate.fast.v9.9.0.mdentrytime", ftypes.UINT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.number_of_orders = ProtoField.new("Number Of Orders", "moex.spectra.fastgate.fast.v9.9.0.numberoforders", ftypes.INT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_trade_type = ProtoField.new("Md Entry Trade Type", "moex.spectra.fastgate.fast.v9.9.0.mdentrytradetype", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_trade_type = ProtoField.new("MD Entry Trade Type", "moex.spectra.fastgate.fast.v9.9.0.mdentrytradetype", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trd_type = ProtoField.new("Trd Type", "moex.spectra.fastgate.fast.v9.9.0.trdtype", ftypes.INT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.last_px = ProtoField.new("Last Px", "moex.spectra.fastgate.fast.v9.9.0.lastpx", ftypes.DOUBLE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags_int32 = ProtoField.new("Md Flags", "moex.spectra.fastgate.fast.v9.9.0.mdflags.int32", ftypes.INT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags_int64 = ProtoField.new("Md Flags", "moex.spectra.fastgate.fast.v9.9.0.mdflags.int64", ftypes.INT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags_int32 = ProtoField.new("MD Flags", "moex.spectra.fastgate.fast.v9.9.0.mdflags.int32", ftypes.INT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags_int64 = ProtoField.new("MD Flags", "moex.spectra.fastgate.fast.v9.9.0.mdflags.int64", ftypes.INT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.currency = ProtoField.new("Currency", "moex.spectra.fastgate.fast.v9.9.0.currency", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.revision = ProtoField.new("Revision", "moex.spectra.fastgate.fast.v9.9.0.revision", ftypes.UINT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.order_side = ProtoField.new("Order Side", "moex.spectra.fastgate.fast.v9.9.0.orderside", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_synthetic_size = ProtoField.new("Md Entry Synthetic Size", "moex.spectra.fastgate.fast.v9.9.0.mdentrysyntheticsize", ftypes.INT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_synthetic_size = ProtoField.new("MD Entry Synthetic Size", "moex.spectra.fastgate.fast.v9.9.0.mdentrysyntheticsize", ftypes.INT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.open_interest = ProtoField.new("Open Interest", "moex.spectra.fastgate.fast.v9.9.0.openinterest", ftypes.INT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.index_cross_rate = ProtoField.new("Index Cross Rate", "moex.spectra.fastgate.fast.v9.9.0.indexcrossrate", ftypes.DOUBLE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "moex.spectra.fastgate.fast.v9.9.0.tradingsessionsubid", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub ID", "moex.spectra.fastgate.fast.v9.9.0.tradingsessionsubid", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.tot_num_reports = ProtoField.new("Tot Num Reports", "moex.spectra.fastgate.fast.v9.9.0.totnumreports", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "moex.spectra.fastgate.fast.v9.9.0.lastmsgseqnumprocessed", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_desc = ProtoField.new("Security Desc", "moex.spectra.fastgate.fast.v9.9.0.securitydesc", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id = ProtoField.new("Security Alt Id", "moex.spectra.fastgate.fast.v9.9.0.securityaltid", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "moex.spectra.fastgate.fast.v9.9.0.securityaltidsource", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id = ProtoField.new("Security Alt ID", "moex.spectra.fastgate.fast.v9.9.0.securityaltid", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id_source = ProtoField.new("Security Alt ID Source", "moex.spectra.fastgate.fast.v9.9.0.securityaltidsource", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_type = ProtoField.new("Security Type", "moex.spectra.fastgate.fast.v9.9.0.securitytype", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.cfi_code = ProtoField.new("Cfi Code", "moex.spectra.fastgate.fast.v9.9.0.cficode", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.cfi_code = ProtoField.new("CFI Code", "moex.spectra.fastgate.fast.v9.9.0.cficode", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.strike_price = ProtoField.new("Strike Price", "moex.spectra.fastgate.fast.v9.9.0.strikeprice", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "moex.spectra.fastgate.fast.v9.9.0.contractmultiplier", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_trading_status = ProtoField.new("Security Trading Status", "moex.spectra.fastgate.fast.v9.9.0.securitytradingstatus", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.market_id = ProtoField.new("Market Id", "moex.spectra.fastgate.fast.v9.9.0.marketid", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.market_segment_id = ProtoField.new("Market Segment Id", "moex.spectra.fastgate.fast.v9.9.0.marketsegmentid", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "moex.spectra.fastgate.fast.v9.9.0.tradingsessionid", ftypes.UINT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.market_id = ProtoField.new("Market ID", "moex.spectra.fastgate.fast.v9.9.0.marketid", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.market_segment_id = ProtoField.new("Market Segment ID", "moex.spectra.fastgate.fast.v9.9.0.marketsegmentid", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_id = ProtoField.new("Trading Session ID", "moex.spectra.fastgate.fast.v9.9.0.tradingsessionid", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.volatility = ProtoField.new("Volatility", "moex.spectra.fastgate.fast.v9.9.0.volatility", ftypes.DOUBLE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_md_feed_types = ProtoField.new("No Md Feed Types", "moex.spectra.fastgate.fast.v9.9.0.nomdfeedtypes", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_feed_type = ProtoField.new("Md Feed Type", "moex.spectra.fastgate.fast.v9.9.0.mdfeedtype", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_book_type = ProtoField.new("Md Book Type", "moex.spectra.fastgate.fast.v9.9.0.mdbooktype", ftypes.UINT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_md_feed_types = ProtoField.new("No MD Feed Types", "moex.spectra.fastgate.fast.v9.9.0.nomdfeedtypes", ftypes.UINT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_feed_type = ProtoField.new("MD Feed Type", "moex.spectra.fastgate.fast.v9.9.0.mdfeedtype", ftypes.STRING)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_book_type = ProtoField.new("MD Book Type", "moex.spectra.fastgate.fast.v9.9.0.mdbooktype", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_underlyings = ProtoField.new("No Underlyings", "moex.spectra.fastgate.fast.v9.9.0.nounderlyings", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "moex.spectra.fastgate.fast.v9.9.0.underlyingsymbol", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.underlying_board = ProtoField.new("Underlying Board", "moex.spectra.fastgate.fast.v9.9.0.underlyingboard", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "moex.spectra.fastgate.fast.v9.9.0.underlyingsecurityid", ftypes.UINT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.underlying_future_id = ProtoField.new("Underlying Future Id", "moex.spectra.fastgate.fast.v9.9.0.underlyingfutureid", ftypes.UINT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.underlying_security_id = ProtoField.new("Underlying Security ID", "moex.spectra.fastgate.fast.v9.9.0.underlyingsecurityid", ftypes.UINT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.underlying_future_id = ProtoField.new("Underlying Future ID", "moex.spectra.fastgate.fast.v9.9.0.underlyingfutureid", ftypes.UINT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.high_limit_px = ProtoField.new("High Limit Px", "moex.spectra.fastgate.fast.v9.9.0.highlimitpx", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.low_limit_px = ProtoField.new("Low Limit Px", "moex.spectra.fastgate.fast.v9.9.0.lowlimitpx", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.min_price_increment = ProtoField.new("Min Price Increment", "moex.spectra.fastgate.fast.v9.9.0.minpriceincrement", ftypes.DOUBLE)
@@ -97,7 +97,7 @@ omi_moex_spectra_fastgate_fast_v9_9_0.fields.theor_price = ProtoField.new("Theor
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.theor_price_limit = ProtoField.new("Theor Price Limit", "moex.spectra.fastgate.fast.v9.9.0.theorpricelimit", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_legs = ProtoField.new("No Legs", "moex.spectra.fastgate.fast.v9.9.0.nolegs", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.leg_symbol = ProtoField.new("Leg Symbol", "moex.spectra.fastgate.fast.v9.9.0.legsymbol", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.leg_security_id = ProtoField.new("Leg Security Id", "moex.spectra.fastgate.fast.v9.9.0.legsecurityid", ftypes.UINT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.leg_security_id = ProtoField.new("Leg Security ID", "moex.spectra.fastgate.fast.v9.9.0.legsecurityid", ftypes.UINT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "moex.spectra.fastgate.fast.v9.9.0.legratioqty", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_instr_attrib = ProtoField.new("No Instr Attrib", "moex.spectra.fastgate.fast.v9.9.0.noinstrattrib", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.instr_attrib_type = ProtoField.new("Instr Attrib Type", "moex.spectra.fastgate.fast.v9.9.0.instrattribtype", ftypes.INT32)
@@ -124,16 +124,16 @@ omi_moex_spectra_fastgate_fast_v9_9_0.fields.risk_free_rate2 = ProtoField.new("R
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.interest_rate2_risk_up = ProtoField.new("Interest Rate2 Risk Up", "moex.spectra.fastgate.fast.v9.9.0.interestrate2riskup", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.interest_rate2_risk_down = ProtoField.new("Interest Rate2 Risk Down", "moex.spectra.fastgate.fast.v9.9.0.interestrate2riskdown", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.settl_price = ProtoField.new("Settl Price", "moex.spectra.fastgate.fast.v9.9.0.settlprice", ftypes.DOUBLE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_mode_id = ProtoField.new("Trade Mode Id", "moex.spectra.fastgate.fast.v9.9.0.trademodeid", ftypes.INT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_mode_id = ProtoField.new("Trade Mode ID", "moex.spectra.fastgate.fast.v9.9.0.trademodeid", ftypes.INT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.group_mask = ProtoField.new("Group Mask", "moex.spectra.fastgate.fast.v9.9.0.groupmask", ftypes.INT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.section_id = ProtoField.new("Section Id", "moex.spectra.fastgate.fast.v9.9.0.sectionid", ftypes.INT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.base_contract_id = ProtoField.new("Base Contract Id", "moex.spectra.fastgate.fast.v9.9.0.basecontractid", ftypes.INT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.section_id = ProtoField.new("Section ID", "moex.spectra.fastgate.fast.v9.9.0.sectionid", ftypes.INT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.base_contract_id = ProtoField.new("Base Contract ID", "moex.spectra.fastgate.fast.v9.9.0.basecontractid", ftypes.INT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_period_access = ProtoField.new("Trade Period Access", "moex.spectra.fastgate.fast.v9.9.0.tradeperiodaccess", ftypes.INT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.high_limit_px_weekend = ProtoField.new("High Limit Px Weekend", "moex.spectra.fastgate.fast.v9.9.0.highlimitpxweekend", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.low_limit_px_weekend = ProtoField.new("Low Limit Px Weekend", "moex.spectra.fastgate.fast.v9.9.0.lowlimitpxweekend", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.clearing_settl_price = ProtoField.new("Clearing Settl Price", "moex.spectra.fastgate.fast.v9.9.0.clearingsettlprice", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_related_sym = ProtoField.new("No Related Sym", "moex.spectra.fastgate.fast.v9.9.0.norelatedsym", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_group_id = ProtoField.new("Security Group Id", "moex.spectra.fastgate.fast.v9.9.0.securitygroupid", ftypes.INT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_group_id = ProtoField.new("Security Group ID", "moex.spectra.fastgate.fast.v9.9.0.securitygroupid", ftypes.INT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.halt_type = ProtoField.new("Halt Type", "moex.spectra.fastgate.fast.v9.9.0.halttype", ftypes.INT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_mode_mask = ProtoField.new("Trade Mode Mask", "moex.spectra.fastgate.fast.v9.9.0.trademodemask", ftypes.INT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.transact_time = ProtoField.new("Transact Time", "moex.spectra.fastgate.fast.v9.9.0.transacttime", ftypes.UINT64)
@@ -142,14 +142,14 @@ omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_open_time = ProtoField.new
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time = ProtoField.new("Trad Ses Close Time", "moex.spectra.fastgate.fast.v9.9.0.tradsesclosetime", ftypes.UINT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "moex.spectra.fastgate.fast.v9.9.0.tradsesstatus", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_event = ProtoField.new("Trad Ses Event", "moex.spectra.fastgate.fast.v9.9.0.tradsesevent", ftypes.INT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_period_id = ProtoField.new("Trade Period Id", "moex.spectra.fastgate.fast.v9.9.0.tradeperiodid", ftypes.INT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_period_id = ProtoField.new("Trade Period ID", "moex.spectra.fastgate.fast.v9.9.0.tradeperiodid", ftypes.INT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.settl_sess_begin = ProtoField.new("Settl Sess Begin", "moex.spectra.fastgate.fast.v9.9.0.settlsessbegin", ftypes.UINT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.clr_sess_begin = ProtoField.new("Clr Sess Begin", "moex.spectra.fastgate.fast.v9.9.0.clrsessbegin", ftypes.UINT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_from = ProtoField.new("Trad Ses Close Time From", "moex.spectra.fastgate.fast.v9.9.0.tradsesclosetimefrom", ftypes.UINT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_till = ProtoField.new("Trad Ses Close Time Till", "moex.spectra.fastgate.fast.v9.9.0.tradsesclosetimetill", ftypes.UINT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.auction_id = ProtoField.new("Auction Id", "moex.spectra.fastgate.fast.v9.9.0.auctionid", ftypes.INT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_id_open = ProtoField.new("Event Id Open", "moex.spectra.fastgate.fast.v9.9.0.eventidopen", ftypes.INT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_id_close = ProtoField.new("Event Id Close", "moex.spectra.fastgate.fast.v9.9.0.eventidclose", ftypes.INT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.auction_id = ProtoField.new("Auction ID", "moex.spectra.fastgate.fast.v9.9.0.auctionid", ftypes.INT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_id_open = ProtoField.new("Event ID Open", "moex.spectra.fastgate.fast.v9.9.0.eventidopen", ftypes.INT32)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_id_close = ProtoField.new("Event ID Close", "moex.spectra.fastgate.fast.v9.9.0.eventidclose", ftypes.INT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.news_id = ProtoField.new("News Id", "moex.spectra.fastgate.fast.v9.9.0.newsid", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.orig_time = ProtoField.new("Orig Time", "moex.spectra.fastgate.fast.v9.9.0.origtime", ftypes.UINT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.language_code = ProtoField.new("Language Code", "moex.spectra.fastgate.fast.v9.9.0.languagecode", ftypes.STRING)
@@ -158,19 +158,19 @@ omi_moex_spectra_fastgate_fast_v9_9_0.fields.headline = ProtoField.new("Headline
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_lines_of_text = ProtoField.new("No Lines Of Text", "moex.spectra.fastgate.fast.v9.9.0.nolinesoftext", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.text = ProtoField.new("Text", "moex.spectra.fastgate.fast.v9.9.0.text", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.last_qty = ProtoField.new("Last Qty", "moex.spectra.fastgate.fast.v9.9.0.lastqty", ftypes.INT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_id = ProtoField.new("Trade Id", "moex.spectra.fastgate.fast.v9.9.0.tradeid", ftypes.INT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags2 = ProtoField.new("Md Flags2", "moex.spectra.fastgate.fast.v9.9.0.mdflags2", ftypes.INT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_id = ProtoField.new("Trade ID", "moex.spectra.fastgate.fast.v9.9.0.tradeid", ftypes.INT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags2 = ProtoField.new("MD Flags2", "moex.spectra.fastgate.fast.v9.9.0.mdflags2", ftypes.INT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.route_first = ProtoField.new("Route First", "moex.spectra.fastgate.fast.v9.9.0.routefirst", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_volume = ProtoField.new("Trade Volume", "moex.spectra.fastgate.fast.v9.9.0.tradevolume", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.in_list = ProtoField.new("In List", "moex.spectra.fastgate.fast.v9.9.0.inlist", ftypes.STRING)
 
 -- Moex Spectra FastGate Fast 9.9.0 Messages
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_incremental_refresh_message = ProtoField.new("Default Incremental Refresh Message Message", "moex.spectra.fastgate.fast.v9.9.0.defaultincrementalrefreshmessage", ftypes.NONE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_incremental_refresh_message_md_entries = ProtoField.new("Default Incremental Refresh Message Md Entries", "moex.spectra.fastgate.fast.v9.9.0.defaultincrementalrefreshmessagemdentries", ftypes.NONE)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_incremental_refresh_message_md_entries = ProtoField.new("Default Incremental Refresh Message MD Entries", "moex.spectra.fastgate.fast.v9.9.0.defaultincrementalrefreshmessagemdentries", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_snapshot_message = ProtoField.new("Default Snapshot Message Message", "moex.spectra.fastgate.fast.v9.9.0.defaultsnapshotmessage", ftypes.NONE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_snapshot_message_md_entries = ProtoField.new("Default Snapshot Message Md Entries", "moex.spectra.fastgate.fast.v9.9.0.defaultsnapshotmessagemdentries", ftypes.NONE)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_snapshot_message_md_entries = ProtoField.new("Default Snapshot Message MD Entries", "moex.spectra.fastgate.fast.v9.9.0.defaultsnapshotmessagemdentries", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_definition = ProtoField.new("Security Definition Message", "moex.spectra.fastgate.fast.v9.9.0.securitydefinition", ftypes.NONE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_feed_types = ProtoField.new("Md Feed Types", "moex.spectra.fastgate.fast.v9.9.0.mdfeedtypes", ftypes.NONE)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_feed_types = ProtoField.new("MD Feed Types", "moex.spectra.fastgate.fast.v9.9.0.mdfeedtypes", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_definition_underlyings = ProtoField.new("Security Definition Underlyings", "moex.spectra.fastgate.fast.v9.9.0.securitydefinitionunderlyings", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.instrument_legs = ProtoField.new("Instrument Legs", "moex.spectra.fastgate.fast.v9.9.0.instrumentlegs", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.instrument_attributes = ProtoField.new("Instrument Attributes", "moex.spectra.fastgate.fast.v9.9.0.instrumentattributes", ftypes.NONE)
@@ -188,16 +188,14 @@ omi_moex_spectra_fastgate_fast_v9_9_0.fields.discrete_auction_underlyings = Prot
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.news = ProtoField.new("News Message", "moex.spectra.fastgate.fast.v9.9.0.news", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.news_text = ProtoField.new("News Text", "moex.spectra.fastgate.fast.v9.9.0.newstext", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.orders_log_message = ProtoField.new("Orders Log Message Message", "moex.spectra.fastgate.fast.v9.9.0.orderslogmessage", ftypes.NONE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.orders_log_message_md_entries = ProtoField.new("Orders Log Message Md Entries", "moex.spectra.fastgate.fast.v9.9.0.orderslogmessagemdentries", ftypes.NONE)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.orders_log_message_md_entries = ProtoField.new("Orders Log Message MD Entries", "moex.spectra.fastgate.fast.v9.9.0.orderslogmessagemdentries", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.book_message = ProtoField.new("Book Message Message", "moex.spectra.fastgate.fast.v9.9.0.bookmessage", ftypes.NONE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.book_message_md_entries = ProtoField.new("Book Message Md Entries", "moex.spectra.fastgate.fast.v9.9.0.bookmessagemdentries", ftypes.NONE)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.book_message_md_entries = ProtoField.new("Book Message MD Entries", "moex.spectra.fastgate.fast.v9.9.0.bookmessagemdentries", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_incremental_refresh_message = ProtoField.new("Otc Monitor Incremental Refresh Message Message", "moex.spectra.fastgate.fast.v9.9.0.otcmonitorincrementalrefreshmessage", ftypes.NONE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_incremental_refresh_message_md_entries = ProtoField.new("Otc Monitor Incremental Refresh Message Md Entries", "moex.spectra.fastgate.fast.v9.9.0.otcmonitorincrementalrefreshmessagemdentries", ftypes.NONE)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_incremental_refresh_message_md_entries = ProtoField.new("Otc Monitor Incremental Refresh Message MD Entries", "moex.spectra.fastgate.fast.v9.9.0.otcmonitorincrementalrefreshmessagemdentries", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_snapshot_message = ProtoField.new("Otc Monitor Snapshot Message Message", "moex.spectra.fastgate.fast.v9.9.0.otcmonitorsnapshotmessage", ftypes.NONE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_snapshot_message_md_entries = ProtoField.new("Otc Monitor Snapshot Message Md Entries", "moex.spectra.fastgate.fast.v9.9.0.otcmonitorsnapshotmessagemdentries", ftypes.NONE)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_snapshot_message_md_entries = ProtoField.new("Otc Monitor Snapshot Message MD Entries", "moex.spectra.fastgate.fast.v9.9.0.otcmonitorsnapshotmessagemdentries", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_security_definition = ProtoField.new("Otc Monitor Security Definition Message", "moex.spectra.fastgate.fast.v9.9.0.otcmonitorsecuritydefinition", ftypes.NONE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_feed_types = ProtoField.new("Md Feed Types", "moex.spectra.fastgate.fast.v9.9.0.mdfeedtypes", ftypes.NONE)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.instrument_attributes = ProtoField.new("Instrument Attributes", "moex.spectra.fastgate.fast.v9.9.0.instrumentattributes", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.logon = ProtoField.new("Logon Message", "moex.spectra.fastgate.fast.v9.9.0.logon", ftypes.NONE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.logout = ProtoField.new("Logout Message", "moex.spectra.fastgate.fast.v9.9.0.logout", ftypes.NONE)
 
@@ -609,10 +607,10 @@ end
 -- Moex Spectra FastGate Fast 9.9.0 Fields
 -----------------------------------------------------------------------
 
--- Appl Ver Id
+-- Appl Ver ID
 moex_spectra_fastgate_fast_v9_9_0.appl_ver_id = {}
 
--- Dissect: Appl Ver Id
+-- Dissect: Appl Ver ID
 moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -625,7 +623,7 @@ moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect = function(buffer, offset,
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.appl_ver_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.appl_ver_id, range, "")
-    absent:set_text("Appl Ver Id: No Value")
+    absent:set_text("Appl Ver ID: No Value")
   end
 
   return offset, value
@@ -917,10 +915,10 @@ moex_spectra_fastgate_fast_v9_9_0.message_type_constant_5.dissect = function(buf
   return offset, value
 end
 
--- Sender Comp Id
+-- Sender Comp ID
 moex_spectra_fastgate_fast_v9_9_0.sender_comp_id = {}
 
--- Dissect: Sender Comp Id
+-- Dissect: Sender Comp ID
 moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -933,7 +931,7 @@ moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect = function(buffer, offs
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.sender_comp_id, range, "")
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
@@ -1027,10 +1025,10 @@ moex_spectra_fastgate_fast_v9_9_0.last_fragment_sent_required.dissect = function
   return offset, value
 end
 
--- No Md Entries
+-- No MD Entries
 moex_spectra_fastgate_fast_v9_9_0.no_md_entries = {}
 
--- Dissect: No Md Entries
+-- Dissect: No MD Entries
 moex_spectra_fastgate_fast_v9_9_0.no_md_entries.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1043,16 +1041,16 @@ moex_spectra_fastgate_fast_v9_9_0.no_md_entries.dissect = function(buffer, offse
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_md_entries, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_md_entries, range, 0)
-    absent:set_text("No Md Entries: No Value")
+    absent:set_text("No MD Entries: No Value")
   end
 
   return offset, value
 end
 
--- Md Update Action
+-- MD Update Action
 moex_spectra_fastgate_fast_v9_9_0.md_update_action = {}
 
--- Dissect: Md Update Action
+-- Dissect: MD Update Action
 moex_spectra_fastgate_fast_v9_9_0.md_update_action.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1065,16 +1063,16 @@ moex_spectra_fastgate_fast_v9_9_0.md_update_action.dissect = function(buffer, of
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_update_action, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_update_action, range, 0)
-    absent:set_text("Md Update Action: No Value")
+    absent:set_text("MD Update Action: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Type
+-- MD Entry Type
 moex_spectra_fastgate_fast_v9_9_0.md_entry_type = {}
 
--- Dissect: Md Entry Type
+-- Dissect: MD Entry Type
 moex_spectra_fastgate_fast_v9_9_0.md_entry_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1087,16 +1085,16 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_type.dissect = function(buffer, offse
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_type, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_type, range, "")
-    absent:set_text("Md Entry Type: No Value")
+    absent:set_text("MD Entry Type: No Value")
   end
 
   return offset, value
 end
 
--- Security Id (Sent)
+-- Security ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_id_sent_optional = {}
 
--- Dissect: Security Id (Sent)
+-- Dissect: Security ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1109,16 +1107,16 @@ moex_spectra_fastgate_fast_v9_9_0.security_id_sent_optional.dissect = function(b
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_id, range, UInt64(0))
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id (Sent)
+-- Security ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_id_sent_required = {}
 
--- Dissect: Security Id (Sent)
+-- Dissect: Security ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1131,16 +1129,16 @@ moex_spectra_fastgate_fast_v9_9_0.security_id_sent_required.dissect = function(b
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_id, range, UInt64(0))
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id Source
+-- Security ID Source
 moex_spectra_fastgate_fast_v9_9_0.security_id_source = {}
 
--- Dissect: Security Id Source
+-- Dissect: Security ID Source
 moex_spectra_fastgate_fast_v9_9_0.security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1153,7 +1151,7 @@ moex_spectra_fastgate_fast_v9_9_0.security_id_source.dissect = function(buffer, 
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_id_source, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_id_source, range, 0)
-    absent:set_text("Security Id Source: No Value")
+    absent:set_text("Security ID Source: No Value")
   end
 
   return offset, value
@@ -1247,10 +1245,10 @@ moex_spectra_fastgate_fast_v9_9_0.security_group_sent_required.dissect = functio
   return offset, value
 end
 
--- Exchange Trading Session Id (Sent)
+-- Exchange Trading Session ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_optional = {}
 
--- Dissect: Exchange Trading Session Id (Sent)
+-- Dissect: Exchange Trading Session ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1263,16 +1261,16 @@ moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_optional.diss
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.exchange_trading_session_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.exchange_trading_session_id, range, 0)
-    absent:set_text("Exchange Trading Session Id: No Value")
+    absent:set_text("Exchange Trading Session ID: No Value")
   end
 
   return offset, value
 end
 
--- Exchange Trading Session Id (Sent)
+-- Exchange Trading Session ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_required = {}
 
--- Dissect: Exchange Trading Session Id (Sent)
+-- Dissect: Exchange Trading Session ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1285,7 +1283,7 @@ moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_required.diss
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.exchange_trading_session_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.exchange_trading_session_id, range, 0)
-    absent:set_text("Exchange Trading Session Id: No Value")
+    absent:set_text("Exchange Trading Session ID: No Value")
   end
 
   return offset, value
@@ -1357,10 +1355,10 @@ moex_spectra_fastgate_fast_v9_9_0.market_depth.dissect = function(buffer, offset
   return offset, value
 end
 
--- Md Price Level
+-- MD Price Level
 moex_spectra_fastgate_fast_v9_9_0.md_price_level = {}
 
--- Dissect: Md Price Level
+-- Dissect: MD Price Level
 moex_spectra_fastgate_fast_v9_9_0.md_price_level.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1373,16 +1371,16 @@ moex_spectra_fastgate_fast_v9_9_0.md_price_level.dissect = function(buffer, offs
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_price_level, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_price_level, range, 0)
-    absent:set_text("Md Price Level: No Value")
+    absent:set_text("MD Price Level: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Id (Sent)
+-- MD Entry ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_optional = {}
 
--- Dissect: Md Entry Id (Sent)
+-- Dissect: MD Entry ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1395,16 +1393,16 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_optional.dissect = function(b
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_id, range, Int64(0))
-    absent:set_text("Md Entry Id: No Value")
+    absent:set_text("MD Entry ID: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Id (Sent)
+-- MD Entry ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_required = {}
 
--- Dissect: Md Entry Id (Sent)
+-- Dissect: MD Entry ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1417,25 +1415,25 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_required.dissect = function(b
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_id, range, Int64(0))
-    absent:set_text("Md Entry Id: No Value")
+    absent:set_text("MD Entry ID: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Px (Sent)
+-- MD Entry Px (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_optional = {}
 
--- Display: Md Entry Px (Sent)
+-- Display: MD Entry Px (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_optional.display = function(value)
   if value == nil then
-    return "Md Entry Px: No Value"
+    return "MD Entry Px: No Value"
   end
 
-  return "Md Entry Px: "..value
+  return "MD Entry Px: "..value
 end
 
--- Dissect: Md Entry Px (Sent)
+-- Dissect: MD Entry Px (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1468,10 +1466,10 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_optional.dissect = function(b
   return offset, value
 end
 
--- Md Entry Px (Sent)
+-- MD Entry Px (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_required = {}
 
--- Dissect: Md Entry Px (Sent)
+-- Dissect: MD Entry Px (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1484,16 +1482,16 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_required.dissect = function(b
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_px_string, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_px_string, range, "")
-    absent:set_text("Md Entry Px: No Value")
+    absent:set_text("MD Entry Px: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Size (Sent)
+-- MD Entry Size (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_optional = {}
 
--- Dissect: Md Entry Size (Sent)
+-- Dissect: MD Entry Size (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1506,16 +1504,16 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_optional.dissect = function
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_size, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_size, range, Int64(0))
-    absent:set_text("Md Entry Size: No Value")
+    absent:set_text("MD Entry Size: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Size (Sent)
+-- MD Entry Size (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_required = {}
 
--- Dissect: Md Entry Size (Sent)
+-- Dissect: MD Entry Size (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1528,16 +1526,16 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_required.dissect = function
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_size, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_size, range, Int64(0))
-    absent:set_text("Md Entry Size: No Value")
+    absent:set_text("MD Entry Size: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Date
+-- MD Entry Date
 moex_spectra_fastgate_fast_v9_9_0.md_entry_date = {}
 
--- Dissect: Md Entry Date
+-- Dissect: MD Entry Date
 moex_spectra_fastgate_fast_v9_9_0.md_entry_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1550,16 +1548,16 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_date.dissect = function(buffer, offse
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_date, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_date, range, 0)
-    absent:set_text("Md Entry Date: No Value")
+    absent:set_text("MD Entry Date: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Time
+-- MD Entry Time
 moex_spectra_fastgate_fast_v9_9_0.md_entry_time = {}
 
--- Dissect: Md Entry Time
+-- Dissect: MD Entry Time
 moex_spectra_fastgate_fast_v9_9_0.md_entry_time.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1572,7 +1570,7 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_time.dissect = function(buffer, offse
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_time, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_time, range, UInt64(0))
-    absent:set_text("Md Entry Time: No Value")
+    absent:set_text("MD Entry Time: No Value")
   end
 
   return offset, value
@@ -1600,10 +1598,10 @@ moex_spectra_fastgate_fast_v9_9_0.number_of_orders.dissect = function(buffer, of
   return offset, value
 end
 
--- Md Entry Trade Type
+-- MD Entry Trade Type
 moex_spectra_fastgate_fast_v9_9_0.md_entry_trade_type = {}
 
--- Dissect: Md Entry Trade Type
+-- Dissect: MD Entry Trade Type
 moex_spectra_fastgate_fast_v9_9_0.md_entry_trade_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1616,7 +1614,7 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_trade_type.dissect = function(buffer,
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_trade_type, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_trade_type, range, "")
-    absent:set_text("Md Entry Trade Type: No Value")
+    absent:set_text("MD Entry Trade Type: No Value")
   end
 
   return offset, value
@@ -1689,10 +1687,10 @@ moex_spectra_fastgate_fast_v9_9_0.last_px.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Md Flags (Sent)
+-- MD Flags (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_flags_sent_optional_int32 = {}
 
--- Dissect: Md Flags (Sent)
+-- Dissect: MD Flags (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_flags_sent_optional_int32.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1705,16 +1703,16 @@ moex_spectra_fastgate_fast_v9_9_0.md_flags_sent_optional_int32.dissect = functio
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags_int32, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags_int32, range, 0)
-    absent:set_text("Md Flags: No Value")
+    absent:set_text("MD Flags: No Value")
   end
 
   return offset, value
 end
 
--- Md Flags (Sent)
+-- MD Flags (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_flags_sent_optional_int64 = {}
 
--- Dissect: Md Flags (Sent)
+-- Dissect: MD Flags (Sent)
 moex_spectra_fastgate_fast_v9_9_0.md_flags_sent_optional_int64.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1727,7 +1725,7 @@ moex_spectra_fastgate_fast_v9_9_0.md_flags_sent_optional_int64.dissect = functio
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags_int64, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags_int64, range, Int64(0))
-    absent:set_text("Md Flags: No Value")
+    absent:set_text("MD Flags: No Value")
   end
 
   return offset, value
@@ -1843,10 +1841,10 @@ moex_spectra_fastgate_fast_v9_9_0.order_side_sent_required.dissect = function(bu
   return offset, value
 end
 
--- Md Entry Synthetic Size
+-- MD Entry Synthetic Size
 moex_spectra_fastgate_fast_v9_9_0.md_entry_synthetic_size = {}
 
--- Dissect: Md Entry Synthetic Size
+-- Dissect: MD Entry Synthetic Size
 moex_spectra_fastgate_fast_v9_9_0.md_entry_synthetic_size.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1859,7 +1857,7 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_synthetic_size.dissect = function(buf
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_synthetic_size, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_synthetic_size, range, Int64(0))
-    absent:set_text("Md Entry Synthetic Size: No Value")
+    absent:set_text("MD Entry Synthetic Size: No Value")
   end
 
   return offset, value
@@ -1932,10 +1930,10 @@ moex_spectra_fastgate_fast_v9_9_0.index_cross_rate.dissect = function(buffer, of
   return offset, value
 end
 
--- Trading Session Sub Id
+-- Trading Session Sub ID
 moex_spectra_fastgate_fast_v9_9_0.trading_session_sub_id = {}
 
--- Dissect: Trading Session Sub Id
+-- Dissect: Trading Session Sub ID
 moex_spectra_fastgate_fast_v9_9_0.trading_session_sub_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1948,7 +1946,7 @@ moex_spectra_fastgate_fast_v9_9_0.trading_session_sub_id.dissect = function(buff
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_sub_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_sub_id, range, "")
-    absent:set_text("Trading Session Sub Id: No Value")
+    absent:set_text("Trading Session Sub ID: No Value")
   end
 
   return offset, value
@@ -2020,10 +2018,10 @@ moex_spectra_fastgate_fast_v9_9_0.security_desc.dissect = function(buffer, offse
   return offset, value
 end
 
--- Security Alt Id (Sent)
+-- Security Alt ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_alt_id_sent_optional = {}
 
--- Dissect: Security Alt Id (Sent)
+-- Dissect: Security Alt ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_alt_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2036,16 +2034,16 @@ moex_spectra_fastgate_fast_v9_9_0.security_alt_id_sent_optional.dissect = functi
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id, range, "")
-    absent:set_text("Security Alt Id: No Value")
+    absent:set_text("Security Alt ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Alt Id (Sent)
+-- Security Alt ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_alt_id_sent_required = {}
 
--- Dissect: Security Alt Id (Sent)
+-- Dissect: Security Alt ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_alt_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2058,16 +2056,16 @@ moex_spectra_fastgate_fast_v9_9_0.security_alt_id_sent_required.dissect = functi
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id, range, "")
-    absent:set_text("Security Alt Id: No Value")
+    absent:set_text("Security Alt ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Alt Id Source (Sent)
+-- Security Alt ID Source (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_alt_id_source_sent_optional = {}
 
--- Dissect: Security Alt Id Source (Sent)
+-- Dissect: Security Alt ID Source (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_alt_id_source_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2080,16 +2078,16 @@ moex_spectra_fastgate_fast_v9_9_0.security_alt_id_source_sent_optional.dissect =
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id_source, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id_source, range, "")
-    absent:set_text("Security Alt Id Source: No Value")
+    absent:set_text("Security Alt ID Source: No Value")
   end
 
   return offset, value
 end
 
--- Security Alt Id Source (Sent)
+-- Security Alt ID Source (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_alt_id_source_sent_required = {}
 
--- Dissect: Security Alt Id Source (Sent)
+-- Dissect: Security Alt ID Source (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_alt_id_source_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2102,7 +2100,7 @@ moex_spectra_fastgate_fast_v9_9_0.security_alt_id_source_sent_required.dissect =
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id_source, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_alt_id_source, range, "")
-    absent:set_text("Security Alt Id Source: No Value")
+    absent:set_text("Security Alt ID Source: No Value")
   end
 
   return offset, value
@@ -2130,10 +2128,10 @@ moex_spectra_fastgate_fast_v9_9_0.security_type.dissect = function(buffer, offse
   return offset, value
 end
 
--- Cfi Code (Sent)
+-- CFI Code (Sent)
 moex_spectra_fastgate_fast_v9_9_0.cfi_code_sent_optional = {}
 
--- Dissect: Cfi Code (Sent)
+-- Dissect: CFI Code (Sent)
 moex_spectra_fastgate_fast_v9_9_0.cfi_code_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2146,16 +2144,16 @@ moex_spectra_fastgate_fast_v9_9_0.cfi_code_sent_optional.dissect = function(buff
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.cfi_code, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.cfi_code, range, "")
-    absent:set_text("Cfi Code: No Value")
+    absent:set_text("CFI Code: No Value")
   end
 
   return offset, value
 end
 
--- Cfi Code (Sent)
+-- CFI Code (Sent)
 moex_spectra_fastgate_fast_v9_9_0.cfi_code_sent_required = {}
 
--- Dissect: Cfi Code (Sent)
+-- Dissect: CFI Code (Sent)
 moex_spectra_fastgate_fast_v9_9_0.cfi_code_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2168,7 +2166,7 @@ moex_spectra_fastgate_fast_v9_9_0.cfi_code_sent_required.dissect = function(buff
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.cfi_code, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.cfi_code, range, "")
-    absent:set_text("Cfi Code: No Value")
+    absent:set_text("CFI Code: No Value")
   end
 
   return offset, value
@@ -2308,10 +2306,10 @@ moex_spectra_fastgate_fast_v9_9_0.security_trading_status_sent_required.dissect 
   return offset, value
 end
 
--- Market Id
+-- Market ID
 moex_spectra_fastgate_fast_v9_9_0.market_id = {}
 
--- Dissect: Market Id
+-- Dissect: Market ID
 moex_spectra_fastgate_fast_v9_9_0.market_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2324,16 +2322,16 @@ moex_spectra_fastgate_fast_v9_9_0.market_id.dissect = function(buffer, offset, p
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.market_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.market_id, range, "")
-    absent:set_text("Market Id: No Value")
+    absent:set_text("Market ID: No Value")
   end
 
   return offset, value
 end
 
--- Market Segment Id (Sent)
+-- Market Segment ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.market_segment_id_sent_required = {}
 
--- Dissect: Market Segment Id (Sent)
+-- Dissect: Market Segment ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.market_segment_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2346,16 +2344,16 @@ moex_spectra_fastgate_fast_v9_9_0.market_segment_id_sent_required.dissect = func
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.market_segment_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.market_segment_id, range, "")
-    absent:set_text("Market Segment Id: No Value")
+    absent:set_text("Market Segment ID: No Value")
   end
 
   return offset, value
 end
 
--- Market Segment Id (Sent)
+-- Market Segment ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.market_segment_id_sent_optional = {}
 
--- Dissect: Market Segment Id (Sent)
+-- Dissect: Market Segment ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.market_segment_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2368,16 +2366,16 @@ moex_spectra_fastgate_fast_v9_9_0.market_segment_id_sent_optional.dissect = func
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.market_segment_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.market_segment_id, range, "")
-    absent:set_text("Market Segment Id: No Value")
+    absent:set_text("Market Segment ID: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Id (Sent)
+-- Trading Session ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.trading_session_id_sent_optional = {}
 
--- Dissect: Trading Session Id (Sent)
+-- Dissect: Trading Session ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.trading_session_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2390,16 +2388,16 @@ moex_spectra_fastgate_fast_v9_9_0.trading_session_id_sent_optional.dissect = fun
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_id, range, 0)
-    absent:set_text("Trading Session Id: No Value")
+    absent:set_text("Trading Session ID: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Id (Sent)
+-- Trading Session ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.trading_session_id_sent_required = {}
 
--- Dissect: Trading Session Id (Sent)
+-- Dissect: Trading Session ID (Sent)
 moex_spectra_fastgate_fast_v9_9_0.trading_session_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2412,7 +2410,7 @@ moex_spectra_fastgate_fast_v9_9_0.trading_session_id_sent_required.dissect = fun
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trading_session_id, range, 0)
-    absent:set_text("Trading Session Id: No Value")
+    absent:set_text("Trading Session ID: No Value")
   end
 
   return offset, value
@@ -2463,10 +2461,10 @@ moex_spectra_fastgate_fast_v9_9_0.volatility.dissect = function(buffer, offset, 
   return offset, value
 end
 
--- No Md Feed Types
+-- No MD Feed Types
 moex_spectra_fastgate_fast_v9_9_0.no_md_feed_types = {}
 
--- Dissect: No Md Feed Types
+-- Dissect: No MD Feed Types
 moex_spectra_fastgate_fast_v9_9_0.no_md_feed_types.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2479,16 +2477,16 @@ moex_spectra_fastgate_fast_v9_9_0.no_md_feed_types.dissect = function(buffer, of
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_md_feed_types, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_md_feed_types, range, 0)
-    absent:set_text("No Md Feed Types: No Value")
+    absent:set_text("No MD Feed Types: No Value")
   end
 
   return offset, value
 end
 
--- Md Feed Type
+-- MD Feed Type
 moex_spectra_fastgate_fast_v9_9_0.md_feed_type = {}
 
--- Dissect: Md Feed Type
+-- Dissect: MD Feed Type
 moex_spectra_fastgate_fast_v9_9_0.md_feed_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2501,16 +2499,16 @@ moex_spectra_fastgate_fast_v9_9_0.md_feed_type.dissect = function(buffer, offset
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_feed_type, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_feed_type, range, "")
-    absent:set_text("Md Feed Type: No Value")
+    absent:set_text("MD Feed Type: No Value")
   end
 
   return offset, value
 end
 
--- Md Book Type
+-- MD Book Type
 moex_spectra_fastgate_fast_v9_9_0.md_book_type = {}
 
--- Dissect: Md Book Type
+-- Dissect: MD Book Type
 moex_spectra_fastgate_fast_v9_9_0.md_book_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2523,7 +2521,7 @@ moex_spectra_fastgate_fast_v9_9_0.md_book_type.dissect = function(buffer, offset
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_book_type, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_book_type, range, 0)
-    absent:set_text("Md Book Type: No Value")
+    absent:set_text("MD Book Type: No Value")
   end
 
   return offset, value
@@ -2595,10 +2593,10 @@ moex_spectra_fastgate_fast_v9_9_0.underlying_board.dissect = function(buffer, of
   return offset, value
 end
 
--- Underlying Security Id
+-- Underlying Security ID
 moex_spectra_fastgate_fast_v9_9_0.underlying_security_id = {}
 
--- Dissect: Underlying Security Id
+-- Dissect: Underlying Security ID
 moex_spectra_fastgate_fast_v9_9_0.underlying_security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2611,16 +2609,16 @@ moex_spectra_fastgate_fast_v9_9_0.underlying_security_id.dissect = function(buff
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.underlying_security_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.underlying_security_id, range, UInt64(0))
-    absent:set_text("Underlying Security Id: No Value")
+    absent:set_text("Underlying Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Underlying Future Id
+-- Underlying Future ID
 moex_spectra_fastgate_fast_v9_9_0.underlying_future_id = {}
 
--- Dissect: Underlying Future Id
+-- Dissect: Underlying Future ID
 moex_spectra_fastgate_fast_v9_9_0.underlying_future_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2633,7 +2631,7 @@ moex_spectra_fastgate_fast_v9_9_0.underlying_future_id.dissect = function(buffer
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.underlying_future_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.underlying_future_id, range, UInt64(0))
-    absent:set_text("Underlying Future Id: No Value")
+    absent:set_text("Underlying Future ID: No Value")
   end
 
   return offset, value
@@ -3110,10 +3108,10 @@ moex_spectra_fastgate_fast_v9_9_0.leg_symbol.dissect = function(buffer, offset, 
   return offset, value
 end
 
--- Leg Security Id
+-- Leg Security ID
 moex_spectra_fastgate_fast_v9_9_0.leg_security_id = {}
 
--- Dissect: Leg Security Id
+-- Dissect: Leg Security ID
 moex_spectra_fastgate_fast_v9_9_0.leg_security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3126,7 +3124,7 @@ moex_spectra_fastgate_fast_v9_9_0.leg_security_id.dissect = function(buffer, off
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.leg_security_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.leg_security_id, range, UInt64(0))
-    absent:set_text("Leg Security Id: No Value")
+    absent:set_text("Leg Security ID: No Value")
   end
 
   return offset, value
@@ -4047,10 +4045,10 @@ moex_spectra_fastgate_fast_v9_9_0.settl_price.dissect = function(buffer, offset,
   return offset, value
 end
 
--- Trade Mode Id
+-- Trade Mode ID
 moex_spectra_fastgate_fast_v9_9_0.trade_mode_id = {}
 
--- Dissect: Trade Mode Id
+-- Dissect: Trade Mode ID
 moex_spectra_fastgate_fast_v9_9_0.trade_mode_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4063,7 +4061,7 @@ moex_spectra_fastgate_fast_v9_9_0.trade_mode_id.dissect = function(buffer, offse
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_mode_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_mode_id, range, 0)
-    absent:set_text("Trade Mode Id: No Value")
+    absent:set_text("Trade Mode ID: No Value")
   end
 
   return offset, value
@@ -4091,10 +4089,10 @@ moex_spectra_fastgate_fast_v9_9_0.group_mask.dissect = function(buffer, offset, 
   return offset, value
 end
 
--- Section Id
+-- Section ID
 moex_spectra_fastgate_fast_v9_9_0.section_id = {}
 
--- Dissect: Section Id
+-- Dissect: Section ID
 moex_spectra_fastgate_fast_v9_9_0.section_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4107,16 +4105,16 @@ moex_spectra_fastgate_fast_v9_9_0.section_id.dissect = function(buffer, offset, 
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.section_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.section_id, range, 0)
-    absent:set_text("Section Id: No Value")
+    absent:set_text("Section ID: No Value")
   end
 
   return offset, value
 end
 
--- Base Contract Id
+-- Base Contract ID
 moex_spectra_fastgate_fast_v9_9_0.base_contract_id = {}
 
--- Dissect: Base Contract Id
+-- Dissect: Base Contract ID
 moex_spectra_fastgate_fast_v9_9_0.base_contract_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4129,7 +4127,7 @@ moex_spectra_fastgate_fast_v9_9_0.base_contract_id.dissect = function(buffer, of
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.base_contract_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.base_contract_id, range, 0)
-    absent:set_text("Base Contract Id: No Value")
+    absent:set_text("Base Contract ID: No Value")
   end
 
   return offset, value
@@ -4314,10 +4312,10 @@ moex_spectra_fastgate_fast_v9_9_0.no_related_sym.dissect = function(buffer, offs
   return offset, value
 end
 
--- Security Group Id
+-- Security Group ID
 moex_spectra_fastgate_fast_v9_9_0.security_group_id = {}
 
--- Dissect: Security Group Id
+-- Dissect: Security Group ID
 moex_spectra_fastgate_fast_v9_9_0.security_group_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4330,7 +4328,7 @@ moex_spectra_fastgate_fast_v9_9_0.security_group_id.dissect = function(buffer, o
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_group_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_group_id, range, Int64(0))
-    absent:set_text("Security Group Id: No Value")
+    absent:set_text("Security Group ID: No Value")
   end
 
   return offset, value
@@ -4512,10 +4510,10 @@ moex_spectra_fastgate_fast_v9_9_0.trad_ses_event.dissect = function(buffer, offs
   return offset, value
 end
 
--- Trade Period Id
+-- Trade Period ID
 moex_spectra_fastgate_fast_v9_9_0.trade_period_id = {}
 
--- Dissect: Trade Period Id
+-- Dissect: Trade Period ID
 moex_spectra_fastgate_fast_v9_9_0.trade_period_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4528,7 +4526,7 @@ moex_spectra_fastgate_fast_v9_9_0.trade_period_id.dissect = function(buffer, off
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_period_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_period_id, range, Int64(0))
-    absent:set_text("Trade Period Id: No Value")
+    absent:set_text("Trade Period ID: No Value")
   end
 
   return offset, value
@@ -4622,10 +4620,10 @@ moex_spectra_fastgate_fast_v9_9_0.trad_ses_close_time_till.dissect = function(bu
   return offset, value
 end
 
--- Auction Id
+-- Auction ID
 moex_spectra_fastgate_fast_v9_9_0.auction_id = {}
 
--- Dissect: Auction Id
+-- Dissect: Auction ID
 moex_spectra_fastgate_fast_v9_9_0.auction_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4638,16 +4636,16 @@ moex_spectra_fastgate_fast_v9_9_0.auction_id.dissect = function(buffer, offset, 
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.auction_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.auction_id, range, Int64(0))
-    absent:set_text("Auction Id: No Value")
+    absent:set_text("Auction ID: No Value")
   end
 
   return offset, value
 end
 
--- Event Id Open
+-- Event ID Open
 moex_spectra_fastgate_fast_v9_9_0.event_id_open = {}
 
--- Dissect: Event Id Open
+-- Dissect: Event ID Open
 moex_spectra_fastgate_fast_v9_9_0.event_id_open.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4660,16 +4658,16 @@ moex_spectra_fastgate_fast_v9_9_0.event_id_open.dissect = function(buffer, offse
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_id_open, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_id_open, range, 0)
-    absent:set_text("Event Id Open: No Value")
+    absent:set_text("Event ID Open: No Value")
   end
 
   return offset, value
 end
 
--- Event Id Close
+-- Event ID Close
 moex_spectra_fastgate_fast_v9_9_0.event_id_close = {}
 
--- Dissect: Event Id Close
+-- Dissect: Event ID Close
 moex_spectra_fastgate_fast_v9_9_0.event_id_close.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4682,7 +4680,7 @@ moex_spectra_fastgate_fast_v9_9_0.event_id_close.dissect = function(buffer, offs
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_id_close, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_id_close, range, 0)
-    absent:set_text("Event Id Close: No Value")
+    absent:set_text("Event ID Close: No Value")
   end
 
   return offset, value
@@ -4886,10 +4884,10 @@ moex_spectra_fastgate_fast_v9_9_0.last_qty.dissect = function(buffer, offset, pa
   return offset, value
 end
 
--- Trade Id
+-- Trade ID
 moex_spectra_fastgate_fast_v9_9_0.trade_id = {}
 
--- Dissect: Trade Id
+-- Dissect: Trade ID
 moex_spectra_fastgate_fast_v9_9_0.trade_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4902,16 +4900,16 @@ moex_spectra_fastgate_fast_v9_9_0.trade_id.dissect = function(buffer, offset, pa
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_id, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_id, range, Int64(0))
-    absent:set_text("Trade Id: No Value")
+    absent:set_text("Trade ID: No Value")
   end
 
   return offset, value
 end
 
--- Md Flags2
+-- MD Flags2
 moex_spectra_fastgate_fast_v9_9_0.md_flags2 = {}
 
--- Dissect: Md Flags2
+-- Dissect: MD Flags2
 moex_spectra_fastgate_fast_v9_9_0.md_flags2.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4924,7 +4922,7 @@ moex_spectra_fastgate_fast_v9_9_0.md_flags2.dissect = function(buffer, offset, p
     parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags2, range, value)
   else
     local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_flags2, range, Int64(0))
-    absent:set_text("Md Flags2: No Value")
+    absent:set_text("MD Flags2: No Value")
   end
 
   return offset, value
@@ -5011,13 +5009,13 @@ moex_spectra_fastgate_fast_v9_9_0.logout.fields = function(buffer, offset, packe
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_5.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5052,13 +5050,13 @@ moex_spectra_fastgate_fast_v9_9_0.logon.fields = function(buffer, offset, packet
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_a.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5113,27 +5111,27 @@ moex_spectra_fastgate_fast_v9_9_0.instrument_attributes.dissect = function(buffe
   return index
 end
 
--- Md Feed Types
+-- MD Feed Types
 moex_spectra_fastgate_fast_v9_9_0.md_feed_types = {}
 
--- Dissect Fields: Md Feed Types
+-- Dissect Fields: MD Feed Types
 moex_spectra_fastgate_fast_v9_9_0.md_feed_types.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Feed Type: string, sent
+  -- MD Feed Type: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_feed_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Market Depth: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_depth.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Book Type: uInt32, sent, optional
+  -- MD Book Type: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_book_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Md Feed Types
+-- Dissect: MD Feed Types
 moex_spectra_fastgate_fast_v9_9_0.md_feed_types.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_feed_types, buffer(offset, 0))
   local index = offset
@@ -5159,13 +5157,13 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_security_definition.fields = funct
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_d.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5183,31 +5181,31 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_security_definition.fields = funct
   -- Security Desc: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_desc.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id: string, sent
+  -- Security Alt ID: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_alt_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id Source: string, sent
+  -- Security Alt ID Source: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_alt_id_source_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cfi Code: string, sent
+  -- CFI Code: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.cfi_code_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Id: string, Constant
+  -- Market ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent
+  -- Market Segment ID: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_segment_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Feed Types: uInt32, sent
+  -- No MD Feed Types: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.no_md_feed_types.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Feed Types: No Md Feed Types entries
+  -- MD Feed Types: No MD Feed Types entries
   local count = value or 0
   for md_feed_types_index = 1, count do
     index = moex_spectra_fastgate_fast_v9_9_0.md_feed_types.dissect(buffer, index, packet, parent, presence_map, base, state, md_feed_types_index)
@@ -5244,33 +5242,33 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_security_definition.dissect = func
   return index
 end
 
--- Otc Monitor Snapshot Message Md Entries
+-- Otc Monitor Snapshot Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message_md_entries = {}
 
--- Dissect Fields: Otc Monitor Snapshot Message Md Entries
+-- Dissect Fields: Otc Monitor Snapshot Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, sent
+  -- MD Update Action: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_update_action.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: int64, sent
+  -- MD Entry ID: int64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: string, sent
+  -- MD Entry Px: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt64, sent
+  -- MD Entry Time: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Size: int64, sent
+  -- MD Entry Size: int64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Currency: string, sent
@@ -5282,7 +5280,7 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message_md_entries.fields
   -- Settl Currency: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.settl_currency_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cfi Code: string, sent
+  -- CFI Code: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.cfi_code_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trade Volume: string, sent
@@ -5291,7 +5289,7 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message_md_entries.fields
   return index
 end
 
--- Dissect: Otc Monitor Snapshot Message Md Entries
+-- Dissect: Otc Monitor Snapshot Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_snapshot_message_md_entries, buffer(offset, 0))
   local index = offset
@@ -5317,13 +5315,13 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message.fields = function
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_w.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5350,10 +5348,10 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message.fields = function
   -- Security Group: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_group_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for otc_monitor_snapshot_message_md_entries_index = 1, count do
     index = moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, otc_monitor_snapshot_message_md_entries_index)
@@ -5372,18 +5370,18 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_snapshot_message.dissect = functio
   return index
 end
 
--- Otc Monitor Incremental Refresh Message Md Entries
+-- Otc Monitor Incremental Refresh Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message_md_entries = {}
 
--- Dissect Fields: Otc Monitor Incremental Refresh Message Md Entries
+-- Dissect Fields: Otc Monitor Incremental Refresh Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, sent
+  -- MD Update Action: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_update_action.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent
@@ -5395,19 +5393,19 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message_md_ent
   -- Rpt Seq: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.rpt_seq_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: int64, sent
+  -- MD Entry ID: int64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: string, sent
+  -- MD Entry Px: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Size: int64, sent
+  -- MD Entry Size: int64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt64, sent
+  -- MD Entry Time: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Currency: string, sent
@@ -5422,7 +5420,7 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message_md_ent
   -- Settl Currency: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.settl_currency_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cfi Code: string, sent
+  -- CFI Code: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.cfi_code_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trade Volume: string, sent
@@ -5431,7 +5429,7 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message_md_ent
   return index
 end
 
--- Dissect: Otc Monitor Incremental Refresh Message Md Entries
+-- Dissect: Otc Monitor Incremental Refresh Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.otc_monitor_incremental_refresh_message_md_entries, buffer(offset, 0))
   local index = offset
@@ -5457,13 +5455,13 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message.fields
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5475,10 +5473,10 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message.fields
   -- Last Fragment: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.last_fragment_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for otc_monitor_incremental_refresh_message_md_entries_index = 1, count do
     index = moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, otc_monitor_incremental_refresh_message_md_entries_index)
@@ -5497,45 +5495,45 @@ moex_spectra_fastgate_fast_v9_9_0.otc_monitor_incremental_refresh_message.dissec
   return index
 end
 
--- Book Message Md Entries
+-- Book Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.book_message_md_entries = {}
 
--- Dissect Fields: Book Message Md Entries
+-- Dissect Fields: Book Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.book_message_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: int64, sent, optional
+  -- MD Entry ID: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt64, sent
+  -- MD Entry Time: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_optional.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Size: int64, sent, optional
+  -- MD Entry Size: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trade Id: int64, sent, optional
+  -- Trade ID: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.trade_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Flags: int64, sent, optional
+  -- MD Flags: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_flags_sent_optional_int64.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Flags2: int64, sent, optional
+  -- MD Flags2: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_flags2.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Book Message Md Entries
+-- Dissect: Book Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.book_message_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.book_message_md_entries, buffer(offset, 0))
   local index = offset
@@ -5561,13 +5559,13 @@ moex_spectra_fastgate_fast_v9_9_0.book_message.fields = function(buffer, offset,
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_w.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5588,19 +5586,19 @@ moex_spectra_fastgate_fast_v9_9_0.book_message.fields = function(buffer, offset,
   -- Route First: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.route_first.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Exchange Trading Session Id: uInt32, sent
+  -- Exchange Trading Session ID: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent, optional
+  -- Security ID: uInt64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for book_message_md_entries_index = 1, count do
     index = moex_spectra_fastgate_fast_v9_9_0.book_message_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, book_message_md_entries_index)
@@ -5619,42 +5617,42 @@ moex_spectra_fastgate_fast_v9_9_0.book_message.dissect = function(buffer, offset
   return index
 end
 
--- Orders Log Message Md Entries
+-- Orders Log Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.orders_log_message_md_entries = {}
 
--- Dissect Fields: Orders Log Message Md Entries
+-- Dissect Fields: Orders Log Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.orders_log_message_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, sent
+  -- MD Update Action: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_update_action.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: int64, sent, optional
+  -- MD Entry ID: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent, optional
+  -- Security ID: uInt64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Rpt Seq: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.rpt_seq_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt64, sent
+  -- MD Entry Time: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_optional.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Size: int64, sent, optional
+  -- MD Entry Size: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Last Px: decimal, sent, optional
@@ -5663,16 +5661,16 @@ moex_spectra_fastgate_fast_v9_9_0.orders_log_message_md_entries.fields = functio
   -- Last Qty: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.last_qty.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trade Id: int64, sent, optional
+  -- Trade ID: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.trade_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Exchange Trading Session Id: uInt32, sent, optional
+  -- Exchange Trading Session ID: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Flags: int64, sent, optional
+  -- MD Flags: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_flags_sent_optional_int64.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Flags2: int64, sent, optional
+  -- MD Flags2: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_flags2.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Revision: uInt64, sent, optional
@@ -5681,7 +5679,7 @@ moex_spectra_fastgate_fast_v9_9_0.orders_log_message_md_entries.fields = functio
   return index
 end
 
--- Dissect: Orders Log Message Md Entries
+-- Dissect: Orders Log Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.orders_log_message_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.orders_log_message_md_entries, buffer(offset, 0))
   local index = offset
@@ -5707,13 +5705,13 @@ moex_spectra_fastgate_fast_v9_9_0.orders_log_message.fields = function(buffer, o
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5725,10 +5723,10 @@ moex_spectra_fastgate_fast_v9_9_0.orders_log_message.fields = function(buffer, o
   -- Last Fragment: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.last_fragment_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for orders_log_message_md_entries_index = 1, count do
     index = moex_spectra_fastgate_fast_v9_9_0.orders_log_message_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, orders_log_message_md_entries_index)
@@ -5787,13 +5785,13 @@ moex_spectra_fastgate_fast_v9_9_0.news.fields = function(buffer, offset, packet,
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_b.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5820,10 +5818,10 @@ moex_spectra_fastgate_fast_v9_9_0.news.fields = function(buffer, offset, packet,
   -- Headline: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.headline.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Id: string, Constant
+  -- Market ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent, optional
+  -- Market Segment ID: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_segment_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- No Lines Of Text: uInt32, sent
@@ -5888,13 +5886,13 @@ moex_spectra_fastgate_fast_v9_9_0.discrete_auction.fields = function(buffer, off
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_u1.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5912,16 +5910,16 @@ moex_spectra_fastgate_fast_v9_9_0.discrete_auction.fields = function(buffer, off
   -- Trad Ses Close Time Till: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.trad_ses_close_time_till.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Auction Id: int64, sent
+  -- Auction ID: int64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.auction_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Exchange Trading Session Id: uInt32, sent
+  -- Exchange Trading Session ID: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Event Id Open: int32, sent
+  -- Event ID Open: int32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.event_id_open.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Event Id Close: int32, sent
+  -- Event ID Close: int32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.event_id_close.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- No Underlyings: uInt32, sent, optional
@@ -5933,7 +5931,7 @@ moex_spectra_fastgate_fast_v9_9_0.discrete_auction.fields = function(buffer, off
     index = moex_spectra_fastgate_fast_v9_9_0.discrete_auction_underlyings.dissect(buffer, index, packet, parent, presence_map, base, state, discrete_auction_underlyings_index)
   end
 
-  -- Trade Period Id: int64, sent, optional
+  -- Trade Period ID: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.trade_period_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -5959,13 +5957,13 @@ moex_spectra_fastgate_fast_v9_9_0.trading_session_status.fields = function(buffe
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_h.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -5980,25 +5978,25 @@ moex_spectra_fastgate_fast_v9_9_0.trading_session_status.fields = function(buffe
   -- Trad Ses Close Time: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.trad_ses_close_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: uInt32, sent
+  -- Trading Session ID: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.trading_session_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Exchange Trading Session Id: uInt32, sent, optional
+  -- Exchange Trading Session ID: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trad Ses Status: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.trad_ses_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Id: string, Constant
+  -- Market ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent
+  -- Market Segment ID: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_segment_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trad Ses Event: int32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.trad_ses_event.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trade Period Id: int64, sent, optional
+  -- Trade Period ID: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.trade_period_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Settl Sess Begin: uInt64, sent, optional
@@ -6030,13 +6028,13 @@ moex_spectra_fastgate_fast_v9_9_0.sequence_reset.fields = function(buffer, offse
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_4.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6071,13 +6069,13 @@ moex_spectra_fastgate_fast_v9_9_0.heartbeat.fields = function(buffer, offset, pa
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_0.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6109,13 +6107,13 @@ moex_spectra_fastgate_fast_v9_9_0.security_group_status.fields = function(buffer
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_f.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6124,7 +6122,7 @@ moex_spectra_fastgate_fast_v9_9_0.security_group_status.fields = function(buffer
   -- Sending Time: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Group Id: int64, sent, optional
+  -- Security Group ID: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_group_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Halt Type: int32, sent
@@ -6136,10 +6134,10 @@ moex_spectra_fastgate_fast_v9_9_0.security_group_status.fields = function(buffer
   -- Group Mask: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.group_mask.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Section Id: int32, sent, optional
+  -- Section ID: int32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.section_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Base Contract Id: int32, sent, optional
+  -- Base Contract ID: int32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.base_contract_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, sent, optional
@@ -6169,10 +6167,10 @@ moex_spectra_fastgate_fast_v9_9_0.sec_mass_stat_grp.fields = function(buffer, of
   local index = offset
   local value = nil
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Trading Status: uInt32, sent
@@ -6207,13 +6205,13 @@ moex_spectra_fastgate_fast_v9_9_0.security_mass_status.fields = function(buffer,
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_co.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6257,13 +6255,13 @@ moex_spectra_fastgate_fast_v9_9_0.security_status.fields = function(buffer, offs
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_f.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6272,10 +6270,10 @@ moex_spectra_fastgate_fast_v9_9_0.security_status.fields = function(buffer, offs
   -- Sending Time: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent
@@ -6328,13 +6326,13 @@ moex_spectra_fastgate_fast_v9_9_0.security_definition_update_report.fields = fun
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_bp.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6343,10 +6341,10 @@ moex_spectra_fastgate_fast_v9_9_0.security_definition_update_report.fields = fun
   -- Sending Time: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Volatility: decimal, sent, optional
@@ -6451,7 +6449,7 @@ moex_spectra_fastgate_fast_v9_9_0.instrument_legs.fields = function(buffer, offs
   -- Leg Symbol: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.leg_symbol.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id: uInt64, sent
+  -- Leg Security ID: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.leg_security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Leg Ratio Qty: decimal, sent
@@ -6490,10 +6488,10 @@ moex_spectra_fastgate_fast_v9_9_0.security_definition_underlyings.fields = funct
   -- Underlying Board: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.underlying_board.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Security Id: uInt64, sent, optional
+  -- Underlying Security ID: uInt64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.underlying_security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Underlying Future Id: uInt64, sent, optional
+  -- Underlying Future ID: uInt64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.underlying_future_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -6515,27 +6513,27 @@ moex_spectra_fastgate_fast_v9_9_0.security_definition_underlyings.dissect = func
   return index
 end
 
--- Md Feed Types
+-- MD Feed Types
 moex_spectra_fastgate_fast_v9_9_0.md_feed_types = {}
 
--- Dissect Fields: Md Feed Types
+-- Dissect Fields: MD Feed Types
 moex_spectra_fastgate_fast_v9_9_0.md_feed_types.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Feed Type: string, sent
+  -- MD Feed Type: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_feed_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Market Depth: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_depth.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Book Type: uInt32, sent, optional
+  -- MD Book Type: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_book_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Md Feed Types
+-- Dissect: MD Feed Types
 moex_spectra_fastgate_fast_v9_9_0.md_feed_types.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_feed_types, buffer(offset, 0))
   local index = offset
@@ -6561,13 +6559,13 @@ moex_spectra_fastgate_fast_v9_9_0.security_definition.fields = function(buffer, 
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_d.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6585,22 +6583,22 @@ moex_spectra_fastgate_fast_v9_9_0.security_definition.fields = function(buffer, 
   -- Security Desc: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_desc.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent
+  -- Security ID: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id: string, sent, optional
+  -- Security Alt ID: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_alt_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id Source: string, sent, optional
+  -- Security Alt ID Source: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_alt_id_source_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Type: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cfi Code: string, sent, optional
+  -- CFI Code: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.cfi_code_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Strike Price: decimal, sent, optional
@@ -6615,25 +6613,25 @@ moex_spectra_fastgate_fast_v9_9_0.security_definition.fields = function(buffer, 
   -- Currency: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.currency_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Id: string, Constant
+  -- Market ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent
+  -- Market Segment ID: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_segment_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trading Session Id: uInt32, sent, optional
+  -- Trading Session ID: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Exchange Trading Session Id: uInt32, sent, optional
+  -- Exchange Trading Session ID: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Volatility: decimal, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.volatility.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- No Md Feed Types: uInt32, sent
+  -- No MD Feed Types: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.no_md_feed_types.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Feed Types: No Md Feed Types entries
+  -- MD Feed Types: No MD Feed Types entries
   local count = value or 0
   for md_feed_types_index = 1, count do
     index = moex_spectra_fastgate_fast_v9_9_0.md_feed_types.dissect(buffer, index, packet, parent, presence_map, base, state, md_feed_types_index)
@@ -6759,16 +6757,16 @@ moex_spectra_fastgate_fast_v9_9_0.security_definition.fields = function(buffer, 
   -- Settl Price: decimal, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.settl_price.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Trade Mode Id: int32, sent, optional
+  -- Trade Mode ID: int32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.trade_mode_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Group Mask: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.group_mask.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Section Id: int32, sent, optional
+  -- Section ID: int32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.section_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Base Contract Id: int32, sent, optional
+  -- Base Contract ID: int32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.base_contract_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trade Period Access: int64, sent, optional
@@ -6796,51 +6794,51 @@ moex_spectra_fastgate_fast_v9_9_0.security_definition.dissect = function(buffer,
   return index
 end
 
--- Default Snapshot Message Md Entries
+-- Default Snapshot Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message_md_entries = {}
 
--- Dissect Fields: Default Snapshot Message Md Entries
+-- Dissect Fields: Default Snapshot Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Exchange Trading Session Id: uInt32, sent, optional
+  -- Exchange Trading Session ID: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: int64, sent, optional
+  -- MD Entry ID: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Market Depth: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_depth.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_optional.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt64, sent
+  -- MD Entry Time: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Size: int64, sent, optional
+  -- MD Entry Size: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Price Level: uInt32, sent, optional
+  -- MD Price Level: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_price_level.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Number Of Orders: int32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.number_of_orders.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Trade Type: string, sent, optional
+  -- MD Entry Trade Type: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_trade_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trd Type: int32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.trd_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Flags: int32, sent, optional
+  -- MD Flags: int32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_flags_sent_optional_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Currency: string, sent, optional
@@ -6849,19 +6847,19 @@ moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message_md_entries.fields = f
   -- Order Side: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.order_side_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Synthetic Size: int64, sent, optional
+  -- MD Entry Synthetic Size: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_synthetic_size.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Index Cross Rate: decimal, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.index_cross_rate.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Default Snapshot Message Md Entries
+-- Dissect: Default Snapshot Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_snapshot_message_md_entries, buffer(offset, 0))
   local index = offset
@@ -6887,13 +6885,13 @@ moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message.fields = function(buf
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_w.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -6914,10 +6912,10 @@ moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message.fields = function(buf
   -- Last Msg Seq Num Processed: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.last_msg_seq_num_processed.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent, optional
+  -- Security ID: uInt64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent, optional
@@ -6926,10 +6924,10 @@ moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message.fields = function(buf
   -- Security Group: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_group_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for default_snapshot_message_md_entries_index = 1, count do
     index = moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, default_snapshot_message_md_entries_index)
@@ -6948,24 +6946,24 @@ moex_spectra_fastgate_fast_v9_9_0.default_snapshot_message.dissect = function(bu
   return index
 end
 
--- Default Incremental Refresh Message Md Entries
+-- Default Incremental Refresh Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message_md_entries = {}
 
--- Dissect Fields: Default Incremental Refresh Message Md Entries
+-- Dissect Fields: Default Incremental Refresh Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, sent
+  -- MD Update Action: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_update_action.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Type: string, sent
+  -- MD Entry Type: string, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: uInt64, sent, optional
+  -- Security ID: uInt64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant
+  -- Security ID Source: uInt32, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Symbol: string, sent, optional
@@ -6974,7 +6972,7 @@ moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message_md_entries
   -- Security Group: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.security_group_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Exchange Trading Session Id: uInt32, sent, optional
+  -- Exchange Trading Session ID: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.exchange_trading_session_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Rpt Seq: uInt32, sent
@@ -6983,28 +6981,28 @@ moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message_md_entries
   -- Market Depth: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.market_depth.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Price Level: uInt32, sent, optional
+  -- MD Price Level: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_price_level.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Id: int64, sent, optional
+  -- MD Entry ID: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_px_sent_optional.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Size: int64, sent, optional
+  -- MD Entry Size: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_size_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Date: uInt32, sent, optional
+  -- MD Entry Date: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_date.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: uInt64, sent
+  -- MD Entry Time: uInt64, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Number Of Orders: int32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.number_of_orders.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Trade Type: string, sent, optional
+  -- MD Entry Trade Type: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_trade_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trd Type: int32, sent, optional
@@ -7013,7 +7011,7 @@ moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message_md_entries
   -- Last Px: decimal, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.last_px.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Flags: int32, sent, optional
+  -- MD Flags: int32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_flags_sent_optional_int32.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Currency: string, sent, optional
@@ -7025,7 +7023,7 @@ moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message_md_entries
   -- Order Side: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.order_side_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Synthetic Size: int64, sent, optional
+  -- MD Entry Synthetic Size: int64, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.md_entry_synthetic_size.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Open Interest: int64, sent, optional
@@ -7034,13 +7032,13 @@ moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message_md_entries
   -- Index Cross Rate: decimal, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.index_cross_rate.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Trading Session Sub Id: string, sent, optional
+  -- Trading Session Sub ID: string, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Default Incremental Refresh Message Md Entries
+-- Dissect: Default Incremental Refresh Message MD Entries
 moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.default_incremental_refresh_message_md_entries, buffer(offset, 0))
   local index = offset
@@ -7066,13 +7064,13 @@ moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message.fields = f
   local index = offset
   local value = nil
 
-  -- Appl Ver Id: string, Constant
+  -- Appl Ver ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Message Type: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.message_type_constant_x.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: string, Constant
+  -- Sender Comp ID: string, Constant
   index, value = moex_spectra_fastgate_fast_v9_9_0.sender_comp_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, sent
@@ -7084,10 +7082,10 @@ moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message.fields = f
   -- Last Fragment: uInt32, sent, optional
   index, value = moex_spectra_fastgate_fast_v9_9_0.last_fragment_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = moex_spectra_fastgate_fast_v9_9_0.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for default_incremental_refresh_message_md_entries_index = 1, count do
     index = moex_spectra_fastgate_fast_v9_9_0.default_incremental_refresh_message_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, default_incremental_refresh_message_md_entries_index)

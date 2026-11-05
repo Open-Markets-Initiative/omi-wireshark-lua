@@ -1,4 +1,4 @@
-[![Jpx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Jpx/Images/Logo.png)](https://www.jpx.co.jp/english)
+[![Jpx](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Jpx/Images/Logo.png)](https://www.jpx.co.jp/english)
 
 
 ## Japan Exchange Group

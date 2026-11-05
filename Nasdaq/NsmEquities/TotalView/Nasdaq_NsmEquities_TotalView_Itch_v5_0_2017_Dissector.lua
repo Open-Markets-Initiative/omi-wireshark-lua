@@ -1395,24 +1395,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code = {}
 -- Size: Locate Code
 nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.size = 2
 
--- Display: Locate Code
-nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.display = function(value)
-  return "Locate Code: "..value
-end
-
--- Dissect: Locate Code
-nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.locate_code, range, value, display)
-
-  return offset + length, value
-end
-
-
 -- Lookup: Locate Code
 nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.lookup = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.size
@@ -1499,6 +1481,23 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.lookup = function(buffer
   end
 
   return offset + length, value, record
+end
+
+-- Display: Locate Code
+nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.display = function(value)
+  return "Locate Code: "..value
+end
+
+-- Dissect: Locate Code
+nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_totalview_itch_v5_0_2017.locate_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.locate_code, range, value, display)
+
+  return offset + length, value
 end
 
 -- Lower Auction Collar Price
@@ -2646,24 +2645,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate = {}
 -- Size: Stock Locate
 nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.size = 2
 
--- Display: Stock Locate
-nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.display = function(value)
-  return "Stock Locate: "..value
-end
-
--- Dissect: Stock Locate
-nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.stock_locate, range, value, display)
-
-  return offset + length, value
-end
-
-
 -- Lookup: Stock Locate
 nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.lookup = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.size
@@ -2750,6 +2731,23 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.lookup = function(buffe
   end
 
   return offset + length, value, record
+end
+
+-- Display: Stock Locate
+nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.display = function(value)
+  return "Stock Locate: "..value
+end
+
+-- Dissect: Stock Locate
+nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.stock_locate, range, value, display)
+
+  return offset + length, value
 end
 
 -- Timestamp

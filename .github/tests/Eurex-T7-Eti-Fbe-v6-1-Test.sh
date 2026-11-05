@@ -52,7 +52,13 @@ runuser -u tester -- tshark \
   > Eurex.T7.Eti.Fbe.v6.1.Reassembly.json 2> Eurex.T7.Eti.Fbe.v6.1.Reassembly.json.stderr \
   || { echo "--- tshark FAILED (Reassembly) ---"; cat Eurex.T7.Eti.Fbe.v6.1.Reassembly.json.stderr; exit 1; }
 
-grep "eurex.t7.eti.fbe.v6.1." Eurex.T7.Eti.Fbe.v6.1.Reassembly.json
+fields=$(grep -c "eurex.t7.eti.fbe.v6.1." Eurex.T7.Eti.Fbe.v6.1.Reassembly.json) \
+  || { echo "--- no eurex.t7.eti.fbe.v6.1 fields (Reassembly) ---"; exit 1; }
+echo "  eurex.t7.eti.fbe.v6.1 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Eurex.T7.Eti.Fbe.v6.1.Reassembly.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (Reassembly) ---"; grep -o '"Lua Error[^"]*"' Eurex.T7.Eti.Fbe.v6.1.Reassembly.json | sort -u | head; exit 1; }
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eti.Fbe.v6.1/Reassembly.pcap" \

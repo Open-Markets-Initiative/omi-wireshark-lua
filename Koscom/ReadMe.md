@@ -1,4 +1,4 @@
-[![Koscom](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Koscom/Images/Logo.png)](https://www.koscom.co.kr)
+[![Koscom](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Koscom/Images/Logo.png)](https://www.koscom.co.kr)
 
 
 ## Koscom Co., Ltd.

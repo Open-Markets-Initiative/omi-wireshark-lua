@@ -4931,6 +4931,16 @@ databento_marketdata_normalized_dbn_v2.ts_out = {}
 -- Size: Ts Out
 databento_marketdata_normalized_dbn_v2.ts_out.size = 1
 
+-- Store: Ts Out
+databento_marketdata_normalized_dbn_v2.ts_out.current = nil
+
+-- Generated: Ts Out
+databento_marketdata_normalized_dbn_v2.ts_out.generated = function(value, range, packet, parent)
+  local display = databento_marketdata_normalized_dbn_v2.ts_out.display(value)
+  local ts_out = parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.ts_out, range, value, display)
+  ts_out:set_generated()
+end
+
 -- Display: Ts Out
 databento_marketdata_normalized_dbn_v2.ts_out.labels = {
   [0] = "Ts Out: No (0)",

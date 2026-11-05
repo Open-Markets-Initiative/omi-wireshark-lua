@@ -67,6 +67,12 @@ runuser -u tester -- tshark \
   > Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json 2> Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json.stderr; exit 1; }
 
-grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13." Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json
+fields=$(grep -c "cboe.titaniumconsolidated.indices.cgif.v1.4.13." Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json) \
+  || { echo "--- no cboe.titaniumconsolidated.indices.cgif.v1.4.13 fields (MultipleMessages) ---"; exit 1; }
+echo "  cboe.titaniumconsolidated.indices.cgif.v1.4.13 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'cboe.titaniumconsolidated.indices.cgif.v1.4.13.' Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

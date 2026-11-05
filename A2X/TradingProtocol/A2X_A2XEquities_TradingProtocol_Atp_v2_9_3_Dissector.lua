@@ -21,6 +21,7 @@ omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.bust_timestamp = ProtoFiel
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.bust_timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.busttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the trade was busted by A2X Market Operations")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.buy_account = ProtoField.new("Buy Account", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.buyaccount", ftypes.UINT16, nil, nil, nil, "Clearing account identifier of the buy side")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.buy_order_capacity = ProtoField.new("Buy Order Capacity", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.buyordercapacity", ftypes.UINT8, nil, nil, nil, "Order capacity of the buy side")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.cancel_reason = ProtoField.new("Cancel Reason", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.cancelreason", ftypes.UINT8, {[1]="Member Request", [2]="A2X Forced Cancel", [3]="Market Close", [4]="Expired", [5]="Reserved", [6]="Aborted", [7]="Self Trade Prevention", [8]="Cancel On Disconnect", [9]="Post Only Cancel", [10]="Cancel Residual Quantity", [11]="Post Only Cancel Resting", [12]="Minimum Resting Value"}, base.DEC, 0x1F, "Reason code if rejected or cancelled; otherwise zero")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.cancellation_timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.cancellationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the cancellation was accepted or rejected by the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.cancellation_timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.cancellationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the cancellation was accepted or rejected by the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.ccp_code = ProtoField.new("Ccp Code", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.ccpcode", ftypes.UINT8, nil, nil, nil, "Clearing CCP code")
@@ -32,6 +33,7 @@ omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.liq_indicator = ProtoField
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.logout_reason_code = ProtoField.new("Logout Reason Code", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.logoutreasoncode", ftypes.UINT8, nil, nil, nil, "Reason code for logout")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.market_data_id = ProtoField.new("Market Data Id", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.marketdataid", ftypes.UINT32, nil, nil, nil, "The id of this order as seen in the A2X market data")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.min_qty = ProtoField.new("Min Qty", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.minqty", ftypes.UINT32, nil, nil, nil, "Minimum quantity (shares) of an order to be executed. Only valid when OrderType = 2 or 3")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.modification_reason = ProtoField.new("Modification Reason", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.modificationreason", ftypes.UINT8, {[1]="Modification Accepted", [2]="Order Cancelled"}, base.DEC, 0x1F, "Reason code if rejected or cancelled; otherwise zero")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.modification_timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.modificationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the modification was accepted or rejected by the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.modification_timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.modificationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the modification was accepted or rejected by the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.msg_seq_no = ProtoField.new("Msg Seq No", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.msgseqno", ftypes.UINT32, nil, nil, nil, "Message sequence number from the user or A2X")
@@ -48,6 +50,7 @@ omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.protocol_version = ProtoFi
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.quantity = ProtoField.new("Quantity", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.reason_code = ProtoField.new("Reason Code", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.reasoncode", ftypes.UINT8, nil, base.DEC, 0x1F, "Reason code if rejected or cancelled; otherwise zero")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.reason_text = ProtoField.new("Reason Text", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.reasontext", ftypes.STRING, nil, nil, nil, "Text describing reason for logout")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.reject_reason = ProtoField.new("Reject Reason", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.rejectreason", ftypes.UINT8, {[1]="Not Authorised To Trade", [2]="Invalid Quantity", [3]="Invalid Price", [4]="Unknown Security", [5]="Price Does Not Conform To Tick", [6]="Invalid Order Type", [7]="Invalid Side", [8]="Invalid Order Capacity", [9]="Market Is Closed", [10]="Halted", [11]="Suspended", [12]="Invalid Time In Force", [13]="Order Not Found Not Open", [14]="No Clearing In Place", [15]="Failed Price Range Check", [16]="Invalid Clearing Account", [17]="Not Supported", [18]="Max Value Exceeded", [19]="Auction Ended", [20]="Drop Feed Is Down", [21]="Technical Reject", [23]="Stock Restricted", [24]="Minimum Consideration", [27]="Invalid", [29]="Bad Date", [30]="Duplicate", [31]="Reject Internal"}, base.DEC, 0x1F, "Reason code if rejected or cancelled; otherwise zero")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.request_ref = ProtoField.new("Request Ref", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.requestref", ftypes.UINT32, nil, nil, nil, "Sequence number (msgSeqNo) of the trading Member's request message")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.reserved_1 = ProtoField.new("Reserved 1", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.reserved1", ftypes.BYTES)
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.reserved_16 = ProtoField.new("Reserved 16", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.reserved16", ftypes.BYTES)
@@ -61,6 +64,9 @@ omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.sell_order_capacity = Prot
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.sender_id = ProtoField.new("Sender Id", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.senderid", ftypes.STRING, nil, nil, nil, "Value as agreed with A2X to identify the Members ATP session")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.side = ProtoField.new("Side", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.status = ProtoField.new("Status", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.status", ftypes.STRING, nil, nil, nil, "Status of order and reject or cancel code")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.status_cancel_reason = ProtoField.new("Status Cancel Reason", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.statuscancelreason", ftypes.STRING, nil, nil, nil, "Order status and reason code")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.status_modification_reason = ProtoField.new("Status Modification Reason", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.statusmodificationreason", ftypes.STRING, nil, nil, nil, "Order status and reason code")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.status_reject_reason = ProtoField.new("Status Reject Reason", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.statusrejectreason", ftypes.STRING, nil, nil, nil, "Order status and reason code")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.time_in_force = ProtoField.new("Time In Force", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.timeinforce", ftypes.UINT8, nil, nil, nil, "Time in force for this order")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the order was accepted or rejected by the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the order was accepted or rejected by the A2X system")
@@ -1782,6 +1788,111 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_3.iceberg_order_refresh_message.dissect
   end
 end
 
+-- Status Modification Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_modification_reason = {}
+
+-- Size: Status Modification Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_modification_reason.size = 1
+
+-- Display: Status Modification Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_modification_reason.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Modification Reason: 5 Bits
+  flags[#flags + 1] = "Modification Reason: "..bit.rshift(bit.band(value, 0x1F), 0)
+  -- Order Status: 3 Bits
+  flags[#flags + 1] = "Order Status: "..bit.rshift(bit.band(value, 0xE0), 5)
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Status Modification Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_modification_reason.bits = function(range, value, packet, parent)
+
+  -- Modification Reason: 5 Bit Unsigned Fixed Width Integer Enum with 2 values
+  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.modification_reason, range, value)
+
+  -- Order Status: 3 Bit Unsigned Fixed Width Integer Enum with 6 values
+  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.order_status, range, value)
+end
+
+-- Dissect: Status Modification Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_modification_reason.dissect = function(buffer, offset, packet, parent)
+  local size = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_modification_reason.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_modification_reason.display(range, value, packet, parent)
+  local element = parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.status_modification_reason, range, display)
+
+  if show.structs then
+    a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_modification_reason.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Status Reject Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_reject_reason = {}
+
+-- Size: Status Reject Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_reject_reason.size = 1
+
+-- Display: Status Reject Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_reject_reason.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Reject Reason: 5 Bits
+  flags[#flags + 1] = "Reject Reason: "..bit.rshift(bit.band(value, 0x1F), 0)
+  -- Order Status: 3 Bits
+  flags[#flags + 1] = "Order Status: "..bit.rshift(bit.band(value, 0xE0), 5)
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Status Reject Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_reject_reason.bits = function(range, value, packet, parent)
+
+  -- Reject Reason: 5 Bit Unsigned Fixed Width Integer Enum with 27 values
+  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.reject_reason, range, value)
+
+  -- Order Status: 3 Bit Unsigned Fixed Width Integer Enum with 6 values
+  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.order_status, range, value)
+end
+
+-- Dissect: Status Reject Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local size = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_reject_reason.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_reject_reason.display(range, value, packet, parent)
+  local element = parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.status_reject_reason, range, display)
+
+  if show.structs then
+    a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_reject_reason.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Order Modify Response Status
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_modify_response_status = {}
+
+-- Dispatch: Order Modify Response Status
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_modify_response_status.dispatch = {
+  [4] = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_reject_reason.dissect,
+}
+
+-- Dissect: Order Modify Response Status
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_modify_response_status.dissect = function(buffer, offset, packet, parent, order_status)
+  local dissect = a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_modify_response_status.dispatch[bit.rshift(bit.band(status_reject_reason, 0xE0), 5)]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Status Modification Reason
+  return a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_modification_reason.dissect(buffer, offset, packet, parent)
+end
+
 -- Order Modify Response Message
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_modify_response_message = {}
 
@@ -1789,7 +1900,7 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_modify_response_message = {}
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_modify_response_message.size =
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_ref.size + 
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.request_ref.size + 
-  a2x_a2xequities_tradingprotocol_atp_v2_9_3.status.size + 
+  a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_modify_response_status.size + 
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.modification_timestamp.size + 
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.user_tag.size
 
@@ -1808,8 +1919,8 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_modify_response_message.fields 
   -- Request Ref: u32
   index, request_ref = a2x_a2xequities_tradingprotocol_atp_v2_9_3.request_ref.dissect(buffer, index, packet, parent)
 
-  -- Status: Struct of 2 fields
-  index, status = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status.dissect(buffer, index, packet, parent)
+  -- Order Modify Response Status: Runtime Type with 2 branches
+  index = a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_modify_response_status.dissect(buffer, index, packet, parent, order_status)
 
   -- Modification Timestamp: u64
   index, modification_timestamp = a2x_a2xequities_tradingprotocol_atp_v2_9_3.modification_timestamp.dissect(buffer, index, packet, parent)
@@ -1962,6 +2073,69 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_modify_message.dissect = functi
   end
 end
 
+-- Status Cancel Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_cancel_reason = {}
+
+-- Size: Status Cancel Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_cancel_reason.size = 1
+
+-- Display: Status Cancel Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_cancel_reason.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Cancel Reason: 5 Bits
+  flags[#flags + 1] = "Cancel Reason: "..bit.rshift(bit.band(value, 0x1F), 0)
+  -- Order Status: 3 Bits
+  flags[#flags + 1] = "Order Status: "..bit.rshift(bit.band(value, 0xE0), 5)
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Status Cancel Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_cancel_reason.bits = function(range, value, packet, parent)
+
+  -- Cancel Reason: 5 Bit Unsigned Fixed Width Integer Enum with 12 values
+  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.cancel_reason, range, value)
+
+  -- Order Status: 3 Bit Unsigned Fixed Width Integer Enum with 6 values
+  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.order_status, range, value)
+end
+
+-- Dissect: Status Cancel Reason
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_cancel_reason.dissect = function(buffer, offset, packet, parent)
+  local size = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_cancel_reason.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_cancel_reason.display(range, value, packet, parent)
+  local element = parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.status_cancel_reason, range, display)
+
+  if show.structs then
+    a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_cancel_reason.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Order Cancel Response Status
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_cancel_response_status = {}
+
+-- Dispatch: Order Cancel Response Status
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_cancel_response_status.dispatch = {
+  [3] = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_cancel_reason.dissect,
+  [4] = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_reject_reason.dissect,
+}
+
+-- Dissect: Order Cancel Response Status
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_cancel_response_status.dissect = function(buffer, offset, packet, parent, order_status)
+  local dissect = a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_cancel_response_status.dispatch[bit.rshift(bit.band(status_cancel_reason, 0xE0), 5)]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Status
+  return a2x_a2xequities_tradingprotocol_atp_v2_9_3.status.dissect(buffer, offset, packet, parent)
+end
+
 -- Order Cancel Response Message
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_cancel_response_message = {}
 
@@ -1969,7 +2143,7 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_cancel_response_message = {}
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_cancel_response_message.size =
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_ref.size + 
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.request_ref.size + 
-  a2x_a2xequities_tradingprotocol_atp_v2_9_3.status.size + 
+  a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_cancel_response_status.size + 
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.cancellation_timestamp.size + 
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.user_tag.size
 
@@ -1988,8 +2162,8 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_cancel_response_message.fields 
   -- Request Ref: u32
   index, request_ref = a2x_a2xequities_tradingprotocol_atp_v2_9_3.request_ref.dissect(buffer, index, packet, parent)
 
-  -- Status: Struct of 2 fields
-  index, status = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status.dissect(buffer, index, packet, parent)
+  -- Order Cancel Response Status: Runtime Type with 3 branches
+  index = a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_cancel_response_status.dissect(buffer, index, packet, parent, order_status)
 
   -- Cancellation Timestamp: u64
   index, cancellation_timestamp = a2x_a2xequities_tradingprotocol_atp_v2_9_3.cancellation_timestamp.dissect(buffer, index, packet, parent)
@@ -2066,6 +2240,26 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_cancel_message.dissect = functi
   end
 end
 
+-- Order Add Response Status
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_add_response_status = {}
+
+-- Dispatch: Order Add Response Status
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_add_response_status.dispatch = {
+  [3] = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_cancel_reason.dissect,
+  [4] = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status_reject_reason.dissect,
+}
+
+-- Dissect: Order Add Response Status
+a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_add_response_status.dissect = function(buffer, offset, packet, parent, order_status)
+  local dissect = a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_add_response_status.dispatch[bit.rshift(bit.band(status_cancel_reason, 0xE0), 5)]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Status
+  return a2x_a2xequities_tradingprotocol_atp_v2_9_3.status.dissect(buffer, offset, packet, parent)
+end
+
 -- Order Add Response Message
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_add_response_message = {}
 
@@ -2073,7 +2267,7 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_add_response_message = {}
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_add_response_message.size =
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_ref.size + 
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.market_data_id.size + 
-  a2x_a2xequities_tradingprotocol_atp_v2_9_3.status.size + 
+  a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_add_response_status.size + 
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.traded_quantity.size + 
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.timestamp.size + 
   a2x_a2xequities_tradingprotocol_atp_v2_9_3.user_tag.size
@@ -2093,8 +2287,8 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_add_response_message.fields = f
   -- Market Data Id: u32
   index, market_data_id = a2x_a2xequities_tradingprotocol_atp_v2_9_3.market_data_id.dissect(buffer, index, packet, parent)
 
-  -- Status: Struct of 2 fields
-  index, status = a2x_a2xequities_tradingprotocol_atp_v2_9_3.status.dissect(buffer, index, packet, parent)
+  -- Order Add Response Status: Runtime Type with 3 branches
+  index = a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_add_response_status.dissect(buffer, index, packet, parent, order_status)
 
   -- Traded Quantity: u32
   index, traded_quantity = a2x_a2xequities_tradingprotocol_atp_v2_9_3.traded_quantity.dissect(buffer, index, packet, parent)

@@ -4158,6 +4158,12 @@ asx_asxderivatives_ntp_itch_v1_05.bundle_leg.fields = function(buffer, offset, p
     iteration:set_generated()
   end
 
+  -- Entries beyond Legs are filler the record carries
+  if bundle_leg_index ~= nil and bundle_leg_index > legs then
+    local unused = parent:add("Unused: beyond Legs")
+    unused:set_generated()
+  end
+
   -- Tradeable Instrument Id Leg: Numeric
   index, tradeable_instrument_id_leg = asx_asxderivatives_ntp_itch_v1_05.tradeable_instrument_id_leg.dissect(buffer, index, packet, parent)
 
@@ -4300,6 +4306,12 @@ asx_asxderivatives_ntp_itch_v1_05.combination_leg.fields = function(buffer, offs
   if combination_leg_index ~= nil and show.indexes then
     local iteration = parent:add(omi_asx_asxderivatives_ntp_itch_v1_05.fields.combination_leg_index, combination_leg_index)
     iteration:set_generated()
+  end
+
+  -- Entries beyond Legs are filler the record carries
+  if combination_leg_index ~= nil and combination_leg_index > legs then
+    local unused = parent:add("Unused: beyond Legs")
+    unused:set_generated()
   end
 
   -- Tradeable Instrument Id Leg: Numeric

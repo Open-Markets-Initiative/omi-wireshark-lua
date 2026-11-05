@@ -26,13 +26,13 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_unused = ProtoField.new("Unuse
 
 -- Ngm Elasticia Fix Fast 2.0.0 Presence Map Fields
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "ngm.elasticia.fix.fast.v2.0.0.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id = ProtoField.new("Target Comp Id", "ngm.elasticia.fix.fast.v2.0.0.targetcompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id = ProtoField.new("Sender Comp Id", "ngm.elasticia.fix.fast.v2.0.0.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id = ProtoField.new("On Behalf Of Comp Id", "ngm.elasticia.fix.fast.v2.0.0.onbehalfofcompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id = ProtoField.new("Deliver To Comp Id", "ngm.elasticia.fix.fast.v2.0.0.delivertocompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_target_comp_id = ProtoField.new("Target Comp ID", "ngm.elasticia.fix.fast.v2.0.0.targetcompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_sender_comp_id = ProtoField.new("Sender Comp ID", "ngm.elasticia.fix.fast.v2.0.0.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_on_behalf_of_comp_id = ProtoField.new("On Behalf Of Comp ID", "ngm.elasticia.fix.fast.v2.0.0.onbehalfofcompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_deliver_to_comp_id = ProtoField.new("Deliver To Comp ID", "ngm.elasticia.fix.fast.v2.0.0.delivertocompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_reset_seq_num_flag = ProtoField.new("Reset Seq Num Flag", "ngm.elasticia.fix.fast.v2.0.0.resetseqnumflagpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_gap_fill_flag = ProtoField.new("Gap Fill Flag", "ngm.elasticia.fix.fast.v2.0.0.gapfillflagpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source = ProtoField.new("Security Id Source", "ngm.elasticia.fix.fast.v2.0.0.securityidsourcepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_id_source = ProtoField.new("Security ID Source", "ngm.elasticia.fix.fast.v2.0.0.securityidsourcepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_ord_type = ProtoField.new("Ord Type", "ngm.elasticia.fix.fast.v2.0.0.ordtypepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_expire_time = ProtoField.new("Expire Time", "ngm.elasticia.fix.fast.v2.0.0.expiretimepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_inst = ProtoField.new("Exec Inst", "ngm.elasticia.fix.fast.v2.0.0.execinstpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -45,10 +45,10 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_auction_type = ProtoField.new(
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_capacity = ProtoField.new("Order Capacity", "ngm.elasticia.fix.fast.v2.0.0.ordercapacitypresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_origination = ProtoField.new("Order Origination", "ngm.elasticia.fix.fast.v2.0.0.orderoriginationpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_order_attribute_grp = ProtoField.new("No Order Attribute Grp", "ngm.elasticia.fix.fast.v2.0.0.noorderattributegrppresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds = ProtoField.new("No Party I Ds", "ngm.elasticia.fix.fast.v2.0.0.nopartyidspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_mass_status_req_id = ProtoField.new("Mass Status Req Id", "ngm.elasticia.fix.fast.v2.0.0.massstatusreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_ids = ProtoField.new("No Party IDs", "ngm.elasticia.fix.fast.v2.0.0.nopartyidspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_mass_status_req_id = ProtoField.new("Mass Status Req ID", "ngm.elasticia.fix.fast.v2.0.0.massstatusreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested = ProtoField.new("Last Rpt Requested", "ngm.elasticia.fix.fast.v2.0.0.lastrptrequestedpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_md_entry_id = ProtoField.new("Md Entry Id", "ngm.elasticia.fix.fast.v2.0.0.mdentryidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_md_entry_id = ProtoField.new("MD Entry ID", "ngm.elasticia.fix.fast.v2.0.0.mdentryidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_working_indicator = ProtoField.new("Working Indicator", "ngm.elasticia.fix.fast.v2.0.0.workingindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_lot_type = ProtoField.new("Lot Type", "ngm.elasticia.fix.fast.v2.0.0.lottypepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_cum_qty = ProtoField.new("Cum Qty", "ngm.elasticia.fix.fast.v2.0.0.cumqtypresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -56,28 +56,28 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_avg_px = ProtoField.new("Avg P
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_ord_rej_reason = ProtoField.new("Ord Rej Reason", "ngm.elasticia.fix.fast.v2.0.0.ordrejreasonpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "ngm.elasticia.fix.fast.v2.0.0.execrestatementreasonpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_text = ProtoField.new("Text", "ngm.elasticia.fix.fast.v2.0.0.textpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_req_id = ProtoField.new("Quote Req Id", "ngm.elasticia.fix.fast.v2.0.0.quotereqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_id = ProtoField.new("Quote Id", "ngm.elasticia.fix.fast.v2.0.0.quoteidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_orig_quote_msg_id = ProtoField.new("Orig Quote Msg Id", "ngm.elasticia.fix.fast.v2.0.0.origquotemsgidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_status_req_id = ProtoField.new("Quote Status Req Id", "ngm.elasticia.fix.fast.v2.0.0.quotestatusreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_req_id = ProtoField.new("Quote Req ID", "ngm.elasticia.fix.fast.v2.0.0.quotereqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_id = ProtoField.new("Quote ID", "ngm.elasticia.fix.fast.v2.0.0.quoteidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_orig_quote_msg_id = ProtoField.new("Orig Quote Msg ID", "ngm.elasticia.fix.fast.v2.0.0.origquotemsgidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_status_req_id = ProtoField.new("Quote Status Req ID", "ngm.elasticia.fix.fast.v2.0.0.quotestatusreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_reject_reason = ProtoField.new("Quote Reject Reason", "ngm.elasticia.fix.fast.v2.0.0.quoterejectreasonpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_msg_id = ProtoField.new("Quote Msg Id", "ngm.elasticia.fix.fast.v2.0.0.quotemsgidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_msg_id = ProtoField.new("Quote Msg ID", "ngm.elasticia.fix.fast.v2.0.0.quotemsgidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_qty = ProtoField.new("Order Qty", "ngm.elasticia.fix.fast.v2.0.0.orderqtypresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_side = ProtoField.new("Side", "ngm.elasticia.fix.fast.v2.0.0.sidepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_trade_request_id = ProtoField.new("Trade Request Id", "ngm.elasticia.fix.fast.v2.0.0.traderequestidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_trade_request_id = ProtoField.new("Trade Request ID", "ngm.elasticia.fix.fast.v2.0.0.traderequestidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_secondary_trd_type = ProtoField.new("Secondary Trd Type", "ngm.elasticia.fix.fast.v2.0.0.secondarytrdtypepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_trd_reg_publications = ProtoField.new("No Trd Reg Publications", "ngm.elasticia.fix.fast.v2.0.0.notrdregpublicationspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_md_req_id = ProtoField.new("Md Req Id", "ngm.elasticia.fix.fast.v2.0.0.mdreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_md_req_id = ProtoField.new("MD Req ID", "ngm.elasticia.fix.fast.v2.0.0.mdreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_currency = ProtoField.new("Currency", "ngm.elasticia.fix.fast.v2.0.0.currencypresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_instr_registry = ProtoField.new("Instr Registry", "ngm.elasticia.fix.fast.v2.0.0.instrregistrypresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_business_center = ProtoField.new("Business Center", "ngm.elasticia.fix.fast.v2.0.0.businesscenterpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_zone_id = ProtoField.new("Zone Id", "ngm.elasticia.fix.fast.v2.0.0.zoneidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_status_req_id = ProtoField.new("Security Status Req Id", "ngm.elasticia.fix.fast.v2.0.0.securitystatusreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_zone_id = ProtoField.new("Zone ID", "ngm.elasticia.fix.fast.v2.0.0.zoneidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_security_status_req_id = ProtoField.new("Security Status Req ID", "ngm.elasticia.fix.fast.v2.0.0.securitystatusreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_halt_reason = ProtoField.new("Halt Reason", "ngm.elasticia.fix.fast.v2.0.0.haltreasonpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_corporate_action = ProtoField.new("Corporate Action", "ngm.elasticia.fix.fast.v2.0.0.corporateactionpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_financial_status = ProtoField.new("Financial Status", "ngm.elasticia.fix.fast.v2.0.0.financialstatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_encoded_mkt_segm_desc = ProtoField.new("Encoded Mkt Segm Desc", "ngm.elasticia.fix.fast.v2.0.0.encodedmktsegmdescpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_parent_mkt_segm_id = ProtoField.new("Parent Mkt Segm Id", "ngm.elasticia.fix.fast.v2.0.0.parentmktsegmidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_parent_mkt_segm_id = ProtoField.new("Parent Mkt Segm ID", "ngm.elasticia.fix.fast.v2.0.0.parentmktsegmidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_trade_vol = ProtoField.new("Min Trade Vol", "ngm.elasticia.fix.fast.v2.0.0.mintradevolpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_round_lot = ProtoField.new("Round Lot", "ngm.elasticia.fix.fast.v2.0.0.roundlotpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_price_type = ProtoField.new("Price Type", "ngm.elasticia.fix.fast.v2.0.0.pricetypepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -96,39 +96,39 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_min_reserve_order_value_curren
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_market_data_rules = ProtoField.new("No Market Data Rules", "ngm.elasticia.fix.fast.v2.0.0.nomarketdatarulespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_rules = ProtoField.new("No Party Rules", "ngm.elasticia.fix.fast.v2.0.0.nopartyrulespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_trade_report_rules = ProtoField.new("No Trade Report Rules", "ngm.elasticia.fix.fast.v2.0.0.notradereportrulespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_trad_ses_req_id = ProtoField.new("Trad Ses Req Id", "ngm.elasticia.fix.fast.v2.0.0.tradsesreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_corp_action_req_id = ProtoField.new("Corp Action Req Id", "ngm.elasticia.fix.fast.v2.0.0.corpactionreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_trad_ses_req_id = ProtoField.new("Trad Ses Req ID", "ngm.elasticia.fix.fast.v2.0.0.tradsesreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_corp_action_req_id = ProtoField.new("Corp Action Req ID", "ngm.elasticia.fix.fast.v2.0.0.corpactionreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 
 -- Ngm Elasticia Fix Fast 2.0.0 Fields
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.msg_type = ProtoField.new("Msg Type", "ngm.elasticia.fix.fast.v2.0.0.msgtype", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.begin_string = ProtoField.new("Begin String", "ngm.elasticia.fix.fast.v2.0.0.beginstring", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "ngm.elasticia.fix.fast.v2.0.0.msgseqnum", ftypes.UINT64)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.target_comp_id = ProtoField.new("Target Comp Id", "ngm.elasticia.fix.fast.v2.0.0.targetcompid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.sender_comp_id = ProtoField.new("Sender Comp Id", "ngm.elasticia.fix.fast.v2.0.0.sendercompid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.on_behalf_of_comp_id = ProtoField.new("On Behalf Of Comp Id", "ngm.elasticia.fix.fast.v2.0.0.onbehalfofcompid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.deliver_to_comp_id = ProtoField.new("Deliver To Comp Id", "ngm.elasticia.fix.fast.v2.0.0.delivertocompid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.target_comp_id = ProtoField.new("Target Comp ID", "ngm.elasticia.fix.fast.v2.0.0.targetcompid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "ngm.elasticia.fix.fast.v2.0.0.sendercompid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.on_behalf_of_comp_id = ProtoField.new("On Behalf Of Comp ID", "ngm.elasticia.fix.fast.v2.0.0.onbehalfofcompid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.deliver_to_comp_id = ProtoField.new("Deliver To Comp ID", "ngm.elasticia.fix.fast.v2.0.0.delivertocompid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.sending_time = ProtoField.new("Sending Time", "ngm.elasticia.fix.fast.v2.0.0.sendingtime", ftypes.UINT64)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.ref_msg_type = ProtoField.new("Ref Msg Type", "ngm.elasticia.fix.fast.v2.0.0.refmsgtype", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.business_reject_reason = ProtoField.new("Business Reject Reason", "ngm.elasticia.fix.fast.v2.0.0.businessrejectreason", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.text = ProtoField.new("Text", "ngm.elasticia.fix.fast.v2.0.0.text", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.business_reject_ref_id = ProtoField.new("Business Reject Ref Id", "ngm.elasticia.fix.fast.v2.0.0.businessrejectrefid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.business_reject_ref_id = ProtoField.new("Business Reject Ref ID", "ngm.elasticia.fix.fast.v2.0.0.businessrejectrefid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "ngm.elasticia.fix.fast.v2.0.0.heartbtint", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.reset_seq_num_flag = ProtoField.new("Reset Seq Num Flag", "ngm.elasticia.fix.fast.v2.0.0.resetseqnumflag", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.next_expected_msg_seq_num = ProtoField.new("Next Expected Msg Seq Num", "ngm.elasticia.fix.fast.v2.0.0.nextexpectedmsgseqnum", ftypes.UINT64)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.username = ProtoField.new("Username", "ngm.elasticia.fix.fast.v2.0.0.username", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.password = ProtoField.new("Password", "ngm.elasticia.fix.fast.v2.0.0.password", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.encrypt_method = ProtoField.new("Encrypt Method", "ngm.elasticia.fix.fast.v2.0.0.encryptmethod", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.default_appl_ver_id = ProtoField.new("Default Appl Ver Id", "ngm.elasticia.fix.fast.v2.0.0.defaultapplverid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.default_appl_ver_id = ProtoField.new("Default Appl Ver ID", "ngm.elasticia.fix.fast.v2.0.0.defaultapplverid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.session_status = ProtoField.new("Session Status", "ngm.elasticia.fix.fast.v2.0.0.sessionstatus", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.test_req_id = ProtoField.new("Test Req Id", "ngm.elasticia.fix.fast.v2.0.0.testreqid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.test_req_id = ProtoField.new("Test Req ID", "ngm.elasticia.fix.fast.v2.0.0.testreqid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.gap_fill_flag = ProtoField.new("Gap Fill Flag", "ngm.elasticia.fix.fast.v2.0.0.gapfillflag", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.new_seq_no = ProtoField.new("New Seq No", "ngm.elasticia.fix.fast.v2.0.0.newseqno", ftypes.UINT64)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.ref_seq_num = ProtoField.new("Ref Seq Num", "ngm.elasticia.fix.fast.v2.0.0.refseqnum", ftypes.UINT64)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.ref_tag_id = ProtoField.new("Ref Tag Id", "ngm.elasticia.fix.fast.v2.0.0.reftagid", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.ref_tag_id = ProtoField.new("Ref Tag ID", "ngm.elasticia.fix.fast.v2.0.0.reftagid", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.session_reject_reason = ProtoField.new("Session Reject Reason", "ngm.elasticia.fix.fast.v2.0.0.sessionrejectreason", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_id = ProtoField.new("Security Id", "ngm.elasticia.fix.fast.v2.0.0.securityid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_id_source = ProtoField.new("Security Id Source", "ngm.elasticia.fix.fast.v2.0.0.securityidsource", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "ngm.elasticia.fix.fast.v2.0.0.clordid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_id = ProtoField.new("Security ID", "ngm.elasticia.fix.fast.v2.0.0.securityid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_id_source = ProtoField.new("Security ID Source", "ngm.elasticia.fix.fast.v2.0.0.securityidsource", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.cl_ord_id = ProtoField.new("Cl Ord ID", "ngm.elasticia.fix.fast.v2.0.0.clordid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.side = ProtoField.new("Side", "ngm.elasticia.fix.fast.v2.0.0.side", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.ord_type = ProtoField.new("Ord Type", "ngm.elasticia.fix.fast.v2.0.0.ordtype", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.price = ProtoField.new("Price", "ngm.elasticia.fix.fast.v2.0.0.price", ftypes.DOUBLE)
@@ -149,22 +149,22 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_origination = ProtoField.new("Ord
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_order_attribute_grp = ProtoField.new("No Order Attribute Grp", "ngm.elasticia.fix.fast.v2.0.0.noorderattributegrp", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_attribute_type = ProtoField.new("Order Attribute Type", "ngm.elasticia.fix.fast.v2.0.0.orderattributetype", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_attribute_value = ProtoField.new("Order Attribute Value", "ngm.elasticia.fix.fast.v2.0.0.orderattributevalue", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_i_ds = ProtoField.new("No Party I Ds", "ngm.elasticia.fix.fast.v2.0.0.nopartyids", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_ids = ProtoField.new("No Party IDs", "ngm.elasticia.fix.fast.v2.0.0.nopartyids", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_role = ProtoField.new("Party Role", "ngm.elasticia.fix.fast.v2.0.0.partyrole", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_role_qualifier = ProtoField.new("Party Role Qualifier", "ngm.elasticia.fix.fast.v2.0.0.partyrolequalifier", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_id_source = ProtoField.new("Party Id Source", "ngm.elasticia.fix.fast.v2.0.0.partyidsource", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_id = ProtoField.new("Party Id", "ngm.elasticia.fix.fast.v2.0.0.partyid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_sub_i_ds = ProtoField.new("No Party Sub I Ds", "ngm.elasticia.fix.fast.v2.0.0.nopartysubids", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_id_type = ProtoField.new("Party Sub Id Type", "ngm.elasticia.fix.fast.v2.0.0.partysubidtype", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_id = ProtoField.new("Party Sub Id", "ngm.elasticia.fix.fast.v2.0.0.partysubid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_id = ProtoField.new("Order Id", "ngm.elasticia.fix.fast.v2.0.0.orderid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "ngm.elasticia.fix.fast.v2.0.0.origclordid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.mass_status_req_id = ProtoField.new("Mass Status Req Id", "ngm.elasticia.fix.fast.v2.0.0.massstatusreqid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_id_source = ProtoField.new("Party ID Source", "ngm.elasticia.fix.fast.v2.0.0.partyidsource", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_id = ProtoField.new("Party ID", "ngm.elasticia.fix.fast.v2.0.0.partyid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_sub_ids = ProtoField.new("No Party Sub IDs", "ngm.elasticia.fix.fast.v2.0.0.nopartysubids", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_id_type = ProtoField.new("Party Sub ID Type", "ngm.elasticia.fix.fast.v2.0.0.partysubidtype", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_id = ProtoField.new("Party Sub ID", "ngm.elasticia.fix.fast.v2.0.0.partysubid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_id = ProtoField.new("Order ID", "ngm.elasticia.fix.fast.v2.0.0.orderid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord ID", "ngm.elasticia.fix.fast.v2.0.0.origclordid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.mass_status_req_id = ProtoField.new("Mass Status Req ID", "ngm.elasticia.fix.fast.v2.0.0.massstatusreqid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.last_rpt_requested = ProtoField.new("Last Rpt Requested", "ngm.elasticia.fix.fast.v2.0.0.lastrptrequested", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.ord_status = ProtoField.new("Ord Status", "ngm.elasticia.fix.fast.v2.0.0.ordstatus", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.exec_id = ProtoField.new("Exec Id", "ngm.elasticia.fix.fast.v2.0.0.execid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.exec_id = ProtoField.new("Exec ID", "ngm.elasticia.fix.fast.v2.0.0.execid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.exec_type = ProtoField.new("Exec Type", "ngm.elasticia.fix.fast.v2.0.0.exectype", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_id = ProtoField.new("Md Entry Id", "ngm.elasticia.fix.fast.v2.0.0.mdentryid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_id = ProtoField.new("MD Entry ID", "ngm.elasticia.fix.fast.v2.0.0.mdentryid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.working_indicator = ProtoField.new("Working Indicator", "ngm.elasticia.fix.fast.v2.0.0.workingindicator", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.lot_type = ProtoField.new("Lot Type", "ngm.elasticia.fix.fast.v2.0.0.lottype", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.leaves_qty = ProtoField.new("Leaves Qty", "ngm.elasticia.fix.fast.v2.0.0.leavesqty", ftypes.DOUBLE)
@@ -176,10 +176,10 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_priority = ProtoField.new("Order 
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.cxl_rej_response_to = ProtoField.new("Cxl Rej Response To", "ngm.elasticia.fix.fast.v2.0.0.cxlrejresponseto", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "ngm.elasticia.fix.fast.v2.0.0.cxlrejreason", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.mass_status_req_type = ProtoField.new("Mass Status Req Type", "ngm.elasticia.fix.fast.v2.0.0.massstatusreqtype", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_req_id = ProtoField.new("Quote Req Id", "ngm.elasticia.fix.fast.v2.0.0.quotereqid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_id = ProtoField.new("Quote Id", "ngm.elasticia.fix.fast.v2.0.0.quoteid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_msg_id = ProtoField.new("Quote Msg Id", "ngm.elasticia.fix.fast.v2.0.0.quotemsgid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.orig_quote_msg_id = ProtoField.new("Orig Quote Msg Id", "ngm.elasticia.fix.fast.v2.0.0.origquotemsgid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_req_id = ProtoField.new("Quote Req ID", "ngm.elasticia.fix.fast.v2.0.0.quotereqid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_id = ProtoField.new("Quote ID", "ngm.elasticia.fix.fast.v2.0.0.quoteid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_msg_id = ProtoField.new("Quote Msg ID", "ngm.elasticia.fix.fast.v2.0.0.quotemsgid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.orig_quote_msg_id = ProtoField.new("Orig Quote Msg ID", "ngm.elasticia.fix.fast.v2.0.0.origquotemsgid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.bid_px = ProtoField.new("Bid Px", "ngm.elasticia.fix.fast.v2.0.0.bidpx", ftypes.DOUBLE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.offer_px = ProtoField.new("Offer Px", "ngm.elasticia.fix.fast.v2.0.0.offerpx", ftypes.DOUBLE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.bid_size = ProtoField.new("Bid Size", "ngm.elasticia.fix.fast.v2.0.0.bidsize", ftypes.DOUBLE)
@@ -188,21 +188,21 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.offer_size = ProtoField.new("Offer Size
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.total_offer_size = ProtoField.new("Total Offer Size", "ngm.elasticia.fix.fast.v2.0.0.totaloffersize", ftypes.DOUBLE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_type = ProtoField.new("Quote Type", "ngm.elasticia.fix.fast.v2.0.0.quotetype", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_cancel_type = ProtoField.new("Quote Cancel Type", "ngm.elasticia.fix.fast.v2.0.0.quotecanceltype", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_req_id = ProtoField.new("Quote Status Req Id", "ngm.elasticia.fix.fast.v2.0.0.quotestatusreqid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_req_id = ProtoField.new("Quote Status Req ID", "ngm.elasticia.fix.fast.v2.0.0.quotestatusreqid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status = ProtoField.new("Quote Status", "ngm.elasticia.fix.fast.v2.0.0.quotestatus", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.bid_md_entry_id = ProtoField.new("Bid Md Entry Id", "ngm.elasticia.fix.fast.v2.0.0.bidmdentryid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.offer_md_entry_id = ProtoField.new("Offer Md Entry Id", "ngm.elasticia.fix.fast.v2.0.0.offermdentryid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.bid_md_entry_id = ProtoField.new("Bid MD Entry ID", "ngm.elasticia.fix.fast.v2.0.0.bidmdentryid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.offer_md_entry_id = ProtoField.new("Offer MD Entry ID", "ngm.elasticia.fix.fast.v2.0.0.offermdentryid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.bid_priority = ProtoField.new("Bid Priority", "ngm.elasticia.fix.fast.v2.0.0.bidpriority", ftypes.UINT64)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.offer_priority = ProtoField.new("Offer Priority", "ngm.elasticia.fix.fast.v2.0.0.offerpriority", ftypes.UINT64)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "ngm.elasticia.fix.fast.v2.0.0.quoterejectreason", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.subscription_request_type = ProtoField.new("Subscription Request Type", "ngm.elasticia.fix.fast.v2.0.0.subscriptionrequesttype", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_security_alt_id = ProtoField.new("No Security Alt Id", "ngm.elasticia.fix.fast.v2.0.0.nosecurityaltid", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_id = ProtoField.new("Security Alt Id", "ngm.elasticia.fix.fast.v2.0.0.securityaltid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "ngm.elasticia.fix.fast.v2.0.0.securityaltidsource", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_request_id = ProtoField.new("Trade Request Id", "ngm.elasticia.fix.fast.v2.0.0.traderequestid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_id = ProtoField.new("Trade Report Id", "ngm.elasticia.fix.fast.v2.0.0.tradereportid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_ref_id = ProtoField.new("Trade Report Ref Id", "ngm.elasticia.fix.fast.v2.0.0.tradereportrefid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_id = ProtoField.new("Trade Id", "ngm.elasticia.fix.fast.v2.0.0.tradeid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_security_alt_id = ProtoField.new("No Security Alt ID", "ngm.elasticia.fix.fast.v2.0.0.nosecurityaltid", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_id = ProtoField.new("Security Alt ID", "ngm.elasticia.fix.fast.v2.0.0.securityaltid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_id_source = ProtoField.new("Security Alt ID Source", "ngm.elasticia.fix.fast.v2.0.0.securityaltidsource", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_request_id = ProtoField.new("Trade Request ID", "ngm.elasticia.fix.fast.v2.0.0.traderequestid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_id = ProtoField.new("Trade Report ID", "ngm.elasticia.fix.fast.v2.0.0.tradereportid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_ref_id = ProtoField.new("Trade Report Ref ID", "ngm.elasticia.fix.fast.v2.0.0.tradereportrefid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_id = ProtoField.new("Trade ID", "ngm.elasticia.fix.fast.v2.0.0.tradeid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_trans_type = ProtoField.new("Trade Report Trans Type", "ngm.elasticia.fix.fast.v2.0.0.tradereporttranstype", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_type = ProtoField.new("Trade Report Type", "ngm.elasticia.fix.fast.v2.0.0.tradereporttype", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trd_type = ProtoField.new("Trd Type", "ngm.elasticia.fix.fast.v2.0.0.trdtype", ftypes.UINT32)
@@ -222,7 +222,7 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.last_px = ProtoField.new("Last Px", "ng
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.currency = ProtoField.new("Currency", "ngm.elasticia.fix.fast.v2.0.0.currency", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.last_mkt = ProtoField.new("Last Mkt", "ngm.elasticia.fix.fast.v2.0.0.lastmkt", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_sides = ProtoField.new("No Sides", "ngm.elasticia.fix.fast.v2.0.0.nosides", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.secondary_cl_ord_id = ProtoField.new("Secondary Cl Ord Id", "ngm.elasticia.fix.fast.v2.0.0.secondaryclordid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.secondary_cl_ord_id = ProtoField.new("Secondary Cl Ord ID", "ngm.elasticia.fix.fast.v2.0.0.secondaryclordid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "ngm.elasticia.fix.fast.v2.0.0.aggressorindicator", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.accrued_interest_amt = ProtoField.new("Accrued Interest Amt", "ngm.elasticia.fix.fast.v2.0.0.accruedinterestamt", ftypes.DOUBLE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_reject_reason = ProtoField.new("Trade Report Reject Reason", "ngm.elasticia.fix.fast.v2.0.0.tradereportrejectreason", ftypes.UINT32)
@@ -230,39 +230,39 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_request_type = ProtoField.new("Tr
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_dates = ProtoField.new("No Dates", "ngm.elasticia.fix.fast.v2.0.0.nodates", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_request_result = ProtoField.new("Trade Request Result", "ngm.elasticia.fix.fast.v2.0.0.traderequestresult", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_request_status = ProtoField.new("Trade Request Status", "ngm.elasticia.fix.fast.v2.0.0.traderequeststatus", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status_update_request_id = ProtoField.new("Security Status Update Request Id", "ngm.elasticia.fix.fast.v2.0.0.securitystatusupdaterequestid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status_update_request_id = ProtoField.new("Security Status Update Request ID", "ngm.elasticia.fix.fast.v2.0.0.securitystatusupdaterequestid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_updates = ProtoField.new("No Updates", "ngm.elasticia.fix.fast.v2.0.0.noupdates", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.financial_status_update_type = ProtoField.new("Financial Status Update Type", "ngm.elasticia.fix.fast.v2.0.0.financialstatusupdatetype", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.financial_status_update_value = ProtoField.new("Financial Status Update Value", "ngm.elasticia.fix.fast.v2.0.0.financialstatusupdatevalue", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.financial_status_result = ProtoField.new("Financial Status Result", "ngm.elasticia.fix.fast.v2.0.0.financialstatusresult", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_md_entries = ProtoField.new("No Md Entries", "ngm.elasticia.fix.fast.v2.0.0.nomdentries", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_update_action = ProtoField.new("Md Update Action", "ngm.elasticia.fix.fast.v2.0.0.mdupdateaction", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "ngm.elasticia.fix.fast.v2.0.0.mdentrytype", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_stat_scope = ProtoField.new("Md Stat Scope", "ngm.elasticia.fix.fast.v2.0.0.mdstatscope", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "ngm.elasticia.fix.fast.v2.0.0.mdentrypx", ftypes.DOUBLE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "ngm.elasticia.fix.fast.v2.0.0.mdentrysize", ftypes.DOUBLE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_position_no = ProtoField.new("Md Entry Position No", "ngm.elasticia.fix.fast.v2.0.0.mdentrypositionno", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_buyer = ProtoField.new("Md Entry Buyer", "ngm.elasticia.fix.fast.v2.0.0.mdentrybuyer", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_seller = ProtoField.new("Md Entry Seller", "ngm.elasticia.fix.fast.v2.0.0.mdentryseller", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_md_entries = ProtoField.new("No MD Entries", "ngm.elasticia.fix.fast.v2.0.0.nomdentries", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_update_action = ProtoField.new("MD Update Action", "ngm.elasticia.fix.fast.v2.0.0.mdupdateaction", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_type = ProtoField.new("MD Entry Type", "ngm.elasticia.fix.fast.v2.0.0.mdentrytype", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_stat_scope = ProtoField.new("MD Stat Scope", "ngm.elasticia.fix.fast.v2.0.0.mdstatscope", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_px = ProtoField.new("MD Entry Px", "ngm.elasticia.fix.fast.v2.0.0.mdentrypx", ftypes.DOUBLE)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_size = ProtoField.new("MD Entry Size", "ngm.elasticia.fix.fast.v2.0.0.mdentrysize", ftypes.DOUBLE)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_position_no = ProtoField.new("MD Entry Position No", "ngm.elasticia.fix.fast.v2.0.0.mdentrypositionno", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_buyer = ProtoField.new("MD Entry Buyer", "ngm.elasticia.fix.fast.v2.0.0.mdentrybuyer", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_seller = ProtoField.new("MD Entry Seller", "ngm.elasticia.fix.fast.v2.0.0.mdentryseller", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.algorithmic_trd_indicator = ProtoField.new("Algorithmic Trd Indicator", "ngm.elasticia.fix.fast.v2.0.0.algorithmictrdindicator", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.aggressor_side = ProtoField.new("Aggressor Side", "ngm.elasticia.fix.fast.v2.0.0.aggressorside", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_maker_quote = ProtoField.new("Market Maker Quote", "ngm.elasticia.fix.fast.v2.0.0.marketmakerquote", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_stats_indicators = ProtoField.new("No Stats Indicators", "ngm.elasticia.fix.fast.v2.0.0.nostatsindicators", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.stats_type = ProtoField.new("Stats Type", "ngm.elasticia.fix.fast.v2.0.0.statstype", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_req_id = ProtoField.new("Md Req Id", "ngm.elasticia.fix.fast.v2.0.0.mdreqid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_req_id = ProtoField.new("MD Req ID", "ngm.elasticia.fix.fast.v2.0.0.mdreqid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_depth = ProtoField.new("Market Depth", "ngm.elasticia.fix.fast.v2.0.0.marketdepth", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_md_entry_types = ProtoField.new("No Md Entry Types", "ngm.elasticia.fix.fast.v2.0.0.nomdentrytypes", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_req_rej_reason = ProtoField.new("Md Req Rej Reason", "ngm.elasticia.fix.fast.v2.0.0.mdreqrejreason", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_req_id = ProtoField.new("Security Req Id", "ngm.elasticia.fix.fast.v2.0.0.securityreqid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_md_entry_types = ProtoField.new("No MD Entry Types", "ngm.elasticia.fix.fast.v2.0.0.nomdentrytypes", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_req_rej_reason = ProtoField.new("MD Req Rej Reason", "ngm.elasticia.fix.fast.v2.0.0.mdreqrejreason", ftypes.UINT32)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_req_id = ProtoField.new("Security Req ID", "ngm.elasticia.fix.fast.v2.0.0.securityreqid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_request_result = ProtoField.new("Security Request Result", "ngm.elasticia.fix.fast.v2.0.0.securityrequestresult", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.last_fragment = ProtoField.new("Last Fragment", "ngm.elasticia.fix.fast.v2.0.0.lastfragment", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_related_sym = ProtoField.new("No Related Sym", "ngm.elasticia.fix.fast.v2.0.0.norelatedsym", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.instr_registry = ProtoField.new("Instr Registry", "ngm.elasticia.fix.fast.v2.0.0.instrregistry", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.business_center = ProtoField.new("Business Center", "ngm.elasticia.fix.fast.v2.0.0.businesscenter", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.zone_id = ProtoField.new("Zone Id", "ngm.elasticia.fix.fast.v2.0.0.zoneid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.zone_id = ProtoField.new("Zone ID", "ngm.elasticia.fix.fast.v2.0.0.zoneid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_market_segments = ProtoField.new("No Market Segments", "ngm.elasticia.fix.fast.v2.0.0.nomarketsegments", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_id = ProtoField.new("Market Id", "ngm.elasticia.fix.fast.v2.0.0.marketid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_segment_id = ProtoField.new("Market Segment Id", "ngm.elasticia.fix.fast.v2.0.0.marketsegmentid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_id = ProtoField.new("Market ID", "ngm.elasticia.fix.fast.v2.0.0.marketid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_segment_id = ProtoField.new("Market Segment ID", "ngm.elasticia.fix.fast.v2.0.0.marketsegmentid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "ngm.elasticia.fix.fast.v2.0.0.mintradevol", ftypes.DOUBLE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.round_lot = ProtoField.new("Round Lot", "ngm.elasticia.fix.fast.v2.0.0.roundlot", ftypes.DOUBLE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.price_type = ProtoField.new("Price Type", "ngm.elasticia.fix.fast.v2.0.0.pricetype", ftypes.UINT32)
@@ -289,28 +289,28 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_rules = ProtoField.new("No Par
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_rule = ProtoField.new("Party Rule", "ngm.elasticia.fix.fast.v2.0.0.partyrule", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_trade_report_rules = ProtoField.new("No Trade Report Rules", "ngm.elasticia.fix.fast.v2.0.0.notradereportrules", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_rule = ProtoField.new("Trade Report Rule", "ngm.elasticia.fix.fast.v2.0.0.tradereportrule", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_xml = ProtoField.new("Security Xml", "ngm.elasticia.fix.fast.v2.0.0.securityxml", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_xml = ProtoField.new("Security XML", "ngm.elasticia.fix.fast.v2.0.0.securityxml", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.liquidity_status = ProtoField.new("Liquidity Status", "ngm.elasticia.fix.fast.v2.0.0.liquiditystatus", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_update_action = ProtoField.new("Security Update Action", "ngm.elasticia.fix.fast.v2.0.0.securityupdateaction", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_move_indicator = ProtoField.new("Security Move Indicator", "ngm.elasticia.fix.fast.v2.0.0.securitymoveindicator", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status_req_id = ProtoField.new("Security Status Req Id", "ngm.elasticia.fix.fast.v2.0.0.securitystatusreqid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status_req_id = ProtoField.new("Security Status Req ID", "ngm.elasticia.fix.fast.v2.0.0.securitystatusreqid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_trading_status = ProtoField.new("Security Trading Status", "ngm.elasticia.fix.fast.v2.0.0.securitytradingstatus", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.halt_reason = ProtoField.new("Halt Reason", "ngm.elasticia.fix.fast.v2.0.0.haltreason", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.corporate_action = ProtoField.new("Corporate Action", "ngm.elasticia.fix.fast.v2.0.0.corporateaction", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.financial_status = ProtoField.new("Financial Status", "ngm.elasticia.fix.fast.v2.0.0.financialstatus", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_req_id = ProtoField.new("Market Req Id", "ngm.elasticia.fix.fast.v2.0.0.marketreqid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_req_id = ProtoField.new("Market Req ID", "ngm.elasticia.fix.fast.v2.0.0.marketreqid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_segment_desc = ProtoField.new("Market Segment Desc", "ngm.elasticia.fix.fast.v2.0.0.marketsegmentdesc", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.encoded_mkt_segm_desc = ProtoField.new("Encoded Mkt Segm Desc", "ngm.elasticia.fix.fast.v2.0.0.encodedmktsegmdesc", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.parent_mkt_segm_id = ProtoField.new("Parent Mkt Segm Id", "ngm.elasticia.fix.fast.v2.0.0.parentmktsegmid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_report_id = ProtoField.new("Market Report Id", "ngm.elasticia.fix.fast.v2.0.0.marketreportid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.parent_mkt_segm_id = ProtoField.new("Parent Mkt Segm ID", "ngm.elasticia.fix.fast.v2.0.0.parentmktsegmid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_report_id = ProtoField.new("Market Report ID", "ngm.elasticia.fix.fast.v2.0.0.marketreportid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_update_action = ProtoField.new("Market Update Action", "ngm.elasticia.fix.fast.v2.0.0.marketupdateaction", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.trad_ses_req_id = ProtoField.new("Trad Ses Req Id", "ngm.elasticia.fix.fast.v2.0.0.tradsesreqid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.trad_ses_req_id = ProtoField.new("Trad Ses Req ID", "ngm.elasticia.fix.fast.v2.0.0.tradsesreqid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "ngm.elasticia.fix.fast.v2.0.0.tradsesstatus", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_req_id = ProtoField.new("Corp Action Req Id", "ngm.elasticia.fix.fast.v2.0.0.corpactionreqid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_req_id = ProtoField.new("Corp Action Req ID", "ngm.elasticia.fix.fast.v2.0.0.corpactionreqid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_result = ProtoField.new("Corp Action Result", "ngm.elasticia.fix.fast.v2.0.0.corpactionresult", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_update_action = ProtoField.new("Corp Update Action", "ngm.elasticia.fix.fast.v2.0.0.corpupdateaction", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_type = ProtoField.new("Corp Action Type", "ngm.elasticia.fix.fast.v2.0.0.corpactiontype", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_id = ProtoField.new("Corp Action Id", "ngm.elasticia.fix.fast.v2.0.0.corpactionid", ftypes.STRING)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_id = ProtoField.new("Corp Action ID", "ngm.elasticia.fix.fast.v2.0.0.corpactionid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_descr = ProtoField.new("Corp Action Descr", "ngm.elasticia.fix.fast.v2.0.0.corpactiondescr", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_status = ProtoField.new("Corp Action Status", "ngm.elasticia.fix.fast.v2.0.0.corpactionstatus", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.ex_time = ProtoField.new("Ex Time", "ngm.elasticia.fix.fast.v2.0.0.extime", ftypes.UINT64)
@@ -328,38 +328,23 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.sequence_reset = ProtoField.new("Sequen
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.reject = ProtoField.new("Reject Message", "ngm.elasticia.fix.fast.v2.0.0.reject", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.new_order_single = ProtoField.new("New Order Single Message", "ngm.elasticia.fix.fast.v2.0.0.newordersingle", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_attributes = ProtoField.new("Order Attributes", "ngm.elasticia.fix.fast.v2.0.0.orderattributes", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds = ProtoField.new("Party I Ds", "ngm.elasticia.fix.fast.v2.0.0.partyids", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds = ProtoField.new("Party Sub I Ds", "ngm.elasticia.fix.fast.v2.0.0.partysubids", ftypes.NONE)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_ids = ProtoField.new("Party IDs", "ngm.elasticia.fix.fast.v2.0.0.partyids", ftypes.NONE)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_ids = ProtoField.new("Party Sub IDs", "ngm.elasticia.fix.fast.v2.0.0.partysubids", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_cancel_replace_request = ProtoField.new("Order Cancel Replace Request Message", "ngm.elasticia.fix.fast.v2.0.0.ordercancelreplacerequest", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_cancel_request = ProtoField.new("Order Cancel Request Message", "ngm.elasticia.fix.fast.v2.0.0.ordercancelrequest", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.execution_report = ProtoField.new("Execution Report Message", "ngm.elasticia.fix.fast.v2.0.0.executionreport", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_attributes = ProtoField.new("Order Attributes", "ngm.elasticia.fix.fast.v2.0.0.orderattributes", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds = ProtoField.new("Party I Ds", "ngm.elasticia.fix.fast.v2.0.0.partyids", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds = ProtoField.new("Party Sub I Ds", "ngm.elasticia.fix.fast.v2.0.0.partysubids", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_cancel_reject = ProtoField.new("Order Cancel Reject Message", "ngm.elasticia.fix.fast.v2.0.0.ordercancelreject", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_mass_status_request = ProtoField.new("Order Mass Status Request Message", "ngm.elasticia.fix.fast.v2.0.0.ordermassstatusrequest", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote = ProtoField.new("Quote Message", "ngm.elasticia.fix.fast.v2.0.0.quote", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds = ProtoField.new("Party I Ds", "ngm.elasticia.fix.fast.v2.0.0.partyids", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds = ProtoField.new("Party Sub I Ds", "ngm.elasticia.fix.fast.v2.0.0.partysubids", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_cancel = ProtoField.new("Quote Cancel Message", "ngm.elasticia.fix.fast.v2.0.0.quotecancel", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_report = ProtoField.new("Quote Status Report Message", "ngm.elasticia.fix.fast.v2.0.0.quotestatusreport", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds = ProtoField.new("Party I Ds", "ngm.elasticia.fix.fast.v2.0.0.partyids", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds = ProtoField.new("Party Sub I Ds", "ngm.elasticia.fix.fast.v2.0.0.partysubids", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_request = ProtoField.new("Quote Request Message", "ngm.elasticia.fix.fast.v2.0.0.quoterequest", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_request = ProtoField.new("Quote Status Request Message", "ngm.elasticia.fix.fast.v2.0.0.quotestatusrequest", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report = ProtoField.new("Trade Capture Report Message", "ngm.elasticia.fix.fast.v2.0.0.tradecapturereport", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_i_ds = ProtoField.new("Security Alt I Ds", "ngm.elasticia.fix.fast.v2.0.0.securityaltids", ftypes.NONE)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_ids = ProtoField.new("Security Alt IDs", "ngm.elasticia.fix.fast.v2.0.0.securityaltids", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trd_reg_publications = ProtoField.new("Trd Reg Publications", "ngm.elasticia.fix.fast.v2.0.0.trdregpublications", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.sides = ProtoField.new("Sides", "ngm.elasticia.fix.fast.v2.0.0.sides", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds = ProtoField.new("Party I Ds", "ngm.elasticia.fix.fast.v2.0.0.partyids", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds = ProtoField.new("Party Sub I Ds", "ngm.elasticia.fix.fast.v2.0.0.partysubids", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_attributes = ProtoField.new("Order Attributes", "ngm.elasticia.fix.fast.v2.0.0.orderattributes", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report_ack = ProtoField.new("Trade Capture Report Ack Message", "ngm.elasticia.fix.fast.v2.0.0.tradecapturereportack", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.trd_reg_publications = ProtoField.new("Trd Reg Publications", "ngm.elasticia.fix.fast.v2.0.0.trdregpublications", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.sides = ProtoField.new("Sides", "ngm.elasticia.fix.fast.v2.0.0.sides", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds = ProtoField.new("Party I Ds", "ngm.elasticia.fix.fast.v2.0.0.partyids", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds = ProtoField.new("Party Sub I Ds", "ngm.elasticia.fix.fast.v2.0.0.partysubids", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_attributes = ProtoField.new("Order Attributes", "ngm.elasticia.fix.fast.v2.0.0.orderattributes", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report_request = ProtoField.new("Trade Capture Report Request Message", "ngm.elasticia.fix.fast.v2.0.0.tradecapturereportrequest", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.dates = ProtoField.new("Dates", "ngm.elasticia.fix.fast.v2.0.0.dates", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_capture_report_request_ack = ProtoField.new("Trade Capture Report Request Ack Message", "ngm.elasticia.fix.fast.v2.0.0.tradecapturereportrequestack", ftypes.NONE)
@@ -367,20 +352,16 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.user_security_status_update_request = P
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.financial_status_updates = ProtoField.new("Financial Status Updates", "ngm.elasticia.fix.fast.v2.0.0.financialstatusupdates", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.user_security_status_update_response = ProtoField.new("User Security Status Update Response Message", "ngm.elasticia.fix.fast.v2.0.0.usersecuritystatusupdateresponse", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_incremental_refresh = ProtoField.new("Market Data Incremental Refresh Message", "ngm.elasticia.fix.fast.v2.0.0.marketdataincrementalrefresh", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_incremental_refresh_md_entries = ProtoField.new("Market Data Incremental Refresh Md Entries", "ngm.elasticia.fix.fast.v2.0.0.marketdataincrementalrefreshmdentries", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.trd_reg_publications = ProtoField.new("Trd Reg Publications", "ngm.elasticia.fix.fast.v2.0.0.trdregpublications", ftypes.NONE)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_incremental_refresh_md_entries = ProtoField.new("Market Data Incremental Refresh MD Entries", "ngm.elasticia.fix.fast.v2.0.0.marketdataincrementalrefreshmdentries", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.stats_indicators = ProtoField.new("Stats Indicators", "ngm.elasticia.fix.fast.v2.0.0.statsindicators", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_request = ProtoField.new("Market Data Request Message", "ngm.elasticia.fix.fast.v2.0.0.marketdatarequest", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_types = ProtoField.new("Md Entry Types", "ngm.elasticia.fix.fast.v2.0.0.mdentrytypes", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.dates = ProtoField.new("Dates", "ngm.elasticia.fix.fast.v2.0.0.dates", ftypes.NONE)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_types = ProtoField.new("MD Entry Types", "ngm.elasticia.fix.fast.v2.0.0.mdentrytypes", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_snapshot_full_refresh = ProtoField.new("Market Data Snapshot Full Refresh Message", "ngm.elasticia.fix.fast.v2.0.0.marketdatasnapshotfullrefresh", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_snapshot_full_refresh_md_entries = ProtoField.new("Market Data Snapshot Full Refresh Md Entries", "ngm.elasticia.fix.fast.v2.0.0.marketdatasnapshotfullrefreshmdentries", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.trd_reg_publications = ProtoField.new("Trd Reg Publications", "ngm.elasticia.fix.fast.v2.0.0.trdregpublications", ftypes.NONE)
+omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_snapshot_full_refresh_md_entries = ProtoField.new("Market Data Snapshot Full Refresh MD Entries", "ngm.elasticia.fix.fast.v2.0.0.marketdatasnapshotfullrefreshmdentries", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_request_reject = ProtoField.new("Market Data Request Reject Message", "ngm.elasticia.fix.fast.v2.0.0.marketdatarequestreject", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_list_request = ProtoField.new("Security List Request Message", "ngm.elasticia.fix.fast.v2.0.0.securitylistrequest", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_list = ProtoField.new("Security List Message", "ngm.elasticia.fix.fast.v2.0.0.securitylist", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.related_sym = ProtoField.new("Related Sym", "ngm.elasticia.fix.fast.v2.0.0.relatedsym", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_i_ds = ProtoField.new("Security Alt I Ds", "ngm.elasticia.fix.fast.v2.0.0.securityaltids", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_segments = ProtoField.new("Market Segments", "ngm.elasticia.fix.fast.v2.0.0.marketsegments", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.tick_rules = ProtoField.new("Tick Rules", "ngm.elasticia.fix.fast.v2.0.0.tickrules", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.match_rules = ProtoField.new("Match Rules", "ngm.elasticia.fix.fast.v2.0.0.matchrules", ftypes.NONE)
@@ -389,31 +370,11 @@ omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_rules = ProtoField.new("Mar
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_rules = ProtoField.new("Party Rules", "ngm.elasticia.fix.fast.v2.0.0.partyrules", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_rules = ProtoField.new("Trade Report Rules", "ngm.elasticia.fix.fast.v2.0.0.tradereportrules", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_definition_update_report = ProtoField.new("Security Definition Update Report Message", "ngm.elasticia.fix.fast.v2.0.0.securitydefinitionupdatereport", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_i_ds = ProtoField.new("Security Alt I Ds", "ngm.elasticia.fix.fast.v2.0.0.securityaltids", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_segments = ProtoField.new("Market Segments", "ngm.elasticia.fix.fast.v2.0.0.marketsegments", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.tick_rules = ProtoField.new("Tick Rules", "ngm.elasticia.fix.fast.v2.0.0.tickrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.match_rules = ProtoField.new("Match Rules", "ngm.elasticia.fix.fast.v2.0.0.matchrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_order_rules = ProtoField.new("Market Order Rules", "ngm.elasticia.fix.fast.v2.0.0.marketorderrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_rules = ProtoField.new("Market Data Rules", "ngm.elasticia.fix.fast.v2.0.0.marketdatarules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_rules = ProtoField.new("Party Rules", "ngm.elasticia.fix.fast.v2.0.0.partyrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_rules = ProtoField.new("Trade Report Rules", "ngm.elasticia.fix.fast.v2.0.0.tradereportrules", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_mass_status_request = ProtoField.new("Security Mass Status Request Message", "ngm.elasticia.fix.fast.v2.0.0.securitymassstatusrequest", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status = ProtoField.new("Security Status Message", "ngm.elasticia.fix.fast.v2.0.0.securitystatus", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_definition_request = ProtoField.new("Market Definition Request Message", "ngm.elasticia.fix.fast.v2.0.0.marketdefinitionrequest", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_definition = ProtoField.new("Market Definition Message", "ngm.elasticia.fix.fast.v2.0.0.marketdefinition", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.tick_rules = ProtoField.new("Tick Rules", "ngm.elasticia.fix.fast.v2.0.0.tickrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.match_rules = ProtoField.new("Match Rules", "ngm.elasticia.fix.fast.v2.0.0.matchrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_order_rules = ProtoField.new("Market Order Rules", "ngm.elasticia.fix.fast.v2.0.0.marketorderrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_rules = ProtoField.new("Market Data Rules", "ngm.elasticia.fix.fast.v2.0.0.marketdatarules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_rules = ProtoField.new("Party Rules", "ngm.elasticia.fix.fast.v2.0.0.partyrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_rules = ProtoField.new("Trade Report Rules", "ngm.elasticia.fix.fast.v2.0.0.tradereportrules", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_definition_update_report = ProtoField.new("Market Definition Update Report Message", "ngm.elasticia.fix.fast.v2.0.0.marketdefinitionupdatereport", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.tick_rules = ProtoField.new("Tick Rules", "ngm.elasticia.fix.fast.v2.0.0.tickrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.match_rules = ProtoField.new("Match Rules", "ngm.elasticia.fix.fast.v2.0.0.matchrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_order_rules = ProtoField.new("Market Order Rules", "ngm.elasticia.fix.fast.v2.0.0.marketorderrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_rules = ProtoField.new("Market Data Rules", "ngm.elasticia.fix.fast.v2.0.0.marketdatarules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_rules = ProtoField.new("Party Rules", "ngm.elasticia.fix.fast.v2.0.0.partyrules", ftypes.NONE)
-omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_rules = ProtoField.new("Trade Report Rules", "ngm.elasticia.fix.fast.v2.0.0.tradereportrules", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trading_session_status_request = ProtoField.new("Trading Session Status Request Message", "ngm.elasticia.fix.fast.v2.0.0.tradingsessionstatusrequest", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.trading_session_status = ProtoField.new("Trading Session Status Message", "ngm.elasticia.fix.fast.v2.0.0.tradingsessionstatus", ftypes.NONE)
 omi_ngm_elasticia_fix_fast_v2_0_0.fields.corporate_action_report = ProtoField.new("Corporate Action Report Message", "ngm.elasticia.fix.fast.v2.0.0.corporateactionreport", ftypes.NONE)
@@ -1764,10 +1725,10 @@ ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Target Comp Id
+-- Target Comp ID
 ngm_elasticia_fix_fast_v2_0_0.target_comp_id = {}
 
--- Dissect: Target Comp Id
+-- Dissect: Target Comp ID
 ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1780,7 +1741,7 @@ ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect = function(buffer, offset, 
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Target Comp Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Target Comp ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1791,16 +1752,16 @@ ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect = function(buffer, offset, 
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.target_comp_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.target_comp_id, range, "")
-    absent:set_text("Target Comp Id: No Value")
+    absent:set_text("Target Comp ID: No Value")
   end
 
   return offset, value
 end
 
--- Sender Comp Id
+-- Sender Comp ID
 ngm_elasticia_fix_fast_v2_0_0.sender_comp_id = {}
 
--- Dissect: Sender Comp Id
+-- Dissect: Sender Comp ID
 ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1813,7 +1774,7 @@ ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect = function(buffer, offset, 
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Comp Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Comp ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1824,16 +1785,16 @@ ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect = function(buffer, offset, 
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.sender_comp_id, range, "")
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
 end
 
--- On Behalf Of Comp Id
+-- On Behalf Of Comp ID
 ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id = {}
 
--- Dissect: On Behalf Of Comp Id
+-- Dissect: On Behalf Of Comp ID
 ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1850,16 +1811,16 @@ ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect = function(buffer, of
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.on_behalf_of_comp_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.on_behalf_of_comp_id, range, "")
-    absent:set_text("On Behalf Of Comp Id: No Value")
+    absent:set_text("On Behalf Of Comp ID: No Value")
   end
 
   return offset, value
 end
 
--- Deliver To Comp Id
+-- Deliver To Comp ID
 ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id = {}
 
--- Dissect: Deliver To Comp Id
+-- Dissect: Deliver To Comp ID
 ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1876,7 +1837,7 @@ ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect = function(buffer, offs
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.deliver_to_comp_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.deliver_to_comp_id, range, "")
-    absent:set_text("Deliver To Comp Id: No Value")
+    absent:set_text("Deliver To Comp ID: No Value")
   end
 
   return offset, value
@@ -2021,10 +1982,10 @@ ngm_elasticia_fix_fast_v2_0_0.text_default.dissect = function(buffer, offset, pa
   return offset, value
 end
 
--- Business Reject Ref Id
+-- Business Reject Ref ID
 ngm_elasticia_fix_fast_v2_0_0.business_reject_ref_id = {}
 
--- Dissect: Business Reject Ref Id
+-- Dissect: Business Reject Ref ID
 ngm_elasticia_fix_fast_v2_0_0.business_reject_ref_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2037,7 +1998,7 @@ ngm_elasticia_fix_fast_v2_0_0.business_reject_ref_id.dissect = function(buffer, 
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.business_reject_ref_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.business_reject_ref_id, range, "")
-    absent:set_text("Business Reject Ref Id: No Value")
+    absent:set_text("Business Reject Ref ID: No Value")
   end
 
   return offset, value
@@ -2177,10 +2138,10 @@ ngm_elasticia_fix_fast_v2_0_0.encrypt_method.dissect = function(buffer, offset, 
   return offset, value
 end
 
--- Default Appl Ver Id
+-- Default Appl Ver ID
 ngm_elasticia_fix_fast_v2_0_0.default_appl_ver_id = {}
 
--- Dissect: Default Appl Ver Id
+-- Dissect: Default Appl Ver ID
 ngm_elasticia_fix_fast_v2_0_0.default_appl_ver_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2193,7 +2154,7 @@ ngm_elasticia_fix_fast_v2_0_0.default_appl_ver_id.dissect = function(buffer, off
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.default_appl_ver_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.default_appl_ver_id, range, "")
-    absent:set_text("Default Appl Ver Id: No Value")
+    absent:set_text("Default Appl Ver ID: No Value")
   end
 
   return offset, value
@@ -2221,10 +2182,10 @@ ngm_elasticia_fix_fast_v2_0_0.session_status.dissect = function(buffer, offset, 
   return offset, value
 end
 
--- Test Req Id (Sent)
+-- Test Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.test_req_id_sent_required = {}
 
--- Dissect: Test Req Id (Sent)
+-- Dissect: Test Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.test_req_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2237,16 +2198,16 @@ ngm_elasticia_fix_fast_v2_0_0.test_req_id_sent_required.dissect = function(buffe
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.test_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.test_req_id, range, "")
-    absent:set_text("Test Req Id: No Value")
+    absent:set_text("Test Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Test Req Id (Sent)
+-- Test Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.test_req_id_sent_optional = {}
 
--- Dissect: Test Req Id (Sent)
+-- Dissect: Test Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.test_req_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2259,7 +2220,7 @@ ngm_elasticia_fix_fast_v2_0_0.test_req_id_sent_optional.dissect = function(buffe
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.test_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.test_req_id, range, "")
-    absent:set_text("Test Req Id: No Value")
+    absent:set_text("Test Req ID: No Value")
   end
 
   return offset, value
@@ -2333,10 +2294,10 @@ ngm_elasticia_fix_fast_v2_0_0.ref_seq_num.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Ref Tag Id
+-- Ref Tag ID
 ngm_elasticia_fix_fast_v2_0_0.ref_tag_id = {}
 
--- Dissect: Ref Tag Id
+-- Dissect: Ref Tag ID
 ngm_elasticia_fix_fast_v2_0_0.ref_tag_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2349,7 +2310,7 @@ ngm_elasticia_fix_fast_v2_0_0.ref_tag_id.dissect = function(buffer, offset, pack
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.ref_tag_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.ref_tag_id, range, 0)
-    absent:set_text("Ref Tag Id: No Value")
+    absent:set_text("Ref Tag ID: No Value")
   end
 
   return offset, value
@@ -2377,10 +2338,10 @@ ngm_elasticia_fix_fast_v2_0_0.session_reject_reason.dissect = function(buffer, o
   return offset, value
 end
 
--- Security Id
+-- Security ID
 ngm_elasticia_fix_fast_v2_0_0.security_id = {}
 
--- Dissect: Security Id
+-- Dissect: Security ID
 ngm_elasticia_fix_fast_v2_0_0.security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2393,16 +2354,16 @@ ngm_elasticia_fix_fast_v2_0_0.security_id.dissect = function(buffer, offset, pac
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_id, range, "")
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id Source
+-- Security ID Source
 ngm_elasticia_fix_fast_v2_0_0.security_id_source = {}
 
--- Dissect: Security Id Source
+-- Dissect: Security ID Source
 ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2417,16 +2378,16 @@ ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect = function(buffer, offs
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_id_source, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_id_source, range, 0)
-    absent:set_text("Security Id Source: No Value")
+    absent:set_text("Security ID Source: No Value")
   end
 
   return offset, value
 end
 
--- Cl Ord Id (Sent)
+-- Cl Ord ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_required = {}
 
--- Dissect: Cl Ord Id (Sent)
+-- Dissect: Cl Ord ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2439,16 +2400,16 @@ ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_required.dissect = function(buffer,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.cl_ord_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.cl_ord_id, range, "")
-    absent:set_text("Cl Ord Id: No Value")
+    absent:set_text("Cl Ord ID: No Value")
   end
 
   return offset, value
 end
 
--- Cl Ord Id (Sent)
+-- Cl Ord ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_optional = {}
 
--- Dissect: Cl Ord Id (Sent)
+-- Dissect: Cl Ord ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2461,7 +2422,7 @@ ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_optional.dissect = function(buffer,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.cl_ord_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.cl_ord_id, range, "")
-    absent:set_text("Cl Ord Id: No Value")
+    absent:set_text("Cl Ord ID: No Value")
   end
 
   return offset, value
@@ -3164,11 +3125,11 @@ ngm_elasticia_fix_fast_v2_0_0.order_attribute_value.dissect = function(buffer, o
   return offset, value
 end
 
--- No Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.no_party_i_ds = {}
+-- No Party IDs
+ngm_elasticia_fix_fast_v2_0_0.no_party_ids = {}
 
--- Dissect: No Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.no_party_i_ds.dissect = function(buffer, offset, packet, parent, present, state, key)
+-- Dissect: No Party IDs
+ngm_elasticia_fix_fast_v2_0_0.no_party_ids.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -3181,10 +3142,10 @@ ngm_elasticia_fix_fast_v2_0_0.no_party_i_ds.dissect = function(buffer, offset, p
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_i_ds, range, value)
+    parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_ids, range, value)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_i_ds, range, 0)
-    absent:set_text("No Party I Ds: No Value")
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_ids, range, 0)
+    absent:set_text("No Party IDs: No Value")
   end
 
   return offset, value
@@ -3238,10 +3199,10 @@ ngm_elasticia_fix_fast_v2_0_0.party_role_qualifier.dissect = function(buffer, of
   return offset, value
 end
 
--- Party Id Source
+-- Party ID Source
 ngm_elasticia_fix_fast_v2_0_0.party_id_source = {}
 
--- Dissect: Party Id Source
+-- Dissect: Party ID Source
 ngm_elasticia_fix_fast_v2_0_0.party_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3254,16 +3215,16 @@ ngm_elasticia_fix_fast_v2_0_0.party_id_source.dissect = function(buffer, offset,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_id_source, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_id_source, range, 0)
-    absent:set_text("Party Id Source: No Value")
+    absent:set_text("Party ID Source: No Value")
   end
 
   return offset, value
 end
 
--- Party Id
+-- Party ID
 ngm_elasticia_fix_fast_v2_0_0.party_id = {}
 
--- Dissect: Party Id
+-- Dissect: Party ID
 ngm_elasticia_fix_fast_v2_0_0.party_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3276,17 +3237,17 @@ ngm_elasticia_fix_fast_v2_0_0.party_id.dissect = function(buffer, offset, packet
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_id, range, "")
-    absent:set_text("Party Id: No Value")
+    absent:set_text("Party ID: No Value")
   end
 
   return offset, value
 end
 
--- No Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.no_party_sub_i_ds = {}
+-- No Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.no_party_sub_ids = {}
 
--- Dissect: No Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.no_party_sub_i_ds.dissect = function(buffer, offset, packet, parent, present, state, key)
+-- Dissect: No Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.no_party_sub_ids.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -3299,19 +3260,19 @@ ngm_elasticia_fix_fast_v2_0_0.no_party_sub_i_ds.dissect = function(buffer, offse
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_sub_i_ds, range, value)
+    parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_sub_ids, range, value)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_sub_i_ds, range, 0)
-    absent:set_text("No Party Sub I Ds: No Value")
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_party_sub_ids, range, 0)
+    absent:set_text("No Party Sub IDs: No Value")
   end
 
   return offset, value
 end
 
--- Party Sub Id Type
+-- Party Sub ID Type
 ngm_elasticia_fix_fast_v2_0_0.party_sub_id_type = {}
 
--- Dissect: Party Sub Id Type
+-- Dissect: Party Sub ID Type
 ngm_elasticia_fix_fast_v2_0_0.party_sub_id_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3324,16 +3285,16 @@ ngm_elasticia_fix_fast_v2_0_0.party_sub_id_type.dissect = function(buffer, offse
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_id_type, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_id_type, range, 0)
-    absent:set_text("Party Sub Id Type: No Value")
+    absent:set_text("Party Sub ID Type: No Value")
   end
 
   return offset, value
 end
 
--- Party Sub Id
+-- Party Sub ID
 ngm_elasticia_fix_fast_v2_0_0.party_sub_id = {}
 
--- Dissect: Party Sub Id
+-- Dissect: Party Sub ID
 ngm_elasticia_fix_fast_v2_0_0.party_sub_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3346,16 +3307,16 @@ ngm_elasticia_fix_fast_v2_0_0.party_sub_id.dissect = function(buffer, offset, pa
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_id, range, "")
-    absent:set_text("Party Sub Id: No Value")
+    absent:set_text("Party Sub ID: No Value")
   end
 
   return offset, value
 end
 
--- Order Id (Sent)
+-- Order ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.order_id_sent_optional = {}
 
--- Dissect: Order Id (Sent)
+-- Dissect: Order ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.order_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3368,16 +3329,16 @@ ngm_elasticia_fix_fast_v2_0_0.order_id_sent_optional.dissect = function(buffer, 
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_id, range, "")
-    absent:set_text("Order Id: No Value")
+    absent:set_text("Order ID: No Value")
   end
 
   return offset, value
 end
 
--- Order Id (Sent)
+-- Order ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.order_id_sent_required = {}
 
--- Dissect: Order Id (Sent)
+-- Dissect: Order ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.order_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3390,16 +3351,16 @@ ngm_elasticia_fix_fast_v2_0_0.order_id_sent_required.dissect = function(buffer, 
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.order_id, range, "")
-    absent:set_text("Order Id: No Value")
+    absent:set_text("Order ID: No Value")
   end
 
   return offset, value
 end
 
--- Orig Cl Ord Id (Sent)
+-- Orig Cl Ord ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.orig_cl_ord_id_sent_optional = {}
 
--- Dissect: Orig Cl Ord Id (Sent)
+-- Dissect: Orig Cl Ord ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.orig_cl_ord_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3412,16 +3373,16 @@ ngm_elasticia_fix_fast_v2_0_0.orig_cl_ord_id_sent_optional.dissect = function(bu
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.orig_cl_ord_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.orig_cl_ord_id, range, "")
-    absent:set_text("Orig Cl Ord Id: No Value")
+    absent:set_text("Orig Cl Ord ID: No Value")
   end
 
   return offset, value
 end
 
--- Orig Cl Ord Id (Sent)
+-- Orig Cl Ord ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.orig_cl_ord_id_sent_required = {}
 
--- Dissect: Orig Cl Ord Id (Sent)
+-- Dissect: Orig Cl Ord ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.orig_cl_ord_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3434,16 +3395,16 @@ ngm_elasticia_fix_fast_v2_0_0.orig_cl_ord_id_sent_required.dissect = function(bu
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.orig_cl_ord_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.orig_cl_ord_id, range, "")
-    absent:set_text("Orig Cl Ord Id: No Value")
+    absent:set_text("Orig Cl Ord ID: No Value")
   end
 
   return offset, value
 end
 
--- Mass Status Req Id (Default)
+-- Mass Status Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.mass_status_req_id_default = {}
 
--- Dissect: Mass Status Req Id (Default)
+-- Dissect: Mass Status Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.mass_status_req_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3460,16 +3421,16 @@ ngm_elasticia_fix_fast_v2_0_0.mass_status_req_id_default.dissect = function(buff
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.mass_status_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.mass_status_req_id, range, "")
-    absent:set_text("Mass Status Req Id: No Value")
+    absent:set_text("Mass Status Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Mass Status Req Id (Sent)
+-- Mass Status Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.mass_status_req_id_sent = {}
 
--- Dissect: Mass Status Req Id (Sent)
+-- Dissect: Mass Status Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.mass_status_req_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3482,7 +3443,7 @@ ngm_elasticia_fix_fast_v2_0_0.mass_status_req_id_sent.dissect = function(buffer,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.mass_status_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.mass_status_req_id, range, "")
-    absent:set_text("Mass Status Req Id: No Value")
+    absent:set_text("Mass Status Req ID: No Value")
   end
 
   return offset, value
@@ -3534,10 +3495,10 @@ ngm_elasticia_fix_fast_v2_0_0.ord_status.dissect = function(buffer, offset, pack
   return offset, value
 end
 
--- Exec Id
+-- Exec ID
 ngm_elasticia_fix_fast_v2_0_0.exec_id = {}
 
--- Dissect: Exec Id
+-- Dissect: Exec ID
 ngm_elasticia_fix_fast_v2_0_0.exec_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3550,7 +3511,7 @@ ngm_elasticia_fix_fast_v2_0_0.exec_id.dissect = function(buffer, offset, packet,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.exec_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.exec_id, range, "")
-    absent:set_text("Exec Id: No Value")
+    absent:set_text("Exec ID: No Value")
   end
 
   return offset, value
@@ -3578,10 +3539,10 @@ ngm_elasticia_fix_fast_v2_0_0.exec_type.dissect = function(buffer, offset, packe
   return offset, value
 end
 
--- Md Entry Id (Default)
+-- MD Entry ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.md_entry_id_default = {}
 
--- Dissect: Md Entry Id (Default)
+-- Dissect: MD Entry ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.md_entry_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3598,16 +3559,16 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_id_default.dissect = function(buffer, off
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_id, range, "")
-    absent:set_text("Md Entry Id: No Value")
+    absent:set_text("MD Entry ID: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Id (Sent)
+-- MD Entry ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.md_entry_id_sent = {}
 
--- Dissect: Md Entry Id (Sent)
+-- Dissect: MD Entry ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.md_entry_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3620,7 +3581,7 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_id_sent.dissect = function(buffer, offset
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_id, range, "")
-    absent:set_text("Md Entry Id: No Value")
+    absent:set_text("MD Entry ID: No Value")
   end
 
   return offset, value
@@ -3983,10 +3944,10 @@ ngm_elasticia_fix_fast_v2_0_0.mass_status_req_type.dissect = function(buffer, of
   return offset, value
 end
 
--- Quote Req Id (Default)
+-- Quote Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.quote_req_id_default = {}
 
--- Dissect: Quote Req Id (Default)
+-- Dissect: Quote Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.quote_req_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4003,16 +3964,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote_req_id_default.dissect = function(buffer, of
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_req_id, range, "")
-    absent:set_text("Quote Req Id: No Value")
+    absent:set_text("Quote Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Quote Req Id (Sent)
+-- Quote Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.quote_req_id_sent = {}
 
--- Dissect: Quote Req Id (Sent)
+-- Dissect: Quote Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.quote_req_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4025,16 +3986,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote_req_id_sent.dissect = function(buffer, offse
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_req_id, range, "")
-    absent:set_text("Quote Req Id: No Value")
+    absent:set_text("Quote Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Quote Id (Default)
+-- Quote ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.quote_id_default = {}
 
--- Dissect: Quote Id (Default)
+-- Dissect: Quote ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.quote_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4051,16 +4012,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote_id_default.dissect = function(buffer, offset
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_id, range, "")
-    absent:set_text("Quote Id: No Value")
+    absent:set_text("Quote ID: No Value")
   end
 
   return offset, value
 end
 
--- Quote Id (Sent)
+-- Quote ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.quote_id_sent = {}
 
--- Dissect: Quote Id (Sent)
+-- Dissect: Quote ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.quote_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4073,16 +4034,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote_id_sent.dissect = function(buffer, offset, p
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_id, range, "")
-    absent:set_text("Quote Id: No Value")
+    absent:set_text("Quote ID: No Value")
   end
 
   return offset, value
 end
 
--- Quote Msg Id (Sent)
+-- Quote Msg ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_sent_required = {}
 
--- Dissect: Quote Msg Id (Sent)
+-- Dissect: Quote Msg ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4095,16 +4056,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_sent_required.dissect = function(buff
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_msg_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_msg_id, range, "")
-    absent:set_text("Quote Msg Id: No Value")
+    absent:set_text("Quote Msg ID: No Value")
   end
 
   return offset, value
 end
 
--- Quote Msg Id (Sent)
+-- Quote Msg ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_sent_optional = {}
 
--- Dissect: Quote Msg Id (Sent)
+-- Dissect: Quote Msg ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4117,16 +4078,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_sent_optional.dissect = function(buff
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_msg_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_msg_id, range, "")
-    absent:set_text("Quote Msg Id: No Value")
+    absent:set_text("Quote Msg ID: No Value")
   end
 
   return offset, value
 end
 
--- Quote Msg Id (Default)
+-- Quote Msg ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_default = {}
 
--- Dissect: Quote Msg Id (Default)
+-- Dissect: Quote Msg ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4143,16 +4104,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_default.dissect = function(buffer, of
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_msg_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_msg_id, range, "")
-    absent:set_text("Quote Msg Id: No Value")
+    absent:set_text("Quote Msg ID: No Value")
   end
 
   return offset, value
 end
 
--- Orig Quote Msg Id
+-- Orig Quote Msg ID
 ngm_elasticia_fix_fast_v2_0_0.orig_quote_msg_id = {}
 
--- Dissect: Orig Quote Msg Id
+-- Dissect: Orig Quote Msg ID
 ngm_elasticia_fix_fast_v2_0_0.orig_quote_msg_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4169,7 +4130,7 @@ ngm_elasticia_fix_fast_v2_0_0.orig_quote_msg_id.dissect = function(buffer, offse
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.orig_quote_msg_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.orig_quote_msg_id, range, "")
-    absent:set_text("Orig Quote Msg Id: No Value")
+    absent:set_text("Orig Quote Msg ID: No Value")
   end
 
   return offset, value
@@ -4489,10 +4450,10 @@ ngm_elasticia_fix_fast_v2_0_0.quote_cancel_type.dissect = function(buffer, offse
   return offset, value
 end
 
--- Quote Status Req Id (Default)
+-- Quote Status Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.quote_status_req_id_default = {}
 
--- Dissect: Quote Status Req Id (Default)
+-- Dissect: Quote Status Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.quote_status_req_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4509,16 +4470,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote_status_req_id_default.dissect = function(buf
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_req_id, range, "")
-    absent:set_text("Quote Status Req Id: No Value")
+    absent:set_text("Quote Status Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Quote Status Req Id (Sent)
+-- Quote Status Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.quote_status_req_id_sent = {}
 
--- Dissect: Quote Status Req Id (Sent)
+-- Dissect: Quote Status Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.quote_status_req_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4531,7 +4492,7 @@ ngm_elasticia_fix_fast_v2_0_0.quote_status_req_id_sent.dissect = function(buffer
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.quote_status_req_id, range, "")
-    absent:set_text("Quote Status Req Id: No Value")
+    absent:set_text("Quote Status Req ID: No Value")
   end
 
   return offset, value
@@ -4559,10 +4520,10 @@ ngm_elasticia_fix_fast_v2_0_0.quote_status.dissect = function(buffer, offset, pa
   return offset, value
 end
 
--- Bid Md Entry Id
+-- Bid MD Entry ID
 ngm_elasticia_fix_fast_v2_0_0.bid_md_entry_id = {}
 
--- Dissect: Bid Md Entry Id
+-- Dissect: Bid MD Entry ID
 ngm_elasticia_fix_fast_v2_0_0.bid_md_entry_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4575,16 +4536,16 @@ ngm_elasticia_fix_fast_v2_0_0.bid_md_entry_id.dissect = function(buffer, offset,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.bid_md_entry_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.bid_md_entry_id, range, "")
-    absent:set_text("Bid Md Entry Id: No Value")
+    absent:set_text("Bid MD Entry ID: No Value")
   end
 
   return offset, value
 end
 
--- Offer Md Entry Id
+-- Offer MD Entry ID
 ngm_elasticia_fix_fast_v2_0_0.offer_md_entry_id = {}
 
--- Dissect: Offer Md Entry Id
+-- Dissect: Offer MD Entry ID
 ngm_elasticia_fix_fast_v2_0_0.offer_md_entry_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4597,7 +4558,7 @@ ngm_elasticia_fix_fast_v2_0_0.offer_md_entry_id.dissect = function(buffer, offse
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.offer_md_entry_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.offer_md_entry_id, range, "")
-    absent:set_text("Offer Md Entry Id: No Value")
+    absent:set_text("Offer MD Entry ID: No Value")
   end
 
   return offset, value
@@ -4717,10 +4678,10 @@ ngm_elasticia_fix_fast_v2_0_0.subscription_request_type_sent.dissect = function(
   return offset, value
 end
 
--- No Security Alt Id
+-- No Security Alt ID
 ngm_elasticia_fix_fast_v2_0_0.no_security_alt_id = {}
 
--- Dissect: No Security Alt Id
+-- Dissect: No Security Alt ID
 ngm_elasticia_fix_fast_v2_0_0.no_security_alt_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4733,16 +4694,16 @@ ngm_elasticia_fix_fast_v2_0_0.no_security_alt_id.dissect = function(buffer, offs
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_security_alt_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_security_alt_id, range, 0)
-    absent:set_text("No Security Alt Id: No Value")
+    absent:set_text("No Security Alt ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Alt Id
+-- Security Alt ID
 ngm_elasticia_fix_fast_v2_0_0.security_alt_id = {}
 
--- Dissect: Security Alt Id
+-- Dissect: Security Alt ID
 ngm_elasticia_fix_fast_v2_0_0.security_alt_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4755,16 +4716,16 @@ ngm_elasticia_fix_fast_v2_0_0.security_alt_id.dissect = function(buffer, offset,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_id, range, "")
-    absent:set_text("Security Alt Id: No Value")
+    absent:set_text("Security Alt ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Alt Id Source
+-- Security Alt ID Source
 ngm_elasticia_fix_fast_v2_0_0.security_alt_id_source = {}
 
--- Dissect: Security Alt Id Source
+-- Dissect: Security Alt ID Source
 ngm_elasticia_fix_fast_v2_0_0.security_alt_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4777,16 +4738,16 @@ ngm_elasticia_fix_fast_v2_0_0.security_alt_id_source.dissect = function(buffer, 
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_id_source, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_id_source, range, 0)
-    absent:set_text("Security Alt Id Source: No Value")
+    absent:set_text("Security Alt ID Source: No Value")
   end
 
   return offset, value
 end
 
--- Trade Request Id (Default)
+-- Trade Request ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.trade_request_id_default = {}
 
--- Dissect: Trade Request Id (Default)
+-- Dissect: Trade Request ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.trade_request_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4803,16 +4764,16 @@ ngm_elasticia_fix_fast_v2_0_0.trade_request_id_default.dissect = function(buffer
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_request_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_request_id, range, "")
-    absent:set_text("Trade Request Id: No Value")
+    absent:set_text("Trade Request ID: No Value")
   end
 
   return offset, value
 end
 
--- Trade Request Id (Sent)
+-- Trade Request ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.trade_request_id_sent_optional = {}
 
--- Dissect: Trade Request Id (Sent)
+-- Dissect: Trade Request ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.trade_request_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4825,16 +4786,16 @@ ngm_elasticia_fix_fast_v2_0_0.trade_request_id_sent_optional.dissect = function(
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_request_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_request_id, range, "")
-    absent:set_text("Trade Request Id: No Value")
+    absent:set_text("Trade Request ID: No Value")
   end
 
   return offset, value
 end
 
--- Trade Request Id (Sent)
+-- Trade Request ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.trade_request_id_sent_required = {}
 
--- Dissect: Trade Request Id (Sent)
+-- Dissect: Trade Request ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.trade_request_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4847,16 +4808,16 @@ ngm_elasticia_fix_fast_v2_0_0.trade_request_id_sent_required.dissect = function(
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_request_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_request_id, range, "")
-    absent:set_text("Trade Request Id: No Value")
+    absent:set_text("Trade Request ID: No Value")
   end
 
   return offset, value
 end
 
--- Trade Report Id
+-- Trade Report ID
 ngm_elasticia_fix_fast_v2_0_0.trade_report_id = {}
 
--- Dissect: Trade Report Id
+-- Dissect: Trade Report ID
 ngm_elasticia_fix_fast_v2_0_0.trade_report_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4869,16 +4830,16 @@ ngm_elasticia_fix_fast_v2_0_0.trade_report_id.dissect = function(buffer, offset,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_id, range, "")
-    absent:set_text("Trade Report Id: No Value")
+    absent:set_text("Trade Report ID: No Value")
   end
 
   return offset, value
 end
 
--- Trade Report Ref Id
+-- Trade Report Ref ID
 ngm_elasticia_fix_fast_v2_0_0.trade_report_ref_id = {}
 
--- Dissect: Trade Report Ref Id
+-- Dissect: Trade Report Ref ID
 ngm_elasticia_fix_fast_v2_0_0.trade_report_ref_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4891,16 +4852,16 @@ ngm_elasticia_fix_fast_v2_0_0.trade_report_ref_id.dissect = function(buffer, off
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_ref_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_report_ref_id, range, "")
-    absent:set_text("Trade Report Ref Id: No Value")
+    absent:set_text("Trade Report Ref ID: No Value")
   end
 
   return offset, value
 end
 
--- Trade Id
+-- Trade ID
 ngm_elasticia_fix_fast_v2_0_0.trade_id = {}
 
--- Dissect: Trade Id
+-- Dissect: Trade ID
 ngm_elasticia_fix_fast_v2_0_0.trade_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4913,7 +4874,7 @@ ngm_elasticia_fix_fast_v2_0_0.trade_id.dissect = function(buffer, offset, packet
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trade_id, range, "")
-    absent:set_text("Trade Id: No Value")
+    absent:set_text("Trade ID: No Value")
   end
 
   return offset, value
@@ -5521,10 +5482,10 @@ ngm_elasticia_fix_fast_v2_0_0.no_sides.dissect = function(buffer, offset, packet
   return offset, value
 end
 
--- Secondary Cl Ord Id
+-- Secondary Cl Ord ID
 ngm_elasticia_fix_fast_v2_0_0.secondary_cl_ord_id = {}
 
--- Dissect: Secondary Cl Ord Id
+-- Dissect: Secondary Cl Ord ID
 ngm_elasticia_fix_fast_v2_0_0.secondary_cl_ord_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5537,7 +5498,7 @@ ngm_elasticia_fix_fast_v2_0_0.secondary_cl_ord_id.dissect = function(buffer, off
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.secondary_cl_ord_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.secondary_cl_ord_id, range, "")
-    absent:set_text("Secondary Cl Ord Id: No Value")
+    absent:set_text("Secondary Cl Ord ID: No Value")
   end
 
   return offset, value
@@ -5726,10 +5687,10 @@ ngm_elasticia_fix_fast_v2_0_0.trade_request_status.dissect = function(buffer, of
   return offset, value
 end
 
--- Security Status Update Request Id
+-- Security Status Update Request ID
 ngm_elasticia_fix_fast_v2_0_0.security_status_update_request_id = {}
 
--- Dissect: Security Status Update Request Id
+-- Dissect: Security Status Update Request ID
 ngm_elasticia_fix_fast_v2_0_0.security_status_update_request_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5742,7 +5703,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_status_update_request_id.dissect = functi
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status_update_request_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status_update_request_id, range, "")
-    absent:set_text("Security Status Update Request Id: No Value")
+    absent:set_text("Security Status Update Request ID: No Value")
   end
 
   return offset, value
@@ -5836,10 +5797,10 @@ ngm_elasticia_fix_fast_v2_0_0.financial_status_result.dissect = function(buffer,
   return offset, value
 end
 
--- No Md Entries
+-- No MD Entries
 ngm_elasticia_fix_fast_v2_0_0.no_md_entries = {}
 
--- Dissect: No Md Entries
+-- Dissect: No MD Entries
 ngm_elasticia_fix_fast_v2_0_0.no_md_entries.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5852,16 +5813,16 @@ ngm_elasticia_fix_fast_v2_0_0.no_md_entries.dissect = function(buffer, offset, p
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_md_entries, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_md_entries, range, 0)
-    absent:set_text("No Md Entries: No Value")
+    absent:set_text("No MD Entries: No Value")
   end
 
   return offset, value
 end
 
--- Md Update Action
+-- MD Update Action
 ngm_elasticia_fix_fast_v2_0_0.md_update_action = {}
 
--- Dissect: Md Update Action
+-- Dissect: MD Update Action
 ngm_elasticia_fix_fast_v2_0_0.md_update_action.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5874,16 +5835,16 @@ ngm_elasticia_fix_fast_v2_0_0.md_update_action.dissect = function(buffer, offset
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_update_action, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_update_action, range, 0)
-    absent:set_text("Md Update Action: No Value")
+    absent:set_text("MD Update Action: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Type
+-- MD Entry Type
 ngm_elasticia_fix_fast_v2_0_0.md_entry_type = {}
 
--- Dissect: Md Entry Type
+-- Dissect: MD Entry Type
 ngm_elasticia_fix_fast_v2_0_0.md_entry_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5896,16 +5857,16 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_type.dissect = function(buffer, offset, p
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_type, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_type, range, 0)
-    absent:set_text("Md Entry Type: No Value")
+    absent:set_text("MD Entry Type: No Value")
   end
 
   return offset, value
 end
 
--- Md Stat Scope
+-- MD Stat Scope
 ngm_elasticia_fix_fast_v2_0_0.md_stat_scope = {}
 
--- Dissect: Md Stat Scope
+-- Dissect: MD Stat Scope
 ngm_elasticia_fix_fast_v2_0_0.md_stat_scope.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5922,25 +5883,25 @@ ngm_elasticia_fix_fast_v2_0_0.md_stat_scope.dissect = function(buffer, offset, p
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_stat_scope, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_stat_scope, range, 0)
-    absent:set_text("Md Stat Scope: No Value")
+    absent:set_text("MD Stat Scope: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Px
+-- MD Entry Px
 ngm_elasticia_fix_fast_v2_0_0.md_entry_px = {}
 
--- Display: Md Entry Px
+-- Display: MD Entry Px
 ngm_elasticia_fix_fast_v2_0_0.md_entry_px.display = function(value)
   if value == nil then
-    return "Md Entry Px: No Value"
+    return "MD Entry Px: No Value"
   end
 
-  return "Md Entry Px: "..value
+  return "MD Entry Px: "..value
 end
 
--- Dissect: Md Entry Px
+-- Dissect: MD Entry Px
 ngm_elasticia_fix_fast_v2_0_0.md_entry_px.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5973,19 +5934,19 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_px.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Md Entry Size
+-- MD Entry Size
 ngm_elasticia_fix_fast_v2_0_0.md_entry_size = {}
 
--- Display: Md Entry Size
+-- Display: MD Entry Size
 ngm_elasticia_fix_fast_v2_0_0.md_entry_size.display = function(value)
   if value == nil then
-    return "Md Entry Size: No Value"
+    return "MD Entry Size: No Value"
   end
 
-  return "Md Entry Size: "..value
+  return "MD Entry Size: "..value
 end
 
--- Dissect: Md Entry Size
+-- Dissect: MD Entry Size
 ngm_elasticia_fix_fast_v2_0_0.md_entry_size.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6018,10 +5979,10 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_size.dissect = function(buffer, offset, p
   return offset, value
 end
 
--- Md Entry Position No
+-- MD Entry Position No
 ngm_elasticia_fix_fast_v2_0_0.md_entry_position_no = {}
 
--- Dissect: Md Entry Position No
+-- Dissect: MD Entry Position No
 ngm_elasticia_fix_fast_v2_0_0.md_entry_position_no.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6034,16 +5995,16 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_position_no.dissect = function(buffer, of
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_position_no, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_position_no, range, 0)
-    absent:set_text("Md Entry Position No: No Value")
+    absent:set_text("MD Entry Position No: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Buyer
+-- MD Entry Buyer
 ngm_elasticia_fix_fast_v2_0_0.md_entry_buyer = {}
 
--- Dissect: Md Entry Buyer
+-- Dissect: MD Entry Buyer
 ngm_elasticia_fix_fast_v2_0_0.md_entry_buyer.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6060,16 +6021,16 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_buyer.dissect = function(buffer, offset, 
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_buyer, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_buyer, range, "")
-    absent:set_text("Md Entry Buyer: No Value")
+    absent:set_text("MD Entry Buyer: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Seller
+-- MD Entry Seller
 ngm_elasticia_fix_fast_v2_0_0.md_entry_seller = {}
 
--- Dissect: Md Entry Seller
+-- Dissect: MD Entry Seller
 ngm_elasticia_fix_fast_v2_0_0.md_entry_seller.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6086,7 +6047,7 @@ ngm_elasticia_fix_fast_v2_0_0.md_entry_seller.dissect = function(buffer, offset,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_seller, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_seller, range, "")
-    absent:set_text("Md Entry Seller: No Value")
+    absent:set_text("MD Entry Seller: No Value")
   end
 
   return offset, value
@@ -6216,10 +6177,10 @@ ngm_elasticia_fix_fast_v2_0_0.stats_type.dissect = function(buffer, offset, pack
   return offset, value
 end
 
--- Md Req Id (Sent)
+-- MD Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.md_req_id_sent = {}
 
--- Dissect: Md Req Id (Sent)
+-- Dissect: MD Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.md_req_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6232,16 +6193,16 @@ ngm_elasticia_fix_fast_v2_0_0.md_req_id_sent.dissect = function(buffer, offset, 
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_req_id, range, "")
-    absent:set_text("Md Req Id: No Value")
+    absent:set_text("MD Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Md Req Id (Default)
+-- MD Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.md_req_id_default = {}
 
--- Dissect: Md Req Id (Default)
+-- Dissect: MD Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.md_req_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6258,7 +6219,7 @@ ngm_elasticia_fix_fast_v2_0_0.md_req_id_default.dissect = function(buffer, offse
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_req_id, range, "")
-    absent:set_text("Md Req Id: No Value")
+    absent:set_text("MD Req ID: No Value")
   end
 
   return offset, value
@@ -6286,10 +6247,10 @@ ngm_elasticia_fix_fast_v2_0_0.market_depth.dissect = function(buffer, offset, pa
   return offset, value
 end
 
--- No Md Entry Types
+-- No MD Entry Types
 ngm_elasticia_fix_fast_v2_0_0.no_md_entry_types = {}
 
--- Dissect: No Md Entry Types
+-- Dissect: No MD Entry Types
 ngm_elasticia_fix_fast_v2_0_0.no_md_entry_types.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6302,16 +6263,16 @@ ngm_elasticia_fix_fast_v2_0_0.no_md_entry_types.dissect = function(buffer, offse
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_md_entry_types, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.no_md_entry_types, range, 0)
-    absent:set_text("No Md Entry Types: No Value")
+    absent:set_text("No MD Entry Types: No Value")
   end
 
   return offset, value
 end
 
--- Md Req Rej Reason
+-- MD Req Rej Reason
 ngm_elasticia_fix_fast_v2_0_0.md_req_rej_reason = {}
 
--- Dissect: Md Req Rej Reason
+-- Dissect: MD Req Rej Reason
 ngm_elasticia_fix_fast_v2_0_0.md_req_rej_reason.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6324,16 +6285,16 @@ ngm_elasticia_fix_fast_v2_0_0.md_req_rej_reason.dissect = function(buffer, offse
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_req_rej_reason, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_req_rej_reason, range, 0)
-    absent:set_text("Md Req Rej Reason: No Value")
+    absent:set_text("MD Req Rej Reason: No Value")
   end
 
   return offset, value
 end
 
--- Security Req Id (Sent)
+-- Security Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.security_req_id_sent_required = {}
 
--- Dissect: Security Req Id (Sent)
+-- Dissect: Security Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.security_req_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6346,16 +6307,16 @@ ngm_elasticia_fix_fast_v2_0_0.security_req_id_sent_required.dissect = function(b
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_req_id, range, "")
-    absent:set_text("Security Req Id: No Value")
+    absent:set_text("Security Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Req Id (Sent)
+-- Security Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.security_req_id_sent_optional = {}
 
--- Dissect: Security Req Id (Sent)
+-- Dissect: Security Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.security_req_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6368,7 +6329,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_req_id_sent_optional.dissect = function(b
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_req_id, range, "")
-    absent:set_text("Security Req Id: No Value")
+    absent:set_text("Security Req ID: No Value")
   end
 
   return offset, value
@@ -6492,10 +6453,10 @@ ngm_elasticia_fix_fast_v2_0_0.business_center.dissect = function(buffer, offset,
   return offset, value
 end
 
--- Zone Id
+-- Zone ID
 ngm_elasticia_fix_fast_v2_0_0.zone_id = {}
 
--- Dissect: Zone Id
+-- Dissect: Zone ID
 ngm_elasticia_fix_fast_v2_0_0.zone_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6512,7 +6473,7 @@ ngm_elasticia_fix_fast_v2_0_0.zone_id.dissect = function(buffer, offset, packet,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.zone_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.zone_id, range, "")
-    absent:set_text("Zone Id: No Value")
+    absent:set_text("Zone ID: No Value")
   end
 
   return offset, value
@@ -6540,10 +6501,10 @@ ngm_elasticia_fix_fast_v2_0_0.no_market_segments.dissect = function(buffer, offs
   return offset, value
 end
 
--- Market Id (Sent)
+-- Market ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.market_id_sent_optional = {}
 
--- Dissect: Market Id (Sent)
+-- Dissect: Market ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.market_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6556,16 +6517,16 @@ ngm_elasticia_fix_fast_v2_0_0.market_id_sent_optional.dissect = function(buffer,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_id, range, "")
-    absent:set_text("Market Id: No Value")
+    absent:set_text("Market ID: No Value")
   end
 
   return offset, value
 end
 
--- Market Id (Sent)
+-- Market ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.market_id_sent_required = {}
 
--- Dissect: Market Id (Sent)
+-- Dissect: Market ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.market_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6578,16 +6539,16 @@ ngm_elasticia_fix_fast_v2_0_0.market_id_sent_required.dissect = function(buffer,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_id, range, "")
-    absent:set_text("Market Id: No Value")
+    absent:set_text("Market ID: No Value")
   end
 
   return offset, value
 end
 
--- Market Segment Id
+-- Market Segment ID
 ngm_elasticia_fix_fast_v2_0_0.market_segment_id = {}
 
--- Dissect: Market Segment Id
+-- Dissect: Market Segment ID
 ngm_elasticia_fix_fast_v2_0_0.market_segment_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6600,7 +6561,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_segment_id.dissect = function(buffer, offse
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_segment_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_segment_id, range, "")
-    absent:set_text("Market Segment Id: No Value")
+    absent:set_text("Market Segment ID: No Value")
   end
 
   return offset, value
@@ -7388,10 +7349,10 @@ ngm_elasticia_fix_fast_v2_0_0.trade_report_rule.dissect = function(buffer, offse
   return offset, value
 end
 
--- Security Xml
+-- Security XML
 ngm_elasticia_fix_fast_v2_0_0.security_xml = {}
 
--- Dissect: Security Xml
+-- Dissect: Security XML
 ngm_elasticia_fix_fast_v2_0_0.security_xml.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7404,7 +7365,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_xml.dissect = function(buffer, offset, pa
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_xml, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_xml, range, "")
-    absent:set_text("Security Xml: No Value")
+    absent:set_text("Security XML: No Value")
   end
 
   return offset, value
@@ -7476,10 +7437,10 @@ ngm_elasticia_fix_fast_v2_0_0.security_move_indicator.dissect = function(buffer,
   return offset, value
 end
 
--- Security Status Req Id (Sent)
+-- Security Status Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.security_status_req_id_sent = {}
 
--- Dissect: Security Status Req Id (Sent)
+-- Dissect: Security Status Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.security_status_req_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7492,16 +7453,16 @@ ngm_elasticia_fix_fast_v2_0_0.security_status_req_id_sent.dissect = function(buf
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status_req_id, range, "")
-    absent:set_text("Security Status Req Id: No Value")
+    absent:set_text("Security Status Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Status Req Id (Default)
+-- Security Status Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.security_status_req_id_default = {}
 
--- Dissect: Security Status Req Id (Default)
+-- Dissect: Security Status Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.security_status_req_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7518,7 +7479,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_status_req_id_default.dissect = function(
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_status_req_id, range, "")
-    absent:set_text("Security Status Req Id: No Value")
+    absent:set_text("Security Status Req ID: No Value")
   end
 
   return offset, value
@@ -7624,10 +7585,10 @@ ngm_elasticia_fix_fast_v2_0_0.financial_status.dissect = function(buffer, offset
   return offset, value
 end
 
--- Market Req Id (Sent)
+-- Market Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.market_req_id_sent_required = {}
 
--- Dissect: Market Req Id (Sent)
+-- Dissect: Market Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.market_req_id_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7640,16 +7601,16 @@ ngm_elasticia_fix_fast_v2_0_0.market_req_id_sent_required.dissect = function(buf
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_req_id, range, "")
-    absent:set_text("Market Req Id: No Value")
+    absent:set_text("Market Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Market Req Id (Sent)
+-- Market Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.market_req_id_sent_optional = {}
 
--- Dissect: Market Req Id (Sent)
+-- Dissect: Market Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.market_req_id_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7662,7 +7623,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_req_id_sent_optional.dissect = function(buf
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_req_id, range, "")
-    absent:set_text("Market Req Id: No Value")
+    absent:set_text("Market Req ID: No Value")
   end
 
   return offset, value
@@ -7716,10 +7677,10 @@ ngm_elasticia_fix_fast_v2_0_0.encoded_mkt_segm_desc.dissect = function(buffer, o
   return offset, value
 end
 
--- Parent Mkt Segm Id
+-- Parent Mkt Segm ID
 ngm_elasticia_fix_fast_v2_0_0.parent_mkt_segm_id = {}
 
--- Dissect: Parent Mkt Segm Id
+-- Dissect: Parent Mkt Segm ID
 ngm_elasticia_fix_fast_v2_0_0.parent_mkt_segm_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7736,16 +7697,16 @@ ngm_elasticia_fix_fast_v2_0_0.parent_mkt_segm_id.dissect = function(buffer, offs
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.parent_mkt_segm_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.parent_mkt_segm_id, range, "")
-    absent:set_text("Parent Mkt Segm Id: No Value")
+    absent:set_text("Parent Mkt Segm ID: No Value")
   end
 
   return offset, value
 end
 
--- Market Report Id
+-- Market Report ID
 ngm_elasticia_fix_fast_v2_0_0.market_report_id = {}
 
--- Dissect: Market Report Id
+-- Dissect: Market Report ID
 ngm_elasticia_fix_fast_v2_0_0.market_report_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7758,7 +7719,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_report_id.dissect = function(buffer, offset
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_report_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_report_id, range, "")
-    absent:set_text("Market Report Id: No Value")
+    absent:set_text("Market Report ID: No Value")
   end
 
   return offset, value
@@ -7786,10 +7747,10 @@ ngm_elasticia_fix_fast_v2_0_0.market_update_action.dissect = function(buffer, of
   return offset, value
 end
 
--- Trad Ses Req Id (Sent)
+-- Trad Ses Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.trad_ses_req_id_sent = {}
 
--- Dissect: Trad Ses Req Id (Sent)
+-- Dissect: Trad Ses Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.trad_ses_req_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7802,16 +7763,16 @@ ngm_elasticia_fix_fast_v2_0_0.trad_ses_req_id_sent.dissect = function(buffer, of
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trad_ses_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trad_ses_req_id, range, "")
-    absent:set_text("Trad Ses Req Id: No Value")
+    absent:set_text("Trad Ses Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Trad Ses Req Id (Default)
+-- Trad Ses Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.trad_ses_req_id_default = {}
 
--- Dissect: Trad Ses Req Id (Default)
+-- Dissect: Trad Ses Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.trad_ses_req_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7828,7 +7789,7 @@ ngm_elasticia_fix_fast_v2_0_0.trad_ses_req_id_default.dissect = function(buffer,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trad_ses_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.trad_ses_req_id, range, "")
-    absent:set_text("Trad Ses Req Id: No Value")
+    absent:set_text("Trad Ses Req ID: No Value")
   end
 
   return offset, value
@@ -7856,10 +7817,10 @@ ngm_elasticia_fix_fast_v2_0_0.trad_ses_status.dissect = function(buffer, offset,
   return offset, value
 end
 
--- Corp Action Req Id (Default)
+-- Corp Action Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.corp_action_req_id_default = {}
 
--- Dissect: Corp Action Req Id (Default)
+-- Dissect: Corp Action Req ID (Default)
 ngm_elasticia_fix_fast_v2_0_0.corp_action_req_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7876,16 +7837,16 @@ ngm_elasticia_fix_fast_v2_0_0.corp_action_req_id_default.dissect = function(buff
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_req_id, range, "")
-    absent:set_text("Corp Action Req Id: No Value")
+    absent:set_text("Corp Action Req ID: No Value")
   end
 
   return offset, value
 end
 
--- Corp Action Req Id (Sent)
+-- Corp Action Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.corp_action_req_id_sent = {}
 
--- Dissect: Corp Action Req Id (Sent)
+-- Dissect: Corp Action Req ID (Sent)
 ngm_elasticia_fix_fast_v2_0_0.corp_action_req_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7898,7 +7859,7 @@ ngm_elasticia_fix_fast_v2_0_0.corp_action_req_id_sent.dissect = function(buffer,
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_req_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_req_id, range, "")
-    absent:set_text("Corp Action Req Id: No Value")
+    absent:set_text("Corp Action Req ID: No Value")
   end
 
   return offset, value
@@ -7970,10 +7931,10 @@ ngm_elasticia_fix_fast_v2_0_0.corp_action_type.dissect = function(buffer, offset
   return offset, value
 end
 
--- Corp Action Id
+-- Corp Action ID
 ngm_elasticia_fix_fast_v2_0_0.corp_action_id = {}
 
--- Dissect: Corp Action Id
+-- Dissect: Corp Action ID
 ngm_elasticia_fix_fast_v2_0_0.corp_action_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7986,7 +7947,7 @@ ngm_elasticia_fix_fast_v2_0_0.corp_action_id.dissect = function(buffer, offset, 
     parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_id, range, value)
   else
     local absent = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.corp_action_id, range, "")
-    absent:set_text("Corp Action Id: No Value")
+    absent:set_text("Corp Action ID: No Value")
   end
 
   return offset, value
@@ -8180,22 +8141,22 @@ ngm_elasticia_fix_fast_v2_0_0.corporate_action_request.fields = function(buffer,
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Corp Action Req Id: string, sent
+  -- Corp Action Req ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.corp_action_req_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -8242,16 +8203,16 @@ ngm_elasticia_fix_fast_v2_0_0.corporate_action_report.fields = function(buffer, 
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -8259,13 +8220,13 @@ ngm_elasticia_fix_fast_v2_0_0.corporate_action_report.fields = function(buffer, 
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Corp Action Req Id: string, Default, optional
+  -- Corp Action Req ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.corp_action_req_id_default.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
   -- Last Rpt Requested: uInt32, Constant, optional
@@ -8282,7 +8243,7 @@ ngm_elasticia_fix_fast_v2_0_0.corporate_action_report.fields = function(buffer, 
   -- Corp Action Type: uInt32, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.corp_action_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Corp Action Id: string, sent, optional
+  -- Corp Action ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.corp_action_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Corp Action Descr: string, sent, optional
@@ -8349,16 +8310,16 @@ ngm_elasticia_fix_fast_v2_0_0.trading_session_status.fields = function(buffer, o
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -8366,16 +8327,16 @@ ngm_elasticia_fix_fast_v2_0_0.trading_session_status.fields = function(buffer, o
 
   -- Trading Session: read in this scope
 
-  -- Trad Ses Req Id: string, Default, optional
+  -- Trad Ses Req ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.trad_ses_req_id_default.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
   -- Last Rpt Requested: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.last_rpt_requested.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Market Id: string, sent, optional
+  -- Market ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent, optional
+  -- Market Segment ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_segment_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trad Ses Status: uInt32, sent
@@ -8422,22 +8383,22 @@ ngm_elasticia_fix_fast_v2_0_0.trading_session_status_request.fields = function(b
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Trad Ses Req Id: string, sent
+  -- Trad Ses Req ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.trad_ses_req_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Subscription Request Type: uInt32, sent
@@ -8697,22 +8658,22 @@ ngm_elasticia_fix_fast_v2_0_0.market_definition_update_report.fields = function(
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Market Report Id: string, sent
+  -- Market Report ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_report_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Market Update Action: uInt32, sent, optional
@@ -8720,10 +8681,10 @@ ngm_elasticia_fix_fast_v2_0_0.market_definition_update_report.fields = function(
 
   -- Market: read in this scope
 
-  -- Market Id: string, sent
+  -- Market ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent, optional
+  -- Market Segment ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_segment_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Market Segment Desc: string, sent, optional
@@ -8732,7 +8693,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_definition_update_report.fields = function(
   -- Encoded Mkt Segm Desc: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.encoded_mkt_segm_desc.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Parent Mkt Segm Id: string, Default, optional
+  -- Parent Mkt Segm ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.parent_mkt_segm_id.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
   -- Security Defaults: read in this scope
@@ -8746,7 +8707,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_definition_update_report.fields = function(
   -- Business Center: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.business_center.dissect(buffer, index, packet, parent, presence_map[base + 9], state, nil)
 
-  -- Zone Id: string, Default, optional
+  -- Zone ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.zone_id.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
   -- Trading Rules: read in this scope
@@ -9096,22 +9057,22 @@ ngm_elasticia_fix_fast_v2_0_0.market_definition.fields = function(buffer, offset
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Market Req Id: string, sent, optional
+  -- Market Req ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_req_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Last Rpt Requested: uInt32, Constant, optional
@@ -9119,10 +9080,10 @@ ngm_elasticia_fix_fast_v2_0_0.market_definition.fields = function(buffer, offset
 
   -- Market: read in this scope
 
-  -- Market Id: string, sent
+  -- Market ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent, optional
+  -- Market Segment ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_segment_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Market Segment Desc: string, sent, optional
@@ -9131,7 +9092,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_definition.fields = function(buffer, offset
   -- Encoded Mkt Segm Desc: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.encoded_mkt_segm_desc.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Parent Mkt Segm Id: string, Default, optional
+  -- Parent Mkt Segm ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.parent_mkt_segm_id.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
   -- Security Defaults: read in this scope
@@ -9145,7 +9106,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_definition.fields = function(buffer, offset
   -- Business Center: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.business_center.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
-  -- Zone Id: string, Default, optional
+  -- Zone ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.zone_id.dissect(buffer, index, packet, parent, presence_map[base + 11], state, nil)
 
   -- Trading Rules: read in this scope
@@ -9281,22 +9242,22 @@ ngm_elasticia_fix_fast_v2_0_0.market_definition_request.fields = function(buffer
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Market Req Id: string, sent
+  -- Market Req ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_req_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Subscription Request Type: uInt32, sent
@@ -9349,16 +9310,16 @@ ngm_elasticia_fix_fast_v2_0_0.security_status.fields = function(buffer, offset, 
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -9366,13 +9327,13 @@ ngm_elasticia_fix_fast_v2_0_0.security_status.fields = function(buffer, offset, 
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Security Status Req Id: string, Default, optional
+  -- Security Status Req ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_status_req_id_default.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
   -- Last Rpt Requested: uInt32, Constant, optional
@@ -9433,22 +9394,22 @@ ngm_elasticia_fix_fast_v2_0_0.security_mass_status_request.fields = function(buf
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Security Status Req Id: string, sent
+  -- Security Status Req ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_status_req_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -9661,10 +9622,10 @@ ngm_elasticia_fix_fast_v2_0_0.market_segments.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Market Id: string, sent, optional
+  -- Market ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent, optional
+  -- Market Segment ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_segment_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trading Rules: read in this scope
@@ -9784,26 +9745,26 @@ ngm_elasticia_fix_fast_v2_0_0.market_segments.dissect = function(buffer, offset,
   return index
 end
 
--- Security Alt I Ds
-ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds = {}
+-- Security Alt IDs
+ngm_elasticia_fix_fast_v2_0_0.security_alt_ids = {}
 
--- Dissect Fields: Security Alt I Ds
-ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Security Alt IDs
+ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Alt Id: string, sent
+  -- Security Alt ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id Source: uInt32, sent
+  -- Security Alt ID Source: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_alt_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Security Alt I Ds
-ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_i_ds, buffer(offset, 0))
+-- Dissect: Security Alt IDs
+ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -9811,7 +9772,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.dissect = function(buffer, offse
     subtree:append_text(" "..iteration)
   end
 
-  index = ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -9850,16 +9811,16 @@ ngm_elasticia_fix_fast_v2_0_0.security_definition_update_report.fields = functio
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -9875,21 +9836,21 @@ ngm_elasticia_fix_fast_v2_0_0.security_definition_update_report.fields = functio
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Security Alt Id Sequence: read in this scope
+  -- Security Alt ID Sequence: read in this scope
 
-  -- No Security Alt Id: uInt32, sent, optional
+  -- No Security Alt ID: uInt32, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.no_security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt I Ds: No Security Alt Id entries
+  -- Security Alt IDs: No Security Alt ID entries
   local count = value or 0
-  for security_alt_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_i_ds_index)
+  for security_alt_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_ids_index)
   end
 
   -- Security Defaults: read in this scope
@@ -9903,7 +9864,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_definition_update_report.fields = functio
   -- Business Center: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.business_center.dissect(buffer, index, packet, parent, presence_map[base + 8], state, nil)
 
-  -- Zone Id: string, Default, optional
+  -- Zone ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.zone_id.dissect(buffer, index, packet, parent, presence_map[base + 9], state, nil)
 
   -- No Market Segments: uInt32, sent, optional
@@ -9915,7 +9876,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_definition_update_report.fields = functio
     index = ngm_elasticia_fix_fast_v2_0_0.market_segments.dissect(buffer, index, packet, parent, presence_map, base, state, market_segments_index)
   end
 
-  -- Security Xml: string, sent, optional
+  -- Security XML: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_xml.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Liquidity Status: uInt32, sent, optional
@@ -10134,10 +10095,10 @@ ngm_elasticia_fix_fast_v2_0_0.market_segments.fields = function(buffer, offset, 
   local index = offset
   local value = nil
 
-  -- Market Id: string, sent, optional
+  -- Market ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: string, sent, optional
+  -- Market Segment ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_segment_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trading Rules: read in this scope
@@ -10257,26 +10218,26 @@ ngm_elasticia_fix_fast_v2_0_0.market_segments.dissect = function(buffer, offset,
   return index
 end
 
--- Security Alt I Ds
-ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds = {}
+-- Security Alt IDs
+ngm_elasticia_fix_fast_v2_0_0.security_alt_ids = {}
 
--- Dissect Fields: Security Alt I Ds
-ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Security Alt IDs
+ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Alt Id: string, sent
+  -- Security Alt ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id Source: uInt32, sent
+  -- Security Alt ID Source: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_alt_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Security Alt I Ds
-ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_i_ds, buffer(offset, 0))
+-- Dissect: Security Alt IDs
+ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -10284,7 +10245,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.dissect = function(buffer, offse
     subtree:append_text(" "..iteration)
   end
 
-  index = ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -10302,21 +10263,21 @@ ngm_elasticia_fix_fast_v2_0_0.related_sym.fields = function(buffer, offset, pack
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Security Alt Id Sequence: read in this scope
+  -- Security Alt ID Sequence: read in this scope
 
-  -- No Security Alt Id: uInt32, sent, optional
+  -- No Security Alt ID: uInt32, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.no_security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt I Ds: No Security Alt Id entries
+  -- Security Alt IDs: No Security Alt ID entries
   local count = value or 0
-  for security_alt_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_i_ds_index)
+  for security_alt_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_ids_index)
   end
 
   -- Security Defaults: read in this scope
@@ -10330,7 +10291,7 @@ ngm_elasticia_fix_fast_v2_0_0.related_sym.fields = function(buffer, offset, pack
   -- Business Center: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.business_center.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Zone Id: string, Default, optional
+  -- Zone ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.zone_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- No Market Segments: uInt32, sent, optional
@@ -10342,7 +10303,7 @@ ngm_elasticia_fix_fast_v2_0_0.related_sym.fields = function(buffer, offset, pack
     index = ngm_elasticia_fix_fast_v2_0_0.market_segments.dissect(buffer, index, packet, parent, presence_map, base, state, market_segments_index)
   end
 
-  -- Security Xml: string, sent, optional
+  -- Security XML: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_xml.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Liquidity Status: uInt32, sent, optional
@@ -10401,22 +10362,22 @@ ngm_elasticia_fix_fast_v2_0_0.security_list.fields = function(buffer, offset, pa
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Security Req Id: string, sent, optional
+  -- Security Req ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_req_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Request Result: uInt32, sent, optional
@@ -10475,22 +10436,22 @@ ngm_elasticia_fix_fast_v2_0_0.security_list_request.fields = function(buffer, of
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Security Req Id: string, sent
+  -- Security Req ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_req_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -10534,25 +10495,25 @@ ngm_elasticia_fix_fast_v2_0_0.market_data_request_reject.fields = function(buffe
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Md Req Id: string, sent
+  -- MD Req ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_req_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Req Rej Reason: uInt32, sent, optional
+  -- MD Req Rej Reason: uInt32, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_req_rej_reason.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Text: string, sent, optional
@@ -10604,38 +10565,38 @@ ngm_elasticia_fix_fast_v2_0_0.trd_reg_publications.dissect = function(buffer, of
   return index
 end
 
--- Market Data Snapshot Full Refresh Md Entries
+-- Market Data Snapshot Full Refresh MD Entries
 ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh_md_entries = {}
 
--- Dissect Fields: Market Data Snapshot Full Refresh Md Entries
+-- Dissect Fields: Market Data Snapshot Full Refresh MD Entries
 ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry: read in this scope
+  -- MD Entry: read in this scope
 
-  -- Md Entry Type: uInt32, sent
+  -- MD Entry Type: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Stat Scope: uInt32, Default, optional
+  -- MD Stat Scope: uInt32, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_stat_scope.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_px.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Size: decimal, sent, optional
+  -- MD Entry Size: decimal, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_size.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Position No: uInt32, sent, optional
+  -- MD Entry Position No: uInt32, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_position_no.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
   -- Lot Type: uInt32, Default, optional
@@ -10683,7 +10644,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh_md_entries.field
   return index
 end
 
--- Dissect: Market Data Snapshot Full Refresh Md Entries
+-- Dissect: Market Data Snapshot Full Refresh MD Entries
 ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_snapshot_full_refresh_md_entries, buffer(offset, 0))
   local index = offset
@@ -10736,16 +10697,16 @@ ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh.fields = functio
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -10753,22 +10714,22 @@ ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh.fields = functio
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Md Req Id: string, Default, optional
+  -- MD Req ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_req_id_default.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
   -- Last Rpt Requested: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.last_rpt_requested.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for market_data_snapshot_full_refresh_md_entries_index = 1, count do
     index = ngm_elasticia_fix_fast_v2_0_0.market_data_snapshot_full_refresh_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, market_data_snapshot_full_refresh_md_entries_index)
@@ -10817,21 +10778,21 @@ ngm_elasticia_fix_fast_v2_0_0.dates.dissect = function(buffer, offset, packet, p
   return index
 end
 
--- Md Entry Types
+-- MD Entry Types
 ngm_elasticia_fix_fast_v2_0_0.md_entry_types = {}
 
--- Dissect Fields: Md Entry Types
+-- Dissect Fields: MD Entry Types
 ngm_elasticia_fix_fast_v2_0_0.md_entry_types.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Entry Type: uInt32, sent
+  -- MD Entry Type: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Md Entry Types
+-- Dissect: MD Entry Types
 ngm_elasticia_fix_fast_v2_0_0.md_entry_types.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.md_entry_types, buffer(offset, 0))
   local index = offset
@@ -10875,22 +10836,22 @@ ngm_elasticia_fix_fast_v2_0_0.market_data_request.fields = function(buffer, offs
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Md Req Id: string, sent
+  -- MD Req ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_req_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Subscription Request Type: uInt32, Constant
@@ -10899,10 +10860,10 @@ ngm_elasticia_fix_fast_v2_0_0.market_data_request.fields = function(buffer, offs
   -- Market Depth: uInt32, Constant
   index, value = ngm_elasticia_fix_fast_v2_0_0.market_depth.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Md Entry Types: uInt32, sent
+  -- No MD Entry Types: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.no_md_entry_types.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Types: No Md Entry Types entries
+  -- MD Entry Types: No MD Entry Types entries
   local count = value or 0
   for md_entry_types_index = 1, count do
     index = ngm_elasticia_fix_fast_v2_0_0.md_entry_types.dissect(buffer, index, packet, parent, presence_map, base, state, md_entry_types_index)
@@ -10993,49 +10954,49 @@ ngm_elasticia_fix_fast_v2_0_0.trd_reg_publications.dissect = function(buffer, of
   return index
 end
 
--- Market Data Incremental Refresh Md Entries
+-- Market Data Incremental Refresh MD Entries
 ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh_md_entries = {}
 
--- Dissect Fields: Market Data Incremental Refresh Md Entries
+-- Dissect Fields: Market Data Incremental Refresh MD Entries
 ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh_md_entries.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, sent
+  -- MD Update Action: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_update_action.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Md Entry: read in this scope
+  -- MD Entry: read in this scope
 
-  -- Md Entry Type: uInt32, sent
+  -- MD Entry Type: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Stat Scope: uInt32, Default, optional
+  -- MD Stat Scope: uInt32, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_stat_scope.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_px.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Size: decimal, sent, optional
+  -- MD Entry Size: decimal, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_size.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Id: string, sent, optional
+  -- MD Entry ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Position No: uInt32, sent, optional
+  -- MD Entry Position No: uInt32, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_position_no.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Buyer: string, Default, optional
+  -- MD Entry Buyer: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_buyer.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- Md Entry Seller: string, Default, optional
+  -- MD Entry Seller: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_seller.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
   -- Lot Type: uInt32, Default, optional
@@ -11092,7 +11053,7 @@ ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh_md_entries.fields 
   return index
 end
 
--- Dissect: Market Data Incremental Refresh Md Entries
+-- Dissect: Market Data Incremental Refresh MD Entries
 ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh_md_entries.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.market_data_incremental_refresh_md_entries, buffer(offset, 0))
   local index = offset
@@ -11142,25 +11103,25 @@ ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh.fields = function(
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.no_md_entries.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entries: No Md Entries entries
+  -- MD Entries: No MD Entries entries
   local count = value or 0
   for market_data_incremental_refresh_md_entries_index = 1, count do
     index = ngm_elasticia_fix_fast_v2_0_0.market_data_incremental_refresh_md_entries.dissect(buffer, index, packet, parent, presence_map, base, state, market_data_incremental_refresh_md_entries_index)
@@ -11208,16 +11169,16 @@ ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_response.fields = func
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -11225,13 +11186,13 @@ ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_response.fields = func
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Security Status Update Request Id: string, sent
+  -- Security Status Update Request ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_status_update_request_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Financial Status Result: uInt32, sent
@@ -11315,16 +11276,16 @@ ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_request.fields = funct
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -11332,13 +11293,13 @@ ngm_elasticia_fix_fast_v2_0_0.user_security_status_update_request.fields = funct
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Security Status Update Request Id: string, sent
+  -- Security Status Update Request ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_status_update_request_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- No Updates: uInt32, sent, optional
@@ -11391,22 +11352,22 @@ ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request_ack.fields = function
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Trade Request Id: string, sent
+  -- Trade Request ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.trade_request_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trade Request Type: uInt32, sent
@@ -11492,22 +11453,22 @@ ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_request.fields = function(buf
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Trade Request Id: string, sent
+  -- Trade Request ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.trade_request_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trade Request Type: uInt32, sent
@@ -11568,26 +11529,26 @@ ngm_elasticia_fix_fast_v2_0_0.order_attributes.dissect = function(buffer, offset
   return index
 end
 
--- Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds = {}
+-- Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids = {}
 
--- Dissect Fields: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Party Sub Id Type: uInt32, sent
+  -- Party Sub ID Type: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Sub Id: string, sent
+  -- Party Sub ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds, buffer(offset, 0))
+-- Dissect: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -11595,17 +11556,17 @@ ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, 
     subtree:append_text(" "..iteration)
   end
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds = {}
+-- Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids = {}
 
--- Dissect Fields: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
@@ -11615,27 +11576,27 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packe
   -- Party Role Qualifier: uInt32, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_role_qualifier.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Party Id Source: uInt32, sent
+  -- Party ID Source: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Id: string, sent
+  -- Party ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Party Sub I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
+  -- No Party Sub IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_ids.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Party Sub I Ds: No Party Sub I Ds entries
+  -- Party Sub IDs: No Party Sub IDs entries
   local count = value or 0
-  for party_sub_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_i_ds_index)
+  for party_sub_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_ids_index)
   end
 
   return index
 end
 
--- Dissect: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds, buffer(offset, 0))
+-- Dissect: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -11649,7 +11610,7 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, pack
   presence_map = entry_map
   base = 1
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -11666,16 +11627,16 @@ ngm_elasticia_fix_fast_v2_0_0.sides.fields = function(buffer, offset, packet, pa
   -- Side: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.side_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, sent, optional
+  -- Order ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.order_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cl Ord Id: string, sent, optional
+  -- Cl Ord ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Order Priority: uInt64, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.order_priority.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Secondary Cl Ord Id: string, sent, optional
+  -- Secondary Cl Ord ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.secondary_cl_ord_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Account: string, sent, optional
@@ -11701,13 +11662,13 @@ ngm_elasticia_fix_fast_v2_0_0.sides.fields = function(buffer, offset, packet, pa
 
   -- Parties: read in this scope
 
-  -- No Party I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
+  -- No Party IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_ids.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Party I Ds: No Party I Ds entries
+  -- Party IDs: No Party IDs entries
   local count = value or 0
-  for party_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_i_ds_index)
+  for party_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_ids_index)
   end
 
   -- Order Attribute Grp: read in this scope
@@ -11811,16 +11772,16 @@ ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_ack.fields = function(buffer,
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -11828,22 +11789,22 @@ ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_ack.fields = function(buffer,
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
   -- Trade Report Reject Reason: uInt32, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.trade_report_reject_reason.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trade Report Id: string, sent, optional
+  -- Trade Report ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.trade_report_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trade Report Ref Id: string, sent, optional
+  -- Trade Report Ref ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.trade_report_ref_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trade Request Id: string, sent, optional
+  -- Trade Request ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.trade_request_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Last Rpt Requested: uInt32, Constant, optional
@@ -11851,7 +11812,7 @@ ngm_elasticia_fix_fast_v2_0_0.trade_capture_report_ack.fields = function(buffer,
 
   -- Trade: read in this scope
 
-  -- Trade Id: string, sent, optional
+  -- Trade ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.trade_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trade Report Trans Type: uInt32, sent, optional
@@ -11969,26 +11930,26 @@ ngm_elasticia_fix_fast_v2_0_0.order_attributes.dissect = function(buffer, offset
   return index
 end
 
--- Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds = {}
+-- Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids = {}
 
--- Dissect Fields: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Party Sub Id Type: uInt32, sent
+  -- Party Sub ID Type: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Sub Id: string, sent
+  -- Party Sub ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds, buffer(offset, 0))
+-- Dissect: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -11996,17 +11957,17 @@ ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, 
     subtree:append_text(" "..iteration)
   end
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds = {}
+-- Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids = {}
 
--- Dissect Fields: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
@@ -12016,27 +11977,27 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packe
   -- Party Role Qualifier: uInt32, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_role_qualifier.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Party Id Source: uInt32, sent
+  -- Party ID Source: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Id: string, sent
+  -- Party ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Party Sub I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
+  -- No Party Sub IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_ids.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Party Sub I Ds: No Party Sub I Ds entries
+  -- Party Sub IDs: No Party Sub IDs entries
   local count = value or 0
-  for party_sub_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_i_ds_index)
+  for party_sub_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_ids_index)
   end
 
   return index
 end
 
--- Dissect: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds, buffer(offset, 0))
+-- Dissect: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -12050,7 +12011,7 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, pack
   presence_map = entry_map
   base = 1
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -12067,16 +12028,16 @@ ngm_elasticia_fix_fast_v2_0_0.sides.fields = function(buffer, offset, packet, pa
   -- Side: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.side_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, sent, optional
+  -- Order ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.order_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cl Ord Id: string, sent, optional
+  -- Cl Ord ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Order Priority: uInt64, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.order_priority.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Secondary Cl Ord Id: string, sent, optional
+  -- Secondary Cl Ord ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.secondary_cl_ord_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Account: string, sent, optional
@@ -12102,13 +12063,13 @@ ngm_elasticia_fix_fast_v2_0_0.sides.fields = function(buffer, offset, packet, pa
 
   -- Parties: read in this scope
 
-  -- No Party I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
+  -- No Party IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_ids.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Party I Ds: No Party I Ds entries
+  -- Party IDs: No Party IDs entries
   local count = value or 0
-  for party_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_i_ds_index)
+  for party_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_ids_index)
   end
 
   -- Order Attribute Grp: read in this scope
@@ -12180,26 +12141,26 @@ ngm_elasticia_fix_fast_v2_0_0.trd_reg_publications.dissect = function(buffer, of
   return index
 end
 
--- Security Alt I Ds
-ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds = {}
+-- Security Alt IDs
+ngm_elasticia_fix_fast_v2_0_0.security_alt_ids = {}
 
--- Dissect Fields: Security Alt I Ds
-ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Security Alt IDs
+ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Security Alt Id: string, sent
+  -- Security Alt ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt Id Source: uInt32, sent
+  -- Security Alt ID Source: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_alt_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Security Alt I Ds
-ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_i_ds, buffer(offset, 0))
+-- Dissect: Security Alt IDs
+ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.security_alt_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -12207,7 +12168,7 @@ ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.dissect = function(buffer, offse
     subtree:append_text(" "..iteration)
   end
 
-  index = ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -12246,16 +12207,16 @@ ngm_elasticia_fix_fast_v2_0_0.trade_capture_report.fields = function(buffer, off
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -12263,38 +12224,38 @@ ngm_elasticia_fix_fast_v2_0_0.trade_capture_report.fields = function(buffer, off
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Security Alt Id Sequence: read in this scope
+  -- Security Alt ID Sequence: read in this scope
 
-  -- No Security Alt Id: uInt32, sent, optional
+  -- No Security Alt ID: uInt32, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.no_security_alt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Alt I Ds: No Security Alt Id entries
+  -- Security Alt IDs: No Security Alt ID entries
   local count = value or 0
-  for security_alt_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.security_alt_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_i_ds_index)
+  for security_alt_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.security_alt_ids.dissect(buffer, index, packet, parent, presence_map, base, state, security_alt_ids_index)
   end
 
-  -- Trade Request Id: string, Default, optional
+  -- Trade Request ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.trade_request_id_default.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
   -- Last Rpt Requested: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.last_rpt_requested.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
-  -- Trade Report Id: string, sent, optional
+  -- Trade Report ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.trade_report_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Trade Report Ref Id: string, sent, optional
+  -- Trade Report Ref ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.trade_report_ref_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trade: read in this scope
 
-  -- Trade Id: string, sent, optional
+  -- Trade ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.trade_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trade Report Trans Type: uInt32, sent, optional
@@ -12404,22 +12365,22 @@ ngm_elasticia_fix_fast_v2_0_0.quote_status_request.fields = function(buffer, off
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Quote Status Req Id: string, sent, optional
+  -- Quote Status Req ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_status_req_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Subscription Request Type: uInt32, Constant
@@ -12471,16 +12432,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote_request.fields = function(buffer, offset, pa
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -12488,19 +12449,19 @@ ngm_elasticia_fix_fast_v2_0_0.quote_request.fields = function(buffer, offset, pa
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Quote Req Id: string, sent
+  -- Quote Req ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_req_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Quote Id: string, Default, optional
+  -- Quote ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_id_default.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Quote Msg Id: string, Default, optional
+  -- Quote Msg ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_default.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
   -- Order Qty: decimal, Default, optional
@@ -12522,26 +12483,26 @@ ngm_elasticia_fix_fast_v2_0_0.quote_request.dissect = function(buffer, offset, p
   return index
 end
 
--- Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds = {}
+-- Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids = {}
 
--- Dissect Fields: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Party Sub Id Type: uInt32, sent
+  -- Party Sub ID Type: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Sub Id: string, sent
+  -- Party Sub ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds, buffer(offset, 0))
+-- Dissect: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -12549,17 +12510,17 @@ ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, 
     subtree:append_text(" "..iteration)
   end
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds = {}
+-- Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids = {}
 
--- Dissect Fields: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
@@ -12569,27 +12530,27 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packe
   -- Party Role Qualifier: uInt32, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_role_qualifier.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Party Id Source: uInt32, sent
+  -- Party ID Source: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Id: string, sent
+  -- Party ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Party Sub I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
+  -- No Party Sub IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_ids.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Party Sub I Ds: No Party Sub I Ds entries
+  -- Party Sub IDs: No Party Sub IDs entries
   local count = value or 0
-  for party_sub_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_i_ds_index)
+  for party_sub_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_ids_index)
   end
 
   return index
 end
 
--- Dissect: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds, buffer(offset, 0))
+-- Dissect: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -12603,7 +12564,7 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, pack
   presence_map = entry_map
   base = 1
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -12624,7 +12585,7 @@ ngm_elasticia_fix_fast_v2_0_0.quote_status_report.presence = {
   [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_last_rpt_requested,
   [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_orig_quote_msg_id,
   [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
-  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
+  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_ids,
   [13] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_working_indicator,
   [14] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_reject_reason,
   [15] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_restatement_reason,
@@ -12647,16 +12608,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote_status_report.fields = function(buffer, offs
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -12664,13 +12625,13 @@ ngm_elasticia_fix_fast_v2_0_0.quote_status_report.fields = function(buffer, offs
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Quote Status Req Id: string, Default, optional
+  -- Quote Status Req ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_status_req_id_default.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
   -- Last Rpt Requested: uInt32, Constant, optional
@@ -12679,19 +12640,19 @@ ngm_elasticia_fix_fast_v2_0_0.quote_status_report.fields = function(buffer, offs
   -- Quote Status: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Quote Id: string, sent, optional
+  -- Quote ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Quote Msg Id: string, sent, optional
+  -- Quote Msg ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Orig Quote Msg Id: string, Default, optional
+  -- Orig Quote Msg ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.orig_quote_msg_id.dissect(buffer, index, packet, parent, presence_map[base + 8], state, nil)
 
-  -- Bid Md Entry Id: string, sent, optional
+  -- Bid MD Entry ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.bid_md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Offer Md Entry Id: string, sent, optional
+  -- Offer MD Entry ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.offer_md_entry_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Bid Priority: uInt64, sent, optional
@@ -12734,13 +12695,13 @@ ngm_elasticia_fix_fast_v2_0_0.quote_status_report.fields = function(buffer, offs
 
   -- Parties: read in this scope
 
-  -- No Party I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
+  -- No Party IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_ids.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
-  -- Party I Ds: No Party I Ds entries
+  -- Party IDs: No Party IDs entries
   local count = value or 0
-  for party_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_i_ds_index)
+  for party_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_ids_index)
   end
 
   -- Working Indicator: uInt32, Default, optional
@@ -12800,16 +12761,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote_cancel.fields = function(buffer, offset, pac
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -12817,25 +12778,25 @@ ngm_elasticia_fix_fast_v2_0_0.quote_cancel.fields = function(buffer, offset, pac
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
   -- Quote Cancel Type: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_cancel_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Quote Req Id: string, Default, optional
+  -- Quote Req ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_req_id_default.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Quote Id: string, Default, optional
+  -- Quote ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_id_default.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
-  -- Quote Msg Id: string, sent
+  -- Quote Msg ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Orig Quote Msg Id: string, Default, optional
+  -- Orig Quote Msg ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.orig_quote_msg_id.dissect(buffer, index, packet, parent, presence_map[base + 8], state, nil)
 
   -- Transact Time: uInt64, sent, optional
@@ -12854,26 +12815,26 @@ ngm_elasticia_fix_fast_v2_0_0.quote_cancel.dissect = function(buffer, offset, pa
   return index
 end
 
--- Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds = {}
+-- Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids = {}
 
--- Dissect Fields: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Party Sub Id Type: uInt32, sent
+  -- Party Sub ID Type: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Sub Id: string, sent
+  -- Party Sub ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds, buffer(offset, 0))
+-- Dissect: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -12881,17 +12842,17 @@ ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, 
     subtree:append_text(" "..iteration)
   end
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds = {}
+-- Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids = {}
 
--- Dissect Fields: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
@@ -12901,27 +12862,27 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packe
   -- Party Role Qualifier: uInt32, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_role_qualifier.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Party Id Source: uInt32, sent
+  -- Party ID Source: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Id: string, sent
+  -- Party ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Party Sub I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
+  -- No Party Sub IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_ids.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Party Sub I Ds: No Party Sub I Ds entries
+  -- Party Sub IDs: No Party Sub IDs entries
   local count = value or 0
-  for party_sub_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_i_ds_index)
+  for party_sub_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_ids_index)
   end
 
   return index
 end
 
--- Dissect: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds, buffer(offset, 0))
+-- Dissect: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -12935,7 +12896,7 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, pack
   presence_map = entry_map
   base = 1
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -12956,7 +12917,7 @@ ngm_elasticia_fix_fast_v2_0_0.quote.presence = {
   [9] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_quote_id,
   [10] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_orig_quote_msg_id,
   [11] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_restrictions,
-  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
+  [12] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_ids,
 }
 
 -- Dissect Fields: Quote Message
@@ -12975,16 +12936,16 @@ ngm_elasticia_fix_fast_v2_0_0.quote.fields = function(buffer, offset, packet, pa
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -12992,22 +12953,22 @@ ngm_elasticia_fix_fast_v2_0_0.quote.fields = function(buffer, offset, packet, pa
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Quote Req Id: string, Default, optional
+  -- Quote Req ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_req_id_default.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Quote Id: string, Default, optional
+  -- Quote ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_id_default.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
-  -- Quote Msg Id: string, sent
+  -- Quote Msg ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.quote_msg_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Orig Quote Msg Id: string, Default, optional
+  -- Orig Quote Msg ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.orig_quote_msg_id.dissect(buffer, index, packet, parent, presence_map[base + 8], state, nil)
 
   -- Quote Grp: read in this scope
@@ -13044,13 +13005,13 @@ ngm_elasticia_fix_fast_v2_0_0.quote.fields = function(buffer, offset, packet, pa
 
   -- Parties: read in this scope
 
-  -- No Party I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
+  -- No Party IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_ids.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
-  -- Party I Ds: No Party I Ds entries
+  -- Party IDs: No Party IDs entries
   local count = value or 0
-  for party_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_i_ds_index)
+  for party_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_ids_index)
   end
 
   return index
@@ -13094,22 +13055,22 @@ ngm_elasticia_fix_fast_v2_0_0.order_mass_status_request.fields = function(buffer
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Mass Status Req Id: string, sent
+  -- Mass Status Req ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.mass_status_req_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Mass Status Req Type: uInt32, Constant
@@ -13156,16 +13117,16 @@ ngm_elasticia_fix_fast_v2_0_0.order_cancel_reject.fields = function(buffer, offs
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -13174,13 +13135,13 @@ ngm_elasticia_fix_fast_v2_0_0.order_cancel_reject.fields = function(buffer, offs
   -- Ord Status: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.ord_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, sent
+  -- Order ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.order_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Orig Cl Ord Id: string, sent
+  -- Orig Cl Ord ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.orig_cl_ord_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cl Ord Id: string, sent
+  -- Cl Ord ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Cxl Rej Response To: uInt32, sent
@@ -13205,26 +13166,26 @@ ngm_elasticia_fix_fast_v2_0_0.order_cancel_reject.dissect = function(buffer, off
   return index
 end
 
--- Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds = {}
+-- Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids = {}
 
--- Dissect Fields: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Party Sub Id Type: uInt32, sent
+  -- Party Sub ID Type: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Sub Id: string, sent
+  -- Party Sub ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds, buffer(offset, 0))
+-- Dissect: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -13232,17 +13193,17 @@ ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, 
     subtree:append_text(" "..iteration)
   end
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds = {}
+-- Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids = {}
 
--- Dissect Fields: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
@@ -13252,27 +13213,27 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packe
   -- Party Role Qualifier: uInt32, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_role_qualifier.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Party Id Source: uInt32, sent
+  -- Party ID Source: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Id: string, sent
+  -- Party ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Party Sub I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
+  -- No Party Sub IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_ids.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Party Sub I Ds: No Party Sub I Ds entries
+  -- Party Sub IDs: No Party Sub IDs entries
   local count = value or 0
-  for party_sub_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_i_ds_index)
+  for party_sub_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_ids_index)
   end
 
   return index
 end
 
--- Dissect: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds, buffer(offset, 0))
+-- Dissect: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -13286,7 +13247,7 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, pack
   presence_map = entry_map
   base = 1
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -13356,7 +13317,7 @@ ngm_elasticia_fix_fast_v2_0_0.execution_report.presence = {
   [25] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_exec_restatement_reason,
   [26] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_origination,
   [27] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_order_attribute_grp,
-  [28] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
+  [28] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_ids,
   [29] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_text,
 }
 
@@ -13376,16 +13337,16 @@ ngm_elasticia_fix_fast_v2_0_0.execution_report.fields = function(buffer, offset,
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -13393,13 +13354,13 @@ ngm_elasticia_fix_fast_v2_0_0.execution_report.fields = function(buffer, offset,
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Mass Status Req Id: string, Default, optional
+  -- Mass Status Req ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.mass_status_req_id_default.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
   -- Last Rpt Requested: uInt32, Constant, optional
@@ -13408,19 +13369,19 @@ ngm_elasticia_fix_fast_v2_0_0.execution_report.fields = function(buffer, offset,
   -- Ord Status: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.ord_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Exec Id: string, sent
+  -- Exec ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.exec_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Exec Type: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.exec_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Order Id: string, sent
+  -- Order ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.order_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cl Ord Id: string, sent, optional
+  -- Cl Ord ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Orig Cl Ord Id: string, sent, optional
+  -- Orig Cl Ord ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.orig_cl_ord_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Order: read in this scope
@@ -13470,7 +13431,7 @@ ngm_elasticia_fix_fast_v2_0_0.execution_report.fields = function(buffer, offset,
   -- Auction Type: uInt32, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.auction_type.dissect(buffer, index, packet, parent, presence_map[base + 16], state, nil)
 
-  -- Md Entry Id: string, Default, optional
+  -- MD Entry ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.md_entry_id_default.dissect(buffer, index, packet, parent, presence_map[base + 17], state, nil)
 
   -- Working Indicator: uInt32, Default, optional
@@ -13516,13 +13477,13 @@ ngm_elasticia_fix_fast_v2_0_0.execution_report.fields = function(buffer, offset,
 
   -- Parties: read in this scope
 
-  -- No Party I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 26], state, nil)
+  -- No Party IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_ids.dissect(buffer, index, packet, parent, presence_map[base + 26], state, nil)
 
-  -- Party I Ds: No Party I Ds entries
+  -- Party IDs: No Party IDs entries
   local count = value or 0
-  for party_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_i_ds_index)
+  for party_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_ids_index)
   end
 
   -- Text: string, Default, optional
@@ -13570,16 +13531,16 @@ ngm_elasticia_fix_fast_v2_0_0.order_cancel_request.fields = function(buffer, off
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -13587,19 +13548,19 @@ ngm_elasticia_fix_fast_v2_0_0.order_cancel_request.fields = function(buffer, off
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Order Id: string, sent, optional
+  -- Order ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.order_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Orig Cl Ord Id: string, sent, optional
+  -- Orig Cl Ord ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.orig_cl_ord_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cl Ord Id: string, sent
+  -- Cl Ord ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Transact Time: uInt64, sent
@@ -13656,16 +13617,16 @@ ngm_elasticia_fix_fast_v2_0_0.order_cancel_replace_request.fields = function(buf
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -13673,19 +13634,19 @@ ngm_elasticia_fix_fast_v2_0_0.order_cancel_replace_request.fields = function(buf
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Order Id: string, sent, optional
+  -- Order ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.order_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Orig Cl Ord Id: string, sent, optional
+  -- Orig Cl Ord ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.orig_cl_ord_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Cl Ord Id: string, sent
+  -- Cl Ord ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Order: read in this scope
@@ -13748,26 +13709,26 @@ ngm_elasticia_fix_fast_v2_0_0.order_cancel_replace_request.dissect = function(bu
   return index
 end
 
--- Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds = {}
+-- Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids = {}
 
--- Dissect Fields: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Party Sub Id Type: uInt32, sent
+  -- Party Sub ID Type: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Sub Id: string, sent
+  -- Party Sub ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Party Sub I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_i_ds, buffer(offset, 0))
+-- Dissect: Party Sub IDs
+ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_sub_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -13775,17 +13736,17 @@ ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect = function(buffer, offset, 
     subtree:append_text(" "..iteration)
   end
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
--- Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds = {}
+-- Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids = {}
 
--- Dissect Fields: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+-- Dissect Fields: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
@@ -13795,27 +13756,27 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields = function(buffer, offset, packe
   -- Party Role Qualifier: uInt32, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_role_qualifier.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Party Id Source: uInt32, sent
+  -- Party ID Source: uInt32, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Party Id: string, sent
+  -- Party ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.party_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- No Party Sub I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
+  -- No Party Sub IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_sub_ids.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
-  -- Party Sub I Ds: No Party Sub I Ds entries
+  -- Party Sub IDs: No Party Sub IDs entries
   local count = value or 0
-  for party_sub_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_i_ds_index)
+  for party_sub_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_sub_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_sub_ids_index)
   end
 
   return index
 end
 
--- Dissect: Party I Ds
-ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_i_ds, buffer(offset, 0))
+-- Dissect: Party IDs
+ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.party_ids, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -13829,7 +13790,7 @@ ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect = function(buffer, offset, pack
   presence_map = entry_map
   base = 1
 
-  index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = ngm_elasticia_fix_fast_v2_0_0.party_ids.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
@@ -13891,7 +13852,7 @@ ngm_elasticia_fix_fast_v2_0_0.new_order_single.presence = {
   [17] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_capacity,
   [18] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_order_origination,
   [19] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_order_attribute_grp,
-  [20] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_i_ds,
+  [20] = omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_no_party_ids,
 }
 
 -- Dissect Fields: New Order Single Message
@@ -13910,16 +13871,16 @@ ngm_elasticia_fix_fast_v2_0_0.new_order_single.fields = function(buffer, offset,
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -13927,13 +13888,13 @@ ngm_elasticia_fix_fast_v2_0_0.new_order_single.fields = function(buffer, offset,
 
   -- Security Ref: read in this scope
 
-  -- Security Id: string, sent, optional
+  -- Security ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: uInt32, Constant, optional
+  -- Security ID Source: uInt32, Constant, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Cl Ord Id: string, sent
+  -- Cl Ord ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.cl_ord_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Order: read in this scope
@@ -14002,13 +13963,13 @@ ngm_elasticia_fix_fast_v2_0_0.new_order_single.fields = function(buffer, offset,
 
   -- Parties: read in this scope
 
-  -- No Party I Ds: uInt32, Default, optional
-  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_i_ds.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
+  -- No Party IDs: uInt32, Default, optional
+  index, value = ngm_elasticia_fix_fast_v2_0_0.no_party_ids.dissect(buffer, index, packet, parent, presence_map[base + 18], state, nil)
 
-  -- Party I Ds: No Party I Ds entries
+  -- Party IDs: No Party IDs entries
   local count = value or 0
-  for party_i_ds_index = 1, count do
-    index = ngm_elasticia_fix_fast_v2_0_0.party_i_ds.dissect(buffer, index, packet, parent, presence_map, base, state, party_i_ds_index)
+  for party_ids_index = 1, count do
+    index = ngm_elasticia_fix_fast_v2_0_0.party_ids.dissect(buffer, index, packet, parent, presence_map, base, state, party_ids_index)
   end
 
   return index
@@ -14052,16 +14013,16 @@ ngm_elasticia_fix_fast_v2_0_0.reject.fields = function(buffer, offset, packet, p
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -14073,7 +14034,7 @@ ngm_elasticia_fix_fast_v2_0_0.reject.fields = function(buffer, offset, packet, p
   -- Ref Msg Type: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.ref_msg_type_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Ref Tag Id: uInt32, sent, optional
+  -- Ref Tag ID: uInt32, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.ref_tag_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Session Reject Reason: uInt32, sent, optional
@@ -14124,16 +14085,16 @@ ngm_elasticia_fix_fast_v2_0_0.sequence_reset.fields = function(buffer, offset, p
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -14186,22 +14147,22 @@ ngm_elasticia_fix_fast_v2_0_0.heartbeat.fields = function(buffer, offset, packet
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Test Req Id: string, sent, optional
+  -- Test Req ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.test_req_id_sent_optional.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -14245,22 +14206,22 @@ ngm_elasticia_fix_fast_v2_0_0.test_request.fields = function(buffer, offset, pac
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
   index, value = ngm_elasticia_fix_fast_v2_0_0.sending_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:SendingTime")
 
-  -- Test Req Id: string, sent
+  -- Test Req ID: string, sent
   index, value = ngm_elasticia_fix_fast_v2_0_0.test_req_id_sent_required.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -14304,16 +14265,16 @@ ngm_elasticia_fix_fast_v2_0_0.logout.fields = function(buffer, offset, packet, p
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -14367,16 +14328,16 @@ ngm_elasticia_fix_fast_v2_0_0.logon.fields = function(buffer, offset, packet, pa
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -14400,7 +14361,7 @@ ngm_elasticia_fix_fast_v2_0_0.logon.fields = function(buffer, offset, packet, pa
   -- Encrypt Method: uInt32, Constant
   index, value = ngm_elasticia_fix_fast_v2_0_0.encrypt_method.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Default Appl Ver Id: string, Constant
+  -- Default Appl Ver ID: string, Constant
   index, value = ngm_elasticia_fix_fast_v2_0_0.default_appl_ver_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -14444,16 +14405,16 @@ ngm_elasticia_fix_fast_v2_0_0.business_message_reject.fields = function(buffer, 
   -- Msg Seq Num: uInt64, Increment
   index, value = ngm_elasticia_fix_fast_v2_0_0.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Target Comp Id: string, Copy
+  -- Target Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.target_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:TargetCompID")
 
-  -- Sender Comp Id: string, Copy
+  -- Sender Comp ID: string, Copy
   index, value = ngm_elasticia_fix_fast_v2_0_0.sender_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|12:SenderCompID")
 
-  -- On Behalf Of Comp Id: string, Default, optional
+  -- On Behalf Of Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Deliver To Comp Id: string, Default, optional
+  -- Deliver To Comp ID: string, Default, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.deliver_to_comp_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
   -- Sending Time: uInt64, Delta
@@ -14468,7 +14429,7 @@ ngm_elasticia_fix_fast_v2_0_0.business_message_reject.fields = function(buffer, 
   -- Text: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.text_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Business Reject Ref Id: string, sent, optional
+  -- Business Reject Ref ID: string, sent, optional
   index, value = ngm_elasticia_fix_fast_v2_0_0.business_reject_ref_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index

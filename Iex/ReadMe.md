@@ -1,4 +1,4 @@
-[![Iex](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Iex/Images/Logo.png)](https://www.iex.io)
+[![Iex](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Iex/Images/Logo.png)](https://www.iex.io)
 
 
 ## Investors Exchange

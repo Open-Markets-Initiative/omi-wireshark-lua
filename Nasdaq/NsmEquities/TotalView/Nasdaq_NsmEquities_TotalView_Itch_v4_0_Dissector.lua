@@ -1821,24 +1821,6 @@ nasdaq_nsmequities_totalview_itch_v4_0.stock = {}
 -- Size: Stock
 nasdaq_nsmequities_totalview_itch_v4_0.stock.size = 6
 
--- Display: Stock
-nasdaq_nsmequities_totalview_itch_v4_0.stock.display = function(value)
-  return "Stock: "..value
-end
-
--- Dissect: Stock
-nasdaq_nsmequities_totalview_itch_v4_0.stock.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_0.stock.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_totalview_itch_v4_0.stock.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0.fields.stock, range, value, display)
-
-  return offset + length, value
-end
-
-
 -- Lookup: Stock
 nasdaq_nsmequities_totalview_itch_v4_0.stock.lookup = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_itch_v4_0.stock.size
@@ -1881,6 +1863,23 @@ nasdaq_nsmequities_totalview_itch_v4_0.stock.lookup = function(buffer, offset, p
   end
 
   return offset + length, value, record
+end
+
+-- Display: Stock
+nasdaq_nsmequities_totalview_itch_v4_0.stock.display = function(value)
+  return "Stock: "..value
+end
+
+-- Dissect: Stock
+nasdaq_nsmequities_totalview_itch_v4_0.stock.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_0.stock.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_totalview_itch_v4_0.stock.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0.fields.stock, range, value, display)
+
+  return offset + length, value
 end
 
 -- Trading State

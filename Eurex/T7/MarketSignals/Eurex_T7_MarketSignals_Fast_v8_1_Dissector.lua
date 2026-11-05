@@ -25,58 +25,58 @@ omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_identified = ProtoField.new
 omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_unused = ProtoField.new("Unused", "eurex.t7.marketsignals.fast.v8.1.presenceunused", ftypes.UINT8, nil, base.HEX)
 
 -- Eurex T7 MarketSignals Fast 8.1 Presence Map Fields
-omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_md_report_event = ProtoField.new("Md Report Event", "eurex.t7.marketsignals.fast.v8.1.mdreporteventpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_sender_comp_id = ProtoField.new("Sender Comp Id", "eurex.t7.marketsignals.fast.v8.1.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_md_report_event = ProtoField.new("MD Report Event", "eurex.t7.marketsignals.fast.v8.1.mdreporteventpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_sender_comp_id = ProtoField.new("Sender Comp ID", "eurex.t7.marketsignals.fast.v8.1.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_security_exchange = ProtoField.new("Security Exchange", "eurex.t7.marketsignals.fast.v8.1.securityexchangepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_security_id = ProtoField.new("Security Id", "eurex.t7.marketsignals.fast.v8.1.securityidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_security_id_source = ProtoField.new("Security Id Source", "eurex.t7.marketsignals.fast.v8.1.securityidsourcepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_no_md_statistic = ProtoField.new("No Md Statistic", "eurex.t7.marketsignals.fast.v8.1.nomdstatisticpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_security_id = ProtoField.new("Security ID", "eurex.t7.marketsignals.fast.v8.1.securityidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_security_id_source = ProtoField.new("Security ID Source", "eurex.t7.marketsignals.fast.v8.1.securityidsourcepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.presence_no_md_statistic = ProtoField.new("No MD Statistic", "eurex.t7.marketsignals.fast.v8.1.nomdstatisticpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 
 -- Eurex T7 MarketSignals Fast 8.1 Fields
-omi_eurex_t7_marketsignals_fast_v8_1.fields.sender_comp_id = ProtoField.new("Sender Comp Id", "eurex.t7.marketsignals.fast.v8.1.sendercompid", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "eurex.t7.marketsignals.fast.v8.1.sendercompid", ftypes.UINT32)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.packet_seq_num = ProtoField.new("Packet Seq Num", "eurex.t7.marketsignals.fast.v8.1.packetseqnum", ftypes.UINT32)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.sending_time = ProtoField.new("Sending Time", "eurex.t7.marketsignals.fast.v8.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.msg_type = ProtoField.new("Msg Type", "eurex.t7.marketsignals.fast.v8.1.msgtype", ftypes.STRING)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_report_count = ProtoField.new("Md Report Count", "eurex.t7.marketsignals.fast.v8.1.mdreportcount", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_report_count = ProtoField.new("MD Report Count", "eurex.t7.marketsignals.fast.v8.1.mdreportcount", ftypes.UINT32)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "eurex.t7.marketsignals.fast.v8.1.lastmsgseqnumprocessed", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_report_event = ProtoField.new("Md Report Event", "eurex.t7.marketsignals.fast.v8.1.mdreportevent", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_report_event = ProtoField.new("MD Report Event", "eurex.t7.marketsignals.fast.v8.1.mdreportevent", ftypes.UINT32)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.transact_time = ProtoField.new("Transact Time", "eurex.t7.marketsignals.fast.v8.1.transacttime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_rpt_id = ProtoField.new("Md Statistic Rpt Id", "eurex.t7.marketsignals.fast.v8.1.mdstatisticrptid", ftypes.STRING)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_rpt_id = ProtoField.new("MD Statistic Rpt ID", "eurex.t7.marketsignals.fast.v8.1.mdstatisticrptid", ftypes.STRING)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.security_exchange = ProtoField.new("Security Exchange", "eurex.t7.marketsignals.fast.v8.1.securityexchange", ftypes.STRING)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.security_id = ProtoField.new("Security Id", "eurex.t7.marketsignals.fast.v8.1.securityid", ftypes.STRING)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.security_id_source = ProtoField.new("Security Id Source", "eurex.t7.marketsignals.fast.v8.1.securityidsource", ftypes.STRING)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.no_md_statistic = ProtoField.new("No Md Statistic", "eurex.t7.marketsignals.fast.v8.1.nomdstatistic", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_id = ProtoField.new("Md Statistic Id", "eurex.t7.marketsignals.fast.v8.1.mdstatisticid", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_status = ProtoField.new("Md Statistic Status", "eurex.t7.marketsignals.fast.v8.1.mdstatisticstatus", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_name = ProtoField.new("Md Statistic Name", "eurex.t7.marketsignals.fast.v8.1.mdstatisticname", ftypes.STRING)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_desc = ProtoField.new("Md Statistic Desc", "eurex.t7.marketsignals.fast.v8.1.mdstatisticdesc", ftypes.STRING)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_frequency_period = ProtoField.new("Md Statistic Frequency Period", "eurex.t7.marketsignals.fast.v8.1.mdstatisticfrequencyperiod", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_frequency_unit = ProtoField.new("Md Statistic Frequency Unit", "eurex.t7.marketsignals.fast.v8.1.mdstatisticfrequencyunit", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_interval_period = ProtoField.new("Md Statistic Interval Period", "eurex.t7.marketsignals.fast.v8.1.mdstatisticintervalperiod", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_interval_unit = ProtoField.new("Md Statistic Interval Unit", "eurex.t7.marketsignals.fast.v8.1.mdstatisticintervalunit", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_type = ProtoField.new("Md Statistic Type", "eurex.t7.marketsignals.fast.v8.1.mdstatistictype", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_scope = ProtoField.new("Md Statistic Scope", "eurex.t7.marketsignals.fast.v8.1.mdstatisticscope", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_sub_scope = ProtoField.new("Md Statistic Sub Scope", "eurex.t7.marketsignals.fast.v8.1.mdstatisticsubscope", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_scope_type = ProtoField.new("Md Statistic Scope Type", "eurex.t7.marketsignals.fast.v8.1.mdstatisticscopetype", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.security_id = ProtoField.new("Security ID", "eurex.t7.marketsignals.fast.v8.1.securityid", ftypes.STRING)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.security_id_source = ProtoField.new("Security ID Source", "eurex.t7.marketsignals.fast.v8.1.securityidsource", ftypes.STRING)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.no_md_statistic = ProtoField.new("No MD Statistic", "eurex.t7.marketsignals.fast.v8.1.nomdstatistic", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_id = ProtoField.new("MD Statistic ID", "eurex.t7.marketsignals.fast.v8.1.mdstatisticid", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_status = ProtoField.new("MD Statistic Status", "eurex.t7.marketsignals.fast.v8.1.mdstatisticstatus", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_name = ProtoField.new("MD Statistic Name", "eurex.t7.marketsignals.fast.v8.1.mdstatisticname", ftypes.STRING)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_desc = ProtoField.new("MD Statistic Desc", "eurex.t7.marketsignals.fast.v8.1.mdstatisticdesc", ftypes.STRING)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_frequency_period = ProtoField.new("MD Statistic Frequency Period", "eurex.t7.marketsignals.fast.v8.1.mdstatisticfrequencyperiod", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_frequency_unit = ProtoField.new("MD Statistic Frequency Unit", "eurex.t7.marketsignals.fast.v8.1.mdstatisticfrequencyunit", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_interval_period = ProtoField.new("MD Statistic Interval Period", "eurex.t7.marketsignals.fast.v8.1.mdstatisticintervalperiod", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_interval_unit = ProtoField.new("MD Statistic Interval Unit", "eurex.t7.marketsignals.fast.v8.1.mdstatisticintervalunit", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_type = ProtoField.new("MD Statistic Type", "eurex.t7.marketsignals.fast.v8.1.mdstatistictype", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_scope = ProtoField.new("MD Statistic Scope", "eurex.t7.marketsignals.fast.v8.1.mdstatisticscope", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_sub_scope = ProtoField.new("MD Statistic Sub Scope", "eurex.t7.marketsignals.fast.v8.1.mdstatisticsubscope", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_scope_type = ProtoField.new("MD Statistic Scope Type", "eurex.t7.marketsignals.fast.v8.1.mdstatisticscopetype", ftypes.UINT32)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.side = ProtoField.new("Side", "eurex.t7.marketsignals.fast.v8.1.side", ftypes.UINT32)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.ord_type = ProtoField.new("Ord Type", "eurex.t7.marketsignals.fast.v8.1.ordtype", ftypes.UINT32)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.time_in_force = ProtoField.new("Time In Force", "eurex.t7.marketsignals.fast.v8.1.timeinforce", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_ratio_type = ProtoField.new("Md Statistic Ratio Type", "eurex.t7.marketsignals.fast.v8.1.mdstatisticratiotype", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.no_md_stat_attributes = ProtoField.new("No Md Stat Attributes", "eurex.t7.marketsignals.fast.v8.1.nomdstatattributes", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_stat_attribute_type = ProtoField.new("Md Stat Attribute Type", "eurex.t7.marketsignals.fast.v8.1.mdstatattributetype", ftypes.UINT32)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_time = ProtoField.new("Md Statistic Time", "eurex.t7.marketsignals.fast.v8.1.mdstatistictime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_value = ProtoField.new("Md Statistic Value", "eurex.t7.marketsignals.fast.v8.1.mdstatisticvalue", ftypes.DOUBLE)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.md_stat_attribute_value = ProtoField.new("Md Stat Attribute Value", "eurex.t7.marketsignals.fast.v8.1.mdstatattributevalue", ftypes.STRING)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_ratio_type = ProtoField.new("MD Statistic Ratio Type", "eurex.t7.marketsignals.fast.v8.1.mdstatisticratiotype", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.no_md_stat_attributes = ProtoField.new("No MD Stat Attributes", "eurex.t7.marketsignals.fast.v8.1.nomdstatattributes", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_stat_attribute_type = ProtoField.new("MD Stat Attribute Type", "eurex.t7.marketsignals.fast.v8.1.mdstatattributetype", ftypes.UINT32)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_time = ProtoField.new("MD Statistic Time", "eurex.t7.marketsignals.fast.v8.1.mdstatistictime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_value = ProtoField.new("MD Statistic Value", "eurex.t7.marketsignals.fast.v8.1.mdstatisticvalue", ftypes.DOUBLE)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.md_stat_attribute_value = ProtoField.new("MD Stat Attribute Value", "eurex.t7.marketsignals.fast.v8.1.mdstatattributevalue", ftypes.STRING)
 
 -- Eurex T7 MarketSignals Fast 8.1 Messages
 omi_eurex_t7_marketsignals_fast_v8_1.fields.packet_header = ProtoField.new("Packet Header Framing", "eurex.t7.marketsignals.fast.v8.1.packetheader", ftypes.NONE)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_report = ProtoField.new("Market Data Report Message", "eurex.t7.marketsignals.fast.v8.1.marketdatareport", ftypes.NONE)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_reference_data = ProtoField.new("Market Data Statistics Reference Data Message", "eurex.t7.marketsignals.fast.v8.1.marketdatastatisticsreferencedata", ftypes.NONE)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_reference_data_md_statistic_rpt_grp = ProtoField.new("Market Data Statistics Reference Data Md Statistic Rpt Grp", "eurex.t7.marketsignals.fast.v8.1.marketdatastatisticsreferencedatamdstatisticrptgrp", ftypes.NONE)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_reference_data_md_stats_attrib_grp = ProtoField.new("Market Data Statistics Reference Data Md Stats Attrib Grp", "eurex.t7.marketsignals.fast.v8.1.marketdatastatisticsreferencedatamdstatsattribgrp", ftypes.NONE)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_reference_data_md_statistic_rpt_grp = ProtoField.new("Market Data Statistics Reference Data MD Statistic Rpt Grp", "eurex.t7.marketsignals.fast.v8.1.marketdatastatisticsreferencedatamdstatisticrptgrp", ftypes.NONE)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_reference_data_md_stats_attrib_grp = ProtoField.new("Market Data Statistics Reference Data MD Stats Attrib Grp", "eurex.t7.marketsignals.fast.v8.1.marketdatastatisticsreferencedatamdstatsattribgrp", ftypes.NONE)
 omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_update = ProtoField.new("Market Data Statistics Update Message", "eurex.t7.marketsignals.fast.v8.1.marketdatastatisticsupdate", ftypes.NONE)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_update_md_statistic_rpt_grp = ProtoField.new("Market Data Statistics Update Md Statistic Rpt Grp", "eurex.t7.marketsignals.fast.v8.1.marketdatastatisticsupdatemdstatisticrptgrp", ftypes.NONE)
-omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_update_md_stats_attrib_grp = ProtoField.new("Market Data Statistics Update Md Stats Attrib Grp", "eurex.t7.marketsignals.fast.v8.1.marketdatastatisticsupdatemdstatsattribgrp", ftypes.NONE)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_update_md_statistic_rpt_grp = ProtoField.new("Market Data Statistics Update MD Statistic Rpt Grp", "eurex.t7.marketsignals.fast.v8.1.marketdatastatisticsupdatemdstatisticrptgrp", ftypes.NONE)
+omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_update_md_stats_attrib_grp = ProtoField.new("Market Data Statistics Update MD Stats Attrib Grp", "eurex.t7.marketsignals.fast.v8.1.marketdatastatisticsupdatemdstatsattribgrp", ftypes.NONE)
 
 -----------------------------------------------------------------------
 -- Protocol Functions
@@ -486,10 +486,10 @@ end
 -- Eurex T7 MarketSignals Fast 8.1 Fields
 -----------------------------------------------------------------------
 
--- Sender Comp Id (Sent)
+-- Sender Comp ID (Sent)
 eurex_t7_marketsignals_fast_v8_1.sender_comp_id_sent = {}
 
--- Dissect: Sender Comp Id (Sent)
+-- Dissect: Sender Comp ID (Sent)
 eurex_t7_marketsignals_fast_v8_1.sender_comp_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -502,16 +502,16 @@ eurex_t7_marketsignals_fast_v8_1.sender_comp_id_sent.dissect = function(buffer, 
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.sender_comp_id, range, 0)
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
 end
 
--- Sender Comp Id (Copy)
+-- Sender Comp ID (Copy)
 eurex_t7_marketsignals_fast_v8_1.sender_comp_id_copy = {}
 
--- Dissect: Sender Comp Id (Copy)
+-- Dissect: Sender Comp ID (Copy)
 eurex_t7_marketsignals_fast_v8_1.sender_comp_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -524,7 +524,7 @@ eurex_t7_marketsignals_fast_v8_1.sender_comp_id_copy.dissect = function(buffer, 
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Comp Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Comp ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -535,7 +535,7 @@ eurex_t7_marketsignals_fast_v8_1.sender_comp_id_copy.dissect = function(buffer, 
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.sender_comp_id, range, 0)
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
@@ -631,10 +631,10 @@ eurex_t7_marketsignals_fast_v8_1.msg_type_constant_dp.dissect = function(buffer,
   return offset, value
 end
 
--- Md Report Count
+-- MD Report Count
 eurex_t7_marketsignals_fast_v8_1.md_report_count = {}
 
--- Dissect: Md Report Count
+-- Dissect: MD Report Count
 eurex_t7_marketsignals_fast_v8_1.md_report_count.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -647,7 +647,7 @@ eurex_t7_marketsignals_fast_v8_1.md_report_count.dissect = function(buffer, offs
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_report_count, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_report_count, range, 0)
-    absent:set_text("Md Report Count: No Value")
+    absent:set_text("MD Report Count: No Value")
   end
 
   return offset, value
@@ -681,56 +681,56 @@ eurex_t7_marketsignals_fast_v8_1.last_msg_seq_num_processed.dissect = function(b
   return offset, value
 end
 
--- Md Report Event
+-- MD Report Event
 eurex_t7_marketsignals_fast_v8_1.md_report_event = {}
 
--- Display: Md Report Event
+-- Display: MD Report Event
 eurex_t7_marketsignals_fast_v8_1.md_report_event.display = function(value)
   if value == nil then
-    return "Md Report Event: No Value"
+    return "MD Report Event: No Value"
   end
 
   if value == 0 then
-    return "Md Report Event: StartOfReferenceData (1)"
+    return "MD Report Event: StartOfReferenceData (1)"
   end
   if value == 1 then
-    return "Md Report Event: EndOfReferenceData (2)"
+    return "MD Report Event: EndOfReferenceData (2)"
   end
   if value == 2 then
-    return "Md Report Event: StartOfOtcTrades (3)"
+    return "MD Report Event: StartOfOtcTrades (3)"
   end
   if value == 3 then
-    return "Md Report Event: EndOfOtcTrades (4)"
+    return "MD Report Event: EndOfOtcTrades (4)"
   end
   if value == 4 then
-    return "Md Report Event: StartOfExchTrades (5)"
+    return "MD Report Event: StartOfExchTrades (5)"
   end
   if value == 5 then
-    return "Md Report Event: EndOfExchTrades (6)"
+    return "MD Report Event: EndOfExchTrades (6)"
   end
   if value == 6 then
-    return "Md Report Event: StartOfOpenInterest (7)"
+    return "MD Report Event: StartOfOpenInterest (7)"
   end
   if value == 7 then
-    return "Md Report Event: EndOfOpenInterest (8)"
+    return "MD Report Event: EndOfOpenInterest (8)"
   end
   if value == 8 then
-    return "Md Report Event: StartOfSettlement (9)"
+    return "MD Report Event: StartOfSettlement (9)"
   end
   if value == 9 then
-    return "Md Report Event: EndOfSettlement (10)"
+    return "MD Report Event: EndOfSettlement (10)"
   end
   if value == 10 then
-    return "Md Report Event: StartOfStatisticReferenceData (11)"
+    return "MD Report Event: StartOfStatisticReferenceData (11)"
   end
   if value == 11 then
-    return "Md Report Event: EndOfStatisticReferenceData (12)"
+    return "MD Report Event: EndOfStatisticReferenceData (12)"
   end
 
-  return "Md Report Event: Unknown("..value..")"
+  return "MD Report Event: Unknown("..value..")"
 end
 
--- Dissect: Md Report Event
+-- Dissect: MD Report Event
 eurex_t7_marketsignals_fast_v8_1.md_report_event.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -743,7 +743,7 @@ eurex_t7_marketsignals_fast_v8_1.md_report_event.dissect = function(buffer, offs
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Report Event was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Report Event was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -789,10 +789,10 @@ eurex_t7_marketsignals_fast_v8_1.transact_time.dissect = function(buffer, offset
   return offset, value
 end
 
--- Md Statistic Rpt Id
+-- MD Statistic Rpt ID
 eurex_t7_marketsignals_fast_v8_1.md_statistic_rpt_id = {}
 
--- Dissect: Md Statistic Rpt Id
+-- Dissect: MD Statistic Rpt ID
 eurex_t7_marketsignals_fast_v8_1.md_statistic_rpt_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -805,7 +805,7 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_rpt_id.dissect = function(buffer, 
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_rpt_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_rpt_id, range, "")
-    absent:set_text("Md Statistic Rpt Id: No Value")
+    absent:set_text("MD Statistic Rpt ID: No Value")
   end
 
   return offset, value
@@ -844,10 +844,10 @@ eurex_t7_marketsignals_fast_v8_1.security_exchange.dissect = function(buffer, of
   return offset, value
 end
 
--- Security Id
+-- Security ID
 eurex_t7_marketsignals_fast_v8_1.security_id = {}
 
--- Dissect: Security Id
+-- Dissect: Security ID
 eurex_t7_marketsignals_fast_v8_1.security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -860,7 +860,7 @@ eurex_t7_marketsignals_fast_v8_1.security_id.dissect = function(buffer, offset, 
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Security Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Security ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -871,16 +871,16 @@ eurex_t7_marketsignals_fast_v8_1.security_id.dissect = function(buffer, offset, 
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.security_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.security_id, range, "")
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id Source
+-- Security ID Source
 eurex_t7_marketsignals_fast_v8_1.security_id_source = {}
 
--- Dissect: Security Id Source
+-- Dissect: Security ID Source
 eurex_t7_marketsignals_fast_v8_1.security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -897,16 +897,16 @@ eurex_t7_marketsignals_fast_v8_1.security_id_source.dissect = function(buffer, o
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.security_id_source, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.security_id_source, range, "")
-    absent:set_text("Security Id Source: No Value")
+    absent:set_text("Security ID Source: No Value")
   end
 
   return offset, value
 end
 
--- No Md Statistic
+-- No MD Statistic
 eurex_t7_marketsignals_fast_v8_1.no_md_statistic = {}
 
--- Dissect: No Md Statistic
+-- Dissect: No MD Statistic
 eurex_t7_marketsignals_fast_v8_1.no_md_statistic.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -919,7 +919,7 @@ eurex_t7_marketsignals_fast_v8_1.no_md_statistic.dissect = function(buffer, offs
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "No Md Statistic was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "No MD Statistic was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -930,16 +930,16 @@ eurex_t7_marketsignals_fast_v8_1.no_md_statistic.dissect = function(buffer, offs
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.no_md_statistic, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.no_md_statistic, range, 0)
-    absent:set_text("No Md Statistic: No Value")
+    absent:set_text("No MD Statistic: No Value")
   end
 
   return offset, value
 end
 
--- Md Statistic Id
+-- MD Statistic ID
 eurex_t7_marketsignals_fast_v8_1.md_statistic_id = {}
 
--- Dissect: Md Statistic Id
+-- Dissect: MD Statistic ID
 eurex_t7_marketsignals_fast_v8_1.md_statistic_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -955,32 +955,32 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_id.dissect = function(buffer, offs
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_id, range, 0)
-    absent:set_text("Md Statistic Id: No Value")
+    absent:set_text("MD Statistic ID: No Value")
   end
 
   return offset, value
 end
 
--- Md Statistic Status
+-- MD Statistic Status
 eurex_t7_marketsignals_fast_v8_1.md_statistic_status = {}
 
--- Display: Md Statistic Status
+-- Display: MD Statistic Status
 eurex_t7_marketsignals_fast_v8_1.md_statistic_status.display = function(value)
   if value == nil then
-    return "Md Statistic Status: No Value"
+    return "MD Statistic Status: No Value"
   end
 
   if value == 0 then
-    return "Md Statistic Status: Active (1)"
+    return "MD Statistic Status: Active (1)"
   end
   if value == 1 then
-    return "Md Statistic Status: Inactive (2)"
+    return "MD Statistic Status: Inactive (2)"
   end
 
-  return "Md Statistic Status: Unknown("..value..")"
+  return "MD Statistic Status: Unknown("..value..")"
 end
 
--- Dissect: Md Statistic Status
+-- Dissect: MD Statistic Status
 eurex_t7_marketsignals_fast_v8_1.md_statistic_status.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1005,10 +1005,10 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_status.dissect = function(buffer, 
   return offset, value
 end
 
--- Md Statistic Name
+-- MD Statistic Name
 eurex_t7_marketsignals_fast_v8_1.md_statistic_name = {}
 
--- Dissect: Md Statistic Name
+-- Dissect: MD Statistic Name
 eurex_t7_marketsignals_fast_v8_1.md_statistic_name.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1021,7 +1021,7 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_name.dissect = function(buffer, of
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Statistic Name was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Statistic Name was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1032,16 +1032,16 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_name.dissect = function(buffer, of
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_name, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_name, range, "")
-    absent:set_text("Md Statistic Name: No Value")
+    absent:set_text("MD Statistic Name: No Value")
   end
 
   return offset, value
 end
 
--- Md Statistic Desc
+-- MD Statistic Desc
 eurex_t7_marketsignals_fast_v8_1.md_statistic_desc = {}
 
--- Dissect: Md Statistic Desc
+-- Dissect: MD Statistic Desc
 eurex_t7_marketsignals_fast_v8_1.md_statistic_desc.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1054,7 +1054,7 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_desc.dissect = function(buffer, of
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Statistic Desc was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Statistic Desc was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1065,16 +1065,16 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_desc.dissect = function(buffer, of
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_desc, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_desc, range, "")
-    absent:set_text("Md Statistic Desc: No Value")
+    absent:set_text("MD Statistic Desc: No Value")
   end
 
   return offset, value
 end
 
--- Md Statistic Frequency Period
+-- MD Statistic Frequency Period
 eurex_t7_marketsignals_fast_v8_1.md_statistic_frequency_period = {}
 
--- Dissect: Md Statistic Frequency Period
+-- Dissect: MD Statistic Frequency Period
 eurex_t7_marketsignals_fast_v8_1.md_statistic_frequency_period.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1093,38 +1093,38 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_frequency_period.dissect = functio
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_frequency_period, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_frequency_period, range, 0)
-    absent:set_text("Md Statistic Frequency Period: No Value")
+    absent:set_text("MD Statistic Frequency Period: No Value")
   end
 
   return offset, value
 end
 
--- Md Statistic Frequency Unit
+-- MD Statistic Frequency Unit
 eurex_t7_marketsignals_fast_v8_1.md_statistic_frequency_unit = {}
 
--- Display: Md Statistic Frequency Unit
+-- Display: MD Statistic Frequency Unit
 eurex_t7_marketsignals_fast_v8_1.md_statistic_frequency_unit.display = function(value)
   if value == nil then
-    return "Md Statistic Frequency Unit: No Value"
+    return "MD Statistic Frequency Unit: No Value"
   end
 
   if value == 0 then
-    return "Md Statistic Frequency Unit: Seconds (0)"
+    return "MD Statistic Frequency Unit: Seconds (0)"
   end
   if value == 1 then
-    return "Md Statistic Frequency Unit: MilliSeconds (3)"
+    return "MD Statistic Frequency Unit: MilliSeconds (3)"
   end
   if value == 2 then
-    return "Md Statistic Frequency Unit: Minutes (10)"
+    return "MD Statistic Frequency Unit: Minutes (10)"
   end
   if value == 3 then
-    return "Md Statistic Frequency Unit: Days (12)"
+    return "MD Statistic Frequency Unit: Days (12)"
   end
 
-  return "Md Statistic Frequency Unit: Unknown("..value..")"
+  return "MD Statistic Frequency Unit: Unknown("..value..")"
 end
 
--- Dissect: Md Statistic Frequency Unit
+-- Dissect: MD Statistic Frequency Unit
 eurex_t7_marketsignals_fast_v8_1.md_statistic_frequency_unit.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1149,10 +1149,10 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_frequency_unit.dissect = function(
   return offset, value
 end
 
--- Md Statistic Interval Period
+-- MD Statistic Interval Period
 eurex_t7_marketsignals_fast_v8_1.md_statistic_interval_period = {}
 
--- Dissect: Md Statistic Interval Period
+-- Dissect: MD Statistic Interval Period
 eurex_t7_marketsignals_fast_v8_1.md_statistic_interval_period.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1171,38 +1171,38 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_interval_period.dissect = function
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_interval_period, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_interval_period, range, 0)
-    absent:set_text("Md Statistic Interval Period: No Value")
+    absent:set_text("MD Statistic Interval Period: No Value")
   end
 
   return offset, value
 end
 
--- Md Statistic Interval Unit
+-- MD Statistic Interval Unit
 eurex_t7_marketsignals_fast_v8_1.md_statistic_interval_unit = {}
 
--- Display: Md Statistic Interval Unit
+-- Display: MD Statistic Interval Unit
 eurex_t7_marketsignals_fast_v8_1.md_statistic_interval_unit.display = function(value)
   if value == nil then
-    return "Md Statistic Interval Unit: No Value"
+    return "MD Statistic Interval Unit: No Value"
   end
 
   if value == 0 then
-    return "Md Statistic Interval Unit: Seconds (0)"
+    return "MD Statistic Interval Unit: Seconds (0)"
   end
   if value == 1 then
-    return "Md Statistic Interval Unit: MilliSeconds (3)"
+    return "MD Statistic Interval Unit: MilliSeconds (3)"
   end
   if value == 2 then
-    return "Md Statistic Interval Unit: Minutes (10)"
+    return "MD Statistic Interval Unit: Minutes (10)"
   end
   if value == 3 then
-    return "Md Statistic Interval Unit: Days (12)"
+    return "MD Statistic Interval Unit: Days (12)"
   end
 
-  return "Md Statistic Interval Unit: Unknown("..value..")"
+  return "MD Statistic Interval Unit: Unknown("..value..")"
 end
 
--- Dissect: Md Statistic Interval Unit
+-- Dissect: MD Statistic Interval Unit
 eurex_t7_marketsignals_fast_v8_1.md_statistic_interval_unit.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1227,53 +1227,53 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_interval_unit.dissect = function(b
   return offset, value
 end
 
--- Md Statistic Type
+-- MD Statistic Type
 eurex_t7_marketsignals_fast_v8_1.md_statistic_type = {}
 
--- Display: Md Statistic Type
+-- Display: MD Statistic Type
 eurex_t7_marketsignals_fast_v8_1.md_statistic_type.display = function(value)
   if value == nil then
-    return "Md Statistic Type: No Value"
+    return "MD Statistic Type: No Value"
   end
 
   if value == 0 then
-    return "Md Statistic Type: Count (1)"
+    return "MD Statistic Type: Count (1)"
   end
   if value == 1 then
-    return "Md Statistic Type: Average (2)"
+    return "MD Statistic Type: Average (2)"
   end
   if value == 2 then
-    return "Md Statistic Type: Volume (3)"
+    return "MD Statistic Type: Volume (3)"
   end
   if value == 3 then
-    return "Md Statistic Type: Distribution (4)"
+    return "MD Statistic Type: Distribution (4)"
   end
   if value == 4 then
-    return "Md Statistic Type: Ratio (5)"
+    return "MD Statistic Type: Ratio (5)"
   end
   if value == 5 then
-    return "Md Statistic Type: Liquidity (6)"
+    return "MD Statistic Type: Liquidity (6)"
   end
   if value == 6 then
-    return "Md Statistic Type: VWAP (7)"
+    return "MD Statistic Type: VWAP (7)"
   end
   if value == 7 then
-    return "Md Statistic Type: Volatility (8)"
+    return "MD Statistic Type: Volatility (8)"
   end
   if value == 8 then
-    return "Md Statistic Type: Duration (9)"
+    return "MD Statistic Type: Duration (9)"
   end
   if value == 9 then
-    return "Md Statistic Type: Tick (10)"
+    return "MD Statistic Type: Tick (10)"
   end
   if value == 10 then
-    return "Md Statistic Type: Detail (11)"
+    return "MD Statistic Type: Detail (11)"
   end
 
-  return "Md Statistic Type: Unknown("..value..")"
+  return "MD Statistic Type: Unknown("..value..")"
 end
 
--- Dissect: Md Statistic Type
+-- Dissect: MD Statistic Type
 eurex_t7_marketsignals_fast_v8_1.md_statistic_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1298,44 +1298,44 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_type.dissect = function(buffer, of
   return offset, value
 end
 
--- Md Statistic Scope
+-- MD Statistic Scope
 eurex_t7_marketsignals_fast_v8_1.md_statistic_scope = {}
 
--- Display: Md Statistic Scope
+-- Display: MD Statistic Scope
 eurex_t7_marketsignals_fast_v8_1.md_statistic_scope.display = function(value)
   if value == nil then
-    return "Md Statistic Scope: No Value"
+    return "MD Statistic Scope: No Value"
   end
 
   if value == 0 then
-    return "Md Statistic Scope: Best Bid (1)"
+    return "MD Statistic Scope: Best Bid (1)"
   end
   if value == 1 then
-    return "Md Statistic Scope: Best Ask (2)"
+    return "MD Statistic Scope: Best Ask (2)"
   end
   if value == 2 then
-    return "Md Statistic Scope: Depth Bid (3)"
+    return "MD Statistic Scope: Depth Bid (3)"
   end
   if value == 3 then
-    return "Md Statistic Scope: Depth Ask (4)"
+    return "MD Statistic Scope: Depth Ask (4)"
   end
   if value == 4 then
-    return "Md Statistic Scope: Order (5)"
+    return "MD Statistic Scope: Order (5)"
   end
   if value == 5 then
-    return "Md Statistic Scope: Quote (6)"
+    return "MD Statistic Scope: Quote (6)"
   end
   if value == 6 then
-    return "Md Statistic Scope: Order and Quote (7)"
+    return "MD Statistic Scope: Order and Quote (7)"
   end
   if value == 7 then
-    return "Md Statistic Scope: Trade (8)"
+    return "MD Statistic Scope: Trade (8)"
   end
 
-  return "Md Statistic Scope: Unknown("..value..")"
+  return "MD Statistic Scope: Unknown("..value..")"
 end
 
--- Dissect: Md Statistic Scope
+-- Dissect: MD Statistic Scope
 eurex_t7_marketsignals_fast_v8_1.md_statistic_scope.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1360,29 +1360,29 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_scope.dissect = function(buffer, o
   return offset, value
 end
 
--- Md Statistic Sub Scope
+-- MD Statistic Sub Scope
 eurex_t7_marketsignals_fast_v8_1.md_statistic_sub_scope = {}
 
--- Display: Md Statistic Sub Scope
+-- Display: MD Statistic Sub Scope
 eurex_t7_marketsignals_fast_v8_1.md_statistic_sub_scope.display = function(value)
   if value == nil then
-    return "Md Statistic Sub Scope: No Value"
+    return "MD Statistic Sub Scope: No Value"
   end
 
   if value == 0 then
-    return "Md Statistic Sub Scope: Orderbook (1)"
+    return "MD Statistic Sub Scope: Orderbook (1)"
   end
   if value == 1 then
-    return "Md Statistic Sub Scope: Hidden (2)"
+    return "MD Statistic Sub Scope: Hidden (2)"
   end
   if value == 2 then
-    return "Md Statistic Sub Scope: Indicative (3)"
+    return "MD Statistic Sub Scope: Indicative (3)"
   end
 
-  return "Md Statistic Sub Scope: Unknown("..value..")"
+  return "MD Statistic Sub Scope: Unknown("..value..")"
 end
 
--- Dissect: Md Statistic Sub Scope
+-- Dissect: MD Statistic Sub Scope
 eurex_t7_marketsignals_fast_v8_1.md_statistic_sub_scope.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1407,29 +1407,29 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_sub_scope.dissect = function(buffe
   return offset, value
 end
 
--- Md Statistic Scope Type
+-- MD Statistic Scope Type
 eurex_t7_marketsignals_fast_v8_1.md_statistic_scope_type = {}
 
--- Display: Md Statistic Scope Type
+-- Display: MD Statistic Scope Type
 eurex_t7_marketsignals_fast_v8_1.md_statistic_scope_type.display = function(value)
   if value == nil then
-    return "Md Statistic Scope Type: No Value"
+    return "MD Statistic Scope Type: No Value"
   end
 
   if value == 0 then
-    return "Md Statistic Scope Type: Entry Rate (1)"
+    return "MD Statistic Scope Type: Entry Rate (1)"
   end
   if value == 1 then
-    return "Md Statistic Scope Type: Modification Rate (2)"
+    return "MD Statistic Scope Type: Modification Rate (2)"
   end
   if value == 2 then
-    return "Md Statistic Scope Type: Cancel Rate (3)"
+    return "MD Statistic Scope Type: Cancel Rate (3)"
   end
 
-  return "Md Statistic Scope Type: Unknown("..value..")"
+  return "MD Statistic Scope Type: Unknown("..value..")"
 end
 
--- Dissect: Md Statistic Scope Type
+-- Dissect: MD Statistic Scope Type
 eurex_t7_marketsignals_fast_v8_1.md_statistic_scope_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1589,29 +1589,29 @@ eurex_t7_marketsignals_fast_v8_1.time_in_force.dissect = function(buffer, offset
   return offset, value
 end
 
--- Md Statistic Ratio Type
+-- MD Statistic Ratio Type
 eurex_t7_marketsignals_fast_v8_1.md_statistic_ratio_type = {}
 
--- Display: Md Statistic Ratio Type
+-- Display: MD Statistic Ratio Type
 eurex_t7_marketsignals_fast_v8_1.md_statistic_ratio_type.display = function(value)
   if value == nil then
-    return "Md Statistic Ratio Type: No Value"
+    return "MD Statistic Ratio Type: No Value"
   end
 
   if value == 0 then
-    return "Md Statistic Ratio Type: Buyer-Seller Relation (1)"
+    return "MD Statistic Ratio Type: Buyer-Seller Relation (1)"
   end
   if value == 1 then
-    return "Md Statistic Ratio Type: Upticks - Downticks (2)"
+    return "MD Statistic Ratio Type: Upticks - Downticks (2)"
   end
   if value == 2 then
-    return "Md Statistic Ratio Type: MM to Non-MM (3)"
+    return "MD Statistic Ratio Type: MM to Non-MM (3)"
   end
 
-  return "Md Statistic Ratio Type: Unknown("..value..")"
+  return "MD Statistic Ratio Type: Unknown("..value..")"
 end
 
--- Dissect: Md Statistic Ratio Type
+-- Dissect: MD Statistic Ratio Type
 eurex_t7_marketsignals_fast_v8_1.md_statistic_ratio_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1636,10 +1636,10 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_ratio_type.dissect = function(buff
   return offset, value
 end
 
--- No Md Stat Attributes
+-- No MD Stat Attributes
 eurex_t7_marketsignals_fast_v8_1.no_md_stat_attributes = {}
 
--- Dissect: No Md Stat Attributes
+-- Dissect: No MD Stat Attributes
 eurex_t7_marketsignals_fast_v8_1.no_md_stat_attributes.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1656,41 +1656,41 @@ eurex_t7_marketsignals_fast_v8_1.no_md_stat_attributes.dissect = function(buffer
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.no_md_stat_attributes, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.no_md_stat_attributes, range, 0)
-    absent:set_text("No Md Stat Attributes: No Value")
+    absent:set_text("No MD Stat Attributes: No Value")
   end
 
   return offset, value
 end
 
--- Md Stat Attribute Type
+-- MD Stat Attribute Type
 eurex_t7_marketsignals_fast_v8_1.md_stat_attribute_type = {}
 
--- Display: Md Stat Attribute Type
+-- Display: MD Stat Attribute Type
 eurex_t7_marketsignals_fast_v8_1.md_stat_attribute_type.display = function(value)
   if value == nil then
-    return "Md Stat Attribute Type: No Value"
+    return "MD Stat Attribute Type: No Value"
   end
 
   if value == 0 then
-    return "Md Stat Attribute Type: NumberOfParties (1)"
+    return "MD Stat Attribute Type: NumberOfParties (1)"
   end
   if value == 1 then
-    return "Md Stat Attribute Type: LastTradePrice (2)"
+    return "MD Stat Attribute Type: LastTradePrice (2)"
   end
   if value == 2 then
-    return "Md Stat Attribute Type: LastTradeQuantity (3)"
+    return "MD Stat Attribute Type: LastTradeQuantity (3)"
   end
   if value == 3 then
-    return "Md Stat Attribute Type: TradeMatchIdentifier (4)"
+    return "MD Stat Attribute Type: TradeMatchIdentifier (4)"
   end
   if value == 4 then
-    return "Md Stat Attribute Type: Side (5)"
+    return "MD Stat Attribute Type: Side (5)"
   end
 
-  return "Md Stat Attribute Type: Unknown("..value..")"
+  return "MD Stat Attribute Type: Unknown("..value..")"
 end
 
--- Dissect: Md Stat Attribute Type
+-- Dissect: MD Stat Attribute Type
 eurex_t7_marketsignals_fast_v8_1.md_stat_attribute_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1711,10 +1711,10 @@ eurex_t7_marketsignals_fast_v8_1.md_stat_attribute_type.dissect = function(buffe
   return offset, value
 end
 
--- Md Statistic Time
+-- MD Statistic Time
 eurex_t7_marketsignals_fast_v8_1.md_statistic_time = {}
 
--- Dissect: Md Statistic Time
+-- Dissect: MD Statistic Time
 eurex_t7_marketsignals_fast_v8_1.md_statistic_time.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1727,7 +1727,7 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_time.dissect = function(buffer, of
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Statistic Time was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Statistic Time was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1736,7 +1736,7 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_time.dissect = function(buffer, of
 
   if value == nil then
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_statistic_time, range, NSTime.new(0, 0))
-    absent:set_text("Md Statistic Time: No Value")
+    absent:set_text("MD Statistic Time: No Value")
   else
     local seconds = (value / Int64(1000000000)):tonumber()
     local nanos = (value % Int64(1000000000)):tonumber()
@@ -1746,19 +1746,19 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_time.dissect = function(buffer, of
   return offset, value
 end
 
--- Md Statistic Value
+-- MD Statistic Value
 eurex_t7_marketsignals_fast_v8_1.md_statistic_value = {}
 
--- Display: Md Statistic Value
+-- Display: MD Statistic Value
 eurex_t7_marketsignals_fast_v8_1.md_statistic_value.display = function(value)
   if value == nil then
-    return "Md Statistic Value: No Value"
+    return "MD Statistic Value: No Value"
   end
 
-  return "Md Statistic Value: "..value
+  return "MD Statistic Value: "..value
 end
 
--- Dissect: Md Statistic Value
+-- Dissect: MD Statistic Value
 eurex_t7_marketsignals_fast_v8_1.md_statistic_value.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1795,10 +1795,10 @@ eurex_t7_marketsignals_fast_v8_1.md_statistic_value.dissect = function(buffer, o
   return offset, value
 end
 
--- Md Stat Attribute Value
+-- MD Stat Attribute Value
 eurex_t7_marketsignals_fast_v8_1.md_stat_attribute_value = {}
 
--- Dissect: Md Stat Attribute Value
+-- Dissect: MD Stat Attribute Value
 eurex_t7_marketsignals_fast_v8_1.md_stat_attribute_value.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1811,7 +1811,7 @@ eurex_t7_marketsignals_fast_v8_1.md_stat_attribute_value.dissect = function(buff
     parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_stat_attribute_value, range, value)
   else
     local absent = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.md_stat_attribute_value, range, "")
-    absent:set_text("Md Stat Attribute Value: No Value")
+    absent:set_text("MD Stat Attribute Value: No Value")
   end
 
   return offset, value
@@ -1822,24 +1822,24 @@ end
 -- Dissect Eurex T7 MarketSignals Fast 8.1
 -----------------------------------------------------------------------
 
--- Market Data Statistics Update Md Stats Attrib Grp
+-- Market Data Statistics Update MD Stats Attrib Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update_md_stats_attrib_grp = {}
 
--- Dissect Fields: Market Data Statistics Update Md Stats Attrib Grp
+-- Dissect Fields: Market Data Statistics Update MD Stats Attrib Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update_md_stats_attrib_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Stat Attribute Type: uInt32, sent
+  -- MD Stat Attribute Type: uInt32, sent
   index, value = eurex_t7_marketsignals_fast_v8_1.md_stat_attribute_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Stat Attribute Value: string, sent
+  -- MD Stat Attribute Value: string, sent
   index, value = eurex_t7_marketsignals_fast_v8_1.md_stat_attribute_value.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Market Data Statistics Update Md Stats Attrib Grp
+-- Dissect: Market Data Statistics Update MD Stats Attrib Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update_md_stats_attrib_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_update_md_stats_attrib_grp, buffer(offset, 0))
   local index = offset
@@ -1855,27 +1855,27 @@ eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update_md_stats_attrib_g
   return index
 end
 
--- Market Data Statistics Update Md Statistic Rpt Grp
+-- Market Data Statistics Update MD Statistic Rpt Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update_md_statistic_rpt_grp = {}
 
--- Dissect Fields: Market Data Statistics Update Md Statistic Rpt Grp
+-- Dissect Fields: Market Data Statistics Update MD Statistic Rpt Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update_md_statistic_rpt_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Statistic Id: uInt32, Delta
+  -- MD Statistic ID: uInt32, Delta
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|13:MDStatisticID")
 
-  -- Md Statistic Time: timestamp, Copy
+  -- MD Statistic Time: timestamp, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_time.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|15:MDStatisticTime")
 
-  -- Md Statistic Value: decimal, Default, optional
+  -- MD Statistic Value: decimal, Default, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_value.dissect(buffer, index, packet, parent, { presence_map[base + 1], false }, state, nil)
 
-  -- No Md Stat Attributes: uInt32, Default, optional
+  -- No MD Stat Attributes: uInt32, Default, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.no_md_stat_attributes.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
-  -- Md Stats Attrib Grp: No Md Stat Attributes entries
+  -- MD Stats Attrib Grp: No MD Stat Attributes entries
   local count = value or 0
   for market_data_statistics_update_md_stats_attrib_grp_index = 1, count do
     index = eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update_md_stats_attrib_grp.dissect(buffer, index, packet, parent, presence_map, base, state, market_data_statistics_update_md_stats_attrib_grp_index)
@@ -1884,7 +1884,7 @@ eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update_md_statistic_rpt_
   return index
 end
 
--- Dissect: Market Data Statistics Update Md Statistic Rpt Grp
+-- Dissect: Market Data Statistics Update MD Statistic Rpt Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update_md_statistic_rpt_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_update_md_statistic_rpt_grp, buffer(offset, 0))
   local index = offset
@@ -1926,25 +1926,25 @@ eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update.fields = function
   -- Msg Type: string, Constant
   index, value = eurex_t7_marketsignals_fast_v8_1.msg_type_constant_dp.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|12:SenderCompID")
 
-  -- Md Statistic Rpt Id: string, Constant
+  -- MD Statistic Rpt ID: string, Constant
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_rpt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.security_exchange.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|16:SecurityExchange")
 
-  -- Security Id: string, Copy
+  -- Security ID: string, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.security_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "8:template|35:https://www.deutsche-boerse.com/rta|26:MarketDataStatisticsUpdate|0:|10:SecurityID")
 
-  -- Security Id Source: string, Default
+  -- Security ID Source: string, Default
   index, value = eurex_t7_marketsignals_fast_v8_1.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- No Md Statistic: uInt32, Copy
+  -- No MD Statistic: uInt32, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.no_md_statistic.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|13:NoMDStatistic")
 
-  -- Md Statistic Rpt Grp: No Md Statistic entries
+  -- MD Statistic Rpt Grp: No MD Statistic entries
   local count = value or 0
   for market_data_statistics_update_md_statistic_rpt_grp_index = 1, count do
     index = eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update_md_statistic_rpt_grp.dissect(buffer, index, packet, parent, presence_map, base, state, market_data_statistics_update_md_statistic_rpt_grp_index)
@@ -1966,21 +1966,21 @@ eurex_t7_marketsignals_fast_v8_1.market_data_statistics_update.dissect = functio
   return index
 end
 
--- Market Data Statistics Reference Data Md Stats Attrib Grp
+-- Market Data Statistics Reference Data MD Stats Attrib Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data_md_stats_attrib_grp = {}
 
--- Dissect Fields: Market Data Statistics Reference Data Md Stats Attrib Grp
+-- Dissect Fields: Market Data Statistics Reference Data MD Stats Attrib Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data_md_stats_attrib_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Stat Attribute Type: uInt32, sent
+  -- MD Stat Attribute Type: uInt32, sent
   index, value = eurex_t7_marketsignals_fast_v8_1.md_stat_attribute_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
--- Dissect: Market Data Statistics Reference Data Md Stats Attrib Grp
+-- Dissect: Market Data Statistics Reference Data MD Stats Attrib Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data_md_stats_attrib_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_reference_data_md_stats_attrib_grp, buffer(offset, 0))
   local index = offset
@@ -1996,48 +1996,48 @@ eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data_md_stats_
   return index
 end
 
--- Market Data Statistics Reference Data Md Statistic Rpt Grp
+-- Market Data Statistics Reference Data MD Statistic Rpt Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data_md_statistic_rpt_grp = {}
 
--- Dissect Fields: Market Data Statistics Reference Data Md Statistic Rpt Grp
+-- Dissect Fields: Market Data Statistics Reference Data MD Statistic Rpt Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data_md_statistic_rpt_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Statistic Id: uInt32, Delta
+  -- MD Statistic ID: uInt32, Delta
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|13:MDStatisticID")
 
-  -- Md Statistic Status: uInt32, Default
+  -- MD Statistic Status: uInt32, Default
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_status.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Md Statistic Name: string, Copy
+  -- MD Statistic Name: string, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_name.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|15:MDStatisticName")
 
-  -- Md Statistic Desc: string, Copy
+  -- MD Statistic Desc: string, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_desc.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|15:MDStatisticDesc")
 
-  -- Md Statistic Frequency Period: uInt32, Copy, optional
+  -- MD Statistic Frequency Period: uInt32, Copy, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_frequency_period.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|26:MDStatisticFrequencyPeriod")
 
-  -- Md Statistic Frequency Unit: uInt32, Default, optional
+  -- MD Statistic Frequency Unit: uInt32, Default, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_frequency_unit.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
-  -- Md Statistic Interval Period: uInt32, Copy, optional
+  -- MD Statistic Interval Period: uInt32, Copy, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_interval_period.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "6:global|0:|25:MDStatisticIntervalPeriod")
 
-  -- Md Statistic Interval Unit: uInt32, Default, optional
+  -- MD Statistic Interval Unit: uInt32, Default, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_interval_unit.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Md Statistic Type: uInt32, Default
+  -- MD Statistic Type: uInt32, Default
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_type.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
-  -- Md Statistic Scope: uInt32, Default
+  -- MD Statistic Scope: uInt32, Default
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_scope.dissect(buffer, index, packet, parent, presence_map[base + 8], state, nil)
 
-  -- Md Statistic Sub Scope: uInt32, Default, optional
+  -- MD Statistic Sub Scope: uInt32, Default, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_sub_scope.dissect(buffer, index, packet, parent, presence_map[base + 9], state, nil)
 
-  -- Md Statistic Scope Type: uInt32, Default, optional
+  -- MD Statistic Scope Type: uInt32, Default, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_scope_type.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
   -- Side: uInt32, Default, optional
@@ -2049,13 +2049,13 @@ eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data_md_statis
   -- Time In Force: uInt32, Default, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.time_in_force.dissect(buffer, index, packet, parent, presence_map[base + 13], state, nil)
 
-  -- Md Statistic Ratio Type: uInt32, Default, optional
+  -- MD Statistic Ratio Type: uInt32, Default, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_ratio_type.dissect(buffer, index, packet, parent, presence_map[base + 14], state, nil)
 
-  -- No Md Stat Attributes: uInt32, Default, optional
+  -- No MD Stat Attributes: uInt32, Default, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.no_md_stat_attributes.dissect(buffer, index, packet, parent, presence_map[base + 15], state, nil)
 
-  -- Md Stats Attrib Grp: No Md Stat Attributes entries
+  -- MD Stats Attrib Grp: No MD Stat Attributes entries
   local count = value or 0
   for market_data_statistics_reference_data_md_stats_attrib_grp_index = 1, count do
     index = eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data_md_stats_attrib_grp.dissect(buffer, index, packet, parent, presence_map, base, state, market_data_statistics_reference_data_md_stats_attrib_grp_index)
@@ -2064,7 +2064,7 @@ eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data_md_statis
   return index
 end
 
--- Dissect: Market Data Statistics Reference Data Md Statistic Rpt Grp
+-- Dissect: Market Data Statistics Reference Data MD Statistic Rpt Grp
 eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data_md_statistic_rpt_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_eurex_t7_marketsignals_fast_v8_1.fields.market_data_statistics_reference_data_md_statistic_rpt_grp, buffer(offset, 0))
   local index = offset
@@ -2106,25 +2106,25 @@ eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data.fields = 
   -- Msg Type: string, Constant
   index, value = eurex_t7_marketsignals_fast_v8_1.msg_type_constant_dp.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|12:SenderCompID")
 
-  -- Md Statistic Rpt Id: string, Constant
+  -- MD Statistic Rpt ID: string, Constant
   index, value = eurex_t7_marketsignals_fast_v8_1.md_statistic_rpt_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Exchange: string, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.security_exchange.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|16:SecurityExchange")
 
-  -- Security Id: string, Copy
+  -- Security ID: string, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.security_id.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "8:template|35:https://www.deutsche-boerse.com/rta|33:MarketDataStatisticsReferenceData|0:|10:SecurityID")
 
-  -- Security Id Source: string, Default
+  -- Security ID Source: string, Default
   index, value = eurex_t7_marketsignals_fast_v8_1.security_id_source.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- No Md Statistic: uInt32, Copy
+  -- No MD Statistic: uInt32, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.no_md_statistic.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|13:NoMDStatistic")
 
-  -- Md Statistic Rpt Grp: No Md Statistic entries
+  -- MD Statistic Rpt Grp: No MD Statistic entries
   local count = value or 0
   for market_data_statistics_reference_data_md_statistic_rpt_grp_index = 1, count do
     index = eurex_t7_marketsignals_fast_v8_1.market_data_statistics_reference_data_md_statistic_rpt_grp.dissect(buffer, index, packet, parent, presence_map, base, state, market_data_statistics_reference_data_md_statistic_rpt_grp_index)
@@ -2162,13 +2162,13 @@ eurex_t7_marketsignals_fast_v8_1.market_data_report.fields = function(buffer, of
   -- Msg Type: string, Constant
   index, value = eurex_t7_marketsignals_fast_v8_1.msg_type_constant_u20.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Report Count: uInt32, sent, optional
+  -- MD Report Count: uInt32, sent, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.md_report_count.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Last Msg Seq Num Processed: uInt32, Delta, optional
   index, value = eurex_t7_marketsignals_fast_v8_1.last_msg_seq_num_processed.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|22:LastMsgSeqNumProcessed")
 
-  -- Md Report Event: uInt32, Copy
+  -- MD Report Event: uInt32, Copy
   index, value = eurex_t7_marketsignals_fast_v8_1.md_report_event.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|13:MDReportEvent")
 
   -- Transact Time: timestamp, Delta
@@ -2197,7 +2197,7 @@ eurex_t7_marketsignals_fast_v8_1.packet_header.fields = function(buffer, offset,
   local index = offset
   local value = nil
 
-  -- Sender Comp Id: uInt32, sent
+  -- Sender Comp ID: uInt32, sent
   index, value = eurex_t7_marketsignals_fast_v8_1.sender_comp_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Packet Seq Num: byteVector, sent

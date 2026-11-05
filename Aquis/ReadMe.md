@@ -1,4 +1,4 @@
-[![Aquis](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Aquis/Images/Logo.png)](https://www.aquis.eu)
+[![Aquis](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Aquis/Images/Logo.png)](https://www.aquis.eu)
 
 
 ## Aquis Exchange
@@ -41,10 +41,10 @@
 
 | [Protocol][Omi.Aquis.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Aquis.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [2.10.3][Aquis.AquisEquities.TradingProtocol.Atp.v2.10.3.Dissector] | 10/3/2022 | 3285 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v2.10.3.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v2.10.3.Pdf] |
-| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.0][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Dissector] | 8/1/2025 | 3870 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Pdf] |
-| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.2][Aquis.AquisEquities.TradingProtocol.Atp.v4.2.Dissector] | 1/1/2026 | 3891 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.2.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.2.Pdf] |
-| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.5][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Dissector] | 8/1/2026 | 4003 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Pdf] |
+| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [2.10.3][Aquis.AquisEquities.TradingProtocol.Atp.v2.10.3.Dissector] | 10/3/2022 | 3479 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v2.10.3.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v2.10.3.Pdf] |
+| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.0][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Dissector] | 8/1/2025 | 4064 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Pdf] |
+| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.2][Aquis.AquisEquities.TradingProtocol.Atp.v4.2.Dissector] | 1/1/2026 | 4085 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.2.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.2.Pdf] |
+| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.5][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Dissector] | 8/1/2026 | 4197 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.5.Pdf] |
 
 
 ### Protocols

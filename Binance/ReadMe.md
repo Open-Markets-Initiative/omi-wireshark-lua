@@ -1,4 +1,4 @@
-[![Binance](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Binance/Images/Logo.png)](https://www.binance.com/en)
+[![Binance](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Binance/Images/Logo.png)](https://www.binance.com/en)
 
 
 ## Binance

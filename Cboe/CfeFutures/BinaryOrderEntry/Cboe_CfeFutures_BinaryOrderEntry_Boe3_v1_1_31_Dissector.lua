@@ -110,7 +110,7 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_31.fields.risk_reset = ProtoField
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_31.fields.risk_reset_result = ProtoField.new("Risk Reset Result", "cboe.cfefutures.binaryorderentry.boe3.v1.1.31.riskresetresult", ftypes.STRING, nil, nil, nil, "Result of risk rest")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_31.fields.risk_status_id = ProtoField.new("Risk Status Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.31.riskstatusid", ftypes.STRING, nil, nil, nil, "Unique identifier for this Reset Risk request")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_31.fields.secondary_exec_id = ProtoField.new("Secondary Exec Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.31.secondaryexecid", ftypes.UINT64, nil, nil, nil, "Indicates whether an execution is a spread or a simple instrument execution that is part of a spread trade")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_31.fields.security_desc = ProtoField.new("Security Desc", "cboe.cfefutures.binaryorderentry.boe3.v1.1.31.securitydesc", ftypes.BYTES, nil, nil, nil, "The Options on Futures identifier name")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_31.fields.security_desc = ProtoField.new("Security Desc", "cboe.cfefutures.binaryorderentry.boe3.v1.1.31.securitydesc", ftypes.STRING, nil, nil, nil, "The Options on Futures identifier name")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_31.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.cfefutures.binaryorderentry.boe3.v1.1.31.sequencenumber", ftypes.UINT32, nil, nil, nil, "Last Received Sequence number for the unit.")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_31.fields.session_id = ProtoField.new("Session Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.31.sessionid", ftypes.STRING, nil, nil, nil, "Session Id as supplied by CFE")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_31.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.31.sessionsubid", ftypes.STRING, nil, nil, nil, "Session Sub Id as supplied by CFE")
@@ -3869,6 +3869,11 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_31.security_desc.size = 16
 
 -- Display: Security Desc
 cboe_cfefutures_binaryorderentry_boe3_v1_1_31.security_desc.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Desc: No Value"
+  end
+
   return "Security Desc: "..value
 end
 
@@ -3876,7 +3881,18 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_31.security_desc.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_31.security_desc.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_31.security_desc.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_31.fields.security_desc, range, value, display)
@@ -5334,7 +5350,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_31.trade_cancel_correct_option.fields
   -- Capacity: Alphanumeric
   index, capacity = cboe_cfefutures_binaryorderentry_boe3_v1_1_31.capacity.dissect(buffer, index, packet, parent)
 
-  -- Security Desc: Binary
+  -- Security Desc: Text
   index, security_desc = cboe_cfefutures_binaryorderentry_boe3_v1_1_31.security_desc.dissect(buffer, index, packet, parent)
 
   -- Open Close: Alphanumeric
@@ -5850,7 +5866,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_31.order_execution_option.fields = fu
   -- Clearing Firm: Alpha
   index, clearing_firm = cboe_cfefutures_binaryorderentry_boe3_v1_1_31.clearing_firm.dissect(buffer, index, packet, parent)
 
-  -- Security Desc: Binary
+  -- Security Desc: Text
   index, security_desc = cboe_cfefutures_binaryorderentry_boe3_v1_1_31.security_desc.dissect(buffer, index, packet, parent)
 
   -- Fee Code: Alphanumeric
@@ -6380,7 +6396,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_31.order_acknowledgement_option.field
   -- Symbol: Alphanumeric
   index, symbol = cboe_cfefutures_binaryorderentry_boe3_v1_1_31.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Desc: Binary
+  -- Security Desc: Text
   index, security_desc = cboe_cfefutures_binaryorderentry_boe3_v1_1_31.security_desc.dissect(buffer, index, packet, parent)
 
   -- Capacity: Alphanumeric
@@ -7856,7 +7872,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_31.new_order_option.fields = function
   -- Symbol: Alphanumeric
   index, symbol = cboe_cfefutures_binaryorderentry_boe3_v1_1_31.symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Desc: Binary
+  -- Security Desc: Text
   index, security_desc = cboe_cfefutures_binaryorderentry_boe3_v1_1_31.security_desc.dissect(buffer, index, packet, parent)
 
   -- Capacity: Alphanumeric

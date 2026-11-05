@@ -1,4 +1,4 @@
-[![Nse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Images/Logo.png)](https://www.nseindia.com)
+[![Nse](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Nse/Images/Logo.png)](https://www.nseindia.com)
 
 
 ## National Stock Exchange of India Ltd

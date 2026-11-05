@@ -58,6 +58,12 @@ runuser -u tester -- tshark \
   > Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json 2> Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json.stderr; exit 1; }
 
-grep "nyse.nationalequities.bbo.pillar.v2.5.d." Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json
+fields=$(grep -c "nyse.nationalequities.bbo.pillar.v2.5.d." Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json) \
+  || { echo "--- no nyse.nationalequities.bbo.pillar.v2.5.d fields (MultipleMessages) ---"; exit 1; }
+echo "  nyse.nationalequities.bbo.pillar.v2.5.d fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'nyse.nationalequities.bbo.pillar.v2.5.d.' Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

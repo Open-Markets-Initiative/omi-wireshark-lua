@@ -50,6 +50,12 @@ runuser -u tester -- tshark \
   > Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json 2> Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json.stderr; exit 1; }
 
-grep "nyse.nationalequities.trades.pillar.v2.6." Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json
+fields=$(grep -c "nyse.nationalequities.trades.pillar.v2.6." Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json) \
+  || { echo "--- no nyse.nationalequities.trades.pillar.v2.6 fields (MultipleMessages) ---"; exit 1; }
+echo "  nyse.nationalequities.trades.pillar.v2.6 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'nyse.nationalequities.trades.pillar.v2.6.' Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

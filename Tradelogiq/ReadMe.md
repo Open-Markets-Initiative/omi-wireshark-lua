@@ -1,4 +1,4 @@
-[![Tradelogiq](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Images/Logo.png)](https://tradelogiq.com)
+[![Tradelogiq](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/Tradelogiq/Images/Logo.png)](https://tradelogiq.com)
 
 
 ## Tradelogiq Markets Inc.

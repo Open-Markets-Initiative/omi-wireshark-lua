@@ -82,6 +82,12 @@ runuser -u tester -- tshark \
   > Siac.Cts.Output.Cta.v2.9.Multiplemessages.json 2> Siac.Cts.Output.Cta.v2.9.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Siac.Cts.Output.Cta.v2.9.Multiplemessages.json.stderr; exit 1; }
 
-grep "siac.cts.output.cta.v2.9." Siac.Cts.Output.Cta.v2.9.Multiplemessages.json
+fields=$(grep -c "siac.cts.output.cta.v2.9." Siac.Cts.Output.Cta.v2.9.Multiplemessages.json) \
+  || { echo "--- no siac.cts.output.cta.v2.9 fields (MultipleMessages) ---"; exit 1; }
+echo "  siac.cts.output.cta.v2.9 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Siac.Cts.Output.Cta.v2.9.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Siac.Cts.Output.Cta.v2.9.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'siac.cts.output.cta.v2.9.' Siac.Cts.Output.Cta.v2.9.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

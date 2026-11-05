@@ -99,6 +99,12 @@ runuser -u tester -- tshark \
   > Cboe.C1Options.OpeningAuction.Csm.v1.0.Multiplemessages.json 2> Cboe.C1Options.OpeningAuction.Csm.v1.0.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Cboe.C1Options.OpeningAuction.Csm.v1.0.Multiplemessages.json.stderr; exit 1; }
 
-grep "cboe.c1options.openingauction.csm.v1.0." Cboe.C1Options.OpeningAuction.Csm.v1.0.Multiplemessages.json
+fields=$(grep -c "cboe.c1options.openingauction.csm.v1.0." Cboe.C1Options.OpeningAuction.Csm.v1.0.Multiplemessages.json) \
+  || { echo "--- no cboe.c1options.openingauction.csm.v1.0 fields (MultipleMessages) ---"; exit 1; }
+echo "  cboe.c1options.openingauction.csm.v1.0 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Cboe.C1Options.OpeningAuction.Csm.v1.0.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Cboe.C1Options.OpeningAuction.Csm.v1.0.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'cboe.c1options.openingauction.csm.v1.0.' Cboe.C1Options.OpeningAuction.Csm.v1.0.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

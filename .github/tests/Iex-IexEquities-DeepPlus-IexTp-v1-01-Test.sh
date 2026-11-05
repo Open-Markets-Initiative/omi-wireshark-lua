@@ -161,6 +161,12 @@ runuser -u tester -- tshark \
   > Iex.IexEquities.DeepPlus.IexTp.v1.01.Multiplemessages.json 2> Iex.IexEquities.DeepPlus.IexTp.v1.01.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Iex.IexEquities.DeepPlus.IexTp.v1.01.Multiplemessages.json.stderr; exit 1; }
 
-grep "iex.iexequities.deepplus.iextp.v1.01." Iex.IexEquities.DeepPlus.IexTp.v1.01.Multiplemessages.json
+fields=$(grep -c "iex.iexequities.deepplus.iextp.v1.01." Iex.IexEquities.DeepPlus.IexTp.v1.01.Multiplemessages.json) \
+  || { echo "--- no iex.iexequities.deepplus.iextp.v1.01 fields (MultipleMessages) ---"; exit 1; }
+echo "  iex.iexequities.deepplus.iextp.v1.01 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Iex.IexEquities.DeepPlus.IexTp.v1.01.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Iex.IexEquities.DeepPlus.IexTp.v1.01.Multiplemessages.json | sort -u | head; exit 1; }
 
 [ "$(grep -c 'iex.iexequities.deepplus.iextp.v1.01.' Iex.IexEquities.DeepPlus.IexTp.v1.01.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

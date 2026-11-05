@@ -25,11 +25,11 @@ omi_eurex_t7_emdi_fast_v13_0.fields.presence_identified = ProtoField.new("Templa
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_unused = ProtoField.new("Unused", "eurex.t7.emdi.fast.v13.0.presenceunused", ftypes.UINT8, nil, base.HEX)
 
 -- Eurex T7 Emdi Fast 13.0 Presence Map Fields
-omi_eurex_t7_emdi_fast_v13_0.fields.presence_sender_comp_id = ProtoField.new("Sender Comp Id", "eurex.t7.emdi.fast.v13.0.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_emdi_fast_v13_0.fields.presence_sender_sub_id = ProtoField.new("Sender Sub Id", "eurex.t7.emdi.fast.v13.0.sendersubidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_emdi_fast_v13_0.fields.presence_sender_comp_id = ProtoField.new("Sender Comp ID", "eurex.t7.emdi.fast.v13.0.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_emdi_fast_v13_0.fields.presence_sender_sub_id = ProtoField.new("Sender Sub ID", "eurex.t7.emdi.fast.v13.0.sendersubidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.emdi.fast.v13.0.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_emdi_fast_v13_0.fields.presence_market_segment_id = ProtoField.new("Market Segment Id", "eurex.t7.emdi.fast.v13.0.marketsegmentidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_emdi_fast_v13_0.fields.presence_trading_session_id = ProtoField.new("Trading Session Id", "eurex.t7.emdi.fast.v13.0.tradingsessionidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_emdi_fast_v13_0.fields.presence_market_segment_id = ProtoField.new("Market Segment ID", "eurex.t7.emdi.fast.v13.0.marketsegmentidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_emdi_fast_v13_0.fields.presence_trading_session_id = ProtoField.new("Trading Session ID", "eurex.t7.emdi.fast.v13.0.tradingsessionidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_market_condition = ProtoField.new("Market Condition", "eurex.t7.emdi.fast.v13.0.marketconditionpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_fast_market_indicator = ProtoField.new("Fast Market Indicator", "eurex.t7.emdi.fast.v13.0.fastmarketindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_instrument_scope_product_complex = ProtoField.new("Instrument Scope Product Complex", "eurex.t7.emdi.fast.v13.0.instrumentscopeproductcomplexpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -38,7 +38,7 @@ omi_eurex_t7_emdi_fast_v13_0.fields.presence_security_mass_trading_status = Prot
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_mass_market_condition = ProtoField.new("Mass Market Condition", "eurex.t7.emdi.fast.v13.0.massmarketconditionpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_security_mass_trading_event = ProtoField.new("Security Mass Trading Event", "eurex.t7.emdi.fast.v13.0.securitymasstradingeventpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_mass_sold_out_indicator = ProtoField.new("Mass Sold Out Indicator", "eurex.t7.emdi.fast.v13.0.masssoldoutindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_emdi_fast_v13_0.fields.presence_tes_security_mass_status = ProtoField.new("Tes Security Mass Status", "eurex.t7.emdi.fast.v13.0.tessecuritymassstatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_emdi_fast_v13_0.fields.presence_tes_security_mass_status = ProtoField.new("TES Security Mass Status", "eurex.t7.emdi.fast.v13.0.tessecuritymassstatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_no_related_sym = ProtoField.new("No Related Sym", "eurex.t7.emdi.fast.v13.0.norelatedsympresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_last_fragment = ProtoField.new("Last Fragment", "eurex.t7.emdi.fast.v13.0.lastfragmentpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_security_status = ProtoField.new("Security Status", "eurex.t7.emdi.fast.v13.0.securitystatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -47,59 +47,59 @@ omi_eurex_t7_emdi_fast_v13_0.fields.presence_security_trading_event = ProtoField
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_sold_out_indicator = ProtoField.new("Sold Out Indicator", "eurex.t7.emdi.fast.v13.0.soldoutindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_high_px = ProtoField.new("High Px", "eurex.t7.emdi.fast.v13.0.highpxpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_low_px = ProtoField.new("Low Px", "eurex.t7.emdi.fast.v13.0.lowpxpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_emdi_fast_v13_0.fields.presence_tes_security_status = ProtoField.new("Tes Security Status", "eurex.t7.emdi.fast.v13.0.tessecuritystatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_emdi_fast_v13_0.fields.presence_tes_security_status = ProtoField.new("TES Security Status", "eurex.t7.emdi.fast.v13.0.tessecuritystatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_product_complex = ProtoField.new("Product Complex", "eurex.t7.emdi.fast.v13.0.productcomplexpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_leg_ratio_multiplier = ProtoField.new("Leg Ratio Multiplier", "eurex.t7.emdi.fast.v13.0.legratiomultiplierpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_no_cross_request_side_grp = ProtoField.new("No Cross Request Side Grp", "eurex.t7.emdi.fast.v13.0.nocrossrequestsidegrppresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "eurex.t7.emdi.fast.v13.0.lastmsgseqnumprocessedpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 omi_eurex_t7_emdi_fast_v13_0.fields.presence_refresh_indicator = ProtoField.new("Refresh Indicator", "eurex.t7.emdi.fast.v13.0.refreshindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_eurex_t7_emdi_fast_v13_0.fields.presence_no_md_entries = ProtoField.new("No Md Entries", "eurex.t7.emdi.fast.v13.0.nomdentriespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_eurex_t7_emdi_fast_v13_0.fields.presence_no_md_entries = ProtoField.new("No MD Entries", "eurex.t7.emdi.fast.v13.0.nomdentriespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 
 -- Eurex T7 Emdi Fast 13.0 Fields
-omi_eurex_t7_emdi_fast_v13_0.fields.partition_id = ProtoField.new("Partition Id", "eurex.t7.emdi.fast.v13.0.partitionid", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.sender_comp_id = ProtoField.new("Sender Comp Id", "eurex.t7.emdi.fast.v13.0.sendercompid", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.partition_id = ProtoField.new("Partition ID", "eurex.t7.emdi.fast.v13.0.partitionid", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "eurex.t7.emdi.fast.v13.0.sendercompid", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.packet_seq_num = ProtoField.new("Packet Seq Num", "eurex.t7.emdi.fast.v13.0.packetseqnum", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.sending_time = ProtoField.new("Sending Time", "eurex.t7.emdi.fast.v13.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_eurex_t7_emdi_fast_v13_0.fields.performance_indicator = ProtoField.new("Performance Indicator", "eurex.t7.emdi.fast.v13.0.performanceindicator", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.msg_type = ProtoField.new("Msg Type", "eurex.t7.emdi.fast.v13.0.msgtype", ftypes.STRING)
-omi_eurex_t7_emdi_fast_v13_0.fields.sender_sub_id = ProtoField.new("Sender Sub Id", "eurex.t7.emdi.fast.v13.0.sendersubid", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.sender_sub_id = ProtoField.new("Sender Sub ID", "eurex.t7.emdi.fast.v13.0.sendersubid", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "eurex.t7.emdi.fast.v13.0.lastmsgseqnumprocessed", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.emdi.fast.v13.0.msgseqnum", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.market_segment_id = ProtoField.new("Market Segment Id", "eurex.t7.emdi.fast.v13.0.marketsegmentid", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "eurex.t7.emdi.fast.v13.0.tradingsessionid", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "eurex.t7.emdi.fast.v13.0.tradingsessionsubid", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.market_segment_id = ProtoField.new("Market Segment ID", "eurex.t7.emdi.fast.v13.0.marketsegmentid", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.trading_session_id = ProtoField.new("Trading Session ID", "eurex.t7.emdi.fast.v13.0.tradingsessionid", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub ID", "eurex.t7.emdi.fast.v13.0.tradingsessionsubid", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "eurex.t7.emdi.fast.v13.0.tradsesstatus", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.market_condition = ProtoField.new("Market Condition", "eurex.t7.emdi.fast.v13.0.marketcondition", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.fast_market_indicator = ProtoField.new("Fast Market Indicator", "eurex.t7.emdi.fast.v13.0.fastmarketindicator", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.transact_time = ProtoField.new("Transact Time", "eurex.t7.emdi.fast.v13.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_eurex_t7_emdi_fast_v13_0.fields.tes_trad_ses_status = ProtoField.new("Tes Trad Ses Status", "eurex.t7.emdi.fast.v13.0.testradsesstatus", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.tes_trad_ses_status = ProtoField.new("TES Trad Ses Status", "eurex.t7.emdi.fast.v13.0.testradsesstatus", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.instrument_scope_product_complex = ProtoField.new("Instrument Scope Product Complex", "eurex.t7.emdi.fast.v13.0.instrumentscopeproductcomplex", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.security_mass_status = ProtoField.new("Security Mass Status", "eurex.t7.emdi.fast.v13.0.securitymassstatus", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.security_mass_trading_status = ProtoField.new("Security Mass Trading Status", "eurex.t7.emdi.fast.v13.0.securitymasstradingstatus", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.mass_market_condition = ProtoField.new("Mass Market Condition", "eurex.t7.emdi.fast.v13.0.massmarketcondition", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.security_mass_trading_event = ProtoField.new("Security Mass Trading Event", "eurex.t7.emdi.fast.v13.0.securitymasstradingevent", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.mass_sold_out_indicator = ProtoField.new("Mass Sold Out Indicator", "eurex.t7.emdi.fast.v13.0.masssoldoutindicator", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.tes_security_mass_status = ProtoField.new("Tes Security Mass Status", "eurex.t7.emdi.fast.v13.0.tessecuritymassstatus", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.tes_security_mass_status = ProtoField.new("TES Security Mass Status", "eurex.t7.emdi.fast.v13.0.tessecuritymassstatus", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.no_related_sym = ProtoField.new("No Related Sym", "eurex.t7.emdi.fast.v13.0.norelatedsym", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.security_id = ProtoField.new("Security Id", "eurex.t7.emdi.fast.v13.0.securityid", ftypes.INT64)
-omi_eurex_t7_emdi_fast_v13_0.fields.security_id_source = ProtoField.new("Security Id Source", "eurex.t7.emdi.fast.v13.0.securityidsource", ftypes.STRING)
+omi_eurex_t7_emdi_fast_v13_0.fields.security_id = ProtoField.new("Security ID", "eurex.t7.emdi.fast.v13.0.securityid", ftypes.INT64)
+omi_eurex_t7_emdi_fast_v13_0.fields.security_id_source = ProtoField.new("Security ID Source", "eurex.t7.emdi.fast.v13.0.securityidsource", ftypes.STRING)
 omi_eurex_t7_emdi_fast_v13_0.fields.security_status = ProtoField.new("Security Status", "eurex.t7.emdi.fast.v13.0.securitystatus", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.security_trading_status = ProtoField.new("Security Trading Status", "eurex.t7.emdi.fast.v13.0.securitytradingstatus", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.security_trading_event = ProtoField.new("Security Trading Event", "eurex.t7.emdi.fast.v13.0.securitytradingevent", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.sold_out_indicator = ProtoField.new("Sold Out Indicator", "eurex.t7.emdi.fast.v13.0.soldoutindicator", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.high_px = ProtoField.new("High Px", "eurex.t7.emdi.fast.v13.0.highpx", ftypes.DOUBLE)
 omi_eurex_t7_emdi_fast_v13_0.fields.low_px = ProtoField.new("Low Px", "eurex.t7.emdi.fast.v13.0.lowpx", ftypes.DOUBLE)
-omi_eurex_t7_emdi_fast_v13_0.fields.tes_security_status = ProtoField.new("Tes Security Status", "eurex.t7.emdi.fast.v13.0.tessecuritystatus", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.tes_security_status = ProtoField.new("TES Security Status", "eurex.t7.emdi.fast.v13.0.tessecuritystatus", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.last_fragment = ProtoField.new("Last Fragment", "eurex.t7.emdi.fast.v13.0.lastfragment", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.no_md_entries = ProtoField.new("No Md Entries", "eurex.t7.emdi.fast.v13.0.nomdentries", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.md_origin_type = ProtoField.new("Md Origin Type", "eurex.t7.emdi.fast.v13.0.mdorigintype", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.md_update_action = ProtoField.new("Md Update Action", "eurex.t7.emdi.fast.v13.0.mdupdateaction", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "eurex.t7.emdi.fast.v13.0.mdentrytype", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "eurex.t7.emdi.fast.v13.0.mdentrypx", ftypes.DOUBLE)
-omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "eurex.t7.emdi.fast.v13.0.mdentrysize", ftypes.DOUBLE)
+omi_eurex_t7_emdi_fast_v13_0.fields.no_md_entries = ProtoField.new("No MD Entries", "eurex.t7.emdi.fast.v13.0.nomdentries", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.md_origin_type = ProtoField.new("MD Origin Type", "eurex.t7.emdi.fast.v13.0.mdorigintype", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.md_update_action = ProtoField.new("MD Update Action", "eurex.t7.emdi.fast.v13.0.mdupdateaction", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_type = ProtoField.new("MD Entry Type", "eurex.t7.emdi.fast.v13.0.mdentrytype", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_px = ProtoField.new("MD Entry Px", "eurex.t7.emdi.fast.v13.0.mdentrypx", ftypes.DOUBLE)
+omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_size = ProtoField.new("MD Entry Size", "eurex.t7.emdi.fast.v13.0.mdentrysize", ftypes.DOUBLE)
 omi_eurex_t7_emdi_fast_v13_0.fields.number_of_orders = ProtoField.new("Number Of Orders", "eurex.t7.emdi.fast.v13.0.numberoforders", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.md_price_level = ProtoField.new("Md Price Level", "eurex.t7.emdi.fast.v13.0.mdpricelevel", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "eurex.t7.emdi.fast.v13.0.mdentrytime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_eurex_t7_emdi_fast_v13_0.fields.md_price_level = ProtoField.new("MD Price Level", "eurex.t7.emdi.fast.v13.0.mdpricelevel", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_time = ProtoField.new("MD Entry Time", "eurex.t7.emdi.fast.v13.0.mdentrytime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_eurex_t7_emdi_fast_v13_0.fields.potential_security_trading_event = ProtoField.new("Potential Security Trading Event", "eurex.t7.emdi.fast.v13.0.potentialsecuritytradingevent", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.quote_condition = ProtoField.new("Quote Condition", "eurex.t7.emdi.fast.v13.0.quotecondition", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.trd_type = ProtoField.new("Trd Type", "eurex.t7.emdi.fast.v13.0.trdtype", ftypes.UINT32)
@@ -117,7 +117,7 @@ omi_eurex_t7_emdi_fast_v13_0.fields.number_of_buy_sides = ProtoField.new("Number
 omi_eurex_t7_emdi_fast_v13_0.fields.number_of_sell_sides = ProtoField.new("Number Of Sell Sides", "eurex.t7.emdi.fast.v13.0.numberofsellsides", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.total_num_of_trades = ProtoField.new("Total Num Of Trades", "eurex.t7.emdi.fast.v13.0.totalnumoftrades", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.resting_cxl_qty = ProtoField.new("Resting Cxl Qty", "eurex.t7.emdi.fast.v13.0.restingcxlqty", ftypes.DOUBLE)
-omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_id = ProtoField.new("Md Entry Id", "eurex.t7.emdi.fast.v13.0.mdentryid", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_id = ProtoField.new("MD Entry ID", "eurex.t7.emdi.fast.v13.0.mdentryid", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.non_disclosed_trade_volume = ProtoField.new("Non Disclosed Trade Volume", "eurex.t7.emdi.fast.v13.0.nondisclosedtradevolume", ftypes.DOUBLE)
 omi_eurex_t7_emdi_fast_v13_0.fields.security_update_action = ProtoField.new("Security Update Action", "eurex.t7.emdi.fast.v13.0.securityupdateaction", ftypes.STRING)
 omi_eurex_t7_emdi_fast_v13_0.fields.security_desc = ProtoField.new("Security Desc", "eurex.t7.emdi.fast.v13.0.securitydesc", ftypes.STRING)
@@ -128,8 +128,8 @@ omi_eurex_t7_emdi_fast_v13_0.fields.leg_ratio_multiplier = ProtoField.new("Leg R
 omi_eurex_t7_emdi_fast_v13_0.fields.quantity_scaling_factor = ProtoField.new("Quantity Scaling Factor", "eurex.t7.emdi.fast.v13.0.quantityscalingfactor", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.no_legs = ProtoField.new("No Legs", "eurex.t7.emdi.fast.v13.0.nolegs", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.leg_symbol = ProtoField.new("Leg Symbol", "eurex.t7.emdi.fast.v13.0.legsymbol", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.leg_security_id = ProtoField.new("Leg Security Id", "eurex.t7.emdi.fast.v13.0.legsecurityid", ftypes.INT64)
-omi_eurex_t7_emdi_fast_v13_0.fields.leg_security_id_source = ProtoField.new("Leg Security Id Source", "eurex.t7.emdi.fast.v13.0.legsecurityidsource", ftypes.STRING)
+omi_eurex_t7_emdi_fast_v13_0.fields.leg_security_id = ProtoField.new("Leg Security ID", "eurex.t7.emdi.fast.v13.0.legsecurityid", ftypes.INT64)
+omi_eurex_t7_emdi_fast_v13_0.fields.leg_security_id_source = ProtoField.new("Leg Security ID Source", "eurex.t7.emdi.fast.v13.0.legsecurityidsource", ftypes.STRING)
 omi_eurex_t7_emdi_fast_v13_0.fields.leg_security_type = ProtoField.new("Leg Security Type", "eurex.t7.emdi.fast.v13.0.legsecuritytype", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "eurex.t7.emdi.fast.v13.0.legratioqty", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.leg_side = ProtoField.new("Leg Side", "eurex.t7.emdi.fast.v13.0.legside", ftypes.UINT32)
@@ -143,8 +143,8 @@ omi_eurex_t7_emdi_fast_v13_0.fields.no_cross_request_side_grp = ProtoField.new("
 omi_eurex_t7_emdi_fast_v13_0.fields.input_source = ProtoField.new("Input Source", "eurex.t7.emdi.fast.v13.0.inputsource", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.refresh_indicator = ProtoField.new("Refresh Indicator", "eurex.t7.emdi.fast.v13.0.refreshindicator", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.last_update_time = ProtoField.new("Last Update Time", "eurex.t7.emdi.fast.v13.0.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_eurex_t7_emdi_fast_v13_0.fields.md_book_type = ProtoField.new("Md Book Type", "eurex.t7.emdi.fast.v13.0.mdbooktype", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.md_sub_book_type = ProtoField.new("Md Sub Book Type", "eurex.t7.emdi.fast.v13.0.mdsubbooktype", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.md_book_type = ProtoField.new("MD Book Type", "eurex.t7.emdi.fast.v13.0.mdbooktype", ftypes.UINT32)
+omi_eurex_t7_emdi_fast_v13_0.fields.md_sub_book_type = ProtoField.new("MD Sub Book Type", "eurex.t7.emdi.fast.v13.0.mdsubbooktype", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.maturity_date = ProtoField.new("Maturity Date", "eurex.t7.emdi.fast.v13.0.maturitydate", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.contract_date = ProtoField.new("Contract Date", "eurex.t7.emdi.fast.v13.0.contractdate", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.security_reference_data_supplement = ProtoField.new("Security Reference Data Supplement", "eurex.t7.emdi.fast.v13.0.securityreferencedatasupplement", ftypes.UINT32)
@@ -153,18 +153,18 @@ omi_eurex_t7_emdi_fast_v13_0.fields.put_or_call = ProtoField.new("Put Or Call", 
 omi_eurex_t7_emdi_fast_v13_0.fields.opt_attribute = ProtoField.new("Opt Attribute", "eurex.t7.emdi.fast.v13.0.optattribute", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.exercise_style = ProtoField.new("Exercise Style", "eurex.t7.emdi.fast.v13.0.exercisestyle", ftypes.UINT32)
 omi_eurex_t7_emdi_fast_v13_0.fields.settl_method = ProtoField.new("Settl Method", "eurex.t7.emdi.fast.v13.0.settlmethod", ftypes.UINT32)
-omi_eurex_t7_emdi_fast_v13_0.fields.related_security_id = ProtoField.new("Related Security Id", "eurex.t7.emdi.fast.v13.0.relatedsecurityid", ftypes.INT64)
-omi_eurex_t7_emdi_fast_v13_0.fields.related_security_id_source = ProtoField.new("Related Security Id Source", "eurex.t7.emdi.fast.v13.0.relatedsecurityidsource", ftypes.STRING)
+omi_eurex_t7_emdi_fast_v13_0.fields.related_security_id = ProtoField.new("Related Security ID", "eurex.t7.emdi.fast.v13.0.relatedsecurityid", ftypes.INT64)
+omi_eurex_t7_emdi_fast_v13_0.fields.related_security_id_source = ProtoField.new("Related Security ID Source", "eurex.t7.emdi.fast.v13.0.relatedsecurityidsource", ftypes.STRING)
 
 -- Eurex T7 Emdi Fast 13.0 Messages
-omi_eurex_t7_emdi_fast_v13_0.fields.emd_packet_header = ProtoField.new("Emd Packet Header Framing", "eurex.t7.emdi.fast.v13.0.emdpacketheader", ftypes.NONE)
+omi_eurex_t7_emdi_fast_v13_0.fields.emd_packet_header = ProtoField.new("EMD Packet Header Framing", "eurex.t7.emdi.fast.v13.0.emdpacketheader", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.beacon = ProtoField.new("Beacon Message", "eurex.t7.emdi.fast.v13.0.beacon", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.product_state_change = ProtoField.new("Product State Change Message", "eurex.t7.emdi.fast.v13.0.productstatechange", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.mass_instrument_state_change = ProtoField.new("Mass Instrument State Change Message", "eurex.t7.emdi.fast.v13.0.massinstrumentstatechange", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.sec_mass_stat_grp = ProtoField.new("Sec Mass Stat Grp", "eurex.t7.emdi.fast.v13.0.secmassstatgrp", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.instrument_state_change = ProtoField.new("Instrument State Change Message", "eurex.t7.emdi.fast.v13.0.instrumentstatechange", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.depth_incremental = ProtoField.new("Depth Incremental Message", "eurex.t7.emdi.fast.v13.0.depthincremental", ftypes.NONE)
-omi_eurex_t7_emdi_fast_v13_0.fields.depth_incremental_md_inc_grp = ProtoField.new("Depth Incremental Md Inc Grp", "eurex.t7.emdi.fast.v13.0.depthincrementalmdincgrp", ftypes.NONE)
+omi_eurex_t7_emdi_fast_v13_0.fields.depth_incremental_md_inc_grp = ProtoField.new("Depth Incremental MD Inc Grp", "eurex.t7.emdi.fast.v13.0.depthincrementalmdincgrp", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.trade_entry_grp = ProtoField.new("Trade Entry Grp", "eurex.t7.emdi.fast.v13.0.tradeentrygrp", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.complex_instrument_update = ProtoField.new("Complex Instrument Update Message", "eurex.t7.emdi.fast.v13.0.complexinstrumentupdate", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.instrmt_leg_grp = ProtoField.new("Instrmt Leg Grp", "eurex.t7.emdi.fast.v13.0.instrmtleggrp", ftypes.NONE)
@@ -174,9 +174,9 @@ omi_eurex_t7_emdi_fast_v13_0.fields.quot_req_grp = ProtoField.new("Quot Req Grp"
 omi_eurex_t7_emdi_fast_v13_0.fields.cross_request = ProtoField.new("Cross Request Message", "eurex.t7.emdi.fast.v13.0.crossrequest", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.cross_request_side_grp = ProtoField.new("Cross Request Side Grp", "eurex.t7.emdi.fast.v13.0.crossrequestsidegrp", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.depth_snapshot = ProtoField.new("Depth Snapshot Message", "eurex.t7.emdi.fast.v13.0.depthsnapshot", ftypes.NONE)
-omi_eurex_t7_emdi_fast_v13_0.fields.md_ssh_grp = ProtoField.new("Md Ssh Grp", "eurex.t7.emdi.fast.v13.0.mdsshgrp", ftypes.NONE)
+omi_eurex_t7_emdi_fast_v13_0.fields.md_ssh_grp = ProtoField.new("MD Ssh Grp", "eurex.t7.emdi.fast.v13.0.mdsshgrp", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.top_of_book_implied = ProtoField.new("Top Of Book Implied Message", "eurex.t7.emdi.fast.v13.0.topofbookimplied", ftypes.NONE)
-omi_eurex_t7_emdi_fast_v13_0.fields.top_of_book_implied_md_inc_grp = ProtoField.new("Top Of Book Implied Md Inc Grp", "eurex.t7.emdi.fast.v13.0.topofbookimpliedmdincgrp", ftypes.NONE)
+omi_eurex_t7_emdi_fast_v13_0.fields.top_of_book_implied_md_inc_grp = ProtoField.new("Top Of Book Implied MD Inc Grp", "eurex.t7.emdi.fast.v13.0.topofbookimpliedmdincgrp", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.flexible_instrument_update = ProtoField.new("Flexible Instrument Update Message", "eurex.t7.emdi.fast.v13.0.flexibleinstrumentupdate", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.flexible_instrument_update_market_segment_grp = ProtoField.new("Flexible Instrument Update Market Segment Grp", "eurex.t7.emdi.fast.v13.0.flexibleinstrumentupdatemarketsegmentgrp", ftypes.NONE)
 omi_eurex_t7_emdi_fast_v13_0.fields.scaled_simple_instrument_update = ProtoField.new("Scaled Simple Instrument Update Message", "eurex.t7.emdi.fast.v13.0.scaledsimpleinstrumentupdate", ftypes.NONE)
@@ -591,10 +591,10 @@ end
 -- Eurex T7 Emdi Fast 13.0 Fields
 -----------------------------------------------------------------------
 
--- Partition Id
+-- Partition ID
 eurex_t7_emdi_fast_v13_0.partition_id = {}
 
--- Dissect: Partition Id
+-- Dissect: Partition ID
 eurex_t7_emdi_fast_v13_0.partition_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -607,16 +607,16 @@ eurex_t7_emdi_fast_v13_0.partition_id.dissect = function(buffer, offset, packet,
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.partition_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.partition_id, range, 0)
-    absent:set_text("Partition Id: No Value")
+    absent:set_text("Partition ID: No Value")
   end
 
   return offset, value
 end
 
--- Sender Comp Id (Sent)
+-- Sender Comp ID (Sent)
 eurex_t7_emdi_fast_v13_0.sender_comp_id_sent = {}
 
--- Dissect: Sender Comp Id (Sent)
+-- Dissect: Sender Comp ID (Sent)
 eurex_t7_emdi_fast_v13_0.sender_comp_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -629,16 +629,16 @@ eurex_t7_emdi_fast_v13_0.sender_comp_id_sent.dissect = function(buffer, offset, 
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.sender_comp_id, range, 0)
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
 end
 
--- Sender Comp Id (Copy)
+-- Sender Comp ID (Copy)
 eurex_t7_emdi_fast_v13_0.sender_comp_id_copy = {}
 
--- Dissect: Sender Comp Id (Copy)
+-- Dissect: Sender Comp ID (Copy)
 eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -651,7 +651,7 @@ eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect = function(buffer, offset, 
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Comp Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Comp ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -662,7 +662,7 @@ eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect = function(buffer, offset, 
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.sender_comp_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.sender_comp_id, range, 0)
-    absent:set_text("Sender Comp Id: No Value")
+    absent:set_text("Sender Comp ID: No Value")
   end
 
   return offset, value
@@ -1285,10 +1285,10 @@ eurex_t7_emdi_fast_v13_0.msg_type_constant_w.dissect = function(buffer, offset, 
   return offset, value
 end
 
--- Sender Sub Id
+-- Sender Sub ID
 eurex_t7_emdi_fast_v13_0.sender_sub_id = {}
 
--- Dissect: Sender Sub Id
+-- Dissect: Sender Sub ID
 eurex_t7_emdi_fast_v13_0.sender_sub_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1301,7 +1301,7 @@ eurex_t7_emdi_fast_v13_0.sender_sub_id.dissect = function(buffer, offset, packet
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Sub Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Sender Sub ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1312,7 +1312,7 @@ eurex_t7_emdi_fast_v13_0.sender_sub_id.dissect = function(buffer, offset, packet
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.sender_sub_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.sender_sub_id, range, 0)
-    absent:set_text("Sender Sub Id: No Value")
+    absent:set_text("Sender Sub ID: No Value")
   end
 
   return offset, value
@@ -1435,10 +1435,10 @@ eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_optional.dissect = function(buffe
   return offset, value
 end
 
--- Market Segment Id (Copy)
+-- Market Segment ID (Copy)
 eurex_t7_emdi_fast_v13_0.market_segment_id_copy = {}
 
--- Dissect: Market Segment Id (Copy)
+-- Dissect: Market Segment ID (Copy)
 eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1451,7 +1451,7 @@ eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect = function(buffer, offse
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Market Segment Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Market Segment ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -1462,16 +1462,16 @@ eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect = function(buffer, offse
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.market_segment_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.market_segment_id, range, 0)
-    absent:set_text("Market Segment Id: No Value")
+    absent:set_text("Market Segment ID: No Value")
   end
 
   return offset, value
 end
 
--- Market Segment Id (Sent)
+-- Market Segment ID (Sent)
 eurex_t7_emdi_fast_v13_0.market_segment_id_sent = {}
 
--- Dissect: Market Segment Id (Sent)
+-- Dissect: Market Segment ID (Sent)
 eurex_t7_emdi_fast_v13_0.market_segment_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1484,41 +1484,41 @@ eurex_t7_emdi_fast_v13_0.market_segment_id_sent.dissect = function(buffer, offse
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.market_segment_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.market_segment_id, range, 0)
-    absent:set_text("Market Segment Id: No Value")
+    absent:set_text("Market Segment ID: No Value")
   end
 
   return offset, value
 end
 
--- Trading Session Id (Default)
+-- Trading Session ID (Default)
 eurex_t7_emdi_fast_v13_0.trading_session_id_default_0 = {}
 
--- Display: Trading Session Id (Default)
+-- Display: Trading Session ID (Default)
 eurex_t7_emdi_fast_v13_0.trading_session_id_default_0.display = function(value)
   if value == nil then
-    return "Trading Session Id: No Value"
+    return "Trading Session ID: No Value"
   end
 
   if value == 0 then
-    return "Trading Session Id: Day (1)"
+    return "Trading Session ID: Day (1)"
   end
   if value == 1 then
-    return "Trading Session Id: Morning (3)"
+    return "Trading Session ID: Morning (3)"
   end
   if value == 2 then
-    return "Trading Session Id: Evening (5)"
+    return "Trading Session ID: Evening (5)"
   end
   if value == 3 then
-    return "Trading Session Id: AfterHours (6)"
+    return "Trading Session ID: AfterHours (6)"
   end
   if value == 4 then
-    return "Trading Session Id: Holiday (7)"
+    return "Trading Session ID: Holiday (7)"
   end
 
-  return "Trading Session Id: Unknown("..value..")"
+  return "Trading Session ID: Unknown("..value..")"
 end
 
--- Dissect: Trading Session Id (Default)
+-- Dissect: Trading Session ID (Default)
 eurex_t7_emdi_fast_v13_0.trading_session_id_default_0.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1543,35 +1543,35 @@ eurex_t7_emdi_fast_v13_0.trading_session_id_default_0.dissect = function(buffer,
   return offset, value
 end
 
--- Trading Session Id (Default)
+-- Trading Session ID (Default)
 eurex_t7_emdi_fast_v13_0.trading_session_id_default_optional = {}
 
--- Display: Trading Session Id (Default)
+-- Display: Trading Session ID (Default)
 eurex_t7_emdi_fast_v13_0.trading_session_id_default_optional.display = function(value)
   if value == nil then
-    return "Trading Session Id: No Value"
+    return "Trading Session ID: No Value"
   end
 
   if value == 0 then
-    return "Trading Session Id: Day (1)"
+    return "Trading Session ID: Day (1)"
   end
   if value == 1 then
-    return "Trading Session Id: Morning (3)"
+    return "Trading Session ID: Morning (3)"
   end
   if value == 2 then
-    return "Trading Session Id: Evening (5)"
+    return "Trading Session ID: Evening (5)"
   end
   if value == 3 then
-    return "Trading Session Id: AfterHours (6)"
+    return "Trading Session ID: AfterHours (6)"
   end
   if value == 4 then
-    return "Trading Session Id: Holiday (7)"
+    return "Trading Session ID: Holiday (7)"
   end
 
-  return "Trading Session Id: Unknown("..value..")"
+  return "Trading Session ID: Unknown("..value..")"
 end
 
--- Dissect: Trading Session Id (Default)
+-- Dissect: Trading Session ID (Default)
 eurex_t7_emdi_fast_v13_0.trading_session_id_default_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1596,47 +1596,47 @@ eurex_t7_emdi_fast_v13_0.trading_session_id_default_optional.dissect = function(
   return offset, value
 end
 
--- Trading Session Sub Id (Sent)
+-- Trading Session Sub ID (Sent)
 eurex_t7_emdi_fast_v13_0.trading_session_sub_id_sent = {}
 
--- Display: Trading Session Sub Id (Sent)
+-- Display: Trading Session Sub ID (Sent)
 eurex_t7_emdi_fast_v13_0.trading_session_sub_id_sent.display = function(value)
   if value == nil then
-    return "Trading Session Sub Id: No Value"
+    return "Trading Session Sub ID: No Value"
   end
 
   if value == 0 then
-    return "Trading Session Sub Id: PreTrading (1)"
+    return "Trading Session Sub ID: PreTrading (1)"
   end
   if value == 1 then
-    return "Trading Session Sub Id: Continuous (3)"
+    return "Trading Session Sub ID: Continuous (3)"
   end
   if value == 2 then
-    return "Trading Session Sub Id: Closing (4)"
+    return "Trading Session Sub ID: Closing (4)"
   end
   if value == 3 then
-    return "Trading Session Sub Id: PostTrading (5)"
+    return "Trading Session Sub ID: PostTrading (5)"
   end
   if value == 4 then
-    return "Trading Session Sub Id: ScheduledIntradayAuction (6)"
+    return "Trading Session Sub ID: ScheduledIntradayAuction (6)"
   end
   if value == 5 then
-    return "Trading Session Sub Id: Quiescent (7)"
+    return "Trading Session Sub ID: Quiescent (7)"
   end
   if value == 6 then
-    return "Trading Session Sub Id: AnyAuction (8)"
+    return "Trading Session Sub ID: AnyAuction (8)"
   end
   if value == 7 then
-    return "Trading Session Sub Id: ContinuousAuctionIssuer (103)"
+    return "Trading Session Sub ID: ContinuousAuctionIssuer (103)"
   end
   if value == 8 then
-    return "Trading Session Sub Id: ContinuousAuctionSpecialist (104)"
+    return "Trading Session Sub ID: ContinuousAuctionSpecialist (104)"
   end
 
-  return "Trading Session Sub Id: Unknown("..value..")"
+  return "Trading Session Sub ID: Unknown("..value..")"
 end
 
--- Dissect: Trading Session Sub Id (Sent)
+-- Dissect: Trading Session Sub ID (Sent)
 eurex_t7_emdi_fast_v13_0.trading_session_sub_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -1657,47 +1657,47 @@ eurex_t7_emdi_fast_v13_0.trading_session_sub_id_sent.dissect = function(buffer, 
   return offset, value
 end
 
--- Trading Session Sub Id (Default)
+-- Trading Session Sub ID (Default)
 eurex_t7_emdi_fast_v13_0.trading_session_sub_id_default = {}
 
--- Display: Trading Session Sub Id (Default)
+-- Display: Trading Session Sub ID (Default)
 eurex_t7_emdi_fast_v13_0.trading_session_sub_id_default.display = function(value)
   if value == nil then
-    return "Trading Session Sub Id: No Value"
+    return "Trading Session Sub ID: No Value"
   end
 
   if value == 0 then
-    return "Trading Session Sub Id: PreTrading (1)"
+    return "Trading Session Sub ID: PreTrading (1)"
   end
   if value == 1 then
-    return "Trading Session Sub Id: Continuous (3)"
+    return "Trading Session Sub ID: Continuous (3)"
   end
   if value == 2 then
-    return "Trading Session Sub Id: Closing (4)"
+    return "Trading Session Sub ID: Closing (4)"
   end
   if value == 3 then
-    return "Trading Session Sub Id: PostTrading (5)"
+    return "Trading Session Sub ID: PostTrading (5)"
   end
   if value == 4 then
-    return "Trading Session Sub Id: ScheduledIntradayAuction (6)"
+    return "Trading Session Sub ID: ScheduledIntradayAuction (6)"
   end
   if value == 5 then
-    return "Trading Session Sub Id: Quiescent (7)"
+    return "Trading Session Sub ID: Quiescent (7)"
   end
   if value == 6 then
-    return "Trading Session Sub Id: AnyAuction (8)"
+    return "Trading Session Sub ID: AnyAuction (8)"
   end
   if value == 7 then
-    return "Trading Session Sub Id: ContinuousAuctionIssuer (103)"
+    return "Trading Session Sub ID: ContinuousAuctionIssuer (103)"
   end
   if value == 8 then
-    return "Trading Session Sub Id: ContinuousAuctionSpecialist (104)"
+    return "Trading Session Sub ID: ContinuousAuctionSpecialist (104)"
   end
 
-  return "Trading Session Sub Id: Unknown("..value..")"
+  return "Trading Session Sub ID: Unknown("..value..")"
 end
 
--- Dissect: Trading Session Sub Id (Default)
+-- Dissect: Trading Session Sub ID (Default)
 eurex_t7_emdi_fast_v13_0.trading_session_sub_id_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2074,32 +2074,32 @@ eurex_t7_emdi_fast_v13_0.transact_time_copy.dissect = function(buffer, offset, p
   return offset, value
 end
 
--- Tes Trad Ses Status (Sent)
+-- TES Trad Ses Status (Sent)
 eurex_t7_emdi_fast_v13_0.tes_trad_ses_status_sent = {}
 
--- Display: Tes Trad Ses Status (Sent)
+-- Display: TES Trad Ses Status (Sent)
 eurex_t7_emdi_fast_v13_0.tes_trad_ses_status_sent.display = function(value)
   if value == nil then
-    return "Tes Trad Ses Status: No Value"
+    return "TES Trad Ses Status: No Value"
   end
 
   if value == 0 then
-    return "Tes Trad Ses Status: Halted (1)"
+    return "TES Trad Ses Status: Halted (1)"
   end
   if value == 1 then
-    return "Tes Trad Ses Status: Open (2)"
+    return "TES Trad Ses Status: Open (2)"
   end
   if value == 2 then
-    return "Tes Trad Ses Status: Closed (3)"
+    return "TES Trad Ses Status: Closed (3)"
   end
   if value == 3 then
-    return "Tes Trad Ses Status: PreClose (5)"
+    return "TES Trad Ses Status: PreClose (5)"
   end
 
-  return "Tes Trad Ses Status: Unknown("..value..")"
+  return "TES Trad Ses Status: Unknown("..value..")"
 end
 
--- Dissect: Tes Trad Ses Status (Sent)
+-- Dissect: TES Trad Ses Status (Sent)
 eurex_t7_emdi_fast_v13_0.tes_trad_ses_status_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2120,32 +2120,32 @@ eurex_t7_emdi_fast_v13_0.tes_trad_ses_status_sent.dissect = function(buffer, off
   return offset, value
 end
 
--- Tes Trad Ses Status (Default)
+-- TES Trad Ses Status (Default)
 eurex_t7_emdi_fast_v13_0.tes_trad_ses_status_default = {}
 
--- Display: Tes Trad Ses Status (Default)
+-- Display: TES Trad Ses Status (Default)
 eurex_t7_emdi_fast_v13_0.tes_trad_ses_status_default.display = function(value)
   if value == nil then
-    return "Tes Trad Ses Status: No Value"
+    return "TES Trad Ses Status: No Value"
   end
 
   if value == 0 then
-    return "Tes Trad Ses Status: Halted (1)"
+    return "TES Trad Ses Status: Halted (1)"
   end
   if value == 1 then
-    return "Tes Trad Ses Status: Open (2)"
+    return "TES Trad Ses Status: Open (2)"
   end
   if value == 2 then
-    return "Tes Trad Ses Status: Closed (3)"
+    return "TES Trad Ses Status: Closed (3)"
   end
   if value == 3 then
-    return "Tes Trad Ses Status: PreClose (5)"
+    return "TES Trad Ses Status: PreClose (5)"
   end
 
-  return "Tes Trad Ses Status: Unknown("..value..")"
+  return "TES Trad Ses Status: Unknown("..value..")"
 end
 
--- Dissect: Tes Trad Ses Status (Default)
+-- Dissect: TES Trad Ses Status (Default)
 eurex_t7_emdi_fast_v13_0.tes_trad_ses_status_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2554,47 +2554,47 @@ eurex_t7_emdi_fast_v13_0.mass_sold_out_indicator.dissect = function(buffer, offs
   return offset, value
 end
 
--- Tes Security Mass Status
+-- TES Security Mass Status
 eurex_t7_emdi_fast_v13_0.tes_security_mass_status = {}
 
--- Display: Tes Security Mass Status
+-- Display: TES Security Mass Status
 eurex_t7_emdi_fast_v13_0.tes_security_mass_status.display = function(value)
   if value == nil then
-    return "Tes Security Mass Status: No Value"
+    return "TES Security Mass Status: No Value"
   end
 
   if value == 0 then
-    return "Tes Security Mass Status: Active (1)"
+    return "TES Security Mass Status: Active (1)"
   end
   if value == 1 then
-    return "Tes Security Mass Status: Inactive (2)"
+    return "TES Security Mass Status: Inactive (2)"
   end
   if value == 2 then
-    return "Tes Security Mass Status: Expired (4)"
+    return "TES Security Mass Status: Expired (4)"
   end
   if value == 3 then
-    return "Tes Security Mass Status: KnockedOut (6)"
+    return "TES Security Mass Status: KnockedOut (6)"
   end
   if value == 4 then
-    return "Tes Security Mass Status: KnockOutRevoked (7)"
+    return "TES Security Mass Status: KnockOutRevoked (7)"
   end
   if value == 5 then
-    return "Tes Security Mass Status: Suspended (9)"
+    return "TES Security Mass Status: Suspended (9)"
   end
   if value == 6 then
-    return "Tes Security Mass Status: Published (10)"
+    return "TES Security Mass Status: Published (10)"
   end
   if value == 7 then
-    return "Tes Security Mass Status: PendingDeletion (11)"
+    return "TES Security Mass Status: PendingDeletion (11)"
   end
   if value == 8 then
-    return "Tes Security Mass Status: KnockedOutAndSuspended (12)"
+    return "TES Security Mass Status: KnockedOutAndSuspended (12)"
   end
 
-  return "Tes Security Mass Status: Unknown("..value..")"
+  return "TES Security Mass Status: Unknown("..value..")"
 end
 
--- Dissect: Tes Security Mass Status
+-- Dissect: TES Security Mass Status
 eurex_t7_emdi_fast_v13_0.tes_security_mass_status.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2667,10 +2667,10 @@ eurex_t7_emdi_fast_v13_0.no_related_sym_constant.dissect = function(buffer, offs
   return offset, value
 end
 
--- Security Id (Sent)
+-- Security ID (Sent)
 eurex_t7_emdi_fast_v13_0.security_id_sent = {}
 
--- Dissect: Security Id (Sent)
+-- Dissect: Security ID (Sent)
 eurex_t7_emdi_fast_v13_0.security_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2683,16 +2683,16 @@ eurex_t7_emdi_fast_v13_0.security_id_sent.dissect = function(buffer, offset, pac
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.security_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.security_id, range, Int64(0))
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id (Copy)
+-- Security ID (Copy)
 eurex_t7_emdi_fast_v13_0.security_id_copy = {}
 
--- Dissect: Security Id (Copy)
+-- Dissect: Security ID (Copy)
 eurex_t7_emdi_fast_v13_0.security_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2705,7 +2705,7 @@ eurex_t7_emdi_fast_v13_0.security_id_copy.dissect = function(buffer, offset, pac
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Security Id was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Security ID was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -2716,16 +2716,16 @@ eurex_t7_emdi_fast_v13_0.security_id_copy.dissect = function(buffer, offset, pac
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.security_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.security_id, range, Int64(0))
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id (Delta)
+-- Security ID (Delta)
 eurex_t7_emdi_fast_v13_0.security_id_delta = {}
 
--- Dissect: Security Id (Delta)
+-- Dissect: Security ID (Delta)
 eurex_t7_emdi_fast_v13_0.security_id_delta.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -2741,29 +2741,29 @@ eurex_t7_emdi_fast_v13_0.security_id_delta.dissect = function(buffer, offset, pa
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.security_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.security_id, range, Int64(0))
-    absent:set_text("Security Id: No Value")
+    absent:set_text("Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Security Id Source
+-- Security ID Source
 eurex_t7_emdi_fast_v13_0.security_id_source = {}
 
--- Display: Security Id Source
+-- Display: Security ID Source
 eurex_t7_emdi_fast_v13_0.security_id_source.display = function(value)
   if value == nil then
-    return "Security Id Source: No Value"
+    return "Security ID Source: No Value"
   end
 
   if value == "M" then
-    return "Security Id Source: Marketplace (M)"
+    return "Security ID Source: Marketplace (M)"
   end
 
-  return "Security Id Source: "..value
+  return "Security ID Source: "..value
 end
 
--- Dissect: Security Id Source
+-- Dissect: Security ID Source
 eurex_t7_emdi_fast_v13_0.security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3535,47 +3535,47 @@ eurex_t7_emdi_fast_v13_0.low_px_delta.dissect = function(buffer, offset, packet,
   return offset, value
 end
 
--- Tes Security Status (Copy)
+-- TES Security Status (Copy)
 eurex_t7_emdi_fast_v13_0.tes_security_status_copy = {}
 
--- Display: Tes Security Status (Copy)
+-- Display: TES Security Status (Copy)
 eurex_t7_emdi_fast_v13_0.tes_security_status_copy.display = function(value)
   if value == nil then
-    return "Tes Security Status: No Value"
+    return "TES Security Status: No Value"
   end
 
   if value == 0 then
-    return "Tes Security Status: Active (1)"
+    return "TES Security Status: Active (1)"
   end
   if value == 1 then
-    return "Tes Security Status: Inactive (2)"
+    return "TES Security Status: Inactive (2)"
   end
   if value == 2 then
-    return "Tes Security Status: Expired (4)"
+    return "TES Security Status: Expired (4)"
   end
   if value == 3 then
-    return "Tes Security Status: KnockedOut (6)"
+    return "TES Security Status: KnockedOut (6)"
   end
   if value == 4 then
-    return "Tes Security Status: KnockOutRevoked (7)"
+    return "TES Security Status: KnockOutRevoked (7)"
   end
   if value == 5 then
-    return "Tes Security Status: Suspended (9)"
+    return "TES Security Status: Suspended (9)"
   end
   if value == 6 then
-    return "Tes Security Status: Published (10)"
+    return "TES Security Status: Published (10)"
   end
   if value == 7 then
-    return "Tes Security Status: PendingDeletion (11)"
+    return "TES Security Status: PendingDeletion (11)"
   end
   if value == 8 then
-    return "Tes Security Status: KnockedOutAndSuspended (12)"
+    return "TES Security Status: KnockedOutAndSuspended (12)"
   end
 
-  return "Tes Security Status: Unknown("..value..")"
+  return "TES Security Status: Unknown("..value..")"
 end
 
--- Dissect: Tes Security Status (Copy)
+-- Dissect: TES Security Status (Copy)
 eurex_t7_emdi_fast_v13_0.tes_security_status_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3602,47 +3602,47 @@ eurex_t7_emdi_fast_v13_0.tes_security_status_copy.dissect = function(buffer, off
   return offset, value
 end
 
--- Tes Security Status (Default)
+-- TES Security Status (Default)
 eurex_t7_emdi_fast_v13_0.tes_security_status_default = {}
 
--- Display: Tes Security Status (Default)
+-- Display: TES Security Status (Default)
 eurex_t7_emdi_fast_v13_0.tes_security_status_default.display = function(value)
   if value == nil then
-    return "Tes Security Status: No Value"
+    return "TES Security Status: No Value"
   end
 
   if value == 0 then
-    return "Tes Security Status: Active (1)"
+    return "TES Security Status: Active (1)"
   end
   if value == 1 then
-    return "Tes Security Status: Inactive (2)"
+    return "TES Security Status: Inactive (2)"
   end
   if value == 2 then
-    return "Tes Security Status: Expired (4)"
+    return "TES Security Status: Expired (4)"
   end
   if value == 3 then
-    return "Tes Security Status: KnockedOut (6)"
+    return "TES Security Status: KnockedOut (6)"
   end
   if value == 4 then
-    return "Tes Security Status: KnockOutRevoked (7)"
+    return "TES Security Status: KnockOutRevoked (7)"
   end
   if value == 5 then
-    return "Tes Security Status: Suspended (9)"
+    return "TES Security Status: Suspended (9)"
   end
   if value == 6 then
-    return "Tes Security Status: Published (10)"
+    return "TES Security Status: Published (10)"
   end
   if value == 7 then
-    return "Tes Security Status: PendingDeletion (11)"
+    return "TES Security Status: PendingDeletion (11)"
   end
   if value == 8 then
-    return "Tes Security Status: KnockedOutAndSuspended (12)"
+    return "TES Security Status: KnockedOutAndSuspended (12)"
   end
 
-  return "Tes Security Status: Unknown("..value..")"
+  return "TES Security Status: Unknown("..value..")"
 end
 
--- Dissect: Tes Security Status (Default)
+-- Dissect: TES Security Status (Default)
 eurex_t7_emdi_fast_v13_0.tes_security_status_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3667,47 +3667,47 @@ eurex_t7_emdi_fast_v13_0.tes_security_status_default.dissect = function(buffer, 
   return offset, value
 end
 
--- Tes Security Status (Sent)
+-- TES Security Status (Sent)
 eurex_t7_emdi_fast_v13_0.tes_security_status_sent = {}
 
--- Display: Tes Security Status (Sent)
+-- Display: TES Security Status (Sent)
 eurex_t7_emdi_fast_v13_0.tes_security_status_sent.display = function(value)
   if value == nil then
-    return "Tes Security Status: No Value"
+    return "TES Security Status: No Value"
   end
 
   if value == 0 then
-    return "Tes Security Status: Active (1)"
+    return "TES Security Status: Active (1)"
   end
   if value == 1 then
-    return "Tes Security Status: Inactive (2)"
+    return "TES Security Status: Inactive (2)"
   end
   if value == 2 then
-    return "Tes Security Status: Expired (4)"
+    return "TES Security Status: Expired (4)"
   end
   if value == 3 then
-    return "Tes Security Status: KnockedOut (6)"
+    return "TES Security Status: KnockedOut (6)"
   end
   if value == 4 then
-    return "Tes Security Status: KnockOutRevoked (7)"
+    return "TES Security Status: KnockOutRevoked (7)"
   end
   if value == 5 then
-    return "Tes Security Status: Suspended (9)"
+    return "TES Security Status: Suspended (9)"
   end
   if value == 6 then
-    return "Tes Security Status: Published (10)"
+    return "TES Security Status: Published (10)"
   end
   if value == 7 then
-    return "Tes Security Status: PendingDeletion (11)"
+    return "TES Security Status: PendingDeletion (11)"
   end
   if value == 8 then
-    return "Tes Security Status: KnockedOutAndSuspended (12)"
+    return "TES Security Status: KnockedOutAndSuspended (12)"
   end
 
-  return "Tes Security Status: Unknown("..value..")"
+  return "TES Security Status: Unknown("..value..")"
 end
 
--- Dissect: Tes Security Status (Sent)
+-- Dissect: TES Security Status (Sent)
 eurex_t7_emdi_fast_v13_0.tes_security_status_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3772,10 +3772,10 @@ eurex_t7_emdi_fast_v13_0.last_fragment.dissect = function(buffer, offset, packet
   return offset, value
 end
 
--- No Md Entries (Sent)
+-- No MD Entries (Sent)
 eurex_t7_emdi_fast_v13_0.no_md_entries_sent = {}
 
--- Dissect: No Md Entries (Sent)
+-- Dissect: No MD Entries (Sent)
 eurex_t7_emdi_fast_v13_0.no_md_entries_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3788,16 +3788,16 @@ eurex_t7_emdi_fast_v13_0.no_md_entries_sent.dissect = function(buffer, offset, p
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.no_md_entries, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.no_md_entries, range, 0)
-    absent:set_text("No Md Entries: No Value")
+    absent:set_text("No MD Entries: No Value")
   end
 
   return offset, value
 end
 
--- No Md Entries (Default)
+-- No MD Entries (Default)
 eurex_t7_emdi_fast_v13_0.no_md_entries_default = {}
 
--- Dissect: No Md Entries (Default)
+-- Dissect: No MD Entries (Default)
 eurex_t7_emdi_fast_v13_0.no_md_entries_default.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3814,32 +3814,32 @@ eurex_t7_emdi_fast_v13_0.no_md_entries_default.dissect = function(buffer, offset
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.no_md_entries, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.no_md_entries, range, 0)
-    absent:set_text("No Md Entries: No Value")
+    absent:set_text("No MD Entries: No Value")
   end
 
   return offset, value
 end
 
--- Md Origin Type
+-- MD Origin Type
 eurex_t7_emdi_fast_v13_0.md_origin_type = {}
 
--- Display: Md Origin Type
+-- Display: MD Origin Type
 eurex_t7_emdi_fast_v13_0.md_origin_type.display = function(value)
   if value == nil then
-    return "Md Origin Type: No Value"
+    return "MD Origin Type: No Value"
   end
 
   if value == 0 then
-    return "Md Origin Type: Book (0)"
+    return "MD Origin Type: Book (0)"
   end
   if value == 1 then
-    return "Md Origin Type: OffBook (1)"
+    return "MD Origin Type: OffBook (1)"
   end
 
-  return "Md Origin Type: Unknown("..value..")"
+  return "MD Origin Type: Unknown("..value..")"
 end
 
--- Dissect: Md Origin Type
+-- Dissect: MD Origin Type
 eurex_t7_emdi_fast_v13_0.md_origin_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3864,38 +3864,38 @@ eurex_t7_emdi_fast_v13_0.md_origin_type.dissect = function(buffer, offset, packe
   return offset, value
 end
 
--- Md Update Action
+-- MD Update Action
 eurex_t7_emdi_fast_v13_0.md_update_action = {}
 
--- Display: Md Update Action
+-- Display: MD Update Action
 eurex_t7_emdi_fast_v13_0.md_update_action.display = function(value)
   if value == nil then
-    return "Md Update Action: No Value"
+    return "MD Update Action: No Value"
   end
 
   if value == 0 then
-    return "Md Update Action: New (0)"
+    return "MD Update Action: New (0)"
   end
   if value == 1 then
-    return "Md Update Action: Change (1)"
+    return "MD Update Action: Change (1)"
   end
   if value == 2 then
-    return "Md Update Action: Delete (2)"
+    return "MD Update Action: Delete (2)"
   end
   if value == 3 then
-    return "Md Update Action: DeleteThru (3)"
+    return "MD Update Action: DeleteThru (3)"
   end
   if value == 4 then
-    return "Md Update Action: DeleteFrom (4)"
+    return "MD Update Action: DeleteFrom (4)"
   end
   if value == 5 then
-    return "Md Update Action: Overlay (5)"
+    return "MD Update Action: Overlay (5)"
   end
 
-  return "Md Update Action: Unknown("..value..")"
+  return "MD Update Action: Unknown("..value..")"
 end
 
--- Dissect: Md Update Action
+-- Dissect: MD Update Action
 eurex_t7_emdi_fast_v13_0.md_update_action.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3908,7 +3908,7 @@ eurex_t7_emdi_fast_v13_0.md_update_action.dissect = function(buffer, offset, pac
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Update Action was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Update Action was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -3927,53 +3927,53 @@ eurex_t7_emdi_fast_v13_0.md_update_action.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Md Entry Type
+-- MD Entry Type
 eurex_t7_emdi_fast_v13_0.md_entry_type = {}
 
--- Display: Md Entry Type
+-- Display: MD Entry Type
 eurex_t7_emdi_fast_v13_0.md_entry_type.display = function(value)
   if value == nil then
-    return "Md Entry Type: No Value"
+    return "MD Entry Type: No Value"
   end
 
   if value == 0 then
-    return "Md Entry Type: Bid (0)"
+    return "MD Entry Type: Bid (0)"
   end
   if value == 1 then
-    return "Md Entry Type: Offer (1)"
+    return "MD Entry Type: Offer (1)"
   end
   if value == 2 then
-    return "Md Entry Type: Trade (2)"
+    return "MD Entry Type: Trade (2)"
   end
   if value == 3 then
-    return "Md Entry Type: EmptyBook (J)"
+    return "MD Entry Type: EmptyBook (J)"
   end
   if value == 4 then
-    return "Md Entry Type: AuctionClearingPrice (Q)"
+    return "MD Entry Type: AuctionClearingPrice (Q)"
   end
   if value == 5 then
-    return "Md Entry Type: SettlementPrice (6)"
+    return "MD Entry Type: SettlementPrice (6)"
   end
   if value == 6 then
-    return "Md Entry Type: OpenInterest (C)"
+    return "MD Entry Type: OpenInterest (C)"
   end
   if value == 7 then
-    return "Md Entry Type: TradeVolume (B)"
+    return "MD Entry Type: TradeVolume (B)"
   end
   if value == 8 then
-    return "Md Entry Type: MarketBid (b)"
+    return "MD Entry Type: MarketBid (b)"
   end
   if value == 9 then
-    return "Md Entry Type: MarketOffer (c)"
+    return "MD Entry Type: MarketOffer (c)"
   end
   if value == 10 then
-    return "Md Entry Type: Imbalance (A)"
+    return "MD Entry Type: Imbalance (A)"
   end
 
-  return "Md Entry Type: Unknown("..value..")"
+  return "MD Entry Type: Unknown("..value..")"
 end
 
--- Dissect: Md Entry Type
+-- Dissect: MD Entry Type
 eurex_t7_emdi_fast_v13_0.md_entry_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -3986,7 +3986,7 @@ eurex_t7_emdi_fast_v13_0.md_entry_type.dissect = function(buffer, offset, packet
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Entry Type was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Entry Type was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -4005,19 +4005,19 @@ eurex_t7_emdi_fast_v13_0.md_entry_type.dissect = function(buffer, offset, packet
   return offset, value
 end
 
--- Md Entry Px (Delta)
+-- MD Entry Px (Delta)
 eurex_t7_emdi_fast_v13_0.md_entry_px_delta = {}
 
--- Display: Md Entry Px (Delta)
+-- Display: MD Entry Px (Delta)
 eurex_t7_emdi_fast_v13_0.md_entry_px_delta.display = function(value)
   if value == nil then
-    return "Md Entry Px: No Value"
+    return "MD Entry Px: No Value"
   end
 
-  return "Md Entry Px: "..value
+  return "MD Entry Px: "..value
 end
 
--- Dissect: Md Entry Px (Delta)
+-- Dissect: MD Entry Px (Delta)
 eurex_t7_emdi_fast_v13_0.md_entry_px_delta.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4059,19 +4059,19 @@ eurex_t7_emdi_fast_v13_0.md_entry_px_delta.dissect = function(buffer, offset, pa
   return offset, value
 end
 
--- Md Entry Px (Sent)
+-- MD Entry Px (Sent)
 eurex_t7_emdi_fast_v13_0.md_entry_px_sent = {}
 
--- Display: Md Entry Px (Sent)
+-- Display: MD Entry Px (Sent)
 eurex_t7_emdi_fast_v13_0.md_entry_px_sent.display = function(value)
   if value == nil then
-    return "Md Entry Px: No Value"
+    return "MD Entry Px: No Value"
   end
 
-  return "Md Entry Px: "..value
+  return "MD Entry Px: "..value
 end
 
--- Dissect: Md Entry Px (Sent)
+-- Dissect: MD Entry Px (Sent)
 eurex_t7_emdi_fast_v13_0.md_entry_px_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4104,19 +4104,19 @@ eurex_t7_emdi_fast_v13_0.md_entry_px_sent.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Md Entry Size
+-- MD Entry Size
 eurex_t7_emdi_fast_v13_0.md_entry_size = {}
 
--- Display: Md Entry Size
+-- Display: MD Entry Size
 eurex_t7_emdi_fast_v13_0.md_entry_size.display = function(value)
   if value == nil then
-    return "Md Entry Size: No Value"
+    return "MD Entry Size: No Value"
   end
 
-  return "Md Entry Size: "..value
+  return "MD Entry Size: "..value
 end
 
--- Dissect: Md Entry Size
+-- Dissect: MD Entry Size
 eurex_t7_emdi_fast_v13_0.md_entry_size.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4186,10 +4186,10 @@ eurex_t7_emdi_fast_v13_0.number_of_orders.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Md Price Level (Sent)
+-- MD Price Level (Sent)
 eurex_t7_emdi_fast_v13_0.md_price_level_sent = {}
 
--- Dissect: Md Price Level (Sent)
+-- Dissect: MD Price Level (Sent)
 eurex_t7_emdi_fast_v13_0.md_price_level_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4202,16 +4202,16 @@ eurex_t7_emdi_fast_v13_0.md_price_level_sent.dissect = function(buffer, offset, 
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.md_price_level, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.md_price_level, range, 0)
-    absent:set_text("Md Price Level: No Value")
+    absent:set_text("MD Price Level: No Value")
   end
 
   return offset, value
 end
 
--- Md Price Level (Increment)
+-- MD Price Level (Increment)
 eurex_t7_emdi_fast_v13_0.md_price_level_increment = {}
 
--- Dissect: Md Price Level (Increment)
+-- Dissect: MD Price Level (Increment)
 eurex_t7_emdi_fast_v13_0.md_price_level_increment.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4232,16 +4232,16 @@ eurex_t7_emdi_fast_v13_0.md_price_level_increment.dissect = function(buffer, off
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.md_price_level, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.md_price_level, range, 0)
-    absent:set_text("Md Price Level: No Value")
+    absent:set_text("MD Price Level: No Value")
   end
 
   return offset, value
 end
 
--- Md Entry Time (Copy)
+-- MD Entry Time (Copy)
 eurex_t7_emdi_fast_v13_0.md_entry_time_copy = {}
 
--- Dissect: Md Entry Time (Copy)
+-- Dissect: MD Entry Time (Copy)
 eurex_t7_emdi_fast_v13_0.md_entry_time_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4258,7 +4258,7 @@ eurex_t7_emdi_fast_v13_0.md_entry_time_copy.dissect = function(buffer, offset, p
 
   if value == nil then
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_time, range, NSTime.new(0, 0))
-    absent:set_text("Md Entry Time: No Value")
+    absent:set_text("MD Entry Time: No Value")
   else
     local seconds = (value / Int64(1000000000)):tonumber()
     local nanos = (value % Int64(1000000000)):tonumber()
@@ -4268,10 +4268,10 @@ eurex_t7_emdi_fast_v13_0.md_entry_time_copy.dissect = function(buffer, offset, p
   return offset, value
 end
 
--- Md Entry Time (Delta)
+-- MD Entry Time (Delta)
 eurex_t7_emdi_fast_v13_0.md_entry_time_delta = {}
 
--- Dissect: Md Entry Time (Delta)
+-- Dissect: MD Entry Time (Delta)
 eurex_t7_emdi_fast_v13_0.md_entry_time_delta.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -4288,7 +4288,7 @@ eurex_t7_emdi_fast_v13_0.md_entry_time_delta.dissect = function(buffer, offset, 
 
   if value == nil then
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_time, range, NSTime.new(0, 0))
-    absent:set_text("Md Entry Time: No Value")
+    absent:set_text("MD Entry Time: No Value")
   else
     local seconds = (value / Int64(1000000000)):tonumber()
     local nanos = (value % Int64(1000000000)):tonumber()
@@ -5298,10 +5298,10 @@ eurex_t7_emdi_fast_v13_0.resting_cxl_qty.dissect = function(buffer, offset, pack
   return offset, value
 end
 
--- Md Entry Id
+-- MD Entry ID
 eurex_t7_emdi_fast_v13_0.md_entry_id = {}
 
--- Dissect: Md Entry Id
+-- Dissect: MD Entry ID
 eurex_t7_emdi_fast_v13_0.md_entry_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5320,7 +5320,7 @@ eurex_t7_emdi_fast_v13_0.md_entry_id.dissect = function(buffer, offset, packet, 
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.md_entry_id, range, 0)
-    absent:set_text("Md Entry Id: No Value")
+    absent:set_text("MD Entry ID: No Value")
   end
 
   return offset, value
@@ -5932,10 +5932,10 @@ eurex_t7_emdi_fast_v13_0.leg_symbol.dissect = function(buffer, offset, packet, p
   return offset, value
 end
 
--- Leg Security Id
+-- Leg Security ID
 eurex_t7_emdi_fast_v13_0.leg_security_id = {}
 
--- Dissect: Leg Security Id
+-- Dissect: Leg Security ID
 eurex_t7_emdi_fast_v13_0.leg_security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5948,16 +5948,16 @@ eurex_t7_emdi_fast_v13_0.leg_security_id.dissect = function(buffer, offset, pack
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.leg_security_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.leg_security_id, range, Int64(0))
-    absent:set_text("Leg Security Id: No Value")
+    absent:set_text("Leg Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Leg Security Id Source
+-- Leg Security ID Source
 eurex_t7_emdi_fast_v13_0.leg_security_id_source = {}
 
--- Dissect: Leg Security Id Source
+-- Dissect: Leg Security ID Source
 eurex_t7_emdi_fast_v13_0.leg_security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -5970,7 +5970,7 @@ eurex_t7_emdi_fast_v13_0.leg_security_id_source.dissect = function(buffer, offse
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.leg_security_id_source, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.leg_security_id_source, range, "")
-    absent:set_text("Leg Security Id Source: No Value")
+    absent:set_text("Leg Security ID Source: No Value")
   end
 
   return offset, value
@@ -6519,29 +6519,29 @@ eurex_t7_emdi_fast_v13_0.last_update_time.dissect = function(buffer, offset, pac
   return offset, value
 end
 
--- Md Book Type (Copy)
+-- MD Book Type (Copy)
 eurex_t7_emdi_fast_v13_0.md_book_type_copy = {}
 
--- Display: Md Book Type (Copy)
+-- Display: MD Book Type (Copy)
 eurex_t7_emdi_fast_v13_0.md_book_type_copy.display = function(value)
   if value == nil then
-    return "Md Book Type: No Value"
+    return "MD Book Type: No Value"
   end
 
   if value == 0 then
-    return "Md Book Type: TopOfBook (1)"
+    return "MD Book Type: TopOfBook (1)"
   end
   if value == 1 then
-    return "Md Book Type: PriceDepth (2)"
+    return "MD Book Type: PriceDepth (2)"
   end
   if value == 2 then
-    return "Md Book Type: OrderDepth (3)"
+    return "MD Book Type: OrderDepth (3)"
   end
 
-  return "Md Book Type: Unknown("..value..")"
+  return "MD Book Type: Unknown("..value..")"
 end
 
--- Dissect: Md Book Type (Copy)
+-- Dissect: MD Book Type (Copy)
 eurex_t7_emdi_fast_v13_0.md_book_type_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6568,29 +6568,29 @@ eurex_t7_emdi_fast_v13_0.md_book_type_copy.dissect = function(buffer, offset, pa
   return offset, value
 end
 
--- Md Book Type (Constant)
+-- MD Book Type (Constant)
 eurex_t7_emdi_fast_v13_0.md_book_type_constant = {}
 
--- Display: Md Book Type (Constant)
+-- Display: MD Book Type (Constant)
 eurex_t7_emdi_fast_v13_0.md_book_type_constant.display = function(value)
   if value == nil then
-    return "Md Book Type: No Value"
+    return "MD Book Type: No Value"
   end
 
   if value == 0 then
-    return "Md Book Type: TopOfBook (1)"
+    return "MD Book Type: TopOfBook (1)"
   end
   if value == 1 then
-    return "Md Book Type: PriceDepth (2)"
+    return "MD Book Type: PriceDepth (2)"
   end
   if value == 2 then
-    return "Md Book Type: OrderDepth (3)"
+    return "MD Book Type: OrderDepth (3)"
   end
 
-  return "Md Book Type: Unknown("..value..")"
+  return "MD Book Type: Unknown("..value..")"
 end
 
--- Dissect: Md Book Type (Constant)
+-- Dissect: MD Book Type (Constant)
 eurex_t7_emdi_fast_v13_0.md_book_type_constant.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6611,26 +6611,26 @@ eurex_t7_emdi_fast_v13_0.md_book_type_constant.dissect = function(buffer, offset
   return offset, value
 end
 
--- Md Sub Book Type (Copy)
+-- MD Sub Book Type (Copy)
 eurex_t7_emdi_fast_v13_0.md_sub_book_type_copy_optional = {}
 
--- Display: Md Sub Book Type (Copy)
+-- Display: MD Sub Book Type (Copy)
 eurex_t7_emdi_fast_v13_0.md_sub_book_type_copy_optional.display = function(value)
   if value == nil then
-    return "Md Sub Book Type: No Value"
+    return "MD Sub Book Type: No Value"
   end
 
   if value == 0 then
-    return "Md Sub Book Type: IPSImpliedVolumeWithoutQuantityRestriction (1)"
+    return "MD Sub Book Type: IPSImpliedVolumeWithoutQuantityRestriction (1)"
   end
   if value == 1 then
-    return "Md Sub Book Type: IPSImpliedVolumeWithQuantityRestriction (2)"
+    return "MD Sub Book Type: IPSImpliedVolumeWithQuantityRestriction (2)"
   end
 
-  return "Md Sub Book Type: Unknown("..value..")"
+  return "MD Sub Book Type: Unknown("..value..")"
 end
 
--- Dissect: Md Sub Book Type (Copy)
+-- Dissect: MD Sub Book Type (Copy)
 eurex_t7_emdi_fast_v13_0.md_sub_book_type_copy_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6657,26 +6657,26 @@ eurex_t7_emdi_fast_v13_0.md_sub_book_type_copy_optional.dissect = function(buffe
   return offset, value
 end
 
--- Md Sub Book Type (Copy)
+-- MD Sub Book Type (Copy)
 eurex_t7_emdi_fast_v13_0.md_sub_book_type_copy_required = {}
 
--- Display: Md Sub Book Type (Copy)
+-- Display: MD Sub Book Type (Copy)
 eurex_t7_emdi_fast_v13_0.md_sub_book_type_copy_required.display = function(value)
   if value == nil then
-    return "Md Sub Book Type: No Value"
+    return "MD Sub Book Type: No Value"
   end
 
   if value == 0 then
-    return "Md Sub Book Type: IPSImpliedVolumeWithoutQuantityRestriction (1)"
+    return "MD Sub Book Type: IPSImpliedVolumeWithoutQuantityRestriction (1)"
   end
   if value == 1 then
-    return "Md Sub Book Type: IPSImpliedVolumeWithQuantityRestriction (2)"
+    return "MD Sub Book Type: IPSImpliedVolumeWithQuantityRestriction (2)"
   end
 
-  return "Md Sub Book Type: Unknown("..value..")"
+  return "MD Sub Book Type: Unknown("..value..")"
 end
 
--- Dissect: Md Sub Book Type (Copy)
+-- Dissect: MD Sub Book Type (Copy)
 eurex_t7_emdi_fast_v13_0.md_sub_book_type_copy_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6689,7 +6689,7 @@ eurex_t7_emdi_fast_v13_0.md_sub_book_type_copy_required.dissect = function(buffe
   end
 
   if value == nil then
-    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "Md Sub Book Type was not sent and the stream has remembered no earlier value")
+    parent:add_expert_info(PI_MALFORMED, PI_ERROR, "MD Sub Book Type was not sent and the stream has remembered no earlier value")
     return offset, nil
   end
 
@@ -6961,10 +6961,10 @@ eurex_t7_emdi_fast_v13_0.settl_method.dissect = function(buffer, offset, packet,
   return offset, value
 end
 
--- Related Security Id
+-- Related Security ID
 eurex_t7_emdi_fast_v13_0.related_security_id = {}
 
--- Dissect: Related Security Id
+-- Dissect: Related Security ID
 eurex_t7_emdi_fast_v13_0.related_security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -6980,16 +6980,16 @@ eurex_t7_emdi_fast_v13_0.related_security_id.dissect = function(buffer, offset, 
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.related_security_id, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.related_security_id, range, Int64(0))
-    absent:set_text("Related Security Id: No Value")
+    absent:set_text("Related Security ID: No Value")
   end
 
   return offset, value
 end
 
--- Related Security Id Source
+-- Related Security ID Source
 eurex_t7_emdi_fast_v13_0.related_security_id_source = {}
 
--- Dissect: Related Security Id Source
+-- Dissect: Related Security ID Source
 eurex_t7_emdi_fast_v13_0.related_security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
@@ -7002,7 +7002,7 @@ eurex_t7_emdi_fast_v13_0.related_security_id_source.dissect = function(buffer, o
     parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.related_security_id_source, range, value)
   else
     local absent = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.related_security_id_source, range, "")
-    absent:set_text("Related Security Id Source: No Value")
+    absent:set_text("Related Security ID Source: No Value")
   end
 
   return offset, value
@@ -7021,7 +7021,7 @@ eurex_t7_emdi_fast_v13_0.scaled_simple_instrument_update_market_segment_grp.fiel
   local index = offset
   local value = nil
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|15:MarketSegmentID")
 
   return index
@@ -7057,10 +7057,10 @@ eurex_t7_emdi_fast_v13_0.related_instrument_grp.fields = function(buffer, offset
   local index = offset
   local value = nil
 
-  -- Related Security Id: int64, Delta
+  -- Related Security ID: int64, Delta
   index, value = eurex_t7_emdi_fast_v13_0.related_security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|17:RelatedSecurityID")
 
-  -- Related Security Id Source: string, Constant
+  -- Related Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.related_security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -7097,16 +7097,16 @@ eurex_t7_emdi_fast_v13_0.scaled_simple_instrument_update.fields = function(buffe
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
   -- Security Update Action: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_update_action.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: int64, sent
+  -- Security ID: int64, sent
   index, value = eurex_t7_emdi_fast_v13_0.security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Desc: string, sent
@@ -7157,7 +7157,7 @@ eurex_t7_emdi_fast_v13_0.flexible_instrument_update_market_segment_grp.fields = 
   local index = offset
   local value = nil
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|15:MarketSegmentID")
 
   return index
@@ -7205,16 +7205,16 @@ eurex_t7_emdi_fast_v13_0.flexible_instrument_update.fields = function(buffer, of
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
   -- Security Update Action: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_update_action.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: int64, sent
+  -- Security ID: int64, sent
   index, value = eurex_t7_emdi_fast_v13_0.security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Desc: string, sent
@@ -7275,39 +7275,39 @@ eurex_t7_emdi_fast_v13_0.flexible_instrument_update.dissect = function(buffer, o
   return index
 end
 
--- Top Of Book Implied Md Inc Grp
+-- Top Of Book Implied MD Inc Grp
 eurex_t7_emdi_fast_v13_0.top_of_book_implied_md_inc_grp = {}
 
--- Dissect Fields: Top Of Book Implied Md Inc Grp
+-- Dissect Fields: Top Of Book Implied MD Inc Grp
 eurex_t7_emdi_fast_v13_0.top_of_book_implied_md_inc_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Update Action: uInt32, Copy
+  -- MD Update Action: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.md_update_action.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|14:MDUpdateAction")
 
-  -- Md Entry Type: uInt32, Copy
+  -- MD Entry Type: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_type.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|11:MDEntryType")
 
-  -- Md Book Type: uInt32, Constant
+  -- MD Book Type: uInt32, Constant
   index, value = eurex_t7_emdi_fast_v13_0.md_book_type_constant.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Sub Book Type: uInt32, Copy
+  -- MD Sub Book Type: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.md_sub_book_type_copy_required.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|13:MDSubBookType")
 
-  -- Security Id: int64, Copy
+  -- Security ID: int64, Copy
   index, value = eurex_t7_emdi_fast_v13_0.security_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, Delta, optional
+  -- MD Entry Px: decimal, Delta, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_px_delta.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
 
-  -- Md Entry Size: decimal, Delta, optional
+  -- MD Entry Size: decimal, Delta, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_size.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|11:MDEntrySize|E", "6:global|0:|11:MDEntrySize|M" })
 
-  -- Md Entry Time: timestamp, Copy, optional
+  -- MD Entry Time: timestamp, Copy, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_time_copy.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|11:MDEntryTime")
 
   -- Quote Condition: uInt32, Copy, optional
@@ -7316,7 +7316,7 @@ eurex_t7_emdi_fast_v13_0.top_of_book_implied_md_inc_grp.fields = function(buffer
   return index
 end
 
--- Dissect: Top Of Book Implied Md Inc Grp
+-- Dissect: Top Of Book Implied MD Inc Grp
 eurex_t7_emdi_fast_v13_0.top_of_book_implied_md_inc_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.top_of_book_implied_md_inc_grp, buffer(offset, 0))
   local index = offset
@@ -7359,16 +7359,16 @@ eurex_t7_emdi_fast_v13_0.top_of_book_implied.fields = function(buffer, offset, p
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|15:MarketSegmentID")
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = eurex_t7_emdi_fast_v13_0.no_md_entries_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Inc Grp: No Md Entries entries
+  -- MD Inc Grp: No MD Entries entries
   local count = value or 0
   for top_of_book_implied_md_inc_grp_index = 1, count do
     index = eurex_t7_emdi_fast_v13_0.top_of_book_implied_md_inc_grp.dissect(buffer, index, packet, parent, presence_map, base, state, top_of_book_implied_md_inc_grp_index)
@@ -7387,36 +7387,36 @@ eurex_t7_emdi_fast_v13_0.top_of_book_implied.dissect = function(buffer, offset, 
   return index
 end
 
--- Md Ssh Grp
+-- MD Ssh Grp
 eurex_t7_emdi_fast_v13_0.md_ssh_grp = {}
 
--- Dissect Fields: Md Ssh Grp
+-- Dissect Fields: MD Ssh Grp
 eurex_t7_emdi_fast_v13_0.md_ssh_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Origin Type: uInt32, Default
+  -- MD Origin Type: uInt32, Default
   index, value = eurex_t7_emdi_fast_v13_0.md_origin_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Md Entry Type: uInt32, Copy
+  -- MD Entry Type: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_type.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|11:MDEntryType")
 
-  -- Md Book Type: uInt32, Copy, optional
+  -- MD Book Type: uInt32, Copy, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_book_type_copy.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|10:MDBookType")
 
-  -- Md Sub Book Type: uInt32, Copy, optional
+  -- MD Sub Book Type: uInt32, Copy, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_sub_book_type_copy_optional.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|13:MDSubBookType")
 
   -- Trd Type: uInt32, Default, optional
   index, value = eurex_t7_emdi_fast_v13_0.trd_type_default.dissect(buffer, index, packet, parent, presence_map[base + 4], state, nil)
 
-  -- Trading Session Id: uInt32, Default, optional
+  -- Trading Session ID: uInt32, Default, optional
   index, value = eurex_t7_emdi_fast_v13_0.trading_session_id_default_optional.dissect(buffer, index, packet, parent, presence_map[base + 5], state, nil)
 
-  -- Trading Session Sub Id: uInt32, Default, optional
+  -- Trading Session Sub ID: uInt32, Default, optional
   index, value = eurex_t7_emdi_fast_v13_0.trading_session_sub_id_default.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Tes Trad Ses Status: uInt32, Default, optional
+  -- TES Trad Ses Status: uInt32, Default, optional
   index, value = eurex_t7_emdi_fast_v13_0.tes_trad_ses_status_default.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
   -- Security Trading Status: uInt32, Default, optional
@@ -7455,19 +7455,19 @@ eurex_t7_emdi_fast_v13_0.md_ssh_grp.fields = function(buffer, offset, packet, pa
   -- Quote Condition: uInt32, Copy, optional
   index, value = eurex_t7_emdi_fast_v13_0.quote_condition_copy.dissect(buffer, index, packet, parent, presence_map[base + 17], state, "6:global|0:|14:QuoteCondition")
 
-  -- Md Entry Px: decimal, Delta, optional
+  -- MD Entry Px: decimal, Delta, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_px_delta.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
 
-  -- Md Entry Size: decimal, Delta, optional
+  -- MD Entry Size: decimal, Delta, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_size.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|11:MDEntrySize|E", "6:global|0:|11:MDEntrySize|M" })
 
   -- Number Of Orders: uInt32, Delta, optional
   index, value = eurex_t7_emdi_fast_v13_0.number_of_orders.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|14:NumberOfOrders")
 
-  -- Md Price Level: uInt32, Increment, optional
+  -- MD Price Level: uInt32, Increment, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_price_level_increment.dissect(buffer, index, packet, parent, presence_map[base + 18], state, "6:global|0:|12:MDPriceLevel")
 
-  -- Md Entry Time: timestamp, Delta, optional
+  -- MD Entry Time: timestamp, Delta, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_time_delta.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:MDEntryTime")
 
   -- Non Disclosed Trade Volume: decimal, Default, optional
@@ -7479,7 +7479,7 @@ eurex_t7_emdi_fast_v13_0.md_ssh_grp.fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect: Md Ssh Grp
+-- Dissect: MD Ssh Grp
 eurex_t7_emdi_fast_v13_0.md_ssh_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.md_ssh_grp, buffer(offset, 0))
   local index = offset
@@ -7527,7 +7527,7 @@ eurex_t7_emdi_fast_v13_0.depth_snapshot.fields = function(buffer, offset, packet
   -- Msg Seq Num: uInt32, Increment, optional
   index, value = eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_optional.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
   -- Last Msg Seq Num Processed: uInt32, Increment, optional
@@ -7536,13 +7536,13 @@ eurex_t7_emdi_fast_v13_0.depth_snapshot.fields = function(buffer, offset, packet
   -- Refresh Indicator: uInt32, Copy, optional
   index, value = eurex_t7_emdi_fast_v13_0.refresh_indicator.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|16:RefreshIndicator")
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|15:MarketSegmentID")
 
-  -- Security Id: int64, Delta
+  -- Security ID: int64, Delta
   index, value = eurex_t7_emdi_fast_v13_0.security_id_delta.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Product Complex: uInt32, Copy
@@ -7551,16 +7551,16 @@ eurex_t7_emdi_fast_v13_0.depth_snapshot.fields = function(buffer, offset, packet
   -- Security Status: uInt32, Default
   index, value = eurex_t7_emdi_fast_v13_0.security_status.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
-  -- Tes Security Status: uInt32, sent, optional
+  -- TES Security Status: uInt32, sent, optional
   index, value = eurex_t7_emdi_fast_v13_0.tes_security_status_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Last Update Time: timestamp, Delta
   index, value = eurex_t7_emdi_fast_v13_0.last_update_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|14:LastUpdateTime")
 
-  -- No Md Entries: uInt32, Default
+  -- No MD Entries: uInt32, Default
   index, value = eurex_t7_emdi_fast_v13_0.no_md_entries_default.dissect(buffer, index, packet, parent, presence_map[base + 7], state, nil)
 
-  -- Md Ssh Grp: No Md Entries entries
+  -- MD Ssh Grp: No MD Entries entries
   local count = value or 0
   for md_ssh_grp_index = 1, count do
     index = eurex_t7_emdi_fast_v13_0.md_ssh_grp.dissect(buffer, index, packet, parent, presence_map, base, state, md_ssh_grp_index)
@@ -7638,16 +7638,16 @@ eurex_t7_emdi_fast_v13_0.cross_request.fields = function(buffer, offset, packet,
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, sent
+  -- Sender Comp ID: uInt32, sent
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Market Segment Id: uInt32, sent
+  -- Market Segment ID: uInt32, sent
   index, value = eurex_t7_emdi_fast_v13_0.market_segment_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: int64, sent
+  -- Security ID: int64, sent
   index, value = eurex_t7_emdi_fast_v13_0.security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Order Qty: decimal, sent, optional
@@ -7665,7 +7665,7 @@ eurex_t7_emdi_fast_v13_0.cross_request.fields = function(buffer, offset, packet,
     index = eurex_t7_emdi_fast_v13_0.cross_request_side_grp.dissect(buffer, index, packet, parent, presence_map, base, state, cross_request_side_grp_index)
   end
 
-  -- Md Entry Px: decimal, sent, optional
+  -- MD Entry Px: decimal, sent, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_px_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   -- Transact Time: timestamp, sent
@@ -7692,10 +7692,10 @@ eurex_t7_emdi_fast_v13_0.quot_req_grp.fields = function(buffer, offset, packet, 
   local index = offset
   local value = nil
 
-  -- Security Id: int64, Copy
+  -- Security ID: int64, Copy
   index, value = eurex_t7_emdi_fast_v13_0.security_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Side: uInt32, Copy, optional
@@ -7753,10 +7753,10 @@ eurex_t7_emdi_fast_v13_0.quote_request.fields = function(buffer, offset, packet,
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|15:MarketSegmentID")
 
   -- No Related Sym: uInt32, Constant
@@ -7789,7 +7789,7 @@ eurex_t7_emdi_fast_v13_0.complex_instrument_update_market_segment_grp.fields = f
   local index = offset
   local value = nil
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|15:MarketSegmentID")
 
   -- Implied Market Indicator: uInt32, sent
@@ -7831,10 +7831,10 @@ eurex_t7_emdi_fast_v13_0.instrmt_leg_grp.fields = function(buffer, offset, packe
   -- Leg Symbol: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.leg_symbol.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:LegSymbol")
 
-  -- Leg Security Id: int64, sent
+  -- Leg Security ID: int64, sent
   index, value = eurex_t7_emdi_fast_v13_0.leg_security_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Leg Security Id Source: string, Constant
+  -- Leg Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.leg_security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Leg Security Type: uInt32, Default
@@ -7897,16 +7897,16 @@ eurex_t7_emdi_fast_v13_0.complex_instrument_update.fields = function(buffer, off
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
   -- Security Update Action: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_update_action.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id: int64, sent
+  -- Security ID: int64, sent
   index, value = eurex_t7_emdi_fast_v13_0.security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Desc: string, sent
@@ -8017,7 +8017,7 @@ eurex_t7_emdi_fast_v13_0.trade_entry_grp.fields = function(buffer, offset, packe
   -- Resting Cxl Qty: decimal, sent, optional
   index, value = eurex_t7_emdi_fast_v13_0.resting_cxl_qty.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Md Entry Id: uInt32, Delta, optional
+  -- MD Entry ID: uInt32, Delta, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|9:MDEntryID")
 
   -- Non Disclosed Trade Volume: decimal, sent, optional
@@ -8043,42 +8043,42 @@ eurex_t7_emdi_fast_v13_0.trade_entry_grp.dissect = function(buffer, offset, pack
   return index
 end
 
--- Depth Incremental Md Inc Grp
+-- Depth Incremental MD Inc Grp
 eurex_t7_emdi_fast_v13_0.depth_incremental_md_inc_grp = {}
 
--- Dissect Fields: Depth Incremental Md Inc Grp
+-- Dissect Fields: Depth Incremental MD Inc Grp
 eurex_t7_emdi_fast_v13_0.depth_incremental_md_inc_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Md Origin Type: uInt32, Default
+  -- MD Origin Type: uInt32, Default
   index, value = eurex_t7_emdi_fast_v13_0.md_origin_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, nil)
 
-  -- Md Update Action: uInt32, Copy
+  -- MD Update Action: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.md_update_action.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|14:MDUpdateAction")
 
-  -- Md Entry Type: uInt32, Copy
+  -- MD Entry Type: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_type.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|11:MDEntryType")
 
-  -- Security Id: int64, Copy
+  -- Security ID: int64, Copy
   index, value = eurex_t7_emdi_fast_v13_0.security_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|10:SecurityID")
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Px: decimal, Delta, optional
+  -- MD Entry Px: decimal, Delta, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_px_delta.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
 
-  -- Md Entry Size: decimal, Delta, optional
+  -- MD Entry Size: decimal, Delta, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_size.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|11:MDEntrySize|E", "6:global|0:|11:MDEntrySize|M" })
 
   -- Number Of Orders: uInt32, Delta, optional
   index, value = eurex_t7_emdi_fast_v13_0.number_of_orders.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|14:NumberOfOrders")
 
-  -- Md Price Level: uInt32, sent, optional
+  -- MD Price Level: uInt32, sent, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_price_level_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Entry Time: timestamp, Copy, optional
+  -- MD Entry Time: timestamp, Copy, optional
   index, value = eurex_t7_emdi_fast_v13_0.md_entry_time_copy.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|11:MDEntryTime")
 
   -- Potential Security Trading Event: uInt32, sent, optional
@@ -8095,7 +8095,7 @@ eurex_t7_emdi_fast_v13_0.depth_incremental_md_inc_grp.fields = function(buffer, 
   return index
 end
 
--- Dissect: Depth Incremental Md Inc Grp
+-- Dissect: Depth Incremental MD Inc Grp
 eurex_t7_emdi_fast_v13_0.depth_incremental_md_inc_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent:add(omi_eurex_t7_emdi_fast_v13_0.fields.depth_incremental_md_inc_grp, buffer(offset, 0))
   local index = offset
@@ -8138,16 +8138,16 @@ eurex_t7_emdi_fast_v13_0.depth_incremental.fields = function(buffer, offset, pac
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|15:MarketSegmentID")
 
-  -- No Md Entries: uInt32, sent
+  -- No MD Entries: uInt32, sent
   index, value = eurex_t7_emdi_fast_v13_0.no_md_entries_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Md Inc Grp: No Md Entries entries
+  -- MD Inc Grp: No MD Entries entries
   local count = value or 0
   for depth_incremental_md_inc_grp_index = 1, count do
     index = eurex_t7_emdi_fast_v13_0.depth_incremental_md_inc_grp.dissect(buffer, index, packet, parent, presence_map, base, state, depth_incremental_md_inc_grp_index)
@@ -8196,16 +8196,16 @@ eurex_t7_emdi_fast_v13_0.instrument_state_change.fields = function(buffer, offse
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|15:MarketSegmentID")
 
-  -- Security Id: int64, sent
+  -- Security ID: int64, sent
   index, value = eurex_t7_emdi_fast_v13_0.security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Status: uInt32, Default
@@ -8235,7 +8235,7 @@ eurex_t7_emdi_fast_v13_0.instrument_state_change.fields = function(buffer, offse
   -- Transact Time: timestamp, Delta
   index, value = eurex_t7_emdi_fast_v13_0.transact_time_delta.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|12:TransactTime")
 
-  -- Tes Security Status: uInt32, Default, optional
+  -- TES Security Status: uInt32, Default, optional
   index, value = eurex_t7_emdi_fast_v13_0.tes_security_status_default.dissect(buffer, index, packet, parent, presence_map[base + 11], state, nil)
 
   return index
@@ -8259,10 +8259,10 @@ eurex_t7_emdi_fast_v13_0.sec_mass_stat_grp.fields = function(buffer, offset, pac
   local index = offset
   local value = nil
 
-  -- Security Id: int64, sent
+  -- Security ID: int64, sent
   index, value = eurex_t7_emdi_fast_v13_0.security_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Security Id Source: string, Constant
+  -- Security ID Source: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Security Status: uInt32, Default
@@ -8286,7 +8286,7 @@ eurex_t7_emdi_fast_v13_0.sec_mass_stat_grp.fields = function(buffer, offset, pac
   -- Low Px: decimal, sent, optional
   index, value = eurex_t7_emdi_fast_v13_0.low_px_sent.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
-  -- Tes Security Status: uInt32, Copy, optional
+  -- TES Security Status: uInt32, Copy, optional
   index, value = eurex_t7_emdi_fast_v13_0.tes_security_status_copy.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "6:global|0:|17:TESSecurityStatus")
 
   return index
@@ -8345,10 +8345,10 @@ eurex_t7_emdi_fast_v13_0.mass_instrument_state_change.fields = function(buffer, 
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|15:MarketSegmentID")
 
   -- Instrument Scope Product Complex: uInt32, Copy
@@ -8375,7 +8375,7 @@ eurex_t7_emdi_fast_v13_0.mass_instrument_state_change.fields = function(buffer, 
   -- Transact Time: timestamp, Delta
   index, value = eurex_t7_emdi_fast_v13_0.transact_time_delta.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|12:TransactTime")
 
-  -- Tes Security Mass Status: uInt32, Default, optional
+  -- TES Security Mass Status: uInt32, Default, optional
   index, value = eurex_t7_emdi_fast_v13_0.tes_security_mass_status.dissect(buffer, index, packet, parent, presence_map[base + 10], state, nil)
 
   -- No Related Sym: uInt32, Default
@@ -8427,16 +8427,16 @@ eurex_t7_emdi_fast_v13_0.product_state_change.fields = function(buffer, offset, 
   -- Msg Seq Num: uInt32, Increment
   index, value = eurex_t7_emdi_fast_v13_0.msg_seq_num_increment_required.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
-  -- Market Segment Id: uInt32, Copy
+  -- Market Segment ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.market_segment_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|15:MarketSegmentID")
 
-  -- Trading Session Id: uInt32, Default
+  -- Trading Session ID: uInt32, Default
   index, value = eurex_t7_emdi_fast_v13_0.trading_session_id_default_0.dissect(buffer, index, packet, parent, presence_map[base + 3], state, nil)
 
-  -- Trading Session Sub Id: uInt32, sent
+  -- Trading Session Sub ID: uInt32, sent
   index, value = eurex_t7_emdi_fast_v13_0.trading_session_sub_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trad Ses Status: uInt32, sent
@@ -8451,7 +8451,7 @@ eurex_t7_emdi_fast_v13_0.product_state_change.fields = function(buffer, offset, 
   -- Transact Time: timestamp, sent
   index, value = eurex_t7_emdi_fast_v13_0.transact_time_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Tes Trad Ses Status: uInt32, sent, optional
+  -- TES Trad Ses Status: uInt32, sent, optional
   index, value = eurex_t7_emdi_fast_v13_0.tes_trad_ses_status_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
@@ -8484,10 +8484,10 @@ eurex_t7_emdi_fast_v13_0.beacon.fields = function(buffer, offset, packet, parent
   -- Msg Type: string, Constant
   index, value = eurex_t7_emdi_fast_v13_0.msg_type_constant_0.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: uInt32, Copy
+  -- Sender Comp ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|12:SenderCompID")
 
-  -- Sender Sub Id: uInt32, Copy
+  -- Sender Sub ID: uInt32, Copy
   index, value = eurex_t7_emdi_fast_v13_0.sender_sub_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|11:SenderSubID")
 
   -- Last Msg Seq Num Processed: uInt32, sent
@@ -8506,20 +8506,20 @@ eurex_t7_emdi_fast_v13_0.beacon.dissect = function(buffer, offset, packet, paren
   return index
 end
 
--- Emd Packet Header Framing
+-- EMD Packet Header Framing
 eurex_t7_emdi_fast_v13_0.emd_packet_header = {}
 
 eurex_t7_emdi_fast_v13_0.emd_packet_header.node = omi_eurex_t7_emdi_fast_v13_0.fields.emd_packet_header
 
--- Dissect Fields: Emd Packet Header Framing
+-- Dissect Fields: EMD Packet Header Framing
 eurex_t7_emdi_fast_v13_0.emd_packet_header.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
-  -- Partition Id: uInt32, sent
+  -- Partition ID: uInt32, sent
   index, value = eurex_t7_emdi_fast_v13_0.partition_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
-  -- Sender Comp Id: uInt32, sent
+  -- Sender Comp ID: uInt32, sent
   index, value = eurex_t7_emdi_fast_v13_0.sender_comp_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Packet Seq Num: byteVector, sent
@@ -8534,7 +8534,7 @@ eurex_t7_emdi_fast_v13_0.emd_packet_header.fields = function(buffer, offset, pac
   return index
 end
 
--- Dissect: Emd Packet Header Framing
+-- Dissect: EMD Packet Header Framing
 eurex_t7_emdi_fast_v13_0.emd_packet_header.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset

@@ -1,4 +1,4 @@
-[![24X](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/24X/Images/Logo.png)](https://24exchange.com)
+[![24X](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/Organizations/24X/Images/Logo.png)](https://24exchange.com)
 
 
 ## 24 National Exchange
