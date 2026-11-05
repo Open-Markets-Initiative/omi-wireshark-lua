@@ -5218,6 +5218,9 @@ end
 -- News Line
 hkex_hkexsecurities_premiumretrans_omd_v1_44.news_line = {}
 
+-- Size: News Line
+hkex_hkexsecurities_premiumretrans_omd_v1_44.news_line.size = 160
+
 -- Dispatch: News Line
 hkex_hkexsecurities_premiumretrans_omd_v1_44.news_line.dispatch = {
   ["EXN"] = hkex_hkexsecurities_premiumretrans_omd_v1_44.news_line_ascii.dissect,
@@ -5376,6 +5379,9 @@ end
 -- Headline
 hkex_hkexsecurities_premiumretrans_omd_v1_44.headline = {}
 
+-- Size: Headline
+hkex_hkexsecurities_premiumretrans_omd_v1_44.headline.size = 320
+
 -- Dispatch: Headline
 hkex_hkexsecurities_premiumretrans_omd_v1_44.headline.dispatch = {
   ["EXN"] = hkex_hkexsecurities_premiumretrans_omd_v1_44.headline_ascii.dissect,
@@ -5404,10 +5410,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_44.news_message.size = function(buffer
 
   index = index + hkex_hkexsecurities_premiumretrans_omd_v1_44.news_id.size
 
-  -- Calculate runtime size of Headline field
-  local headline_offset = offset + index
-  local headline_type = buffer(headline_offset - 6, 3):string()
-  index = index + hkex_hkexsecurities_premiumretrans_omd_v1_44.headline.size(buffer, headline_offset, headline_type)
+  index = index + hkex_hkexsecurities_premiumretrans_omd_v1_44.headline.size
 
   index = index + hkex_hkexsecurities_premiumretrans_omd_v1_44.cancel_flag.size
 

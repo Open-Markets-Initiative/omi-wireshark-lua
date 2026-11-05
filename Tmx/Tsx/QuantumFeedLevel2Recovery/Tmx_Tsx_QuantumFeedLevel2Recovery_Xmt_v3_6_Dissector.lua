@@ -5156,7 +5156,12 @@ end
 tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.server_body = {}
 
 -- Dissect: Server Body
-tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.server_body.dissect = function(buffer, offset, packet, parent, msg_type, msg_type, msg_type, msg_type, msg_type)
+tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.server_body.dissect = function(buffer, offset, packet, parent)
+  local msg_type = buffer(offset + 2, 1):string()
+  local msg_type = buffer(offset + 2, 1):string()
+  local msg_type = buffer(offset + 2, 1):string()
+  local msg_type = buffer(offset + 2, 1):string()
+  local msg_type = buffer(offset + 2, 1):string()
   -- Dissect Heartbeat Body
   if msg_type == "0" then
     return tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.heartbeat_body.dissect(buffer, offset, packet, parent)
@@ -5270,23 +5275,8 @@ tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.server_frame.fields = function(buffer
 
   if server_body_exists then
 
-    -- Dependency element: Msg Type
-    local msg_type = buffer(index + 2, 1):string()
-
-    -- Dependency element: Msg Type
-    local msg_type = buffer(index + 2, 1):string()
-
-    -- Dependency element: Msg Type
-    local msg_type = buffer(index + 2, 1):string()
-
-    -- Dependency element: Msg Type
-    local msg_type = buffer(index + 2, 1):string()
-
-    -- Dependency element: Msg Type
-    local msg_type = buffer(index + 2, 1):string()
-
     -- Server Body: Runtime Type with 5 branches
-    index = tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.server_body.dissect(buffer, index, packet, parent, msg_type, msg_type, msg_type, msg_type, msg_type)
+    index = tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.server_body.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -5620,7 +5610,11 @@ end
 tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.client_body = {}
 
 -- Dissect: Client Body
-tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.client_body.dissect = function(buffer, offset, packet, parent, msg_type, msg_type, msg_type, msg_type)
+tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.client_body.dissect = function(buffer, offset, packet, parent)
+  local msg_type = buffer(offset + 2, 1):string()
+  local msg_type = buffer(offset + 2, 1):string()
+  local msg_type = buffer(offset + 2, 1):string()
+  local msg_type = buffer(offset + 2, 1):string()
   -- Dissect Heartbeat Body
   if msg_type == "0" then
     return tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.heartbeat_body.dissect(buffer, offset, packet, parent)
@@ -5666,20 +5660,8 @@ tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.client_frame.fields = function(buffer
 
   if client_body_exists then
 
-    -- Dependency element: Msg Type
-    local msg_type = buffer(index + 2, 1):string()
-
-    -- Dependency element: Msg Type
-    local msg_type = buffer(index + 2, 1):string()
-
-    -- Dependency element: Msg Type
-    local msg_type = buffer(index + 2, 1):string()
-
-    -- Dependency element: Msg Type
-    local msg_type = buffer(index + 2, 1):string()
-
     -- Client Body: Runtime Type with 4 branches
-    index = tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.client_body.dissect(buffer, index, packet, parent, msg_type, msg_type, msg_type, msg_type)
+    index = tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.client_body.dissect(buffer, index, packet, parent)
   end
 
   return index

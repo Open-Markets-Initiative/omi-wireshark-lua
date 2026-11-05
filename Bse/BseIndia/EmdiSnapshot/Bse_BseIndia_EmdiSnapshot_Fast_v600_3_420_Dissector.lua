@@ -4,80 +4,80 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420 Protocol
-local omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420 = Proto("Omi.Bse.BseIndia.EmdiSnapshot.Fast.v502.002.420.600003420", "Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420")
+-- Bse BseIndia EmdiSnapshot Fast 600.3.420 Protocol
+local omi_bse_bseindia_emdisnapshot_fast_v600_3_420 = Proto("Omi.Bse.BseIndia.EmdiSnapshot.Fast.v600.3.420", "Bse BseIndia EmdiSnapshot Fast 600.3.420")
 
 -- Protocol table
-local bse_bseindia_emdisnapshot_fast_v502_002_420_600003420 = {}
+local bse_bseindia_emdisnapshot_fast_v600_3_420 = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420 Framing
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.message = ProtoField.new("Message", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.message", ftypes.NONE)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.message_header = ProtoField.new("Message Header", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.messageheader", ftypes.NONE)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_map = ProtoField.new("Presence Map", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.presencemap", ftypes.BYTES)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.template_id = ProtoField.new("Template Id", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.templateid", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.record = ProtoField.new("Record", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.record", ftypes.NONE)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_stop = ProtoField.new("Stop Bit", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_identified = ProtoField.new("Template Id", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_unused = ProtoField.new("Unused", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.presenceunused", ftypes.UINT8, nil, base.HEX)
+-- Bse BseIndia EmdiSnapshot Fast 600.3.420 Framing
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.message = ProtoField.new("Message", "bse.bseindia.emdisnapshot.fast.v600.3.420.message", ftypes.NONE)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.message_header = ProtoField.new("Message Header", "bse.bseindia.emdisnapshot.fast.v600.3.420.messageheader", ftypes.NONE)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_map = ProtoField.new("Presence Map", "bse.bseindia.emdisnapshot.fast.v600.3.420.presencemap", ftypes.BYTES)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.template_id = ProtoField.new("Template Id", "bse.bseindia.emdisnapshot.fast.v600.3.420.templateid", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.record = ProtoField.new("Record", "bse.bseindia.emdisnapshot.fast.v600.3.420.record", ftypes.NONE)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_stop = ProtoField.new("Stop Bit", "bse.bseindia.emdisnapshot.fast.v600.3.420.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_identified = ProtoField.new("Template Id", "bse.bseindia.emdisnapshot.fast.v600.3.420.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_unused = ProtoField.new("Unused", "bse.bseindia.emdisnapshot.fast.v600.3.420.presenceunused", ftypes.UINT8, nil, base.HEX)
 
--- Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420 Presence Map Fields
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_sender_comp_id = ProtoField.new("Sender Comp ID", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.lastmsgseqnumprocessedpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_refresh_indicator = ProtoField.new("Refresh Indicator", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.refreshindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_market_segment_id = ProtoField.new("Market Segment ID", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.marketsegmentidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_product_complex = ProtoField.new("Product Complex", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.productcomplexpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_security_status = ProtoField.new("Security Status", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.securitystatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_bid_size = ProtoField.new("Bid Size", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.bidsizepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_offer_size = ProtoField.new("Offer Size", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.offersizepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_no_md_entries = ProtoField.new("No MD Entries", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.nomdentriespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+-- Bse BseIndia EmdiSnapshot Fast 600.3.420 Presence Map Fields
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_msg_seq_num = ProtoField.new("Msg Seq Num", "bse.bseindia.emdisnapshot.fast.v600.3.420.msgseqnumpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_sender_comp_id = ProtoField.new("Sender Comp ID", "bse.bseindia.emdisnapshot.fast.v600.3.420.sendercompidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "bse.bseindia.emdisnapshot.fast.v600.3.420.lastmsgseqnumprocessedpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_refresh_indicator = ProtoField.new("Refresh Indicator", "bse.bseindia.emdisnapshot.fast.v600.3.420.refreshindicatorpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_market_segment_id = ProtoField.new("Market Segment ID", "bse.bseindia.emdisnapshot.fast.v600.3.420.marketsegmentidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_product_complex = ProtoField.new("Product Complex", "bse.bseindia.emdisnapshot.fast.v600.3.420.productcomplexpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_security_status = ProtoField.new("Security Status", "bse.bseindia.emdisnapshot.fast.v600.3.420.securitystatuspresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_bid_size = ProtoField.new("Bid Size", "bse.bseindia.emdisnapshot.fast.v600.3.420.bidsizepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_offer_size = ProtoField.new("Offer Size", "bse.bseindia.emdisnapshot.fast.v600.3.420.offersizepresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_no_md_entries = ProtoField.new("No MD Entries", "bse.bseindia.emdisnapshot.fast.v600.3.420.nomdentriespresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
 
--- Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420 Fields
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.partition_id = ProtoField.new("Partition ID", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.partitionid", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.sendercompid", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.packet_seq_num = ProtoField.new("Packet Seq Num", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.packetseqnum", ftypes.BYTES)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.sending_time = ProtoField.new("Sending Time", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.sendingtime", ftypes.BYTES)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.performance_indicator = ProtoField.new("Performance Indicator", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.performanceindicator", ftypes.BYTES)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.msg_type = ProtoField.new("Msg Type", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.msgtype", ftypes.STRING)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.msgseqnum", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.lastmsgseqnumprocessed", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.refresh_indicator = ProtoField.new("Refresh Indicator", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.refreshindicator", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.market_segment_id = ProtoField.new("Market Segment ID", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.marketsegmentid", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_id = ProtoField.new("Security ID", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.securityid", ftypes.INT64)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_id_source = ProtoField.new("Security ID Source", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.securityidsource", ftypes.STRING)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.product_complex = ProtoField.new("Product Complex", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.productcomplex", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_status = ProtoField.new("Security Status", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.securitystatus", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.bid_size = ProtoField.new("Bid Size", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.bidsize", ftypes.UINT64)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.offer_size = ProtoField.new("Offer Size", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.offersize", ftypes.UINT64)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.last_update_time = ProtoField.new("Last Update Time", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.no_md_entries = ProtoField.new("No MD Entries", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.nomdentries", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_type = ProtoField.new("MD Entry Type", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.mdentrytype", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trd_type = ProtoField.new("Trd Type", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.trdtype", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trading_session_id = ProtoField.new("Trading Session ID", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.tradingsessionid", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub ID", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.tradingsessionsubid", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.fast_market_indicator = ProtoField.new("Fast Market Indicator", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.fastmarketindicator", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_trading_status = ProtoField.new("Security Trading Status", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.securitytradingstatus", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trade_condition = ProtoField.new("Trade Condition", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.tradecondition", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_px = ProtoField.new("MD Entry Px", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.mdentrypx", ftypes.DOUBLE)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.yield = ProtoField.new("Yield", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.yield", ftypes.DOUBLE)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.put_yield = ProtoField.new("Put Yield", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.putyield", ftypes.DOUBLE)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.call_yield = ProtoField.new("Call Yield", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.callyield", ftypes.DOUBLE)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_size = ProtoField.new("MD Entry Size", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.mdentrysize", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.number_of_orders = ProtoField.new("Number Of Orders", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.numberoforders", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_price_level = ProtoField.new("MD Price Level", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.mdpricelevel", ftypes.UINT32)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_time = ProtoField.new("MD Entry Time", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.mdentrytime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trade_volume = ProtoField.new("Trade Volume", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.tradevolume", ftypes.UINT64)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.gross_trade_amt = ProtoField.new("Gross Trade Amt", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.grosstradeamt", ftypes.DOUBLE)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.no_trades = ProtoField.new("No Trades", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.notrades", ftypes.UINT32)
+-- Bse BseIndia EmdiSnapshot Fast 600.3.420 Fields
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.partition_id = ProtoField.new("Partition ID", "bse.bseindia.emdisnapshot.fast.v600.3.420.partitionid", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "bse.bseindia.emdisnapshot.fast.v600.3.420.sendercompid", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.packet_seq_num = ProtoField.new("Packet Seq Num", "bse.bseindia.emdisnapshot.fast.v600.3.420.packetseqnum", ftypes.BYTES)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.sending_time = ProtoField.new("Sending Time", "bse.bseindia.emdisnapshot.fast.v600.3.420.sendingtime", ftypes.BYTES)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.performance_indicator = ProtoField.new("Performance Indicator", "bse.bseindia.emdisnapshot.fast.v600.3.420.performanceindicator", ftypes.BYTES)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.msg_type = ProtoField.new("Msg Type", "bse.bseindia.emdisnapshot.fast.v600.3.420.msgtype", ftypes.STRING)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "bse.bseindia.emdisnapshot.fast.v600.3.420.msgseqnum", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "bse.bseindia.emdisnapshot.fast.v600.3.420.lastmsgseqnumprocessed", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.refresh_indicator = ProtoField.new("Refresh Indicator", "bse.bseindia.emdisnapshot.fast.v600.3.420.refreshindicator", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.market_segment_id = ProtoField.new("Market Segment ID", "bse.bseindia.emdisnapshot.fast.v600.3.420.marketsegmentid", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_id = ProtoField.new("Security ID", "bse.bseindia.emdisnapshot.fast.v600.3.420.securityid", ftypes.INT64)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_id_source = ProtoField.new("Security ID Source", "bse.bseindia.emdisnapshot.fast.v600.3.420.securityidsource", ftypes.STRING)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.product_complex = ProtoField.new("Product Complex", "bse.bseindia.emdisnapshot.fast.v600.3.420.productcomplex", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_status = ProtoField.new("Security Status", "bse.bseindia.emdisnapshot.fast.v600.3.420.securitystatus", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.bid_size = ProtoField.new("Bid Size", "bse.bseindia.emdisnapshot.fast.v600.3.420.bidsize", ftypes.UINT64)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.offer_size = ProtoField.new("Offer Size", "bse.bseindia.emdisnapshot.fast.v600.3.420.offersize", ftypes.UINT64)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.last_update_time = ProtoField.new("Last Update Time", "bse.bseindia.emdisnapshot.fast.v600.3.420.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.no_md_entries = ProtoField.new("No MD Entries", "bse.bseindia.emdisnapshot.fast.v600.3.420.nomdentries", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_type = ProtoField.new("MD Entry Type", "bse.bseindia.emdisnapshot.fast.v600.3.420.mdentrytype", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trd_type = ProtoField.new("Trd Type", "bse.bseindia.emdisnapshot.fast.v600.3.420.trdtype", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trading_session_id = ProtoField.new("Trading Session ID", "bse.bseindia.emdisnapshot.fast.v600.3.420.tradingsessionid", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub ID", "bse.bseindia.emdisnapshot.fast.v600.3.420.tradingsessionsubid", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.fast_market_indicator = ProtoField.new("Fast Market Indicator", "bse.bseindia.emdisnapshot.fast.v600.3.420.fastmarketindicator", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_trading_status = ProtoField.new("Security Trading Status", "bse.bseindia.emdisnapshot.fast.v600.3.420.securitytradingstatus", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trade_condition = ProtoField.new("Trade Condition", "bse.bseindia.emdisnapshot.fast.v600.3.420.tradecondition", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_px = ProtoField.new("MD Entry Px", "bse.bseindia.emdisnapshot.fast.v600.3.420.mdentrypx", ftypes.DOUBLE)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.yield = ProtoField.new("Yield", "bse.bseindia.emdisnapshot.fast.v600.3.420.yield", ftypes.DOUBLE)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.put_yield = ProtoField.new("Put Yield", "bse.bseindia.emdisnapshot.fast.v600.3.420.putyield", ftypes.DOUBLE)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.call_yield = ProtoField.new("Call Yield", "bse.bseindia.emdisnapshot.fast.v600.3.420.callyield", ftypes.DOUBLE)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_size = ProtoField.new("MD Entry Size", "bse.bseindia.emdisnapshot.fast.v600.3.420.mdentrysize", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.number_of_orders = ProtoField.new("Number Of Orders", "bse.bseindia.emdisnapshot.fast.v600.3.420.numberoforders", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_price_level = ProtoField.new("MD Price Level", "bse.bseindia.emdisnapshot.fast.v600.3.420.mdpricelevel", ftypes.UINT32)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_time = ProtoField.new("MD Entry Time", "bse.bseindia.emdisnapshot.fast.v600.3.420.mdentrytime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trade_volume = ProtoField.new("Trade Volume", "bse.bseindia.emdisnapshot.fast.v600.3.420.tradevolume", ftypes.UINT64)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.gross_trade_amt = ProtoField.new("Gross Trade Amt", "bse.bseindia.emdisnapshot.fast.v600.3.420.grosstradeamt", ftypes.DOUBLE)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.no_trades = ProtoField.new("No Trades", "bse.bseindia.emdisnapshot.fast.v600.3.420.notrades", ftypes.UINT32)
 
--- Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420 Messages
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.emd_packet_header = ProtoField.new("EMD Packet Header Message", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.emdpacketheader", ftypes.NONE)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.depth_snapshot = ProtoField.new("Depth Snapshot Message", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.depthsnapshot", ftypes.NONE)
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_ssh_grp = ProtoField.new("MD Ssh Grp", "bse.bseindia.emdisnapshot.fast.v502.002.420.600003420.mdsshgrp", ftypes.NONE)
+-- Bse BseIndia EmdiSnapshot Fast 600.3.420 Messages
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.emd_packet_header = ProtoField.new("EMD Packet Header Message", "bse.bseindia.emdisnapshot.fast.v600.3.420.emdpacketheader", ftypes.NONE)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.depth_snapshot = ProtoField.new("Depth Snapshot Message", "bse.bseindia.emdisnapshot.fast.v600.3.420.depthsnapshot", ftypes.NONE)
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_ssh_grp = ProtoField.new("MD Ssh Grp", "bse.bseindia.emdisnapshot.fast.v600.3.420.mdsshgrp", ftypes.NONE)
 
 -----------------------------------------------------------------------
 -- Protocol Functions
@@ -484,14 +484,14 @@ end
 
 
 -----------------------------------------------------------------------
--- Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420 Fields
+-- Bse BseIndia EmdiSnapshot Fast 600.3.420 Fields
 -----------------------------------------------------------------------
 
 -- Partition ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.partition_id = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.partition_id = {}
 
 -- Dissect: Partition ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.partition_id.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.partition_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -500,9 +500,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.partition_id.dissect = fun
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.partition_id, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.partition_id, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.partition_id, range, 0)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.partition_id, range, 0)
     absent:set_text("Partition ID: No Value")
   end
 
@@ -510,10 +510,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.partition_id.dissect = fun
 end
 
 -- Sender Comp ID (Sent)
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sender_comp_id_sent = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.sender_comp_id_sent = {}
 
 -- Dissect: Sender Comp ID (Sent)
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sender_comp_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.sender_comp_id_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -522,9 +522,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sender_comp_id_sent.dissec
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.sender_comp_id, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.sender_comp_id, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.sender_comp_id, range, 0)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.sender_comp_id, range, 0)
     absent:set_text("Sender Comp ID: No Value")
   end
 
@@ -532,10 +532,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sender_comp_id_sent.dissec
 end
 
 -- Sender Comp ID (Copy)
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sender_comp_id_copy = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.sender_comp_id_copy = {}
 
 -- Dissect: Sender Comp ID (Copy)
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sender_comp_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.sender_comp_id_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -555,9 +555,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sender_comp_id_copy.dissec
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.sender_comp_id, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.sender_comp_id, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.sender_comp_id, range, 0)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.sender_comp_id, range, 0)
     absent:set_text("Sender Comp ID: No Value")
   end
 
@@ -565,10 +565,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sender_comp_id_copy.dissec
 end
 
 -- Packet Seq Num
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.packet_seq_num = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.packet_seq_num = {}
 
 -- Dissect: Packet Seq Num
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.packet_seq_num.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.packet_seq_num.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -577,9 +577,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.packet_seq_num.dissect = f
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.packet_seq_num, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.packet_seq_num, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.packet_seq_num, buffer(start, 0))
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.packet_seq_num, buffer(start, 0))
     absent:set_text("Packet Seq Num: No Value")
   end
 
@@ -587,10 +587,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.packet_seq_num.dissect = f
 end
 
 -- Sending Time
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sending_time = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.sending_time = {}
 
 -- Dissect: Sending Time
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sending_time.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.sending_time.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -599,9 +599,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sending_time.dissect = fun
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.sending_time, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.sending_time, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.sending_time, buffer(start, 0))
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.sending_time, buffer(start, 0))
     absent:set_text("Sending Time: No Value")
   end
 
@@ -609,10 +609,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sending_time.dissect = fun
 end
 
 -- Performance Indicator
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.performance_indicator = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.performance_indicator = {}
 
 -- Dissect: Performance Indicator
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.performance_indicator.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.performance_indicator.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -621,9 +621,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.performance_indicator.diss
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.performance_indicator, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.performance_indicator, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.performance_indicator, buffer(start, 0))
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.performance_indicator, buffer(start, 0))
     absent:set_text("Performance Indicator: No Value")
   end
 
@@ -631,10 +631,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.performance_indicator.diss
 end
 
 -- Msg Type
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.msg_type = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.msg_type = {}
 
 -- Dissect: Msg Type
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.msg_type.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.msg_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -643,9 +643,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.msg_type.dissect = functio
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.msg_type, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.msg_type, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.msg_type, range, "")
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.msg_type, range, "")
     absent:set_text("Msg Type: No Value")
   end
 
@@ -653,10 +653,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.msg_type.dissect = functio
 end
 
 -- Msg Seq Num
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.msg_seq_num = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.msg_seq_num = {}
 
 -- Dissect: Msg Seq Num
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.msg_seq_num.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.msg_seq_num.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -673,9 +673,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.msg_seq_num.dissect = func
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.msg_seq_num, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.msg_seq_num, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.msg_seq_num, range, 0)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.msg_seq_num, range, 0)
     absent:set_text("Msg Seq Num: No Value")
   end
 
@@ -683,10 +683,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.msg_seq_num.dissect = func
 end
 
 -- Last Msg Seq Num Processed
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.last_msg_seq_num_processed = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.last_msg_seq_num_processed = {}
 
 -- Dissect: Last Msg Seq Num Processed
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.last_msg_seq_num_processed.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.last_msg_seq_num_processed.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -703,9 +703,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.last_msg_seq_num_processed
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.last_msg_seq_num_processed, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.last_msg_seq_num_processed, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.last_msg_seq_num_processed, range, 0)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.last_msg_seq_num_processed, range, 0)
     absent:set_text("Last Msg Seq Num Processed: No Value")
   end
 
@@ -713,10 +713,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.last_msg_seq_num_processed
 end
 
 -- Refresh Indicator
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.refresh_indicator = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.refresh_indicator = {}
 
 -- Display: Refresh Indicator
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.refresh_indicator.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.refresh_indicator.display = function(value)
   if value == nil then
     return "Refresh Indicator: No Value"
   end
@@ -732,7 +732,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.refresh_indicator.display 
 end
 
 -- Dissect: Refresh Indicator
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.refresh_indicator.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.refresh_indicator.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -746,23 +746,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.refresh_indicator.dissect 
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.refresh_indicator.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.refresh_indicator.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.refresh_indicator, range, 0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.refresh_indicator, range, 0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.refresh_indicator, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.refresh_indicator, range, value, display)
   end
 
   return offset, value
 end
 
 -- Market Segment ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.market_segment_id = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.market_segment_id = {}
 
 -- Dissect: Market Segment ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.market_segment_id.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.market_segment_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -782,9 +782,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.market_segment_id.dissect 
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.market_segment_id, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.market_segment_id, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.market_segment_id, range, 0)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.market_segment_id, range, 0)
     absent:set_text("Market Segment ID: No Value")
   end
 
@@ -792,10 +792,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.market_segment_id.dissect 
 end
 
 -- Security ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_id = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.security_id = {}
 
 -- Dissect: Security ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.security_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -807,9 +807,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_id.dissect = func
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_id, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_id, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_id, range, Int64(0))
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_id, range, Int64(0))
     absent:set_text("Security ID: No Value")
   end
 
@@ -817,10 +817,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_id.dissect = func
 end
 
 -- Security ID Source
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_id_source = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.security_id_source = {}
 
 -- Dissect: Security ID Source
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.security_id_source.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -829,9 +829,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_id_source.dissect
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_id_source, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_id_source, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_id_source, range, "")
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_id_source, range, "")
     absent:set_text("Security ID Source: No Value")
   end
 
@@ -839,10 +839,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_id_source.dissect
 end
 
 -- Product Complex
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.product_complex = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.product_complex = {}
 
 -- Display: Product Complex
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.product_complex.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.product_complex.display = function(value)
   if value == nil then
     return "Product Complex: No Value"
   end
@@ -867,7 +867,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.product_complex.display = 
 end
 
 -- Dissect: Product Complex
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.product_complex.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.product_complex.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -886,23 +886,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.product_complex.dissect = 
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.product_complex.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.product_complex.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.product_complex, range, 0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.product_complex, range, 0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.product_complex, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.product_complex, range, value, display)
   end
 
   return offset, value
 end
 
 -- Security Status
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_status = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.security_status = {}
 
 -- Display: Security Status
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_status.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.security_status.display = function(value)
   if value == nil then
     return "Security Status: No Value"
   end
@@ -927,7 +927,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_status.display = 
 end
 
 -- Dissect: Security Status
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_status.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.security_status.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -939,23 +939,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_status.dissect = 
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_status.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.security_status.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_status, range, 0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_status, range, 0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_status, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_status, range, value, display)
   end
 
   return offset, value
 end
 
 -- Bid Size
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.bid_size = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.bid_size = {}
 
 -- Dissect: Bid Size
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.bid_size.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.bid_size.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -975,9 +975,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.bid_size.dissect = functio
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.bid_size, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.bid_size, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.bid_size, range, UInt64(0))
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.bid_size, range, UInt64(0))
     absent:set_text("Bid Size: No Value")
   end
 
@@ -985,10 +985,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.bid_size.dissect = functio
 end
 
 -- Offer Size
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.offer_size = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.offer_size = {}
 
 -- Dissect: Offer Size
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.offer_size.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.offer_size.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1008,9 +1008,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.offer_size.dissect = funct
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.offer_size, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.offer_size, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.offer_size, range, UInt64(0))
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.offer_size, range, UInt64(0))
     absent:set_text("Offer Size: No Value")
   end
 
@@ -1018,10 +1018,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.offer_size.dissect = funct
 end
 
 -- Last Update Time
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.last_update_time = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.last_update_time = {}
 
 -- Dissect: Last Update Time
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.last_update_time.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.last_update_time.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1033,22 +1033,22 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.last_update_time.dissect =
   local range = buffer(start, offset - start)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.last_update_time, range, NSTime.new(0, 0))
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.last_update_time, range, NSTime.new(0, 0))
     absent:set_text("Last Update Time: No Value")
   else
     local seconds = (value / Int64(1000000000)):tonumber()
     local nanos = (value % Int64(1000000000)):tonumber()
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.last_update_time, range, NSTime.new(seconds, nanos))
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.last_update_time, range, NSTime.new(seconds, nanos))
   end
 
   return offset, value
 end
 
 -- No MD Entries
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.no_md_entries = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.no_md_entries = {}
 
 -- Dissect: No MD Entries
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.no_md_entries.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.no_md_entries.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1061,9 +1061,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.no_md_entries.dissect = fu
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.no_md_entries, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.no_md_entries, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.no_md_entries, range, 0)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.no_md_entries, range, 0)
     absent:set_text("No MD Entries: No Value")
   end
 
@@ -1071,10 +1071,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.no_md_entries.dissect = fu
 end
 
 -- MD Entry Type
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_type = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_type = {}
 
 -- Display: MD Entry Type
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_type.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_type.display = function(value)
   if value == nil then
     return "MD Entry Type: No Value"
   end
@@ -1120,7 +1120,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_type.display = fu
 end
 
 -- Dissect: MD Entry Type
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_type.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1139,23 +1139,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_type.dissect = fu
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_type.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_type.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_type, range, 0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_type, range, 0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_type, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_type, range, value, display)
   end
 
   return offset, value
 end
 
 -- Trd Type
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trd_type = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.trd_type = {}
 
 -- Display: Trd Type
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trd_type.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.trd_type.display = function(value)
   if value == nil then
     return "Trd Type: No Value"
   end
@@ -1201,7 +1201,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trd_type.display = functio
 end
 
 -- Dissect: Trd Type
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trd_type.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.trd_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1209,23 +1209,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trd_type.dissect = functio
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trd_type.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.trd_type.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trd_type, range, 0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trd_type, range, 0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trd_type, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trd_type, range, value, display)
   end
 
   return offset, value
 end
 
 -- Trading Session ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_id = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.trading_session_id = {}
 
 -- Display: Trading Session ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_id.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.trading_session_id.display = function(value)
   if value == nil then
     return "Trading Session ID: No Value"
   end
@@ -1247,7 +1247,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_id.display
 end
 
 -- Dissect: Trading Session ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_id.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.trading_session_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1259,23 +1259,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_id.dissect
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_id.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.trading_session_id.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trading_session_id, range, 0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trading_session_id, range, 0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trading_session_id, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trading_session_id, range, value, display)
   end
 
   return offset, value
 end
 
 -- Trading Session Sub ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_sub_id = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.trading_session_sub_id = {}
 
 -- Display: Trading Session Sub ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_sub_id.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.trading_session_sub_id.display = function(value)
   if value == nil then
     return "Trading Session Sub ID: No Value"
   end
@@ -1303,7 +1303,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_sub_id.dis
 end
 
 -- Dissect: Trading Session Sub ID
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_sub_id.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.trading_session_sub_id.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1311,23 +1311,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_sub_id.dis
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_sub_id.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.trading_session_sub_id.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trading_session_sub_id, range, 0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trading_session_sub_id, range, 0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trading_session_sub_id, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trading_session_sub_id, range, value, display)
   end
 
   return offset, value
 end
 
 -- Fast Market Indicator
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fast_market_indicator = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.fast_market_indicator = {}
 
 -- Display: Fast Market Indicator
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fast_market_indicator.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.fast_market_indicator.display = function(value)
   if value == nil then
     return "Fast Market Indicator: No Value"
   end
@@ -1343,7 +1343,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fast_market_indicator.disp
 end
 
 -- Dissect: Fast Market Indicator
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fast_market_indicator.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.fast_market_indicator.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1355,23 +1355,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fast_market_indicator.diss
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fast_market_indicator.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.fast_market_indicator.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.fast_market_indicator, range, 0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.fast_market_indicator, range, 0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.fast_market_indicator, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.fast_market_indicator, range, value, display)
   end
 
   return offset, value
 end
 
 -- Security Trading Status
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_trading_status = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.security_trading_status = {}
 
 -- Display: Security Trading Status
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_trading_status.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.security_trading_status.display = function(value)
   if value == nil then
     return "Security Trading Status: No Value"
   end
@@ -1417,7 +1417,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_trading_status.di
 end
 
 -- Dissect: Security Trading Status
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_trading_status.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.security_trading_status.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1425,23 +1425,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_trading_status.di
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_trading_status.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.security_trading_status.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_trading_status, range, 0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_trading_status, range, 0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.security_trading_status, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.security_trading_status, range, value, display)
   end
 
   return offset, value
 end
 
 -- Trade Condition
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_condition = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.trade_condition = {}
 
 -- Display: Trade Condition
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_condition.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.trade_condition.display = function(value)
   if value == nil then
     return "Trade Condition: No Value"
   end
@@ -1466,7 +1466,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_condition.display = 
 end
 
 -- Dissect: Trade Condition
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_condition.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.trade_condition.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1474,23 +1474,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_condition.dissect = 
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_condition.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.trade_condition.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trade_condition, range, 0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trade_condition, range, 0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trade_condition, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trade_condition, range, value, display)
   end
 
   return offset, value
 end
 
 -- MD Entry Px
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_px = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_px = {}
 
 -- Display: MD Entry Px
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_px.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_px.display = function(value)
   if value == nil then
     return "MD Entry Px: No Value"
   end
@@ -1499,7 +1499,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_px.display = func
 end
 
 -- Dissect: MD Entry Px
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_px.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_px.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1528,23 +1528,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_px.dissect = func
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_px.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_px.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_px, range, 0/0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_px, range, 0/0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_px, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_px, range, value, display)
   end
 
   return offset, value
 end
 
 -- Yield
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.yield = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.yield = {}
 
 -- Display: Yield
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.yield.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.yield.display = function(value)
   if value == nil then
     return "Yield: No Value"
   end
@@ -1553,7 +1553,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.yield.display = function(v
 end
 
 -- Dissect: Yield
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.yield.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.yield.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1582,23 +1582,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.yield.dissect = function(b
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.yield.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.yield.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.yield, range, 0/0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.yield, range, 0/0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.yield, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.yield, range, value, display)
   end
 
   return offset, value
 end
 
 -- Put Yield
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.put_yield = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.put_yield = {}
 
 -- Display: Put Yield
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.put_yield.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.put_yield.display = function(value)
   if value == nil then
     return "Put Yield: No Value"
   end
@@ -1607,7 +1607,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.put_yield.display = functi
 end
 
 -- Dissect: Put Yield
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.put_yield.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.put_yield.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1636,23 +1636,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.put_yield.dissect = functi
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.put_yield.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.put_yield.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.put_yield, range, 0/0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.put_yield, range, 0/0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.put_yield, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.put_yield, range, value, display)
   end
 
   return offset, value
 end
 
 -- Call Yield
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.call_yield = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.call_yield = {}
 
 -- Display: Call Yield
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.call_yield.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.call_yield.display = function(value)
   if value == nil then
     return "Call Yield: No Value"
   end
@@ -1661,7 +1661,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.call_yield.display = funct
 end
 
 -- Dissect: Call Yield
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.call_yield.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.call_yield.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1690,23 +1690,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.call_yield.dissect = funct
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.call_yield.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.call_yield.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.call_yield, range, 0/0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.call_yield, range, 0/0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.call_yield, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.call_yield, range, value, display)
   end
 
   return offset, value
 end
 
 -- MD Entry Size
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_size = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_size = {}
 
 -- Dissect: MD Entry Size
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_size.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_size.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1721,9 +1721,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_size.dissect = fu
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_size, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_size, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_size, range, 0)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_size, range, 0)
     absent:set_text("MD Entry Size: No Value")
   end
 
@@ -1731,10 +1731,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_size.dissect = fu
 end
 
 -- Number Of Orders
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.number_of_orders = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.number_of_orders = {}
 
 -- Dissect: Number Of Orders
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.number_of_orders.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.number_of_orders.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1749,9 +1749,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.number_of_orders.dissect =
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.number_of_orders, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.number_of_orders, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.number_of_orders, range, 0)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.number_of_orders, range, 0)
     absent:set_text("Number Of Orders: No Value")
   end
 
@@ -1759,10 +1759,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.number_of_orders.dissect =
 end
 
 -- MD Price Level
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_price_level = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_price_level = {}
 
 -- Dissect: MD Price Level
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_price_level.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_price_level.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1779,9 +1779,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_price_level.dissect = f
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_price_level, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_price_level, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_price_level, range, 0)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_price_level, range, 0)
     absent:set_text("MD Price Level: No Value")
   end
 
@@ -1789,10 +1789,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_price_level.dissect = f
 end
 
 -- MD Entry Time
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_time = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_time = {}
 
 -- Dissect: MD Entry Time
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_time.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_time.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1807,22 +1807,22 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_time.dissect = fu
   local range = buffer(start, offset - start)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_time, range, NSTime.new(0, 0))
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_time, range, NSTime.new(0, 0))
     absent:set_text("MD Entry Time: No Value")
   else
     local seconds = (value / Int64(1000000000)):tonumber()
     local nanos = (value % Int64(1000000000)):tonumber()
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_entry_time, range, NSTime.new(seconds, nanos))
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_entry_time, range, NSTime.new(seconds, nanos))
   end
 
   return offset, value
 end
 
 -- Trade Volume
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_volume = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.trade_volume = {}
 
 -- Dissect: Trade Volume
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_volume.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.trade_volume.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1831,9 +1831,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_volume.dissect = fun
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trade_volume, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trade_volume, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.trade_volume, range, UInt64(0))
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.trade_volume, range, UInt64(0))
     absent:set_text("Trade Volume: No Value")
   end
 
@@ -1841,10 +1841,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_volume.dissect = fun
 end
 
 -- Gross Trade Amt
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.gross_trade_amt = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.gross_trade_amt = {}
 
 -- Display: Gross Trade Amt
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.gross_trade_amt.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.gross_trade_amt.display = function(value)
   if value == nil then
     return "Gross Trade Amt: No Value"
   end
@@ -1853,7 +1853,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.gross_trade_amt.display = 
 end
 
 -- Dissect: Gross Trade Amt
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.gross_trade_amt.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.gross_trade_amt.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1873,23 +1873,23 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.gross_trade_amt.dissect = 
 
   local range = buffer(start, offset - start)
 
-  local display = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.gross_trade_amt.display(value)
+  local display = bse_bseindia_emdisnapshot_fast_v600_3_420.gross_trade_amt.display(value)
 
   if value == nil then
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.gross_trade_amt, range, 0/0, display)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.gross_trade_amt, range, 0/0, display)
     absent:set_text(display)
   else
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.gross_trade_amt, range, value, display)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.gross_trade_amt, range, value, display)
   end
 
   return offset, value
 end
 
 -- No Trades
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.no_trades = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.no_trades = {}
 
 -- Dissect: No Trades
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.no_trades.dissect = function(buffer, offset, packet, parent, present, state, key)
+bse_bseindia_emdisnapshot_fast_v600_3_420.no_trades.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
   local value = nil
 
@@ -1898,9 +1898,9 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.no_trades.dissect = functi
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.no_trades, range, value)
+    parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.no_trades, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.no_trades, range, 0)
+    local absent = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.no_trades, range, 0)
     absent:set_text("No Trades: No Value")
   end
 
@@ -1909,77 +1909,77 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420
+-- Dissect Bse BseIndia EmdiSnapshot Fast 600.3.420
 -----------------------------------------------------------------------
 
 -- MD Ssh Grp
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_ssh_grp = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_ssh_grp = {}
 
 -- Dissect Fields: MD Ssh Grp
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_ssh_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_ssh_grp.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
   -- MD Entry Type: uInt32, Copy
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|11:MDEntryType")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_type.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|11:MDEntryType")
 
   -- Trd Type: uInt32, sent, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trd_type.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.trd_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trading Session ID: uInt32, Default, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.trading_session_id.dissect(buffer, index, packet, parent, presence_map[base + 1], state, nil)
 
   -- Trading Session Sub ID: uInt32, sent, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.trading_session_sub_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Fast Market Indicator: uInt32, Default, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fast_market_indicator.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.fast_market_indicator.dissect(buffer, index, packet, parent, presence_map[base + 2], state, nil)
 
   -- Security Trading Status: uInt32, sent, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_trading_status.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.security_trading_status.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Trade Condition: uInt32, sent, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_condition.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.trade_condition.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- MD Entry Px: decimal, Delta, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_px.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_px.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|9:MDEntryPx|E", "6:global|0:|9:MDEntryPx|M" })
 
   -- Yield: decimal, Delta, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.yield.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|5:Yield|E", "6:global|0:|5:Yield|M" })
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.yield.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|5:Yield|E", "6:global|0:|5:Yield|M" })
 
   -- Put Yield: decimal, Delta, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.put_yield.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|8:PutYield|E", "6:global|0:|8:PutYield|M" })
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.put_yield.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|8:PutYield|E", "6:global|0:|8:PutYield|M" })
 
   -- Call Yield: decimal, Delta, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.call_yield.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|9:CallYield|E", "6:global|0:|9:CallYield|M" })
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.call_yield.dissect(buffer, index, packet, parent, { nil, false }, state, { "6:global|0:|9:CallYield|E", "6:global|0:|9:CallYield|M" })
 
   -- MD Entry Size: uInt32, Delta, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_size.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:MDEntrySize")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_size.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|11:MDEntrySize")
 
   -- Number Of Orders: uInt32, Delta, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.number_of_orders.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|14:NumberOfOrders")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.number_of_orders.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|14:NumberOfOrders")
 
   -- MD Price Level: uInt32, Increment, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_price_level.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|12:MDPriceLevel")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.md_price_level.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|12:MDPriceLevel")
 
   -- MD Entry Time: timestamp, Copy, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_entry_time.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|11:MDEntryTime")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.md_entry_time.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|11:MDEntryTime")
 
   -- Trade Volume: uInt64, sent, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.trade_volume.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.trade_volume.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Gross Trade Amt: decimal, sent, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.gross_trade_amt.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.gross_trade_amt.dissect(buffer, index, packet, parent, { nil, false }, state, nil)
 
   -- No Trades: uInt32, sent, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.no_trades.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.no_trades.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
 -- Dissect: MD Ssh Grp
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_ssh_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
-  local subtree = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.md_ssh_grp, buffer(offset, 0))
+bse_bseindia_emdisnapshot_fast_v600_3_420.md_ssh_grp.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+  local subtree = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.md_ssh_grp, buffer(offset, 0))
   local index = offset
 
   -- an entry of its own carries which repetition it is
@@ -1993,129 +1993,129 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_ssh_grp.dissect = funct
   presence_map = entry_map
   base = 1
 
-  index = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_ssh_grp.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = bse_bseindia_emdisnapshot_fast_v600_3_420.md_ssh_grp.fields(buffer, index, packet, subtree, presence_map, base, state)
   subtree:set_len(index - offset)
 
   return index
 end
 
 -- Depth Snapshot Message
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.depth_snapshot = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.depth_snapshot = {}
 
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.depth_snapshot.node = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.depth_snapshot
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.depth_snapshot.presence = {
-  [2] = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_msg_seq_num,
-  [3] = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_sender_comp_id,
-  [4] = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_last_msg_seq_num_processed,
-  [5] = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_refresh_indicator,
-  [6] = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_market_segment_id,
-  [7] = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_product_complex,
-  [8] = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_security_status,
-  [9] = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_bid_size,
-  [10] = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_offer_size,
-  [11] = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_no_md_entries,
+bse_bseindia_emdisnapshot_fast_v600_3_420.depth_snapshot.node = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.depth_snapshot
+bse_bseindia_emdisnapshot_fast_v600_3_420.depth_snapshot.presence = {
+  [2] = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_msg_seq_num,
+  [3] = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_sender_comp_id,
+  [4] = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_last_msg_seq_num_processed,
+  [5] = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_refresh_indicator,
+  [6] = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_market_segment_id,
+  [7] = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_product_complex,
+  [8] = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_security_status,
+  [9] = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_bid_size,
+  [10] = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_offer_size,
+  [11] = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_no_md_entries,
 }
 
 -- Dissect Fields: Depth Snapshot Message
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.depth_snapshot.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+bse_bseindia_emdisnapshot_fast_v600_3_420.depth_snapshot.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
   -- Msg Type: string, Constant
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.msg_type.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.msg_type.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Msg Seq Num: uInt32, Increment, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.msg_seq_num.dissect(buffer, index, packet, parent, presence_map[base + 0], state, "6:global|0:|9:MsgSeqNum")
 
   -- Sender Comp ID: uInt32, Copy
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.sender_comp_id_copy.dissect(buffer, index, packet, parent, presence_map[base + 1], state, "6:global|0:|12:SenderCompID")
 
   -- Last Msg Seq Num Processed: uInt32, Increment, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.last_msg_seq_num_processed.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|22:LastMsgSeqNumProcessed")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.last_msg_seq_num_processed.dissect(buffer, index, packet, parent, presence_map[base + 2], state, "6:global|0:|22:LastMsgSeqNumProcessed")
 
   -- Refresh Indicator: uInt32, Copy, optional
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.refresh_indicator.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|16:RefreshIndicator")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.refresh_indicator.dissect(buffer, index, packet, parent, presence_map[base + 3], state, "6:global|0:|16:RefreshIndicator")
 
   -- Market Segment ID: uInt32, Copy
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.market_segment_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|15:MarketSegmentID")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.market_segment_id.dissect(buffer, index, packet, parent, presence_map[base + 4], state, "6:global|0:|15:MarketSegmentID")
 
   -- Security ID: int64, Delta
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|10:SecurityID")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.security_id.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|10:SecurityID")
 
   -- Security ID Source: string, Constant
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.security_id_source.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Product Complex: uInt32, Copy
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.product_complex.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "6:global|0:|14:ProductComplex")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.product_complex.dissect(buffer, index, packet, parent, presence_map[base + 5], state, "6:global|0:|14:ProductComplex")
 
   -- Security Status: uInt32, Default
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.security_status.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.security_status.dissect(buffer, index, packet, parent, presence_map[base + 6], state, nil)
 
   -- Bid Size: uInt64, Copy
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.bid_size.dissect(buffer, index, packet, parent, presence_map[base + 7], state, "6:global|0:|7:BidSize")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.bid_size.dissect(buffer, index, packet, parent, presence_map[base + 7], state, "6:global|0:|7:BidSize")
 
   -- Offer Size: uInt64, Copy
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.offer_size.dissect(buffer, index, packet, parent, presence_map[base + 8], state, "6:global|0:|9:OfferSize")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.offer_size.dissect(buffer, index, packet, parent, presence_map[base + 8], state, "6:global|0:|9:OfferSize")
 
   -- Last Update Time: timestamp, Delta
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.last_update_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|14:LastUpdateTime")
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.last_update_time.dissect(buffer, index, packet, parent, nil, state, "6:global|0:|14:LastUpdateTime")
 
   -- No MD Entries: uInt32, Default
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.no_md_entries.dissect(buffer, index, packet, parent, presence_map[base + 9], state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.no_md_entries.dissect(buffer, index, packet, parent, presence_map[base + 9], state, nil)
 
   -- MD Ssh Grp: No MD Entries entries
   local count = value or 0
   for md_ssh_grp_index = 1, count do
-    index = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.md_ssh_grp.dissect(buffer, index, packet, parent, presence_map, base, state, md_ssh_grp_index)
+    index = bse_bseindia_emdisnapshot_fast_v600_3_420.md_ssh_grp.dissect(buffer, index, packet, parent, presence_map, base, state, md_ssh_grp_index)
   end
 
   return index
 end
 
 -- Dissect: Depth Snapshot Message
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.depth_snapshot.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+bse_bseindia_emdisnapshot_fast_v600_3_420.depth_snapshot.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
 
-  index = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.depth_snapshot.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = bse_bseindia_emdisnapshot_fast_v600_3_420.depth_snapshot.fields(buffer, index, packet, subtree, presence_map, base, state)
 
   return index
 end
 
 -- EMD Packet Header Message
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.emd_packet_header = {}
+bse_bseindia_emdisnapshot_fast_v600_3_420.emd_packet_header = {}
 
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.emd_packet_header.node = omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.emd_packet_header
+bse_bseindia_emdisnapshot_fast_v600_3_420.emd_packet_header.node = omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.emd_packet_header
 
 -- Dissect Fields: EMD Packet Header Message
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.emd_packet_header.fields = function(buffer, offset, packet, parent, presence_map, base, state)
+bse_bseindia_emdisnapshot_fast_v600_3_420.emd_packet_header.fields = function(buffer, offset, packet, parent, presence_map, base, state)
   local index = offset
   local value = nil
 
   -- Partition ID: uInt32, sent
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.partition_id.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.partition_id.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Sender Comp ID: uInt32, sent
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sender_comp_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.sender_comp_id_sent.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Packet Seq Num: byteVector, sent
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.packet_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.packet_seq_num.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Sending Time: byteVector, sent
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.sending_time.dissect(buffer, index, packet, parent, nil, state, nil)
 
   -- Performance Indicator: byteVector, sent
-  index, value = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.performance_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
+  index, value = bse_bseindia_emdisnapshot_fast_v600_3_420.performance_indicator.dissect(buffer, index, packet, parent, nil, state, nil)
 
   return index
 end
 
 -- Dissect: EMD Packet Header Message
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.emd_packet_header.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
+bse_bseindia_emdisnapshot_fast_v600_3_420.emd_packet_header.dissect = function(buffer, offset, packet, parent, presence_map, base, state, iteration)
   local subtree = parent
   local index = offset
 
-  index = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.emd_packet_header.fields(buffer, index, packet, subtree, presence_map, base, state)
+  index = bse_bseindia_emdisnapshot_fast_v600_3_420.emd_packet_header.fields(buffer, index, packet, subtree, presence_map, base, state)
 
   return index
 end
@@ -2125,17 +2125,17 @@ end
 -- Protocol Dissector and Components
 -----------------------------------------------------------------------
 
--- Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420 Message Dispatch
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.templates = {
-  [116] = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.emd_packet_header,
-  [93] = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.depth_snapshot,
+-- Bse BseIndia EmdiSnapshot Fast 600.3.420 Message Dispatch
+bse_bseindia_emdisnapshot_fast_v600_3_420.templates = {
+  [116] = bse_bseindia_emdisnapshot_fast_v600_3_420.emd_packet_header,
+  [93] = bse_bseindia_emdisnapshot_fast_v600_3_420.depth_snapshot,
 }
 
--- Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420 Template Names
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.template_id = {}
+-- Bse BseIndia EmdiSnapshot Fast 600.3.420 Template Names
+bse_bseindia_emdisnapshot_fast_v600_3_420.template_id = {}
 
 -- Display: Template Id
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.template_id.display = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.template_id.display = function(value)
   if value == 116 then
     return "Template Id: EMDPacketHeader (116)"
   end
@@ -2147,7 +2147,7 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.template_id.display = func
 end
 
 -- Name: Template Id
-bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.template_id.name = function(value)
+bse_bseindia_emdisnapshot_fast_v600_3_420.template_id.name = function(value)
   if value == 116 then
     return "EMDPacketHeader"
   end
@@ -2158,10 +2158,10 @@ bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.template_id.name = functio
   return "Unknown"
 end
 
--- Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420 Packet Dissector
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.dissector = function(buffer, packet, parent)
-  packet.cols.protocol = "Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420"
-  local root = parent:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420, buffer(), "Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420")
+-- Bse BseIndia EmdiSnapshot Fast 600.3.420 Packet Dissector
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.dissector = function(buffer, packet, parent)
+  packet.cols.protocol = "Bse BseIndia EmdiSnapshot Fast 600.3.420"
+  local root = parent:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420, buffer(), "Bse BseIndia EmdiSnapshot Fast 600.3.420")
   local state = state_for(packet)
   local offset = 0
   local messages = 0
@@ -2190,24 +2190,24 @@ omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.dissector = function(b
       return
     end
 
-    local template = bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.templates[template_id]
+    local template = bse_bseindia_emdisnapshot_fast_v600_3_420.templates[template_id]
     local message_tree = nil
 
     if template ~= nil then
       message_tree = holder:add(template.node, buffer(start, 0))
     else
-      message_tree = holder:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.message, buffer(start, 0))
-      message_tree:set_text(bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.template_id.name(template_id))
+      message_tree = holder:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.message, buffer(start, 0))
+      message_tree:set_text(bse_bseindia_emdisnapshot_fast_v600_3_420.template_id.name(template_id))
     end
 
     -- the presence map and the template id are the message's own framing
-    local header = message_tree:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.message_header, buffer(start, offset - start))
+    local header = message_tree:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.message_header, buffer(start, offset - start))
     local named = nil
     if template ~= nil then
       named = template.presence
     end
-    add_presence_map(header, buffer(start, mapped - start), omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_map, omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_stop, omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_identified, omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.presence_unused, named)
-    header:add(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.fields.template_id, buffer(identified, offset - identified), template_id, bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.template_id.display(template_id))
+    add_presence_map(header, buffer(start, mapped - start), omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_map, omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_stop, omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_identified, omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.presence_unused, named)
+    header:add(omi_bse_bseindia_emdisnapshot_fast_v600_3_420.fields.template_id, buffer(identified, offset - identified), template_id, bse_bseindia_emdisnapshot_fast_v600_3_420.template_id.display(template_id))
 
     if template == nil then
       message_tree:add_expert_info(PI_UNDECODED, PI_WARN, "This dissector reads: 116 (EMDPacketHeader), 93 (DepthSnapshot)")
@@ -2230,13 +2230,13 @@ omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.dissector = function(b
 end
 
 -- a reload starts every stream's remembered values again
-omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420.init = function()
+omi_bse_bseindia_emdisnapshot_fast_v600_3_420.init = function()
   stream_states = {}
 end
 
--- Register Bse BseIndia EmdiSnapshot Fast 502.002.420.600003420 for Decode As
+-- Register Bse BseIndia EmdiSnapshot Fast 600.3.420 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add_for_decode_as(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_600003420)
+udp_table:add_for_decode_as(omi_bse_bseindia_emdisnapshot_fast_v600_3_420)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
@@ -2245,7 +2245,7 @@ udp_table:add_for_decode_as(omi_bse_bseindia_emdisnapshot_fast_v502_002_420_6000
 --
 -- Protocol:
 --   Organization: BSE Limited
---   Version: v502.002.420.600003420
+--   Version: v600.3.420
 --
 -- Script:
 --   Compiler: 2.0

@@ -8143,6 +8143,9 @@ end
 -- Tick Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_pair = {}
 
+-- Size: Tick Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_pair.size = 8
+
 -- Dispatch: Tick Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_negative_whole_pair.dissect,
@@ -8155,7 +8158,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_pair.dispatch = {
 }
 
 -- Dissect: Tick Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_pair.dissect = function(buffer, offset, packet, parent, tick_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local tick_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_pair.dispatch[tick_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -8520,6 +8524,9 @@ end
 -- Min Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_pair = {}
 
+-- Size: Min Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_pair.size = 8
+
 -- Dispatch: Min Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.min_price_negative_whole_pair.dissect,
@@ -8532,7 +8539,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_pair.dispatch = {
 }
 
 -- Dissect: Min Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_pair.dissect = function(buffer, offset, packet, parent, min_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local min_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_pair.dispatch[min_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -8565,17 +8573,11 @@ tmx_mx_solamulticast_hsvf_v1_12_2.tick_entry.fields = function(buffer, offset, p
     iteration:set_generated()
   end
 
-  -- Dependency element: Min Price Fraction Indicator
-  local min_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Min Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_pair.dissect(buffer, index, packet, parent, min_price_fraction_indicator)
-
-  -- Dependency element: Tick Price Fraction Indicator
-  local tick_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Tick Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_pair.dissect(buffer, index, packet, parent, tick_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -9353,6 +9355,9 @@ end
 -- Net Change Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair = {}
 
+-- Size: Net Change Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.size = 8
+
 -- Dispatch: Net Change Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_negative_whole_pair.dissect,
@@ -9365,7 +9370,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dispatch = {
 }
 
 -- Dissect: Net Change Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local net_change_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dispatch[net_change_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -9730,6 +9736,9 @@ end
 -- Trade Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair = {}
 
+-- Size: Trade Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.size = 8
+
 -- Dispatch: Trade Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_negative_whole_pair.dissect,
@@ -9742,7 +9751,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dispatch = {
 }
 
 -- Dissect: Trade Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect = function(buffer, offset, packet, parent, trade_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local trade_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dispatch[trade_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -9842,20 +9852,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.futures_trade_correction_message.fields = func
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_12_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Trade Price Fraction Indicator
-  local trade_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Trade Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent, trade_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Net Change Fraction Indicator
-  local net_change_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Net Change Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent, net_change_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
   index, filler_6 = tmx_mx_solamulticast_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
@@ -10421,6 +10425,9 @@ end
 -- Low Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair = {}
 
+-- Size: Low Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.size = 8
+
 -- Dispatch: Low Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_negative_whole_pair.dissect,
@@ -10433,7 +10440,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dispatch = {
 }
 
 -- Dissect: Low Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dissect = function(buffer, offset, packet, parent, low_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local low_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dispatch[low_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -10798,6 +10806,9 @@ end
 -- High Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair = {}
 
+-- Size: High Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.size = 8
+
 -- Dispatch: High Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_negative_whole_pair.dissect,
@@ -10810,7 +10821,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dispatch = {
 }
 
 -- Dissect: High Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dissect = function(buffer, offset, packet, parent, high_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local high_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dispatch[high_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -11175,6 +11187,9 @@ end
 -- Open Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair = {}
 
+-- Size: Open Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.size = 8
+
 -- Dispatch: Open Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.open_price_negative_whole_pair.dissect,
@@ -11187,7 +11202,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.dispatch = {
 }
 
 -- Dissect: Open Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.dissect = function(buffer, offset, packet, parent, open_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local open_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.dispatch[open_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -11552,6 +11568,9 @@ end
 -- Last Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair = {}
 
+-- Size: Last Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.size = 8
+
 -- Dispatch: Last Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_negative_whole_pair.dissect,
@@ -11564,7 +11583,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dispatch = {
 }
 
 -- Dissect: Last Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dissect = function(buffer, offset, packet, parent, last_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local last_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dispatch[last_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -11929,6 +11949,9 @@ end
 -- Ask Price Summary Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair = {}
 
+-- Size: Ask Price Summary Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.size = 8
+
 -- Dispatch: Ask Price Summary Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_negative_whole_pair.dissect,
@@ -11941,7 +11964,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dispatch = {
 }
 
 -- Dissect: Ask Price Summary Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dissect = function(buffer, offset, packet, parent, ask_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dispatch[ask_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -12306,6 +12330,9 @@ end
 -- Bid Price Summary Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair = {}
 
+-- Size: Bid Price Summary Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.size = 8
+
 -- Dispatch: Bid Price Summary Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_negative_whole_pair.dissect,
@@ -12318,7 +12345,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dispatch = {
 }
 
 -- Dissect: Bid Price Summary Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dissect = function(buffer, offset, packet, parent, bid_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dispatch[bid_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -12376,11 +12404,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strategy_summary_message.fields = function(buf
   -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Bid Price Summary Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dissect(buffer, index, packet, parent, bid_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_12_2.bid_size.dissect(buffer, index, packet, parent)
@@ -12388,11 +12413,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strategy_summary_message.fields = function(buf
   -- Ask Price Sign: X
   index, ask_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Ask Price Summary Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dissect(buffer, index, packet, parent, ask_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
@@ -12400,47 +12422,32 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strategy_summary_message.fields = function(buf
   -- Last Price Sign: X
   index, last_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Last Price Fraction Indicator
-  local last_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Last Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dissect(buffer, index, packet, parent, last_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Open Price Sign: X
   index, open_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.open_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Open Price Fraction Indicator
-  local open_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Open Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.dissect(buffer, index, packet, parent, open_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- High Price Sign: X
   index, high_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: High Price Fraction Indicator
-  local high_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- High Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dissect(buffer, index, packet, parent, high_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Low Price Sign: X
   index, low_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Low Price Fraction Indicator
-  local low_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Low Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dissect(buffer, index, packet, parent, low_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Net Change Fraction Indicator
-  local net_change_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Net Change Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent, net_change_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_12_2.volume.dissect(buffer, index, packet, parent)
@@ -12824,6 +12831,9 @@ end
 -- External Price At Source Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source_fraction_pair = {}
 
+-- Size: External Price At Source Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source_fraction_pair.size = 8
+
 -- Dispatch: External Price At Source Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source_negative_whole_pair.dissect,
@@ -12836,7 +12846,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source_fraction_pair.dispatc
 }
 
 -- Dissect: External Price At Source Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source_fraction_pair.dissect = function(buffer, offset, packet, parent, external_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local external_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source_fraction_pair.dispatch[external_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -13201,6 +13212,9 @@ end
 -- Previous Settlement Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_pair = {}
 
+-- Size: Previous Settlement Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_pair.size = 8
+
 -- Dispatch: Previous Settlement Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_negative_whole_pair.dissect,
@@ -13213,7 +13227,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_pair.dispatch = {
 }
 
 -- Dissect: Previous Settlement Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_pair.dissect = function(buffer, offset, packet, parent, previous_settlement_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local previous_settlement_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_pair.dispatch[previous_settlement_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -13578,6 +13593,9 @@ end
 -- Settlement Price Future Options Summary Message Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_message_fraction_pair = {}
 
+-- Size: Settlement Price Future Options Summary Message Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_message_fraction_pair.size = 8
+
 -- Dispatch: Settlement Price Future Options Summary Message Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_message_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_message_negative_whole_pair.dissect,
@@ -13590,7 +13608,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_messag
 }
 
 -- Dissect: Settlement Price Future Options Summary Message Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, settlement_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local settlement_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_message_fraction_pair.dispatch[settlement_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -13644,71 +13663,44 @@ tmx_mx_solamulticast_hsvf_v1_12_2.futures_summary_message.fields = function(buff
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_solamulticast_hsvf_v1_12_2.future_product.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Bid Price Summary Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dissect(buffer, index, packet, parent, bid_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_12_2.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Ask Price Summary Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dissect(buffer, index, packet, parent, ask_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Last Price Fraction Indicator
-  local last_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Last Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dissect(buffer, index, packet, parent, last_price_fraction_indicator)
-
-  -- Dependency element: Open Price Fraction Indicator
-  local open_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Open Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.dissect(buffer, index, packet, parent, open_price_fraction_indicator)
-
-  -- Dependency element: High Price Fraction Indicator
-  local high_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- High Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dissect(buffer, index, packet, parent, high_price_fraction_indicator)
-
-  -- Dependency element: Low Price Fraction Indicator
-  local low_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Low Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dissect(buffer, index, packet, parent, low_price_fraction_indicator)
-
-  -- Dependency element: Settlement Price Fraction Indicator
-  local settlement_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Settlement Price Future Options Summary Message Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_message_fraction_pair.dissect(buffer, index, packet, parent, settlement_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_message_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Net Change Fraction Indicator
-  local net_change_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Net Change Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent, net_change_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_12_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Previous Settlement Fraction Indicator
-  local previous_settlement_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Previous Settlement Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_pair.dissect(buffer, index, packet, parent, previous_settlement_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Open Interest: N
   index, open_interest = tmx_mx_solamulticast_hsvf_v1_12_2.open_interest.dissect(buffer, index, packet, parent)
@@ -13719,11 +13711,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.futures_summary_message.fields = function(buff
   -- Reason: X
   index, reason = tmx_mx_solamulticast_hsvf_v1_12_2.reason.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: External Price Fraction Indicator
-  local external_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- External Price At Source Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source_fraction_pair.dissect(buffer, index, packet, parent, external_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source_fraction_pair.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -14101,6 +14090,9 @@ end
 -- Previous Settlement Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_pair = {}
 
+-- Size: Previous Settlement Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_pair.size = 8
+
 -- Dispatch: Previous Settlement Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_negative_whole_pair.dissect,
@@ -14113,7 +14105,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_pair.dispat
 }
 
 -- Dissect: Previous Settlement Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_pair.dissect = function(buffer, offset, packet, parent, previous_settlement_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local previous_settlement_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_pair.dispatch[previous_settlement_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -14478,6 +14471,9 @@ end
 -- Opening Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_pair = {}
 
+-- Size: Opening Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_pair.size = 8
+
 -- Dispatch: Opening Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_negative_whole_pair.dissect,
@@ -14490,7 +14486,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_pair.dispatch = {
 }
 
 -- Dissect: Opening Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_pair.dissect = function(buffer, offset, packet, parent, opening_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local opening_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_pair.dispatch[opening_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -14855,6 +14852,9 @@ end
 -- Strike Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_pair = {}
 
+-- Size: Strike Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_pair.size = 8
+
 -- Dispatch: Strike Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_negative_whole_pair.dissect,
@@ -14867,7 +14867,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_pair.dispatch = {
 }
 
 -- Dissect: Strike Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_pair.dissect = function(buffer, offset, packet, parent, strike_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local strike_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_pair.dispatch[strike_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -14913,11 +14914,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.future_option_symbol.fields = function(buffer,
   -- Call Put Code: S
   index, call_put_code = tmx_mx_solamulticast_hsvf_v1_12_2.call_put_code.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Strike Price Fraction Indicator
-  local strike_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Strike Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_pair.dissect(buffer, index, packet, parent, strike_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -14985,29 +14983,20 @@ tmx_mx_solamulticast_hsvf_v1_12_2.future_options_summary_message.fields = functi
   -- Future Option Symbol: Struct of 6 fields
   index, future_option_symbol = tmx_mx_solamulticast_hsvf_v1_12_2.future_option_symbol.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Bid Price Summary Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dissect(buffer, index, packet, parent, bid_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_12_2.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Ask Price Summary Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dissect(buffer, index, packet, parent, ask_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Last Price Fraction Indicator
-  local last_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Last Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dissect(buffer, index, packet, parent, last_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Open Interest: N
   index, open_interest = tmx_mx_solamulticast_hsvf_v1_12_2.open_interest.dissect(buffer, index, packet, parent)
@@ -15024,44 +15013,26 @@ tmx_mx_solamulticast_hsvf_v1_12_2.future_options_summary_message.fields = functi
   -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Net Change Fraction Indicator
-  local net_change_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Net Change Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent, net_change_fraction_indicator)
-
-  -- Dependency element: Opening Price Fraction Indicator
-  local opening_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Opening Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_pair.dissect(buffer, index, packet, parent, opening_price_fraction_indicator)
-
-  -- Dependency element: High Price Fraction Indicator
-  local high_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- High Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dissect(buffer, index, packet, parent, high_price_fraction_indicator)
-
-  -- Dependency element: Low Price Fraction Indicator
-  local low_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Low Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dissect(buffer, index, packet, parent, low_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 2: X
   index, filler_2 = tmx_mx_solamulticast_hsvf_v1_12_2.filler_2.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Settlement Price Fraction Indicator
-  local settlement_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Settlement Price Future Options Summary Message Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_message_fraction_pair.dissect(buffer, index, packet, parent, settlement_price_fraction_indicator)
-
-  -- Dependency element: Previous Settlement Price Fraction Indicator
-  local previous_settlement_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_message_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_pair.dissect(buffer, index, packet, parent, previous_settlement_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Reason: X
   index, reason = tmx_mx_solamulticast_hsvf_v1_12_2.reason.dissect(buffer, index, packet, parent)
@@ -15442,6 +15413,9 @@ end
 -- Settlement Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_pair = {}
 
+-- Size: Settlement Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_pair.size = 8
+
 -- Dispatch: Settlement Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_negative_whole_pair.dissect,
@@ -15454,7 +15428,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_pair.dispatch = {
 }
 
 -- Dissect: Settlement Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_pair.dissect = function(buffer, offset, packet, parent, settlement_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local settlement_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_pair.dispatch[settlement_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -15494,11 +15469,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.option_symbol.fields = function(buffer, offset
   -- Filler 1: A
   index, filler_1 = tmx_mx_solamulticast_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Strike Price Fraction Indicator
-  local strike_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Strike Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_pair.dissect(buffer, index, packet, parent, strike_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Expiry Year: N
   index, expiry_year = tmx_mx_solamulticast_hsvf_v1_12_2.expiry_year.dissect(buffer, index, packet, parent)
@@ -15572,29 +15544,20 @@ tmx_mx_solamulticast_hsvf_v1_12_2.option_summary_message.fields = function(buffe
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_solamulticast_hsvf_v1_12_2.option_symbol.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Bid Price Summary Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dissect(buffer, index, packet, parent, bid_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_12_2.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Ask Price Summary Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dissect(buffer, index, packet, parent, ask_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Last Price Fraction Indicator
-  local last_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Last Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dissect(buffer, index, packet, parent, last_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Open Interest: N
   index, open_interest = tmx_mx_solamulticast_hsvf_v1_12_2.open_interest.dissect(buffer, index, packet, parent)
@@ -15611,44 +15574,26 @@ tmx_mx_solamulticast_hsvf_v1_12_2.option_summary_message.fields = function(buffe
   -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Net Change Fraction Indicator
-  local net_change_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Net Change Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent, net_change_fraction_indicator)
-
-  -- Dependency element: Open Price Fraction Indicator
-  local open_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Open Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.dissect(buffer, index, packet, parent, open_price_fraction_indicator)
-
-  -- Dependency element: High Price Fraction Indicator
-  local high_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- High Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dissect(buffer, index, packet, parent, high_price_fraction_indicator)
-
-  -- Dependency element: Low Price Fraction Indicator
-  local low_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Low Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dissect(buffer, index, packet, parent, low_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Option Marker: A
   index, option_marker = tmx_mx_solamulticast_hsvf_v1_12_2.option_marker.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Settlement Price Fraction Indicator
-  local settlement_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Settlement Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_pair.dissect(buffer, index, packet, parent, settlement_price_fraction_indicator)
-
-  -- Dependency element: Previous Settlement Price Fraction Indicator
-  local previous_settlement_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_pair.dissect(buffer, index, packet, parent, previous_settlement_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Reason: X
   index, reason = tmx_mx_solamulticast_hsvf_v1_12_2.reason.dissect(buffer, index, packet, parent)
@@ -16127,6 +16072,9 @@ end
 -- Tick Increment
 tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment = {}
 
+-- Size: Tick Increment
+tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.size = 8
+
 -- Dispatch: Tick Increment
 tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dispatch = {
   ["0"] = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment_numeric_pair.dissect,
@@ -16149,7 +16097,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dispatch = {
 }
 
 -- Dissect: Tick Increment
-tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dissect = function(buffer, offset, packet, parent, tick_increment_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dissect = function(buffer, offset, packet, parent)
+  local tick_increment_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dispatch[tick_increment_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -16514,6 +16463,9 @@ end
 -- Minimum Threshold Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair = {}
 
+-- Size: Minimum Threshold Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.size = 8
+
 -- Dispatch: Minimum Threshold Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_negative_whole_pair.dissect,
@@ -16526,7 +16478,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.dispatch
 }
 
 -- Dissect: Minimum Threshold Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent, minimum_threshold_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local minimum_threshold_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.dispatch[minimum_threshold_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -16891,6 +16844,9 @@ end
 -- Maximum Threshold Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair = {}
 
+-- Size: Maximum Threshold Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.size = 8
+
 -- Dispatch: Maximum Threshold Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_negative_whole_pair.dissect,
@@ -16903,7 +16859,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.dispatch
 }
 
 -- Dissect: Maximum Threshold Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent, maximum_threshold_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local maximum_threshold_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.dispatch[maximum_threshold_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -16936,20 +16893,11 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strategy_instrument_keys_message.size = functi
 
   index = index + tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order.size
 
-  -- Calculate runtime size of Maximum Threshold Price Fraction Pair field
-  local maximum_threshold_price_fraction_pair_offset = offset + index
-  local maximum_threshold_price_fraction_pair_type = buffer(maximum_threshold_price_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.size(buffer, maximum_threshold_price_fraction_pair_offset, maximum_threshold_price_fraction_pair_type)
+  index = index + tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.size
 
-  -- Calculate runtime size of Minimum Threshold Price Fraction Pair field
-  local minimum_threshold_price_fraction_pair_offset = offset + index
-  local minimum_threshold_price_fraction_pair_type = buffer(minimum_threshold_price_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.size(buffer, minimum_threshold_price_fraction_pair_offset, minimum_threshold_price_fraction_pair_type)
+  index = index + tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.size
 
-  -- Calculate runtime size of Tick Increment field
-  local tick_increment_offset = offset + index
-  local tick_increment_type = buffer(tick_increment_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.size(buffer, tick_increment_offset, tick_increment_type)
+  index = index + tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.size
 
   index = index + tmx_mx_solamulticast_hsvf_v1_12_2.market_flow_indicator.size
 
@@ -17005,23 +16953,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strategy_instrument_keys_message.fields = func
   -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Maximum Threshold Price Fraction Indicator
-  local maximum_threshold_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Maximum Threshold Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent, maximum_threshold_price_fraction_indicator)
-
-  -- Dependency element: Minimum Threshold Price Fraction Indicator
-  local minimum_threshold_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent, minimum_threshold_price_fraction_indicator)
-
-  -- Dependency element: Tick Increment Fraction Indicator
-  local tick_increment_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Tick Increment: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dissect(buffer, index, packet, parent, tick_increment_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dissect(buffer, index, packet, parent)
 
   -- Market Flow Indicator: X
   index, market_flow_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.market_flow_indicator.dissect(buffer, index, packet, parent)
@@ -17477,6 +17416,9 @@ end
 -- Tick Value Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair = {}
 
+-- Size: Tick Value Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.size = 8
+
 -- Dispatch: Tick Value Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_negative_whole_pair.dissect,
@@ -17489,7 +17431,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.dispatch = {
 }
 
 -- Dissect: Tick Value Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.dissect = function(buffer, offset, packet, parent, tick_value_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local tick_value_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.dispatch[tick_value_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -17854,6 +17797,9 @@ end
 -- Minimum Threshold Price Futures Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures_fraction_pair = {}
 
+-- Size: Minimum Threshold Price Futures Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures_fraction_pair.size = 8
+
 -- Dispatch: Minimum Threshold Price Futures Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures_negative_whole_pair.dissect,
@@ -17866,7 +17812,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures_fraction_pair.
 }
 
 -- Dissect: Minimum Threshold Price Futures Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures_fraction_pair.dissect = function(buffer, offset, packet, parent, minimum_threshold_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local minimum_threshold_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures_fraction_pair.dispatch[minimum_threshold_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -18231,6 +18178,9 @@ end
 -- Maximum Threshold Price Futures Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures_fraction_pair = {}
 
+-- Size: Maximum Threshold Price Futures Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures_fraction_pair.size = 8
+
 -- Dispatch: Maximum Threshold Price Futures Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures_negative_whole_pair.dissect,
@@ -18243,7 +18193,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures_fraction_pair.
 }
 
 -- Dissect: Maximum Threshold Price Futures Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures_fraction_pair.dissect = function(buffer, offset, packet, parent, maximum_threshold_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local maximum_threshold_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures_fraction_pair.dispatch[maximum_threshold_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -18305,23 +18256,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.futures_instrument_keys_message.fields = funct
   -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Maximum Threshold Price Fraction Indicator
-  local maximum_threshold_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Maximum Threshold Price Futures Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures_fraction_pair.dissect(buffer, index, packet, parent, maximum_threshold_price_fraction_indicator)
-
-  -- Dependency element: Minimum Threshold Price Fraction Indicator
-  local minimum_threshold_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Futures Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures_fraction_pair.dissect(buffer, index, packet, parent, minimum_threshold_price_fraction_indicator)
-
-  -- Dependency element: Tick Increment Fraction Indicator
-  local tick_increment_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Tick Increment: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dissect(buffer, index, packet, parent, tick_increment_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dissect(buffer, index, packet, parent)
 
   -- Market Flow Indicator: X
   index, market_flow_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.market_flow_indicator.dissect(buffer, index, packet, parent)
@@ -18338,11 +18280,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.futures_instrument_keys_message.fields = funct
   -- Contract Size: N
   index, contract_size = tmx_mx_solamulticast_hsvf_v1_12_2.contract_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Tick Value Fraction Indicator
-  local tick_value_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Tick Value Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.dissect(buffer, index, packet, parent, tick_value_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Currency: A
   index, currency = tmx_mx_solamulticast_hsvf_v1_12_2.currency.dissect(buffer, index, packet, parent)
@@ -18490,23 +18429,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.future_options_instrument_keys_message.fields 
   -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Maximum Threshold Price Fraction Indicator
-  local maximum_threshold_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Maximum Threshold Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent, maximum_threshold_price_fraction_indicator)
-
-  -- Dependency element: Minimum Threshold Price Fraction Indicator
-  local minimum_threshold_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent, minimum_threshold_price_fraction_indicator)
-
-  -- Dependency element: Tick Increment Fraction Indicator
-  local tick_increment_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Tick Increment: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dissect(buffer, index, packet, parent, tick_increment_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dissect(buffer, index, packet, parent)
 
   -- Market Flow Indicator: X
   index, market_flow_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.market_flow_indicator.dissect(buffer, index, packet, parent)
@@ -18523,11 +18453,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.future_options_instrument_keys_message.fields 
   -- Contract Size: N
   index, contract_size = tmx_mx_solamulticast_hsvf_v1_12_2.contract_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Tick Value Fraction Indicator
-  local tick_value_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Tick Value Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.dissect(buffer, index, packet, parent, tick_value_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Currency: A
   index, currency = tmx_mx_solamulticast_hsvf_v1_12_2.currency.dissect(buffer, index, packet, parent)
@@ -18618,23 +18545,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.option_instrument_keys_message.fields = functi
   -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Maximum Threshold Price Fraction Indicator
-  local maximum_threshold_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Maximum Threshold Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent, maximum_threshold_price_fraction_indicator)
-
-  -- Dependency element: Minimum Threshold Price Fraction Indicator
-  local minimum_threshold_price_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent, minimum_threshold_price_fraction_indicator)
-
-  -- Dependency element: Tick Increment Fraction Indicator
-  local tick_increment_fraction_indicator = buffer(index + 7, 1):string()
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Tick Increment: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dissect(buffer, index, packet, parent, tick_increment_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment.dissect(buffer, index, packet, parent)
 
   -- Option Type: A
   index, option_type = tmx_mx_solamulticast_hsvf_v1_12_2.option_type.dissect(buffer, index, packet, parent)
@@ -18660,11 +18578,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.option_instrument_keys_message.fields = functi
   -- Contract Size: N
   index, contract_size = tmx_mx_solamulticast_hsvf_v1_12_2.contract_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Tick Value Fraction Indicator
-  local tick_value_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Tick Value Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.dissect(buffer, index, packet, parent, tick_value_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Currency: A
   index, currency = tmx_mx_solamulticast_hsvf_v1_12_2.currency.dissect(buffer, index, packet, parent)
@@ -18733,11 +18648,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strategy_trade_cancellation_message.fields = f
   -- Trade Price Sign: X
   index, trade_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Trade Price Fraction Indicator
-  local trade_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Trade Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent, trade_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
   index, filler_6 = tmx_mx_solamulticast_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
@@ -18808,11 +18720,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.futures_trade_cancellation_message.fields = fu
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_12_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Trade Price Fraction Indicator
-  local trade_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Trade Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent, trade_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
   index, filler_6 = tmx_mx_solamulticast_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
@@ -19202,6 +19111,9 @@ end
 -- Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_pair = {}
 
+-- Size: Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_pair.size = 8
+
 -- Dispatch: Price Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.price_negative_whole_pair.dissect,
@@ -19214,7 +19126,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_pair.dispatch = {
 }
 
 -- Dissect: Price Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_pair.dissect = function(buffer, offset, packet, parent, price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_pair.dispatch[price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -19261,11 +19174,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.future_options_trade_cancellation_message.fiel
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_12_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Price Fraction Indicator
-  local price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_pair.dissect(buffer, index, packet, parent, price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker: A
   index, price_indicator_marker = tmx_mx_solamulticast_hsvf_v1_12_2.price_indicator_marker.dissect(buffer, index, packet, parent)
@@ -19340,11 +19250,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.option_trade_cancellation_message.fields = fun
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_12_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Trade Price Fraction Indicator
-  local trade_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Trade Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent, trade_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
   index, filler_6 = tmx_mx_solamulticast_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
@@ -19781,8 +19688,14 @@ end
 -- Ask Price Quote
 tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote = {}
 
+-- Size: Ask Price Quote
+tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.size = 8
+
 -- Dissect: Ask Price Quote
-tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect = function(buffer, offset, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator, ask_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect = function(buffer, offset, packet, parent)
+  local ask_price_quote_opening = buffer(offset, 7):string()
+  local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
+  local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Ask Price Quote Opening Pair
   if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote_opening_pair.dissect(buffer, offset, packet, parent)
@@ -20219,8 +20132,14 @@ end
 -- Bid Price Quote
 tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote = {}
 
+-- Size: Bid Price Quote
+tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.size = 8
+
 -- Dissect: Bid Price Quote
-tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect = function(buffer, offset, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator, bid_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect = function(buffer, offset, packet, parent)
+  local bid_price_quote_opening = buffer(offset, 7):string()
+  local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
+  local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Bid Price Quote Opening Pair
   if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote_opening_pair.dissect(buffer, offset, packet, parent)
@@ -20294,17 +20213,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strategy_market_depth_level.fields = function(
   -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Bid Price Quote Opening
-  local bid_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Bid Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator, bid_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_12_2.bid_size.dissect(buffer, index, packet, parent)
@@ -20315,17 +20225,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strategy_market_depth_level.fields = function(
   -- Ask Price Sign: X
   index, ask_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Ask Price Quote Opening
-  local ask_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Ask Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator, ask_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
@@ -20827,8 +20728,14 @@ end
 -- Ask Price Futures Depth Market Depth Level HF
 tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_futures_depth_market_depth_level_hf = {}
 
+-- Size: Ask Price Futures Depth Market Depth Level HF
+tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_futures_depth_market_depth_level_hf.size = 8
+
 -- Dissect: Ask Price Futures Depth Market Depth Level HF
-tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_futures_depth_market_depth_level_hf.dissect = function(buffer, offset, packet, parent, ask_price_futures_depth_opening, ask_price_fraction_indicator, ask_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_futures_depth_market_depth_level_hf.dissect = function(buffer, offset, packet, parent)
+  local ask_price_futures_depth_opening = buffer(offset, 7):string()
+  local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
+  local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Ask Price Futures Depth Market Depth Level HF Opening Pair
   if ask_price_futures_depth_opening == "OUV" and ask_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_futures_depth_market_depth_level_hf_opening_pair.dissect(buffer, offset, packet, parent)
@@ -20897,17 +20804,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.futures_market_depth_level.fields = function(b
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_solamulticast_hsvf_v1_12_2.level_of_market_depth.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Bid Price Quote Opening
-  local bid_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Bid Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator, bid_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_12_2.bid_size.dissect(buffer, index, packet, parent)
@@ -20915,17 +20813,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.futures_market_depth_level.fields = function(b
   -- Number Of Bid Orders: X
   index, number_of_bid_orders = tmx_mx_solamulticast_hsvf_v1_12_2.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Ask Price Futures Depth Opening
-  local ask_price_futures_depth_opening = buffer(index, 7):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Ask Price Futures Depth Market Depth Level HF: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_futures_depth_market_depth_level_hf.dissect(buffer, index, packet, parent, ask_price_futures_depth_opening, ask_price_fraction_indicator, ask_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_futures_depth_market_depth_level_hf.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
@@ -21059,17 +20948,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.market_depth_level.fields = function(buffer, o
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_solamulticast_hsvf_v1_12_2.level_of_market_depth.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Bid Price Quote Opening
-  local bid_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Bid Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator, bid_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_12_2.bid_size.dissect(buffer, index, packet, parent)
@@ -21077,17 +20957,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.market_depth_level.fields = function(buffer, o
   -- Number Of Bid Orders: X
   index, number_of_bid_orders = tmx_mx_solamulticast_hsvf_v1_12_2.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Ask Price Quote Opening
-  local ask_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Ask Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator, ask_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
@@ -21301,17 +21172,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strategy_quote_message.fields = function(buffe
   -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Bid Price Quote Opening
-  local bid_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Bid Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator, bid_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_12_2.bid_size.dissect(buffer, index, packet, parent)
@@ -21319,17 +21181,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strategy_quote_message.fields = function(buffe
   -- Ask Price Sign: X
   index, ask_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Ask Price Quote Opening
-  local ask_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Ask Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator, ask_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
@@ -21390,32 +21243,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.futures_quote_message.fields = function(buffer
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_solamulticast_hsvf_v1_12_2.future_product.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Bid Price Quote Opening
-  local bid_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Bid Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator, bid_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_12_2.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Ask Price Quote Opening
-  local ask_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Ask Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator, ask_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
@@ -21477,32 +21312,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.future_options_quote_message.fields = function
   -- Future Option Symbol: Struct of 6 fields
   index, future_option_symbol = tmx_mx_solamulticast_hsvf_v1_12_2.future_option_symbol.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Bid Price Quote Opening
-  local bid_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Bid Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator, bid_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_12_2.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Ask Price Quote Opening
-  local ask_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Ask Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator, ask_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
@@ -21567,32 +21384,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.option_quote_message.fields = function(buffer,
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_solamulticast_hsvf_v1_12_2.option_symbol.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Bid Price Quote Opening
-  local bid_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Bid Price Fraction Indicator
-  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Bid Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator, bid_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_12_2.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Ask Price Quote Opening
-  local ask_price_quote_opening = buffer(index, 7):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
-  -- Dependency element: Ask Price Fraction Indicator
-  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Ask Price Quote: Runtime Type with 9 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator, ask_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_12_2.ask_size.dissect(buffer, index, packet, parent)
@@ -22147,6 +21946,9 @@ end
 -- Strike Price Schedule Notice Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice_fraction_pair = {}
 
+-- Size: Strike Price Schedule Notice Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice_fraction_pair.size = 8
+
 -- Dispatch: Strike Price Schedule Notice Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice_negative_whole_pair.dissect,
@@ -22159,7 +21961,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice_fraction_pair.dis
 }
 
 -- Dissect: Strike Price Schedule Notice Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice_fraction_pair.dissect = function(buffer, offset, packet, parent, strike_price_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local strike_price_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice_fraction_pair.dispatch[strike_price_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -22199,11 +22002,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.option_symbol_schedule_notice.fields = functio
   -- Filler 1: A
   index, filler_1 = tmx_mx_solamulticast_hsvf_v1_12_2.filler_1.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Strike Price Fraction Indicator
-  local strike_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Strike Price Schedule Notice Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice_fraction_pair.dissect(buffer, index, packet, parent, strike_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Expiry Year: N
   index, expiry_year = tmx_mx_solamulticast_hsvf_v1_12_2.expiry_year.dissect(buffer, index, packet, parent)
@@ -22554,20 +22354,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strategy_trade_message.fields = function(buffe
   -- Trade Price Sign: X
   index, trade_price_sign = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Trade Price Fraction Indicator
-  local trade_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Trade Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent, trade_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Net Change Fraction Indicator
-  local net_change_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Net Change Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent, net_change_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
   index, filler_6 = tmx_mx_solamulticast_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
@@ -22640,20 +22434,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.futures_trade_message.fields = function(buffer
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_12_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Trade Price Fraction Indicator
-  local trade_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Trade Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent, trade_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Net Change Fraction Indicator
-  local net_change_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Net Change Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent, net_change_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
   index, filler_6 = tmx_mx_solamulticast_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
@@ -23043,6 +22831,9 @@ end
 -- Net Change Future Options Trade Message Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.net_change_future_options_trade_message_fraction_pair = {}
 
+-- Size: Net Change Future Options Trade Message Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_12_2.net_change_future_options_trade_message_fraction_pair.size = 8
+
 -- Dispatch: Net Change Future Options Trade Message Fraction Pair
 tmx_mx_solamulticast_hsvf_v1_12_2.net_change_future_options_trade_message_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_future_options_trade_message_negative_whole_pair.dissect,
@@ -23055,7 +22846,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.net_change_future_options_trade_message_fracti
 }
 
 -- Dissect: Net Change Future Options Trade Message Fraction Pair
-tmx_mx_solamulticast_hsvf_v1_12_2.net_change_future_options_trade_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
+tmx_mx_solamulticast_hsvf_v1_12_2.net_change_future_options_trade_message_fraction_pair.dissect = function(buffer, offset, packet, parent)
+  local net_change_fraction_indicator = buffer(offset + 7, 1):string()
   local dissect = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_future_options_trade_message_fraction_pair.dispatch[net_change_fraction_indicator]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -23104,11 +22896,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.future_options_trade_message.fields = function
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_12_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Trade Price Fraction Indicator
-  local trade_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Trade Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent, trade_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker: A
   index, price_indicator_marker = tmx_mx_solamulticast_hsvf_v1_12_2.price_indicator_marker.dissect(buffer, index, packet, parent)
@@ -23116,11 +22905,8 @@ tmx_mx_solamulticast_hsvf_v1_12_2.future_options_trade_message.fields = function
   -- Net Change Sign: A
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Net Change Fraction Indicator
-  local net_change_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Net Change Future Options Trade Message Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_future_options_trade_message_fraction_pair.dissect(buffer, index, packet, parent, net_change_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_future_options_trade_message_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
   index, filler_6 = tmx_mx_solamulticast_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)
@@ -23194,20 +22980,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.option_trade_message.fields = function(buffer,
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_12_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Trade Price Fraction Indicator
-  local trade_price_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Trade Price Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent, trade_price_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Net Change Sign: A
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Net Change Fraction Indicator
-  local net_change_fraction_indicator = buffer(index + 7, 1):string()
-
   -- Net Change Fraction Pair: Runtime Type with 8 branches
-  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent, net_change_fraction_indicator)
+  index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 6: N
   index, filler_6 = tmx_mx_solamulticast_hsvf_v1_12_2.filler_6.dissect(buffer, index, packet, parent)

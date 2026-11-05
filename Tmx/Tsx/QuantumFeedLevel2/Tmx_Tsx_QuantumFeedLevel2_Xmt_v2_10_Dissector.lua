@@ -3629,7 +3629,8 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_10.packet_body.dispatch = {
 }
 
 -- Dissect: Packet Body
-tmx_tsx_quantumfeedlevel2_xmt_v2_10.packet_body.dissect = function(buffer, offset, packet, parent, msg_type)
+tmx_tsx_quantumfeedlevel2_xmt_v2_10.packet_body.dissect = function(buffer, offset, packet, parent)
+  local msg_type = buffer(offset + 2, 1):string()
   local dissect = tmx_tsx_quantumfeedlevel2_xmt_v2_10.packet_body.dispatch[msg_type]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -3733,11 +3734,8 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_10.packet.dissect = function(buffer, packet, pa
 
     if packet_body_exists then
 
-      -- Dependency element: Msg Type
-      local msg_type = buffer(index + 2, 1):string()
-
       -- Packet Body: Runtime Type with 2 branches
-      index = tmx_tsx_quantumfeedlevel2_xmt_v2_10.packet_body.dissect(buffer, index, packet, parent, msg_type)
+      index = tmx_tsx_quantumfeedlevel2_xmt_v2_10.packet_body.dissect(buffer, index, packet, parent)
     end
   end
 

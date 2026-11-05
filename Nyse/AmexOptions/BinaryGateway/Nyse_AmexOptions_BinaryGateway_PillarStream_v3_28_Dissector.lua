@@ -8184,7 +8184,8 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.server_message = {}
 
 -- Dissect: Server Message
-nyse_amexoptions_binarygateway_pillarstream_v3_28.server_message.dissect = function(buffer, offset, packet, parent, msg_type)
+nyse_amexoptions_binarygateway_pillarstream_v3_28.server_message.dissect = function(buffer, offset, packet, parent)
+  local msg_type = buffer(offset, 2):le_uint()
   -- Dissect Login Response
   if msg_type == 0x0202 then
     return nyse_amexoptions_binarygateway_pillarstream_v3_28.login_response.dissect(buffer, offset, packet, parent)
@@ -8225,11 +8226,8 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.server_pillar_message.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency element: Msg Type
-  local msg_type = buffer(index, 2):le_uint()
-
   -- Server Message: Runtime Type with 6 branches
-  index = nyse_amexoptions_binarygateway_pillarstream_v3_28.server_message.dissect(buffer, index, packet, parent, msg_type)
+  index = nyse_amexoptions_binarygateway_pillarstream_v3_28.server_message.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -9868,7 +9866,8 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.client_message = {}
 
 -- Dissect: Client Message
-nyse_amexoptions_binarygateway_pillarstream_v3_28.client_message.dissect = function(buffer, offset, packet, parent, msg_type)
+nyse_amexoptions_binarygateway_pillarstream_v3_28.client_message.dissect = function(buffer, offset, packet, parent)
+  local msg_type = buffer(offset, 2):le_uint()
   -- Dissect Login Message
   if msg_type == 0x0201 then
     return nyse_amexoptions_binarygateway_pillarstream_v3_28.login_message.dissect(buffer, offset, packet, parent)
@@ -9905,11 +9904,8 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.client_pillar_message.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency element: Msg Type
-  local msg_type = buffer(index, 2):le_uint()
-
   -- Client Message: Runtime Type with 5 branches
-  index = nyse_amexoptions_binarygateway_pillarstream_v3_28.client_message.dissect(buffer, index, packet, parent, msg_type)
+  index = nyse_amexoptions_binarygateway_pillarstream_v3_28.client_message.dissect(buffer, index, packet, parent)
 
   return index
 end

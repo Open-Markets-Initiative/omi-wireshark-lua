@@ -67,6 +67,7 @@ omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.new_orders_prohibiti
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.new_security_code = ProtoField.new("New Security Code", "jpx.tseequities.issuebasicinformation.flex.v19.5.newsecuritycode", ftypes.STRING, nil, nil, nil, "Indicates the New security code that is defined by the Securities Identification code committee.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.number_of_tick_size_table = ProtoField.new("Number Of Tick Size Table", "jpx.tseequities.issuebasicinformation.flex.v19.5.numberofticksizetable", ftypes.STRING, nil, nil, nil, "Indicates the Number of Tick Size Table.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.order_prohibition_status_at_the_regular_distribution = ProtoField.new("Order Prohibition Status At The Regular Distribution", "jpx.tseequities.issuebasicinformation.flex.v19.5.orderprohibitionstatusattheregulardistribution", ftypes.STRING, nil, nil, nil, "Order Prohibition Status (at the regular distribution)")
+omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.other_medium_classification = ProtoField.new("Other Medium Classification", "jpx.tseequities.issuebasicinformation.flex.v19.5.othermediumclassification", ftypes.STRING, nil, nil, nil, "Medium Classification of a Message Type whose Large Classification 5.3.3 (3) does not list. The two bytes are on the wire either way, so they are read rather than skipped.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.price = ProtoField.new("Price", "jpx.tseequities.issuebasicinformation.flex.v19.5.price", ftypes.DOUBLE, nil, nil, nil, "Indicates the Base Price.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.proprietary_brokerage = ProtoField.new("Proprietary Brokerage", "jpx.tseequities.issuebasicinformation.flex.v19.5.proprietarybrokerage", ftypes.STRING, nil, nil, nil, "Indicates the prohibited ordering for the proprietary / brokerage classification of a new order.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.reserved_1 = ProtoField.new("Reserved 1", "jpx.tseequities.issuebasicinformation.flex.v19.5.reserved1", ftypes.STRING, nil, nil, nil, "This item is reserved.")
@@ -1406,6 +1407,29 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.number_of_tick_size_table.disse
   local display = jpx_tseequities_issuebasicinformation_flex_v19_5.number_of_tick_size_table.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.number_of_tick_size_table, range, value, display)
+
+  return offset + length, value
+end
+
+-- Other Medium Classification
+jpx_tseequities_issuebasicinformation_flex_v19_5.other_medium_classification = {}
+
+-- Size: Other Medium Classification
+jpx_tseequities_issuebasicinformation_flex_v19_5.other_medium_classification.size = 2
+
+-- Display: Other Medium Classification
+jpx_tseequities_issuebasicinformation_flex_v19_5.other_medium_classification.display = function(value)
+  return "Other Medium Classification: "..value
+end
+
+-- Dissect: Other Medium Classification
+jpx_tseequities_issuebasicinformation_flex_v19_5.other_medium_classification.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_issuebasicinformation_flex_v19_5.other_medium_classification.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_tseequities_issuebasicinformation_flex_v19_5.other_medium_classification.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.other_medium_classification, range, value, display)
 
   return offset + length, value
 end
@@ -3227,6 +3251,9 @@ end
 -- Issue Code
 jpx_tseequities_issuebasicinformation_flex_v19_5.issue_code = {}
 
+-- Size: Issue Code
+jpx_tseequities_issuebasicinformation_flex_v19_5.issue_code.size = 12
+
 -- Dispatch: Issue Code
 jpx_tseequities_issuebasicinformation_flex_v19_5.issue_code.dispatch = {
   ["01"] = jpx_tseequities_issuebasicinformation_flex_v19_5.stock_issue_code.dissect,
@@ -3291,6 +3318,9 @@ end
 -- Message Type Medium Classification
 jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_medium_classification = {}
 
+-- Size: Message Type Medium Classification
+jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_medium_classification.size = 2
+
 -- Dispatch: Message Type Medium Classification
 jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_medium_classification.dispatch = {
   ["1"] = jpx_tseequities_issuebasicinformation_flex_v19_5.issue_realtime_medium_classification.dissect,
@@ -3307,25 +3337,17 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_medium_classificat
     return dissect(buffer, offset, packet, parent)
   end
 
-  return offset
+  -- Dissect Other Medium Classification
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.other_medium_classification.dissect(buffer, offset, packet, parent)
 end
 
 -- Message Type
 jpx_tseequities_issuebasicinformation_flex_v19_5.message_type = {}
 
--- Calculate size of: Message Type
-jpx_tseequities_issuebasicinformation_flex_v19_5.message_type.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_large_classification.size
-
-  -- Calculate runtime size of Message Type Medium Classification field
-  local message_type_medium_classification_offset = offset + index
-  local message_type_medium_classification_type = buffer(message_type_medium_classification_offset - 1, 1):string()
-  index = index + jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_medium_classification.size(buffer, message_type_medium_classification_offset, message_type_medium_classification_type)
-
-  return index
-end
+-- Size: Message Type
+jpx_tseequities_issuebasicinformation_flex_v19_5.message_type.size =
+  jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_large_classification.size + 
+  jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_medium_classification.size
 
 -- Display: Message Type
 jpx_tseequities_issuebasicinformation_flex_v19_5.message_type.display = function(packet, parent, length)
@@ -3339,7 +3361,7 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.message_type.fields = function(
   -- Message Type Large Classification: 1 Byte Ascii String Enum with 5 values
   index, message_type_large_classification = jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_large_classification.dissect(buffer, index, packet, parent)
 
-  -- Message Type Medium Classification: Runtime Type with 5 branches
+  -- Message Type Medium Classification: Runtime Type with 6 branches
   index = jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_medium_classification.dissect(buffer, index, packet, parent, message_type_large_classification)
 
   return index
@@ -3410,29 +3432,15 @@ end
 -- Service Header
 jpx_tseequities_issuebasicinformation_flex_v19_5.service_header = {}
 
--- Calculate size of: Service Header
-jpx_tseequities_issuebasicinformation_flex_v19_5.service_header.size = function(buffer, offset)
-  local index = 0
-
-  index = index + jpx_tseequities_issuebasicinformation_flex_v19_5.message_length.size
-
-  index = index + jpx_tseequities_issuebasicinformation_flex_v19_5.message_serial_no.size
-
-  index = index + jpx_tseequities_issuebasicinformation_flex_v19_5.message_type.size(buffer, offset + index)
-
-  index = index + jpx_tseequities_issuebasicinformation_flex_v19_5.exchange_code.size
-
-  index = index + jpx_tseequities_issuebasicinformation_flex_v19_5.session_distinction.size
-
-  index = index + jpx_tseequities_issuebasicinformation_flex_v19_5.issue_classification.size
-
-  -- Calculate runtime size of Issue Code field
-  local issue_code_offset = offset + index
-  local issue_code_type = buffer(issue_code_offset - 4, 2):string()
-  index = index + jpx_tseequities_issuebasicinformation_flex_v19_5.issue_code.size(buffer, issue_code_offset, issue_code_type)
-
-  return index
-end
+-- Size: Service Header
+jpx_tseequities_issuebasicinformation_flex_v19_5.service_header.size =
+  jpx_tseequities_issuebasicinformation_flex_v19_5.message_length.size + 
+  jpx_tseequities_issuebasicinformation_flex_v19_5.message_serial_no.size + 
+  jpx_tseequities_issuebasicinformation_flex_v19_5.message_type.size + 
+  jpx_tseequities_issuebasicinformation_flex_v19_5.exchange_code.size + 
+  jpx_tseequities_issuebasicinformation_flex_v19_5.session_distinction.size + 
+  jpx_tseequities_issuebasicinformation_flex_v19_5.issue_classification.size + 
+  jpx_tseequities_issuebasicinformation_flex_v19_5.issue_code.size
 
 -- Display: Service Header
 jpx_tseequities_issuebasicinformation_flex_v19_5.service_header.display = function(packet, parent, length)

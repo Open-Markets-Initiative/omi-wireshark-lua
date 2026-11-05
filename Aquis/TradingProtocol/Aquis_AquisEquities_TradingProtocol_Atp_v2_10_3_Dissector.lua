@@ -1909,13 +1909,17 @@ end
 -- Order Modify Response Status
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status = {}
 
+-- Size: Order Modify Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.size = 1
+
 -- Dispatch: Order Modify Response Status
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.dispatch = {
   [4] = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_reject_reason.dissect,
 }
 
 -- Dissect: Order Modify Response Status
-aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.dissect = function(buffer, offset, packet, parent, order_status)
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.dissect = function(buffer, offset, packet, parent)
+  local status_reject_reason = buffer(offset, 1):le_uint()
   local dissect = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.dispatch[bit.rshift(bit.band(status_reject_reason, 0xE0), 5)]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -1953,7 +1957,7 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_message.fi
   index, request_ref = aquis_aquisequities_tradingprotocol_atp_v2_10_3.request_ref.dissect(buffer, index, packet, parent)
 
   -- Order Modify Response Status: Runtime Type with 2 branches
-  index = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.dissect(buffer, index, packet, parent, order_status)
+  index = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_modify_response_status.dissect(buffer, index, packet, parent)
 
   -- Modification Timestamp: time
   index, modification_timestamp = aquis_aquisequities_tradingprotocol_atp_v2_10_3.modification_timestamp.dissect(buffer, index, packet, parent)
@@ -2031,6 +2035,9 @@ end
 -- Order Cancel Response Status
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status = {}
 
+-- Size: Order Cancel Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.size = 1
+
 -- Dispatch: Order Cancel Response Status
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.dispatch = {
   [3] = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason.dissect,
@@ -2038,7 +2045,8 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.dis
 }
 
 -- Dissect: Order Cancel Response Status
-aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.dissect = function(buffer, offset, packet, parent, order_status)
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.dissect = function(buffer, offset, packet, parent)
+  local status_cancel_reason = buffer(offset, 1):le_uint()
   local dissect = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.dispatch[bit.rshift(bit.band(status_cancel_reason, 0xE0), 5)]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -2075,7 +2083,7 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_message.fi
   index, request_ref = aquis_aquisequities_tradingprotocol_atp_v2_10_3.request_ref.dissect(buffer, index, packet, parent)
 
   -- Order Cancel Response Status: Runtime Type with 3 branches
-  index = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.dissect(buffer, index, packet, parent, order_status)
+  index = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_cancel_response_status.dissect(buffer, index, packet, parent)
 
   -- Cancellation Timestamp: time
   index, cancellation_timestamp = aquis_aquisequities_tradingprotocol_atp_v2_10_3.cancellation_timestamp.dissect(buffer, index, packet, parent)
@@ -2153,6 +2161,9 @@ end
 -- Order Add Response Status
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status = {}
 
+-- Size: Order Add Response Status
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.size = 1
+
 -- Dispatch: Order Add Response Status
 aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.dispatch = {
   [3] = aquis_aquisequities_tradingprotocol_atp_v2_10_3.status_cancel_reason.dissect,
@@ -2160,7 +2171,8 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.dispat
 }
 
 -- Dissect: Order Add Response Status
-aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.dissect = function(buffer, offset, packet, parent, order_status)
+aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.dissect = function(buffer, offset, packet, parent)
+  local status_cancel_reason = buffer(offset, 1):le_uint()
   local dissect = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.dispatch[bit.rshift(bit.band(status_cancel_reason, 0xE0), 5)]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -2199,7 +2211,7 @@ aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_message.field
   index, market_data_id = aquis_aquisequities_tradingprotocol_atp_v2_10_3.market_data_id.dissect(buffer, index, packet, parent)
 
   -- Order Add Response Status: Runtime Type with 3 branches
-  index = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.dissect(buffer, index, packet, parent, order_status)
+  index = aquis_aquisequities_tradingprotocol_atp_v2_10_3.order_add_response_status.dissect(buffer, index, packet, parent)
 
   -- Traded Quantity: u32
   index, traded_quantity = aquis_aquisequities_tradingprotocol_atp_v2_10_3.traded_quantity.dissect(buffer, index, packet, parent)
