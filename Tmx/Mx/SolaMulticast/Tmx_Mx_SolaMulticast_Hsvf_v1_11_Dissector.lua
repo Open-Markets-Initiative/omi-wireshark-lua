@@ -10871,22 +10871,10 @@ end
 -- Tick Entry Group
 tmx_mx_solamulticast_hsvf_v1_11.tick_entry_group = {}
 
--- Calculate size of: Tick Entry Group
-tmx_mx_solamulticast_hsvf_v1_11.tick_entry_group.size = function(buffer, offset)
-  local index = 0
-
-  -- Calculate runtime size of Min Price Fraction Pair field
-  local min_price_fraction_pair_offset = offset + index
-  local min_price_fraction_pair_type = buffer(min_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.min_price_fraction_pair.size(buffer, min_price_fraction_pair_offset, min_price_fraction_pair_type)
-
-  -- Calculate runtime size of Tick Price Fraction Pair field
-  local tick_price_fraction_pair_offset = offset + index
-  local tick_price_fraction_pair_type = buffer(tick_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick_price_fraction_pair.size(buffer, tick_price_fraction_pair_offset, tick_price_fraction_pair_type)
-
-  return index
-end
+-- Size: Tick Entry Group
+tmx_mx_solamulticast_hsvf_v1_11.tick_entry_group.size =
+  tmx_mx_solamulticast_hsvf_v1_11.min_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick_price_fraction_pair.size
 
 -- Display: Tick Entry Group
 tmx_mx_solamulticast_hsvf_v1_11.tick_entry_group.display = function(packet, parent, length)
@@ -10953,9 +10941,8 @@ tmx_mx_solamulticast_hsvf_v1_11.tick_table_message.size = function(buffer, offse
 
   -- Calculate field size from count
   local tick_entry_group_count = buffer(offset + index - 2, 2):string()
-  for i = 1, tick_entry_group_count do
-    index = index + tmx_mx_solamulticast_hsvf_v1_11.tick_entry_group.size(buffer, offset + index)
-  end
+  index = index + tick_entry_group_count * 14
+
   return index
 end
 
@@ -12449,49 +12436,22 @@ end
 -- Swap Future Trade Correction Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_correction_message = {}
 
--- Calculate size of: Swap Future Trade Correction Message
-tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_correction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tenor.size
-
-  -- Calculate runtime size of Fixed Rate Fraction Pair field
-  local fixed_rate_fraction_pair_offset = offset + index
-  local fixed_rate_fraction_pair_type = buffer(fixed_rate_fraction_pair_offset + 5, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size(buffer, fixed_rate_fraction_pair_offset, fixed_rate_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Futures Trade Message Fraction Pair field
-  local net_change_futures_trade_message_fraction_pair_offset = offset + index
-  local net_change_futures_trade_message_fraction_pair_type = buffer(net_change_futures_trade_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.size(buffer, net_change_futures_trade_message_fraction_pair_offset, net_change_futures_trade_message_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Swap Future Trade Correction Message
+tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_correction_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tenor.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Swap Future Trade Correction Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_correction_message.display = function(packet, parent, length)
@@ -12954,40 +12914,19 @@ end
 -- Strategy Trade Correction Message
 tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_correction_message = {}
 
--- Calculate size of: Strategy Trade Correction Message
-tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_correction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_sign.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Fraction Pair field
-  local net_change_fraction_pair_offset = offset + index
-  local net_change_fraction_pair_type = buffer(net_change_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.size(buffer, net_change_fraction_pair_offset, net_change_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Strategy Trade Correction Message
+tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_correction_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Strategy Trade Correction Message
 tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_correction_message.display = function(packet, parent, length)
@@ -13061,44 +13000,21 @@ end
 -- Futures Trade Correction Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_trade_correction_message = {}
 
--- Calculate size of: Futures Trade Correction Message
-tmx_mx_solamulticast_hsvf_v1_11.futures_trade_correction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Futures Trade Message Fraction Pair field
-  local net_change_futures_trade_message_fraction_pair_offset = offset + index
-  local net_change_futures_trade_message_fraction_pair_type = buffer(net_change_futures_trade_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.size(buffer, net_change_futures_trade_message_fraction_pair_offset, net_change_futures_trade_message_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Futures Trade Correction Message
+tmx_mx_solamulticast_hsvf_v1_11.futures_trade_correction_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Futures Trade Correction Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_trade_correction_message.display = function(packet, parent, length)
@@ -13932,55 +13848,25 @@ end
 -- Future Options Trade Correction Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_correction_message = {}
 
--- Calculate size of: Future Options Trade Correction Message
-tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_correction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Future Options Trade Message Fraction Pair field
-  local net_change_future_options_trade_message_fraction_pair_offset = offset + index
-  local net_change_future_options_trade_message_fraction_pair_type = buffer(net_change_future_options_trade_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.size(buffer, net_change_future_options_trade_message_fraction_pair_offset, net_change_future_options_trade_message_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_interest.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_2.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Future Options Trade Correction Message
+tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_correction_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_interest.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_2.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Future Options Trade Correction Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_correction_message.display = function(packet, parent, length)
@@ -14075,55 +13961,25 @@ end
 -- Option Trade Correction Message
 tmx_mx_solamulticast_hsvf_v1_11.option_trade_correction_message = {}
 
--- Calculate size of: Option Trade Correction Message
-tmx_mx_solamulticast_hsvf_v1_11.option_trade_correction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Fraction Pair field
-  local net_change_fraction_pair_offset = offset + index
-  local net_change_fraction_pair_type = buffer(net_change_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.size(buffer, net_change_fraction_pair_offset, net_change_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_interest.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Option Trade Correction Message
+tmx_mx_solamulticast_hsvf_v1_11.option_trade_correction_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_interest.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Option Trade Correction Message
 tmx_mx_solamulticast_hsvf_v1_11.option_trade_correction_message.display = function(packet, parent, length)
@@ -19319,106 +19175,34 @@ end
 -- Swap Future Summary Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_summary_message = {}
 
--- Calculate size of: Swap Future Summary Message
-tmx_mx_solamulticast_hsvf_v1_11.swap_future_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tenor.size
-
-  -- Calculate runtime size of Fixed Rate Fraction Pair field
-  local fixed_rate_fraction_pair_offset = offset + index
-  local fixed_rate_fraction_pair_type = buffer(fixed_rate_fraction_pair_offset + 5, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size(buffer, fixed_rate_fraction_pair_offset, fixed_rate_fraction_pair_type)
-
-  -- Calculate runtime size of Bid Price Summary Fraction Pair field
-  local bid_price_summary_fraction_pair_offset = offset + index
-  local bid_price_summary_fraction_pair_type = buffer(bid_price_summary_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_summary_fraction_pair.size(buffer, bid_price_summary_fraction_pair_offset, bid_price_summary_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  -- Calculate runtime size of Ask Price Summary Fraction Pair field
-  local ask_price_summary_fraction_pair_offset = offset + index
-  local ask_price_summary_fraction_pair_type = buffer(ask_price_summary_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_summary_fraction_pair.size(buffer, ask_price_summary_fraction_pair_offset, ask_price_summary_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  -- Calculate runtime size of Last Price Fraction Pair field
-  local last_price_fraction_pair_offset = offset + index
-  local last_price_fraction_pair_type = buffer(last_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.last_price_fraction_pair.size(buffer, last_price_fraction_pair_offset, last_price_fraction_pair_type)
-
-  -- Calculate runtime size of Open Price Fraction Pair field
-  local open_price_fraction_pair_offset = offset + index
-  local open_price_fraction_pair_type = buffer(open_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_price_fraction_pair.size(buffer, open_price_fraction_pair_offset, open_price_fraction_pair_type)
-
-  -- Calculate runtime size of High Price Fraction Pair field
-  local high_price_fraction_pair_offset = offset + index
-  local high_price_fraction_pair_type = buffer(high_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.high_price_fraction_pair.size(buffer, high_price_fraction_pair_offset, high_price_fraction_pair_type)
-
-  -- Calculate runtime size of Low Price Fraction Pair field
-  local low_price_fraction_pair_offset = offset + index
-  local low_price_fraction_pair_type = buffer(low_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.low_price_fraction_pair.size(buffer, low_price_fraction_pair_offset, low_price_fraction_pair_type)
-
-  -- Calculate runtime size of Settlement Price Future Options Summary Message Fraction Pair field
-  local settlement_price_future_options_summary_message_fraction_pair_offset = offset + index
-  local settlement_price_future_options_summary_message_fraction_pair_type = buffer(settlement_price_future_options_summary_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.size(buffer, settlement_price_future_options_summary_message_fraction_pair_offset, settlement_price_future_options_summary_message_fraction_pair_type)
-
-  -- Calculate runtime size of Net Present Value A Fraction Pair field
-  local net_present_value_a_fraction_pair_offset = offset + index
-  local net_present_value_a_fraction_pair_type = buffer(net_present_value_a_fraction_pair_offset + 11, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_present_value_a_fraction_pair.size(buffer, net_present_value_a_fraction_pair_offset, net_present_value_a_fraction_pair_type)
-
-  -- Calculate runtime size of Historical Coupon B Fraction Pair field
-  local historical_coupon_b_fraction_pair_offset = offset + index
-  local historical_coupon_b_fraction_pair_type = buffer(historical_coupon_b_fraction_pair_offset + 11, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.historical_coupon_b_fraction_pair.size(buffer, historical_coupon_b_fraction_pair_offset, historical_coupon_b_fraction_pair_type)
-
-  -- Calculate runtime size of Price Alignment Interest C Fraction Pair field
-  local price_alignment_interest_c_fraction_pair_offset = offset + index
-  local price_alignment_interest_c_fraction_pair_type = buffer(price_alignment_interest_c_fraction_pair_offset + 11, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_alignment_interest_c_fraction_pair.size(buffer, price_alignment_interest_c_fraction_pair_offset, price_alignment_interest_c_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Swap Future Summary Message Fraction Pair field
-  local net_change_swap_future_summary_message_fraction_pair_offset = offset + index
-  local net_change_swap_future_summary_message_fraction_pair_type = buffer(net_change_swap_future_summary_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_swap_future_summary_message_fraction_pair.size(buffer, net_change_swap_future_summary_message_fraction_pair_offset, net_change_swap_future_summary_message_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Previous Settlement Price Fraction Pair field
-  local previous_settlement_price_fraction_pair_offset = offset + index
-  local previous_settlement_price_fraction_pair_type = buffer(previous_settlement_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.previous_settlement_price_fraction_pair.size(buffer, previous_settlement_price_fraction_pair_offset, previous_settlement_price_fraction_pair_type)
-
-  -- Calculate runtime size of Previous Reset Rate Fraction Pair field
-  local previous_reset_rate_fraction_pair_offset = offset + index
-  local previous_reset_rate_fraction_pair_type = buffer(previous_reset_rate_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.previous_reset_rate_fraction_pair.size(buffer, previous_reset_rate_fraction_pair_offset, previous_reset_rate_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_interest.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.reason.size
-
-  return index
-end
+-- Size: Swap Future Summary Message
+tmx_mx_solamulticast_hsvf_v1_11.swap_future_summary_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tenor.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_summary_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_summary_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.last_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.high_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.low_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_present_value_a_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.historical_coupon_b_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_alignment_interest_c_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_swap_future_summary_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.previous_settlement_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.previous_reset_rate_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_interest.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.reason.size
 
 -- Display: Swap Future Summary Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_summary_message.display = function(packet, parent, length)
@@ -21331,84 +21115,29 @@ end
 -- Futures Summary Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_summary_message = {}
 
--- Calculate size of: Futures Summary Message
-tmx_mx_solamulticast_hsvf_v1_11.futures_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_day.size
-
-  -- Calculate runtime size of Bid Price Summary Fraction Pair field
-  local bid_price_summary_fraction_pair_offset = offset + index
-  local bid_price_summary_fraction_pair_type = buffer(bid_price_summary_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_summary_fraction_pair.size(buffer, bid_price_summary_fraction_pair_offset, bid_price_summary_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  -- Calculate runtime size of Ask Price Summary Fraction Pair field
-  local ask_price_summary_fraction_pair_offset = offset + index
-  local ask_price_summary_fraction_pair_type = buffer(ask_price_summary_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_summary_fraction_pair.size(buffer, ask_price_summary_fraction_pair_offset, ask_price_summary_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  -- Calculate runtime size of Last Price Fraction Pair field
-  local last_price_fraction_pair_offset = offset + index
-  local last_price_fraction_pair_type = buffer(last_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.last_price_fraction_pair.size(buffer, last_price_fraction_pair_offset, last_price_fraction_pair_type)
-
-  -- Calculate runtime size of Open Price Fraction Pair field
-  local open_price_fraction_pair_offset = offset + index
-  local open_price_fraction_pair_type = buffer(open_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_price_fraction_pair.size(buffer, open_price_fraction_pair_offset, open_price_fraction_pair_type)
-
-  -- Calculate runtime size of High Price Fraction Pair field
-  local high_price_fraction_pair_offset = offset + index
-  local high_price_fraction_pair_type = buffer(high_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.high_price_fraction_pair.size(buffer, high_price_fraction_pair_offset, high_price_fraction_pair_type)
-
-  -- Calculate runtime size of Low Price Fraction Pair field
-  local low_price_fraction_pair_offset = offset + index
-  local low_price_fraction_pair_type = buffer(low_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.low_price_fraction_pair.size(buffer, low_price_fraction_pair_offset, low_price_fraction_pair_type)
-
-  -- Calculate runtime size of Settlement Price Future Options Summary Message Fraction Pair field
-  local settlement_price_future_options_summary_message_fraction_pair_offset = offset + index
-  local settlement_price_future_options_summary_message_fraction_pair_type = buffer(settlement_price_future_options_summary_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.size(buffer, settlement_price_future_options_summary_message_fraction_pair_offset, settlement_price_future_options_summary_message_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Futures Summary Message Fraction Pair field
-  local net_change_futures_summary_message_fraction_pair_offset = offset + index
-  local net_change_futures_summary_message_fraction_pair_type = buffer(net_change_futures_summary_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_summary_message_fraction_pair.size(buffer, net_change_futures_summary_message_fraction_pair_offset, net_change_futures_summary_message_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Previous Settlement Fraction Pair field
-  local previous_settlement_fraction_pair_offset = offset + index
-  local previous_settlement_fraction_pair_type = buffer(previous_settlement_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.previous_settlement_fraction_pair.size(buffer, previous_settlement_fraction_pair_offset, previous_settlement_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_interest.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.reason.size
-
-  -- Calculate runtime size of External Price At Source Fraction Pair field
-  local external_price_at_source_fraction_pair_offset = offset + index
-  local external_price_at_source_fraction_pair_type = buffer(external_price_at_source_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.external_price_at_source_fraction_pair.size(buffer, external_price_at_source_fraction_pair_offset, external_price_at_source_fraction_pair_type)
-
-  return index
-end
+-- Size: Futures Summary Message
+tmx_mx_solamulticast_hsvf_v1_11.futures_summary_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_summary_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_summary_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.last_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.high_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.low_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_summary_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.previous_settlement_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_interest.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.reason.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.external_price_at_source_fraction_pair.size
 
 -- Display: Futures Summary Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_summary_message.display = function(packet, parent, length)
@@ -22667,96 +22396,35 @@ end
 -- Future Options Summary Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_summary_message = {}
 
--- Calculate size of: Future Options Summary Message
-tmx_mx_solamulticast_hsvf_v1_11.future_options_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  -- Calculate runtime size of Bid Price Summary Fraction Pair field
-  local bid_price_summary_fraction_pair_offset = offset + index
-  local bid_price_summary_fraction_pair_type = buffer(bid_price_summary_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_summary_fraction_pair.size(buffer, bid_price_summary_fraction_pair_offset, bid_price_summary_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  -- Calculate runtime size of Ask Price Summary Fraction Pair field
-  local ask_price_summary_fraction_pair_offset = offset + index
-  local ask_price_summary_fraction_pair_type = buffer(ask_price_summary_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_summary_fraction_pair.size(buffer, ask_price_summary_fraction_pair_offset, ask_price_summary_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  -- Calculate runtime size of Last Price Future Options Summary Message Fraction Pair field
-  local last_price_future_options_summary_message_fraction_pair_offset = offset + index
-  local last_price_future_options_summary_message_fraction_pair_type = buffer(last_price_future_options_summary_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.last_price_future_options_summary_message_fraction_pair.size(buffer, last_price_future_options_summary_message_fraction_pair_offset, last_price_future_options_summary_message_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_interest.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Future Options Summary Message Fraction Pair field
-  local net_change_future_options_summary_message_fraction_pair_offset = offset + index
-  local net_change_future_options_summary_message_fraction_pair_type = buffer(net_change_future_options_summary_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_future_options_summary_message_fraction_pair.size(buffer, net_change_future_options_summary_message_fraction_pair_offset, net_change_future_options_summary_message_fraction_pair_type)
-
-  -- Calculate runtime size of Opening Price Fraction Pair field
-  local opening_price_fraction_pair_offset = offset + index
-  local opening_price_fraction_pair_type = buffer(opening_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.opening_price_fraction_pair.size(buffer, opening_price_fraction_pair_offset, opening_price_fraction_pair_type)
-
-  -- Calculate runtime size of High Price Fraction Pair field
-  local high_price_fraction_pair_offset = offset + index
-  local high_price_fraction_pair_type = buffer(high_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.high_price_fraction_pair.size(buffer, high_price_fraction_pair_offset, high_price_fraction_pair_type)
-
-  -- Calculate runtime size of Low Price Fraction Pair field
-  local low_price_fraction_pair_offset = offset + index
-  local low_price_fraction_pair_type = buffer(low_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.low_price_fraction_pair.size(buffer, low_price_fraction_pair_offset, low_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_2.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol_root_future_options.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_year_underlying.size
-
-  -- Calculate runtime size of Settlement Price Future Options Summary Message Fraction Pair field
-  local settlement_price_future_options_summary_message_fraction_pair_offset = offset + index
-  local settlement_price_future_options_summary_message_fraction_pair_type = buffer(settlement_price_future_options_summary_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.size(buffer, settlement_price_future_options_summary_message_fraction_pair_offset, settlement_price_future_options_summary_message_fraction_pair_type)
-
-  -- Calculate runtime size of Previous Settlement Price Fraction Pair field
-  local previous_settlement_price_fraction_pair_offset = offset + index
-  local previous_settlement_price_fraction_pair_type = buffer(previous_settlement_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.previous_settlement_price_fraction_pair.size(buffer, previous_settlement_price_fraction_pair_offset, previous_settlement_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.reason.size
-
-  return index
-end
+-- Size: Future Options Summary Message
+tmx_mx_solamulticast_hsvf_v1_11.future_options_summary_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_summary_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_summary_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.last_price_future_options_summary_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_interest.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_future_options_summary_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.opening_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.high_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.low_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_2.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol_root_future_options.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_year_underlying.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.previous_settlement_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.reason.size
 
 -- Display: Future Options Summary Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_summary_message.display = function(packet, parent, length)
@@ -23279,92 +22947,33 @@ end
 -- Option Summary Message
 tmx_mx_solamulticast_hsvf_v1_11.option_summary_message = {}
 
--- Calculate size of: Option Summary Message
-tmx_mx_solamulticast_hsvf_v1_11.option_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  -- Calculate runtime size of Bid Price Summary Fraction Pair field
-  local bid_price_summary_fraction_pair_offset = offset + index
-  local bid_price_summary_fraction_pair_type = buffer(bid_price_summary_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_summary_fraction_pair.size(buffer, bid_price_summary_fraction_pair_offset, bid_price_summary_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  -- Calculate runtime size of Ask Price Summary Fraction Pair field
-  local ask_price_summary_fraction_pair_offset = offset + index
-  local ask_price_summary_fraction_pair_type = buffer(ask_price_summary_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_summary_fraction_pair.size(buffer, ask_price_summary_fraction_pair_offset, ask_price_summary_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  -- Calculate runtime size of Last Price Fraction Pair field
-  local last_price_fraction_pair_offset = offset + index
-  local last_price_fraction_pair_type = buffer(last_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.last_price_fraction_pair.size(buffer, last_price_fraction_pair_offset, last_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_interest.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Fraction Pair field
-  local net_change_fraction_pair_offset = offset + index
-  local net_change_fraction_pair_type = buffer(net_change_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.size(buffer, net_change_fraction_pair_offset, net_change_fraction_pair_type)
-
-  -- Calculate runtime size of Open Price Fraction Pair field
-  local open_price_fraction_pair_offset = offset + index
-  local open_price_fraction_pair_type = buffer(open_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_price_fraction_pair.size(buffer, open_price_fraction_pair_offset, open_price_fraction_pair_type)
-
-  -- Calculate runtime size of High Price Fraction Pair field
-  local high_price_fraction_pair_offset = offset + index
-  local high_price_fraction_pair_type = buffer(high_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.high_price_fraction_pair.size(buffer, high_price_fraction_pair_offset, high_price_fraction_pair_type)
-
-  -- Calculate runtime size of Low Price Fraction Pair field
-  local low_price_fraction_pair_offset = offset + index
-  local low_price_fraction_pair_type = buffer(low_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.low_price_fraction_pair.size(buffer, low_price_fraction_pair_offset, low_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.option_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol_root_options.size
-
-  -- Calculate runtime size of Settlement Price Fraction Pair field
-  local settlement_price_fraction_pair_offset = offset + index
-  local settlement_price_fraction_pair_type = buffer(settlement_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.settlement_price_fraction_pair.size(buffer, settlement_price_fraction_pair_offset, settlement_price_fraction_pair_type)
-
-  -- Calculate runtime size of Previous Settlement Price Fraction Pair field
-  local previous_settlement_price_fraction_pair_offset = offset + index
-  local previous_settlement_price_fraction_pair_type = buffer(previous_settlement_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.previous_settlement_price_fraction_pair.size(buffer, previous_settlement_price_fraction_pair_offset, previous_settlement_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.reason.size
-
-  return index
-end
+-- Size: Option Summary Message
+tmx_mx_solamulticast_hsvf_v1_11.option_summary_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_summary_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_summary_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.last_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_interest.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.high_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.low_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.option_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol_root_options.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.settlement_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.previous_settlement_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.reason.size
 
 -- Display: Option Summary Message
 tmx_mx_solamulticast_hsvf_v1_11.option_summary_message.display = function(packet, parent, length)
@@ -25443,94 +25052,40 @@ end
 -- Swap Future Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_instrument_keys_message = {}
 
--- Calculate size of: Swap Future Instrument Keys Message
-tmx_mx_solamulticast_hsvf_v1_11.swap_future_instrument_keys_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tenor.size
-
-  -- Calculate runtime size of Fixed Rate Fraction Pair field
-  local fixed_rate_fraction_pair_offset = offset + index
-  local fixed_rate_fraction_pair_type = buffer(fixed_rate_fraction_pair_offset + 5, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size(buffer, fixed_rate_fraction_pair_offset, fixed_rate_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.maximum_number_of_contracts_per_order.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.minimum_number_of_contracts_per_order.size
-
-  -- Calculate runtime size of Maximum Threshold Price Options Fraction Pair field
-  local maximum_threshold_price_options_fraction_pair_offset = offset + index
-  local maximum_threshold_price_options_fraction_pair_type = buffer(maximum_threshold_price_options_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.size(buffer, maximum_threshold_price_options_fraction_pair_offset, maximum_threshold_price_options_fraction_pair_type)
-
-  -- Calculate runtime size of Minimum Threshold Price Options Fraction Pair field
-  local minimum_threshold_price_options_fraction_pair_offset = offset + index
-  local minimum_threshold_price_options_fraction_pair_type = buffer(minimum_threshold_price_options_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.size(buffer, minimum_threshold_price_options_fraction_pair_offset, minimum_threshold_price_options_fraction_pair_type)
-
-  -- Calculate runtime size of Tick Increment field
-  local tick_increment_offset = offset + index
-  local tick_increment_type = buffer(tick_increment_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick_increment.size(buffer, tick_increment_offset, tick_increment_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.market_flow.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.group_instrument.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.external_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_size.size
-
-  -- Calculate runtime size of Tick Value Fraction Pair field
-  local tick_value_fraction_pair_offset = offset + index
-  local tick_value_fraction_pair_type = buffer(tick_value_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick_value_fraction_pair.size(buffer, tick_value_fraction_pair_offset, tick_value_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.currency.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.effective_date.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.initial_effective_date.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.cash_flow_alignment_date.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.payment_frequency.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.reset_frequency.size
-
-  -- Calculate runtime size of Notional Principal Amount Fraction Pair field
-  local notional_principal_amount_fraction_pair_offset = offset + index
-  local notional_principal_amount_fraction_pair_type = buffer(notional_principal_amount_fraction_pair_offset + 8, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.notional_principal_amount_fraction_pair.size(buffer, notional_principal_amount_fraction_pair_offset, notional_principal_amount_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.day_count_convention.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.first_payment_date.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.next_payment_date.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.first_reset_date.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.next_reset_date.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.previous_reset_date.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_type.size
-
-  return index
-end
+-- Size: Swap Future Instrument Keys Message
+tmx_mx_solamulticast_hsvf_v1_11.swap_future_instrument_keys_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tenor.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.maximum_number_of_contracts_per_order.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.minimum_number_of_contracts_per_order.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick_increment.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.market_flow.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.group_instrument.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.external_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick_value_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.currency.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.effective_date.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.initial_effective_date.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.cash_flow_alignment_date.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.payment_frequency.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.reset_frequency.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.notional_principal_amount_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.day_count_convention.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.first_payment_date.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.next_payment_date.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.first_reset_date.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.next_reset_date.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.previous_reset_date.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_type.size
 
 -- Display: Swap Future Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_instrument_keys_message.display = function(packet, parent, length)
@@ -25679,51 +25234,23 @@ end
 -- Strategy Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_11.strategy_instrument_keys_message = {}
 
--- Calculate size of: Strategy Instrument Keys Message
-tmx_mx_solamulticast_hsvf_v1_11.strategy_instrument_keys_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strategy_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_month_strategy.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.maximum_number_of_contracts_per_order.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.minimum_number_of_contracts_per_order.size
-
-  -- Calculate runtime size of Maximum Threshold Price Options Fraction Pair field
-  local maximum_threshold_price_options_fraction_pair_offset = offset + index
-  local maximum_threshold_price_options_fraction_pair_type = buffer(maximum_threshold_price_options_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.size(buffer, maximum_threshold_price_options_fraction_pair_offset, maximum_threshold_price_options_fraction_pair_type)
-
-  -- Calculate runtime size of Minimum Threshold Price Options Fraction Pair field
-  local minimum_threshold_price_options_fraction_pair_offset = offset + index
-  local minimum_threshold_price_options_fraction_pair_type = buffer(minimum_threshold_price_options_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.size(buffer, minimum_threshold_price_options_fraction_pair_offset, minimum_threshold_price_options_fraction_pair_type)
-
-  -- Calculate runtime size of Tick Increment field
-  local tick_increment_offset = offset + index
-  local tick_increment_type = buffer(tick_increment_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick_increment.size(buffer, tick_increment_offset, tick_increment_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.market_flow_indicator.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.group_instrument.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument_external_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strategy_allow_implied.size
-
-  return index
-end
+-- Size: Strategy Instrument Keys Message
+tmx_mx_solamulticast_hsvf_v1_11.strategy_instrument_keys_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strategy_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_month_strategy.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.maximum_number_of_contracts_per_order.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.minimum_number_of_contracts_per_order.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick_increment.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.market_flow_indicator.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.group_instrument.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument_external_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strategy_allow_implied.size
 
 -- Display: Strategy Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_11.strategy_instrument_keys_message.display = function(packet, parent, length)
@@ -26566,70 +26093,31 @@ end
 -- Futures Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_instrument_keys_message = {}
 
--- Calculate size of: Futures Instrument Keys Message
-tmx_mx_solamulticast_hsvf_v1_11.futures_instrument_keys_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.maximum_number_of_contracts_per_order.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.minimum_number_of_contracts_per_order.size
-
-  -- Calculate runtime size of Maximum Threshold Price Futures Fraction Pair field
-  local maximum_threshold_price_futures_fraction_pair_offset = offset + index
-  local maximum_threshold_price_futures_fraction_pair_type = buffer(maximum_threshold_price_futures_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.maximum_threshold_price_futures_fraction_pair.size(buffer, maximum_threshold_price_futures_fraction_pair_offset, maximum_threshold_price_futures_fraction_pair_type)
-
-  -- Calculate runtime size of Minimum Threshold Price Futures Fraction Pair field
-  local minimum_threshold_price_futures_fraction_pair_offset = offset + index
-  local minimum_threshold_price_futures_fraction_pair_type = buffer(minimum_threshold_price_futures_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.minimum_threshold_price_futures_fraction_pair.size(buffer, minimum_threshold_price_futures_fraction_pair_offset, minimum_threshold_price_futures_fraction_pair_type)
-
-  -- Calculate runtime size of Tick Increment field
-  local tick_increment_offset = offset + index
-  local tick_increment_type = buffer(tick_increment_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick_increment.size(buffer, tick_increment_offset, tick_increment_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.market_flow_indicator.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.group_instrument.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument_external_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_size.size
-
-  -- Calculate runtime size of Tick Value Fraction Pair field
-  local tick_value_fraction_pair_offset = offset + index
-  local tick_value_fraction_pair_type = buffer(tick_value_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick_value_fraction_pair.size(buffer, tick_value_fraction_pair_offset, tick_value_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.currency.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_type.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.associated_product_root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.associated_product_delivery_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.associated_product_delivery_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.associated_product_expiry_day.size
-
-  return index
-end
+-- Size: Futures Instrument Keys Message
+tmx_mx_solamulticast_hsvf_v1_11.futures_instrument_keys_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.maximum_number_of_contracts_per_order.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.minimum_number_of_contracts_per_order.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.maximum_threshold_price_futures_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.minimum_threshold_price_futures_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick_increment.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.market_flow_indicator.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.group_instrument.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument_external_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick_value_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.currency.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_type.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.associated_product_root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.associated_product_delivery_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.associated_product_delivery_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.associated_product_expiry_day.size
 
 -- Display: Futures Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_instrument_keys_message.display = function(packet, parent, length)
@@ -26797,69 +26285,29 @@ end
 -- Future Options Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_instrument_keys_message = {}
 
--- Calculate size of: Future Options Instrument Keys Message
-tmx_mx_solamulticast_hsvf_v1_11.future_options_instrument_keys_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_currency.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.maximum_number_of_contracts_per_order.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.minimum_number_of_contracts_per_order.size
-
-  -- Calculate runtime size of Maximum Threshold Price Options Fraction Pair field
-  local maximum_threshold_price_options_fraction_pair_offset = offset + index
-  local maximum_threshold_price_options_fraction_pair_type = buffer(maximum_threshold_price_options_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.size(buffer, maximum_threshold_price_options_fraction_pair_offset, maximum_threshold_price_options_fraction_pair_type)
-
-  -- Calculate runtime size of Minimum Threshold Price Options Fraction Pair field
-  local minimum_threshold_price_options_fraction_pair_offset = offset + index
-  local minimum_threshold_price_options_fraction_pair_type = buffer(minimum_threshold_price_options_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.size(buffer, minimum_threshold_price_options_fraction_pair_offset, minimum_threshold_price_options_fraction_pair_type)
-
-  -- Calculate runtime size of Tick Increment field
-  local tick_increment_offset = offset + index
-  local tick_increment_type = buffer(tick_increment_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick_increment.size(buffer, tick_increment_offset, tick_increment_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.market_flow_indicator.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.group_instrument.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument_external_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_size.size
-
-  -- Calculate runtime size of Tick Value Fraction Pair field
-  local tick_value_fraction_pair_offset = offset + index
-  local tick_value_fraction_pair_type = buffer(tick_value_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick_value_fraction_pair.size(buffer, tick_value_fraction_pair_offset, tick_value_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.currency.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_type.size
-
-  return index
-end
+-- Size: Future Options Instrument Keys Message
+tmx_mx_solamulticast_hsvf_v1_11.future_options_instrument_keys_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_currency.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.maximum_number_of_contracts_per_order.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.minimum_number_of_contracts_per_order.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick_increment.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.market_flow_indicator.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.group_instrument.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument_external_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick_value_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.currency.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_type.size
 
 -- Display: Future Options Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_instrument_keys_message.display = function(packet, parent, length)
@@ -26972,75 +26420,32 @@ end
 -- Option Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_11.option_instrument_keys_message = {}
 
--- Calculate size of: Option Instrument Keys Message
-tmx_mx_solamulticast_hsvf_v1_11.option_instrument_keys_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_currency.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.maximum_number_of_contracts_per_order.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.minimum_number_of_contracts_per_order.size
-
-  -- Calculate runtime size of Maximum Threshold Price Options Fraction Pair field
-  local maximum_threshold_price_options_fraction_pair_offset = offset + index
-  local maximum_threshold_price_options_fraction_pair_type = buffer(maximum_threshold_price_options_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.size(buffer, maximum_threshold_price_options_fraction_pair_offset, maximum_threshold_price_options_fraction_pair_type)
-
-  -- Calculate runtime size of Minimum Threshold Price Options Fraction Pair field
-  local minimum_threshold_price_options_fraction_pair_offset = offset + index
-  local minimum_threshold_price_options_fraction_pair_type = buffer(minimum_threshold_price_options_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.size(buffer, minimum_threshold_price_options_fraction_pair_offset, minimum_threshold_price_options_fraction_pair_type)
-
-  -- Calculate runtime size of Tick Increment field
-  local tick_increment_offset = offset + index
-  local tick_increment_type = buffer(tick_increment_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick_increment.size(buffer, tick_increment_offset, tick_increment_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.option_type.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.market_flow_indicator.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.group_instrument.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument_external_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.option_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol_root_options.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_size.size
-
-  -- Calculate runtime size of Tick Value Fraction Pair field
-  local tick_value_fraction_pair_offset = offset + index
-  local tick_value_fraction_pair_type = buffer(tick_value_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tick_value_fraction_pair.size(buffer, tick_value_fraction_pair_offset, tick_value_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.currency.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_type.size
-
-  return index
-end
+-- Size: Option Instrument Keys Message
+tmx_mx_solamulticast_hsvf_v1_11.option_instrument_keys_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_currency.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.maximum_number_of_contracts_per_order.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.minimum_number_of_contracts_per_order.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick_increment.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.option_type.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.market_flow_indicator.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.group_instrument.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument_external_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.option_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol_root_options.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tick_value_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.currency.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_type.size
 
 -- Display: Option Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_11.option_instrument_keys_message.display = function(packet, parent, length)
@@ -27162,42 +26567,20 @@ end
 -- Swap Future Trade Cancellation Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_cancellation_message = {}
 
--- Calculate size of: Swap Future Trade Cancellation Message
-tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tenor.size
-
-  -- Calculate runtime size of Fixed Rate Fraction Pair field
-  local fixed_rate_fraction_pair_offset = offset + index
-  local fixed_rate_fraction_pair_type = buffer(fixed_rate_fraction_pair_offset + 5, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size(buffer, fixed_rate_fraction_pair_offset, fixed_rate_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.market_price_indicator.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Swap Future Trade Cancellation Message
+tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_cancellation_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tenor.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.market_price_indicator.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Swap Future Trade Cancellation Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_cancellation_message.display = function(packet, parent, length)
@@ -27274,33 +26657,17 @@ end
 -- Strategy Trade Cancellation Message
 tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_cancellation_message = {}
 
--- Calculate size of: Strategy Trade Cancellation Message
-tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_sign.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Strategy Trade Cancellation Message
+tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_cancellation_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Strategy Trade Cancellation Message
 tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_cancellation_message.display = function(packet, parent, length)
@@ -27365,37 +26732,19 @@ end
 -- Futures Trade Cancellation Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_trade_cancellation_message = {}
 
--- Calculate size of: Futures Trade Cancellation Message
-tmx_mx_solamulticast_hsvf_v1_11.futures_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Futures Trade Cancellation Message
+tmx_mx_solamulticast_hsvf_v1_11.futures_trade_cancellation_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Futures Trade Cancellation Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_trade_cancellation_message.display = function(packet, parent, length)
@@ -27843,48 +27192,23 @@ end
 -- Future Options Trade Cancellation Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_cancellation_message = {}
 
--- Calculate size of: Future Options Trade Cancellation Message
-tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Price Fraction Pair field
-  local price_fraction_pair_offset = offset + index
-  local price_fraction_pair_type = buffer(price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_fraction_pair.size(buffer, price_fraction_pair_offset, price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_interest.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_2.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Future Options Trade Cancellation Message
+tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_cancellation_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_interest.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_2.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Future Options Trade Cancellation Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_cancellation_message.display = function(packet, parent, length)
@@ -27970,48 +27294,23 @@ end
 -- Option Trade Cancellation Message
 tmx_mx_solamulticast_hsvf_v1_11.option_trade_cancellation_message = {}
 
--- Calculate size of: Option Trade Cancellation Message
-tmx_mx_solamulticast_hsvf_v1_11.option_trade_cancellation_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_interest.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Option Trade Cancellation Message
+tmx_mx_solamulticast_hsvf_v1_11.option_trade_cancellation_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_interest.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Option Trade Cancellation Message
 tmx_mx_solamulticast_hsvf_v1_11.option_trade_cancellation_message.display = function(packet, parent, length)
@@ -28973,32 +28272,15 @@ end
 -- Swap Future Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_market_depth_trading_instrument = {}
 
--- Calculate size of: Swap Future Market Depth Trading Instrument
-tmx_mx_solamulticast_hsvf_v1_11.swap_future_market_depth_trading_instrument.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.level.size
-
-  -- Calculate runtime size of Bid Price Quote field
-  local bid_price_quote_offset = offset + index
-  local bid_price_quote_type = buffer(bid_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size(buffer, bid_price_quote_offset, bid_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.number_of_bid_orders.size
-
-  -- Calculate runtime size of Ask Price Quote field
-  local ask_price_quote_offset = offset + index
-  local ask_price_quote_type = buffer(ask_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size(buffer, ask_price_quote_offset, ask_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.number_of_ask_orders.size
-
-  return index
-end
+-- Size: Swap Future Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_11.swap_future_market_depth_trading_instrument.size =
+  tmx_mx_solamulticast_hsvf_v1_11.level.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.number_of_bid_orders.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.number_of_ask_orders.size
 
 -- Display: Swap Future Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_market_depth_trading_instrument.display = function(packet, parent, length)
@@ -29105,9 +28387,8 @@ tmx_mx_solamulticast_hsvf_v1_11.swap_future_market_depth_message.size = function
 
   -- Calculate field size from count
   local swap_future_market_depth_trading_instrument_count = buffer(offset + index - 1, 1):string()
-  for i = 1, swap_future_market_depth_trading_instrument_count do
-    index = index + tmx_mx_solamulticast_hsvf_v1_11.swap_future_market_depth_trading_instrument.size(buffer, offset + index)
-  end
+  index = index + swap_future_market_depth_trading_instrument_count * 29
+
   return index
 end
 
@@ -29179,36 +28460,17 @@ end
 -- Strategy Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_11.strategy_market_depth_trading_instrument = {}
 
--- Calculate size of: Strategy Market Depth Trading Instrument
-tmx_mx_solamulticast_hsvf_v1_11.strategy_market_depth_trading_instrument.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.level_of_market_depth.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_sign.size
-
-  -- Calculate runtime size of Bid Price Quote field
-  local bid_price_quote_offset = offset + index
-  local bid_price_quote_type = buffer(bid_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size(buffer, bid_price_quote_offset, bid_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.number_of_bid_orders.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_sign.size
-
-  -- Calculate runtime size of Ask Price Quote field
-  local ask_price_quote_offset = offset + index
-  local ask_price_quote_type = buffer(ask_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size(buffer, ask_price_quote_offset, ask_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.number_of_ask_orders.size
-
-  return index
-end
+-- Size: Strategy Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_11.strategy_market_depth_trading_instrument.size =
+  tmx_mx_solamulticast_hsvf_v1_11.level_of_market_depth.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.number_of_bid_orders.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.number_of_ask_orders.size
 
 -- Display: Strategy Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_11.strategy_market_depth_trading_instrument.display = function(packet, parent, length)
@@ -29308,9 +28570,8 @@ tmx_mx_solamulticast_hsvf_v1_11.strategy_market_depth_message.size = function(bu
 
   -- Calculate field size from count
   local strategy_market_depth_trading_instrument_count = buffer(offset + index - 1, 1):string()
-  for i = 1, strategy_market_depth_trading_instrument_count do
-    index = index + tmx_mx_solamulticast_hsvf_v1_11.strategy_market_depth_trading_instrument.size(buffer, offset + index)
-  end
+  index = index + strategy_market_depth_trading_instrument_count * 31
+
   return index
 end
 
@@ -30240,32 +29501,15 @@ end
 -- Futures Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_11.futures_market_depth_trading_instrument = {}
 
--- Calculate size of: Futures Market Depth Trading Instrument
-tmx_mx_solamulticast_hsvf_v1_11.futures_market_depth_trading_instrument.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.level_of_market_depth.size
-
-  -- Calculate runtime size of Bid Price Quote Futures Market Depth Trading Instrument field
-  local bid_price_quote_futures_market_depth_trading_instrument_offset = offset + index
-  local bid_price_quote_futures_market_depth_trading_instrument_type = buffer(bid_price_quote_futures_market_depth_trading_instrument_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote_futures_market_depth_trading_instrument.size(buffer, bid_price_quote_futures_market_depth_trading_instrument_offset, bid_price_quote_futures_market_depth_trading_instrument_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.number_of_bid_orders.size
-
-  -- Calculate runtime size of Ask Price Futures Depth Futures Market Depth Trading Instrument field
-  local ask_price_futures_depth_futures_market_depth_trading_instrument_offset = offset + index
-  local ask_price_futures_depth_futures_market_depth_trading_instrument_type = buffer(ask_price_futures_depth_futures_market_depth_trading_instrument_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_futures_depth_futures_market_depth_trading_instrument.size(buffer, ask_price_futures_depth_futures_market_depth_trading_instrument_offset, ask_price_futures_depth_futures_market_depth_trading_instrument_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.number_of_ask_orders.size
-
-  return index
-end
+-- Size: Futures Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_11.futures_market_depth_trading_instrument.size =
+  tmx_mx_solamulticast_hsvf_v1_11.level_of_market_depth.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote_futures_market_depth_trading_instrument.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.number_of_bid_orders.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_futures_depth_futures_market_depth_trading_instrument.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.number_of_ask_orders.size
 
 -- Display: Futures Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_11.futures_market_depth_trading_instrument.display = function(packet, parent, length)
@@ -30365,9 +29609,8 @@ tmx_mx_solamulticast_hsvf_v1_11.futures_market_depth_message.size = function(buf
 
   -- Calculate field size from count
   local futures_market_depth_trading_instrument_count = buffer(offset + index - 1, 1):string()
-  for i = 1, futures_market_depth_trading_instrument_count do
-    index = index + tmx_mx_solamulticast_hsvf_v1_11.futures_market_depth_trading_instrument.size(buffer, offset + index)
-  end
+  index = index + futures_market_depth_trading_instrument_count * 29
+
   return index
 end
 
@@ -30430,32 +29673,15 @@ end
 -- Future Options Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_11.future_options_market_depth_trading_instrument = {}
 
--- Calculate size of: Future Options Market Depth Trading Instrument
-tmx_mx_solamulticast_hsvf_v1_11.future_options_market_depth_trading_instrument.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.level_of_market_depth.size
-
-  -- Calculate runtime size of Bid Price Quote field
-  local bid_price_quote_offset = offset + index
-  local bid_price_quote_type = buffer(bid_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size(buffer, bid_price_quote_offset, bid_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.number_of_bid_orders.size
-
-  -- Calculate runtime size of Ask Price Quote field
-  local ask_price_quote_offset = offset + index
-  local ask_price_quote_type = buffer(ask_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size(buffer, ask_price_quote_offset, ask_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.number_of_ask_orders.size
-
-  return index
-end
+-- Size: Future Options Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_11.future_options_market_depth_trading_instrument.size =
+  tmx_mx_solamulticast_hsvf_v1_11.level_of_market_depth.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.number_of_bid_orders.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.number_of_ask_orders.size
 
 -- Display: Future Options Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_11.future_options_market_depth_trading_instrument.display = function(packet, parent, length)
@@ -30562,9 +29788,8 @@ tmx_mx_solamulticast_hsvf_v1_11.future_options_market_depth_message.size = funct
 
   -- Calculate field size from count
   local future_options_market_depth_trading_instrument_count = buffer(offset + index - 1, 1):string()
-  for i = 1, future_options_market_depth_trading_instrument_count do
-    index = index + tmx_mx_solamulticast_hsvf_v1_11.future_options_market_depth_trading_instrument.size(buffer, offset + index)
-  end
+  index = index + future_options_market_depth_trading_instrument_count * 29
+
   return index
 end
 
@@ -30636,32 +29861,15 @@ end
 -- Option Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_11.option_market_depth_trading_instrument = {}
 
--- Calculate size of: Option Market Depth Trading Instrument
-tmx_mx_solamulticast_hsvf_v1_11.option_market_depth_trading_instrument.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.level_of_market_depth.size
-
-  -- Calculate runtime size of Bid Price Quote field
-  local bid_price_quote_offset = offset + index
-  local bid_price_quote_type = buffer(bid_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size(buffer, bid_price_quote_offset, bid_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.number_of_bid_orders.size
-
-  -- Calculate runtime size of Ask Price Quote field
-  local ask_price_quote_offset = offset + index
-  local ask_price_quote_type = buffer(ask_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size(buffer, ask_price_quote_offset, ask_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.number_of_ask_orders.size
-
-  return index
-end
+-- Size: Option Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_11.option_market_depth_trading_instrument.size =
+  tmx_mx_solamulticast_hsvf_v1_11.level_of_market_depth.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.number_of_bid_orders.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.number_of_ask_orders.size
 
 -- Display: Option Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_11.option_market_depth_trading_instrument.display = function(packet, parent, length)
@@ -30768,9 +29976,8 @@ tmx_mx_solamulticast_hsvf_v1_11.option_market_depth_message.size = function(buff
 
   -- Calculate field size from count
   local option_market_depth_trading_instrument_count = buffer(offset + index - 1, 1):string()
-  for i = 1, option_market_depth_trading_instrument_count do
-    index = index + tmx_mx_solamulticast_hsvf_v1_11.option_market_depth_trading_instrument.size(buffer, offset + index)
-  end
+  index = index + option_market_depth_trading_instrument_count * 29
+
   return index
 end
 
@@ -31718,45 +30925,20 @@ end
 -- Swap Future Quote Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_quote_message = {}
 
--- Calculate size of: Swap Future Quote Message
-tmx_mx_solamulticast_hsvf_v1_11.swap_future_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tenor.size
-
-  -- Calculate runtime size of Fixed Rate Fraction Pair field
-  local fixed_rate_fraction_pair_offset = offset + index
-  local fixed_rate_fraction_pair_type = buffer(fixed_rate_fraction_pair_offset + 5, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size(buffer, fixed_rate_fraction_pair_offset, fixed_rate_fraction_pair_type)
-
-  -- Calculate runtime size of Bid Price Quote Futures Quote Message field
-  local bid_price_quote_futures_quote_message_offset = offset + index
-  local bid_price_quote_futures_quote_message_type = buffer(bid_price_quote_futures_quote_message_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote_futures_quote_message.size(buffer, bid_price_quote_futures_quote_message_offset, bid_price_quote_futures_quote_message_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  -- Calculate runtime size of Ask Price Quote Strategy Quote Message field
-  local ask_price_quote_strategy_quote_message_offset = offset + index
-  local ask_price_quote_strategy_quote_message_type = buffer(ask_price_quote_strategy_quote_message_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote_strategy_quote_message.size(buffer, ask_price_quote_strategy_quote_message_offset, ask_price_quote_strategy_quote_message_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.size
-
-  return index
-end
+-- Size: Swap Future Quote Message
+tmx_mx_solamulticast_hsvf_v1_11.swap_future_quote_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tenor.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote_futures_quote_message.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote_strategy_quote_message.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.size
 
 -- Display: Swap Future Quote Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_quote_message.display = function(packet, parent, length)
@@ -32286,36 +31468,17 @@ end
 -- Strategy Quote Message
 tmx_mx_solamulticast_hsvf_v1_11.strategy_quote_message = {}
 
--- Calculate size of: Strategy Quote Message
-tmx_mx_solamulticast_hsvf_v1_11.strategy_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_sign.size
-
-  -- Calculate runtime size of Bid Price Quote Strategy Quote Message field
-  local bid_price_quote_strategy_quote_message_offset = offset + index
-  local bid_price_quote_strategy_quote_message_type = buffer(bid_price_quote_strategy_quote_message_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote_strategy_quote_message.size(buffer, bid_price_quote_strategy_quote_message_offset, bid_price_quote_strategy_quote_message_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_sign.size
-
-  -- Calculate runtime size of Ask Price Quote Strategy Quote Message field
-  local ask_price_quote_strategy_quote_message_offset = offset + index
-  local ask_price_quote_strategy_quote_message_type = buffer(ask_price_quote_strategy_quote_message_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote_strategy_quote_message.size(buffer, ask_price_quote_strategy_quote_message_offset, ask_price_quote_strategy_quote_message_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.size
-
-  return index
-end
+-- Size: Strategy Quote Message
+tmx_mx_solamulticast_hsvf_v1_11.strategy_quote_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote_strategy_quote_message.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote_strategy_quote_message.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.size
 
 -- Display: Strategy Quote Message
 tmx_mx_solamulticast_hsvf_v1_11.strategy_quote_message.display = function(packet, parent, length)
@@ -32833,38 +31996,18 @@ end
 -- Futures Quote Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_quote_message = {}
 
--- Calculate size of: Futures Quote Message
-tmx_mx_solamulticast_hsvf_v1_11.futures_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_day.size
-
-  -- Calculate runtime size of Bid Price Quote Futures Quote Message field
-  local bid_price_quote_futures_quote_message_offset = offset + index
-  local bid_price_quote_futures_quote_message_type = buffer(bid_price_quote_futures_quote_message_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote_futures_quote_message.size(buffer, bid_price_quote_futures_quote_message_offset, bid_price_quote_futures_quote_message_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  -- Calculate runtime size of Ask Price Quote Futures Quote Message field
-  local ask_price_quote_futures_quote_message_offset = offset + index
-  local ask_price_quote_futures_quote_message_type = buffer(ask_price_quote_futures_quote_message_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote_futures_quote_message.size(buffer, ask_price_quote_futures_quote_message_offset, ask_price_quote_futures_quote_message_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.size
-
-  return index
-end
+-- Size: Futures Quote Message
+tmx_mx_solamulticast_hsvf_v1_11.futures_quote_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote_futures_quote_message.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote_futures_quote_message.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.size
 
 -- Display: Futures Quote Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_quote_message.display = function(packet, parent, length)
@@ -32947,47 +32090,21 @@ end
 -- Future Options Quote Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_quote_message = {}
 
--- Calculate size of: Future Options Quote Message
-tmx_mx_solamulticast_hsvf_v1_11.future_options_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  -- Calculate runtime size of Bid Price Quote field
-  local bid_price_quote_offset = offset + index
-  local bid_price_quote_type = buffer(bid_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size(buffer, bid_price_quote_offset, bid_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  -- Calculate runtime size of Ask Price Quote field
-  local ask_price_quote_offset = offset + index
-  local ask_price_quote_type = buffer(ask_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size(buffer, ask_price_quote_offset, ask_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
-
-  return index
-end
+-- Size: Future Options Quote Message
+tmx_mx_solamulticast_hsvf_v1_11.future_options_quote_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
 
 -- Display: Future Options Quote Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_quote_message.display = function(packet, parent, length)
@@ -33082,47 +32199,21 @@ end
 -- Option Quote Message
 tmx_mx_solamulticast_hsvf_v1_11.option_quote_message = {}
 
--- Calculate size of: Option Quote Message
-tmx_mx_solamulticast_hsvf_v1_11.option_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  -- Calculate runtime size of Bid Price Quote field
-  local bid_price_quote_offset = offset + index
-  local bid_price_quote_type = buffer(bid_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size(buffer, bid_price_quote_offset, bid_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.bid_size.size
-
-  -- Calculate runtime size of Ask Price Quote field
-  local ask_price_quote_offset = offset + index
-  local ask_price_quote_type = buffer(ask_price_quote_offset - 0, 6):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size(buffer, ask_price_quote_offset, ask_price_quote_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.ask_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.size
-
-  return index
-end
+-- Size: Option Quote Message
+tmx_mx_solamulticast_hsvf_v1_11.option_quote_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.bid_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_price_quote.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.ask_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.instrument_status_marker.size
 
 -- Display: Option Quote Message
 tmx_mx_solamulticast_hsvf_v1_11.option_quote_message.display = function(packet, parent, length)
@@ -33217,33 +32308,17 @@ end
 -- Instrument Schedule Notice Swap Future Message
 tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_swap_future_message = {}
 
--- Calculate size of: Instrument Schedule Notice Swap Future Message
-tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_swap_future_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tenor.size
-
-  -- Calculate runtime size of Fixed Rate Fraction Pair field
-  local fixed_rate_fraction_pair_offset = offset + index
-  local fixed_rate_fraction_pair_type = buffer(fixed_rate_fraction_pair_offset + 5, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size(buffer, fixed_rate_fraction_pair_offset, fixed_rate_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.series_status.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.scheduled_status_change_time.size
-
-  return index
-end
+-- Size: Instrument Schedule Notice Swap Future Message
+tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_swap_future_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tenor.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.series_status.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.scheduled_status_change_time.size
 
 -- Display: Instrument Schedule Notice Swap Future Message
 tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_swap_future_message.display = function(packet, parent, length)
@@ -33424,33 +32499,17 @@ end
 -- Instrument Schedule Notice Futures Option Message
 tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_futures_option_message = {}
 
--- Calculate size of: Instrument Schedule Notice Futures Option Message
-tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_futures_option_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.series_status.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.scheduled_status_change_time.size
-
-  return index
-end
+-- Size: Instrument Schedule Notice Futures Option Message
+tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_futures_option_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.series_status.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.scheduled_status_change_time.size
 
 -- Display: Instrument Schedule Notice Futures Option Message
 tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_futures_option_message.display = function(packet, parent, length)
@@ -33892,33 +32951,17 @@ end
 -- Instrument Schedule Notice Option Message
 tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_option_message = {}
 
--- Calculate size of: Instrument Schedule Notice Option Message
-tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_option_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
-
-  -- Calculate runtime size of Strike Price Schedule Notice Fraction Pair field
-  local strike_price_schedule_notice_fraction_pair_offset = offset + index
-  local strike_price_schedule_notice_fraction_pair_type = buffer(strike_price_schedule_notice_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_schedule_notice_fraction_pair.size(buffer, strike_price_schedule_notice_fraction_pair_offset, strike_price_schedule_notice_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.series_status.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.scheduled_status_change_time.size
-
-  return index
-end
+-- Size: Instrument Schedule Notice Option Message
+tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_option_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_schedule_notice_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.series_status.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.scheduled_status_change_time.size
 
 -- Display: Instrument Schedule Notice Option Message
 tmx_mx_solamulticast_hsvf_v1_11.instrument_schedule_notice_option_message.display = function(packet, parent, length)
@@ -33983,33 +33026,17 @@ end
 -- Swap Future Rfq Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_rfq_message = {}
 
--- Calculate size of: Swap Future Rfq Message
-tmx_mx_solamulticast_hsvf_v1_11.swap_future_rfq_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tenor.size
-
-  -- Calculate runtime size of Fixed Rate Fraction Pair field
-  local fixed_rate_fraction_pair_offset = offset + index
-  local fixed_rate_fraction_pair_type = buffer(fixed_rate_fraction_pair_offset + 5, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size(buffer, fixed_rate_fraction_pair_offset, fixed_rate_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.requested_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.requested_market_side.size
-
-  return index
-end
+-- Size: Swap Future Rfq Message
+tmx_mx_solamulticast_hsvf_v1_11.swap_future_rfq_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tenor.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.requested_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.requested_market_side.size
 
 -- Display: Swap Future Rfq Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_rfq_message.display = function(packet, parent, length)
@@ -34190,33 +33217,17 @@ end
 -- Future Options Rfq Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_rfq_message = {}
 
--- Calculate size of: Future Options Rfq Message
-tmx_mx_solamulticast_hsvf_v1_11.future_options_rfq_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.requested_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.requested_market_side.size
-
-  return index
-end
+-- Size: Future Options Rfq Message
+tmx_mx_solamulticast_hsvf_v1_11.future_options_rfq_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.requested_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.requested_market_side.size
 
 -- Display: Future Options Rfq Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_rfq_message.display = function(packet, parent, length)
@@ -34281,33 +33292,17 @@ end
 -- Option Rfq Message
 tmx_mx_solamulticast_hsvf_v1_11.option_rfq_message = {}
 
--- Calculate size of: Option Rfq Message
-tmx_mx_solamulticast_hsvf_v1_11.option_rfq_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.requested_size.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.requested_market_side.size
-
-  return index
-end
+-- Size: Option Rfq Message
+tmx_mx_solamulticast_hsvf_v1_11.option_rfq_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.requested_size.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.requested_market_side.size
 
 -- Display: Option Rfq Message
 tmx_mx_solamulticast_hsvf_v1_11.option_rfq_message.display = function(packet, parent, length)
@@ -34372,49 +33367,22 @@ end
 -- Swap Future Trade Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_message = {}
 
--- Calculate size of: Swap Future Trade Message
-tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.tenor.size
-
-  -- Calculate runtime size of Fixed Rate Fraction Pair field
-  local fixed_rate_fraction_pair_offset = offset + index
-  local fixed_rate_fraction_pair_type = buffer(fixed_rate_fraction_pair_offset + 5, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size(buffer, fixed_rate_fraction_pair_offset, fixed_rate_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Futures Trade Message Fraction Pair field
-  local net_change_futures_trade_message_fraction_pair_offset = offset + index
-  local net_change_futures_trade_message_fraction_pair_type = buffer(net_change_futures_trade_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.size(buffer, net_change_futures_trade_message_fraction_pair_offset, net_change_futures_trade_message_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Swap Future Trade Message
+tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month_swap_future.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.tenor.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.fixed_rate_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Swap Future Trade Message
 tmx_mx_solamulticast_hsvf_v1_11.swap_future_trade_message.display = function(packet, parent, length)
@@ -34500,40 +33468,19 @@ end
 -- Strategy Trade Message
 tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_message = {}
 
--- Calculate size of: Strategy Trade Message
-tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_sign.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Fraction Pair field
-  local net_change_fraction_pair_offset = offset + index
-  local net_change_fraction_pair_type = buffer(net_change_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.size(buffer, net_change_fraction_pair_offset, net_change_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Strategy Trade Message
+tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Strategy Trade Message
 tmx_mx_solamulticast_hsvf_v1_11.strategy_trade_message.display = function(packet, parent, length)
@@ -34607,44 +33554,21 @@ end
 -- Futures Trade Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_trade_message = {}
 
--- Calculate size of: Futures Trade Message
-tmx_mx_solamulticast_hsvf_v1_11.futures_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.delivery_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Futures Trade Message Fraction Pair field
-  local net_change_futures_trade_message_fraction_pair_offset = offset + index
-  local net_change_futures_trade_message_fraction_pair_type = buffer(net_change_futures_trade_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.size(buffer, net_change_futures_trade_message_fraction_pair_offset, net_change_futures_trade_message_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Futures Trade Message
+tmx_mx_solamulticast_hsvf_v1_11.futures_trade_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_year_futures.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.delivery_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Futures Trade Message
 tmx_mx_solamulticast_hsvf_v1_11.futures_trade_message.display = function(packet, parent, length)
@@ -34724,55 +33648,25 @@ end
 -- Future Options Trade Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_message = {}
 
--- Calculate size of: Future Options Trade Message
-tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Future Options Trade Message Fraction Pair field
-  local net_change_future_options_trade_message_fraction_pair_offset = offset + index
-  local net_change_future_options_trade_message_fraction_pair_type = buffer(net_change_future_options_trade_message_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.size(buffer, net_change_future_options_trade_message_fraction_pair_offset, net_change_future_options_trade_message_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_interest.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_2.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Future Options Trade Message
+tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.contract_month_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.call_put_code.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_interest.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_2.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Future Options Trade Message
 tmx_mx_solamulticast_hsvf_v1_11.future_options_trade_message.display = function(packet, parent, length)
@@ -34867,55 +33761,25 @@ end
 -- Option Trade Message
 tmx_mx_solamulticast_hsvf_v1_11.option_trade_message = {}
 
--- Calculate size of: Option Trade Message
-tmx_mx_solamulticast_hsvf_v1_11.option_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_1.size
-
-  -- Calculate runtime size of Strike Price Instrument Fraction Pair field
-  local strike_price_instrument_fraction_pair_offset = offset + index
-  local strike_price_instrument_fraction_pair_type = buffer(strike_price_instrument_fraction_pair_offset + 7, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size(buffer, strike_price_instrument_fraction_pair_offset, strike_price_instrument_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.volume.size
-
-  -- Calculate runtime size of Trade Price Fraction Pair field
-  local trade_price_fraction_pair_offset = offset + index
-  local trade_price_fraction_pair_type = buffer(trade_price_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size(buffer, trade_price_fraction_pair_offset, trade_price_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size
-
-  -- Calculate runtime size of Net Change Fraction Pair field
-  local net_change_fraction_pair_offset = offset + index
-  local net_change_fraction_pair_type = buffer(net_change_fraction_pair_offset + 6, 1):string()
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.size(buffer, net_change_fraction_pair_offset, net_change_fraction_pair_type)
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.filler_6.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.timestamp.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.open_interest.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
-
-  return index
-end
+-- Size: Option Trade Message
+tmx_mx_solamulticast_hsvf_v1_11.option_trade_message.size =
+  tmx_mx_solamulticast_hsvf_v1_11.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.strike_price_instrument_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.expiry_day.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.volume.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_price_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_sign.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.net_change_fraction_pair.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.filler_6.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.timestamp.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.open_interest.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.second_filler_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.price_indicator_marker.size + 
+  tmx_mx_solamulticast_hsvf_v1_11.trade_number.size
 
 -- Display: Option Trade Message
 tmx_mx_solamulticast_hsvf_v1_11.option_trade_message.display = function(packet, parent, length)
