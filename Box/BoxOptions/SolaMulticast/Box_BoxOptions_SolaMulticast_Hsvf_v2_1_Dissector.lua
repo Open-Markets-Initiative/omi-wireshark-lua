@@ -48,15 +48,15 @@ omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.group = ProtoField.new("Group"
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.group_instrument = ProtoField.new("Group Instrument", "box.boxoptions.solamulticast.hsvf.v2.1.groupinstrument", ftypes.STRING, nil, nil, nil, "Group of the instrument")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.group_of_the_complex_order_instrument = ProtoField.new("Group Of The Complex Order Instrument", "box.boxoptions.solamulticast.hsvf.v2.1.groupofthecomplexorderinstrument", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.group_status = ProtoField.new("Group Status", "box.boxoptions.solamulticast.hsvf.v2.1.groupstatus", ftypes.STRING, nil, nil, nil, "Value is O")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price = ProtoField.new("High Price", "box.boxoptions.solamulticast.hsvf.v2.1.highprice", ftypes.UINT24, nil, nil, nil, "Highest trade price of the day or current high price if sent after a cancellation")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price_fraction_indicator = ProtoField.new("High Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.highpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price_numeric = ProtoField.new("High Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.highpricenumeric", ftypes.UINT24, nil, nil, nil, "Highest trade price of the day or current high price if sent after a cancellation")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price_sign = ProtoField.new("High Price Sign", "box.boxoptions.solamulticast.hsvf.v2.1.highpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.improvement_order_side = ProtoField.new("Improvement Order Side", "box.boxoptions.solamulticast.hsvf.v2.1.improvementorderside", ftypes.STRING, nil, nil, nil, "Side")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.improvement_phase_expiry_time = ProtoField.new("Improvement Phase Expiry Time", "box.boxoptions.solamulticast.hsvf.v2.1.improvementphaseexpirytime", ftypes.STRING, nil, nil, nil, "Indicates the expiry time of the Improvement Phase (value is in HHMMSSCC)")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.improvement_phase_sequential_number = ProtoField.new("Improvement Phase Sequential Number", "box.boxoptions.solamulticast.hsvf.v2.1.improvementphasesequentialnumber", ftypes.UINT24, nil, nil, nil, "Indicates the number of an Improvement Phase. Sequential number unique per Instrument and per trading day")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.improvement_process_expiry_duration = ProtoField.new("Improvement Process Expiry Duration", "box.boxoptions.solamulticast.hsvf.v2.1.improvementprocessexpiryduration", ftypes.DOUBLE, nil, nil, nil, "Indicates the expiry duration of the Improvement Phase (value is in SSCC)")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price = ProtoField.new("Initial Order Price", "box.boxoptions.solamulticast.hsvf.v2.1.initialorderprice", ftypes.UINT24, nil, nil, nil, "Indicates the price of the Initial Order")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price_fraction_indicator = ProtoField.new("Initial Order Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.initialorderpricefractionindicator", ftypes.STRING, nil, nil, nil, "Fraction Indicator Code")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price_numeric = ProtoField.new("Initial Order Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.initialorderpricenumeric", ftypes.UINT24, nil, nil, nil, "Indicates the price of the Initial Order")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price_sign = ProtoField.new("Initial Order Price Sign", "box.boxoptions.solamulticast.hsvf.v2.1.initialorderpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_quantity = ProtoField.new("Initial Order Quantity", "box.boxoptions.solamulticast.hsvf.v2.1.initialorderquantity", ftypes.STRING, nil, nil, nil, "Indicates the quantity of the Initial Order")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_side = ProtoField.new("Initial Order Side", "box.boxoptions.solamulticast.hsvf.v2.1.initialorderside", ftypes.STRING, nil, nil, nil, "Indicates the dealer side of the Initial Order")
@@ -65,8 +65,8 @@ omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.instrument_description = Proto
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.instrument_external_code = ProtoField.new("Instrument External Code", "box.boxoptions.solamulticast.hsvf.v2.1.instrumentexternalcode", ftypes.STRING, nil, nil, nil, "External identifier used by traders when entering an order")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.instrument_leg = ProtoField.new("Instrument Leg", "box.boxoptions.solamulticast.hsvf.v2.1.instrumentleg", ftypes.STRING, nil, nil, nil, "Instrument Leg Repeating Group")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.instrument_status_marker = ProtoField.new("Instrument Status Marker", "box.boxoptions.solamulticast.hsvf.v2.1.instrumentstatusmarker", ftypes.STRING, nil, nil, nil, "Indicates instrument status")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price = ProtoField.new("Last Price", "box.boxoptions.solamulticast.hsvf.v2.1.lastprice", ftypes.UINT24, nil, nil, nil, "Closing or most recent trade price")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price_fraction_indicator = ProtoField.new("Last Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.lastpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price_numeric = ProtoField.new("Last Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.lastpricenumeric", ftypes.UINT24, nil, nil, nil, "Closing or most recent trade price")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price_sign = ProtoField.new("Last Price Sign", "box.boxoptions.solamulticast.hsvf.v2.1.lastpricesign", ftypes.STRING, nil, nil, nil, "Sign the Last Price")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "box.boxoptions.solamulticast.hsvf.v2.1.legratio", ftypes.UINT32, nil, nil, nil, "Quantity (bought or sold)")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.leg_ratio_sign = ProtoField.new("Leg Ratio Sign", "box.boxoptions.solamulticast.hsvf.v2.1.legratiosign", ftypes.STRING, nil, nil, nil, "+ : Buy the leg")
@@ -75,36 +75,36 @@ omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.level_of_market_depth = ProtoF
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.limit_entered_for_an_order = ProtoField.new("Limit Entered For An Order", "box.boxoptions.solamulticast.hsvf.v2.1.limitenteredforanorder", ftypes.UINT24, nil, nil, nil, "For a buy order, represents the highest price that the order issuer is willing to pay For a sell order, represents the lowest price at which the order issuer is willing to sell")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.limit_entered_for_an_order_sign = ProtoField.new("Limit Entered For An Order Sign", "box.boxoptions.solamulticast.hsvf.v2.1.limitenteredforanordersign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.limit_fraction_indicator = ProtoField.new("Limit Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.limitfractionindicator", ftypes.STRING, nil, nil, nil, "Fraction Indicator Code")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price = ProtoField.new("Low Price", "box.boxoptions.solamulticast.hsvf.v2.1.lowprice", ftypes.UINT24, nil, nil, nil, "Lowest trade price of the day or current low price if sent after a cancellation")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price_fraction_indicator = ProtoField.new("Low Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.lowpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price_numeric = ProtoField.new("Low Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.lowpricenumeric", ftypes.UINT24, nil, nil, nil, "Lowest trade price of the day or current low price if sent after a cancellation")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price_sign = ProtoField.new("Low Price Sign", "box.boxoptions.solamulticast.hsvf.v2.1.lowpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.market_depth_level = ProtoField.new("Market Depth Level", "box.boxoptions.solamulticast.hsvf.v2.1.marketdepthlevel", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.market_flow_indicator = ProtoField.new("Market Flow Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.marketflowindicator", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_number_of_contracts_per_order = ProtoField.new("Max Number Of Contracts Per Order", "box.boxoptions.solamulticast.hsvf.v2.1.maxnumberofcontractsperorder", ftypes.UINT24, nil, nil, nil, "Maximum authorized number of contract per order")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price = ProtoField.new("Max Threshold Price", "box.boxoptions.solamulticast.hsvf.v2.1.maxthresholdprice", ftypes.UINT24, nil, nil, nil, "Maximum threshold price authorized for an option contract")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price_fraction_indicator = ProtoField.new("Max Threshold Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.maxthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price_numeric = ProtoField.new("Max Threshold Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.maxthresholdpricenumeric", ftypes.UINT24, nil, nil, nil, "Maximum threshold price authorized for an option contract")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price_sign = ProtoField.new("Max Threshold Price Sign", "box.boxoptions.solamulticast.hsvf.v2.1.maxthresholdpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_number_of_contracts_per_order = ProtoField.new("Maximum Number Of Contracts Per Order", "box.boxoptions.solamulticast.hsvf.v2.1.maximumnumberofcontractsperorder", ftypes.UINT24, nil, nil, nil, "Maximum authorized number of contract per order")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price = ProtoField.new("Maximum Threshold Price", "box.boxoptions.solamulticast.hsvf.v2.1.maximumthresholdprice", ftypes.UINT24, nil, nil, nil, "Maximum threshold price authorized for an option contract")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.maximumthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price_numeric = ProtoField.new("Maximum Threshold Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.maximumthresholdpricenumeric", ftypes.UINT24, nil, nil, nil, "Maximum threshold price authorized for an option contract")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.message_type = ProtoField.new("Message Type", "box.boxoptions.solamulticast.hsvf.v2.1.messagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of message being sent")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_number_of_contracts_per_order = ProtoField.new("Min Number Of Contracts Per Order", "box.boxoptions.solamulticast.hsvf.v2.1.minnumberofcontractsperorder", ftypes.UINT24, nil, nil, nil, "Minimum authorized number of contract per order")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price = ProtoField.new("Min Threshold Price", "box.boxoptions.solamulticast.hsvf.v2.1.minthresholdprice", ftypes.UINT24, nil, nil, nil, "Minimum threshold price authorized for an option contract")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price_fraction_indicator = ProtoField.new("Min Threshold Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.minthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price_numeric = ProtoField.new("Min Threshold Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.minthresholdpricenumeric", ftypes.UINT24, nil, nil, nil, "Minimum threshold price authorized for an option contract")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price_sign = ProtoField.new("Min Threshold Price Sign", "box.boxoptions.solamulticast.hsvf.v2.1.minthresholdpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_number_of_contracts_per_order = ProtoField.new("Minimum Number Of Contracts Per Order", "box.boxoptions.solamulticast.hsvf.v2.1.minimumnumberofcontractsperorder", ftypes.UINT24, nil, nil, nil, "Minimum authorized number of contract per order")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_quantity_for_improvement_order = ProtoField.new("Minimum Quantity For Improvement Order", "box.boxoptions.solamulticast.hsvf.v2.1.minimumquantityforimprovementorder", ftypes.UINT32, nil, nil, nil, "Enables market makers to know the minimum quantity for an Improvement Order during the Improvement Phase")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price = ProtoField.new("Minimum Threshold Price", "box.boxoptions.solamulticast.hsvf.v2.1.minimumthresholdprice", ftypes.UINT24, nil, nil, nil, "Minimum threshold price authorized for an option contract")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price_fraction_indicator = ProtoField.new("Minimum Threshold Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.minimumthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price_numeric = ProtoField.new("Minimum Threshold Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.minimumthresholdpricenumeric", ftypes.UINT24, nil, nil, nil, "Minimum threshold price authorized for an option contract")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change = ProtoField.new("Net Change", "box.boxoptions.solamulticast.hsvf.v2.1.netchange", ftypes.UINT24, nil, nil, nil, "Net change equals last trade price minus previous close")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change_fraction_indicator = ProtoField.new("Net Change Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.netchangefractionindicator", ftypes.STRING, nil, nil, nil, "Fraction indicator for the net change price")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change_numeric = ProtoField.new("Net Change Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.netchangenumeric", ftypes.UINT24, nil, nil, nil, "Net change equals last trade price minus previous close")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change_sign = ProtoField.new("Net Change Sign", "box.boxoptions.solamulticast.hsvf.v2.1.netchangesign", ftypes.STRING, nil, nil, nil, "For the net change field")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.number_of_ask_orders = ProtoField.new("Number Of Ask Orders", "box.boxoptions.solamulticast.hsvf.v2.1.numberofaskorders", ftypes.STRING, nil, nil, nil, "Number of Ask Orders, present at a given moment, in the order book")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.number_of_bid_orders = ProtoField.new("Number Of Bid Orders", "box.boxoptions.solamulticast.hsvf.v2.1.numberofbidorders", ftypes.STRING, nil, nil, nil, "Number of bid orders, present at a given moment, in the order book")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "box.boxoptions.solamulticast.hsvf.v2.1.numberoflegs", ftypes.UINT8, nil, nil, nil, "Number of legs in the Complex Order Instrument")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.number_of_levels = ProtoField.new("Number Of Levels", "box.boxoptions.solamulticast.hsvf.v2.1.numberoflevels", ftypes.UINT8, nil, nil, nil, "Number of level for the trading instrument")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price = ProtoField.new("Open Price", "box.boxoptions.solamulticast.hsvf.v2.1.openprice", ftypes.UINT24, nil, nil, nil, "Price of the first trade of the day")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price_fraction_indicator = ProtoField.new("Open Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.openpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price_numeric = ProtoField.new("Open Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.openpricenumeric", ftypes.UINT24, nil, nil, nil, "Price of the first trade of the day")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price_sign = ProtoField.new("Open Price Sign", "box.boxoptions.solamulticast.hsvf.v2.1.openpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.opra_trade_marker = ProtoField.new("Opra Trade Marker", "box.boxoptions.solamulticast.hsvf.v2.1.opratrademarker", ftypes.STRING, nil, nil, nil, "Contains the OPRA Trade Marker for both Non FLEX Single-Leg Floor (QOO) and FLEX Single-Leg Floor (FOO)")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.option_marker = ProtoField.new("Option Marker", "box.boxoptions.solamulticast.hsvf.v2.1.optionmarker", ftypes.STRING)
@@ -116,8 +116,8 @@ omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.percentage_assured_to_initial_
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.price_indicator_marker = ProtoField.new("Price Indicator Marker", "box.boxoptions.solamulticast.hsvf.v2.1.priceindicatormarker", ftypes.STRING, nil, nil, nil, "Identifies the type of transaction")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.public_customer_ask_size = ProtoField.new("Public Customer Ask Size", "box.boxoptions.solamulticast.hsvf.v2.1.publiccustomerasksize", ftypes.UINT24, nil, nil, nil, "Number of option contracts represented by Public Customer orders on the ask side")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.public_customer_bid_size = ProtoField.new("Public Customer Bid Size", "box.boxoptions.solamulticast.hsvf.v2.1.publiccustomerbidsize", ftypes.UINT24, nil, nil, nil, "Number of option contracts represented by Public Customer orders on the bid side")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price = ProtoField.new("Reference Price", "box.boxoptions.solamulticast.hsvf.v2.1.referenceprice", ftypes.UINT24, nil, nil, nil, "Reference Price of the Option")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price_fraction_indicator = ProtoField.new("Reference Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.referencepricefractionindicator", ftypes.STRING, nil, nil, nil, "Number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price_numeric = ProtoField.new("Reference Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.referencepricenumeric", ftypes.UINT24, nil, nil, nil, "Reference Price of the Option")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.requested_size = ProtoField.new("Requested Size", "box.boxoptions.solamulticast.hsvf.v2.1.requestedsize", ftypes.UINT32, nil, nil, nil, "Size of the market requested")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reserved = ProtoField.new("Reserved", "box.boxoptions.solamulticast.hsvf.v2.1.reserved", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.root_symbol = ProtoField.new("Root Symbol", "box.boxoptions.solamulticast.hsvf.v2.1.rootsymbol", ftypes.STRING, nil, nil, nil, "Root of the instrument group")
@@ -125,16 +125,16 @@ omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scheduled_time = ProtoField.ne
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "box.boxoptions.solamulticast.hsvf.v2.1.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence numbers will range from ascii decimal 000000001 to 999999999")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.sola_message_end = ProtoField.new("Sola Message End", "box.boxoptions.solamulticast.hsvf.v2.1.solamessageend", ftypes.INT8, nil, nil, nil, "End of Hsvf message")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.sola_message_start = ProtoField.new("Sola Message Start", "box.boxoptions.solamulticast.hsvf.v2.1.solamessagestart", ftypes.INT8, nil, nil, nil, "Start of Hsvf message")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price = ProtoField.new("Strike Price", "box.boxoptions.solamulticast.hsvf.v2.1.strikeprice", ftypes.UINT24, nil, nil, nil, "Strike Price of the option in full")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "box.boxoptions.solamulticast.hsvf.v2.1.strikepricecurrency", ftypes.STRING, nil, nil, nil, "Currency used for the Option Strike Price")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.strikepricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines the number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price_numeric = ProtoField.new("Strike Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.strikepricenumeric", ftypes.UINT24, nil, nil, nil, "Strike Price of the option in full")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick = ProtoField.new("Tick", "box.boxoptions.solamulticast.hsvf.v2.1.tick", ftypes.STRING, nil, nil, nil, "Determined by the difference between last price and the previous different trade price")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment = ProtoField.new("Tick Increment", "box.boxoptions.solamulticast.hsvf.v2.1.tickincrement", ftypes.UINT24, nil, nil, nil, "Precision with which the price of an order limit can be expressed")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment_fraction_indicator = ProtoField.new("Tick Increment Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.tickincrementfractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment_numeric = ProtoField.new("Tick Increment Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.tickincrementnumeric", ftypes.UINT24, nil, nil, nil, "Precision with which the price of an order limit can be expressed")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.time = ProtoField.new("Time", "box.boxoptions.solamulticast.hsvf.v2.1.time", ftypes.UINT24, nil, nil, nil, "Time at which the message is transmitted")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.timestamp = ProtoField.new("Timestamp", "box.boxoptions.solamulticast.hsvf.v2.1.timestamp", ftypes.UINT24, nil, nil, nil, "Time of transaction:HHMMSS")
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price = ProtoField.new("Trade Price", "box.boxoptions.solamulticast.hsvf.v2.1.tradeprice", ftypes.UINT24, nil, nil, nil, "Price at which the transaction took place")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price_fraction_indicator = ProtoField.new("Trade Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v2.1.tradepricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price_numeric = ProtoField.new("Trade Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.tradepricenumeric", ftypes.UINT24, nil, nil, nil, "Price at which the transaction took place")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price_sign = ProtoField.new("Trade Price Sign", "box.boxoptions.solamulticast.hsvf.v2.1.tradepricesign", ftypes.STRING, nil, nil, nil, "For Trade Price field (sign)")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trading_engine_timestamp = ProtoField.new("Trading Engine Timestamp", "box.boxoptions.solamulticast.hsvf.v2.1.tradingenginetimestamp", ftypes.UINT32, nil, nil, nil, "Time stamp generated by the SOLA Trading Engine (HHMMSSmmm)")
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.type_of_clearing_account = ProtoField.new("Type Of Clearing Account", "box.boxoptions.solamulticast.hsvf.v2.1.typeofclearingaccount", ftypes.STRING, nil, nil, nil, "Indicates the account type for which an order was entered using the clearing house member's account typology.")
@@ -186,25 +186,25 @@ omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.system_timestamp_message = Pro
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.complex_market_depth_level_index = ProtoField.new("Complex Market Depth Level Index", "box.boxoptions.solamulticast.hsvf.v2.1.complexmarketdepthlevelindex", ftypes.UINT16)
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "box.boxoptions.solamulticast.hsvf.v2.1.instrumentlegindex", ftypes.UINT16)
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.market_depth_level_index = ProtoField.new("Market Depth Level Index", "box.boxoptions.solamulticast.hsvf.v2.1.marketdepthlevelindex", ftypes.UINT16)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.ask_price_numeric = ProtoField.new("Ask Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.askpricenumeric", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_ask_price = ProtoField.new("Scaled Ask Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledaskprice", ftypes.DOUBLE)
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.ask_price_quote = ProtoField.new("Ask Price Quote", "box.boxoptions.solamulticast.hsvf.v2.1.askpricequote", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.bid_price_numeric = ProtoField.new("Bid Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.bidpricenumeric", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_bid_price = ProtoField.new("Scaled Bid Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledbidprice", ftypes.DOUBLE)
 omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.bid_price_quote = ProtoField.new("Bid Price Quote", "box.boxoptions.solamulticast.hsvf.v2.1.bidpricequote", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price_numeric = ProtoField.new("High Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.highpricenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price_numeric = ProtoField.new("Initial Order Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.initialorderpricenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price_numeric = ProtoField.new("Last Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.lastpricenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.limit_entered_for_an_order_numeric = ProtoField.new("Limit Entered For An Order Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.limitenteredforanordernumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price_numeric = ProtoField.new("Low Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.lowpricenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price_numeric = ProtoField.new("Max Threshold Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.maxthresholdpricenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price_numeric = ProtoField.new("Maximum Threshold Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.maximumthresholdpricenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price_numeric = ProtoField.new("Min Threshold Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.minthresholdpricenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price_numeric = ProtoField.new("Minimum Threshold Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.minimumthresholdpricenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change_numeric = ProtoField.new("Net Change Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.netchangenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price_numeric = ProtoField.new("Open Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.openpricenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price_numeric = ProtoField.new("Reference Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.referencepricenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price_numeric = ProtoField.new("Strike Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.strikepricenumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment_numeric = ProtoField.new("Tick Increment Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.tickincrementnumeric", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price_numeric = ProtoField.new("Trade Price Numeric", "box.boxoptions.solamulticast.hsvf.v2.1.tradepricenumeric", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_high_price = ProtoField.new("Scaled High Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledhighprice", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_initial_order_price = ProtoField.new("Scaled Initial Order Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledinitialorderprice", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_last_price = ProtoField.new("Scaled Last Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledlastprice", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_limit_entered_for_an_order = ProtoField.new("Scaled Limit Entered For An Order", "box.boxoptions.solamulticast.hsvf.v2.1.scaledlimitenteredforanorder", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_low_price = ProtoField.new("Scaled Low Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledlowprice", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_max_threshold_price = ProtoField.new("Scaled Max Threshold Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledmaxthresholdprice", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_maximum_threshold_price = ProtoField.new("Scaled Maximum Threshold Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledmaximumthresholdprice", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_min_threshold_price = ProtoField.new("Scaled Min Threshold Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledminthresholdprice", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_minimum_threshold_price = ProtoField.new("Scaled Minimum Threshold Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledminimumthresholdprice", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_net_change = ProtoField.new("Scaled Net Change", "box.boxoptions.solamulticast.hsvf.v2.1.scalednetchange", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_open_price = ProtoField.new("Scaled Open Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledopenprice", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_reference_price = ProtoField.new("Scaled Reference Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledreferenceprice", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_strike_price = ProtoField.new("Scaled Strike Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledstrikeprice", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_tick_increment = ProtoField.new("Scaled Tick Increment", "box.boxoptions.solamulticast.hsvf.v2.1.scaledtickincrement", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_trade_price = ProtoField.new("Scaled Trade Price", "box.boxoptions.solamulticast.hsvf.v2.1.scaledtradeprice", ftypes.DOUBLE)
 
 -- Box BoxOptions SolaMulticast Hsvf 2.1 Expert Info
 box_boxoptions_solamulticast_hsvf_v2_1.experts = {}
@@ -215,7 +215,7 @@ omi_box_boxoptions_solamulticast_hsvf_v2_1.experts = { box_boxoptions_solamultic
 -- Box BoxOptions SolaMulticast Hsvf 2.1 Formatting
 -----------------------------------------------------------------------
 
--- Strike Price Numeric format (true = decimal-scaled, false = raw mantissa)
+-- Scaled Strike Price format (true = decimal-scaled, false = raw mantissa)
 box_boxoptions_solamulticast_hsvf_v2_1.format_decimals = true
 
 
@@ -1285,6 +1285,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.group_status.dissect = function(buffer, o
   return offset + length, value
 end
 
+-- High Price
+box_boxoptions_solamulticast_hsvf_v2_1.high_price = {}
+
+-- Size: High Price
+box_boxoptions_solamulticast_hsvf_v2_1.high_price.size = 6
+
+-- Display: High Price
+box_boxoptions_solamulticast_hsvf_v2_1.high_price.display = function(value)
+  return "High Price: "..value
+end
+
+-- Dissect: High Price
+box_boxoptions_solamulticast_hsvf_v2_1.high_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.high_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price, range, value, "High Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "High Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- High Price Fraction Indicator
 box_boxoptions_solamulticast_hsvf_v2_1.high_price_fraction_indicator = {}
 
@@ -1324,37 +1355,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.high_price_fraction_indicator.dissect = f
   local display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- High Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric = {}
-
--- Size: High Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.size = 6
-
--- Display: High Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display = function(value)
-  return "High Price Numeric: "..value
-end
-
--- Dissect: High Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price_numeric, range, value, "High Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "High Price Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -1516,6 +1516,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.improvement_process_expiry_duration.disse
   return offset + length, value
 end
 
+-- Initial Order Price
+box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price = {}
+
+-- Size: Initial Order Price
+box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price.size = 6
+
+-- Display: Initial Order Price
+box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price.display = function(value)
+  return "Initial Order Price: "..value
+end
+
+-- Dissect: Initial Order Price
+box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price, range, value, "Initial Order Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Initial Order Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Initial Order Price Fraction Indicator
 box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_fraction_indicator = {}
 
@@ -1555,37 +1586,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_fraction_indicator.di
   local display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Initial Order Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric = {}
-
--- Size: Initial Order Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.size = 6
-
--- Display: Initial Order Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display = function(value)
-  return "Initial Order Price Numeric: "..value
-end
-
--- Dissect: Initial Order Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price_numeric, range, value, "Initial Order Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Initial Order Price Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -1750,6 +1750,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.instrument_status_marker.dissect = functi
   return offset + length, value
 end
 
+-- Last Price
+box_boxoptions_solamulticast_hsvf_v2_1.last_price = {}
+
+-- Size: Last Price
+box_boxoptions_solamulticast_hsvf_v2_1.last_price.size = 6
+
+-- Display: Last Price
+box_boxoptions_solamulticast_hsvf_v2_1.last_price.display = function(value)
+  return "Last Price: "..value
+end
+
+-- Dissect: Last Price
+box_boxoptions_solamulticast_hsvf_v2_1.last_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.last_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price, range, value, "Last Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Last Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.last_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Last Price Fraction Indicator
 box_boxoptions_solamulticast_hsvf_v2_1.last_price_fraction_indicator = {}
 
@@ -1789,37 +1820,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.last_price_fraction_indicator.dissect = f
   local display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric = {}
-
--- Size: Last Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.size = 6
-
--- Display: Last Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display = function(value)
-  return "Last Price Numeric: "..value
-end
-
--- Dissect: Last Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price_numeric, range, value, "Last Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Last Price Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -2065,6 +2065,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.limit_fraction_indicator.dissect = functi
   return offset + length, value
 end
 
+-- Low Price
+box_boxoptions_solamulticast_hsvf_v2_1.low_price = {}
+
+-- Size: Low Price
+box_boxoptions_solamulticast_hsvf_v2_1.low_price.size = 6
+
+-- Display: Low Price
+box_boxoptions_solamulticast_hsvf_v2_1.low_price.display = function(value)
+  return "Low Price: "..value
+end
+
+-- Dissect: Low Price
+box_boxoptions_solamulticast_hsvf_v2_1.low_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.low_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price, range, value, "Low Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Low Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Low Price Fraction Indicator
 box_boxoptions_solamulticast_hsvf_v2_1.low_price_fraction_indicator = {}
 
@@ -2104,37 +2135,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.low_price_fraction_indicator.dissect = fu
   local display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Low Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric = {}
-
--- Size: Low Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.size = 6
-
--- Display: Low Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display = function(value)
-  return "Low Price Numeric: "..value
-end
-
--- Dissect: Low Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price_numeric, range, value, "Low Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Low Price Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -2198,6 +2198,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.max_number_of_contracts_per_order.dissect
   return offset + length, value
 end
 
+-- Max Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price = {}
+
+-- Size: Max Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price.size = 6
+
+-- Display: Max Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price.display = function(value)
+  return "Max Threshold Price: "..value
+end
+
+-- Dissect: Max Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price, range, value, "Max Threshold Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Max Threshold Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Max Threshold Price Fraction Indicator
 box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_fraction_indicator = {}
 
@@ -2237,37 +2268,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_fraction_indicator.di
   local display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric = {}
-
--- Size: Max Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.size = 6
-
--- Display: Max Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display = function(value)
-  return "Max Threshold Price Numeric: "..value
-end
-
--- Dissect: Max Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price_numeric, range, value, "Max Threshold Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Max Threshold Price Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -2331,6 +2331,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.maximum_number_of_contracts_per_order.dis
   return offset + length, value
 end
 
+-- Maximum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price = {}
+
+-- Size: Maximum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price.size = 6
+
+-- Display: Maximum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price.display = function(value)
+  return "Maximum Threshold Price: "..value
+end
+
+-- Dissect: Maximum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price, range, value, "Maximum Threshold Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Maximum Threshold Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Maximum Threshold Price Fraction Indicator
 box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_fraction_indicator = {}
 
@@ -2370,37 +2401,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_fraction_indicato
   local display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Maximum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric = {}
-
--- Size: Maximum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.size = 6
-
--- Display: Maximum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display = function(value)
-  return "Maximum Threshold Price Numeric: "..value
-end
-
--- Dissect: Maximum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price_numeric, range, value, "Maximum Threshold Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Maximum Threshold Price Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -2490,6 +2490,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.min_number_of_contracts_per_order.dissect
   return offset + length, value
 end
 
+-- Min Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price = {}
+
+-- Size: Min Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price.size = 6
+
+-- Display: Min Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price.display = function(value)
+  return "Min Threshold Price: "..value
+end
+
+-- Dissect: Min Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price, range, value, "Min Threshold Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Min Threshold Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Min Threshold Price Fraction Indicator
 box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_fraction_indicator = {}
 
@@ -2529,37 +2560,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_fraction_indicator.di
   local display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric = {}
-
--- Size: Min Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.size = 6
-
--- Display: Min Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display = function(value)
-  return "Min Threshold Price Numeric: "..value
-end
-
--- Dissect: Min Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price_numeric, range, value, "Min Threshold Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Min Threshold Price Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -2654,6 +2654,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.minimum_quantity_for_improvement_order.di
   return offset + length, value
 end
 
+-- Minimum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price = {}
+
+-- Size: Minimum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price.size = 6
+
+-- Display: Minimum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price.display = function(value)
+  return "Minimum Threshold Price: "..value
+end
+
+-- Dissect: Minimum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price, range, value, "Minimum Threshold Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Minimum Threshold Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Minimum Threshold Price Fraction Indicator
 box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_fraction_indicator = {}
 
@@ -2697,33 +2728,33 @@ box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_fraction_indicato
   return offset + length, value
 end
 
--- Minimum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric = {}
+-- Net Change
+box_boxoptions_solamulticast_hsvf_v2_1.net_change = {}
 
--- Size: Minimum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.size = 6
+-- Size: Net Change
+box_boxoptions_solamulticast_hsvf_v2_1.net_change.size = 6
 
--- Display: Minimum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display = function(value)
-  return "Minimum Threshold Price Numeric: "..value
+-- Display: Net Change
+box_boxoptions_solamulticast_hsvf_v2_1.net_change.display = function(value)
+  return "Net Change: "..value
 end
 
--- Dissect: Minimum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.size
+-- Dissect: Net Change
+box_boxoptions_solamulticast_hsvf_v2_1.net_change.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.net_change.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price_numeric, range, value, "Minimum Threshold Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Minimum Threshold Price Numeric is not a number: '"..range:string().."'")
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change, range, value, "Net Change: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Net Change is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value, buffer, offset, packet, parent)
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.net_change.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price_numeric, range, value, display)
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change, range, value, display)
 
   return offset + length, value
 end
@@ -2767,37 +2798,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.net_change_fraction_indicator.dissect = f
   local display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Net Change Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric = {}
-
--- Size: Net Change Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.size = 6
-
--- Display: Net Change Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display = function(value)
-  return "Net Change Numeric: "..value
-end
-
--- Dissect: Net Change Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change_numeric, range, value, "Net Change Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Net Change Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -2968,6 +2968,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.number_of_levels.dissect = function(buffe
   return offset + length, value
 end
 
+-- Open Price
+box_boxoptions_solamulticast_hsvf_v2_1.open_price = {}
+
+-- Size: Open Price
+box_boxoptions_solamulticast_hsvf_v2_1.open_price.size = 6
+
+-- Display: Open Price
+box_boxoptions_solamulticast_hsvf_v2_1.open_price.display = function(value)
+  return "Open Price: "..value
+end
+
+-- Dissect: Open Price
+box_boxoptions_solamulticast_hsvf_v2_1.open_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.open_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price, range, value, "Open Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Open Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Open Price Fraction Indicator
 box_boxoptions_solamulticast_hsvf_v2_1.open_price_fraction_indicator = {}
 
@@ -3007,37 +3038,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.open_price_fraction_indicator.dissect = f
   local display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric = {}
-
--- Size: Open Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.size = 6
-
--- Display: Open Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display = function(value)
-  return "Open Price Numeric: "..value
-end
-
--- Dissect: Open Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price_numeric, range, value, "Open Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Open Price Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -3364,6 +3364,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.public_customer_bid_size.dissect = functi
   return offset + length, value
 end
 
+-- Reference Price
+box_boxoptions_solamulticast_hsvf_v2_1.reference_price = {}
+
+-- Size: Reference Price
+box_boxoptions_solamulticast_hsvf_v2_1.reference_price.size = 6
+
+-- Display: Reference Price
+box_boxoptions_solamulticast_hsvf_v2_1.reference_price.display = function(value)
+  return "Reference Price: "..value
+end
+
+-- Dissect: Reference Price
+box_boxoptions_solamulticast_hsvf_v2_1.reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.reference_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price, range, value, "Reference Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Reference Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reference Price Fraction Indicator
 box_boxoptions_solamulticast_hsvf_v2_1.reference_price_fraction_indicator = {}
 
@@ -3403,37 +3434,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.reference_price_fraction_indicator.dissec
   local display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Reference Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric = {}
-
--- Size: Reference Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.size = 6
-
--- Display: Reference Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display = function(value)
-  return "Reference Price Numeric: "..value
-end
-
--- Dissect: Reference Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price_numeric, range, value, "Reference Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Reference Price Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -3634,6 +3634,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.sola_message_start.dissect = function(buf
   return offset + length, value
 end
 
+-- Strike Price
+box_boxoptions_solamulticast_hsvf_v2_1.strike_price = {}
+
+-- Size: Strike Price
+box_boxoptions_solamulticast_hsvf_v2_1.strike_price.size = 7
+
+-- Display: Strike Price
+box_boxoptions_solamulticast_hsvf_v2_1.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Dissect: Strike Price
+box_boxoptions_solamulticast_hsvf_v2_1.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.strike_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price, range, value, "Strike Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Strike Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Strike Price Currency
 box_boxoptions_solamulticast_hsvf_v2_1.strike_price_currency = {}
 
@@ -3704,37 +3735,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.strike_price_fraction_indicator.dissect =
   return offset + length, value
 end
 
--- Strike Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric = {}
-
--- Size: Strike Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.size = 7
-
--- Display: Strike Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display = function(value)
-  return "Strike Price Numeric: "..value
-end
-
--- Dissect: Strike Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price_numeric, range, value, "Strike Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Strike Price Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price_numeric, range, value, display)
-
-  return offset + length, value
-end
-
 -- Tick
 box_boxoptions_solamulticast_hsvf_v2_1.tick = {}
 
@@ -3759,6 +3759,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.tick.dissect = function(buffer, offset, p
   local display = box_boxoptions_solamulticast_hsvf_v2_1.tick.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Increment
+box_boxoptions_solamulticast_hsvf_v2_1.tick_increment = {}
+
+-- Size: Tick Increment
+box_boxoptions_solamulticast_hsvf_v2_1.tick_increment.size = 6
+
+-- Display: Tick Increment
+box_boxoptions_solamulticast_hsvf_v2_1.tick_increment.display = function(value)
+  return "Tick Increment: "..value
+end
+
+-- Dissect: Tick Increment
+box_boxoptions_solamulticast_hsvf_v2_1.tick_increment.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment, range, value, "Tick Increment: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Tick Increment is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment, range, value, display)
 
   return offset + length, value
 end
@@ -3802,37 +3833,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_fraction_indicator.dissect
   local display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Increment Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric = {}
-
--- Size: Tick Increment Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.size = 6
-
--- Display: Tick Increment Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display = function(value)
-  return "Tick Increment Numeric: "..value
-end
-
--- Dissect: Tick Increment Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment_numeric, range, value, "Tick Increment Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Tick Increment Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -3891,6 +3891,37 @@ box_boxoptions_solamulticast_hsvf_v2_1.timestamp.dissect = function(buffer, offs
   return offset + length, value
 end
 
+-- Trade Price
+box_boxoptions_solamulticast_hsvf_v2_1.trade_price = {}
+
+-- Size: Trade Price
+box_boxoptions_solamulticast_hsvf_v2_1.trade_price.size = 6
+
+-- Display: Trade Price
+box_boxoptions_solamulticast_hsvf_v2_1.trade_price.display = function(value)
+  return "Trade Price: "..value
+end
+
+-- Dissect: Trade Price
+box_boxoptions_solamulticast_hsvf_v2_1.trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.trade_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price, range, value, "Trade Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Trade Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trade Price Fraction Indicator
 box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator = {}
 
@@ -3930,37 +3961,6 @@ box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator.dissect = 
   local display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric = {}
-
--- Size: Trade Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.size = 6
-
--- Display: Trade Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display = function(value)
-  return "Trade Price Numeric: "..value
-end
-
--- Dissect: Trade Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price_numeric, range, value, "Trade Price Numeric: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v2_1.experts.not_a_number, "Trade Price Numeric is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price_numeric, range, value, display)
 
   return offset + length, value
 end
@@ -4263,21 +4263,21 @@ box_boxoptions_solamulticast_hsvf_v2_1.volume.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Ask Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric = {}
+-- Scaled Ask Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price = {}
 
--- Display: Ask Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display = function(value)
-  return "Ask Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Ask Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display = function(value)
+  return "Scaled Ask Price: " .. string.format("%g", value)
 end
 
--- Display: Ask Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display_uncoded = function(value)
-  return "Ask Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Ask Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display_uncoded = function(value)
+  return "Scaled Ask Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Ask Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.dissect = function(buffer, offset, packet, parent)
+-- Composite: Scaled Ask Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v2_1.ask_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
@@ -4288,61 +4288,61 @@ box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.dissect = function(buff
   local display
   if ask_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.ask_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.ask_price_fraction_indicator.size), value, display)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_ask_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.ask_price_fraction_indicator.size), value, display)
   local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price.display(mantissa)
   local ask_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_fraction_indicator.display(ask_price_fraction_indicator)
 
@@ -4441,21 +4441,21 @@ box_boxoptions_solamulticast_hsvf_v2_1.ask_price_quote.dissect = function(buffer
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.ask_price_fraction_indicator.size, value
 end
 
--- Bid Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric = {}
+-- Scaled Bid Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price = {}
 
--- Display: Bid Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display = function(value)
-  return "Bid Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Bid Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display = function(value)
+  return "Scaled Bid Price: " .. string.format("%g", value)
 end
 
--- Display: Bid Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display_uncoded = function(value)
-  return "Bid Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Bid Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display_uncoded = function(value)
+  return "Scaled Bid Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Bid Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.dissect = function(buffer, offset, packet, parent)
+-- Composite: Scaled Bid Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v2_1.bid_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
@@ -4466,61 +4466,61 @@ box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.dissect = function(buff
   local display
   if bid_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.bid_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.bid_price_fraction_indicator.size), value, display)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_bid_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.bid_price_fraction_indicator.size), value, display)
   local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price.display(mantissa)
   local bid_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_fraction_indicator.display(bid_price_fraction_indicator)
 
@@ -4619,22 +4619,22 @@ box_boxoptions_solamulticast_hsvf_v2_1.bid_price_quote.dissect = function(buffer
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.bid_price_fraction_indicator.size, value
 end
 
--- High Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric = {}
+-- Scaled High Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price = {}
 
--- Display: High Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display = function(value)
-  return "High Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled High Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display = function(value)
+  return "Scaled High Price: " .. string.format("%g", value)
 end
 
--- Display: High Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display_uncoded = function(value)
-  return "High Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled High Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display_uncoded = function(value)
+  return "Scaled High Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: High Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.size
+-- Composite: Scaled High Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.high_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local high_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.high_price_fraction_indicator.size)
@@ -4644,86 +4644,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.dissect = function(buf
   local display
   if high_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.high_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_high_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.high_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.high_price.display(mantissa)
   local high_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.high_price_fraction_indicator.display(high_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.high_price_fraction_indicator, high_price_fraction_indicator_range, high_price_fraction_indicator, high_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.high_price_fraction_indicator.size, value
 end
 
--- Initial Order Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric = {}
+-- Scaled Initial Order Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price = {}
 
--- Display: Initial Order Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display = function(value)
-  return "Initial Order Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Initial Order Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display = function(value)
+  return "Scaled Initial Order Price: " .. string.format("%g", value)
 end
 
--- Display: Initial Order Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display_uncoded = function(value)
-  return "Initial Order Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Initial Order Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display_uncoded = function(value)
+  return "Scaled Initial Order Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Initial Order Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.size
+-- Composite: Scaled Initial Order Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local initial_order_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_fraction_indicator.size)
@@ -4733,86 +4733,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.dissect = fun
   local display
   if initial_order_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_initial_order_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price.display(mantissa)
   local initial_order_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_fraction_indicator.display(initial_order_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.initial_order_price_fraction_indicator, initial_order_price_fraction_indicator_range, initial_order_price_fraction_indicator, initial_order_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_fraction_indicator.size, value
 end
 
--- Last Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric = {}
+-- Scaled Last Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price = {}
 
--- Display: Last Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display = function(value)
-  return "Last Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Last Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display = function(value)
+  return "Scaled Last Price: " .. string.format("%g", value)
 end
 
--- Display: Last Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display_uncoded = function(value)
-  return "Last Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Last Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display_uncoded = function(value)
+  return "Scaled Last Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Last Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.size
+-- Composite: Scaled Last Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.last_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local last_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.last_price_fraction_indicator.size)
@@ -4822,85 +4822,85 @@ box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.dissect = function(buf
   local display
   if last_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.last_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_last_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.last_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.last_price.display(mantissa)
   local last_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.last_price_fraction_indicator.display(last_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.last_price_fraction_indicator, last_price_fraction_indicator_range, last_price_fraction_indicator, last_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.last_price_fraction_indicator.size, value
 end
 
--- Limit Entered For An Order Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric = {}
+-- Scaled Limit Entered For An Order
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order = {}
 
--- Display: Limit Entered For An Order Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display = function(value)
-  return "Limit Entered For An Order Numeric: " .. string.format("%g", value)
+-- Display: Scaled Limit Entered For An Order
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display = function(value)
+  return "Scaled Limit Entered For An Order: " .. string.format("%g", value)
 end
 
--- Display: Limit Entered For An Order Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display_uncoded = function(value)
-  return "Limit Entered For An Order Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Limit Entered For An Order with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display_uncoded = function(value)
+  return "Scaled Limit Entered For An Order: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Limit Entered For An Order Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.dissect = function(buffer, offset, packet, parent)
+-- Composite: Scaled Limit Entered For An Order
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order.size
   local range = buffer(offset, length)
   local mantissa = range:string()
@@ -4911,61 +4911,61 @@ box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.dissec
   local display
   if limit_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.limit_entered_for_an_order_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.limit_fraction_indicator.size), value, display)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_limit_entered_for_an_order, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.limit_fraction_indicator.size), value, display)
   local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order.display(mantissa)
   local limit_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.limit_fraction_indicator.display(limit_fraction_indicator)
 
@@ -4975,22 +4975,22 @@ box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.dissec
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.limit_fraction_indicator.size, value
 end
 
--- Low Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric = {}
+-- Scaled Low Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price = {}
 
--- Display: Low Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display = function(value)
-  return "Low Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Low Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display = function(value)
+  return "Scaled Low Price: " .. string.format("%g", value)
 end
 
--- Display: Low Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display_uncoded = function(value)
-  return "Low Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Low Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display_uncoded = function(value)
+  return "Scaled Low Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Low Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.size
+-- Composite: Scaled Low Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.low_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local low_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.low_price_fraction_indicator.size)
@@ -5000,86 +5000,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.dissect = function(buff
   local display
   if low_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.low_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_low_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.low_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.low_price.display(mantissa)
   local low_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.low_price_fraction_indicator.display(low_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.low_price_fraction_indicator, low_price_fraction_indicator_range, low_price_fraction_indicator, low_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.low_price_fraction_indicator.size, value
 end
 
--- Max Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric = {}
+-- Scaled Max Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price = {}
 
--- Display: Max Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display = function(value)
-  return "Max Threshold Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Max Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display = function(value)
+  return "Scaled Max Threshold Price: " .. string.format("%g", value)
 end
 
--- Display: Max Threshold Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display_uncoded = function(value)
-  return "Max Threshold Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Max Threshold Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display_uncoded = function(value)
+  return "Scaled Max Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Max Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.size
+-- Composite: Scaled Max Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local max_threshold_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_fraction_indicator.size)
@@ -5089,86 +5089,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.dissect = fun
   local display
   if max_threshold_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_max_threshold_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price.display(mantissa)
   local max_threshold_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_fraction_indicator.display(max_threshold_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.max_threshold_price_fraction_indicator, max_threshold_price_fraction_indicator_range, max_threshold_price_fraction_indicator, max_threshold_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_fraction_indicator.size, value
 end
 
--- Maximum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric = {}
+-- Scaled Maximum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price = {}
 
--- Display: Maximum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display = function(value)
-  return "Maximum Threshold Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Maximum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display = function(value)
+  return "Scaled Maximum Threshold Price: " .. string.format("%g", value)
 end
 
--- Display: Maximum Threshold Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display_uncoded = function(value)
-  return "Maximum Threshold Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Maximum Threshold Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display_uncoded = function(value)
+  return "Scaled Maximum Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Maximum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.size
+-- Composite: Scaled Maximum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local maximum_threshold_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_fraction_indicator.size)
@@ -5178,86 +5178,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.dissect =
   local display
   if maximum_threshold_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_maximum_threshold_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price.display(mantissa)
   local maximum_threshold_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_fraction_indicator.display(maximum_threshold_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.maximum_threshold_price_fraction_indicator, maximum_threshold_price_fraction_indicator_range, maximum_threshold_price_fraction_indicator, maximum_threshold_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_fraction_indicator.size, value
 end
 
--- Min Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric = {}
+-- Scaled Min Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price = {}
 
--- Display: Min Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display = function(value)
-  return "Min Threshold Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Min Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display = function(value)
+  return "Scaled Min Threshold Price: " .. string.format("%g", value)
 end
 
--- Display: Min Threshold Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display_uncoded = function(value)
-  return "Min Threshold Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Min Threshold Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display_uncoded = function(value)
+  return "Scaled Min Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Min Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.size
+-- Composite: Scaled Min Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local min_threshold_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_fraction_indicator.size)
@@ -5267,86 +5267,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.dissect = fun
   local display
   if min_threshold_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_min_threshold_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price.display(mantissa)
   local min_threshold_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_fraction_indicator.display(min_threshold_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.min_threshold_price_fraction_indicator, min_threshold_price_fraction_indicator_range, min_threshold_price_fraction_indicator, min_threshold_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_fraction_indicator.size, value
 end
 
--- Minimum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric = {}
+-- Scaled Minimum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price = {}
 
--- Display: Minimum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display = function(value)
-  return "Minimum Threshold Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Minimum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display = function(value)
+  return "Scaled Minimum Threshold Price: " .. string.format("%g", value)
 end
 
--- Display: Minimum Threshold Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display_uncoded = function(value)
-  return "Minimum Threshold Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Minimum Threshold Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display_uncoded = function(value)
+  return "Scaled Minimum Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Minimum Threshold Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.size
+-- Composite: Scaled Minimum Threshold Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local minimum_threshold_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_fraction_indicator.size)
@@ -5356,86 +5356,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.dissect =
   local display
   if minimum_threshold_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   elseif minimum_threshold_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_minimum_threshold_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price.display(mantissa)
   local minimum_threshold_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_fraction_indicator.display(minimum_threshold_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.minimum_threshold_price_fraction_indicator, minimum_threshold_price_fraction_indicator_range, minimum_threshold_price_fraction_indicator, minimum_threshold_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_fraction_indicator.size, value
 end
 
--- Net Change Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric = {}
+-- Scaled Net Change
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change = {}
 
--- Display: Net Change Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display = function(value)
-  return "Net Change Numeric: " .. string.format("%g", value)
+-- Display: Scaled Net Change
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display = function(value)
+  return "Scaled Net Change: " .. string.format("%g", value)
 end
 
--- Display: Net Change Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display_uncoded = function(value)
-  return "Net Change Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Net Change with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display_uncoded = function(value)
+  return "Scaled Net Change: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Net Change Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.size
+-- Composite: Scaled Net Change
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.net_change.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local net_change_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.net_change_fraction_indicator.size)
@@ -5445,86 +5445,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.dissect = function(buf
   local display
   if net_change_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.net_change_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_net_change, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.net_change_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.net_change.display(mantissa)
   local net_change_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.net_change_fraction_indicator.display(net_change_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.net_change_fraction_indicator, net_change_fraction_indicator_range, net_change_fraction_indicator, net_change_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.net_change_fraction_indicator.size, value
 end
 
--- Open Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric = {}
+-- Scaled Open Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price = {}
 
--- Display: Open Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display = function(value)
-  return "Open Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Open Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display = function(value)
+  return "Scaled Open Price: " .. string.format("%g", value)
 end
 
--- Display: Open Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display_uncoded = function(value)
-  return "Open Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Open Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display_uncoded = function(value)
+  return "Scaled Open Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Open Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.size
+-- Composite: Scaled Open Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.open_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local open_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.open_price_fraction_indicator.size)
@@ -5534,86 +5534,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.dissect = function(buf
   local display
   if open_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.open_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_open_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.open_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.open_price.display(mantissa)
   local open_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.open_price_fraction_indicator.display(open_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.open_price_fraction_indicator, open_price_fraction_indicator_range, open_price_fraction_indicator, open_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.open_price_fraction_indicator.size, value
 end
 
--- Reference Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric = {}
+-- Scaled Reference Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price = {}
 
--- Display: Reference Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display = function(value)
-  return "Reference Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Reference Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display = function(value)
+  return "Scaled Reference Price: " .. string.format("%g", value)
 end
 
--- Display: Reference Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display_uncoded = function(value)
-  return "Reference Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Reference Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display_uncoded = function(value)
+  return "Scaled Reference Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Reference Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.size
+-- Composite: Scaled Reference Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.reference_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local reference_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.reference_price_fraction_indicator.size)
@@ -5623,86 +5623,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.dissect = functio
   local display
   if reference_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.reference_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_reference_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.reference_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price.display(mantissa)
   local reference_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_fraction_indicator.display(reference_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.reference_price_fraction_indicator, reference_price_fraction_indicator_range, reference_price_fraction_indicator, reference_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.reference_price_fraction_indicator.size, value
 end
 
--- Strike Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric = {}
+-- Scaled Strike Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price = {}
 
--- Display: Strike Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display = function(value)
-  return "Strike Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Strike Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display = function(value)
+  return "Scaled Strike Price: " .. string.format("%g", value)
 end
 
--- Display: Strike Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display_uncoded = function(value)
-  return "Strike Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Strike Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display_uncoded = function(value)
+  return "Scaled Strike Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Strike Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.size
+-- Composite: Scaled Strike Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.strike_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local strike_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.strike_price_fraction_indicator.size)
@@ -5712,86 +5712,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.dissect = function(b
   local display
   if strike_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.strike_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_strike_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.strike_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price.display(mantissa)
   local strike_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_fraction_indicator.display(strike_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.strike_price_fraction_indicator, strike_price_fraction_indicator_range, strike_price_fraction_indicator, strike_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.strike_price_fraction_indicator.size, value
 end
 
--- Tick Increment Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric = {}
+-- Scaled Tick Increment
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment = {}
 
--- Display: Tick Increment Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display = function(value)
-  return "Tick Increment Numeric: " .. string.format("%g", value)
+-- Display: Scaled Tick Increment
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display = function(value)
+  return "Scaled Tick Increment: " .. string.format("%g", value)
 end
 
--- Display: Tick Increment Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display_uncoded = function(value)
-  return "Tick Increment Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Tick Increment with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display_uncoded = function(value)
+  return "Scaled Tick Increment: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Tick Increment Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.size
+-- Composite: Scaled Tick Increment
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local tick_increment_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_fraction_indicator.size)
@@ -5801,86 +5801,86 @@ box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.dissect = function
   local display
   if tick_increment_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_tick_increment, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment.display(mantissa)
   local tick_increment_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_fraction_indicator.display(tick_increment_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.tick_increment_fraction_indicator, tick_increment_fraction_indicator_range, tick_increment_fraction_indicator, tick_increment_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_fraction_indicator.size, value
 end
 
--- Trade Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric = {}
+-- Scaled Trade Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price = {}
 
--- Display: Trade Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display = function(value)
-  return "Trade Price Numeric: " .. string.format("%g", value)
+-- Display: Scaled Trade Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display = function(value)
+  return "Scaled Trade Price: " .. string.format("%g", value)
 end
 
--- Display: Trade Price Numeric with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display_uncoded = function(value)
-  return "Trade Price Numeric: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Trade Price with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display_uncoded = function(value)
+  return "Scaled Trade Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Trade Price Numeric
-box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.size
+-- Composite: Scaled Trade Price
+box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solamulticast_hsvf_v2_1.trade_price.size
   local range = buffer(offset, length)
   local mantissa = range:string()
   local trade_price_fraction_indicator_range = buffer(offset + length, box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator.size)
@@ -5890,65 +5890,65 @@ box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.dissect = function(bu
   local display
   if trade_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator.size), value, display)
-  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.display(mantissa)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.scaled_trade_price, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator.size), value, display)
+  local mantissa_display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price.display(mantissa)
   local trade_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator.display(trade_price_fraction_indicator)
 
-  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price_numeric, range, mantissa, mantissa_display)
+  field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price, range, mantissa, mantissa_display)
   field_tree:add(omi_box_boxoptions_solamulticast_hsvf_v2_1.fields.trade_price_fraction_indicator, trade_price_fraction_indicator_range, trade_price_fraction_indicator, trade_price_fraction_indicator_display)
 
   return offset + length + box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator.size, value
@@ -6031,7 +6031,7 @@ box_boxoptions_solamulticast_hsvf_v2_1.instrument_description.size =
   box_boxoptions_solamulticast_hsvf_v2_1.root_symbol.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.expiry_month_code.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.filler_1.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.strike_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.strike_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.expiry_year.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.expiry_day.size
@@ -6058,10 +6058,10 @@ box_boxoptions_solamulticast_hsvf_v2_1.instrument_description.fields = function(
     index = index + box_boxoptions_solamulticast_hsvf_v2_1.filler_1.size
   end
 
-  -- Strike Price Numeric: N
-  index, strike_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.strike_price_numeric.dissect(buffer, index, packet, parent)
+  -- Strike Price: N
+  index, strike_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Fraction Indicator: X (read by Strike Price Numeric)
+  -- Strike Price Fraction Indicator: X (read by Strike Price)
 
   -- Expiry Year: N
   index, expiry_year = box_boxoptions_solamulticast_hsvf_v2_1.expiry_year.dissect(buffer, index, packet, parent)
@@ -6201,7 +6201,7 @@ box_boxoptions_solamulticast_hsvf_v2_1.start_of_exposition_on_complex_order_mess
   index, limit_entered_for_an_order_sign = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_sign.dissect(buffer, index, packet, parent)
 
   -- Limit Entered For An Order: N
-  index, limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.dissect(buffer, index, packet, parent)
+  index, limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
 
   -- Limit Fraction Indicator: X (read by Limit Entered For An Order)
 
@@ -6304,7 +6304,7 @@ box_boxoptions_solamulticast_hsvf_v2_1.start_of_exposition_on_option_message.fie
   index, type_of_order = box_boxoptions_solamulticast_hsvf_v2_1.type_of_order.dissect(buffer, index, packet, parent)
 
   -- Limit Entered For An Order: N
-  index, limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v2_1.limit_entered_for_an_order_numeric.dissect(buffer, index, packet, parent)
+  index, limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v2_1.scaled_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
 
   -- Limit Fraction Indicator: X (read by Limit Entered For An Order)
 
@@ -6373,7 +6373,7 @@ box_boxoptions_solamulticast_hsvf_v2_1.start_of_auction_on_complex_order_message
   box_boxoptions_solamulticast_hsvf_v2_1.complex_order_instrument_symbol.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.improvement_phase_sequential_number.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.initial_order_quantity.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.initial_order_side.size + 
@@ -6404,10 +6404,10 @@ box_boxoptions_solamulticast_hsvf_v2_1.start_of_auction_on_complex_order_message
   -- Initial Order Price Sign: X
   index, initial_order_price_sign = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Initial Order Price Numeric: N
-  index, initial_order_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.dissect(buffer, index, packet, parent)
+  -- Initial Order Price: N
+  index, initial_order_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.dissect(buffer, index, packet, parent)
 
-  -- Initial Order Price Fraction Indicator: X (read by Initial Order Price Numeric)
+  -- Initial Order Price Fraction Indicator: X (read by Initial Order Price)
 
   -- Initial Order Quantity: X
   index, initial_order_quantity = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_quantity.dissect(buffer, index, packet, parent)
@@ -6459,7 +6459,7 @@ box_boxoptions_solamulticast_hsvf_v2_1.start_of_auction_on_option_message.size =
   box_boxoptions_solamulticast_hsvf_v2_1.exchange_id.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.instrument_description.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.improvement_phase_sequential_number.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.initial_order_quantity.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.initial_order_side.size + 
@@ -6488,10 +6488,10 @@ box_boxoptions_solamulticast_hsvf_v2_1.start_of_auction_on_option_message.fields
   -- Improvement Phase Sequential Number: N
   index, improvement_phase_sequential_number = box_boxoptions_solamulticast_hsvf_v2_1.improvement_phase_sequential_number.dissect(buffer, index, packet, parent)
 
-  -- Initial Order Price Numeric: N
-  index, initial_order_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_price_numeric.dissect(buffer, index, packet, parent)
+  -- Initial Order Price: N
+  index, initial_order_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_initial_order_price.dissect(buffer, index, packet, parent)
 
-  -- Initial Order Price Fraction Indicator: X (read by Initial Order Price Numeric)
+  -- Initial Order Price Fraction Indicator: X (read by Initial Order Price)
 
   -- Initial Order Quantity: X
   index, initial_order_quantity = box_boxoptions_solamulticast_hsvf_v2_1.initial_order_quantity.dissect(buffer, index, packet, parent)
@@ -6686,19 +6686,19 @@ box_boxoptions_solamulticast_hsvf_v2_1.complex_order_summary_message.size =
   box_boxoptions_solamulticast_hsvf_v2_1.ask_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.ask_size.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.last_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.last_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.last_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.open_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.open_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.open_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.high_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.high_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.high_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.low_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.low_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.low_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.net_change_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.net_change.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.net_change_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.volume.size
 
@@ -6721,7 +6721,7 @@ box_boxoptions_solamulticast_hsvf_v2_1.complex_order_summary_message.fields = fu
   index, bid_price_sign = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_sign.dissect(buffer, index, packet, parent)
 
   -- Bid Price: N
-  index, bid_price = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.dissect(buffer, index, packet, parent)
+  index, bid_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X (read by Bid Price)
 
@@ -6732,7 +6732,7 @@ box_boxoptions_solamulticast_hsvf_v2_1.complex_order_summary_message.fields = fu
   index, ask_price_sign = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_sign.dissect(buffer, index, packet, parent)
 
   -- Ask Price: N
-  index, ask_price = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.dissect(buffer, index, packet, parent)
+  index, ask_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X (read by Ask Price)
 
@@ -6742,42 +6742,42 @@ box_boxoptions_solamulticast_hsvf_v2_1.complex_order_summary_message.fields = fu
   -- Last Price Sign: X
   index, last_price_sign = box_boxoptions_solamulticast_hsvf_v2_1.last_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Last Price Numeric: N
-  index, last_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.dissect(buffer, index, packet, parent)
+  -- Last Price: N
+  index, last_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.dissect(buffer, index, packet, parent)
 
-  -- Last Price Fraction Indicator: X (read by Last Price Numeric)
+  -- Last Price Fraction Indicator: X (read by Last Price)
 
   -- Open Price Sign: X
   index, open_price_sign = box_boxoptions_solamulticast_hsvf_v2_1.open_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Open Price Numeric: N
-  index, open_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.dissect(buffer, index, packet, parent)
+  -- Open Price: N
+  index, open_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.dissect(buffer, index, packet, parent)
 
-  -- Open Price Fraction Indicator: X (read by Open Price Numeric)
+  -- Open Price Fraction Indicator: X (read by Open Price)
 
   -- High Price Sign: X
   index, high_price_sign = box_boxoptions_solamulticast_hsvf_v2_1.high_price_sign.dissect(buffer, index, packet, parent)
 
-  -- High Price Numeric: N
-  index, high_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.dissect(buffer, index, packet, parent)
+  -- High Price: N
+  index, high_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.dissect(buffer, index, packet, parent)
 
-  -- High Price Fraction Indicator: X (read by High Price Numeric)
+  -- High Price Fraction Indicator: X (read by High Price)
 
   -- Low Price Sign: X
   index, low_price_sign = box_boxoptions_solamulticast_hsvf_v2_1.low_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Low Price Numeric: N
-  index, low_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.dissect(buffer, index, packet, parent)
+  -- Low Price: N
+  index, low_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price Fraction Indicator: X (read by Low Price Numeric)
+  -- Low Price Fraction Indicator: X (read by Low Price)
 
   -- Net Change Sign: X
   index, net_change_sign = box_boxoptions_solamulticast_hsvf_v2_1.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Net Change Numeric: N
-  index, net_change_numeric = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.dissect(buffer, index, packet, parent)
+  -- Net Change: N
+  index, net_change = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X (read by Net Change Numeric)
+  -- Net Change Fraction Indicator: X (read by Net Change)
 
   -- Volume: N
   index, volume = box_boxoptions_solamulticast_hsvf_v2_1.volume.dissect(buffer, index, packet, parent)
@@ -6860,23 +6860,23 @@ box_boxoptions_solamulticast_hsvf_v2_1.option_summary_message.size =
   box_boxoptions_solamulticast_hsvf_v2_1.ask_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.ask_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.ask_size.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.last_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.last_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.filler_7.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.tick.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.volume.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.net_change_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.net_change.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.net_change_fraction_indicator.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.open_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.open_price_fraction_indicator.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.high_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.high_price_fraction_indicator.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.low_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.low_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.option_marker.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.underlying_symbol.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.reference_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.reference_price_fraction_indicator.size
 
 -- Display: Option Summary Message
@@ -6895,7 +6895,7 @@ box_boxoptions_solamulticast_hsvf_v2_1.option_summary_message.fields = function(
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v2_1.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Bid Price: N
-  index, bid_price = box_boxoptions_solamulticast_hsvf_v2_1.bid_price_numeric.dissect(buffer, index, packet, parent)
+  index, bid_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_bid_price.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X (read by Bid Price)
 
@@ -6903,17 +6903,17 @@ box_boxoptions_solamulticast_hsvf_v2_1.option_summary_message.fields = function(
   index, bid_size = box_boxoptions_solamulticast_hsvf_v2_1.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price: N
-  index, ask_price = box_boxoptions_solamulticast_hsvf_v2_1.ask_price_numeric.dissect(buffer, index, packet, parent)
+  index, ask_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_ask_price.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X (read by Ask Price)
 
   -- Ask Size: X
   index, ask_size = box_boxoptions_solamulticast_hsvf_v2_1.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Last Price Numeric: N
-  index, last_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.last_price_numeric.dissect(buffer, index, packet, parent)
+  -- Last Price: N
+  index, last_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_last_price.dissect(buffer, index, packet, parent)
 
-  -- Last Price Fraction Indicator: X (read by Last Price Numeric)
+  -- Last Price Fraction Indicator: X (read by Last Price)
 
   -- Filler 7: N
   if show.padding then
@@ -6931,25 +6931,25 @@ box_boxoptions_solamulticast_hsvf_v2_1.option_summary_message.fields = function(
   -- Net Change Sign: X
   index, net_change_sign = box_boxoptions_solamulticast_hsvf_v2_1.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Net Change Numeric: N
-  index, net_change_numeric = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.dissect(buffer, index, packet, parent)
+  -- Net Change: N
+  index, net_change = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X (read by Net Change Numeric)
+  -- Net Change Fraction Indicator: X (read by Net Change)
 
-  -- Open Price Numeric: N
-  index, open_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.open_price_numeric.dissect(buffer, index, packet, parent)
+  -- Open Price: N
+  index, open_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_open_price.dissect(buffer, index, packet, parent)
 
-  -- Open Price Fraction Indicator: X (read by Open Price Numeric)
+  -- Open Price Fraction Indicator: X (read by Open Price)
 
-  -- High Price Numeric: N
-  index, high_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.high_price_numeric.dissect(buffer, index, packet, parent)
+  -- High Price: N
+  index, high_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_high_price.dissect(buffer, index, packet, parent)
 
-  -- High Price Fraction Indicator: X (read by High Price Numeric)
+  -- High Price Fraction Indicator: X (read by High Price)
 
-  -- Low Price Numeric: N
-  index, low_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.low_price_numeric.dissect(buffer, index, packet, parent)
+  -- Low Price: N
+  index, low_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_low_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price Fraction Indicator: X (read by Low Price Numeric)
+  -- Low Price Fraction Indicator: X (read by Low Price)
 
   -- Option Marker: Struct of 2 fields
   index, option_marker = box_boxoptions_solamulticast_hsvf_v2_1.option_marker.dissect(buffer, index, packet, parent)
@@ -6957,10 +6957,10 @@ box_boxoptions_solamulticast_hsvf_v2_1.option_summary_message.fields = function(
   -- Underlying Symbol: X
   index, underlying_symbol = box_boxoptions_solamulticast_hsvf_v2_1.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Reference Price Numeric: N
-  index, reference_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.reference_price_numeric.dissect(buffer, index, packet, parent)
+  -- Reference Price: N
+  index, reference_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Reference Price Fraction Indicator: X (read by Reference Price Numeric)
+  -- Reference Price Fraction Indicator: X (read by Reference Price)
 
   return index
 end
@@ -7060,17 +7060,17 @@ box_boxoptions_solamulticast_hsvf_v2_1.complex_order_instrument_keys_message.siz
 
   index = index + box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_sign.size
 
-  index = index + box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.size
+  index = index + box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price.size
 
   index = index + box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_fraction_indicator.size
 
   index = index + box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_sign.size
 
-  index = index + box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.size
+  index = index + box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price.size
 
   index = index + box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_fraction_indicator.size
 
-  index = index + box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.size
+  index = index + box_boxoptions_solamulticast_hsvf_v2_1.tick_increment.size
 
   index = index + box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_fraction_indicator.size
 
@@ -7126,23 +7126,23 @@ box_boxoptions_solamulticast_hsvf_v2_1.complex_order_instrument_keys_message.fie
   -- Max Threshold Price Sign: X
   index, max_threshold_price_sign = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Max Threshold Price Numeric: X
-  index, max_threshold_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.max_threshold_price_numeric.dissect(buffer, index, packet, parent)
+  -- Max Threshold Price: X
+  index, max_threshold_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_max_threshold_price.dissect(buffer, index, packet, parent)
 
-  -- Max Threshold Price Fraction Indicator: X (read by Max Threshold Price Numeric)
+  -- Max Threshold Price Fraction Indicator: X (read by Max Threshold Price)
 
   -- Min Threshold Price Sign: X
   index, min_threshold_price_sign = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Min Threshold Price Numeric: X
-  index, min_threshold_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.min_threshold_price_numeric.dissect(buffer, index, packet, parent)
+  -- Min Threshold Price: X
+  index, min_threshold_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_min_threshold_price.dissect(buffer, index, packet, parent)
 
-  -- Min Threshold Price Fraction Indicator: X (read by Min Threshold Price Numeric)
+  -- Min Threshold Price Fraction Indicator: X (read by Min Threshold Price)
 
-  -- Tick Increment Numeric: X
-  index, tick_increment_numeric = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.dissect(buffer, index, packet, parent)
+  -- Tick Increment: X
+  index, tick_increment = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.dissect(buffer, index, packet, parent)
 
-  -- Tick Increment Fraction Indicator: N (read by Tick Increment Numeric)
+  -- Tick Increment Fraction Indicator: N (read by Tick Increment)
 
   -- Filler 2: X
   if show.padding then
@@ -7246,11 +7246,11 @@ box_boxoptions_solamulticast_hsvf_v2_1.option_instrument_keys_message.size =
   box_boxoptions_solamulticast_hsvf_v2_1.strike_price_currency.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.maximum_number_of_contracts_per_order.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.minimum_number_of_contracts_per_order.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_fraction_indicator.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_fraction_indicator.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.tick_increment.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.option_type.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.market_flow_indicator.size + 
@@ -7284,20 +7284,20 @@ box_boxoptions_solamulticast_hsvf_v2_1.option_instrument_keys_message.fields = f
   -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = box_boxoptions_solamulticast_hsvf_v2_1.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price Numeric: X
-  index, maximum_threshold_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.maximum_threshold_price_numeric.dissect(buffer, index, packet, parent)
+  -- Maximum Threshold Price: X
+  index, maximum_threshold_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_maximum_threshold_price.dissect(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price Fraction Indicator: X (read by Maximum Threshold Price Numeric)
+  -- Maximum Threshold Price Fraction Indicator: X (read by Maximum Threshold Price)
 
-  -- Minimum Threshold Price Numeric: X
-  index, minimum_threshold_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.minimum_threshold_price_numeric.dissect(buffer, index, packet, parent)
+  -- Minimum Threshold Price: X
+  index, minimum_threshold_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_minimum_threshold_price.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price Fraction Indicator: X (read by Minimum Threshold Price Numeric)
+  -- Minimum Threshold Price Fraction Indicator: X (read by Minimum Threshold Price)
 
-  -- Tick Increment Numeric: X
-  index, tick_increment_numeric = box_boxoptions_solamulticast_hsvf_v2_1.tick_increment_numeric.dissect(buffer, index, packet, parent)
+  -- Tick Increment: X
+  index, tick_increment = box_boxoptions_solamulticast_hsvf_v2_1.scaled_tick_increment.dissect(buffer, index, packet, parent)
 
-  -- Tick Increment Fraction Indicator: N (read by Tick Increment Numeric)
+  -- Tick Increment Fraction Indicator: N (read by Tick Increment)
 
   -- Option Type: X
   index, option_type = box_boxoptions_solamulticast_hsvf_v2_1.option_type.dissect(buffer, index, packet, parent)
@@ -7350,7 +7350,7 @@ box_boxoptions_solamulticast_hsvf_v2_1.complex_order_trade_cancellation_message.
   box_boxoptions_solamulticast_hsvf_v2_1.complex_order_instrument_symbol.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.volume.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.trade_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.trade_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.opra_trade_marker.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.filler_5.size + 
@@ -7378,10 +7378,10 @@ box_boxoptions_solamulticast_hsvf_v2_1.complex_order_trade_cancellation_message.
   -- Trade Price Sign: X
   index, trade_price_sign = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Numeric: N
-  index, trade_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.dissect(buffer, index, packet, parent)
+  -- Trade Price: N
+  index, trade_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: X (read by Trade Price Numeric)
+  -- Trade Price Fraction Indicator: X (read by Trade Price)
 
   -- Opra Trade Marker: X
   index, opra_trade_marker = box_boxoptions_solamulticast_hsvf_v2_1.opra_trade_marker.dissect(buffer, index, packet, parent)
@@ -7428,7 +7428,7 @@ box_boxoptions_solamulticast_hsvf_v2_1.option_trade_cancellation_message.size =
   box_boxoptions_solamulticast_hsvf_v2_1.exchange_id.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.instrument_description.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.volume.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.trade_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.opra_trade_marker.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.filler_5.size + 
@@ -7454,10 +7454,10 @@ box_boxoptions_solamulticast_hsvf_v2_1.option_trade_cancellation_message.fields 
   -- Volume: N
   index, volume = box_boxoptions_solamulticast_hsvf_v2_1.volume.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Numeric: N
-  index, trade_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.dissect(buffer, index, packet, parent)
+  -- Trade Price: N
+  index, trade_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: X (read by Trade Price Numeric)
+  -- Trade Price Fraction Indicator: X (read by Trade Price)
 
   -- Opra Trade Marker: X
   index, opra_trade_marker = box_boxoptions_solamulticast_hsvf_v2_1.opra_trade_marker.dissect(buffer, index, packet, parent)
@@ -8178,10 +8178,10 @@ box_boxoptions_solamulticast_hsvf_v2_1.strategy_trade_message.size =
   box_boxoptions_solamulticast_hsvf_v2_1.complex_order_instrument_symbol.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.volume.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.trade_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.trade_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.net_change_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.net_change.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.net_change_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.opra_trade_marker.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.filler_5.size + 
@@ -8209,18 +8209,18 @@ box_boxoptions_solamulticast_hsvf_v2_1.strategy_trade_message.fields = function(
   -- Trade Price Sign: X
   index, trade_price_sign = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Numeric: N
-  index, trade_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.dissect(buffer, index, packet, parent)
+  -- Trade Price: N
+  index, trade_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: X (read by Trade Price Numeric)
+  -- Trade Price Fraction Indicator: X (read by Trade Price)
 
   -- Net Change Sign: X
   index, net_change_sign = box_boxoptions_solamulticast_hsvf_v2_1.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Net Change Numeric: N
-  index, net_change_numeric = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.dissect(buffer, index, packet, parent)
+  -- Net Change: N
+  index, net_change = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X (read by Net Change Numeric)
+  -- Net Change Fraction Indicator: X (read by Net Change)
 
   -- Opra Trade Marker: X
   index, opra_trade_marker = box_boxoptions_solamulticast_hsvf_v2_1.opra_trade_marker.dissect(buffer, index, packet, parent)
@@ -8267,10 +8267,10 @@ box_boxoptions_solamulticast_hsvf_v2_1.option_trade_message.size =
   box_boxoptions_solamulticast_hsvf_v2_1.exchange_id.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.instrument_description.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.volume.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.trade_price.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.trade_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.net_change_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.size + 
+  box_boxoptions_solamulticast_hsvf_v2_1.net_change.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.net_change_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.opra_trade_marker.size + 
   box_boxoptions_solamulticast_hsvf_v2_1.filler_5.size + 
@@ -8296,18 +8296,18 @@ box_boxoptions_solamulticast_hsvf_v2_1.option_trade_message.fields = function(bu
   -- Volume: N
   index, volume = box_boxoptions_solamulticast_hsvf_v2_1.volume.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Numeric: N
-  index, trade_price_numeric = box_boxoptions_solamulticast_hsvf_v2_1.trade_price_numeric.dissect(buffer, index, packet, parent)
+  -- Trade Price: N
+  index, trade_price = box_boxoptions_solamulticast_hsvf_v2_1.scaled_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: X (read by Trade Price Numeric)
+  -- Trade Price Fraction Indicator: X (read by Trade Price)
 
   -- Net Change Sign: X
   index, net_change_sign = box_boxoptions_solamulticast_hsvf_v2_1.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Net Change Numeric: N
-  index, net_change_numeric = box_boxoptions_solamulticast_hsvf_v2_1.net_change_numeric.dissect(buffer, index, packet, parent)
+  -- Net Change: N
+  index, net_change = box_boxoptions_solamulticast_hsvf_v2_1.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X (read by Net Change Numeric)
+  -- Net Change Fraction Indicator: X (read by Net Change)
 
   -- Opra Trade Marker: X
   index, opra_trade_marker = box_boxoptions_solamulticast_hsvf_v2_1.opra_trade_marker.dissect(buffer, index, packet, parent)
