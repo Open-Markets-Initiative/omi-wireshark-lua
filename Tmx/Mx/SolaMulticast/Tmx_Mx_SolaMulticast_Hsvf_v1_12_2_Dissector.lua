@@ -5904,15 +5904,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_ask_price_futures_depth.dissect = funct
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_ask_price_futures_depth.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_ask_price_futures_depth, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_ask_price_futures_depth, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_futures_depth_numeric.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.ask_price_futures_depth_numeric, range, mantissa, mantissa_display)
 
-  local ask_price_fraction_indicator_entry = field_tree:add("Ask Price Fraction Indicator: " .. tostring(ask_price_fraction_indicator))
-  ask_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Ask Price Quote
@@ -5993,15 +5992,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_ask_price_quote.dissect = function(buff
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_ask_price_quote.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_ask_price_quote, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_ask_price_quote, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote_numeric.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.ask_price_quote_numeric, range, mantissa, mantissa_display)
 
-  local ask_price_fraction_indicator_entry = field_tree:add("Ask Price Fraction Indicator: " .. tostring(ask_price_fraction_indicator))
-  ask_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Ask Price Summary
@@ -6082,15 +6080,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_ask_price_summary.dissect = function(bu
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_ask_price_summary.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_ask_price_summary, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_ask_price_summary, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.ask_price_summary, range, mantissa, mantissa_display)
 
-  local ask_price_fraction_indicator_entry = field_tree:add("Ask Price Fraction Indicator: " .. tostring(ask_price_fraction_indicator))
-  ask_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Bid Price Quote
@@ -6171,15 +6168,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_bid_price_quote.dissect = function(buff
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_bid_price_quote.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_bid_price_quote, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_bid_price_quote, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote_numeric.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.bid_price_quote_numeric, range, mantissa, mantissa_display)
 
-  local bid_price_fraction_indicator_entry = field_tree:add("Bid Price Fraction Indicator: " .. tostring(bid_price_fraction_indicator))
-  bid_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Bid Price Summary
@@ -6260,15 +6256,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_bid_price_summary.dissect = function(bu
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_bid_price_summary.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_bid_price_summary, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_bid_price_summary, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.bid_price_summary, range, mantissa, mantissa_display)
 
-  local bid_price_fraction_indicator_entry = field_tree:add("Bid Price Fraction Indicator: " .. tostring(bid_price_fraction_indicator))
-  bid_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled External Price At Source
@@ -6349,15 +6344,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_external_price_at_source.dissect = func
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_external_price_at_source.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_external_price_at_source, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_external_price_at_source, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.external_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.external_price_at_source, range, mantissa, mantissa_display)
 
-  local external_price_fraction_indicator_entry = field_tree:add("External Price Fraction Indicator: " .. tostring(external_price_fraction_indicator))
-  external_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.external_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled High Price
@@ -6438,15 +6432,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_high_price.dissect = function(buffer, o
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_high_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_high_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_high_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.high_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.high_price, range, mantissa, mantissa_display)
 
-  local high_price_fraction_indicator_entry = field_tree:add("High Price Fraction Indicator: " .. tostring(high_price_fraction_indicator))
-  high_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Last Price
@@ -6527,15 +6520,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_last_price.dissect = function(buffer, o
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_last_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_last_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_last_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.last_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.last_price, range, mantissa, mantissa_display)
 
-  local last_price_fraction_indicator_entry = field_tree:add("Last Price Fraction Indicator: " .. tostring(last_price_fraction_indicator))
-  last_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Low Price
@@ -6616,15 +6608,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_low_price.dissect = function(buffer, of
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_low_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_low_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_low_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.low_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.low_price, range, mantissa, mantissa_display)
 
-  local low_price_fraction_indicator_entry = field_tree:add("Low Price Fraction Indicator: " .. tostring(low_price_fraction_indicator))
-  low_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Maximum Threshold Price
@@ -6705,15 +6696,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_maximum_threshold_price.dissect = funct
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_maximum_threshold_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_maximum_threshold_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_maximum_threshold_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.maximum_threshold_price, range, mantissa, mantissa_display)
 
-  local maximum_threshold_price_fraction_indicator_entry = field_tree:add("Maximum Threshold Price Fraction Indicator: " .. tostring(maximum_threshold_price_fraction_indicator))
-  maximum_threshold_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Maximum Threshold Price Futures
@@ -6794,15 +6784,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_maximum_threshold_price_futures.dissect
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_maximum_threshold_price_futures.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_maximum_threshold_price_futures, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_maximum_threshold_price_futures, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.maximum_threshold_price_futures, range, mantissa, mantissa_display)
 
-  local maximum_threshold_price_fraction_indicator_entry = field_tree:add("Maximum Threshold Price Fraction Indicator: " .. tostring(maximum_threshold_price_fraction_indicator))
-  maximum_threshold_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Min Price
@@ -6883,15 +6872,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_min_price.dissect = function(buffer, of
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_min_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_min_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_min_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.min_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.min_price, range, mantissa, mantissa_display)
 
-  local min_price_fraction_indicator_entry = field_tree:add("Min Price Fraction Indicator: " .. tostring(min_price_fraction_indicator))
-  min_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Minimum Threshold Price
@@ -6972,15 +6960,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_minimum_threshold_price.dissect = funct
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_minimum_threshold_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_minimum_threshold_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_minimum_threshold_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.minimum_threshold_price, range, mantissa, mantissa_display)
 
-  local minimum_threshold_price_fraction_indicator_entry = field_tree:add("Minimum Threshold Price Fraction Indicator: " .. tostring(minimum_threshold_price_fraction_indicator))
-  minimum_threshold_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Minimum Threshold Price Futures
@@ -7061,15 +7048,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_minimum_threshold_price_futures.dissect
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_minimum_threshold_price_futures.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_minimum_threshold_price_futures, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_minimum_threshold_price_futures, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.minimum_threshold_price_futures, range, mantissa, mantissa_display)
 
-  local minimum_threshold_price_fraction_indicator_entry = field_tree:add("Minimum Threshold Price Fraction Indicator: " .. tostring(minimum_threshold_price_fraction_indicator))
-  minimum_threshold_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Net Change
@@ -7150,15 +7136,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_net_change.dissect = function(buffer, o
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_net_change.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_net_change, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_net_change, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.net_change.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.net_change, range, mantissa, mantissa_display)
 
-  local net_change_fraction_indicator_entry = field_tree:add("Net Change Fraction Indicator: " .. tostring(net_change_fraction_indicator))
-  net_change_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Open Price
@@ -7239,15 +7224,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_open_price.dissect = function(buffer, o
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_open_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_open_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_open_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.open_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.open_price, range, mantissa, mantissa_display)
 
-  local open_price_fraction_indicator_entry = field_tree:add("Open Price Fraction Indicator: " .. tostring(open_price_fraction_indicator))
-  open_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Opening Price
@@ -7328,15 +7312,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_opening_price.dissect = function(buffer
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_opening_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_opening_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_opening_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.opening_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.opening_price, range, mantissa, mantissa_display)
 
-  local opening_price_fraction_indicator_entry = field_tree:add("Opening Price Fraction Indicator: " .. tostring(opening_price_fraction_indicator))
-  opening_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Previous Settlement
@@ -7417,15 +7400,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_previous_settlement.dissect = function(
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_previous_settlement.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_previous_settlement, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_previous_settlement, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.previous_settlement, range, mantissa, mantissa_display)
 
-  local previous_settlement_fraction_indicator_entry = field_tree:add("Previous Settlement Fraction Indicator: " .. tostring(previous_settlement_fraction_indicator))
-  previous_settlement_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Previous Settlement Price
@@ -7506,15 +7488,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_previous_settlement_price.dissect = fun
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_previous_settlement_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_previous_settlement_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_previous_settlement_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.previous_settlement_price, range, mantissa, mantissa_display)
 
-  local previous_settlement_price_fraction_indicator_entry = field_tree:add("Previous Settlement Price Fraction Indicator: " .. tostring(previous_settlement_price_fraction_indicator))
-  previous_settlement_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Price
@@ -7595,15 +7576,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_price.dissect = function(buffer, offset
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.price, range, mantissa, mantissa_display)
 
-  local price_fraction_indicator_entry = field_tree:add("Price Fraction Indicator: " .. tostring(price_fraction_indicator))
-  price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Settlement Price
@@ -7684,15 +7664,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_settlement_price.dissect = function(buf
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_settlement_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_settlement_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_settlement_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.settlement_price, range, mantissa, mantissa_display)
 
-  local settlement_price_fraction_indicator_entry = field_tree:add("Settlement Price Fraction Indicator: " .. tostring(settlement_price_fraction_indicator))
-  settlement_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Strike Price
@@ -7773,15 +7752,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_strike_price.dissect = function(buffer,
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_strike_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_strike_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_strike_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.strike_price, range, mantissa, mantissa_display)
 
-  local strike_price_fraction_indicator_entry = field_tree:add("Strike Price Fraction Indicator: " .. tostring(strike_price_fraction_indicator))
-  strike_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Strike Price Schedule Notice
@@ -7862,15 +7840,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_strike_price_schedule_notice.dissect = 
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_strike_price_schedule_notice.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_strike_price_schedule_notice, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_strike_price_schedule_notice, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.strike_price_schedule_notice, range, mantissa, mantissa_display)
 
-  local strike_price_fraction_indicator_entry = field_tree:add("Strike Price Fraction Indicator: " .. tostring(strike_price_fraction_indicator))
-  strike_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Tick Increment
@@ -7951,15 +7928,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_tick_increment.dissect = function(buffe
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_tick_increment.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_tick_increment, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_tick_increment, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment_numeric.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.tick_increment_numeric, range, mantissa, mantissa_display)
 
-  local tick_increment_fraction_indicator_entry = field_tree:add("Tick Increment Fraction Indicator: " .. tostring(tick_increment_fraction_indicator))
-  tick_increment_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Tick Price
@@ -8040,15 +8016,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_tick_price.dissect = function(buffer, o
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_tick_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_tick_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_tick_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.tick_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.tick_price, range, mantissa, mantissa_display)
 
-  local tick_price_fraction_indicator_entry = field_tree:add("Tick Price Fraction Indicator: " .. tostring(tick_price_fraction_indicator))
-  tick_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Tick Value
@@ -8129,15 +8104,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_tick_value.dissect = function(buffer, o
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_tick_value.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_tick_value, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_tick_value, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.tick_value.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.tick_value, range, mantissa, mantissa_display)
 
-  local tick_value_fraction_indicator_entry = field_tree:add("Tick Value Fraction Indicator: " .. tostring(tick_value_fraction_indicator))
-  tick_value_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 -- Scaled Trade Price
@@ -8218,15 +8192,14 @@ tmx_mx_solamulticast_hsvf_v1_12_2.scaled_trade_price.dissect = function(buffer, 
     display = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_trade_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_trade_price, range, value, display)
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.scaled_trade_price, buffer(offset, length + tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_indicator.size), value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.trade_price, range, mantissa, mantissa_display)
 
-  local trade_price_fraction_indicator_entry = field_tree:add("Trade Price Fraction Indicator: " .. tostring(trade_price_fraction_indicator))
-  trade_price_fraction_indicator_entry:set_generated()
+  local index = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 
@@ -8385,9 +8358,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_numeric_pair.fields = function(buff
 
   -- Tick Price: N
   index, tick_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_tick_price.dissect(buffer, index, packet, parent)
-
-  -- Tick Price Fraction Indicator: X
-  index, tick_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.tick_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8766,9 +8736,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.min_price_numeric_pair.fields = function(buffe
 
   -- Min Price: N
   index, min_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_min_price.dissect(buffer, index, packet, parent)
-
-  -- Min Price Fraction Indicator: X
-  index, min_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.min_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -9606,9 +9573,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.net_change_numeric_pair.fields = function(buff
   -- Net Change: N
   index, net_change = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X
-  index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -9986,9 +9950,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_numeric_pair.fields = function(buf
 
   -- Trade Price: N
   index, trade_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_trade_price.dissect(buffer, index, packet, parent)
-
-  -- Trade Price Fraction Indicator: X
-  index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10680,9 +10641,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.low_price_numeric_pair.fields = function(buffe
   -- Low Price: N
   index, low_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_low_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price Fraction Indicator: X
-  index, low_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -11060,9 +11018,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.high_price_numeric_pair.fields = function(buff
 
   -- High Price: N
   index, high_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_high_price.dissect(buffer, index, packet, parent)
-
-  -- High Price Fraction Indicator: X
-  index, high_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -11442,9 +11397,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.open_price_numeric_pair.fields = function(buff
   -- Open Price: N
   index, open_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_open_price.dissect(buffer, index, packet, parent)
 
-  -- Open Price Fraction Indicator: X
-  index, open_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -11822,9 +11774,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.last_price_numeric_pair.fields = function(buff
 
   -- Last Price: N
   index, last_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_last_price.dissect(buffer, index, packet, parent)
-
-  -- Last Price Fraction Indicator: X
-  index, last_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -12204,9 +12153,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_summary_numeric_pair.fields = functi
   -- Ask Price Summary: N
   index, ask_price_summary = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_ask_price_summary.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -12584,9 +12530,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_summary_numeric_pair.fields = functi
 
   -- Bid Price Summary: N
   index, bid_price_summary = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_bid_price_summary.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -13086,9 +13029,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.external_price_at_source_numeric_pair.fields =
   -- External Price At Source: N
   index, external_price_at_source = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_external_price_at_source.dissect(buffer, index, packet, parent)
 
-  -- External Price Fraction Indicator: X
-  index, external_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.external_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -13467,9 +13407,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_numeric_pair.fields = func
   -- Previous Settlement: N
   index, previous_settlement = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_previous_settlement.dissect(buffer, index, packet, parent)
 
-  -- Previous Settlement Fraction Indicator: X
-  index, previous_settlement_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -13847,9 +13784,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_future_options_summary_messag
 
   -- Settlement Price: N
   index, settlement_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_settlement_price.dissect(buffer, index, packet, parent)
-
-  -- Settlement Price Fraction Indicator: X
-  index, settlement_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -14345,9 +14279,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_numeric_pair.fields 
   -- Previous Settlement Price: N
   index, previous_settlement_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_previous_settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Previous Settlement Price Fraction Indicator: X
-  index, previous_settlement_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.previous_settlement_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -14726,9 +14657,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_numeric_pair.fields = function(b
   -- Opening Price: N
   index, opening_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_opening_price.dissect(buffer, index, packet, parent)
 
-  -- Opening Price Fraction Indicator: X
-  index, opening_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.opening_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -15106,9 +15034,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_numeric_pair.fields = function(bu
 
   -- Strike Price: N
   index, strike_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: X
-  index, strike_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -15671,9 +15596,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_numeric_pair.fields = functio
 
   -- Settlement Price: N
   index, settlement_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_settlement_price.dissect(buffer, index, packet, parent)
-
-  -- Settlement Price Fraction Indicator: N
-  index, settlement_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.settlement_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -16643,9 +16565,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment_numeric_pair.fields = function(
   -- Tick Increment Numeric: X
   index, tick_increment_numeric = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_tick_increment.dissect(buffer, index, packet, parent)
 
-  -- Tick Increment Fraction Indicator: X
-  index, tick_increment_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -16725,9 +16644,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_numeric_pair.fields = 
 
   -- Minimum Threshold Price: X
   index, minimum_threshold_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_minimum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Minimum Threshold Price Fraction Indicator: X
-  index, minimum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -17106,9 +17022,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_numeric_pair.fields = 
 
   -- Maximum Threshold Price: X
   index, maximum_threshold_price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_maximum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Maximum Threshold Price Fraction Indicator: X
-  index, maximum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -17679,9 +17592,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_numeric_pair.fields = function(buff
   -- Tick Value: N
   index, tick_value = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_tick_value.dissect(buffer, index, packet, parent)
 
-  -- Tick Value Fraction Indicator: X
-  index, tick_value_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.tick_value_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -18060,9 +17970,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_futures_numeric_pair.f
   -- Minimum Threshold Price Futures: N
   index, minimum_threshold_price_futures = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_minimum_threshold_price_futures.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price Fraction Indicator: X
-  index, minimum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -18440,9 +18347,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_futures_numeric_pair.f
 
   -- Maximum Threshold Price Futures: N
   index, maximum_threshold_price_futures = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_maximum_threshold_price_futures.dissect(buffer, index, packet, parent)
-
-  -- Maximum Threshold Price Fraction Indicator: X
-  index, maximum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -19386,9 +19290,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.price_numeric_pair.fields = function(buffer, o
   -- Price: N
   index, price = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_price.dissect(buffer, index, packet, parent)
 
-  -- Price Fraction Indicator: X
-  index, price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -19935,9 +19836,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_quote_numeric_pair.fields = function
   -- Ask Price Quote Numeric: X
   index, ask_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -20378,9 +20276,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_quote_numeric_pair.fields = function
 
   -- Bid Price Quote Numeric: X
   index, bid_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -20974,9 +20869,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_futures_depth_market_depth_level_hf_
 
   -- Ask Price Futures Depth Numeric: N
   index, ask_price_futures_depth_numeric = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_ask_price_futures_depth.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -22245,9 +22137,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_schedule_notice_numeric_pair.fiel
   -- Strike Price Schedule Notice: X
   index, strike_price_schedule_notice = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_strike_price_schedule_notice.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Fraction Indicator: X
-  index, strike_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -23141,9 +23030,6 @@ tmx_mx_solamulticast_hsvf_v1_12_2.net_change_future_options_trade_message_numeri
 
   -- Net Change: N
   index, net_change = tmx_mx_solamulticast_hsvf_v1_12_2.scaled_net_change.dissect(buffer, index, packet, parent)
-
-  -- Net Change Fraction Indicator: A
-  index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_12_2.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end

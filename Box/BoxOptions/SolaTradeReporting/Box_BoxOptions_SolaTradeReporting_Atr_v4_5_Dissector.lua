@@ -1756,15 +1756,14 @@ box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect = functio
     display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.scaled_strike_price, range, value, display)
+  local field_tree = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.scaled_strike_price, buffer(offset, length + box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.size), value, display)
   local mantissa_display = box_boxoptions_solatradereporting_atr_v4_5.strike_price.display(mantissa)
 
   field_tree:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price, range, mantissa, mantissa_display)
 
-  local strike_price_fraction_indicator_entry = field_tree:add("Strike Price Fraction Indicator: " .. tostring(strike_price_fraction_indicator))
-  strike_price_fraction_indicator_entry:set_generated()
+  local index = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
 
-  return offset + length, value
+  return index, value
 end
 
 
@@ -1897,9 +1896,6 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up_cancel.fields = function(buff
 
   -- Strike Price: N
   index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: A
-  index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Option Type: A
   index, option_type = box_boxoptions_solatradereporting_atr_v4_5.option_type.dissect(buffer, index, packet, parent)
@@ -2046,9 +2042,6 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up.fields = function(buffer, off
   -- Strike Price: N
   index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Fraction Indicator: A
-  index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   -- Option Type: A
   index, option_type = box_boxoptions_solatradereporting_atr_v4_5.option_type.dissect(buffer, index, packet, parent)
 
@@ -2192,9 +2185,6 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation_cancel.fields = function(b
   -- Strike Price: N
   index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Fraction Indicator: A
-  index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   -- Option Type: A
   index, option_type = box_boxoptions_solatradereporting_atr_v4_5.option_type.dissect(buffer, index, packet, parent)
 
@@ -2331,9 +2321,6 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation.fields = function(buffer, 
 
   -- Strike Price: N
   index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: A
-  index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Option Type: A
   index, option_type = box_boxoptions_solatradereporting_atr_v4_5.option_type.dissect(buffer, index, packet, parent)
@@ -2472,9 +2459,6 @@ box_boxoptions_solatradereporting_atr_v4_5.trade_cancel.fields = function(buffer
   -- Strike Price: N
   index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Fraction Indicator: A
-  index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
   -- Option Type: A
   index, option_type = box_boxoptions_solatradereporting_atr_v4_5.option_type.dissect(buffer, index, packet, parent)
 
@@ -2611,9 +2595,6 @@ box_boxoptions_solatradereporting_atr_v4_5.trade.fields = function(buffer, offse
 
   -- Strike Price: N
   index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: A
-  index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Option Type: A
   index, option_type = box_boxoptions_solatradereporting_atr_v4_5.option_type.dissect(buffer, index, packet, parent)
