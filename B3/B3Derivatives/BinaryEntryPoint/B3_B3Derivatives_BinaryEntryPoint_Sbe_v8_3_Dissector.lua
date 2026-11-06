@@ -174,6 +174,7 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.origclordid = ProtoField.n
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.outbound_business_header = ProtoField.new("Outbound Business Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.outboundbusinessheader", ftypes.STRING, nil, nil, nil, "OutboundBusinessHeader")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.padding = ProtoField.new("Padding", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.padding_1 = ProtoField.new("Padding 1", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding1", ftypes.BYTES, nil, nil, nil, "1 bytes padding")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.padding_char_2 = ProtoField.new("Padding char 2", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.paddingchar2", ftypes.STRING, nil, nil, nil, "padding")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.patch_number = ProtoField.new("Patch Number", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.patchnumber", ftypes.UINT8, nil, nil, nil, "patchNumber")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.pos_maint_action = ProtoField.new("Pos Maint Action", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.posmaintaction", ftypes.STRING, nil, nil, nil, "posMaintAction")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.pos_maint_result = ProtoField.new("Pos Maint Result", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.posmaintresult", ftypes.UINT32, nil, nil, nil, "posMaintResult")
@@ -4889,6 +4890,45 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.padding_1.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Padding char 2
+b3_b3derivatives_binaryentrypoint_sbe_v8_3.padding_char_2 = {}
+
+-- Size: Padding char 2
+b3_b3derivatives_binaryentrypoint_sbe_v8_3.padding_char_2.size = 2
+
+-- Display: Padding char 2
+b3_b3derivatives_binaryentrypoint_sbe_v8_3.padding_char_2.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Padding char 2: No Value"
+  end
+
+  return "Padding char 2: "..value
+end
+
+-- Dissect: Padding char 2
+b3_b3derivatives_binaryentrypoint_sbe_v8_3.padding_char_2.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_3.padding_char_2.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_3.padding_char_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.padding_char_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Patch Number
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.patch_number = {}
 
@@ -8935,7 +8975,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.bidirectional_business_header.size =
   b3_b3derivatives_binaryentrypoint_sbe_v8_3.sending_time.size + 
   b3_b3derivatives_binaryentrypoint_sbe_v8_3.event_indicator.size + 
   b3_b3derivatives_binaryentrypoint_sbe_v8_3.market_segment_id_optional.size + 
-  b3_b3derivatives_binaryentrypoint_sbe_v8_3.padding.size
+  b3_b3derivatives_binaryentrypoint_sbe_v8_3.padding_char_2.size
 
 -- Display: Bidirectional Business Header
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.bidirectional_business_header.display = function(packet, parent, length)
@@ -8961,8 +9001,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.bidirectional_business_header.fields 
   -- Market Segment Id Optional: 1 Byte Unsigned Fixed Width Integer
   index, market_segment_id_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_3.market_segment_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Padding: char
-  index, padding = b3_b3derivatives_binaryentrypoint_sbe_v8_3.padding.dissect(buffer, index, packet, parent)
+  -- Padding char 2: char
+  index, padding_char_2 = b3_b3derivatives_binaryentrypoint_sbe_v8_3.padding_char_2.dissect(buffer, index, packet, parent)
 
   return index
 end

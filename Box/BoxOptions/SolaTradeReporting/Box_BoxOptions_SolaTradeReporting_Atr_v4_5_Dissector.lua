@@ -1756,14 +1756,15 @@ box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect = functio
     display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.scaled_strike_price, buffer(offset, length + box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.size), value, display)
+  local field_tree = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.scaled_strike_price, range, value, display)
   local mantissa_display = box_boxoptions_solatradereporting_atr_v4_5.strike_price.display(mantissa)
 
   field_tree:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price, range, mantissa, mantissa_display)
 
-  local index = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, offset + length, packet, field_tree)
+  local strike_price_fraction_indicator_entry = field_tree:add("Strike Price Fraction Indicator: " .. tostring(strike_price_fraction_indicator))
+  strike_price_fraction_indicator_entry:set_generated()
 
-  return index, value
+  return offset + length, value
 end
 
 

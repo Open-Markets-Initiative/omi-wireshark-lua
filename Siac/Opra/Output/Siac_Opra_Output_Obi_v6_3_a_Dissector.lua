@@ -66,7 +66,7 @@ omi_siac_opra_output_obi_v6_3_a.fields.messages_in_block = ProtoField.new("Messa
 omi_siac_opra_output_obi_v6_3_a.fields.multicast_line_number = ProtoField.new("Multicast Line Number", "siac.opra.output.obi.v6.3.a.multicastlinenumber", ftypes.UINT16, nil, nil, nil, "Multicast Line Number assigned to the option series (values between 1 and 96)")
 omi_siac_opra_output_obi_v6_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.opra.output.obi.v6.3.a.nanoseconds", ftypes.UINT32, nil, nil, nil, "the nanosecond portion of the time currently rounded to the nearest microsecond")
 omi_siac_opra_output_obi_v6_3_a.fields.net_change = ProtoField.new("Net Change", "siac.opra.output.obi.v6.3.a.netchange", ftypes.INT32, nil, nil, nil, "Represents the change in the price of an option from the closing price of one day to the closing price on the next day on which the option is traded.")
-omi_siac_opra_output_obi_v6_3_a.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.opra.output.obi.v6.3.a.offerindexvalue", ftypes.INT64, nil, nil, nil, "The Offer Index Value represents the value of the index’s calculation formula using the current Offer values of the component securities.")
+omi_siac_opra_output_obi_v6_3_a.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.opra.output.obi.v6.3.a.offerindexvalue", ftypes.INT32, nil, nil, nil, "The Offer Index Value represents the value of the index’s calculation formula using the current Offer values of the component securities.")
 omi_siac_opra_output_obi_v6_3_a.fields.offer_price = ProtoField.new("Offer Price", "siac.opra.output.obi.v6.3.a.offerprice", ftypes.INT32, nil, nil, nil, "Represents the price at which a seller is offering to sell an option.")
 omi_siac_opra_output_obi_v6_3_a.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.opra.output.obi.v6.3.a.offerpriceshort", ftypes.DOUBLE, nil, nil, nil, "Represents the price at which a seller is offering to sell an option.")
 omi_siac_opra_output_obi_v6_3_a.fields.offer_size = ProtoField.new("Offer Size", "siac.opra.output.obi.v6.3.a.offersize", ftypes.UINT32, nil, nil, nil, "The Offer Size identifies the number of contracts for sale for an option at the Offer Price.")
@@ -1419,7 +1419,7 @@ end
 siac_opra_output_obi_v6_3_a.offer_index_value = {}
 
 -- Size: Offer Index Value
-siac_opra_output_obi_v6_3_a.offer_index_value.size = 8
+siac_opra_output_obi_v6_3_a.offer_index_value.size = 4
 
 -- Display: Offer Index Value
 siac_opra_output_obi_v6_3_a.offer_index_value.display = function(value)
@@ -1430,7 +1430,7 @@ end
 siac_opra_output_obi_v6_3_a.offer_index_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.offer_index_value.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local value = range:int()
   local display = siac_opra_output_obi_v6_3_a.offer_index_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_3_a.fields.offer_index_value, range, value, display)
