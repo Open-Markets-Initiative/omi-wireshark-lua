@@ -4030,27 +4030,13 @@ end
 -- Message
 cboe_c1options_marketdatafeed_csm_v1_4_2.message = {}
 
--- Calculate size of: Message
-cboe_c1options_marketdatafeed_csm_v1_4_2.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_c1options_marketdatafeed_csm_v1_4_2.message_header.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 6, 1):uint()
-  index = index + cboe_c1options_marketdatafeed_csm_v1_4_2.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Message
 cboe_c1options_marketdatafeed_csm_v1_4_2.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields = function(buffer, offset, packet, parent, message_index)
+cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -4072,20 +4058,23 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields = function(buffer, offse
 end
 
 -- Dissect: Message
-cboe_c1options_marketdatafeed_csm_v1_4_2.message.dissect = function(buffer, offset, packet, parent, message_index)
+cboe_c1options_marketdatafeed_csm_v1_4_2.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message, buffer(offset, 0))
-    local index = cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields(buffer, offset, packet, parent, message_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1options_marketdatafeed_csm_v1_4_2.message.display(packet, parent, length)
+    local current = cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = cboe_c1options_marketdatafeed_csm_v1_4_2.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields(buffer, offset, packet, parent, message_index)
+    cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
   end
 end
 
@@ -4165,7 +4154,12 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.packet.dissect = function(buffer, packe
 
   -- Repeating: Message
   for message_index = 1, message_count do
-    index, message = cboe_c1options_marketdatafeed_csm_v1_4_2.message.dissect(buffer, index, packet, parent, message_index)
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    index, message = cboe_c1options_marketdatafeed_csm_v1_4_2.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   return index

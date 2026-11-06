@@ -1404,27 +1404,13 @@ end
 -- Message
 imperative_intelligentcross_depthofbook_aspen_v1_11.message = {}
 
--- Calculate size of: Message
-imperative_intelligentcross_depthofbook_aspen_v1_11.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + imperative_intelligentcross_depthofbook_aspen_v1_11.message_header.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 1, 1):string()
-  index = index + imperative_intelligentcross_depthofbook_aspen_v1_11.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Message
 imperative_intelligentcross_depthofbook_aspen_v1_11.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields = function(buffer, offset, packet, parent, message_index)
+imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -1446,20 +1432,23 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields = function(bu
 end
 
 -- Dissect: Message
-imperative_intelligentcross_depthofbook_aspen_v1_11.message.dissect = function(buffer, offset, packet, parent, message_index)
+imperative_intelligentcross_depthofbook_aspen_v1_11.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message, buffer(offset, 0))
-    local index = imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields(buffer, offset, packet, parent, message_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = imperative_intelligentcross_depthofbook_aspen_v1_11.message.display(packet, parent, length)
+    local current = imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = imperative_intelligentcross_depthofbook_aspen_v1_11.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields(buffer, offset, packet, parent, message_index)
+    imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
   end
 end
 
@@ -1537,7 +1526,15 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.packet.dissect = function(bu
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, message = imperative_intelligentcross_depthofbook_aspen_v1_11.message.dissect(buffer, index, packet, parent, message_index)
+
+    -- Dependency element: Length
+    local length = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = length + 2
+
+    -- Message: Struct of 2 fields
+    index, message = imperative_intelligentcross_depthofbook_aspen_v1_11.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index

@@ -1730,6 +1730,27 @@ box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect = functio
   elseif strike_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
   else
     value = mantissa
     display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display_uncoded(value)

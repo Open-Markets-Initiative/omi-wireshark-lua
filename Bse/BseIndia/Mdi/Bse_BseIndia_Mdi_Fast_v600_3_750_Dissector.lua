@@ -5318,6 +5318,7 @@ omi_bse_bseindia_mdi_fast_v600_3_750.dissector = function(buffer, packet, parent
     local holder = root
 
     local presence_map = nil
+    local mapped_start = offset
     presence_map, offset = read_presence_map(buffer, offset)
     local mapped = offset
 
@@ -5347,12 +5348,12 @@ omi_bse_bseindia_mdi_fast_v600_3_750.dissector = function(buffer, packet, parent
     end
 
     -- the presence map and the template id are the message's own framing
-    local header = message_tree:add(omi_bse_bseindia_mdi_fast_v600_3_750.fields.message_header, buffer(start, offset - start))
+    local header = message_tree:add(omi_bse_bseindia_mdi_fast_v600_3_750.fields.message_header, buffer(mapped_start, offset - mapped_start))
     local named = nil
     if template ~= nil then
       named = template.presence
     end
-    add_presence_map(header, buffer(start, mapped - start), omi_bse_bseindia_mdi_fast_v600_3_750.fields.presence_map, omi_bse_bseindia_mdi_fast_v600_3_750.fields.presence_stop, omi_bse_bseindia_mdi_fast_v600_3_750.fields.presence_identified, omi_bse_bseindia_mdi_fast_v600_3_750.fields.presence_unused, named)
+    add_presence_map(header, buffer(mapped_start, mapped - mapped_start), omi_bse_bseindia_mdi_fast_v600_3_750.fields.presence_map, omi_bse_bseindia_mdi_fast_v600_3_750.fields.presence_stop, omi_bse_bseindia_mdi_fast_v600_3_750.fields.presence_identified, omi_bse_bseindia_mdi_fast_v600_3_750.fields.presence_unused, named)
     header:add(omi_bse_bseindia_mdi_fast_v600_3_750.fields.template_id, buffer(identified, offset - identified), template_id, bse_bseindia_mdi_fast_v600_3_750.template_id.display(template_id))
 
     if template == nil then

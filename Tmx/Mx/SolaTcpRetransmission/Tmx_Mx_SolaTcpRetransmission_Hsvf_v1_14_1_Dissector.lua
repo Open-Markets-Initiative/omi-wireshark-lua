@@ -9651,23 +9651,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.dissect
   elseif ask_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
   elseif ask_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
   elseif ask_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
   elseif ask_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
   elseif ask_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
   elseif ask_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
   elseif ask_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_futures_depth.display(value)
   else
     value = mantissa
@@ -9737,23 +9758,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.dissect = funct
   elseif ask_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
   elseif ask_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
   elseif ask_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
   elseif ask_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
   elseif ask_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
   elseif ask_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
   elseif ask_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_quote.display(value)
   else
     value = mantissa
@@ -9823,23 +9865,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.dissect = fun
   elseif ask_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
   elseif ask_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
   elseif ask_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
   elseif ask_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
   elseif ask_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
   elseif ask_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
   elseif ask_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_ask_price_summary.display(value)
   else
     value = mantissa
@@ -9909,23 +9972,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.dissect = funct
   elseif bid_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
   elseif bid_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
   elseif bid_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
   elseif bid_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
   elseif bid_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
   elseif bid_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
   elseif bid_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_quote.display(value)
   else
     value = mantissa
@@ -9995,23 +10079,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.dissect = fun
   elseif bid_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
   elseif bid_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
   elseif bid_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
   elseif bid_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
   elseif bid_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
   elseif bid_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
   elseif bid_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_bid_price_summary.display(value)
   else
     value = mantissa
@@ -10081,23 +10186,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.dissect = functio
   elseif closing_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
+  elseif closing_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
+  elseif closing_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
+  elseif closing_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
+  elseif closing_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
+  elseif closing_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
+  elseif closing_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
+  elseif closing_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
   elseif closing_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
   elseif closing_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
   elseif closing_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
   elseif closing_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
   elseif closing_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
   elseif closing_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_closing_price.display(value)
   else
     value = mantissa
@@ -10167,23 +10293,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.dissect = fun
   elseif conversion_factor_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
   elseif conversion_factor_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
   elseif conversion_factor_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
   elseif conversion_factor_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
   elseif conversion_factor_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
   elseif conversion_factor_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
   elseif conversion_factor_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_conversion_factor.display(value)
   else
     value = mantissa
@@ -10253,23 +10400,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.dissect = function(buffe
   elseif coupon_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
   elseif coupon_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
   elseif coupon_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
   elseif coupon_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
   elseif coupon_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
   elseif coupon_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
   elseif coupon_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_coupon.display(value)
   else
     value = mantissa
@@ -10339,23 +10507,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.dissec
   elseif external_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
   elseif external_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
   elseif external_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
   elseif external_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
   elseif external_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
   elseif external_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
   elseif external_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_external_price_at_source.display(value)
   else
     value = mantissa
@@ -10425,23 +10614,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.dissect = function(b
   elseif high_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_high_price.display(value)
   else
     value = mantissa
@@ -10511,23 +10721,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.dissect = f
   elseif initial_order_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_initial_order_price.display(value)
   else
     value = mantissa
@@ -10597,23 +10828,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.dissect = function(b
   elseif last_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
   elseif last_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_last_price.display(value)
   else
     value = mantissa
@@ -10683,23 +10935,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.dissect = function(bu
   elseif leg_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
   elseif leg_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
   elseif leg_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
   elseif leg_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
   elseif leg_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
   elseif leg_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
   elseif leg_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_price.display(value)
   else
     value = mantissa
@@ -10769,23 +11042,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.dissect = fu
   elseif leg_ratio_or_delta_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
   elseif leg_ratio_or_delta_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
   elseif leg_ratio_or_delta_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
   elseif leg_ratio_or_delta_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
   elseif leg_ratio_or_delta_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
   elseif leg_ratio_or_delta_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
   elseif leg_ratio_or_delta_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_leg_ratio_or_delta.display(value)
   else
     value = mantissa
@@ -10855,23 +11149,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.dissect = function(bu
   elseif low_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_low_price.display(value)
   else
     value = mantissa
@@ -10941,23 +11256,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.dissect
   elseif maximum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
   elseif maximum_threshold_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price.display(value)
   else
     value = mantissa
@@ -11027,23 +11363,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures
   elseif maximum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
   elseif maximum_threshold_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
   elseif maximum_threshold_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
   elseif maximum_threshold_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
   elseif maximum_threshold_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
   elseif maximum_threshold_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
   elseif maximum_threshold_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_maximum_threshold_price_futures.display(value)
   else
     value = mantissa
@@ -11113,23 +11470,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.dissect = function(bu
   elseif min_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
   elseif min_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
   elseif min_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
   elseif min_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
   elseif min_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
   elseif min_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
   elseif min_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_min_price.display(value)
   else
     value = mantissa
@@ -11199,23 +11577,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures
   elseif minimum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
   elseif minimum_threshold_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
   elseif minimum_threshold_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
   elseif minimum_threshold_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
   elseif minimum_threshold_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
   elseif minimum_threshold_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
   elseif minimum_threshold_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_futures.display(value)
   else
     value = mantissa
@@ -11285,23 +11684,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrum
   elseif minimum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
   elseif minimum_threshold_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
   elseif minimum_threshold_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
   elseif minimum_threshold_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
   elseif minimum_threshold_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
   elseif minimum_threshold_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
   elseif minimum_threshold_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_instrument.display(value)
   else
     value = mantissa
@@ -11371,23 +11791,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strateg
   elseif minimum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
   elseif minimum_threshold_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
   elseif minimum_threshold_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
   elseif minimum_threshold_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
   elseif minimum_threshold_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
   elseif minimum_threshold_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
   elseif minimum_threshold_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_minimum_threshold_price_strategy.display(value)
   else
     value = mantissa
@@ -11457,23 +11898,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.dissect = function(b
   elseif net_change_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_net_change.display(value)
   else
     value = mantissa
@@ -11543,23 +12005,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.dissect = function(b
   elseif open_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
   elseif open_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_open_price.display(value)
   else
     value = mantissa
@@ -11629,23 +12112,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.dissect = functio
   elseif opening_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
   elseif opening_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
   elseif opening_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
   elseif opening_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
   elseif opening_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
   elseif opening_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
   elseif opening_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_opening_price.display(value)
   else
     value = mantissa
@@ -11715,23 +12219,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.dissect = function(
   elseif order_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
+  elseif order_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
+  elseif order_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
+  elseif order_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
+  elseif order_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
+  elseif order_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
+  elseif order_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
+  elseif order_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
   elseif order_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
   elseif order_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
   elseif order_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
   elseif order_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
   elseif order_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
   elseif order_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_order_price.display(value)
   else
     value = mantissa
@@ -11801,23 +12326,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.dissect 
   elseif previous_closing_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
+  elseif previous_closing_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
+  elseif previous_closing_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
+  elseif previous_closing_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
+  elseif previous_closing_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
+  elseif previous_closing_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
+  elseif previous_closing_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
+  elseif previous_closing_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
   elseif previous_closing_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
   elseif previous_closing_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
   elseif previous_closing_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
   elseif previous_closing_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
   elseif previous_closing_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
   elseif previous_closing_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_closing_price.display(value)
   else
     value = mantissa
@@ -11887,23 +12433,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.dissect = f
   elseif previous_settlement_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
   elseif previous_settlement_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
   elseif previous_settlement_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
   elseif previous_settlement_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
   elseif previous_settlement_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
   elseif previous_settlement_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
   elseif previous_settlement_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement.display(value)
   else
     value = mantissa
@@ -11973,23 +12540,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.disse
   elseif previous_settlement_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
   elseif previous_settlement_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
   elseif previous_settlement_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
   elseif previous_settlement_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
   elseif previous_settlement_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
   elseif previous_settlement_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
   elseif previous_settlement_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_previous_settlement_price.display(value)
   else
     value = mantissa
@@ -12059,23 +12647,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.dissect = func
   elseif settlement_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
   elseif settlement_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
   elseif settlement_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
   elseif settlement_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
   elseif settlement_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
   elseif settlement_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
   elseif settlement_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_settlement_price.display(value)
   else
     value = mantissa
@@ -12145,23 +12754,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.dissect = function
   elseif strike_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
   elseif strike_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price.display(value)
   else
     value = mantissa
@@ -12231,23 +12861,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.di
   elseif strike_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
   elseif strike_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
   elseif strike_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
   elseif strike_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
   elseif strike_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
   elseif strike_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
   elseif strike_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_strike_price_schedule_notice.display(value)
   else
     value = mantissa
@@ -12317,23 +12968,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.dissect = functi
   elseif tick_increment_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
   elseif tick_increment_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_increment.display(value)
   else
     value = mantissa
@@ -12403,23 +13075,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.dissect = function(b
   elseif tick_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
   elseif tick_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
   elseif tick_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
   elseif tick_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
   elseif tick_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
   elseif tick_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
   elseif tick_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_price.display(value)
   else
     value = mantissa
@@ -12489,23 +13182,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.dissect = function(b
   elseif tick_value_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
   elseif tick_value_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
   elseif tick_value_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
   elseif tick_value_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
   elseif tick_value_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
   elseif tick_value_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
   elseif tick_value_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_tick_value.display(value)
   else
     value = mantissa
@@ -12575,23 +13289,44 @@ tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.dissect = function(
   elseif trade_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "Z" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa * (10 ^ 1)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "Y" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa * (10 ^ 2)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "X" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa * (10 ^ 3)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "W" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa * (10 ^ 4)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "V" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa * (10 ^ 5)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "U" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa * (10 ^ 6)
     display = tmx_mx_solatcpretransmission_hsvf_v1_14_1.scaled_trade_price.display(value)
   else
     value = mantissa

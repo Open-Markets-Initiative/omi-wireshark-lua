@@ -14763,6 +14763,7 @@ omi_ngm_elasticia_fix_fast_v2_0_0.dissector = function(buffer, packet, parent)
     local holder = root
 
     local presence_map = nil
+    local mapped_start = offset
     presence_map, offset = read_presence_map(buffer, offset)
     local mapped = offset
 
@@ -14792,12 +14793,12 @@ omi_ngm_elasticia_fix_fast_v2_0_0.dissector = function(buffer, packet, parent)
     end
 
     -- the presence map and the template id are the message's own framing
-    local header = message_tree:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.message_header, buffer(start, offset - start))
+    local header = message_tree:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.message_header, buffer(mapped_start, offset - mapped_start))
     local named = nil
     if template ~= nil then
       named = template.presence
     end
-    add_presence_map(header, buffer(start, mapped - start), omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_map, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_stop, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_identified, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_unused, named)
+    add_presence_map(header, buffer(mapped_start, mapped - mapped_start), omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_map, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_stop, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_identified, omi_ngm_elasticia_fix_fast_v2_0_0.fields.presence_unused, named)
     header:add(omi_ngm_elasticia_fix_fast_v2_0_0.fields.template_id, buffer(identified, offset - identified), template_id, ngm_elasticia_fix_fast_v2_0_0.template_id.display(template_id))
 
     if template == nil then

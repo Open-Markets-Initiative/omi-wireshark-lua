@@ -1216,6 +1216,7 @@ omi_eurex_t7_underlyingticker_fast_v8_1.dissector = function(buffer, packet, par
     local holder = root
 
     local presence_map = nil
+    local mapped_start = offset
     presence_map, offset = read_presence_map(buffer, offset)
     local mapped = offset
 
@@ -1245,12 +1246,12 @@ omi_eurex_t7_underlyingticker_fast_v8_1.dissector = function(buffer, packet, par
     end
 
     -- the presence map and the template id are the message's own framing
-    local header = message_tree:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.message_header, buffer(start, offset - start))
+    local header = message_tree:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.message_header, buffer(mapped_start, offset - mapped_start))
     local named = nil
     if template ~= nil then
       named = template.presence
     end
-    add_presence_map(header, buffer(start, mapped - start), omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_map, omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_stop, omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_identified, omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_unused, named)
+    add_presence_map(header, buffer(mapped_start, mapped - mapped_start), omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_map, omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_stop, omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_identified, omi_eurex_t7_underlyingticker_fast_v8_1.fields.presence_unused, named)
     header:add(omi_eurex_t7_underlyingticker_fast_v8_1.fields.template_id, buffer(identified, offset - identified), template_id, eurex_t7_underlyingticker_fast_v8_1.template_id.display(template_id))
 
     -- the reset template tells a receiver to forget what the stream remembered

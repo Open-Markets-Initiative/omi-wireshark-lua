@@ -17,54 +17,20 @@ local box_boxoptions_solamulticast_hsvf_v1_8 = {}
 -- Box BoxOptions SolaMulticast Hsvf 1.8 Fields
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price = ProtoField.new("Ask Price", "box.boxoptions.solamulticast.hsvf.v1.8.askprice", ftypes.UINT24, nil, nil, nil, "Ask price for the option series")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_fraction_indicator = ProtoField.new("Ask Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.askpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions.")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_hundred_pair = ProtoField.new("Ask Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_hundred_thousand_pair = ProtoField.new("Ask Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_million_pair = ProtoField.new("Ask Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_ten_pair = ProtoField.new("Ask Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_ten_thousand_pair = ProtoField.new("Ask Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_thousand_pair = ProtoField.new("Ask Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_whole_pair = ProtoField.new("Ask Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_numeric_pair = ProtoField.new("Ask Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricenumericpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_hundred_pair = ProtoField.new("Ask Price Quote Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequotenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_hundred_thousand_pair = ProtoField.new("Ask Price Quote Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequotenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_million_pair = ProtoField.new("Ask Price Quote Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequotenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_ten_pair = ProtoField.new("Ask Price Quote Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequotenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_ten_thousand_pair = ProtoField.new("Ask Price Quote Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequotenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_thousand_pair = ProtoField.new("Ask Price Quote Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequotenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_whole_pair = ProtoField.new("Ask Price Quote Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequotenegativewholepair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_numeric = ProtoField.new("Ask Price Quote Numeric", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequotenumeric", ftypes.UINT24, nil, nil, nil, "Ask price for the option series")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_numeric_pair = ProtoField.new("Ask Price Quote Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequotenumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_opening = ProtoField.new("Ask Price Quote Opening", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequoteopening", ftypes.STRING, nil, nil, nil, "Ask price for the option series")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_opening_pair = ProtoField.new("Ask Price Quote Opening Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequoteopeningpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_unknown_fraction_pair = ProtoField.new("Ask Price Quote Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpricequoteunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_sign = ProtoField.new("Ask Price Sign", "box.boxoptions.solamulticast.hsvf.v1.8.askpricesign", ftypes.STRING, nil, nil, nil, "For Ask Price field")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_unknown_fraction_pair = ProtoField.new("Ask Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.askpriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_size = ProtoField.new("Ask Size", "box.boxoptions.solamulticast.hsvf.v1.8.asksize", ftypes.UINT24, nil, nil, nil, "Number of option contracts represented by the Ask Price")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.auction_type = ProtoField.new("Auction Type", "box.boxoptions.solamulticast.hsvf.v1.8.auctiontype", ftypes.STRING, nil, nil, nil, "Indicating the auction type")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price = ProtoField.new("Bid Price", "box.boxoptions.solamulticast.hsvf.v1.8.bidprice", ftypes.UINT24, nil, nil, nil, "Bid price for the option series")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_fraction_indicator = ProtoField.new("Bid Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_hundred_pair = ProtoField.new("Bid Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_hundred_thousand_pair = ProtoField.new("Bid Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_million_pair = ProtoField.new("Bid Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_ten_pair = ProtoField.new("Bid Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_ten_thousand_pair = ProtoField.new("Bid Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_thousand_pair = ProtoField.new("Bid Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_whole_pair = ProtoField.new("Bid Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_numeric_pair = ProtoField.new("Bid Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricenumericpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_hundred_pair = ProtoField.new("Bid Price Quote Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequotenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_hundred_thousand_pair = ProtoField.new("Bid Price Quote Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequotenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_million_pair = ProtoField.new("Bid Price Quote Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequotenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_ten_pair = ProtoField.new("Bid Price Quote Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequotenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_ten_thousand_pair = ProtoField.new("Bid Price Quote Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequotenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_thousand_pair = ProtoField.new("Bid Price Quote Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequotenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_whole_pair = ProtoField.new("Bid Price Quote Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequotenegativewholepair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_numeric = ProtoField.new("Bid Price Quote Numeric", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequotenumeric", ftypes.UINT24, nil, nil, nil, "Bid price for the option series")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_numeric_pair = ProtoField.new("Bid Price Quote Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequotenumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_opening = ProtoField.new("Bid Price Quote Opening", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequoteopening", ftypes.STRING, nil, nil, nil, "Bid price for the option series")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_opening_pair = ProtoField.new("Bid Price Quote Opening Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequoteopeningpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_unknown_fraction_pair = ProtoField.new("Bid Price Quote Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricequoteunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_sign = ProtoField.new("Bid Price Sign", "box.boxoptions.solamulticast.hsvf.v1.8.bidpricesign", ftypes.STRING, nil, nil, nil, "For Bid Price field")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_unknown_fraction_pair = ProtoField.new("Bid Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.bidpriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_size = ProtoField.new("Bid Size", "box.boxoptions.solamulticast.hsvf.v1.8.bidsize", ftypes.UINT24, nil, nil, nil, "Number of option contracts represented by the Bid Price")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bulletin_contents = ProtoField.new("Bulletin Contents", "box.boxoptions.solamulticast.hsvf.v1.8.bulletincontents", ftypes.STRING, nil, nil, nil, "Bulletin in textual format. Left justified and blank filled")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bulletin_type = ProtoField.new("Bulletin Type", "box.boxoptions.solamulticast.hsvf.v1.8.bulletintype", ftypes.STRING)
@@ -90,32 +56,14 @@ omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.group_of_the_complex_order_ins
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.group_status = ProtoField.new("Group Status", "box.boxoptions.solamulticast.hsvf.v1.8.groupstatus", ftypes.STRING, nil, nil, nil, "Value is O")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price = ProtoField.new("High Price", "box.boxoptions.solamulticast.hsvf.v1.8.highprice", ftypes.UINT24, nil, nil, nil, "Highest trade price of the day or current high price if sent after a cancellation")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_fraction_indicator = ProtoField.new("High Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.highpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_hundred_pair = ProtoField.new("High Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.highpricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_hundred_thousand_pair = ProtoField.new("High Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.highpricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_million_pair = ProtoField.new("High Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.highpricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_ten_pair = ProtoField.new("High Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.highpricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_ten_thousand_pair = ProtoField.new("High Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.highpricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_thousand_pair = ProtoField.new("High Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.highpricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_whole_pair = ProtoField.new("High Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.highpricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_numeric_pair = ProtoField.new("High Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.highpricenumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_sign = ProtoField.new("High Price Sign", "box.boxoptions.solamulticast.hsvf.v1.8.highpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_unknown_fraction_pair = ProtoField.new("High Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.highpriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.improvement_order_side = ProtoField.new("Improvement Order Side", "box.boxoptions.solamulticast.hsvf.v1.8.improvementorderside", ftypes.STRING, nil, nil, nil, "Side")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.improvement_phase_expiry_time = ProtoField.new("Improvement Phase Expiry Time", "box.boxoptions.solamulticast.hsvf.v1.8.improvementphaseexpirytime", ftypes.STRING, nil, nil, nil, "Indicates the expiry time of the Improvement Phase (value is in HHMMSSCC)")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.improvement_phase_sequential_number = ProtoField.new("Improvement Phase Sequential Number", "box.boxoptions.solamulticast.hsvf.v1.8.improvementphasesequentialnumber", ftypes.UINT24, nil, nil, nil, "Indicates the number of an Improvement Phase. Sequential number unique per Instrument and per trading day")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.improvement_process_expiry_duration = ProtoField.new("Improvement Process Expiry Duration", "box.boxoptions.solamulticast.hsvf.v1.8.improvementprocessexpiryduration", ftypes.DOUBLE, nil, nil, nil, "Indicates the expiry duration of the Improvement Phase (value is in SSCC)")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price = ProtoField.new("Initial Order Price", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderprice", ftypes.UINT24, nil, nil, nil, "Indicates the price of the Initial Order")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_fraction_indicator = ProtoField.new("Initial Order Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderpricefractionindicator", ftypes.STRING, nil, nil, nil, "Fraction Indicator Code")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_hundred_pair = ProtoField.new("Initial Order Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderpricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_hundred_thousand_pair = ProtoField.new("Initial Order Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderpricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_million_pair = ProtoField.new("Initial Order Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderpricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_ten_pair = ProtoField.new("Initial Order Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderpricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_ten_thousand_pair = ProtoField.new("Initial Order Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderpricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_thousand_pair = ProtoField.new("Initial Order Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderpricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_whole_pair = ProtoField.new("Initial Order Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderpricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_numeric_pair = ProtoField.new("Initial Order Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderpricenumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_sign = ProtoField.new("Initial Order Price Sign", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_unknown_fraction_pair = ProtoField.new("Initial Order Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderpriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_quantity = ProtoField.new("Initial Order Quantity", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderquantity", ftypes.STRING, nil, nil, nil, "Indicates the quantity of the Initial Order")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_side = ProtoField.new("Initial Order Side", "box.boxoptions.solamulticast.hsvf.v1.8.initialorderside", ftypes.STRING, nil, nil, nil, "Indicates the dealer side of the Initial Order")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.instrument = ProtoField.new("Instrument", "box.boxoptions.solamulticast.hsvf.v1.8.instrument", ftypes.STRING)
@@ -125,128 +73,46 @@ omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.instrument_leg = ProtoField.ne
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.instrument_status_marker = ProtoField.new("Instrument Status Marker", "box.boxoptions.solamulticast.hsvf.v1.8.instrumentstatusmarker", ftypes.STRING, nil, nil, nil, "Indicates instrument status")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price = ProtoField.new("Last Price", "box.boxoptions.solamulticast.hsvf.v1.8.lastprice", ftypes.UINT24, nil, nil, nil, "Closing or most recent trade price")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_fraction_indicator = ProtoField.new("Last Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.lastpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_hundred_pair = ProtoField.new("Last Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lastpricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_hundred_thousand_pair = ProtoField.new("Last Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lastpricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_million_pair = ProtoField.new("Last Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lastpricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_ten_pair = ProtoField.new("Last Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lastpricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_ten_thousand_pair = ProtoField.new("Last Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lastpricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_thousand_pair = ProtoField.new("Last Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lastpricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_whole_pair = ProtoField.new("Last Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lastpricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_numeric_pair = ProtoField.new("Last Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lastpricenumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_sign = ProtoField.new("Last Price Sign", "box.boxoptions.solamulticast.hsvf.v1.8.lastpricesign", ftypes.STRING, nil, nil, nil, "Sign the Last Price")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_unknown_fraction_pair = ProtoField.new("Last Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lastpriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.leg_ratio = ProtoField.new("Leg Ratio", "box.boxoptions.solamulticast.hsvf.v1.8.legratio", ftypes.UINT32, nil, nil, nil, "Quantity (bought or sold)")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.leg_ratio_sign = ProtoField.new("Leg Ratio Sign", "box.boxoptions.solamulticast.hsvf.v1.8.legratiosign", ftypes.STRING, nil, nil, nil, "+ : Buy the leg")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.leg_symbol = ProtoField.new("Leg Symbol", "box.boxoptions.solamulticast.hsvf.v1.8.legsymbol", ftypes.STRING, nil, nil, nil, "Trading symbol of the leg")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.level_of_market_depth = ProtoField.new("Level Of Market Depth", "box.boxoptions.solamulticast.hsvf.v1.8.levelofmarketdepth", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order = ProtoField.new("Limit Entered For An Order", "box.boxoptions.solamulticast.hsvf.v1.8.limitenteredforanorder", ftypes.UINT24, nil, nil, nil, "For a buy order, represents the highest price that the order issuer is willing to pay For a sell order, represents the lowest price at which the order issuer is willing to sell")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_hundred_pair = ProtoField.new("Limit Entered For An Order Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.limitenteredforanordernegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_hundred_thousand_pair = ProtoField.new("Limit Entered For An Order Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.limitenteredforanordernegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_million_pair = ProtoField.new("Limit Entered For An Order Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.limitenteredforanordernegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_ten_pair = ProtoField.new("Limit Entered For An Order Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.limitenteredforanordernegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_ten_thousand_pair = ProtoField.new("Limit Entered For An Order Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.limitenteredforanordernegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_thousand_pair = ProtoField.new("Limit Entered For An Order Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.limitenteredforanordernegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_whole_pair = ProtoField.new("Limit Entered For An Order Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.limitenteredforanordernegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_numeric_pair = ProtoField.new("Limit Entered For An Order Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.limitenteredforanordernumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_sign = ProtoField.new("Limit Entered For An Order Sign", "box.boxoptions.solamulticast.hsvf.v1.8.limitenteredforanordersign", ftypes.STRING, nil, nil, nil, "+ or - sign")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_unknown_fraction_pair = ProtoField.new("Limit Entered For An Order Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.limitenteredforanorderunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_fraction_indicator = ProtoField.new("Limit Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.limitfractionindicator", ftypes.STRING, nil, nil, nil, "Fraction Indicator Code")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price = ProtoField.new("Low Price", "box.boxoptions.solamulticast.hsvf.v1.8.lowprice", ftypes.UINT24, nil, nil, nil, "Lowest trade price of the day or current low price if sent after a cancellation")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_fraction_indicator = ProtoField.new("Low Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.lowpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_hundred_pair = ProtoField.new("Low Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lowpricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_hundred_thousand_pair = ProtoField.new("Low Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lowpricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_million_pair = ProtoField.new("Low Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lowpricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_ten_pair = ProtoField.new("Low Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lowpricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_ten_thousand_pair = ProtoField.new("Low Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lowpricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_thousand_pair = ProtoField.new("Low Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lowpricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_whole_pair = ProtoField.new("Low Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lowpricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_numeric_pair = ProtoField.new("Low Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lowpricenumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_sign = ProtoField.new("Low Price Sign", "box.boxoptions.solamulticast.hsvf.v1.8.lowpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_unknown_fraction_pair = ProtoField.new("Low Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.lowpriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.market_depth_level = ProtoField.new("Market Depth Level", "box.boxoptions.solamulticast.hsvf.v1.8.marketdepthlevel", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.market_flow_indicator = ProtoField.new("Market Flow Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.marketflowindicator", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_number_of_contracts_per_order = ProtoField.new("Max Number Of Contracts Per Order", "box.boxoptions.solamulticast.hsvf.v1.8.maxnumberofcontractsperorder", ftypes.UINT24, nil, nil, nil, "Maximum authorized number of contract per order")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price = ProtoField.new("Max Threshold Price", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdprice", ftypes.UINT24, nil, nil, nil, "Maximum threshold price authorized for an option contract")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_fraction_indicator = ProtoField.new("Max Threshold Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_hundred_pair = ProtoField.new("Max Threshold Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdpricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_hundred_thousand_pair = ProtoField.new("Max Threshold Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdpricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_million_pair = ProtoField.new("Max Threshold Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdpricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_ten_pair = ProtoField.new("Max Threshold Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdpricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_ten_thousand_pair = ProtoField.new("Max Threshold Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdpricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_thousand_pair = ProtoField.new("Max Threshold Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdpricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_whole_pair = ProtoField.new("Max Threshold Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdpricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_numeric_pair = ProtoField.new("Max Threshold Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdpricenumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_sign = ProtoField.new("Max Threshold Price Sign", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_unknown_fraction_pair = ProtoField.new("Max Threshold Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maxthresholdpriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_number_of_contracts_per_order = ProtoField.new("Maximum Number Of Contracts Per Order", "box.boxoptions.solamulticast.hsvf.v1.8.maximumnumberofcontractsperorder", ftypes.UINT24, nil, nil, nil, "Maximum authorized number of contract per order")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price = ProtoField.new("Maximum Threshold Price", "box.boxoptions.solamulticast.hsvf.v1.8.maximumthresholdprice", ftypes.UINT24, nil, nil, nil, "Maximum threshold price authorized for an option contract")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.maximumthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_hundred_pair = ProtoField.new("Maximum Threshold Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maximumthresholdpricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_hundred_thousand_pair = ProtoField.new("Maximum Threshold Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maximumthresholdpricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_million_pair = ProtoField.new("Maximum Threshold Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maximumthresholdpricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_ten_pair = ProtoField.new("Maximum Threshold Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maximumthresholdpricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_ten_thousand_pair = ProtoField.new("Maximum Threshold Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maximumthresholdpricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_thousand_pair = ProtoField.new("Maximum Threshold Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maximumthresholdpricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_whole_pair = ProtoField.new("Maximum Threshold Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maximumthresholdpricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_numeric_pair = ProtoField.new("Maximum Threshold Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maximumthresholdpricenumericpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_unknown_fraction_pair = ProtoField.new("Maximum Threshold Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.maximumthresholdpriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.message_type = ProtoField.new("Message Type", "box.boxoptions.solamulticast.hsvf.v1.8.messagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of message being sent")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_number_of_contracts_per_order = ProtoField.new("Min Number Of Contracts Per Order", "box.boxoptions.solamulticast.hsvf.v1.8.minnumberofcontractsperorder", ftypes.UINT24, nil, nil, nil, "Minimum authorized number of contract per order")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price = ProtoField.new("Min Threshold Price", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdprice", ftypes.UINT24, nil, nil, nil, "Minimum threshold price authorized for an option contract")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_fraction_indicator = ProtoField.new("Min Threshold Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_hundred_pair = ProtoField.new("Min Threshold Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdpricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_hundred_thousand_pair = ProtoField.new("Min Threshold Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdpricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_million_pair = ProtoField.new("Min Threshold Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdpricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_ten_pair = ProtoField.new("Min Threshold Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdpricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_ten_thousand_pair = ProtoField.new("Min Threshold Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdpricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_thousand_pair = ProtoField.new("Min Threshold Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdpricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_whole_pair = ProtoField.new("Min Threshold Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdpricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_numeric_pair = ProtoField.new("Min Threshold Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdpricenumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_sign = ProtoField.new("Min Threshold Price Sign", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_unknown_fraction_pair = ProtoField.new("Min Threshold Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minthresholdpriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_number_of_contracts_per_order = ProtoField.new("Minimum Number Of Contracts Per Order", "box.boxoptions.solamulticast.hsvf.v1.8.minimumnumberofcontractsperorder", ftypes.UINT24, nil, nil, nil, "Minimum authorized number of contract per order")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_quantity_for_improvement_order = ProtoField.new("Minimum Quantity For Improvement Order", "box.boxoptions.solamulticast.hsvf.v1.8.minimumquantityforimprovementorder", ftypes.UINT32, nil, nil, nil, "Enables market makers to know the minimum quantity for an Improvement Order during the Improvement Phase")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price = ProtoField.new("Minimum Threshold Price", "box.boxoptions.solamulticast.hsvf.v1.8.minimumthresholdprice", ftypes.UINT24, nil, nil, nil, "Minimum threshold price authorized for an option contract")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_fraction_indicator = ProtoField.new("Minimum Threshold Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.minimumthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_hundred_pair = ProtoField.new("Minimum Threshold Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minimumthresholdpricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_hundred_thousand_pair = ProtoField.new("Minimum Threshold Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minimumthresholdpricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_million_pair = ProtoField.new("Minimum Threshold Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minimumthresholdpricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_ten_pair = ProtoField.new("Minimum Threshold Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minimumthresholdpricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_ten_thousand_pair = ProtoField.new("Minimum Threshold Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minimumthresholdpricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_thousand_pair = ProtoField.new("Minimum Threshold Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minimumthresholdpricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_whole_pair = ProtoField.new("Minimum Threshold Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minimumthresholdpricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_numeric_pair = ProtoField.new("Minimum Threshold Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minimumthresholdpricenumericpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_unknown_fraction_pair = ProtoField.new("Minimum Threshold Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.minimumthresholdpriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change = ProtoField.new("Net Change", "box.boxoptions.solamulticast.hsvf.v1.8.netchange", ftypes.UINT24, nil, nil, nil, "Net change equals last trade price minus previous close")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_fraction_indicator = ProtoField.new("Net Change Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.netchangefractionindicator", ftypes.STRING, nil, nil, nil, "Fraction indicator for the net change price")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_hundred_pair = ProtoField.new("Net Change Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.netchangenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_hundred_thousand_pair = ProtoField.new("Net Change Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.netchangenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_million_pair = ProtoField.new("Net Change Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.netchangenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_ten_pair = ProtoField.new("Net Change Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.netchangenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_ten_thousand_pair = ProtoField.new("Net Change Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.netchangenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_thousand_pair = ProtoField.new("Net Change Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.netchangenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_whole_pair = ProtoField.new("Net Change Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.netchangenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_numeric_pair = ProtoField.new("Net Change Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.netchangenumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_sign = ProtoField.new("Net Change Sign", "box.boxoptions.solamulticast.hsvf.v1.8.netchangesign", ftypes.STRING, nil, nil, nil, "For the net change field")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_unknown_fraction_pair = ProtoField.new("Net Change Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.netchangeunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.number_of_ask_orders = ProtoField.new("Number Of Ask Orders", "box.boxoptions.solamulticast.hsvf.v1.8.numberofaskorders", ftypes.STRING, nil, nil, nil, "Number of Ask Orders, present at a given moment, in the order book")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.number_of_bid_orders = ProtoField.new("Number Of Bid Orders", "box.boxoptions.solamulticast.hsvf.v1.8.numberofbidorders", ftypes.STRING, nil, nil, nil, "Number of bid orders, present at a given moment, in the order book")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.number_of_legs = ProtoField.new("Number Of Legs", "box.boxoptions.solamulticast.hsvf.v1.8.numberoflegs", ftypes.UINT8, nil, nil, nil, "Number of legs in the Complex Order Instrument")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.number_of_levels = ProtoField.new("Number Of Levels", "box.boxoptions.solamulticast.hsvf.v1.8.numberoflevels", ftypes.UINT8, nil, nil, nil, "Number of level for the trading instrument")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.numeric_tick_increment = ProtoField.new("Numeric Tick Increment", "box.boxoptions.solamulticast.hsvf.v1.8.numerictickincrement", ftypes.UINT24, nil, nil, nil, "Precision with which the price of an order limit can be expressed")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_interest = ProtoField.new("Open Interest", "box.boxoptions.solamulticast.hsvf.v1.8.openinterest", ftypes.UINT24, nil, nil, nil, "Contains the outstanding number of contracts in the series")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price = ProtoField.new("Open Price", "box.boxoptions.solamulticast.hsvf.v1.8.openprice", ftypes.UINT24, nil, nil, nil, "Price of the first trade of the day")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_fraction_indicator = ProtoField.new("Open Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.openpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_hundred_pair = ProtoField.new("Open Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.openpricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_hundred_thousand_pair = ProtoField.new("Open Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.openpricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_million_pair = ProtoField.new("Open Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.openpricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_ten_pair = ProtoField.new("Open Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.openpricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_ten_thousand_pair = ProtoField.new("Open Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.openpricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_thousand_pair = ProtoField.new("Open Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.openpricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_whole_pair = ProtoField.new("Open Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.openpricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_numeric_pair = ProtoField.new("Open Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.openpricenumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_sign = ProtoField.new("Open Price Sign", "box.boxoptions.solamulticast.hsvf.v1.8.openpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_unknown_fraction_pair = ProtoField.new("Open Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.openpriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.option_marker = ProtoField.new("Option Marker", "box.boxoptions.solamulticast.hsvf.v1.8.optionmarker", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.option_type = ProtoField.new("Option Type", "box.boxoptions.solamulticast.hsvf.v1.8.optiontype", ftypes.STRING, nil, nil, nil, "Type of option")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.order_quantity = ProtoField.new("Order Quantity", "box.boxoptions.solamulticast.hsvf.v1.8.orderquantity", ftypes.UINT32, nil, nil, nil, "Indicator Code")
@@ -256,38 +122,9 @@ omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.percentage_assured_to_initial_
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.price_indicator_marker = ProtoField.new("Price Indicator Marker", "box.boxoptions.solamulticast.hsvf.v1.8.priceindicatormarker", ftypes.STRING, nil, nil, nil, "Identifies the type of transaction")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.public_customer_ask_size = ProtoField.new("Public Customer Ask Size", "box.boxoptions.solamulticast.hsvf.v1.8.publiccustomerasksize", ftypes.UINT24, nil, nil, nil, "Number of option contracts represented by Public Customer orders on the ask side")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.public_customer_bid_size = ProtoField.new("Public Customer Bid Size", "box.boxoptions.solamulticast.hsvf.v1.8.publiccustomerbidsize", ftypes.UINT24, nil, nil, nil, "Number of option contracts represented by Public Customer orders on the bid side")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_ask_price = ProtoField.new("Raw Ask Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawaskprice", ftypes.UINT24, nil, nil, nil, "Ask price for the option series")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_ask_price_quote = ProtoField.new("Raw Ask Price Quote", "box.boxoptions.solamulticast.hsvf.v1.8.rawaskpricequote", ftypes.UINT24, nil, nil, nil, "Ask price for the option series")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_ask_price_quote_text = ProtoField.new("Raw Ask Price Quote Text", "box.boxoptions.solamulticast.hsvf.v1.8.rawaskpricequotetext", ftypes.STRING, nil, nil, nil, "Ask price for the option series")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_bid_price = ProtoField.new("Raw Bid Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawbidprice", ftypes.UINT24, nil, nil, nil, "Bid price for the option series")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_bid_price_quote = ProtoField.new("Raw Bid Price Quote", "box.boxoptions.solamulticast.hsvf.v1.8.rawbidpricequote", ftypes.UINT24, nil, nil, nil, "Bid price for the option series")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_bid_price_quote_text = ProtoField.new("Raw Bid Price Quote Text", "box.boxoptions.solamulticast.hsvf.v1.8.rawbidpricequotetext", ftypes.STRING, nil, nil, nil, "Bid price for the option series")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_high_price = ProtoField.new("Raw High Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawhighprice", ftypes.UINT24, nil, nil, nil, "Highest trade price of the day or current high price if sent after a cancellation")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_initial_order_price = ProtoField.new("Raw Initial Order Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawinitialorderprice", ftypes.UINT24, nil, nil, nil, "Indicates the price of the Initial Order")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_last_price = ProtoField.new("Raw Last Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawlastprice", ftypes.UINT24, nil, nil, nil, "Closing or most recent trade price")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_limit_entered_for_an_order = ProtoField.new("Raw Limit Entered For An Order", "box.boxoptions.solamulticast.hsvf.v1.8.rawlimitenteredforanorder", ftypes.UINT24, nil, nil, nil, "For a buy order, represents the highest price that the order issuer is willing to pay For a sell order, represents the lowest price at which the order issuer is willing to sell")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_low_price = ProtoField.new("Raw Low Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawlowprice", ftypes.UINT24, nil, nil, nil, "Lowest trade price of the day or current low price if sent after a cancellation")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_max_threshold_price = ProtoField.new("Raw Max Threshold Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawmaxthresholdprice", ftypes.UINT24, nil, nil, nil, "Maximum threshold price authorized for an option contract")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_maximum_threshold_price = ProtoField.new("Raw Maximum Threshold Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawmaximumthresholdprice", ftypes.UINT24, nil, nil, nil, "Maximum threshold price authorized for an option contract")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_min_threshold_price = ProtoField.new("Raw Min Threshold Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawminthresholdprice", ftypes.UINT24, nil, nil, nil, "Minimum threshold price authorized for an option contract")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_minimum_threshold_price = ProtoField.new("Raw Minimum Threshold Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawminimumthresholdprice", ftypes.UINT24, nil, nil, nil, "Minimum threshold price authorized for an option contract")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_net_change = ProtoField.new("Raw Net Change", "box.boxoptions.solamulticast.hsvf.v1.8.rawnetchange", ftypes.UINT24, nil, nil, nil, "Net change equals last trade price minus previous close")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_open_price = ProtoField.new("Raw Open Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawopenprice", ftypes.UINT24, nil, nil, nil, "Price of the first trade of the day")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_reference_price = ProtoField.new("Raw Reference Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawreferenceprice", ftypes.UINT24, nil, nil, nil, "Reference Price of the Option")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_strike_price = ProtoField.new("Raw Strike Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawstrikeprice", ftypes.UINT24, nil, nil, nil, "Strike Price of the option in full")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_tick_increment = ProtoField.new("Raw Tick Increment", "box.boxoptions.solamulticast.hsvf.v1.8.rawtickincrement", ftypes.STRING, nil, nil, nil, "Precision with which the price of an order limit can be expressed")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_trade_price = ProtoField.new("Raw Trade Price", "box.boxoptions.solamulticast.hsvf.v1.8.rawtradeprice", ftypes.UINT24, nil, nil, nil, "Price at which the transaction took place")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price = ProtoField.new("Reference Price", "box.boxoptions.solamulticast.hsvf.v1.8.referenceprice", ftypes.UINT24, nil, nil, nil, "Reference Price of the Option")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_fraction_indicator = ProtoField.new("Reference Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.referencepricefractionindicator", ftypes.STRING, nil, nil, nil, "Number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_hundred_pair = ProtoField.new("Reference Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.referencepricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_hundred_thousand_pair = ProtoField.new("Reference Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.referencepricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_million_pair = ProtoField.new("Reference Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.referencepricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_ten_pair = ProtoField.new("Reference Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.referencepricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_ten_thousand_pair = ProtoField.new("Reference Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.referencepricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_thousand_pair = ProtoField.new("Reference Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.referencepricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_whole_pair = ProtoField.new("Reference Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.referencepricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_numeric_pair = ProtoField.new("Reference Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.referencepricenumericpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_unknown_fraction_pair = ProtoField.new("Reference Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.referencepriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.requested_size = ProtoField.new("Requested Size", "box.boxoptions.solamulticast.hsvf.v1.8.requestedsize", ftypes.UINT32, nil, nil, nil, "Size of the market requested")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reserved = ProtoField.new("Reserved", "box.boxoptions.solamulticast.hsvf.v1.8.reserved", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.root_symbol = ProtoField.new("Root Symbol", "box.boxoptions.solamulticast.hsvf.v1.8.rootsymbol", ftypes.STRING, nil, nil, nil, "Root of the instrument group")
@@ -298,42 +135,16 @@ omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.sola_message_start = ProtoFiel
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price = ProtoField.new("Strike Price", "box.boxoptions.solamulticast.hsvf.v1.8.strikeprice", ftypes.UINT24, nil, nil, nil, "Strike Price of the option in full")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "box.boxoptions.solamulticast.hsvf.v1.8.strikepricecurrency", ftypes.STRING, nil, nil, nil, "Currency used for the Option Strike Price")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.strikepricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines the number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_hundred_pair = ProtoField.new("Strike Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.strikepricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_hundred_thousand_pair = ProtoField.new("Strike Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.strikepricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_million_pair = ProtoField.new("Strike Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.strikepricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_ten_pair = ProtoField.new("Strike Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.strikepricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_ten_thousand_pair = ProtoField.new("Strike Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.strikepricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_thousand_pair = ProtoField.new("Strike Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.strikepricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_whole_pair = ProtoField.new("Strike Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.strikepricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_numeric_pair = ProtoField.new("Strike Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.strikepricenumericpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_unknown_fraction_pair = ProtoField.new("Strike Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.strikepriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick = ProtoField.new("Tick", "box.boxoptions.solamulticast.hsvf.v1.8.tick", ftypes.STRING, nil, nil, nil, "Determined by the difference between last price and the previous different trade price")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment = ProtoField.new("Tick Increment", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrement", ftypes.UINT24, nil, nil, nil, "Precision with which the price of an order limit can be expressed")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_fraction_indicator = ProtoField.new("Tick Increment Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrementfractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_hundred_pair = ProtoField.new("Tick Increment Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrementnegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_hundred_thousand_pair = ProtoField.new("Tick Increment Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrementnegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_million_pair = ProtoField.new("Tick Increment Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrementnegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_ten_pair = ProtoField.new("Tick Increment Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrementnegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_ten_thousand_pair = ProtoField.new("Tick Increment Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrementnegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_thousand_pair = ProtoField.new("Tick Increment Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrementnegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_whole_pair = ProtoField.new("Tick Increment Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrementnegativewholepair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_numeric_pair = ProtoField.new("Tick Increment Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrementnumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_tick_table_pair = ProtoField.new("Tick Increment Tick Table Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrementticktablepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_unknown_fraction_pair = ProtoField.new("Tick Increment Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tickincrementunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.time = ProtoField.new("Time", "box.boxoptions.solamulticast.hsvf.v1.8.time", ftypes.UINT24, nil, nil, nil, "Time at which the message is transmitted")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.timestamp = ProtoField.new("Timestamp", "box.boxoptions.solamulticast.hsvf.v1.8.timestamp", ftypes.UINT24, nil, nil, nil, "Time of transaction:HHMMSS")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price = ProtoField.new("Trade Price", "box.boxoptions.solamulticast.hsvf.v1.8.tradeprice", ftypes.UINT24, nil, nil, nil, "Price at which the transaction took place")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_fraction_indicator = ProtoField.new("Trade Price Fraction Indicator", "box.boxoptions.solamulticast.hsvf.v1.8.tradepricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_hundred_pair = ProtoField.new("Trade Price Negative Hundred Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tradepricenegativehundredpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_hundred_thousand_pair = ProtoField.new("Trade Price Negative Hundred Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tradepricenegativehundredthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_million_pair = ProtoField.new("Trade Price Negative Million Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tradepricenegativemillionpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_ten_pair = ProtoField.new("Trade Price Negative Ten Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tradepricenegativetenpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_ten_thousand_pair = ProtoField.new("Trade Price Negative Ten Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tradepricenegativetenthousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_thousand_pair = ProtoField.new("Trade Price Negative Thousand Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tradepricenegativethousandpair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_whole_pair = ProtoField.new("Trade Price Negative Whole Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tradepricenegativewholepair", ftypes.STRING)
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_numeric_pair = ProtoField.new("Trade Price Numeric Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tradepricenumericpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_sign = ProtoField.new("Trade Price Sign", "box.boxoptions.solamulticast.hsvf.v1.8.tradepricesign", ftypes.STRING, nil, nil, nil, "For Trade Price field (sign)")
-omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_unknown_fraction_pair = ProtoField.new("Trade Price Unknown Fraction Pair", "box.boxoptions.solamulticast.hsvf.v1.8.tradepriceunknownfractionpair", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trading_engine_timestamp = ProtoField.new("Trading Engine Timestamp", "box.boxoptions.solamulticast.hsvf.v1.8.tradingenginetimestamp", ftypes.UINT32, nil, nil, nil, "Time stamp generated by the SOLA Trading Engine (HHMMSSmmm)")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.type_of_clearing_account = ProtoField.new("Type Of Clearing Account", "box.boxoptions.solamulticast.hsvf.v1.8.typeofclearingaccount", ftypes.STRING, nil, nil, nil, "Indicates the account type for which an order was entered using the clearing house member's account typology.")
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.type_of_instrument = ProtoField.new("Type Of Instrument", "box.boxoptions.solamulticast.hsvf.v1.8.typeofinstrument", ftypes.STRING)
@@ -3236,37 +3047,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.number_of_levels.dissect = function(buffe
   return offset + length, value
 end
 
--- Numeric Tick Increment
-box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment = {}
-
--- Size: Numeric Tick Increment
-box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.size = 6
-
--- Display: Numeric Tick Increment
-box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.display = function(value)
-  return "Numeric Tick Increment: "..value
-end
-
--- Dissect: Numeric Tick Increment
-box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.numeric_tick_increment, range, value, "Numeric Tick Increment: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Numeric Tick Increment is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.numeric_tick_increment, range, value, display)
-
-  return offset + length, value
-end
-
 -- Open Interest
 box_boxoptions_solamulticast_hsvf_v1_8.open_interest = {}
 
@@ -3681,579 +3461,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.public_customer_bid_size.dissect = functi
   return offset + length, value
 end
 
--- Raw Ask Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price = {}
-
--- Size: Raw Ask Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.size = 6
-
--- Display: Raw Ask Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.display = function(value)
-  return "Raw Ask Price: "..value
-end
-
--- Dissect: Raw Ask Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_ask_price, range, value, "Raw Ask Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Ask Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_ask_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Ask Price Quote
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote = {}
-
--- Size: Raw Ask Price Quote
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.size = 6
-
--- Display: Raw Ask Price Quote
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.display = function(value)
-  return "Raw Ask Price Quote: "..value
-end
-
--- Dissect: Raw Ask Price Quote
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_ask_price_quote, range, value, "Raw Ask Price Quote: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Ask Price Quote is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_ask_price_quote, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Ask Price Quote Text
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote_text = {}
-
--- Size: Raw Ask Price Quote Text
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote_text.size = 6
-
--- Display: Raw Ask Price Quote Text
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote_text.display = function(value)
-  return "Raw Ask Price Quote Text: "..value
-end
-
--- Dissect: Raw Ask Price Quote Text
-box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote_text.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote_text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote_text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_ask_price_quote_text, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Bid Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price = {}
-
--- Size: Raw Bid Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.size = 6
-
--- Display: Raw Bid Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.display = function(value)
-  return "Raw Bid Price: "..value
-end
-
--- Dissect: Raw Bid Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_bid_price, range, value, "Raw Bid Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Bid Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_bid_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Bid Price Quote
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote = {}
-
--- Size: Raw Bid Price Quote
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.size = 6
-
--- Display: Raw Bid Price Quote
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.display = function(value)
-  return "Raw Bid Price Quote: "..value
-end
-
--- Dissect: Raw Bid Price Quote
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_bid_price_quote, range, value, "Raw Bid Price Quote: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Bid Price Quote is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_bid_price_quote, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Bid Price Quote Text
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote_text = {}
-
--- Size: Raw Bid Price Quote Text
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote_text.size = 6
-
--- Display: Raw Bid Price Quote Text
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote_text.display = function(value)
-  return "Raw Bid Price Quote Text: "..value
-end
-
--- Dissect: Raw Bid Price Quote Text
-box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote_text.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote_text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote_text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_bid_price_quote_text, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw High Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price = {}
-
--- Size: Raw High Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.size = 6
-
--- Display: Raw High Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.display = function(value)
-  return "Raw High Price: "..value
-end
-
--- Dissect: Raw High Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_high_price, range, value, "Raw High Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw High Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_high_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Initial Order Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price = {}
-
--- Size: Raw Initial Order Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.size = 6
-
--- Display: Raw Initial Order Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.display = function(value)
-  return "Raw Initial Order Price: "..value
-end
-
--- Dissect: Raw Initial Order Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_initial_order_price, range, value, "Raw Initial Order Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Initial Order Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_initial_order_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Last Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price = {}
-
--- Size: Raw Last Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.size = 6
-
--- Display: Raw Last Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.display = function(value)
-  return "Raw Last Price: "..value
-end
-
--- Dissect: Raw Last Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_last_price, range, value, "Raw Last Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Last Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_last_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Limit Entered For An Order
-box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order = {}
-
--- Size: Raw Limit Entered For An Order
-box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.size = 6
-
--- Display: Raw Limit Entered For An Order
-box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.display = function(value)
-  return "Raw Limit Entered For An Order: "..value
-end
-
--- Dissect: Raw Limit Entered For An Order
-box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_limit_entered_for_an_order, range, value, "Raw Limit Entered For An Order: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Limit Entered For An Order is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_limit_entered_for_an_order, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Low Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price = {}
-
--- Size: Raw Low Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.size = 6
-
--- Display: Raw Low Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.display = function(value)
-  return "Raw Low Price: "..value
-end
-
--- Dissect: Raw Low Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_low_price, range, value, "Raw Low Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Low Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_low_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Max Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price = {}
-
--- Size: Raw Max Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.size = 6
-
--- Display: Raw Max Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.display = function(value)
-  return "Raw Max Threshold Price: "..value
-end
-
--- Dissect: Raw Max Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_max_threshold_price, range, value, "Raw Max Threshold Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Max Threshold Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_max_threshold_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Maximum Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price = {}
-
--- Size: Raw Maximum Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.size = 6
-
--- Display: Raw Maximum Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.display = function(value)
-  return "Raw Maximum Threshold Price: "..value
-end
-
--- Dissect: Raw Maximum Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_maximum_threshold_price, range, value, "Raw Maximum Threshold Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Maximum Threshold Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_maximum_threshold_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Min Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price = {}
-
--- Size: Raw Min Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.size = 6
-
--- Display: Raw Min Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.display = function(value)
-  return "Raw Min Threshold Price: "..value
-end
-
--- Dissect: Raw Min Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_min_threshold_price, range, value, "Raw Min Threshold Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Min Threshold Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_min_threshold_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Minimum Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price = {}
-
--- Size: Raw Minimum Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.size = 6
-
--- Display: Raw Minimum Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.display = function(value)
-  return "Raw Minimum Threshold Price: "..value
-end
-
--- Dissect: Raw Minimum Threshold Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_minimum_threshold_price, range, value, "Raw Minimum Threshold Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Minimum Threshold Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_minimum_threshold_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Net Change
-box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change = {}
-
--- Size: Raw Net Change
-box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.size = 6
-
--- Display: Raw Net Change
-box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.display = function(value)
-  return "Raw Net Change: "..value
-end
-
--- Dissect: Raw Net Change
-box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_net_change, range, value, "Raw Net Change: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Net Change is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_net_change, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Open Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price = {}
-
--- Size: Raw Open Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.size = 6
-
--- Display: Raw Open Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.display = function(value)
-  return "Raw Open Price: "..value
-end
-
--- Dissect: Raw Open Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_open_price, range, value, "Raw Open Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Open Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_open_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Reference Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price = {}
-
--- Size: Raw Reference Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.size = 6
-
--- Display: Raw Reference Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.display = function(value)
-  return "Raw Reference Price: "..value
-end
-
--- Dissect: Raw Reference Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_reference_price, range, value, "Raw Reference Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Reference Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_reference_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Strike Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price = {}
-
--- Size: Raw Strike Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.size = 7
-
--- Display: Raw Strike Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.display = function(value)
-  return "Raw Strike Price: "..value
-end
-
--- Dissect: Raw Strike Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_strike_price, range, value, "Raw Strike Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Strike Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_strike_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Raw Tick Increment
 box_boxoptions_solamulticast_hsvf_v1_8.raw_tick_increment = {}
 
@@ -4273,37 +3480,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.raw_tick_increment.dissect = function(buf
   local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_tick_increment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_tick_increment, range, value, display)
-
-  return offset + length, value
-end
-
--- Raw Trade Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price = {}
-
--- Size: Raw Trade Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.size = 6
-
--- Display: Raw Trade Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.display = function(value)
-  return "Raw Trade Price: "..value
-end
-
--- Dissect: Raw Trade Price
-box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_trade_price, range, value, "Raw Trade Price: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solamulticast_hsvf_v1_8.experts.not_a_number, "Raw Trade Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.raw_trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -5267,6 +4443,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.dissect = function(buffe
   elseif ask_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
   else
     value = mantissa
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display_uncoded(value)
@@ -5334,6 +4531,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.dissect = function(buffe
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
   elseif ask_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.display(value)
   else
     value = mantissa
@@ -5403,6 +4621,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.dissect = function(buffe
   elseif bid_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
   else
     value = mantissa
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display_uncoded(value)
@@ -5470,6 +4709,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.dissect = function(buffe
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
   elseif bid_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.display(value)
   else
     value = mantissa
@@ -5539,6 +4799,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.dissect = function(buff
   elseif high_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.display(value)
   else
     value = mantissa
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.display_uncoded(value)
@@ -5606,6 +4887,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.dissect = func
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.display(value)
   elseif initial_order_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.display(value)
   else
     value = mantissa
@@ -5675,6 +4977,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.dissect = function(buff
   elseif last_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.display(value)
   else
     value = mantissa
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.display_uncoded(value)
@@ -5742,6 +5065,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.dissect
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.display(value)
   elseif limit_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.display(value)
   else
     value = mantissa
@@ -5811,6 +5155,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.dissect = function(buffe
   elseif low_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.display(value)
   else
     value = mantissa
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.display_uncoded(value)
@@ -5878,6 +5243,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.dissect = func
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.display(value)
   elseif max_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.display(value)
   else
     value = mantissa
@@ -5947,6 +5333,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.dissect = 
   elseif maximum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.display(value)
   else
     value = mantissa
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.display_uncoded(value)
@@ -6014,6 +5421,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.dissect = func
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.display(value)
   elseif min_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.display(value)
   else
     value = mantissa
@@ -6083,6 +5511,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.dissect = 
   elseif minimum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.display(value)
   else
     value = mantissa
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.display_uncoded(value)
@@ -6150,6 +5599,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.dissect = function(buff
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.display(value)
   else
     value = mantissa
@@ -6219,6 +5689,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.dissect = function(buff
   elseif open_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.display(value)
   else
     value = mantissa
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.display_uncoded(value)
@@ -6286,6 +5777,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.dissect = function
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.display(value)
   elseif reference_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.display(value)
   else
     value = mantissa
@@ -6355,6 +5867,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.dissect = function(bu
   elseif strike_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.display(value)
   else
     value = mantissa
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.display_uncoded(value)
@@ -6423,6 +5956,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_tick_increment.dissect = function(
   elseif tick_increment_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_tick_increment.display(value)
   else
     value = mantissa
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_tick_increment.display_uncoded(value)
@@ -6490,6 +6044,27 @@ box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.dissect = function(buf
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.display(value)
   elseif trade_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "A" then
+    value = -mantissa
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "B" then
+    value = -mantissa / (10 ^ 1)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "C" then
+    value = -mantissa / (10 ^ 2)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "D" then
+    value = -mantissa / (10 ^ 3)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "E" then
+    value = -mantissa / (10 ^ 4)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "F" then
+    value = -mantissa / (10 ^ 5)
+    display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "G" then
+    value = -mantissa / (10 ^ 6)
     display = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.display(value)
   else
     value = mantissa
@@ -6576,441 +6151,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_initial_and_improvement_ord
   end
 end
 
--- Strike Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_unknown_fraction_pair = {}
-
--- Size: Strike Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.size
-
--- Display: Strike Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Strike Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Strike Price: N
-  index, raw_strike_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: X
-  index, strike_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Strike Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.strike_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Strike Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair = {}
-
--- Size: Strike Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.strike_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.size
-
--- Display: Strike Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Strike Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Strike Price: N
-  index, strike_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: X
-  index, strike_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Strike Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Strike Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_million_pair = {}
-
--- Size: Strike Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.size
-
--- Display: Strike Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Strike Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Strike Price: N
-  index, raw_strike_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: X
-  index, strike_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Strike Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Strike Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_thousand_pair = {}
-
--- Size: Strike Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.size
-
--- Display: Strike Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Strike Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Strike Price: N
-  index, raw_strike_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: X
-  index, strike_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Strike Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Strike Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_thousand_pair = {}
-
--- Size: Strike Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.size
-
--- Display: Strike Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Strike Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Strike Price: N
-  index, raw_strike_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: X
-  index, strike_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Strike Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Strike Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_thousand_pair = {}
-
--- Size: Strike Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.size
-
--- Display: Strike Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Strike Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Strike Price: N
-  index, raw_strike_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: X
-  index, strike_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Strike Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Strike Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_pair = {}
-
--- Size: Strike Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.size
-
--- Display: Strike Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Strike Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Strike Price: N
-  index, raw_strike_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: X
-  index, strike_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Strike Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Strike Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_pair = {}
-
--- Size: Strike Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.size
-
--- Display: Strike Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Strike Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Strike Price: N
-  index, raw_strike_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: X
-  index, strike_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Strike Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Strike Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_whole_pair = {}
-
--- Size: Strike Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.size
-
--- Display: Strike Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Strike Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Strike Price: N
-  index, raw_strike_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: X
-  index, strike_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Strike Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strike_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Strike Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair = {}
-
--- Size: Strike Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair.size = 8
-
--- Dispatch: Strike Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect,
-}
-
--- Dissect: Strike Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local strike_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair.dispatch[strike_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Strike Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.strike_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
 -- Instrument Description
 box_boxoptions_solamulticast_hsvf_v1_8.instrument_description = {}
 
@@ -7019,7 +6159,8 @@ box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.size =
   box_boxoptions_solamulticast_hsvf_v1_8.root_symbol.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.expiry_month_code.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.filler_1.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.strike_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.expiry_year.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.expiry_day.size
 
@@ -7045,8 +6186,11 @@ box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.fields = function(
     index = index + box_boxoptions_solamulticast_hsvf_v1_8.filler_1.size
   end
 
-  -- Strike Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Strike Price: N
+  index, strike_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Strike Price Fraction Indicator: X
+  index, strike_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Expiry Year: N
   index, expiry_year = box_boxoptions_solamulticast_hsvf_v1_8.expiry_year.dissect(buffer, index, packet, parent)
@@ -7100,7 +6244,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.initial_and_improvement_order_message.fie
   -- Exchange Id: A
   index, exchange_id = box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Description: Struct of 6 fields
+  -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Deletion Type: N
@@ -7139,441 +6283,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.initial_and_improvement_order_message.dis
   end
 end
 
--- Limit Entered For An Order Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_unknown_fraction_pair = {}
-
--- Size: Limit Entered For An Order Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.size
-
--- Display: Limit Entered For An Order Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Limit Entered For An Order Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Limit Entered For An Order: N
-  index, raw_limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
-
-  -- Limit Fraction Indicator: X
-  index, limit_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Limit Entered For An Order Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Limit Entered For An Order Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair = {}
-
--- Size: Limit Entered For An Order Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.size
-
--- Display: Limit Entered For An Order Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Limit Entered For An Order Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Limit Entered For An Order: N
-  index, limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
-
-  -- Limit Fraction Indicator: X
-  index, limit_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Limit Entered For An Order Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Limit Entered For An Order Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_million_pair = {}
-
--- Size: Limit Entered For An Order Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.size
-
--- Display: Limit Entered For An Order Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Limit Entered For An Order Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Limit Entered For An Order: N
-  index, raw_limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
-
-  -- Limit Fraction Indicator: X
-  index, limit_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Limit Entered For An Order Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Limit Entered For An Order Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_thousand_pair = {}
-
--- Size: Limit Entered For An Order Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.size
-
--- Display: Limit Entered For An Order Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Limit Entered For An Order Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Limit Entered For An Order: N
-  index, raw_limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
-
-  -- Limit Fraction Indicator: X
-  index, limit_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Limit Entered For An Order Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Limit Entered For An Order Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_thousand_pair = {}
-
--- Size: Limit Entered For An Order Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.size
-
--- Display: Limit Entered For An Order Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Limit Entered For An Order Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Limit Entered For An Order: N
-  index, raw_limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
-
-  -- Limit Fraction Indicator: X
-  index, limit_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Limit Entered For An Order Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Limit Entered For An Order Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_thousand_pair = {}
-
--- Size: Limit Entered For An Order Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.size
-
--- Display: Limit Entered For An Order Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Limit Entered For An Order Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Limit Entered For An Order: N
-  index, raw_limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
-
-  -- Limit Fraction Indicator: X
-  index, limit_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Limit Entered For An Order Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Limit Entered For An Order Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_pair = {}
-
--- Size: Limit Entered For An Order Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.size
-
--- Display: Limit Entered For An Order Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Limit Entered For An Order Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Limit Entered For An Order: N
-  index, raw_limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
-
-  -- Limit Fraction Indicator: X
-  index, limit_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Limit Entered For An Order Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Limit Entered For An Order Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_pair = {}
-
--- Size: Limit Entered For An Order Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.size
-
--- Display: Limit Entered For An Order Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Limit Entered For An Order Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Limit Entered For An Order: N
-  index, raw_limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
-
-  -- Limit Fraction Indicator: X
-  index, limit_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Limit Entered For An Order Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Limit Entered For An Order Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_whole_pair = {}
-
--- Size: Limit Entered For An Order Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.size
-
--- Display: Limit Entered For An Order Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Limit Entered For An Order Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Limit Entered For An Order: N
-  index, raw_limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v1_8.raw_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
-
-  -- Limit Fraction Indicator: X
-  index, limit_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Limit Entered For An Order Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.limit_entered_for_an_order_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Limit Entered For An Order Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair = {}
-
--- Size: Limit Entered For An Order Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.size = 7
-
--- Dispatch: Limit Entered For An Order Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect,
-}
-
--- Dissect: Limit Entered For An Order Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local limit_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.dispatch[limit_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Limit Entered For An Order Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
 -- Complex Order Market Sheet Initial And Improvement Order Message
 box_boxoptions_solamulticast_hsvf_v1_8.complex_order_market_sheet_initial_and_improvement_order_message = {}
 
@@ -7584,7 +6293,8 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_market_sheet_initial_and_im
   box_boxoptions_solamulticast_hsvf_v1_8.order_side.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.type_of_order.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.order_quantity.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.order_sequence_number.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.improvement_phase_sequential_number.size + 
@@ -7619,8 +6329,11 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_market_sheet_initial_and_im
   -- Limit Entered For An Order Sign: X
   index, limit_entered_for_an_order_sign = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_sign.dissect(buffer, index, packet, parent)
 
-  -- Limit Entered For An Order Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Limit Entered For An Order: N
+  index, limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
+
+  -- Limit Fraction Indicator: X
+  index, limit_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Order Quantity: X
   index, order_quantity = box_boxoptions_solamulticast_hsvf_v1_8.order_quantity.dissect(buffer, index, packet, parent)
@@ -7683,7 +6396,8 @@ box_boxoptions_solamulticast_hsvf_v1_8.market_sheet_initial_and_improvement_orde
   box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.order_side.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.type_of_order.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.order_quantity.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.order_sequence_number.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.improvement_phase_sequential_number.size + 
@@ -7706,7 +6420,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.market_sheet_initial_and_improvement_orde
   -- Exchange Id: A
   index, exchange_id = box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Description: Struct of 6 fields
+  -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Order Side: X
@@ -7715,8 +6429,11 @@ box_boxoptions_solamulticast_hsvf_v1_8.market_sheet_initial_and_improvement_orde
   -- Type Of Order: X
   index, type_of_order = box_boxoptions_solamulticast_hsvf_v1_8.type_of_order.dissect(buffer, index, packet, parent)
 
-  -- Limit Entered For An Order Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Limit Entered For An Order: N
+  index, limit_entered_for_an_order = box_boxoptions_solamulticast_hsvf_v1_8.scaled_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
+
+  -- Limit Fraction Indicator: X
+  index, limit_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Order Quantity: X
   index, order_quantity = box_boxoptions_solamulticast_hsvf_v1_8.order_quantity.dissect(buffer, index, packet, parent)
@@ -7770,441 +6487,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.market_sheet_initial_and_improvement_orde
   end
 end
 
--- Initial Order Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_unknown_fraction_pair = {}
-
--- Size: Initial Order Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.size
-
--- Display: Initial Order Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Initial Order Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Initial Order Price: N
-  index, raw_initial_order_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.dissect(buffer, index, packet, parent)
-
-  -- Initial Order Price Fraction Indicator: X
-  index, initial_order_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Initial Order Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Initial Order Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair = {}
-
--- Size: Initial Order Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.size
-
--- Display: Initial Order Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Initial Order Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Initial Order Price: N
-  index, initial_order_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.dissect(buffer, index, packet, parent)
-
-  -- Initial Order Price Fraction Indicator: X
-  index, initial_order_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Initial Order Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Initial Order Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_million_pair = {}
-
--- Size: Initial Order Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.size
-
--- Display: Initial Order Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Initial Order Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Initial Order Price: N
-  index, raw_initial_order_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.dissect(buffer, index, packet, parent)
-
-  -- Initial Order Price Fraction Indicator: X
-  index, initial_order_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Initial Order Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Initial Order Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_thousand_pair = {}
-
--- Size: Initial Order Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.size
-
--- Display: Initial Order Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Initial Order Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Initial Order Price: N
-  index, raw_initial_order_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.dissect(buffer, index, packet, parent)
-
-  -- Initial Order Price Fraction Indicator: X
-  index, initial_order_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Initial Order Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Initial Order Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_thousand_pair = {}
-
--- Size: Initial Order Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.size
-
--- Display: Initial Order Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Initial Order Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Initial Order Price: N
-  index, raw_initial_order_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.dissect(buffer, index, packet, parent)
-
-  -- Initial Order Price Fraction Indicator: X
-  index, initial_order_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Initial Order Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Initial Order Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_thousand_pair = {}
-
--- Size: Initial Order Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.size
-
--- Display: Initial Order Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Initial Order Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Initial Order Price: N
-  index, raw_initial_order_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.dissect(buffer, index, packet, parent)
-
-  -- Initial Order Price Fraction Indicator: X
-  index, initial_order_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Initial Order Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Initial Order Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_pair = {}
-
--- Size: Initial Order Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.size
-
--- Display: Initial Order Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Initial Order Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Initial Order Price: N
-  index, raw_initial_order_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.dissect(buffer, index, packet, parent)
-
-  -- Initial Order Price Fraction Indicator: X
-  index, initial_order_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Initial Order Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Initial Order Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_pair = {}
-
--- Size: Initial Order Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.size
-
--- Display: Initial Order Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Initial Order Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Initial Order Price: N
-  index, raw_initial_order_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.dissect(buffer, index, packet, parent)
-
-  -- Initial Order Price Fraction Indicator: X
-  index, initial_order_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Initial Order Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Initial Order Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_whole_pair = {}
-
--- Size: Initial Order Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.size
-
--- Display: Initial Order Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Initial Order Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Initial Order Price: N
-  index, raw_initial_order_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_initial_order_price.dissect(buffer, index, packet, parent)
-
-  -- Initial Order Price Fraction Indicator: X
-  index, initial_order_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Initial Order Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.initial_order_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Initial Order Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair = {}
-
--- Size: Initial Order Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.size = 7
-
--- Dispatch: Initial Order Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect,
-}
-
--- Dissect: Initial Order Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local initial_order_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.dispatch[initial_order_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Initial Order Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
 -- Complex Order Improvement Process Beginning Message Message
 box_boxoptions_solamulticast_hsvf_v1_8.complex_order_improvement_process_beginning_message_message = {}
 
@@ -8214,7 +6496,8 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_improvement_process_beginni
   box_boxoptions_solamulticast_hsvf_v1_8.complex_order_instrument_symbol.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.improvement_phase_sequential_number.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.initial_order_quantity.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.initial_order_side.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.improvement_phase_expiry_time.size + 
@@ -8244,8 +6527,11 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_improvement_process_beginni
   -- Initial Order Price Sign: X
   index, initial_order_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Initial Order Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Initial Order Price: N
+  index, initial_order_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.dissect(buffer, index, packet, parent)
+
+  -- Initial Order Price Fraction Indicator: X
+  index, initial_order_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Initial Order Quantity: X
   index, initial_order_quantity = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_quantity.dissect(buffer, index, packet, parent)
@@ -8297,7 +6583,8 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_improvement_process_beginning_mess
   box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.improvement_phase_sequential_number.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.initial_order_quantity.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.initial_order_side.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.improvement_phase_expiry_time.size + 
@@ -8319,14 +6606,17 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_improvement_process_beginning_mess
   -- Exchange Id: A
   index, exchange_id = box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Description: Struct of 6 fields
+  -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Improvement Phase Sequential Number: N
   index, improvement_phase_sequential_number = box_boxoptions_solamulticast_hsvf_v1_8.improvement_phase_sequential_number.dissect(buffer, index, packet, parent)
 
-  -- Initial Order Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Initial Order Price: N
+  index, initial_order_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_initial_order_price.dissect(buffer, index, packet, parent)
+
+  -- Initial Order Price Fraction Indicator: X
+  index, initial_order_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Initial Order Quantity: X
   index, initial_order_quantity = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_quantity.dissect(buffer, index, packet, parent)
@@ -8505,3051 +6795,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.beginning_of_options_summary_message.diss
   end
 end
 
--- Net Change Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_unknown_fraction_pair = {}
-
--- Size: Net Change Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size
-
--- Display: Net Change Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Net Change Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Net Change: N
-  index, raw_net_change = box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.dissect(buffer, index, packet, parent)
-
-  -- Net Change Fraction Indicator: X
-  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Net Change Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.net_change_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.net_change_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Net Change Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair = {}
-
--- Size: Net Change Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size
-
--- Display: Net Change Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Net Change Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Net Change: N
-  index, net_change = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.dissect(buffer, index, packet, parent)
-
-  -- Net Change Fraction Indicator: X
-  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Net Change Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Net Change Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_million_pair = {}
-
--- Size: Net Change Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size
-
--- Display: Net Change Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Net Change Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Net Change: N
-  index, raw_net_change = box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.dissect(buffer, index, packet, parent)
-
-  -- Net Change Fraction Indicator: X
-  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Net Change Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Net Change Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_thousand_pair = {}
-
--- Size: Net Change Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size
-
--- Display: Net Change Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Net Change Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Net Change: N
-  index, raw_net_change = box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.dissect(buffer, index, packet, parent)
-
-  -- Net Change Fraction Indicator: X
-  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Net Change Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Net Change Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_thousand_pair = {}
-
--- Size: Net Change Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size
-
--- Display: Net Change Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Net Change Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Net Change: N
-  index, raw_net_change = box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.dissect(buffer, index, packet, parent)
-
-  -- Net Change Fraction Indicator: X
-  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Net Change Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Net Change Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_thousand_pair = {}
-
--- Size: Net Change Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size
-
--- Display: Net Change Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Net Change Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Net Change: N
-  index, raw_net_change = box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.dissect(buffer, index, packet, parent)
-
-  -- Net Change Fraction Indicator: X
-  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Net Change Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Net Change Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_pair = {}
-
--- Size: Net Change Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size
-
--- Display: Net Change Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Net Change Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Net Change: N
-  index, raw_net_change = box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.dissect(buffer, index, packet, parent)
-
-  -- Net Change Fraction Indicator: X
-  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Net Change Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Net Change Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_pair = {}
-
--- Size: Net Change Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size
-
--- Display: Net Change Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Net Change Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Net Change: N
-  index, raw_net_change = box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.dissect(buffer, index, packet, parent)
-
-  -- Net Change Fraction Indicator: X
-  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Net Change Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Net Change Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_whole_pair = {}
-
--- Size: Net Change Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size
-
--- Display: Net Change Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Net Change Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Net Change: N
-  index, raw_net_change = box_boxoptions_solamulticast_hsvf_v1_8.raw_net_change.dissect(buffer, index, packet, parent)
-
-  -- Net Change Fraction Indicator: X
-  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Net Change Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.net_change_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Net Change Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair = {}
-
--- Size: Net Change Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.size = 7
-
--- Dispatch: Net Change Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect,
-}
-
--- Dissect: Net Change Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local net_change_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.dispatch[net_change_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Net Change Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.net_change_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
--- Low Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_unknown_fraction_pair = {}
-
--- Size: Low Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.size
-
--- Display: Low Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Low Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Low Price: N
-  index, raw_low_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price Fraction Indicator: X
-  index, low_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Low Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.low_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.low_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.low_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Low Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair = {}
-
--- Size: Low Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.size
-
--- Display: Low Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Low Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Low Price: N
-  index, low_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price Fraction Indicator: X
-  index, low_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Low Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Low Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_million_pair = {}
-
--- Size: Low Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.size
-
--- Display: Low Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Low Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Low Price: N
-  index, raw_low_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price Fraction Indicator: X
-  index, low_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Low Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Low Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_thousand_pair = {}
-
--- Size: Low Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.size
-
--- Display: Low Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Low Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Low Price: N
-  index, raw_low_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price Fraction Indicator: X
-  index, low_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Low Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Low Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_thousand_pair = {}
-
--- Size: Low Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.size
-
--- Display: Low Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Low Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Low Price: N
-  index, raw_low_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price Fraction Indicator: X
-  index, low_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Low Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Low Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_thousand_pair = {}
-
--- Size: Low Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.size
-
--- Display: Low Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Low Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Low Price: N
-  index, raw_low_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price Fraction Indicator: X
-  index, low_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Low Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Low Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_pair = {}
-
--- Size: Low Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.size
-
--- Display: Low Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Low Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Low Price: N
-  index, raw_low_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price Fraction Indicator: X
-  index, low_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Low Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Low Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_pair = {}
-
--- Size: Low Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.size
-
--- Display: Low Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Low Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Low Price: N
-  index, raw_low_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price Fraction Indicator: X
-  index, low_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Low Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Low Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_whole_pair = {}
-
--- Size: Low Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.size
-
--- Display: Low Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Low Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Low Price: N
-  index, raw_low_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_low_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price Fraction Indicator: X
-  index, low_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Low Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.low_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Low Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair = {}
-
--- Size: Low Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.size = 7
-
--- Dispatch: Low Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect,
-}
-
--- Dissect: Low Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local low_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.dispatch[low_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Low Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.low_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
--- High Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_unknown_fraction_pair = {}
-
--- Size: High Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.size
-
--- Display: High Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: High Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw High Price: N
-  index, raw_high_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.dissect(buffer, index, packet, parent)
-
-  -- High Price Fraction Indicator: X
-  index, high_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: High Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.high_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.high_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.high_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- High Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair = {}
-
--- Size: High Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.size
-
--- Display: High Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: High Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- High Price: N
-  index, high_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.dissect(buffer, index, packet, parent)
-
-  -- High Price Fraction Indicator: X
-  index, high_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: High Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- High Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_million_pair = {}
-
--- Size: High Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.size
-
--- Display: High Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: High Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw High Price: N
-  index, raw_high_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.dissect(buffer, index, packet, parent)
-
-  -- High Price Fraction Indicator: X
-  index, high_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: High Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- High Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_thousand_pair = {}
-
--- Size: High Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.size
-
--- Display: High Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: High Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw High Price: N
-  index, raw_high_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.dissect(buffer, index, packet, parent)
-
-  -- High Price Fraction Indicator: X
-  index, high_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: High Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- High Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_thousand_pair = {}
-
--- Size: High Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.size
-
--- Display: High Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: High Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw High Price: N
-  index, raw_high_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.dissect(buffer, index, packet, parent)
-
-  -- High Price Fraction Indicator: X
-  index, high_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: High Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- High Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_thousand_pair = {}
-
--- Size: High Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.size
-
--- Display: High Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: High Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw High Price: N
-  index, raw_high_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.dissect(buffer, index, packet, parent)
-
-  -- High Price Fraction Indicator: X
-  index, high_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: High Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- High Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_pair = {}
-
--- Size: High Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.size
-
--- Display: High Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: High Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw High Price: N
-  index, raw_high_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.dissect(buffer, index, packet, parent)
-
-  -- High Price Fraction Indicator: X
-  index, high_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: High Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- High Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_pair = {}
-
--- Size: High Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.size
-
--- Display: High Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: High Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw High Price: N
-  index, raw_high_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.dissect(buffer, index, packet, parent)
-
-  -- High Price Fraction Indicator: X
-  index, high_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: High Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- High Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_whole_pair = {}
-
--- Size: High Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.size
-
--- Display: High Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: High Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw High Price: N
-  index, raw_high_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_high_price.dissect(buffer, index, packet, parent)
-
-  -- High Price Fraction Indicator: X
-  index, high_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: High Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.high_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- High Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair = {}
-
--- Size: High Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.size = 7
-
--- Dispatch: High Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect,
-}
-
--- Dissect: High Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local high_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.dispatch[high_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect High Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.high_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
--- Open Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_unknown_fraction_pair = {}
-
--- Size: Open Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.size
-
--- Display: Open Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Open Price: N
-  index, raw_open_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.dissect(buffer, index, packet, parent)
-
-  -- Open Price Fraction Indicator: X
-  index, open_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.open_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.open_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.open_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair = {}
-
--- Size: Open Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.size
-
--- Display: Open Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Open Price: N
-  index, open_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.dissect(buffer, index, packet, parent)
-
-  -- Open Price Fraction Indicator: X
-  index, open_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_million_pair = {}
-
--- Size: Open Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.size
-
--- Display: Open Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Open Price: N
-  index, raw_open_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.dissect(buffer, index, packet, parent)
-
-  -- Open Price Fraction Indicator: X
-  index, open_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_thousand_pair = {}
-
--- Size: Open Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.size
-
--- Display: Open Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Open Price: N
-  index, raw_open_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.dissect(buffer, index, packet, parent)
-
-  -- Open Price Fraction Indicator: X
-  index, open_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_thousand_pair = {}
-
--- Size: Open Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.size
-
--- Display: Open Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Open Price: N
-  index, raw_open_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.dissect(buffer, index, packet, parent)
-
-  -- Open Price Fraction Indicator: X
-  index, open_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_thousand_pair = {}
-
--- Size: Open Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.size
-
--- Display: Open Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Open Price: N
-  index, raw_open_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.dissect(buffer, index, packet, parent)
-
-  -- Open Price Fraction Indicator: X
-  index, open_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_pair = {}
-
--- Size: Open Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.size
-
--- Display: Open Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Open Price: N
-  index, raw_open_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.dissect(buffer, index, packet, parent)
-
-  -- Open Price Fraction Indicator: X
-  index, open_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_pair = {}
-
--- Size: Open Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.size
-
--- Display: Open Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Open Price: N
-  index, raw_open_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.dissect(buffer, index, packet, parent)
-
-  -- Open Price Fraction Indicator: X
-  index, open_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_whole_pair = {}
-
--- Size: Open Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.size
-
--- Display: Open Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Open Price: N
-  index, raw_open_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_open_price.dissect(buffer, index, packet, parent)
-
-  -- Open Price Fraction Indicator: X
-  index, open_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.open_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair = {}
-
--- Size: Open Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.size = 7
-
--- Dispatch: Open Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect,
-}
-
--- Dissect: Open Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local open_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.dispatch[open_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Open Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.open_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
--- Last Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_unknown_fraction_pair = {}
-
--- Size: Last Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.size
-
--- Display: Last Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Last Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Last Price: N
-  index, raw_last_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.dissect(buffer, index, packet, parent)
-
-  -- Last Price Fraction Indicator: X
-  index, last_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Last Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.last_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.last_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.last_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Last Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair = {}
-
--- Size: Last Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.size
-
--- Display: Last Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Last Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Last Price: N
-  index, last_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.dissect(buffer, index, packet, parent)
-
-  -- Last Price Fraction Indicator: X
-  index, last_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Last Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Last Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_million_pair = {}
-
--- Size: Last Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.size
-
--- Display: Last Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Last Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Last Price: N
-  index, raw_last_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.dissect(buffer, index, packet, parent)
-
-  -- Last Price Fraction Indicator: X
-  index, last_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Last Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Last Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_thousand_pair = {}
-
--- Size: Last Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.size
-
--- Display: Last Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Last Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Last Price: N
-  index, raw_last_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.dissect(buffer, index, packet, parent)
-
-  -- Last Price Fraction Indicator: X
-  index, last_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Last Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Last Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_thousand_pair = {}
-
--- Size: Last Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.size
-
--- Display: Last Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Last Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Last Price: N
-  index, raw_last_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.dissect(buffer, index, packet, parent)
-
-  -- Last Price Fraction Indicator: X
-  index, last_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Last Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Last Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_thousand_pair = {}
-
--- Size: Last Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.size
-
--- Display: Last Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Last Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Last Price: N
-  index, raw_last_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.dissect(buffer, index, packet, parent)
-
-  -- Last Price Fraction Indicator: X
-  index, last_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Last Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Last Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_pair = {}
-
--- Size: Last Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.size
-
--- Display: Last Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Last Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Last Price: N
-  index, raw_last_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.dissect(buffer, index, packet, parent)
-
-  -- Last Price Fraction Indicator: X
-  index, last_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Last Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Last Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_pair = {}
-
--- Size: Last Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.size
-
--- Display: Last Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Last Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Last Price: N
-  index, raw_last_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.dissect(buffer, index, packet, parent)
-
-  -- Last Price Fraction Indicator: X
-  index, last_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Last Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Last Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_whole_pair = {}
-
--- Size: Last Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.size
-
--- Display: Last Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Last Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Last Price: N
-  index, raw_last_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_last_price.dissect(buffer, index, packet, parent)
-
-  -- Last Price Fraction Indicator: X
-  index, last_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Last Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.last_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Last Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair = {}
-
--- Size: Last Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.size = 7
-
--- Dispatch: Last Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect,
-}
-
--- Dissect: Last Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local last_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.dispatch[last_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Last Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.last_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
--- Ask Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_unknown_fraction_pair = {}
-
--- Size: Ask Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price: N
-  index, raw_ask_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair = {}
-
--- Size: Ask Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Ask Price: N
-  index, ask_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_million_pair = {}
-
--- Size: Ask Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price: N
-  index, raw_ask_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_thousand_pair = {}
-
--- Size: Ask Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price: N
-  index, raw_ask_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_thousand_pair = {}
-
--- Size: Ask Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price: N
-  index, raw_ask_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_thousand_pair = {}
-
--- Size: Ask Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price: N
-  index, raw_ask_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_pair = {}
-
--- Size: Ask Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price: N
-  index, raw_ask_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_pair = {}
-
--- Size: Ask Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price: N
-  index, raw_ask_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_whole_pair = {}
-
--- Size: Ask Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price: N
-  index, raw_ask_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair = {}
-
--- Size: Ask Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.size = 7
-
--- Dispatch: Ask Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect,
-}
-
--- Dissect: Ask Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local ask_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.dispatch[ask_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Ask Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
--- Bid Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_unknown_fraction_pair = {}
-
--- Size: Bid Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price: N
-  index, raw_bid_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair = {}
-
--- Size: Bid Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Bid Price: N
-  index, bid_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_million_pair = {}
-
--- Size: Bid Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price: N
-  index, raw_bid_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_thousand_pair = {}
-
--- Size: Bid Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price: N
-  index, raw_bid_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_thousand_pair = {}
-
--- Size: Bid Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price: N
-  index, raw_bid_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_thousand_pair = {}
-
--- Size: Bid Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price: N
-  index, raw_bid_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_pair = {}
-
--- Size: Bid Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price: N
-  index, raw_bid_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_pair = {}
-
--- Size: Bid Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price: N
-  index, raw_bid_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_whole_pair = {}
-
--- Size: Bid Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price: N
-  index, raw_bid_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair = {}
-
--- Size: Bid Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.size = 7
-
--- Dispatch: Bid Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect,
-}
-
--- Dissect: Bid Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local bid_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.dispatch[bid_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Bid Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
 -- Complex Order Summary Message
 box_boxoptions_solamulticast_hsvf_v1_8.complex_order_summary_message = {}
 
@@ -11558,21 +6803,28 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_summary_message.size =
   box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.complex_order_instrument_symbol.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.bid_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.bid_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.bid_size.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.ask_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.ask_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.ask_size.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.last_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.last_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.open_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.open_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.high_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.high_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.low_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.low_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.net_change_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.net_change.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.volume.size
 
 -- Display: Complex Order Summary Message
@@ -11593,8 +6845,11 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_summary_message.fields = fu
   -- Bid Price Sign: X
   index, bid_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Bid Price: N
+  index, bid_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = box_boxoptions_solamulticast_hsvf_v1_8.bid_size.dissect(buffer, index, packet, parent)
@@ -11602,8 +6857,11 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_summary_message.fields = fu
   -- Ask Price Sign: X
   index, ask_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Ask Price: N
+  index, ask_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = box_boxoptions_solamulticast_hsvf_v1_8.ask_size.dissect(buffer, index, packet, parent)
@@ -11611,32 +6869,47 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_summary_message.fields = fu
   -- Last Price Sign: X
   index, last_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.last_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Last Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Last Price: N
+  index, last_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.dissect(buffer, index, packet, parent)
+
+  -- Last Price Fraction Indicator: X
+  index, last_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Price Sign: X
   index, open_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.open_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Open Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Open Price: N
+  index, open_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.dissect(buffer, index, packet, parent)
+
+  -- Open Price Fraction Indicator: X
+  index, open_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- High Price Sign: X
   index, high_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.high_price_sign.dissect(buffer, index, packet, parent)
 
-  -- High Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- High Price: N
+  index, high_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.dissect(buffer, index, packet, parent)
+
+  -- High Price Fraction Indicator: X
+  index, high_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Low Price Sign: X
   index, low_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.low_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Low Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Low Price: N
+  index, low_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.dissect(buffer, index, packet, parent)
+
+  -- Low Price Fraction Indicator: X
+  index, low_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Net Change Sign: X
   index, net_change_sign = box_boxoptions_solamulticast_hsvf_v1_8.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Net Change: N
+  index, net_change = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.dissect(buffer, index, packet, parent)
+
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Volume: N
   index, volume = box_boxoptions_solamulticast_hsvf_v1_8.volume.dissect(buffer, index, packet, parent)
@@ -11660,441 +6933,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_summary_message.dissect = f
     -- Skip element, add fields directly
     return box_boxoptions_solamulticast_hsvf_v1_8.complex_order_summary_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reference Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_unknown_fraction_pair = {}
-
--- Size: Reference Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.size
-
--- Display: Reference Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reference Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Reference Price: N
-  index, raw_reference_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Reference Price Fraction Indicator: X
-  index, reference_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reference Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.reference_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reference Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair = {}
-
--- Size: Reference Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.reference_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.size
-
--- Display: Reference Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reference Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Reference Price: N
-  index, reference_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Reference Price Fraction Indicator: X
-  index, reference_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reference Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reference Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_million_pair = {}
-
--- Size: Reference Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.size
-
--- Display: Reference Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reference Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Reference Price: N
-  index, raw_reference_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Reference Price Fraction Indicator: X
-  index, reference_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reference Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reference Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_thousand_pair = {}
-
--- Size: Reference Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.size
-
--- Display: Reference Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reference Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Reference Price: N
-  index, raw_reference_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Reference Price Fraction Indicator: X
-  index, reference_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reference Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reference Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_thousand_pair = {}
-
--- Size: Reference Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.size
-
--- Display: Reference Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reference Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Reference Price: N
-  index, raw_reference_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Reference Price Fraction Indicator: X
-  index, reference_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reference Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reference Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_thousand_pair = {}
-
--- Size: Reference Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.size
-
--- Display: Reference Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reference Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Reference Price: N
-  index, raw_reference_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Reference Price Fraction Indicator: X
-  index, reference_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reference Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reference Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_pair = {}
-
--- Size: Reference Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.size
-
--- Display: Reference Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reference Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Reference Price: N
-  index, raw_reference_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Reference Price Fraction Indicator: X
-  index, reference_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reference Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reference Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_pair = {}
-
--- Size: Reference Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.size
-
--- Display: Reference Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reference Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Reference Price: N
-  index, raw_reference_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Reference Price Fraction Indicator: X
-  index, reference_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reference Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reference Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_whole_pair = {}
-
--- Size: Reference Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.size
-
--- Display: Reference Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reference Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Reference Price: N
-  index, raw_reference_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Reference Price Fraction Indicator: X
-  index, reference_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reference Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reference_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reference Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair = {}
-
--- Size: Reference Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair.size = 7
-
--- Dispatch: Reference Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect,
-}
-
--- Dissect: Reference Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local reference_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair.dispatch[reference_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Reference Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.reference_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
 end
 
 -- Option Marker
@@ -12148,22 +6986,30 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_summary_message = {}
 box_boxoptions_solamulticast_hsvf_v1_8.option_summary_message.size =
   box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.bid_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.bid_size.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.ask_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.ask_size.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.last_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.open_interest.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.tick.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.volume.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.net_change_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.net_change.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.open_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.high_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.low_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.option_marker.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.underlying_symbol.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair.size
+  box_boxoptions_solamulticast_hsvf_v1_8.reference_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.size
 
 -- Display: Option Summary Message
 box_boxoptions_solamulticast_hsvf_v1_8.option_summary_message.display = function(packet, parent, length)
@@ -12177,23 +7023,32 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_summary_message.fields = function(
   -- Exchange Id: A
   index, exchange_id = box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Description: Struct of 6 fields
+  -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Bid Price: N
+  index, bid_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_bid_price.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = box_boxoptions_solamulticast_hsvf_v1_8.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Ask Price: N
+  index, ask_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_ask_price.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = box_boxoptions_solamulticast_hsvf_v1_8.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Last Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Last Price: N
+  index, last_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_last_price.dissect(buffer, index, packet, parent)
+
+  -- Last Price Fraction Indicator: X
+  index, last_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Interest: X
   index, open_interest = box_boxoptions_solamulticast_hsvf_v1_8.open_interest.dissect(buffer, index, packet, parent)
@@ -12207,17 +7062,29 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_summary_message.fields = function(
   -- Net Change Sign: X
   index, net_change_sign = box_boxoptions_solamulticast_hsvf_v1_8.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Net Change: N
+  index, net_change = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Open Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- High Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Open Price: N
+  index, open_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_open_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Open Price Fraction Indicator: X
+  index, open_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  -- High Price: N
+  index, high_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_high_price.dissect(buffer, index, packet, parent)
+
+  -- High Price Fraction Indicator: X
+  index, high_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  -- Low Price: N
+  index, low_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_low_price.dissect(buffer, index, packet, parent)
+
+  -- Low Price Fraction Indicator: X
+  index, low_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Option Marker: Struct of 2 fields
   index, option_marker = box_boxoptions_solamulticast_hsvf_v1_8.option_marker.dissect(buffer, index, packet, parent)
@@ -12225,8 +7092,11 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_summary_message.fields = function(
   -- Underlying Symbol: X
   index, underlying_symbol = box_boxoptions_solamulticast_hsvf_v1_8.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Reference Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Reference Price: N
+  index, reference_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_reference_price.dissect(buffer, index, packet, parent)
+
+  -- Reference Price Fraction Indicator: X
+  index, reference_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -12359,50 +7229,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.instrument_leg.dissect = function(buffer,
   end
 end
 
--- Tick Increment Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_unknown_fraction_pair = {}
-
--- Size: Tick Increment Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_tick_increment.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.size
-
--- Display: Tick Increment Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Tick Increment Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Tick Increment: X
-  index, raw_tick_increment = box_boxoptions_solamulticast_hsvf_v1_8.raw_tick_increment.dissect(buffer, index, packet, parent)
-
-  -- Tick Increment Fraction Indicator: N
-  index, tick_increment_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Tick Increment Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Tick Increment Numeric Pair
 box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair = {}
 
@@ -12444,314 +7270,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect = fun
   else
     -- Skip element, add fields directly
     return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Tick Increment Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_million_pair = {}
-
--- Size: Tick Increment Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.size
-
--- Display: Tick Increment Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Tick Increment Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Numeric Tick Increment: X
-  index, numeric_tick_increment = box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.dissect(buffer, index, packet, parent)
-
-  -- Tick Increment Fraction Indicator: N
-  index, tick_increment_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Tick Increment Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Tick Increment Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_thousand_pair = {}
-
--- Size: Tick Increment Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.size
-
--- Display: Tick Increment Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Tick Increment Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Numeric Tick Increment: X
-  index, numeric_tick_increment = box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.dissect(buffer, index, packet, parent)
-
-  -- Tick Increment Fraction Indicator: N
-  index, tick_increment_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Tick Increment Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Tick Increment Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_thousand_pair = {}
-
--- Size: Tick Increment Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.size
-
--- Display: Tick Increment Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Tick Increment Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Numeric Tick Increment: X
-  index, numeric_tick_increment = box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.dissect(buffer, index, packet, parent)
-
-  -- Tick Increment Fraction Indicator: N
-  index, tick_increment_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Tick Increment Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Tick Increment Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_thousand_pair = {}
-
--- Size: Tick Increment Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.size
-
--- Display: Tick Increment Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Tick Increment Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Numeric Tick Increment: X
-  index, numeric_tick_increment = box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.dissect(buffer, index, packet, parent)
-
-  -- Tick Increment Fraction Indicator: N
-  index, tick_increment_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Tick Increment Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Tick Increment Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_pair = {}
-
--- Size: Tick Increment Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.size
-
--- Display: Tick Increment Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Tick Increment Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Numeric Tick Increment: X
-  index, numeric_tick_increment = box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.dissect(buffer, index, packet, parent)
-
-  -- Tick Increment Fraction Indicator: N
-  index, tick_increment_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Tick Increment Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Tick Increment Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_pair = {}
-
--- Size: Tick Increment Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.size
-
--- Display: Tick Increment Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Tick Increment Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Numeric Tick Increment: X
-  index, numeric_tick_increment = box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.dissect(buffer, index, packet, parent)
-
-  -- Tick Increment Fraction Indicator: N
-  index, tick_increment_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Tick Increment Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Tick Increment Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_whole_pair = {}
-
--- Size: Tick Increment Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.size
-
--- Display: Tick Increment Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Tick Increment Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Numeric Tick Increment: X
-  index, numeric_tick_increment = box_boxoptions_solamulticast_hsvf_v1_8.numeric_tick_increment.dissect(buffer, index, packet, parent)
-
-  -- Tick Increment Fraction Indicator: N
-  index, tick_increment_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Tick Increment Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.tick_increment_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_whole_pair.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -12809,952 +7327,13 @@ box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_pair.size = 7
 box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_pair.dissect = function(buffer, offset, packet, parent)
   local raw_tick_increment = buffer(offset, 6):string()
   local tick_increment_fraction_indicator = buffer(offset + 6, 1):string()
-  local tick_increment_fraction_indicator = buffer(offset + 6, 1):string()
   -- Dissect Tick Increment Tick Table Pair
   if raw_tick_increment == "0000T1" and tick_increment_fraction_indicator == "2" then
     return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_tick_table_pair.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Tick Increment Negative Whole Pair
-  if tick_increment_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Negative Ten Pair
-  if tick_increment_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Negative Hundred Pair
-  if tick_increment_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Negative Thousand Pair
-  if tick_increment_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Negative Ten Thousand Pair
-  if tick_increment_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Negative Hundred Thousand Pair
-  if tick_increment_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Negative Million Pair
-  if tick_increment_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
+
   -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Tick Increment Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
--- Min Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_unknown_fraction_pair = {}
-
--- Size: Min Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.size
-
--- Display: Min Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Min Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Min Threshold Price: X
-  index, raw_min_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Min Threshold Price Fraction Indicator: X
-  index, min_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Min Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Min Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair = {}
-
--- Size: Min Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.size
-
--- Display: Min Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Min Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Min Threshold Price: X
-  index, min_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Min Threshold Price Fraction Indicator: X
-  index, min_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Min Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Min Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_million_pair = {}
-
--- Size: Min Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.size
-
--- Display: Min Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Min Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Min Threshold Price: X
-  index, raw_min_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Min Threshold Price Fraction Indicator: X
-  index, min_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Min Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Min Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_thousand_pair = {}
-
--- Size: Min Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.size
-
--- Display: Min Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Min Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Min Threshold Price: X
-  index, raw_min_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Min Threshold Price Fraction Indicator: X
-  index, min_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Min Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Min Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_thousand_pair = {}
-
--- Size: Min Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.size
-
--- Display: Min Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Min Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Min Threshold Price: X
-  index, raw_min_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Min Threshold Price Fraction Indicator: X
-  index, min_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Min Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Min Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_thousand_pair = {}
-
--- Size: Min Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.size
-
--- Display: Min Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Min Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Min Threshold Price: X
-  index, raw_min_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Min Threshold Price Fraction Indicator: X
-  index, min_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Min Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Min Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_pair = {}
-
--- Size: Min Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.size
-
--- Display: Min Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Min Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Min Threshold Price: X
-  index, raw_min_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Min Threshold Price Fraction Indicator: X
-  index, min_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Min Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Min Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_pair = {}
-
--- Size: Min Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.size
-
--- Display: Min Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Min Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Min Threshold Price: X
-  index, raw_min_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Min Threshold Price Fraction Indicator: X
-  index, min_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Min Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Min Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_whole_pair = {}
-
--- Size: Min Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.size
-
--- Display: Min Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Min Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Min Threshold Price: X
-  index, raw_min_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_min_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Min Threshold Price Fraction Indicator: X
-  index, min_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Min Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.min_threshold_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Min Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair = {}
-
--- Size: Min Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair.size = 7
-
--- Dispatch: Min Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect,
-}
-
--- Dissect: Min Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local min_threshold_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair.dispatch[min_threshold_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Min Threshold Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
--- Max Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_unknown_fraction_pair = {}
-
--- Size: Max Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.size
-
--- Display: Max Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Max Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Max Threshold Price: X
-  index, raw_max_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Max Threshold Price Fraction Indicator: X
-  index, max_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Max Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Max Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair = {}
-
--- Size: Max Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.size
-
--- Display: Max Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Max Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Max Threshold Price: X
-  index, max_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Max Threshold Price Fraction Indicator: X
-  index, max_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Max Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Max Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_million_pair = {}
-
--- Size: Max Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.size
-
--- Display: Max Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Max Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Max Threshold Price: X
-  index, raw_max_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Max Threshold Price Fraction Indicator: X
-  index, max_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Max Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Max Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_thousand_pair = {}
-
--- Size: Max Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.size
-
--- Display: Max Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Max Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Max Threshold Price: X
-  index, raw_max_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Max Threshold Price Fraction Indicator: X
-  index, max_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Max Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Max Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_thousand_pair = {}
-
--- Size: Max Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.size
-
--- Display: Max Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Max Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Max Threshold Price: X
-  index, raw_max_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Max Threshold Price Fraction Indicator: X
-  index, max_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Max Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Max Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_thousand_pair = {}
-
--- Size: Max Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.size
-
--- Display: Max Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Max Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Max Threshold Price: X
-  index, raw_max_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Max Threshold Price Fraction Indicator: X
-  index, max_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Max Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Max Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_pair = {}
-
--- Size: Max Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.size
-
--- Display: Max Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Max Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Max Threshold Price: X
-  index, raw_max_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Max Threshold Price Fraction Indicator: X
-  index, max_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Max Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Max Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_pair = {}
-
--- Size: Max Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.size
-
--- Display: Max Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Max Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Max Threshold Price: X
-  index, raw_max_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Max Threshold Price Fraction Indicator: X
-  index, max_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Max Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Max Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_whole_pair = {}
-
--- Size: Max Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.size
-
--- Display: Max Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Max Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Max Threshold Price: X
-  index, raw_max_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_max_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Max Threshold Price Fraction Indicator: X
-  index, max_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Max Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.max_threshold_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Max Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair = {}
-
--- Size: Max Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair.size = 7
-
--- Dispatch: Max Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect,
-}
-
--- Dissect: Max Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local max_threshold_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair.dispatch[max_threshold_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Max Threshold Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
+  return box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
 end
 
 -- Complex Order Instrument Keys Message
@@ -13780,11 +7359,15 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_instrument_keys_message.siz
 
   index = index + box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_sign.size
 
-  index = index + box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair.size
+  index = index + box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price.size
+
+  index = index + box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.size
 
   index = index + box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_sign.size
 
-  index = index + box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair.size
+  index = index + box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price.size
+
+  index = index + box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.size
 
   index = index + box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_pair.size
 
@@ -13840,16 +7423,22 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_instrument_keys_message.fie
   -- Max Threshold Price Sign: X
   index, max_threshold_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Max Threshold Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Max Threshold Price: X
+  index, max_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_max_threshold_price.dissect(buffer, index, packet, parent)
+
+  -- Max Threshold Price Fraction Indicator: X
+  index, max_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Min Threshold Price Sign: X
   index, min_threshold_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Min Threshold Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Min Threshold Price: X
+  index, min_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_min_threshold_price.dissect(buffer, index, packet, parent)
 
-  -- Tick Increment Fraction Pair: Runtime Type with 10 branches
+  -- Min Threshold Price Fraction Indicator: X
+  index, min_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  -- Tick Increment Fraction Pair: Runtime Type with 2 branches
   index = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Filler 2: X
@@ -13944,876 +7533,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.market_flow_indicator.dissect = function(
   end
 end
 
--- Minimum Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_unknown_fraction_pair = {}
-
--- Size: Minimum Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.size
-
--- Display: Minimum Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Minimum Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Minimum Threshold Price: X
-  index, raw_minimum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Minimum Threshold Price Fraction Indicator: X
-  index, minimum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Minimum Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Minimum Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair = {}
-
--- Size: Minimum Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.size
-
--- Display: Minimum Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Minimum Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Minimum Threshold Price: X
-  index, minimum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Minimum Threshold Price Fraction Indicator: X
-  index, minimum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Minimum Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Minimum Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_million_pair = {}
-
--- Size: Minimum Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.size
-
--- Display: Minimum Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Minimum Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Minimum Threshold Price: X
-  index, raw_minimum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Minimum Threshold Price Fraction Indicator: X
-  index, minimum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Minimum Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Minimum Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_thousand_pair = {}
-
--- Size: Minimum Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.size
-
--- Display: Minimum Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Minimum Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Minimum Threshold Price: X
-  index, raw_minimum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Minimum Threshold Price Fraction Indicator: X
-  index, minimum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Minimum Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Minimum Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_thousand_pair = {}
-
--- Size: Minimum Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.size
-
--- Display: Minimum Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Minimum Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Minimum Threshold Price: X
-  index, raw_minimum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Minimum Threshold Price Fraction Indicator: X
-  index, minimum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Minimum Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Minimum Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_thousand_pair = {}
-
--- Size: Minimum Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.size
-
--- Display: Minimum Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Minimum Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Minimum Threshold Price: X
-  index, raw_minimum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Minimum Threshold Price Fraction Indicator: X
-  index, minimum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Minimum Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Minimum Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_pair = {}
-
--- Size: Minimum Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.size
-
--- Display: Minimum Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Minimum Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Minimum Threshold Price: X
-  index, raw_minimum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Minimum Threshold Price Fraction Indicator: X
-  index, minimum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Minimum Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Minimum Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_pair = {}
-
--- Size: Minimum Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.size
-
--- Display: Minimum Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Minimum Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Minimum Threshold Price: X
-  index, raw_minimum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Minimum Threshold Price Fraction Indicator: X
-  index, minimum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Minimum Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Minimum Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_whole_pair = {}
-
--- Size: Minimum Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.size
-
--- Display: Minimum Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Minimum Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Minimum Threshold Price: X
-  index, raw_minimum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_minimum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Minimum Threshold Price Fraction Indicator: X
-  index, minimum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Minimum Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.minimum_threshold_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Minimum Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair = {}
-
--- Size: Minimum Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair.size = 7
-
--- Dispatch: Minimum Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect,
-}
-
--- Dissect: Minimum Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local minimum_threshold_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair.dispatch[minimum_threshold_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Minimum Threshold Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
--- Maximum Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_unknown_fraction_pair = {}
-
--- Size: Maximum Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.size
-
--- Display: Maximum Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Maximum Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Maximum Threshold Price: X
-  index, raw_maximum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Maximum Threshold Price Fraction Indicator: X
-  index, maximum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Maximum Threshold Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Maximum Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair = {}
-
--- Size: Maximum Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.size
-
--- Display: Maximum Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Maximum Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Maximum Threshold Price: X
-  index, maximum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Maximum Threshold Price Fraction Indicator: X
-  index, maximum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Maximum Threshold Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Maximum Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_million_pair = {}
-
--- Size: Maximum Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.size
-
--- Display: Maximum Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Maximum Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Maximum Threshold Price: X
-  index, raw_maximum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Maximum Threshold Price Fraction Indicator: X
-  index, maximum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Maximum Threshold Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Maximum Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_thousand_pair = {}
-
--- Size: Maximum Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.size
-
--- Display: Maximum Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Maximum Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Maximum Threshold Price: X
-  index, raw_maximum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Maximum Threshold Price Fraction Indicator: X
-  index, maximum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Maximum Threshold Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Maximum Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_thousand_pair = {}
-
--- Size: Maximum Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.size
-
--- Display: Maximum Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Maximum Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Maximum Threshold Price: X
-  index, raw_maximum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Maximum Threshold Price Fraction Indicator: X
-  index, maximum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Maximum Threshold Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Maximum Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_thousand_pair = {}
-
--- Size: Maximum Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.size
-
--- Display: Maximum Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Maximum Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Maximum Threshold Price: X
-  index, raw_maximum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Maximum Threshold Price Fraction Indicator: X
-  index, maximum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Maximum Threshold Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Maximum Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_pair = {}
-
--- Size: Maximum Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.size
-
--- Display: Maximum Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Maximum Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Maximum Threshold Price: X
-  index, raw_maximum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Maximum Threshold Price Fraction Indicator: X
-  index, maximum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Maximum Threshold Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Maximum Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_pair = {}
-
--- Size: Maximum Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.size
-
--- Display: Maximum Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Maximum Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Maximum Threshold Price: X
-  index, raw_maximum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Maximum Threshold Price Fraction Indicator: X
-  index, maximum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Maximum Threshold Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Maximum Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_whole_pair = {}
-
--- Size: Maximum Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.size
-
--- Display: Maximum Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Maximum Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Maximum Threshold Price: X
-  index, raw_maximum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_maximum_threshold_price.dissect(buffer, index, packet, parent)
-
-  -- Maximum Threshold Price Fraction Indicator: X
-  index, maximum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Maximum Threshold Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.maximum_threshold_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Maximum Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair = {}
-
--- Size: Maximum Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair.size = 7
-
--- Dispatch: Maximum Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect,
-}
-
--- Dissect: Maximum Threshold Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local maximum_threshold_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair.dispatch[maximum_threshold_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Maximum Threshold Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
 -- Option Instrument Keys Message
 box_boxoptions_solamulticast_hsvf_v1_8.option_instrument_keys_message = {}
 
@@ -14824,8 +7543,10 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_instrument_keys_message.size =
   box_boxoptions_solamulticast_hsvf_v1_8.strike_price_currency.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.maximum_number_of_contracts_per_order.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.minimum_number_of_contracts_per_order.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_pair.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.option_type.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.market_flow_indicator.size + 
@@ -14847,7 +7568,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_instrument_keys_message.fields = f
   -- Exchange Id: A
   index, exchange_id = box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Description: Struct of 6 fields
+  -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Strike Price Currency: X
@@ -14859,13 +7580,19 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_instrument_keys_message.fields = f
   -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = box_boxoptions_solamulticast_hsvf_v1_8.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Maximum Threshold Price: X
+  index, maximum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_maximum_threshold_price.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Maximum Threshold Price Fraction Indicator: X
+  index, maximum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Tick Increment Fraction Pair: Runtime Type with 10 branches
+  -- Minimum Threshold Price: X
+  index, minimum_threshold_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_minimum_threshold_price.dissect(buffer, index, packet, parent)
+
+  -- Minimum Threshold Price Fraction Indicator: X
+  index, minimum_threshold_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  -- Tick Increment Fraction Pair: Runtime Type with 2 branches
   index = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Option Type: X
@@ -14910,441 +7637,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_instrument_keys_message.dissect = 
   end
 end
 
--- Trade Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_unknown_fraction_pair = {}
-
--- Size: Trade Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size
-
--- Display: Trade Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Trade Price: N
-  index, raw_trade_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.dissect(buffer, index, packet, parent)
-
-  -- Trade Price Fraction Indicator: X
-  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Price Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.trade_price_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair = {}
-
--- Size: Trade Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size
-
--- Display: Trade Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Trade Price: N
-  index, trade_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.dissect(buffer, index, packet, parent)
-
-  -- Trade Price Fraction Indicator: X
-  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Price Numeric Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_numeric_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_million_pair = {}
-
--- Size: Trade Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size
-
--- Display: Trade Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Trade Price: N
-  index, raw_trade_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.dissect(buffer, index, packet, parent)
-
-  -- Trade Price Fraction Indicator: X
-  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Price Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_thousand_pair = {}
-
--- Size: Trade Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size
-
--- Display: Trade Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Trade Price: N
-  index, raw_trade_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.dissect(buffer, index, packet, parent)
-
-  -- Trade Price Fraction Indicator: X
-  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Price Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_thousand_pair = {}
-
--- Size: Trade Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size
-
--- Display: Trade Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Trade Price: N
-  index, raw_trade_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.dissect(buffer, index, packet, parent)
-
-  -- Trade Price Fraction Indicator: X
-  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Price Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_thousand_pair = {}
-
--- Size: Trade Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size
-
--- Display: Trade Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Trade Price: N
-  index, raw_trade_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.dissect(buffer, index, packet, parent)
-
-  -- Trade Price Fraction Indicator: X
-  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Price Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_pair = {}
-
--- Size: Trade Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size
-
--- Display: Trade Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Trade Price: N
-  index, raw_trade_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.dissect(buffer, index, packet, parent)
-
-  -- Trade Price Fraction Indicator: X
-  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Price Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_pair = {}
-
--- Size: Trade Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size
-
--- Display: Trade Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Trade Price: N
-  index, raw_trade_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.dissect(buffer, index, packet, parent)
-
-  -- Trade Price Fraction Indicator: X
-  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Price Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_whole_pair = {}
-
--- Size: Trade Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size
-
--- Display: Trade Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Trade Price: N
-  index, raw_trade_price = box_boxoptions_solamulticast_hsvf_v1_8.raw_trade_price.dissect(buffer, index, packet, parent)
-
-  -- Trade Price Fraction Indicator: X
-  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Price Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.trade_price_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_whole_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair = {}
-
--- Size: Trade Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.size = 7
-
--- Dispatch: Trade Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.dispatch = {
-  ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_whole_pair.dissect,
-  ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_pair.dissect,
-  ["C"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_pair.dissect,
-  ["D"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_thousand_pair.dissect,
-  ["E"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_thousand_pair.dissect,
-  ["F"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_hundred_thousand_pair.dissect,
-  ["G"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_million_pair.dissect,
-  ["0"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect,
-  ["1"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect,
-  ["2"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect,
-  ["3"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect,
-  ["4"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect,
-  ["5"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect,
-  ["6"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect,
-  ["7"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect,
-  ["8"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect,
-  ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect,
-}
-
--- Dissect: Trade Price Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  local trade_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local dissect = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.dispatch[trade_price_fraction_indicator]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Trade Price Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.trade_price_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
 -- Complex Order Trade Cancellation Message
 box_boxoptions_solamulticast_hsvf_v1_8.complex_order_trade_cancellation_message = {}
 
@@ -15354,7 +7646,8 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_trade_cancellation_message.
   box_boxoptions_solamulticast_hsvf_v1_8.complex_order_instrument_symbol.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.volume.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.trade_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.trade_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.filler_6.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.timestamp.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.price_indicator_marker.size
@@ -15380,8 +7673,11 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_trade_cancellation_message.
   -- Trade Price Sign: X
   index, trade_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Trade Price: N
+  index, trade_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.dissect(buffer, index, packet, parent)
+
+  -- Trade Price Fraction Indicator: X
+  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte
   if show.padding then
@@ -15425,7 +7721,8 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_trade_cancellation_message.size =
   box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.volume.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.trade_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.filler_6.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.timestamp.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.open_interest.size + 
@@ -15444,14 +7741,17 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_trade_cancellation_message.fields 
   -- Exchange Id: A
   index, exchange_id = box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Description: Struct of 6 fields
+  -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Volume: N
   index, volume = box_boxoptions_solamulticast_hsvf_v1_8.volume.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Trade Price: N
+  index, trade_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.dissect(buffer, index, packet, parent)
+
+  -- Trade Price Fraction Indicator: X
+  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte
   if show.padding then
@@ -15497,50 +7797,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_trade_cancellation_message.dissect
   end
 end
 
--- Ask Price Quote Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_unknown_fraction_pair = {}
-
--- Size: Ask Price Quote Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote_text.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Quote Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Quote Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price Quote Text: X
-  index, raw_ask_price_quote_text = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote_text.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Quote Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Ask Price Quote Numeric Pair
 box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair = {}
 
@@ -15582,314 +7838,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect = fu
   else
     -- Skip element, add fields directly
     return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Quote Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_million_pair = {}
-
--- Size: Ask Price Quote Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Quote Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Quote Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price Quote: X
-  index, raw_ask_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Quote Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Quote Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_thousand_pair = {}
-
--- Size: Ask Price Quote Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Quote Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Quote Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price Quote: X
-  index, raw_ask_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Quote Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Quote Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_thousand_pair = {}
-
--- Size: Ask Price Quote Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Quote Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Quote Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price Quote: X
-  index, raw_ask_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Quote Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Quote Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_thousand_pair = {}
-
--- Size: Ask Price Quote Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Quote Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Quote Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price Quote: X
-  index, raw_ask_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Quote Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Quote Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_pair = {}
-
--- Size: Ask Price Quote Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Quote Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Quote Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price Quote: X
-  index, raw_ask_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Quote Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Quote Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_pair = {}
-
--- Size: Ask Price Quote Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Quote Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Quote Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price Quote: X
-  index, raw_ask_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Quote Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Ask Price Quote Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_whole_pair = {}
-
--- Size: Ask Price Quote Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.size
-
--- Display: Ask Price Quote Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ask Price Quote Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Ask Price Quote: X
-  index, raw_ask_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_ask_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ask Price Quote Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.ask_price_quote_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_whole_pair.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -15947,126 +7895,13 @@ box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_fraction_pair.size = 7
 box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_fraction_pair.dissect = function(buffer, offset, packet, parent)
   local ask_price_quote_opening = buffer(offset, 6):string()
   local ask_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local ask_price_fraction_indicator = buffer(offset + 6, 1):string()
   -- Dissect Ask Price Quote Opening Pair
   if ask_price_quote_opening == "000OUV" and ask_price_fraction_indicator == "0" then
     return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_opening_pair.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Ask Price Quote Negative Whole Pair
-  if ask_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Negative Ten Pair
-  if ask_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Negative Hundred Pair
-  if ask_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Negative Thousand Pair
-  if ask_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Negative Ten Thousand Pair
-  if ask_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Negative Hundred Thousand Pair
-  if ask_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Negative Million Pair
-  if ask_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Numeric Pair
-  if ask_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Numeric Pair
-  if ask_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Numeric Pair
-  if ask_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Numeric Pair
-  if ask_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Numeric Pair
-  if ask_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Numeric Pair
-  if ask_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Numeric Pair
-  if ask_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Numeric Pair
-  if ask_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Numeric Pair
-  if ask_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Quote Numeric Pair
-  if ask_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
 
-  -- Dissect Ask Price Quote Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
-end
-
--- Bid Price Quote Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_unknown_fraction_pair = {}
-
--- Size: Bid Price Quote Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_unknown_fraction_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote_text.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Quote Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_unknown_fraction_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Quote Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_unknown_fraction_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price Quote Text: X
-  index, raw_bid_price_quote_text = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote_text.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Quote Unknown Fraction Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_unknown_fraction_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_unknown_fraction_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_unknown_fraction_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_unknown_fraction_pair.fields(buffer, offset, packet, parent)
-  end
+  -- Dissect Ask Price Quote Numeric Pair
+  return box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
 end
 
 -- Bid Price Quote Numeric Pair
@@ -16110,314 +7945,6 @@ box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect = fu
   else
     -- Skip element, add fields directly
     return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Quote Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_million_pair = {}
-
--- Size: Bid Price Quote Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_million_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Quote Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_million_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Quote Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_million_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price Quote: X
-  index, raw_bid_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Quote Negative Million Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_million_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_million_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_million_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_million_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_million_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Quote Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_thousand_pair = {}
-
--- Size: Bid Price Quote Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Quote Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Quote Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price Quote: X
-  index, raw_bid_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Quote Negative Hundred Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_hundred_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Quote Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_thousand_pair = {}
-
--- Size: Bid Price Quote Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Quote Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Quote Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price Quote: X
-  index, raw_bid_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Quote Negative Ten Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_ten_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Quote Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_thousand_pair = {}
-
--- Size: Bid Price Quote Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_thousand_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Quote Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_thousand_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Quote Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_thousand_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price Quote: X
-  index, raw_bid_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Quote Negative Thousand Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_thousand_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_thousand_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_thousand_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_thousand_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_thousand_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Quote Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_pair = {}
-
--- Size: Bid Price Quote Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Quote Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Quote Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price Quote: X
-  index, raw_bid_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Quote Negative Hundred Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_hundred_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Quote Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_pair = {}
-
--- Size: Bid Price Quote Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Quote Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Quote Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price Quote: X
-  index, raw_bid_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Quote Negative Ten Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_ten_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_pair.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Bid Price Quote Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_whole_pair = {}
-
--- Size: Bid Price Quote Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_whole_pair.size =
-  box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.size
-
--- Display: Bid Price Quote Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_whole_pair.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bid Price Quote Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_whole_pair.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Raw Bid Price Quote: X
-  index, raw_bid_price_quote = box_boxoptions_solamulticast_hsvf_v1_8.raw_bid_price_quote.dissect(buffer, index, packet, parent)
-
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bid Price Quote Negative Whole Pair
-box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_whole_pair.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.bid_price_quote_negative_whole_pair, buffer(offset, 0))
-    local index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_whole_pair.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_whole_pair.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_whole_pair.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -16475,82 +8002,13 @@ box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_fraction_pair.size = 7
 box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_fraction_pair.dissect = function(buffer, offset, packet, parent)
   local bid_price_quote_opening = buffer(offset, 6):string()
   local bid_price_fraction_indicator = buffer(offset + 6, 1):string()
-  local bid_price_fraction_indicator = buffer(offset + 6, 1):string()
   -- Dissect Bid Price Quote Opening Pair
   if bid_price_quote_opening == "000OUV" and bid_price_fraction_indicator == "0" then
     return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_opening_pair.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Bid Price Quote Negative Whole Pair
-  if bid_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Negative Ten Pair
-  if bid_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Negative Hundred Pair
-  if bid_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Negative Thousand Pair
-  if bid_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Negative Ten Thousand Pair
-  if bid_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Negative Hundred Thousand Pair
-  if bid_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Negative Million Pair
-  if bid_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Numeric Pair
-  if bid_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Numeric Pair
-  if bid_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Numeric Pair
-  if bid_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Numeric Pair
-  if bid_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Numeric Pair
-  if bid_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Numeric Pair
-  if bid_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Numeric Pair
-  if bid_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Numeric Pair
-  if bid_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Numeric Pair
-  if bid_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Quote Numeric Pair
-  if bid_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
 
-  -- Dissect Bid Price Quote Unknown Fraction Pair
-  return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_unknown_fraction_pair.dissect(buffer, offset, packet, parent)
+  -- Dissect Bid Price Quote Numeric Pair
+  return box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
 end
 
 -- Complex Market Depth Level
@@ -16589,7 +8047,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_market_depth_level.fields = funct
   -- Bid Price Sign: X
   index, bid_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote Fraction Pair: Runtime Type with 10 branches
+  -- Bid Price Quote Fraction Pair: Runtime Type with 2 branches
   index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
@@ -16601,7 +8059,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_market_depth_level.fields = funct
   -- Ask Price Sign: X
   index, ask_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote Fraction Pair: Runtime Type with 10 branches
+  -- Ask Price Quote Fraction Pair: Runtime Type with 2 branches
   index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
@@ -16731,7 +8189,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.market_depth_level.fields = function(buff
   -- Level Of Market Depth: X
   index, level_of_market_depth = box_boxoptions_solamulticast_hsvf_v1_8.level_of_market_depth.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote Fraction Pair: Runtime Type with 10 branches
+  -- Bid Price Quote Fraction Pair: Runtime Type with 2 branches
   index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
@@ -16740,7 +8198,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.market_depth_level.fields = function(buff
   -- Number Of Bid Orders: X
   index, number_of_bid_orders = box_boxoptions_solamulticast_hsvf_v1_8.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote Fraction Pair: Runtime Type with 10 branches
+  -- Ask Price Quote Fraction Pair: Runtime Type with 2 branches
   index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
@@ -16804,7 +8262,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_market_depth_message.fields = func
   -- Exchange Id: A
   index, exchange_id = box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Description: Struct of 6 fields
+  -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Instrument Status Marker: A
@@ -17022,7 +8480,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_quote_message.fields = func
   -- Bid Price Sign: X
   index, bid_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote Fraction Pair: Runtime Type with 10 branches
+  -- Bid Price Quote Fraction Pair: Runtime Type with 2 branches
   index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
@@ -17031,7 +8489,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_quote_message.fields = func
   -- Ask Price Sign: X
   index, ask_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote Fraction Pair: Runtime Type with 10 branches
+  -- Ask Price Quote Fraction Pair: Runtime Type with 2 branches
   index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
@@ -17095,16 +8553,16 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_quote_message.fields = function(bu
   -- Exchange Id: A
   index, exchange_id = box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Description: Struct of 6 fields
+  -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote Fraction Pair: Runtime Type with 10 branches
+  -- Bid Price Quote Fraction Pair: Runtime Type with 2 branches
   index = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_quote_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Bid Size: X
   index, bid_size = box_boxoptions_solamulticast_hsvf_v1_8.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote Fraction Pair: Runtime Type with 10 branches
+  -- Ask Price Quote Fraction Pair: Runtime Type with 2 branches
   index = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_quote_fraction_pair.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
@@ -17168,7 +8626,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_request_for_quote_message.fields =
   -- Exchange Id: A
   index, exchange_id = box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Description: Struct of 6 fields
+  -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Requested Size: X
@@ -17204,9 +8662,11 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_instrument_trade_message.si
   box_boxoptions_solamulticast_hsvf_v1_8.complex_order_instrument_symbol.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.volume.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.trade_price_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.trade_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.net_change_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.net_change.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.filler_6.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.timestamp.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.price_indicator_marker.size
@@ -17232,14 +8692,20 @@ box_boxoptions_solamulticast_hsvf_v1_8.complex_order_instrument_trade_message.fi
   -- Trade Price Sign: X
   index, trade_price_sign = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Trade Price: N
+  index, trade_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.dissect(buffer, index, packet, parent)
+
+  -- Trade Price Fraction Indicator: X
+  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Net Change Sign: X
   index, net_change_sign = box_boxoptions_solamulticast_hsvf_v1_8.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Net Change: N
+  index, net_change = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.dissect(buffer, index, packet, parent)
+
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte
   if show.padding then
@@ -17283,9 +8749,11 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_trade_message.size =
   box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.volume.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.trade_price.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.net_change_sign.size + 
-  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.net_change.size + 
+  box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.filler_6.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.timestamp.size + 
   box_boxoptions_solamulticast_hsvf_v1_8.open_interest.size + 
@@ -17304,20 +8772,26 @@ box_boxoptions_solamulticast_hsvf_v1_8.option_trade_message.fields = function(bu
   -- Exchange Id: A
   index, exchange_id = box_boxoptions_solamulticast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Description: Struct of 6 fields
+  -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v1_8.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Volume: N
   index, volume = box_boxoptions_solamulticast_hsvf_v1_8.volume.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Trade Price: N
+  index, trade_price = box_boxoptions_solamulticast_hsvf_v1_8.scaled_trade_price.dissect(buffer, index, packet, parent)
+
+  -- Trade Price Fraction Indicator: X
+  index, trade_price_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Net Change Sign: X
   index, net_change_sign = box_boxoptions_solamulticast_hsvf_v1_8.net_change_sign.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Pair: Runtime Type with 9 branches
-  index = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.dissect(buffer, index, packet, parent)
+  -- Net Change: N
+  index, net_change = box_boxoptions_solamulticast_hsvf_v1_8.scaled_net_change.dissect(buffer, index, packet, parent)
+
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte
   if show.padding then
