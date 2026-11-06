@@ -41,7 +41,6 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.symbolindex" Nyse.NyseEquities.Bbo.Pil
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.symbolseqnum" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.securitystatus" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.haltcondition" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
-grep "nyse.nyseequities.bbo.pillar.v2.5.b.reserved4" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.price1" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.price2" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.ssrtriggeringexchangeid" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json

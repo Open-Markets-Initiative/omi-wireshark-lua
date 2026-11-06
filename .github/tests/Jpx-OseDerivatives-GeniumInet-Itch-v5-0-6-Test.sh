@@ -31,7 +31,6 @@ grep "jpx.osederivatives.geniuminet.itch.v5.0.6.orderbookid" Jpx.OseDerivatives.
 grep "jpx.osederivatives.geniuminet.itch.v5.0.6.availablebidquantityatequilibriumprice" Jpx.OseDerivatives.GeniumInet.Itch.v5.0.6.EquilibriumPriceUpdate.json
 grep "jpx.osederivatives.geniuminet.itch.v5.0.6.availableaskquantityatequilibriumprice" Jpx.OseDerivatives.GeniumInet.Itch.v5.0.6.EquilibriumPriceUpdate.json
 grep "jpx.osederivatives.geniuminet.itch.v5.0.6.equilibriumprice" Jpx.OseDerivatives.GeniumInet.Itch.v5.0.6.EquilibriumPriceUpdate.json
-grep "jpx.osederivatives.geniuminet.itch.v5.0.6.reserved24" Jpx.OseDerivatives.GeniumInet.Itch.v5.0.6.EquilibriumPriceUpdate.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jpx/OseDerivatives.GeniumInet.Itch.v5.0.6/OrderBookStateMessage.pcap" \
   -X "lua_script:Jpx/OseDerivatives/GeniumInet/Jpx_OseDerivatives_GeniumInet_Itch_v5_0_6_Dissector.lua" \

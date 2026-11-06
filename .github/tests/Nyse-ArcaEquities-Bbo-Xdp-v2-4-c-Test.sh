@@ -19,7 +19,6 @@ grep "nyse.arcaequities.bbo.xdp.v2.4.c.bidprice" Nyse.ArcaEquities.Bbo.Xdp.v2.4.
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.bidvolume" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.quotecondition" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.rpiindicator" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json
-grep "nyse.arcaequities.bbo.xdp.v2.4.c.reserved4" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaEquities.Bbo.Xdp.v2.4.c/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/ArcaEquities/Bbo/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
@@ -40,7 +39,6 @@ runuser -u tester -- tshark \
 
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.symbolindex" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.symbol" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json
-grep "nyse.arcaequities.bbo.xdp.v2.4.c.reserved1" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.marketid" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.systemid" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.exchangecode" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json
@@ -53,4 +51,3 @@ grep "nyse.arcaequities.bbo.xdp.v2.4.c.priceresolution" Nyse.ArcaEquities.Bbo.Xd
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.roundlot" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.mpv" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.unitoftrade" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json
-grep "nyse.arcaequities.bbo.xdp.v2.4.c.reserved2" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json

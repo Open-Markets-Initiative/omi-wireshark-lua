@@ -66,7 +66,6 @@ grep "ice.icefutures.mdf.impact.v1.1.33.lasttradequantity" Ice.IceFutures.Mdf.iM
 grep "ice.icefutures.mdf.impact.v1.1.33.lasttradedatetime" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.settlepricedatetime" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.lastmessagesequenceid" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
-grep "ice.icefutures.mdf.impact.v1.1.33.reserved2" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.openinterestdate" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.issettlepriceofficial" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.settlementprice" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json

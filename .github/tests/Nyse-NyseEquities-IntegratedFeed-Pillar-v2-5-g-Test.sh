@@ -18,7 +18,6 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.price" Nyse.NyseEquities.In
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.volume" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.side" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.firmid" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Pillar.v2.5.g/CrossTradeMessage.pcap" \
   -X "lua_script:Nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
@@ -44,7 +43,6 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.sourcetimens" Nyse.NyseEqui
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.DeleteOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.symbolseqnum" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.DeleteOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.orderid" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.DeleteOrderMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.DeleteOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Pillar.v2.5.g/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
@@ -74,7 +72,6 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.freezestatus" Nyse.NyseEqui
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.numextensions" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.unpairedqty" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.unpairedside" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Pillar.v2.5.g/ModifyOrderMessage.pcap" \
   -X "lua_script:Nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
@@ -90,7 +87,6 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.price" Nyse.NyseEquities.In
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.volume" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ModifyOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.positionchange" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ModifyOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.side" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ModifyOrderMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ModifyOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Pillar.v2.5.g/NonDisplayedTradeMessage.pcap" \
   -X "lua_script:Nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
@@ -124,7 +120,6 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.tradeid" Nyse.NyseEquities.
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.price" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.volume" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.printableflag" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.tradecond1" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.tradecond2" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.tradecond3" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
@@ -144,7 +139,6 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.neworderid" Nyse.NyseEquiti
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.price" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ReplaceOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.volume" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ReplaceOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.side" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ReplaceOrderMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.ReplaceOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Pillar.v2.5.g/RetailPriceImprovementMessage.pcap" \
   -X "lua_script:Nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
@@ -169,7 +163,6 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.symbolindex" Nyse.NyseEquit
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.symbolseqnum" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.securitystatus" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.haltcondition" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved4" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.price1" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.price2" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.ssrtriggeringexchangeid" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
@@ -219,7 +212,6 @@ runuser -u tester -- tshark \
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.symbol" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.marketid" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.systemid" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.exchangecode" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
@@ -232,7 +224,6 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.priceresolution" Nyse.NyseE
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.roundlot" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.mpv" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.unitoftrade" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved2" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Pillar.v2.5.g/MultipleMessages.pcap" \
   -X "lua_script:Nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \

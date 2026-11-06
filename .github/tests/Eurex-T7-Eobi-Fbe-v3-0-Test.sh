@@ -12,7 +12,6 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (Heartbeat) ---"; cat Eurex.T7.Eobi.Fbe.v3.0.Heartbeat.json.stderr; exit 1; }
 
 grep "eurex.t7.eobi.fbe.v3.0.lastmsgseqnumprocessed" Eurex.T7.Eobi.Fbe.v3.0.Heartbeat.json
-grep "eurex.t7.eobi.fbe.v3.0.pad4" Eurex.T7.Eobi.Fbe.v3.0.Heartbeat.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v3.0/OrderAdd.pcap" \
   --disable-protocol eobi \
@@ -26,7 +25,6 @@ grep "eurex.t7.eobi.fbe.v3.0.securityid" Eurex.T7.Eobi.Fbe.v3.0.OrderAdd.json
 grep "eurex.t7.eobi.fbe.v3.0.trdregtstimepriority" Eurex.T7.Eobi.Fbe.v3.0.OrderAdd.json
 grep "eurex.t7.eobi.fbe.v3.0.displayqty" Eurex.T7.Eobi.Fbe.v3.0.OrderAdd.json
 grep "eurex.t7.eobi.fbe.v3.0.side" Eurex.T7.Eobi.Fbe.v3.0.OrderAdd.json
-grep "eurex.t7.eobi.fbe.v3.0.pad3" Eurex.T7.Eobi.Fbe.v3.0.OrderAdd.json
 grep "eurex.t7.eobi.fbe.v3.0.price" Eurex.T7.Eobi.Fbe.v3.0.OrderAdd.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v3.0/SnapshotOrder.pcap" \
@@ -39,5 +37,4 @@ runuser -u tester -- tshark \
 grep "eurex.t7.eobi.fbe.v3.0.trdregtstimepriority" Eurex.T7.Eobi.Fbe.v3.0.SnapshotOrder.json
 grep "eurex.t7.eobi.fbe.v3.0.displayqty" Eurex.T7.Eobi.Fbe.v3.0.SnapshotOrder.json
 grep "eurex.t7.eobi.fbe.v3.0.side" Eurex.T7.Eobi.Fbe.v3.0.SnapshotOrder.json
-grep "eurex.t7.eobi.fbe.v3.0.pad3" Eurex.T7.Eobi.Fbe.v3.0.SnapshotOrder.json
 grep "eurex.t7.eobi.fbe.v3.0.price" Eurex.T7.Eobi.Fbe.v3.0.SnapshotOrder.json

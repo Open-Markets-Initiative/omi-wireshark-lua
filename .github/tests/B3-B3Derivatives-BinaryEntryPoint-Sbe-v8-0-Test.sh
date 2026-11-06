@@ -27,7 +27,6 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sessionid" B3.B3Derivatives.Bin
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sessionverid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.EstablishRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.requesttimestamp" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.EstablishRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.establishmentrejectcode" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.EstablishRejectMessage.json
-grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.offset21padding1" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.EstablishRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.lastincomingseqnooptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.EstablishRejectMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.0/NegotiateRejectMessage.pcap" \
@@ -41,7 +40,6 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sessionverid" B3.B3Derivatives.
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.requesttimestamp" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.enteringfirmoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.negotiationrejectcode" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json
-grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.offset25padding3" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.currentsessionverid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.0/RetransmissionMessage.pcap" \

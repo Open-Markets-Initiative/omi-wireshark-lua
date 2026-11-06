@@ -42,7 +42,6 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.symbolindex" Nyse.NyseEquities
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.symbolseqnum" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.securitystatus" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.haltcondition" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SecurityStatusMessage.json
-grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.reserved4" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.price1" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.price2" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.ssrtriggeringexchangeid" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SecurityStatusMessage.json
@@ -60,7 +59,6 @@ runuser -u tester -- tshark \
 
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.symbolindex" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.symbol" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SymbolIndexMappingMessage.json
-grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.reserved1" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.marketid" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.systemid" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.exchangecode" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SymbolIndexMappingMessage.json
@@ -73,4 +71,3 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.priceresolution" Nyse.NyseEqui
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.roundlot" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.mpv" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.unitoftrade" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SymbolIndexMappingMessage.json
-grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.reserved2" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.SymbolIndexMappingMessage.json

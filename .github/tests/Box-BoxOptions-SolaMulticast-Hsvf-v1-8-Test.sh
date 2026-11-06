@@ -13,8 +13,7 @@ runuser -u tester -- tshark \
 grep "box.boxoptions.solamulticast.hsvf.v1.8.exchangeid" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.rootsymbol" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.expirymonthcode" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
-grep "box.boxoptions.solamulticast.hsvf.v1.8.filler1" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
-grep "box.boxoptions.solamulticast.hsvf.v1.8.strikeprice" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
+grep "box.boxoptions.solamulticast.hsvf.v1.8.strikepricenumeric" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.strikepricefractionindicator" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.expiryyear" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.expiryday" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
@@ -24,7 +23,6 @@ grep "box.boxoptions.solamulticast.hsvf.v1.8.bidsize" Box.BoxOptions.SolaMultica
 grep "box.boxoptions.solamulticast.hsvf.v1.8.askpricequotenumeric" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.askpricefractionindicator" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.asksize" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
-grep "box.boxoptions.solamulticast.hsvf.v1.8.filler1" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.instrumentstatusmarker" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.publiccustomerbidsize" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.publiccustomerasksize" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json

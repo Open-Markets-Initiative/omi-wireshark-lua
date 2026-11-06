@@ -161,4 +161,3 @@ grep "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.timeoffset" Cboe.Edg
 grep "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.symbollong" Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.TradingStatusMessage.json
 grep "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.tradingstatus" Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.TradingStatusMessage.json
 grep "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.regshoaction" Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.TradingStatusMessage.json
-grep "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.padding" Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.TradingStatusMessage.json

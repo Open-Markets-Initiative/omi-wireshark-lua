@@ -14,7 +14,6 @@ runuser -u tester -- tshark \
 grep "eurex.t7.eobi.fbe.v6.0.side" Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json
 grep "eurex.t7.eobi.fbe.v6.0.ordtype" Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json
 grep "eurex.t7.eobi.fbe.v6.0.algorithmictradeindicator" Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json
-grep "eurex.t7.eobi.fbe.v6.0.pad5" Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json
 grep "eurex.t7.eobi.fbe.v6.0.price" Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json
 grep "eurex.t7.eobi.fbe.v6.0.trdregtstimepriority" Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json
 grep "eurex.t7.eobi.fbe.v6.0.securityid" Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json
@@ -30,7 +29,6 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (Heartbeat) ---"; cat Eurex.T7.Eobi.Fbe.v6.0.Heartbeat.json.stderr; exit 1; }
 
 grep "eurex.t7.eobi.fbe.v6.0.lastmsgseqnumprocessed" Eurex.T7.Eobi.Fbe.v6.0.Heartbeat.json
-grep "eurex.t7.eobi.fbe.v6.0.pad4" Eurex.T7.Eobi.Fbe.v6.0.Heartbeat.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v6.0/InstrumentSummary.pcap" \
   --disable-protocol eobi \
@@ -63,7 +61,6 @@ grep "eurex.t7.eobi.fbe.v6.0.trdregtstimepriority" Eurex.T7.Eobi.Fbe.v6.0.OrderA
 grep "eurex.t7.eobi.fbe.v6.0.displayqty" Eurex.T7.Eobi.Fbe.v6.0.OrderAdd.json
 grep "eurex.t7.eobi.fbe.v6.0.side" Eurex.T7.Eobi.Fbe.v6.0.OrderAdd.json
 grep "eurex.t7.eobi.fbe.v6.0.ordtype" Eurex.T7.Eobi.Fbe.v6.0.OrderAdd.json
-grep "eurex.t7.eobi.fbe.v6.0.pad2" Eurex.T7.Eobi.Fbe.v6.0.OrderAdd.json
 grep "eurex.t7.eobi.fbe.v6.0.price" Eurex.T7.Eobi.Fbe.v6.0.OrderAdd.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v6.0/OrderModify.pcap" \
@@ -77,13 +74,11 @@ grep "eurex.t7.eobi.fbe.v6.0.trdregtstimein" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.
 grep "eurex.t7.eobi.fbe.v6.0.trdregtsprevtimepriority" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v6.0.prevprice" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v6.0.prevdisplayqty" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
-grep "eurex.t7.eobi.fbe.v6.0.pad4" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v6.0.securityid" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v6.0.trdregtstimepriority" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v6.0.displayqty" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v6.0.side" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v6.0.ordtype" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
-grep "eurex.t7.eobi.fbe.v6.0.pad2" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v6.0.price" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v6.0/ProductSummary.pcap" \
@@ -99,7 +94,6 @@ grep "eurex.t7.eobi.fbe.v6.0.tradingsessionsubid" Eurex.T7.Eobi.Fbe.v6.0.Product
 grep "eurex.t7.eobi.fbe.v6.0.tradsesstatus" Eurex.T7.Eobi.Fbe.v6.0.ProductSummary.json
 grep "eurex.t7.eobi.fbe.v6.0.marketcondition" Eurex.T7.Eobi.Fbe.v6.0.ProductSummary.json
 grep "eurex.t7.eobi.fbe.v6.0.fastmarketindicator" Eurex.T7.Eobi.Fbe.v6.0.ProductSummary.json
-grep "eurex.t7.eobi.fbe.v6.0.pad7" Eurex.T7.Eobi.Fbe.v6.0.ProductSummary.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v6.0/SnapshotOrder.pcap" \
   --disable-protocol eobi \
@@ -112,5 +106,4 @@ grep "eurex.t7.eobi.fbe.v6.0.trdregtstimepriority" Eurex.T7.Eobi.Fbe.v6.0.Snapsh
 grep "eurex.t7.eobi.fbe.v6.0.displayqty" Eurex.T7.Eobi.Fbe.v6.0.SnapshotOrder.json
 grep "eurex.t7.eobi.fbe.v6.0.side" Eurex.T7.Eobi.Fbe.v6.0.SnapshotOrder.json
 grep "eurex.t7.eobi.fbe.v6.0.ordtype" Eurex.T7.Eobi.Fbe.v6.0.SnapshotOrder.json
-grep "eurex.t7.eobi.fbe.v6.0.pad2" Eurex.T7.Eobi.Fbe.v6.0.SnapshotOrder.json
 grep "eurex.t7.eobi.fbe.v6.0.price" Eurex.T7.Eobi.Fbe.v6.0.SnapshotOrder.json

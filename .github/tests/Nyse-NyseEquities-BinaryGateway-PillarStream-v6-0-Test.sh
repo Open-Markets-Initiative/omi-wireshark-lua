@@ -28,7 +28,6 @@ grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.nysesymbol" Nyse.NyseEqu
 grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.listedmic" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.EquitiesSymbolReferenceDataMessage.json
 grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.roundlotsize" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.EquitiesSymbolReferenceDataMessage.json
 grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.advriskrangeid" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.EquitiesSymbolReferenceDataMessage.json
-grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.reserved7" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.EquitiesSymbolReferenceDataMessage.json
 grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.mpvclassid" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.EquitiesSymbolReferenceDataMessage.json
 grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.testsymbolindicator" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.EquitiesSymbolReferenceDataMessage.json
 runuser -u tester -- tshark \
@@ -50,7 +49,6 @@ grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.cumqty" Nyse.NyseEquitie
 grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.lastqty" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.ExecutionReportMessage.json
 grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.liquidityindicator" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.ExecutionReportMessage.json
 grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.bitfieldexecutiondetails" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.ExecutionReportMessage.json
-grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.reserved3" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.ExecutionReportMessage.json
 grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.locatereqdu81" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.ExecutionReportMessage.json
 grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.participanttype" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.ExecutionReportMessage.json
 grep "nyse.nyseequities.binarygateway.pillarstream.v6.0.reasoncode" Nyse.NyseEquities.BinaryGateway.PillarStream.v6.0.ExecutionReportMessage.json

@@ -19,7 +19,6 @@ grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.price" Nyse.AmexEqui
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.volume" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.side" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.firmid" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
-grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.reserved1" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/AmexEquities/IntegratedFeedRefresh/Nyse_AmexEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
@@ -49,7 +48,6 @@ grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.freezestatus" Nyse.A
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.numextensions" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.unpairedqty" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.unpairedside" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json
-grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.reserved1" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g/RefreshHeaderMessage.pcap" \
   -X "lua_script:Nyse/AmexEquities/IntegratedFeedRefresh/Nyse_AmexEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
@@ -72,7 +70,6 @@ grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.symbolindex" Nyse.Am
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.symbolseqnum" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.securitystatus" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.haltcondition" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
-grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.reserved4" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.price1" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.price2" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.ssrtriggeringexchangeid" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
@@ -90,7 +87,6 @@ runuser -u tester -- tshark \
 
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.symbolindex" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.symbol" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.reserved1" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.marketid" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.systemid" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.exchangecode" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
@@ -103,4 +99,3 @@ grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.priceresolution" Nys
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.roundlot" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.mpv" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.unitoftrade" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.reserved2" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json

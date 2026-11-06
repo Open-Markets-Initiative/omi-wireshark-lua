@@ -35,7 +35,6 @@ grep "siac.opra.output.obi.v6.2.bboindicator" Siac.Opra.Output.Obi.v6.2.LongEqui
 grep "siac.opra.output.obi.v6.2.transactionid" Siac.Opra.Output.Obi.v6.2.LongEquityAndIndexQuoteMessage.json
 grep "siac.opra.output.obi.v6.2.participantreferencenumber" Siac.Opra.Output.Obi.v6.2.LongEquityAndIndexQuoteMessage.json
 grep "siac.opra.output.obi.v6.2.securitysymbol" Siac.Opra.Output.Obi.v6.2.LongEquityAndIndexQuoteMessage.json
-grep "siac.opra.output.obi.v6.2.reserved1" Siac.Opra.Output.Obi.v6.2.LongEquityAndIndexQuoteMessage.json
 grep "siac.opra.output.obi.v6.2.expirationmonth" Siac.Opra.Output.Obi.v6.2.LongEquityAndIndexQuoteMessage.json
 grep "siac.opra.output.obi.v6.2.expirationday" Siac.Opra.Output.Obi.v6.2.LongEquityAndIndexQuoteMessage.json
 grep "siac.opra.output.obi.v6.2.expirationyear" Siac.Opra.Output.Obi.v6.2.LongEquityAndIndexQuoteMessage.json

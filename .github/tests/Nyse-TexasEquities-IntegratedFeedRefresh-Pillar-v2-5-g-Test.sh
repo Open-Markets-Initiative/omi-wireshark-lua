@@ -19,7 +19,6 @@ grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.price" Nyse.TexasEq
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.volume" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.side" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.firmid" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
-grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.reserved1" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g/RefreshHeaderMessage.pcap" \
   -X "lua_script:Nyse/TexasEquities/IntegratedFeedRefresh/Nyse_TexasEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
@@ -42,7 +41,6 @@ grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.symbolindex" Nyse.T
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.symbolseqnum" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.securitystatus" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.haltcondition" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
-grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.reserved4" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.price1" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.price2" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.ssrtriggeringexchangeid" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
@@ -60,7 +58,6 @@ runuser -u tester -- tshark \
 
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.symbolindex" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.symbol" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.reserved1" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.marketid" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.systemid" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.exchangecode" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
@@ -73,4 +70,3 @@ grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.priceresolution" Ny
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.roundlot" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.mpv" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.unitoftrade" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.reserved2" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json

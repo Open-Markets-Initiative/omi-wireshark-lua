@@ -19,7 +19,6 @@ grep "nyse.nyseequities.bbo.xdp.v2.4.g.bidprice" Nyse.NyseEquities.Bbo.Xdp.v2.4.
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.bidvolume" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.QuoteMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.quotecondition" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.QuoteMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.rpiindicator" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.QuoteMessage.json
-grep "nyse.nyseequities.bbo.xdp.v2.4.g.reserved4" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.QuoteMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.Bbo.Xdp.v2.4.g/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/NyseEquities/Bbo/Nyse_NyseEquities_Bbo_Xdp_v2_4_g_Dissector.lua" \
@@ -33,7 +32,6 @@ grep "nyse.nyseequities.bbo.xdp.v2.4.g.symbolindex" Nyse.NyseEquities.Bbo.Xdp.v2
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.symbolseqnum" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.securitystatus" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.haltcondition" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SecurityStatusMessage.json
-grep "nyse.nyseequities.bbo.xdp.v2.4.g.reserved4" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.price1" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.price2" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.ssrtriggeringexchangeid" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SecurityStatusMessage.json
@@ -62,7 +60,6 @@ runuser -u tester -- tshark \
 
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.symbolindex" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.symbol" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SymbolIndexMappingMessage.json
-grep "nyse.nyseequities.bbo.xdp.v2.4.g.reserved1" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.marketid" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.systemid" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.exchangecode" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SymbolIndexMappingMessage.json
@@ -75,7 +72,6 @@ grep "nyse.nyseequities.bbo.xdp.v2.4.g.priceresolution" Nyse.NyseEquities.Bbo.Xd
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.roundlot" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.mpv" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.unitoftrade" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SymbolIndexMappingMessage.json
-grep "nyse.nyseequities.bbo.xdp.v2.4.g.reserved2" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.SymbolIndexMappingMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.Bbo.Xdp.v2.4.g/TradingSessionChangeMessage.pcap" \
   -X "lua_script:Nyse/NyseEquities/Bbo/Nyse_NyseEquities_Bbo_Xdp_v2_4_g_Dissector.lua" \

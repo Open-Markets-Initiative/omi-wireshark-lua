@@ -18,7 +18,6 @@ grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.price" Nyse.ArcaEquities.In
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.volume" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.side" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.firmid" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderMessage.json
-grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaEquities.IntegratedFeed.Pillar.v2.5.g/CrossTradeMessage.pcap" \
   -X "lua_script:Nyse/ArcaEquities/IntegratedFeed/Nyse_ArcaEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
@@ -44,7 +43,6 @@ grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.sourcetimens" Nyse.ArcaEqui
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.symbolindex" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.DeleteOrderMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.symbolseqnum" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.DeleteOrderMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.orderid" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.DeleteOrderMessage.json
-grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.DeleteOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaEquities.IntegratedFeed.Pillar.v2.5.g/ModifyOrderMessage.pcap" \
   -X "lua_script:Nyse/ArcaEquities/IntegratedFeed/Nyse_ArcaEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
@@ -60,7 +58,6 @@ grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.price" Nyse.ArcaEquities.In
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.volume" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ModifyOrderMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.positionchange" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ModifyOrderMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.side" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ModifyOrderMessage.json
-grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ModifyOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaEquities.IntegratedFeed.Pillar.v2.5.g/NonDisplayedTradeMessage.pcap" \
   -X "lua_script:Nyse/ArcaEquities/IntegratedFeed/Nyse_ArcaEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
@@ -94,7 +91,6 @@ grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.tradeid" Nyse.ArcaEquities.
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.price" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.volume" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.printableflag" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
-grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.tradecond1" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.tradecond2" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.tradecond3" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.OrderExecutionMessage.json
@@ -114,7 +110,6 @@ grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.neworderid" Nyse.ArcaEquiti
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.price" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ReplaceOrderMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.volume" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ReplaceOrderMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.side" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ReplaceOrderMessage.json
-grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ReplaceOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaEquities.IntegratedFeed.Pillar.v2.5.g/RetailPriceImprovementMessage.pcap" \
   -X "lua_script:Nyse/ArcaEquities/IntegratedFeed/Nyse_ArcaEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
@@ -139,7 +134,6 @@ grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.symbolindex" Nyse.ArcaEquit
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.symbolseqnum" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.securitystatus" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.haltcondition" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
-grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.reserved4" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.price1" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.price2" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.ssrtriggeringexchangeid" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.SecurityStatusMessage.json

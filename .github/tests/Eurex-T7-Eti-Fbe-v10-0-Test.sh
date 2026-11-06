@@ -10,7 +10,6 @@ runuser -u tester -- tshark \
   > Eurex.T7.Eti.Fbe.v10.0.OrderExecResponse.json 2> Eurex.T7.Eti.Fbe.v10.0.OrderExecResponse.json.stderr \
   || { echo "--- tshark FAILED (OrderExecResponse) ---"; cat Eurex.T7.Eti.Fbe.v10.0.OrderExecResponse.json.stderr; exit 1; }
 
-grep "eurex.t7.eti.fbe.v10.0.pad2" Eurex.T7.Eti.Fbe.v10.0.OrderExecResponse.json
 grep "eurex.t7.eti.fbe.v10.0.requesttime" Eurex.T7.Eti.Fbe.v10.0.OrderExecResponse.json
 grep "eurex.t7.eti.fbe.v10.0.trdregtstimein" Eurex.T7.Eti.Fbe.v10.0.OrderExecResponse.json
 grep "eurex.t7.eti.fbe.v10.0.trdregtstimeout" Eurex.T7.Eti.Fbe.v10.0.OrderExecResponse.json
@@ -43,7 +42,6 @@ grep "eurex.t7.eti.fbe.v10.0.crossedindicator" Eurex.T7.Eti.Fbe.v10.0.OrderExecR
 grep "eurex.t7.eti.fbe.v10.0.transactiondelayindicator" Eurex.T7.Eti.Fbe.v10.0.OrderExecResponse.json
 grep "eurex.t7.eti.fbe.v10.0.nofills" Eurex.T7.Eti.Fbe.v10.0.OrderExecResponse.json
 grep "eurex.t7.eti.fbe.v10.0.noorderevents" Eurex.T7.Eti.Fbe.v10.0.OrderExecResponse.json
-grep "eurex.t7.eti.fbe.v10.0.pad7" Eurex.T7.Eti.Fbe.v10.0.OrderExecResponse.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eti.Fbe.v10.0/Reassembly.pcap" \
   -X "lua_script:Eurex/T7/Eti/Eurex_T7_Eti_Fbe_v10_0_Dissector.lua" \

@@ -12,7 +12,6 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (Heartbeat) ---"; cat Eurex.T7.Eti.Fbe.v6.1.Heartbeat.json.stderr; exit 1; }
 
 grep "eurex.t7.eti.fbe.v6.1.networkmsgid" Eurex.T7.Eti.Fbe.v6.1.Heartbeat.json
-grep "eurex.t7.eti.fbe.v6.1.pad2" Eurex.T7.Eti.Fbe.v6.1.Heartbeat.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eti.Fbe.v6.1/RetransmitMeMessageRequest.pcap" \
   --disable-protocol eti \
@@ -22,7 +21,6 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (RetransmitMeMessageRequest) ---"; cat Eurex.T7.Eti.Fbe.v6.1.RetransmitMeMessageRequest.json.stderr; exit 1; }
 
 grep "eurex.t7.eti.fbe.v6.1.networkmsgid" Eurex.T7.Eti.Fbe.v6.1.RetransmitMeMessageRequest.json
-grep "eurex.t7.eti.fbe.v6.1.pad2" Eurex.T7.Eti.Fbe.v6.1.RetransmitMeMessageRequest.json
 grep "eurex.t7.eti.fbe.v6.1.msgseqnum" Eurex.T7.Eti.Fbe.v6.1.RetransmitMeMessageRequest.json
 grep "eurex.t7.eti.fbe.v6.1.sendersubid" Eurex.T7.Eti.Fbe.v6.1.RetransmitMeMessageRequest.json
 grep "eurex.t7.eti.fbe.v6.1.subscriptionscope" Eurex.T7.Eti.Fbe.v6.1.RetransmitMeMessageRequest.json
@@ -30,7 +28,6 @@ grep "eurex.t7.eti.fbe.v6.1.partitionid" Eurex.T7.Eti.Fbe.v6.1.RetransmitMeMessa
 grep "eurex.t7.eti.fbe.v6.1.refapplid" Eurex.T7.Eti.Fbe.v6.1.RetransmitMeMessageRequest.json
 grep "eurex.t7.eti.fbe.v6.1.applbegmsgid" Eurex.T7.Eti.Fbe.v6.1.RetransmitMeMessageRequest.json
 grep "eurex.t7.eti.fbe.v6.1.applendmsgid" Eurex.T7.Eti.Fbe.v6.1.RetransmitMeMessageRequest.json
-grep "eurex.t7.eti.fbe.v6.1.pad1" Eurex.T7.Eti.Fbe.v6.1.RetransmitMeMessageRequest.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eti.Fbe.v6.1/UserLoginResponse.pcap" \
   --disable-protocol eti \
@@ -39,11 +36,9 @@ runuser -u tester -- tshark \
   > Eurex.T7.Eti.Fbe.v6.1.UserLoginResponse.json 2> Eurex.T7.Eti.Fbe.v6.1.UserLoginResponse.json.stderr \
   || { echo "--- tshark FAILED (UserLoginResponse) ---"; cat Eurex.T7.Eti.Fbe.v6.1.UserLoginResponse.json.stderr; exit 1; }
 
-grep "eurex.t7.eti.fbe.v6.1.pad2" Eurex.T7.Eti.Fbe.v6.1.UserLoginResponse.json
 grep "eurex.t7.eti.fbe.v6.1.requesttime" Eurex.T7.Eti.Fbe.v6.1.UserLoginResponse.json
 grep "eurex.t7.eti.fbe.v6.1.sendingtime" Eurex.T7.Eti.Fbe.v6.1.UserLoginResponse.json
 grep "eurex.t7.eti.fbe.v6.1.msgseqnum" Eurex.T7.Eti.Fbe.v6.1.UserLoginResponse.json
-grep "eurex.t7.eti.fbe.v6.1.pad4" Eurex.T7.Eti.Fbe.v6.1.UserLoginResponse.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eti.Fbe.v6.1/Reassembly.pcap" \
   --disable-protocol eti \

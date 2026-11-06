@@ -16,7 +16,6 @@ grep "nyse.nationalequities.trades.pillar.v2.6.symbolindex" Nyse.NationalEquitie
 grep "nyse.nationalequities.trades.pillar.v2.6.symbolseqnum" Nyse.NationalEquities.Trades.Pillar.v2.6.SecurityStatusMessage.json
 grep "nyse.nationalequities.trades.pillar.v2.6.securitystatus" Nyse.NationalEquities.Trades.Pillar.v2.6.SecurityStatusMessage.json
 grep "nyse.nationalequities.trades.pillar.v2.6.haltcondition" Nyse.NationalEquities.Trades.Pillar.v2.6.SecurityStatusMessage.json
-grep "nyse.nationalequities.trades.pillar.v2.6.reserved4" Nyse.NationalEquities.Trades.Pillar.v2.6.SecurityStatusMessage.json
 grep "nyse.nationalequities.trades.pillar.v2.6.price1" Nyse.NationalEquities.Trades.Pillar.v2.6.SecurityStatusMessage.json
 grep "nyse.nationalequities.trades.pillar.v2.6.price2" Nyse.NationalEquities.Trades.Pillar.v2.6.SecurityStatusMessage.json
 grep "nyse.nationalequities.trades.pillar.v2.6.ssrtriggeringexchangeid" Nyse.NationalEquities.Trades.Pillar.v2.6.SecurityStatusMessage.json

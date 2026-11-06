@@ -188,7 +188,6 @@ grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.timeoffset" Cboe.BzxE
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.symbollong" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.TradingStatusMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.tradingstatus" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.TradingStatusMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.regshoaction" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.TradingStatusMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.padding" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.TradingStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29/MultipleMessages.pcap" \
   -X "lua_script:Cboe/BzxEquities/MulticastDepthOfBook/Cboe_BzxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \

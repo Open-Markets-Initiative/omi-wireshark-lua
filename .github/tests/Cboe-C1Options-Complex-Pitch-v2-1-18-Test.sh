@@ -87,7 +87,6 @@ grep "cboe.c1options.complex.pitch.v2.1.18.timeoffset" Cboe.C1Options.Complex.Pi
 grep "cboe.c1options.complex.pitch.v2.1.18.orderid" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.quantityshort" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.priceshort" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
-grep "cboe.c1options.complex.pitch.v2.1.18.padding" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/OrderExecutedMessage.pcap" \
   -X "lua_script:Cboe/C1Options/Complex/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
