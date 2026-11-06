@@ -17531,6 +17531,7 @@ omi_b3_b3derivatives_umdf_fast_v5_1_19.dissector = function(buffer, packet, pare
   .. "so part " .. chunk .. " of " .. chunks .. " is not read as a message")
     else
       local presence_map = nil
+      local mapped_start = offset
       presence_map, offset = read_presence_map(buffer, offset)
       local mapped = offset
 
@@ -17560,12 +17561,12 @@ omi_b3_b3derivatives_umdf_fast_v5_1_19.dissector = function(buffer, packet, pare
       end
 
       -- the presence map and the template id are the message's own framing
-      local header = message_tree:add(omi_b3_b3derivatives_umdf_fast_v5_1_19.fields.message_header, buffer(start, offset - start))
+      local header = message_tree:add(omi_b3_b3derivatives_umdf_fast_v5_1_19.fields.message_header, buffer(mapped_start, offset - mapped_start))
       local named = nil
       if template ~= nil then
         named = template.presence
       end
-      add_presence_map(header, buffer(start, mapped - start), omi_b3_b3derivatives_umdf_fast_v5_1_19.fields.presence_map, omi_b3_b3derivatives_umdf_fast_v5_1_19.fields.presence_stop, omi_b3_b3derivatives_umdf_fast_v5_1_19.fields.presence_identified, omi_b3_b3derivatives_umdf_fast_v5_1_19.fields.presence_unused, named)
+      add_presence_map(header, buffer(mapped_start, mapped - mapped_start), omi_b3_b3derivatives_umdf_fast_v5_1_19.fields.presence_map, omi_b3_b3derivatives_umdf_fast_v5_1_19.fields.presence_stop, omi_b3_b3derivatives_umdf_fast_v5_1_19.fields.presence_identified, omi_b3_b3derivatives_umdf_fast_v5_1_19.fields.presence_unused, named)
       header:add(omi_b3_b3derivatives_umdf_fast_v5_1_19.fields.template_id, buffer(identified, offset - identified), template_id, b3_b3derivatives_umdf_fast_v5_1_19.template_id.display(template_id))
 
       if template == nil then

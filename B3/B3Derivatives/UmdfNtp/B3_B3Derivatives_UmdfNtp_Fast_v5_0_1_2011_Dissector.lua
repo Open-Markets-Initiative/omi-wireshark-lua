@@ -23,6 +23,10 @@ omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.record = ProtoField.new("Re
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_stop = ProtoField.new("Stop Bit", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.presencestop", ftypes.UINT8, { [0] = "Clear", [1] = "Set" }, base.DEC)
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_identified = ProtoField.new("Template Id", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.presencetemplateid", ftypes.UINT8, { [0] = "Repeated", [1] = "Sent" }, base.DEC)
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_unused = ProtoField.new("Unused", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.presenceunused", ftypes.UINT8, nil, base.HEX)
+omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.prefix_msg_seq_num = ProtoField.new("Msg Seq Num", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.msgseqnum", ftypes.UINT32)
+omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.prefix_no_chunks = ProtoField.new("No Chunks", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.nochunks", ftypes.UINT32)
+omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.prefix_current_chunk = ProtoField.new("Current Chunk", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.currentchunk", ftypes.UINT32)
+omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.prefix_msg_length = ProtoField.new("Msg Length", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.msglength", ftypes.UINT32)
 
 -- B3 B3Derivatives UmdfNtp Fast 5.0.1.2011 Presence Map Fields
 omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_md_req_id = ProtoField.new("MD Req ID", "b3.b3derivatives.umdfntp.fast.v5.0.1.2011.mdreqidpresence", ftypes.UINT8, { [0] = "Absent", [1] = "Present" }, base.DEC)
@@ -18452,57 +18456,94 @@ omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.dissector = function(buffer, packe
   while offset < buffer:len() do
     local start = offset
 
-    local holder = root
-
-    local presence_map = nil
-    presence_map, offset = read_presence_map(buffer, offset)
-    local mapped = offset
-
-    -- the first bit says whether the template id was sent
-    local template_id = nil
-    local identified = offset
-    if presence_map[1] then
-      template_id, offset = read_stop_bit_unsigned(buffer, offset)
-      state.last_template_id = template_id
-    else
-      template_id = state.last_template_id
-    end
-
-    if template_id == nil then
-      root:add_expert_info(PI_MALFORMED, PI_ERROR, "FAST template id was omitted before the stream sent one")
+    -- the binary header this record opens with, unencoded
+    if offset + 10 > buffer:len() then
+      root:add_expert_info(PI_MALFORMED, PI_ERROR, "FAST packet ended inside a record header")
       return
     end
+    local holder = root:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.record, buffer(offset, 10))
 
-    local template = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.templates[template_id]
-    local message_tree = nil
+    holder:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.prefix_msg_seq_num, buffer(offset, 4), buffer(offset, 4):uint())
+    offset = offset + 4
+    holder:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.prefix_no_chunks, buffer(offset, 2), buffer(offset, 2):uint())
+    local chunks = buffer(offset, 2):uint()
+    offset = offset + 2
+    holder:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.prefix_current_chunk, buffer(offset, 2), buffer(offset, 2):uint())
+    local chunk = buffer(offset, 2):uint()
+    offset = offset + 2
+    holder:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.prefix_msg_length, buffer(offset, 2), buffer(offset, 2):uint())
+    local body = buffer(offset, 2):uint()
+    offset = offset + 2
 
-    if template ~= nil then
-      message_tree = holder:add(template.node, buffer(start, 0))
+    if offset + body > buffer:len() then
+      root:add_expert_info(PI_MALFORMED, PI_ERROR, "FAST record states more octets than the packet carries")
+      return
+    end
+    local limit = offset + body
+
+    if chunks > 1 then
+      holder:add_expert_info(PI_REASSEMBLE, PI_NOTE, "FAST message divided across packets: this dissector does not rejoin the parts, "
+  .. "so part " .. chunk .. " of " .. chunks .. " is not read as a message")
     else
-      message_tree = holder:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.message, buffer(start, 0))
-      message_tree:set_text(b3_b3derivatives_umdfntp_fast_v5_0_1_2011.template_id.name(template_id))
-    end
+      local presence_map = nil
+      local mapped_start = offset
+      presence_map, offset = read_presence_map(buffer, offset)
+      local mapped = offset
 
-    -- the presence map and the template id are the message's own framing
-    local header = message_tree:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.message_header, buffer(start, offset - start))
-    local named = nil
-    if template ~= nil then
-      named = template.presence
-    end
-    add_presence_map(header, buffer(start, mapped - start), omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_map, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_stop, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_identified, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_unused, named)
-    header:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.template_id, buffer(identified, offset - identified), template_id, b3_b3derivatives_umdfntp_fast_v5_0_1_2011.template_id.display(template_id))
+      -- the first bit says whether the template id was sent
+      local template_id = nil
+      local identified = offset
+      if presence_map[1] then
+        template_id, offset = read_stop_bit_unsigned(buffer, offset)
+        state.last_template_id = template_id
+      else
+        template_id = state.last_template_id
+      end
 
-    if template == nil then
-      message_tree:add_expert_info(PI_UNDECODED, PI_WARN, "This dissector reads: 117 (MDTcpRequestReject_117), 111 (MDSecurityList_111), 81 (MDIncRefresh_81), 123 (MDIncRefresh_123), 110 (MDIncRefresh_110), 109 (MDIncRefresh_109), 108 (MDIncRefresh_108), 97 (MDIncRefresh_97), 77 (MDIncRefresh_77), 103 (MDIncRefresh_103), 69 (MDIncRefresh_69), 83 (MDIncRefresh_83), 32 (MDIncRefresh_32), 84 (MDIncRefresh_84), 68 (MDIncRefresh_68), 104 (MDIncRefresh_104), 71 (MDIncRefresh_71), 59 (MDIncRefresh_59), 86 (MDIncRefresh_86), 35 (MDIncRefresh_35), 87 (MDIncRefresh_87), 36 (MDIncRefresh_36), 88 (MDIncRefresh_88), 72 (MDIncRefresh_72), 105 (MDIncRefresh_105), 67 (MDIncRefresh_67), 90 (MDIncRefresh_90), 39 (MDIncRefresh_39), 91 (MDIncRefresh_91), 70 (MDIncRefresh_70), 93 (MDIncRefresh_93), 41 (MDIncRefresh_41), 106 (MDIncRefresh_106), 73 (MDIncRefresh_73), 95 (MDIncRefresh_95), 43 (MDIncRefresh_43), 96 (MDIncRefresh_96), 44 (MDIncRefresh_44), 107 (MDIncRefresh_107), 74 (MDIncRefresh_74), 79 (MDSecurityDefinition_79), 78 (MDSecurityDefinition_78), 52 (MDSecurityDefinition_52), 98 (MDQuoteRequest_98), 54 (MDQuoteRequest_54), 125 (MDSecurityStatus_125), 113 (MDSecurityStatus_113), 102 (MDSecurityStatus_102), 99 (MDSecurityStatus_99), 76 (MDSecurityStatus_76), 48 (MDSecurityStatus), 124 (MDSnapshotFullRefresh_124), 112 (MDSnapshotFullRefresh_112), 80 (MDSnapshotFullRefresh_80), 53 (MDSnapshotFullRefresh_53), 120 (MDNewsMessage_120), 100 (MDNewsMessage_100), 49 (MDNewsMessage), 101 (MDHeartbeat_101), 50 (MDHeartbeat), 118 (MDLogon_118), 3 (MDLogon_3), 1 (MDLogon), 4 (MDLogout_4), 119 (MDLogout_119), 2 (MDLogout), 122 (MDSequenceReset)")
+      if template_id == nil then
+        root:add_expert_info(PI_MALFORMED, PI_ERROR, "FAST template id was omitted before the stream sent one")
+        return
+      end
+
+      local template = b3_b3derivatives_umdfntp_fast_v5_0_1_2011.templates[template_id]
+      local message_tree = nil
+
+      if template ~= nil then
+        message_tree = holder:add(template.node, buffer(start, 0))
+      else
+        message_tree = holder:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.message, buffer(start, 0))
+        message_tree:set_text(b3_b3derivatives_umdfntp_fast_v5_0_1_2011.template_id.name(template_id))
+      end
+
+      -- the presence map and the template id are the message's own framing
+      local header = message_tree:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.message_header, buffer(mapped_start, offset - mapped_start))
+      local named = nil
+      if template ~= nil then
+        named = template.presence
+      end
+      add_presence_map(header, buffer(mapped_start, mapped - mapped_start), omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_map, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_stop, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_identified, omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.presence_unused, named)
+      header:add(omi_b3_b3derivatives_umdfntp_fast_v5_0_1_2011.fields.template_id, buffer(identified, offset - identified), template_id, b3_b3derivatives_umdfntp_fast_v5_0_1_2011.template_id.display(template_id))
+
+      if template == nil then
+        message_tree:add_expert_info(PI_UNDECODED, PI_WARN, "This dissector reads: 117 (MDTcpRequestReject_117), 111 (MDSecurityList_111), 81 (MDIncRefresh_81), 123 (MDIncRefresh_123), 110 (MDIncRefresh_110), 109 (MDIncRefresh_109), 108 (MDIncRefresh_108), 97 (MDIncRefresh_97), 77 (MDIncRefresh_77), 103 (MDIncRefresh_103), 69 (MDIncRefresh_69), 83 (MDIncRefresh_83), 32 (MDIncRefresh_32), 84 (MDIncRefresh_84), 68 (MDIncRefresh_68), 104 (MDIncRefresh_104), 71 (MDIncRefresh_71), 59 (MDIncRefresh_59), 86 (MDIncRefresh_86), 35 (MDIncRefresh_35), 87 (MDIncRefresh_87), 36 (MDIncRefresh_36), 88 (MDIncRefresh_88), 72 (MDIncRefresh_72), 105 (MDIncRefresh_105), 67 (MDIncRefresh_67), 90 (MDIncRefresh_90), 39 (MDIncRefresh_39), 91 (MDIncRefresh_91), 70 (MDIncRefresh_70), 93 (MDIncRefresh_93), 41 (MDIncRefresh_41), 106 (MDIncRefresh_106), 73 (MDIncRefresh_73), 95 (MDIncRefresh_95), 43 (MDIncRefresh_43), 96 (MDIncRefresh_96), 44 (MDIncRefresh_44), 107 (MDIncRefresh_107), 74 (MDIncRefresh_74), 79 (MDSecurityDefinition_79), 78 (MDSecurityDefinition_78), 52 (MDSecurityDefinition_52), 98 (MDQuoteRequest_98), 54 (MDQuoteRequest_54), 125 (MDSecurityStatus_125), 113 (MDSecurityStatus_113), 102 (MDSecurityStatus_102), 99 (MDSecurityStatus_99), 76 (MDSecurityStatus_76), 48 (MDSecurityStatus), 124 (MDSnapshotFullRefresh_124), 112 (MDSnapshotFullRefresh_112), 80 (MDSnapshotFullRefresh_80), 53 (MDSnapshotFullRefresh_53), 120 (MDNewsMessage_120), 100 (MDNewsMessage_100), 49 (MDNewsMessage), 101 (MDHeartbeat_101), 50 (MDHeartbeat), 118 (MDLogon_118), 3 (MDLogon_3), 1 (MDLogon), 4 (MDLogout_4), 119 (MDLogout_119), 2 (MDLogout), 122 (MDSequenceReset)")
+        message_tree:set_len(offset - start)
+        return
+      end
+
+      offset = template.dissect(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
+      messages = messages + 1
+
+      -- the message occupies whatever its framing and its fields consumed
       message_tree:set_len(offset - start)
-      return
+      if offset > limit then
+        holder:add_expert_info(PI_MALFORMED, PI_ERROR, "FAST message read past the record that states its length")
+      end
+
     end
 
-    offset = template.dissect(buffer, offset, packet, message_tree, presence_map, 2, state, nil)
-    messages = messages + 1
-
-    -- the message occupies whatever its framing and its fields consumed
-    message_tree:set_len(offset - start)
+    -- the record occupies its header and the octets it stated
+    holder:set_len(limit - start)
+    offset = limit
 
     -- a dissection that read nothing would read the same octets for ever
     if offset <= start then
