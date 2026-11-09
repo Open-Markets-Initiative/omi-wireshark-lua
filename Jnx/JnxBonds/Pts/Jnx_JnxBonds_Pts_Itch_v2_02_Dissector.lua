@@ -77,14 +77,12 @@ omi_jnx_jnxbonds_pts_itch_v2_02.fields.timestamp = ProtoField.new("Timestamp", "
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
 jnx_jnxbonds_pts_itch_v2_02.timestamp_format = 2
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-jnx_jnxbonds_pts_itch_v2_02.format_timestamp = true
 
 
 -----------------------------------------------------------------------
@@ -106,9 +104,8 @@ omi_jnx_jnxbonds_pts_itch_v2_02.prefs.show_headers = Pref.bool("Show Headers", s
 omi_jnx_jnxbonds_pts_itch_v2_02.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_jnxbonds_pts_itch_v2_02.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_jnx_jnxbonds_pts_itch_v2_02.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_jnx_jnxbonds_pts_itch_v2_02.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_jnx_jnxbonds_pts_itch_v2_02.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
+omi_jnx_jnxbonds_pts_itch_v2_02.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_jnx_jnxbonds_pts_itch_v2_02.prefs_changed()
@@ -128,9 +125,6 @@ function omi_jnx_jnxbonds_pts_itch_v2_02.prefs_changed()
   end
   if show.sequences ~= omi_jnx_jnxbonds_pts_itch_v2_02.prefs.show_sequences then
     show.sequences = omi_jnx_jnxbonds_pts_itch_v2_02.prefs.show_sequences
-  end
-  if jnx_jnxbonds_pts_itch_v2_02.format_timestamp ~= omi_jnx_jnxbonds_pts_itch_v2_02.prefs.format_timestamp then
-    jnx_jnxbonds_pts_itch_v2_02.format_timestamp = omi_jnx_jnxbonds_pts_itch_v2_02.prefs.format_timestamp
   end
   if jnx_jnxbonds_pts_itch_v2_02.timestamp_format ~= omi_jnx_jnxbonds_pts_itch_v2_02.prefs.timestamp_format then
     jnx_jnxbonds_pts_itch_v2_02.timestamp_format = omi_jnx_jnxbonds_pts_itch_v2_02.prefs.timestamp_format
@@ -905,7 +899,7 @@ jnx_jnxbonds_pts_itch_v2_02.timestamp = {}
 
 -- Translate: Timestamp
 jnx_jnxbonds_pts_itch_v2_02.timestamp.translate = function(nanoseconds, stored_seconds)
-  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
+  return UInt64.new(stored_seconds) * 1000000000 + nanoseconds
 end
 
 -- Display: Timestamp
@@ -916,7 +910,7 @@ jnx_jnxbonds_pts_itch_v2_02.timestamp.display = function(nanoseconds, stored_sec
   end
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if jnx_jnxbonds_pts_itch_v2_02.timestamp_format == 2 and packet then
+  if jnx_jnxbonds_pts_itch_v2_02.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -926,7 +920,8 @@ jnx_jnxbonds_pts_itch_v2_02.timestamp.display = function(nanoseconds, stored_sec
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_seconds)..string.format("%09d", nanoseconds)
+      local format = jnx_jnxbonds_pts_itch_v2_02.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + stored_seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -953,7 +948,7 @@ end
 
 -- Dissect: Timestamp
 jnx_jnxbonds_pts_itch_v2_02.timestamp.dissect = function(buffer, offset, packet, parent)
-  if jnx_jnxbonds_pts_itch_v2_02.format_timestamp then
+  if jnx_jnxbonds_pts_itch_v2_02.timestamp_format ~= 0 then
     local stored_seconds = jnx_jnxbonds_pts_itch_v2_02.seconds.current
 
     if stored_seconds ~= nil then

@@ -108,14 +108,16 @@ omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.message_index = ProtoField.n
 -- OtcMarkets MoonAts DepthOfBook Link 1.3 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-otcmarkets_moonats_depthofbook_link_v1_3.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -136,7 +138,7 @@ omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs.show_structs = Pref.bool("Sho
 omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs_changed()
@@ -154,8 +156,8 @@ function omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs_changed()
   if show.indexes ~= omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs.show_indexes then
     show.indexes = omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs.show_indexes
   end
-  if otcmarkets_moonats_depthofbook_link_v1_3.absolute_time_base ~= omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs.absolute_time_base then
-    otcmarkets_moonats_depthofbook_link_v1_3.absolute_time_base = omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs.absolute_time_base
+  if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format ~= omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs.timestamp_format then
+    otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format = omi_otcmarkets_moonats_depthofbook_link_v1_3.prefs.timestamp_format
   end
 end
 
@@ -433,7 +435,7 @@ otcmarkets_moonats_depthofbook_link_v1_3.last_update_milli.dissect = function(bu
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.last_update_milli
-  if otcmarkets_moonats_depthofbook_link_v1_3.absolute_time_base == 1 then field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.last_update_milli_utc end
+  if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 3 then field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.last_update_milli_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -671,7 +673,7 @@ otcmarkets_moonats_depthofbook_link_v1_3.packet_milli.display = function(value, 
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 2 and packet then
+  if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -681,7 +683,8 @@ otcmarkets_moonats_depthofbook_link_v1_3.packet_milli.display = function(value, 
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Packet Milli: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Packet Milli: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -791,7 +794,7 @@ otcmarkets_moonats_depthofbook_link_v1_3.recovery_start_time.dissect = function(
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.recovery_start_time
-  if otcmarkets_moonats_depthofbook_link_v1_3.absolute_time_base == 1 then field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.recovery_start_time_utc end
+  if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 3 then field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.recovery_start_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1035,7 +1038,7 @@ otcmarkets_moonats_depthofbook_link_v1_3.session_time.dissect = function(buffer,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.session_time
-  if otcmarkets_moonats_depthofbook_link_v1_3.absolute_time_base == 1 then field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.session_time_utc end
+  if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 3 then field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.session_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1087,7 +1090,7 @@ otcmarkets_moonats_depthofbook_link_v1_3.spin_end_time_milli.dissect = function(
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.spin_end_time_milli
-  if otcmarkets_moonats_depthofbook_link_v1_3.absolute_time_base == 1 then field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.spin_end_time_milli_utc end
+  if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 3 then field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.spin_end_time_milli_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1157,7 +1160,7 @@ otcmarkets_moonats_depthofbook_link_v1_3.spin_start_time_milli.dissect = functio
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.spin_start_time_milli
-  if otcmarkets_moonats_depthofbook_link_v1_3.absolute_time_base == 1 then field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.spin_start_time_milli_utc end
+  if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 3 then field = omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.spin_start_time_milli_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1261,7 +1264,7 @@ otcmarkets_moonats_depthofbook_link_v1_3.time.display = function(value, buffer, 
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 2 and packet then
+  if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -1271,7 +1274,8 @@ otcmarkets_moonats_depthofbook_link_v1_3.time.display = function(value, buffer, 
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 

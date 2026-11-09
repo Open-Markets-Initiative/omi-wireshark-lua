@@ -150,14 +150,14 @@ omi_siac_cts_input_cta_v2_7_f.fields.message_index = ProtoField.new("Message Ind
 -- Siac Cts Input Cta 2.7.f Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-siac_cts_input_cta_v2_7_f.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+siac_cts_input_cta_v2_7_f.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -180,7 +180,7 @@ omi_siac_cts_input_cta_v2_7_f.prefs.show_structs = Pref.bool("Show Structs", sho
 omi_siac_cts_input_cta_v2_7_f.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_siac_cts_input_cta_v2_7_f.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_siac_cts_input_cta_v2_7_f.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_siac_cts_input_cta_v2_7_f.prefs_changed()
@@ -201,8 +201,8 @@ function omi_siac_cts_input_cta_v2_7_f.prefs_changed()
   if show.indexes ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_indexes then
     show.indexes = omi_siac_cts_input_cta_v2_7_f.prefs.show_indexes
   end
-  if siac_cts_input_cta_v2_7_f.absolute_time_base ~= omi_siac_cts_input_cta_v2_7_f.prefs.absolute_time_base then
-    siac_cts_input_cta_v2_7_f.absolute_time_base = omi_siac_cts_input_cta_v2_7_f.prefs.absolute_time_base
+  if siac_cts_input_cta_v2_7_f.timestamp_format ~= omi_siac_cts_input_cta_v2_7_f.prefs.timestamp_format then
+    siac_cts_input_cta_v2_7_f.timestamp_format = omi_siac_cts_input_cta_v2_7_f.prefs.timestamp_format
   end
 end
 
@@ -1905,7 +1905,7 @@ siac_cts_input_cta_v2_7_f.seconds.dissect = function(buffer, offset, packet, par
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_siac_cts_input_cta_v2_7_f.fields.seconds
-  if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.seconds_utc end
+  if siac_cts_input_cta_v2_7_f.timestamp_format == 3 then field = omi_siac_cts_input_cta_v2_7_f.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -2401,7 +2401,8 @@ siac_cts_input_cta_v2_7_f.timestamp_2.display = function(packet, parent, value)
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = siac_cts_input_cta_v2_7_f.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Timestamp 2
@@ -2431,7 +2432,7 @@ siac_cts_input_cta_v2_7_f.timestamp_2.dissect = function(buffer, offset, packet,
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cts_input_cta_v2_7_f.fields.timestamp_2
-    if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.timestamp_2_utc end
+    if siac_cts_input_cta_v2_7_f.timestamp_format == 3 then field = omi_siac_cts_input_cta_v2_7_f.fields.timestamp_2_utc end
     if seconds == 0 and nanoseconds == 0 then
       -- Null: the field keeps its type, and the line says so instead
       parent = parent:add(field, buffer(offset, length), NSTime.new(0, 0))
@@ -3116,7 +3117,8 @@ siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.display = function(packe
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = siac_cts_input_cta_v2_7_f.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Prior Day Trade Date And Time
@@ -3146,7 +3148,7 @@ siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.dissect = function(buffe
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time
-    if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time_utc end
+    if siac_cts_input_cta_v2_7_f.timestamp_format == 3 then field = omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
 
@@ -3505,7 +3507,8 @@ siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.display = funct
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = siac_cts_input_cta_v2_7_f.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Original Prior Day Trade Date And Time
@@ -3535,7 +3538,7 @@ siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.dissect = funct
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cts_input_cta_v2_7_f.fields.original_prior_day_trade_date_and_time
-    if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.original_prior_day_trade_date_and_time_utc end
+    if siac_cts_input_cta_v2_7_f.timestamp_format == 3 then field = omi_siac_cts_input_cta_v2_7_f.fields.original_prior_day_trade_date_and_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
 
@@ -3566,7 +3569,8 @@ siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.display = func
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = siac_cts_input_cta_v2_7_f.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Corrected Prior Day Trade Date And Time
@@ -3596,7 +3600,7 @@ siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.dissect = func
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cts_input_cta_v2_7_f.fields.corrected_prior_day_trade_date_and_time
-    if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.corrected_prior_day_trade_date_and_time_utc end
+    if siac_cts_input_cta_v2_7_f.timestamp_format == 3 then field = omi_siac_cts_input_cta_v2_7_f.fields.corrected_prior_day_trade_date_and_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
 
@@ -4404,7 +4408,8 @@ siac_cts_input_cta_v2_7_f.timestamp_1.display = function(packet, parent, value)
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = siac_cts_input_cta_v2_7_f.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Timestamp 1
@@ -4434,7 +4439,7 @@ siac_cts_input_cta_v2_7_f.timestamp_1.dissect = function(buffer, offset, packet,
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1
-    if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1_utc end
+    if siac_cts_input_cta_v2_7_f.timestamp_format == 3 then field = omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_input_cta_v2_7_f.timestamp_1.fields(buffer, offset, packet, parent)
 

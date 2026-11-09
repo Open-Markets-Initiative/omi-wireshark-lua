@@ -123,14 +123,14 @@ omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.fields.upper_collar_ca
 -- Nyse NyseEquities DepthFeedRetransmission Pillar 1.7 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nyse_nyseequities_depthfeedretransmission_pillar_v1_7.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nyse_nyseequities_depthfeedretransmission_pillar_v1_7.timestamp_format = 2
 
 -- Price Calculate format (true = decimal-scaled, false = raw mantissa)
 nyse_nyseequities_depthfeedretransmission_pillar_v1_7.format_decimals = true
@@ -163,7 +163,7 @@ omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs.show_indexes = P
 omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs_changed()
@@ -196,8 +196,8 @@ function omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs_changed
   if nyse_nyseequities_depthfeedretransmission_pillar_v1_7.format_decimals ~= omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs.format_decimals then
     nyse_nyseequities_depthfeedretransmission_pillar_v1_7.format_decimals = omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs.format_decimals
   end
-  if nyse_nyseequities_depthfeedretransmission_pillar_v1_7.absolute_time_base ~= omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs.absolute_time_base then
-    nyse_nyseequities_depthfeedretransmission_pillar_v1_7.absolute_time_base = omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs.absolute_time_base
+  if nyse_nyseequities_depthfeedretransmission_pillar_v1_7.timestamp_format ~= omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs.timestamp_format then
+    nyse_nyseequities_depthfeedretransmission_pillar_v1_7.timestamp_format = omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.prefs.timestamp_format
   end
 end
 
@@ -1486,7 +1486,7 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.seconds.dissect = function
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.fields.seconds
-  if nyse_nyseequities_depthfeedretransmission_pillar_v1_7.absolute_time_base == 1 then field = omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.fields.seconds_utc end
+  if nyse_nyseequities_depthfeedretransmission_pillar_v1_7.timestamp_format == 3 then field = omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -2055,6 +2055,7 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.symbol_index.lookup = func
   local display = nyse_nyseequities_depthfeedretransmission_pillar_v1_7.symbol_index.display(value, buffer, offset, packet, parent)
 
   if not show.records then
+    nyse_nyseequities_depthfeedretransmission_pillar_v1_7.symbol_index_mapping_message.current = nil
     parent:add(omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.fields.symbol_index, range, value, display)
 
     return offset + length, value
@@ -2062,6 +2063,14 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.symbol_index.lookup = func
 
   -- Lookup Symbol Index Mapping Message record
   local record = nyse_nyseequities_depthfeedretransmission_pillar_v1_7.conversation.current.symbol_index_mapping_message[value]
+
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  nyse_nyseequities_depthfeedretransmission_pillar_v1_7.symbol_index_mapping_message.current = record
   if record ~= nil and record.symbol ~= nil then
     display = "Symbol Index: " .. tostring(record.symbol) .. " (" .. tostring(value) .. ")"
   end
@@ -2069,7 +2078,6 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.symbol_index.lookup = func
   local field_tree = parent:add(omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.fields.symbol_index, range, value, display)
 
   if record ~= nil then
-    nyse_nyseequities_depthfeedretransmission_pillar_v1_7.symbol_index_mapping_message.current = record
     if record.symbol ~= nil then
       local entry_symbol = field_tree:add(omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.fields.symbol, record.symbol)
       entry_symbol:set_generated()
@@ -2368,7 +2376,7 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.auction_interest_clearing_
 
 -- Display: Auction Interest Clearing Price Calculate
 nyse_nyseequities_depthfeedretransmission_pillar_v1_7.auction_interest_clearing_price_calculate.display = function(value)
-  return "Auction Interest Clearing Price Calculate: " .. string.format("%g", value)
+  return "Auction Interest Clearing Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Auction Interest Clearing Price Calculate
@@ -2406,7 +2414,7 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.continuous_book_clearing_p
 
 -- Display: Continuous Book Clearing Price Calculate
 nyse_nyseequities_depthfeedretransmission_pillar_v1_7.continuous_book_clearing_price_calculate.display = function(value)
-  return "Continuous Book Clearing Price Calculate: " .. string.format("%g", value)
+  return "Continuous Book Clearing Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Continuous Book Clearing Price Calculate
@@ -2444,7 +2452,7 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.indicative_match_price_cal
 
 -- Display: Indicative Match Price Calculate
 nyse_nyseequities_depthfeedretransmission_pillar_v1_7.indicative_match_price_calculate.display = function(value)
-  return "Indicative Match Price Calculate: " .. string.format("%g", value)
+  return "Indicative Match Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Indicative Match Price Calculate
@@ -2482,7 +2490,7 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.lower_collar_calculate = {
 
 -- Display: Lower Collar Calculate
 nyse_nyseequities_depthfeedretransmission_pillar_v1_7.lower_collar_calculate.display = function(value)
-  return "Lower Collar Calculate: " .. string.format("%g", value)
+  return "Lower Collar Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Lower Collar Calculate
@@ -2520,7 +2528,7 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.price_calculate = {}
 
 -- Display: Price Calculate
 nyse_nyseequities_depthfeedretransmission_pillar_v1_7.price_calculate.display = function(value)
-  return "Price Calculate: " .. string.format("%g", value)
+  return "Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Price Calculate
@@ -2558,7 +2566,7 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.reference_price_calculate 
 
 -- Display: Reference Price Calculate
 nyse_nyseequities_depthfeedretransmission_pillar_v1_7.reference_price_calculate.display = function(value)
-  return "Reference Price Calculate: " .. string.format("%g", value)
+  return "Reference Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Reference Price Calculate
@@ -2596,7 +2604,7 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.ssr_filing_price_calculate
 
 -- Display: SSR Filing Price Calculate
 nyse_nyseequities_depthfeedretransmission_pillar_v1_7.ssr_filing_price_calculate.display = function(value)
-  return "SSR Filing Price Calculate: " .. string.format("%g", value)
+  return "SSR Filing Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: SSR Filing Price Calculate
@@ -2634,7 +2642,7 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.upper_collar_calculate = {
 
 -- Display: Upper Collar Calculate
 nyse_nyseequities_depthfeedretransmission_pillar_v1_7.upper_collar_calculate.display = function(value)
-  return "Upper Collar Calculate: " .. string.format("%g", value)
+  return "Upper Collar Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Upper Collar Calculate
@@ -3335,6 +3343,8 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.symbol_index_mapping_messa
   -- Cache Symbol Index Mapping Message record by symbol_index
   if show.records and not packet.visited then
     nyse_nyseequities_depthfeedretransmission_pillar_v1_7.conversation.current.symbol_index_mapping_message[symbol_index] = {
+      record_frame = packet.number,
+      record_previous = nyse_nyseequities_depthfeedretransmission_pillar_v1_7.conversation.current.symbol_index_mapping_message[symbol_index],
       symbol_index = symbol_index,
       symbol = symbol,
       price_scale_code = price_scale_code,
@@ -3613,7 +3623,8 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.send_time.display = functi
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = nyse_nyseequities_depthfeedretransmission_pillar_v1_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Send Time
@@ -3643,7 +3654,7 @@ nyse_nyseequities_depthfeedretransmission_pillar_v1_7.send_time.dissect = functi
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.fields.send_time
-    if nyse_nyseequities_depthfeedretransmission_pillar_v1_7.absolute_time_base == 1 then field = omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.fields.send_time_utc end
+    if nyse_nyseequities_depthfeedretransmission_pillar_v1_7.timestamp_format == 3 then field = omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_7.fields.send_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_nyseequities_depthfeedretransmission_pillar_v1_7.send_time.fields(buffer, offset, packet, parent)
 

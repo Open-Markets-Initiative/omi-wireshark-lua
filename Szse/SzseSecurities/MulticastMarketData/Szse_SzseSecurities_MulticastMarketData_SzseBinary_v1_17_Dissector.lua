@@ -210,14 +210,14 @@ omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.messages_seq
 -- Szse SzseSecurities MulticastMarketData SzseBinary 1.17 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -244,7 +244,7 @@ omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.show_padding 
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs_changed()
@@ -271,8 +271,8 @@ function omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs_chan
   if show.sequences ~= omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.show_sequences then
     show.sequences = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.show_sequences
   end
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.absolute_time_base ~= omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.absolute_time_base then
-    szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.absolute_time_base = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.absolute_time_base
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format ~= omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.timestamp_format then
+    szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.timestamp_format
   end
 end
 
@@ -743,7 +743,7 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.complex_event_end_time.
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_end_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.absolute_time_base == 1 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_end_time_utc end
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_end_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -790,7 +790,7 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.complex_event_start_tim
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_start_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.absolute_time_base == 1 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_start_time_utc end
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_start_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2082,7 +2082,7 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.orig_time.dissect = fun
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.orig_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.absolute_time_base == 1 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.orig_time_utc end
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.orig_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2912,7 +2912,7 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.trad_ses_end_time.disse
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_end_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.absolute_time_base == 1 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_end_time_utc end
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_end_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2959,7 +2959,7 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.trad_ses_start_time.dis
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_start_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.absolute_time_base == 1 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_start_time_utc end
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_start_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -3200,7 +3200,7 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.transac_time.dissect = 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.transac_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.absolute_time_base == 1 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.transac_time_utc end
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.transac_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)

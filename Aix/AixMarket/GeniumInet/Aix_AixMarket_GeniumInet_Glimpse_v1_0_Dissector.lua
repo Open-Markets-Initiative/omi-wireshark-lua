@@ -115,17 +115,15 @@ omi_aix_aixmarket_geniuminet_glimpse_v1_0.experts = { aix_aixmarket_geniuminet_g
 -- Aix AixMarket GeniumInet Glimpse 1.0 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-aix_aixmarket_geniuminet_glimpse_v1_0.absolute_time_base = 0
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-aix_aixmarket_geniuminet_glimpse_v1_0.format_timestamp = true
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+aix_aixmarket_geniuminet_glimpse_v1_0.timestamp_format = 2
 
 -- Scaled Nominal Value format (true = decimal-scaled, false = raw mantissa)
 aix_aixmarket_geniuminet_glimpse_v1_0.format_decimals = true
@@ -164,10 +162,9 @@ omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_headers = Pref.bool("Show H
 omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs_changed()
@@ -194,14 +191,11 @@ function omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs_changed()
   if show.sequences ~= omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_sequences then
     show.sequences = omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.show_sequences
   end
-  if aix_aixmarket_geniuminet_glimpse_v1_0.format_timestamp ~= omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.format_timestamp then
-    aix_aixmarket_geniuminet_glimpse_v1_0.format_timestamp = omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.format_timestamp
-  end
   if aix_aixmarket_geniuminet_glimpse_v1_0.format_decimals ~= omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.format_decimals then
     aix_aixmarket_geniuminet_glimpse_v1_0.format_decimals = omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.format_decimals
   end
-  if aix_aixmarket_geniuminet_glimpse_v1_0.absolute_time_base ~= omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.absolute_time_base then
-    aix_aixmarket_geniuminet_glimpse_v1_0.absolute_time_base = omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.absolute_time_base
+  if aix_aixmarket_geniuminet_glimpse_v1_0.timestamp_format ~= omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.timestamp_format then
+    aix_aixmarket_geniuminet_glimpse_v1_0.timestamp_format = omi_aix_aixmarket_geniuminet_glimpse_v1_0.prefs.timestamp_format
   end
 end
 
@@ -769,6 +763,7 @@ aix_aixmarket_geniuminet_glimpse_v1_0.order_book_id.lookup = function(buffer, of
   local display = aix_aixmarket_geniuminet_glimpse_v1_0.order_book_id.display(value, buffer, offset, packet, parent)
 
   if not show.records then
+    aix_aixmarket_geniuminet_glimpse_v1_0.order_book_directory_message.current = nil
     parent:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.order_book_id, range, value, display)
 
     return offset + length, value
@@ -777,10 +772,17 @@ aix_aixmarket_geniuminet_glimpse_v1_0.order_book_id.lookup = function(buffer, of
   -- Lookup Order Book Directory Message record
   local record = aix_aixmarket_geniuminet_glimpse_v1_0.conversation.current.order_book_directory_message[value]
 
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  aix_aixmarket_geniuminet_glimpse_v1_0.order_book_directory_message.current = record
+
   local field_tree = parent:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.order_book_id, range, value, display)
 
   if record ~= nil then
-    aix_aixmarket_geniuminet_glimpse_v1_0.order_book_directory_message.current = record
     if record.number_of_decimals_in_price ~= nil then
       local entry_number_of_decimals_in_price = field_tree:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.number_of_decimals_in_price, record.number_of_decimals_in_price)
       entry_number_of_decimals_in_price:set_generated()
@@ -1050,7 +1052,7 @@ aix_aixmarket_geniuminet_glimpse_v1_0.ranking_time.dissect = function(buffer, of
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.ranking_time
-  if aix_aixmarket_geniuminet_glimpse_v1_0.absolute_time_base == 1 then field = omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.ranking_time_utc end
+  if aix_aixmarket_geniuminet_glimpse_v1_0.timestamp_format == 3 then field = omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.ranking_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -1228,7 +1230,7 @@ aix_aixmarket_geniuminet_glimpse_v1_0.second.generated = function(value, range, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.second
-  if aix_aixmarket_geniuminet_glimpse_v1_0.absolute_time_base == 1 then field = omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.second_utc end
+  if aix_aixmarket_geniuminet_glimpse_v1_0.timestamp_format == 3 then field = omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.second_utc end
   local second = parent:add(field, range, NSTime.new(value, 0))
   second:set_generated()
 end
@@ -1242,7 +1244,7 @@ aix_aixmarket_geniuminet_glimpse_v1_0.second.dissect = function(buffer, offset, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.second
-  if aix_aixmarket_geniuminet_glimpse_v1_0.absolute_time_base == 1 then field = omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.second_utc end
+  if aix_aixmarket_geniuminet_glimpse_v1_0.timestamp_format == 3 then field = omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.second_utc end
 
   local seconds = value
   local nanos = 0
@@ -1609,12 +1611,13 @@ aix_aixmarket_geniuminet_glimpse_v1_0.timestamp = {}
 
 -- Translate: Timestamp
 aix_aixmarket_geniuminet_glimpse_v1_0.timestamp.translate = function(nanoseconds, stored_second)
-  return UInt64.new(stored_second * 1000000000 + nanoseconds)
+  return UInt64.new(stored_second) * 1000000000 + nanoseconds
 end
 
 -- Display: Timestamp
 aix_aixmarket_geniuminet_glimpse_v1_0.timestamp.display = function(nanoseconds, stored_second)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
+  local format = aix_aixmarket_geniuminet_glimpse_v1_0.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, stored_second)..string.format("%09d", nanoseconds)
 end
 
 -- Composite: Timestamp
@@ -1636,7 +1639,7 @@ end
 
 -- Dissect: Timestamp
 aix_aixmarket_geniuminet_glimpse_v1_0.timestamp.dissect = function(buffer, offset, packet, parent)
-  if aix_aixmarket_geniuminet_glimpse_v1_0.format_timestamp then
+  if aix_aixmarket_geniuminet_glimpse_v1_0.timestamp_format ~= 0 then
     local stored_second = aix_aixmarket_geniuminet_glimpse_v1_0.second.current
 
     if stored_second ~= nil then
@@ -1652,12 +1655,12 @@ aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value = {}
 
 -- Display: Scaled Nominal Value
 aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display = function(value)
-  return "Scaled Nominal Value: " .. string.format("%g", value)
+  return "Scaled Nominal Value: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Nominal Value with an unrecognised code
 aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display_uncoded = function(value)
-  return "Scaled Nominal Value: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Nominal Value: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Nominal Value
@@ -1668,38 +1671,38 @@ aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.dissect = function(bu
 
   local value
   local display
-  if number_of_decimals_in_nominal_value == "0" then
-    value = mantissa
+  if number_of_decimals_in_nominal_value == 0 then
+    value = mantissa:tonumber()
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display(value)
-  elseif number_of_decimals_in_nominal_value == "1" then
-    value = mantissa / (10 ^ 1)
+  elseif number_of_decimals_in_nominal_value == 1 then
+    value = mantissa:tonumber() / (10 ^ 1)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display(value)
-  elseif number_of_decimals_in_nominal_value == "2" then
-    value = mantissa / (10 ^ 2)
+  elseif number_of_decimals_in_nominal_value == 2 then
+    value = mantissa:tonumber() / (10 ^ 2)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display(value)
-  elseif number_of_decimals_in_nominal_value == "3" then
-    value = mantissa / (10 ^ 3)
+  elseif number_of_decimals_in_nominal_value == 3 then
+    value = mantissa:tonumber() / (10 ^ 3)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display(value)
-  elseif number_of_decimals_in_nominal_value == "4" then
-    value = mantissa / (10 ^ 4)
+  elseif number_of_decimals_in_nominal_value == 4 then
+    value = mantissa:tonumber() / (10 ^ 4)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display(value)
-  elseif number_of_decimals_in_nominal_value == "5" then
-    value = mantissa / (10 ^ 5)
+  elseif number_of_decimals_in_nominal_value == 5 then
+    value = mantissa:tonumber() / (10 ^ 5)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display(value)
-  elseif number_of_decimals_in_nominal_value == "6" then
-    value = mantissa / (10 ^ 6)
+  elseif number_of_decimals_in_nominal_value == 6 then
+    value = mantissa:tonumber() / (10 ^ 6)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display(value)
-  elseif number_of_decimals_in_nominal_value == "7" then
-    value = mantissa / (10 ^ 7)
+  elseif number_of_decimals_in_nominal_value == 7 then
+    value = mantissa:tonumber() / (10 ^ 7)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display(value)
-  elseif number_of_decimals_in_nominal_value == "8" then
-    value = mantissa / (10 ^ 8)
+  elseif number_of_decimals_in_nominal_value == 8 then
+    value = mantissa:tonumber() / (10 ^ 8)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display(value)
-  elseif number_of_decimals_in_nominal_value == "9" then
-    value = mantissa / (10 ^ 9)
+  elseif number_of_decimals_in_nominal_value == 9 then
+    value = mantissa:tonumber() / (10 ^ 9)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display(value)
   else
-    value = mantissa
+    value = mantissa:tonumber()
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_nominal_value.display_uncoded(value)
   end
 
@@ -1727,7 +1730,7 @@ end
 
 -- Display: Scaled Price
 aix_aixmarket_geniuminet_glimpse_v1_0.scaled_price.display = function(value)
-  return "Scaled Price: " .. string.format("%g", value)
+  return "Scaled Price: " .. string.format("%.15g", value)
 end
 
 -- Composite: Scaled Price
@@ -1792,7 +1795,7 @@ end
 
 -- Display: Scaled Price From
 aix_aixmarket_geniuminet_glimpse_v1_0.scaled_price_from.display = function(value)
-  return "Scaled Price From: " .. string.format("%g", value)
+  return "Scaled Price From: " .. string.format("%.15g", value)
 end
 
 -- Composite: Scaled Price From
@@ -1857,7 +1860,7 @@ end
 
 -- Display: Scaled Price To
 aix_aixmarket_geniuminet_glimpse_v1_0.scaled_price_to.display = function(value)
-  return "Scaled Price To: " .. string.format("%g", value)
+  return "Scaled Price To: " .. string.format("%.15g", value)
 end
 
 -- Composite: Scaled Price To
@@ -1871,6 +1874,13 @@ aix_aixmarket_geniuminet_glimpse_v1_0.scaled_price_to.composite = function(buffe
     local mantissa_display = aix_aixmarket_geniuminet_glimpse_v1_0.price_to.display(mantissa)
 
     field_tree:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.price_to, range, mantissa, mantissa_display)
+
+    return offset + length, 0/0
+  end
+
+  if mantissa == 0 then
+    local field_tree = parent:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.scaled_price_to, range, 0/0, "Scaled Price To: Infinity")
+    field_tree:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.price_to, range, mantissa, aix_aixmarket_geniuminet_glimpse_v1_0.price_to.display(mantissa))
 
     return offset + length, 0/0
   end
@@ -1914,12 +1924,12 @@ aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price = {}
 
 -- Display: Scaled Strike Price
 aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display = function(value)
-  return "Scaled Strike Price: " .. string.format("%g", value)
+  return "Scaled Strike Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Strike Price with an unrecognised code
 aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display_uncoded = function(value)
-  return "Scaled Strike Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Strike Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Strike Price
@@ -1929,36 +1939,43 @@ aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.dissect = function(buf
   local mantissa = range:int()
   local number_of_decimals_in_strike_price = buffer(offset + length + aix_aixmarket_geniuminet_glimpse_v1_0.expiration_date.size, aix_aixmarket_geniuminet_glimpse_v1_0.number_of_decimals_in_strike_price.size):uint()
 
+  if mantissa == -2147483648 then
+    local field_tree = parent:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.scaled_strike_price, range, 0/0, "Scaled Strike Price: No Value")
+    field_tree:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.strike_price, range, mantissa, aix_aixmarket_geniuminet_glimpse_v1_0.strike_price.display(mantissa))
+
+    return offset + length, 0/0
+  end
+
   local value
   local display
-  if number_of_decimals_in_strike_price == "0" then
+  if number_of_decimals_in_strike_price == 0 then
     value = mantissa
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display(value)
-  elseif number_of_decimals_in_strike_price == "1" then
+  elseif number_of_decimals_in_strike_price == 1 then
     value = mantissa / (10 ^ 1)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display(value)
-  elseif number_of_decimals_in_strike_price == "2" then
+  elseif number_of_decimals_in_strike_price == 2 then
     value = mantissa / (10 ^ 2)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display(value)
-  elseif number_of_decimals_in_strike_price == "3" then
+  elseif number_of_decimals_in_strike_price == 3 then
     value = mantissa / (10 ^ 3)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display(value)
-  elseif number_of_decimals_in_strike_price == "4" then
+  elseif number_of_decimals_in_strike_price == 4 then
     value = mantissa / (10 ^ 4)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display(value)
-  elseif number_of_decimals_in_strike_price == "5" then
+  elseif number_of_decimals_in_strike_price == 5 then
     value = mantissa / (10 ^ 5)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display(value)
-  elseif number_of_decimals_in_strike_price == "6" then
+  elseif number_of_decimals_in_strike_price == 6 then
     value = mantissa / (10 ^ 6)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display(value)
-  elseif number_of_decimals_in_strike_price == "7" then
+  elseif number_of_decimals_in_strike_price == 7 then
     value = mantissa / (10 ^ 7)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display(value)
-  elseif number_of_decimals_in_strike_price == "8" then
+  elseif number_of_decimals_in_strike_price == 8 then
     value = mantissa / (10 ^ 8)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display(value)
-  elseif number_of_decimals_in_strike_price == "9" then
+  elseif number_of_decimals_in_strike_price == 9 then
     value = mantissa / (10 ^ 9)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_strike_price.display(value)
   else
@@ -1990,7 +2007,7 @@ end
 
 -- Display: Scaled Tick Size
 aix_aixmarket_geniuminet_glimpse_v1_0.scaled_tick_size.display = function(value)
-  return "Scaled Tick Size: " .. string.format("%g", value)
+  return "Scaled Tick Size: " .. string.format("%.15g", value)
 end
 
 -- Composite: Scaled Tick Size
@@ -2002,10 +2019,10 @@ aix_aixmarket_geniuminet_glimpse_v1_0.scaled_tick_size.composite = function(buff
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
-    value = mantissa / 256
+    value = mantissa:tonumber() / 256
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_tick_size.display_fraction(value)
   else
-    value = mantissa / (10 ^ record.number_of_decimals_in_price)
+    value = mantissa:tonumber() / (10 ^ record.number_of_decimals_in_price)
     display = aix_aixmarket_geniuminet_glimpse_v1_0.scaled_tick_size.display(value)
   end
 
@@ -2441,6 +2458,8 @@ aix_aixmarket_geniuminet_glimpse_v1_0.order_book_directory_message.fields = func
   -- Cache Order Book Directory Message record by order_book_id
   if show.records and not packet.visited then
     aix_aixmarket_geniuminet_glimpse_v1_0.conversation.current.order_book_directory_message[order_book_id] = {
+      record_frame = packet.number,
+      record_previous = aix_aixmarket_geniuminet_glimpse_v1_0.conversation.current.order_book_directory_message[order_book_id],
       order_book_id = order_book_id,
       number_of_decimals_in_price = number_of_decimals_in_price,
     }

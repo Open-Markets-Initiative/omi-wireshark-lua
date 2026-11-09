@@ -57,10 +57,13 @@ omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.issuer = ProtoField.new("Is
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.issuer_name = ProtoField.new("Issuer Name", "otcmarkets.linkats.multicast.link.v4.10.4.issuername", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.issuer_size = ProtoField.new("Issuer Size", "otcmarkets.linkats.multicast.link.v4.10.4.issuersize", ftypes.UINT8, nil, nil, nil, "Size of the IssuerName field. If zero, IssuerName is not present.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.linkats.multicast.link.v4.10.4.lastupdatemilli", ftypes.UINT64, nil, nil, nil, "Milliseconds since UTC epoch.")
-omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close = ProtoField.new("Market Close", "otcmarkets.linkats.multicast.link.v4.10.4.marketclose", ftypes.UINT64, nil, nil, nil, "Anticipated market close time in milliseconds since UTC epoch.")
-omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close_time_milli = ProtoField.new("Market Close Time Milli", "otcmarkets.linkats.multicast.link.v4.10.4.marketclosetimemilli", ftypes.UINT64, nil, nil, nil, "Market close time in milliseconds since UTC epoch midnight.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close = ProtoField.new("Market Close", "otcmarkets.linkats.multicast.link.v4.10.4.marketclose", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Anticipated market close time in milliseconds since UTC epoch.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close_utc = ProtoField.new("Market Close", "otcmarkets.linkats.multicast.link.v4.10.4.marketclose.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Anticipated market close time in milliseconds since UTC epoch.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close_time_milli = ProtoField.new("Market Close Time Milli", "otcmarkets.linkats.multicast.link.v4.10.4.marketclosetimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Market close time in milliseconds since UTC epoch midnight.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close_time_milli_utc = ProtoField.new("Market Close Time Milli", "otcmarkets.linkats.multicast.link.v4.10.4.marketclosetimemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Market close time in milliseconds since UTC epoch midnight.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_msg_ct = ProtoField.new("Market Msg Ct", "otcmarkets.linkats.multicast.link.v4.10.4.marketmsgct", ftypes.UINT32, nil, nil, nil, "Total day message count.")
-omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_open = ProtoField.new("Market Open", "otcmarkets.linkats.multicast.link.v4.10.4.marketopen", ftypes.UINT64, nil, nil, nil, "Market open time in milliseconds since UTC epoch.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_open = ProtoField.new("Market Open", "otcmarkets.linkats.multicast.link.v4.10.4.marketopen", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Market open time in milliseconds since UTC epoch.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_open_utc = ProtoField.new("Market Open", "otcmarkets.linkats.multicast.link.v4.10.4.marketopen.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Market open time in milliseconds since UTC epoch.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.maturity_date_milli = ProtoField.new("Maturity Date Milli", "otcmarkets.linkats.multicast.link.v4.10.4.maturitydatemilli", ftypes.UINT64, nil, nil, nil, "Maturity date in milliseconds since UTC epoch. Fixed income only.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.message_count = ProtoField.new("Message Count", "otcmarkets.linkats.multicast.link.v4.10.4.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages in packet")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.multicast.link.v4.10.4.messagesize", ftypes.UINT16, nil, nil, nil, "Size of message in bytes")
@@ -164,6 +167,22 @@ omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.heartbeat_packet = ProtoFie
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linkats.multicast.link.v4.10.4.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- OtcMarkets LinkAts Multicast Link 4.10.4 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+otcmarkets_linkats_multicast_link_v4_10_4.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -181,6 +200,8 @@ omi_otcmarkets_linkats_multicast_link_v4_10_4.prefs.show_structs = Pref.bool("Sh
 omi_otcmarkets_linkats_multicast_link_v4_10_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_otcmarkets_linkats_multicast_link_v4_10_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_otcmarkets_linkats_multicast_link_v4_10_4.prefs_changed()
 
@@ -196,6 +217,9 @@ function omi_otcmarkets_linkats_multicast_link_v4_10_4.prefs_changed()
   end
   if show.indexes ~= omi_otcmarkets_linkats_multicast_link_v4_10_4.prefs.show_indexes then
     show.indexes = omi_otcmarkets_linkats_multicast_link_v4_10_4.prefs.show_indexes
+  end
+  if otcmarkets_linkats_multicast_link_v4_10_4.timestamp_format ~= omi_otcmarkets_linkats_multicast_link_v4_10_4.prefs.timestamp_format then
+    otcmarkets_linkats_multicast_link_v4_10_4.timestamp_format = omi_otcmarkets_linkats_multicast_link_v4_10_4.prefs.timestamp_format
   end
 end
 
@@ -852,19 +876,20 @@ otcmarkets_linkats_multicast_link_v4_10_4.market_close = {}
 -- Size: Market Close
 otcmarkets_linkats_multicast_link_v4_10_4.market_close.size = 8
 
--- Display: Market Close
-otcmarkets_linkats_multicast_link_v4_10_4.market_close.display = function(value)
-  return "Market Close: "..value
-end
-
 -- Dissect: Market Close
 otcmarkets_linkats_multicast_link_v4_10_4.market_close.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.market_close.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_linkats_multicast_link_v4_10_4.market_close.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close
+  if otcmarkets_linkats_multicast_link_v4_10_4.timestamp_format == 3 then field = omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -875,19 +900,20 @@ otcmarkets_linkats_multicast_link_v4_10_4.market_close_time_milli = {}
 -- Size: Market Close Time Milli
 otcmarkets_linkats_multicast_link_v4_10_4.market_close_time_milli.size = 8
 
--- Display: Market Close Time Milli
-otcmarkets_linkats_multicast_link_v4_10_4.market_close_time_milli.display = function(value)
-  return "Market Close Time Milli: "..value
-end
-
 -- Dissect: Market Close Time Milli
 otcmarkets_linkats_multicast_link_v4_10_4.market_close_time_milli.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.market_close_time_milli.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_linkats_multicast_link_v4_10_4.market_close_time_milli.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close_time_milli, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close_time_milli
+  if otcmarkets_linkats_multicast_link_v4_10_4.timestamp_format == 3 then field = omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_close_time_milli_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -921,19 +947,20 @@ otcmarkets_linkats_multicast_link_v4_10_4.market_open = {}
 -- Size: Market Open
 otcmarkets_linkats_multicast_link_v4_10_4.market_open.size = 8
 
--- Display: Market Open
-otcmarkets_linkats_multicast_link_v4_10_4.market_open.display = function(value)
-  return "Market Open: "..value
-end
-
 -- Dissect: Market Open
 otcmarkets_linkats_multicast_link_v4_10_4.market_open.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.market_open.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_linkats_multicast_link_v4_10_4.market_open.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_open, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_open
+  if otcmarkets_linkats_multicast_link_v4_10_4.timestamp_format == 3 then field = omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.market_open_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1135,7 +1162,7 @@ otcmarkets_linkats_multicast_link_v4_10_4.packet_milli.display = function(value,
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if otcmarkets_linkats_multicast_link_v4_10_4.timestamp_format == 2 and packet then
+  if otcmarkets_linkats_multicast_link_v4_10_4.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -1145,7 +1172,8 @@ otcmarkets_linkats_multicast_link_v4_10_4.packet_milli.display = function(value,
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Packet Milli: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = otcmarkets_linkats_multicast_link_v4_10_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Packet Milli: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 

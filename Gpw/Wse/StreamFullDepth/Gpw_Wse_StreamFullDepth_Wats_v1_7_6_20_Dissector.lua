@@ -361,14 +361,14 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.sell_index = ProtoField.new("S
 -- Gpw Wse StreamFullDepth Wats 1.7.6.20 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -391,7 +391,7 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.show_repeating_groups = Pref.bo
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs_changed()
@@ -412,8 +412,8 @@ function omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs_changed()
   if show.indexes ~= omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.show_indexes then
     show.indexes = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.show_indexes
   end
-  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base ~= omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.absolute_time_base then
-    gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.absolute_time_base
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp_format ~= omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.timestamp_format then
+    gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp_format = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.timestamp_format
   end
 end
 
@@ -6065,7 +6065,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.publication_timestamp.dissect = function(
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.publication_timestamp
-  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base == 1 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.publication_timestamp_utc end
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp_format == 3 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.publication_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -6621,7 +6621,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.source_timestamp.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.source_timestamp
-  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base == 1 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.source_timestamp_utc end
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp_format == 3 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.source_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -7215,7 +7215,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp.dissect = function(buffer, offs
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.timestamp
-  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base == 1 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.timestamp_utc end
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp_format == 3 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -7750,7 +7750,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_phase_start_time.dissect = functi
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_start_time
-  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base == 1 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_start_time_utc end
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp_format == 3 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_start_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -7883,7 +7883,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_timestamp.dissect = function(buff
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_timestamp
-  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base == 1 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_timestamp_utc end
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp_format == 3 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

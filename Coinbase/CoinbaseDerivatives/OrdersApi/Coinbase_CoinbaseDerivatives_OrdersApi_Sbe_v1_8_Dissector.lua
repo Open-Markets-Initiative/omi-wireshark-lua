@@ -162,14 +162,14 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.session_message = Pro
 -- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.8 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -190,7 +190,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_structs = Pref.bo
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_schema_messages = Pref.bool("Show Schema Messages", show.schema_messages, "Parse and add Schema Messages to protocol tree")
 
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs_changed()
@@ -208,8 +208,8 @@ function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs_changed()
   if show.structs ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_structs then
     show.structs = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_structs
   end
-  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.absolute_time_base ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.absolute_time_base then
-    coinbase_coinbasederivatives_ordersapi_sbe_v1_8.absolute_time_base = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.absolute_time_base
+  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.timestamp_format ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.timestamp_format then
+    coinbase_coinbasederivatives_ordersapi_sbe_v1_8.timestamp_format = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.timestamp_format
   end
 end
 
@@ -1698,7 +1698,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.receive_time.dissect = function(
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.receive_time
-  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.receive_time_utc end
+  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.timestamp_format == 3 then field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.receive_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -1775,7 +1775,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.request_time.dissect = function(
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.request_time
-  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.request_time_utc end
+  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.timestamp_format == 3 then field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.request_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -2011,7 +2011,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.send_time_epoch_nanos.dissect = 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.send_time_epoch_nanos
-  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.send_time_epoch_nanos_utc end
+  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.timestamp_format == 3 then field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.send_time_epoch_nanos_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -2058,7 +2058,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.server_time.dissect = function(b
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.server_time
-  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.server_time_utc end
+  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.timestamp_format == 3 then field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.server_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -2250,7 +2250,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.timestamp.dissect = function(buf
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.timestamp
-  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.timestamp_utc end
+  if coinbase_coinbasederivatives_ordersapi_sbe_v1_8.timestamp_format == 3 then field = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

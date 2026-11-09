@@ -185,14 +185,14 @@ omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.security_definition_message_
 -- Moex Spectra OptInfoReplay Simba 9.12.0 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-moex_spectra_optinforeplay_simba_v9_12_0.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+moex_spectra_optinforeplay_simba_v9_12_0.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -215,7 +215,7 @@ omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs.show_application_messages = P
 omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs_changed()
@@ -236,8 +236,8 @@ function omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs_changed()
   if show.indexes ~= omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs.show_indexes then
     show.indexes = omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs.show_indexes
   end
-  if moex_spectra_optinforeplay_simba_v9_12_0.absolute_time_base ~= omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs.absolute_time_base then
-    moex_spectra_optinforeplay_simba_v9_12_0.absolute_time_base = omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs.absolute_time_base
+  if moex_spectra_optinforeplay_simba_v9_12_0.timestamp_format ~= omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs.timestamp_format then
+    moex_spectra_optinforeplay_simba_v9_12_0.timestamp_format = omi_moex_spectra_optinforeplay_simba_v9_12_0.prefs.timestamp_format
   end
 end
 
@@ -413,7 +413,7 @@ moex_spectra_optinforeplay_simba_v9_12_0.clr_sess_begin.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.clr_sess_begin
-  if moex_spectra_optinforeplay_simba_v9_12_0.absolute_time_base == 1 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.clr_sess_begin_utc end
+  if moex_spectra_optinforeplay_simba_v9_12_0.timestamp_format == 3 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.clr_sess_begin_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -582,7 +582,7 @@ moex_spectra_optinforeplay_simba_v9_12_0.event_time.dissect = function(buffer, o
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.event_time
-  if moex_spectra_optinforeplay_simba_v9_12_0.absolute_time_base == 1 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.event_time_utc end
+  if moex_spectra_optinforeplay_simba_v9_12_0.timestamp_format == 3 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.event_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2113,7 +2113,7 @@ moex_spectra_optinforeplay_simba_v9_12_0.sending_time.dissect = function(buffer,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.sending_time
-  if moex_spectra_optinforeplay_simba_v9_12_0.absolute_time_base == 1 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.sending_time_utc end
+  if moex_spectra_optinforeplay_simba_v9_12_0.timestamp_format == 3 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.sending_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -2254,7 +2254,7 @@ moex_spectra_optinforeplay_simba_v9_12_0.settl_sess_begin.dissect = function(buf
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.settl_sess_begin
-  if moex_spectra_optinforeplay_simba_v9_12_0.absolute_time_base == 1 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.settl_sess_begin_utc end
+  if moex_spectra_optinforeplay_simba_v9_12_0.timestamp_format == 3 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.settl_sess_begin_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2301,7 +2301,7 @@ moex_spectra_optinforeplay_simba_v9_12_0.status_change_time.dissect = function(b
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.status_change_time
-  if moex_spectra_optinforeplay_simba_v9_12_0.absolute_time_base == 1 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.status_change_time_utc end
+  if moex_spectra_optinforeplay_simba_v9_12_0.timestamp_format == 3 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.status_change_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2571,7 +2571,7 @@ moex_spectra_optinforeplay_simba_v9_12_0.trad_ses_close_time.dissect = function(
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.trad_ses_close_time
-  if moex_spectra_optinforeplay_simba_v9_12_0.absolute_time_base == 1 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.trad_ses_close_time_utc end
+  if moex_spectra_optinforeplay_simba_v9_12_0.timestamp_format == 3 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.trad_ses_close_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2647,7 +2647,7 @@ moex_spectra_optinforeplay_simba_v9_12_0.trad_ses_open_time.dissect = function(b
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.trad_ses_open_time
-  if moex_spectra_optinforeplay_simba_v9_12_0.absolute_time_base == 1 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.trad_ses_open_time_utc end
+  if moex_spectra_optinforeplay_simba_v9_12_0.timestamp_format == 3 then field = omi_moex_spectra_optinforeplay_simba_v9_12_0.fields.trad_ses_open_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)

@@ -149,14 +149,14 @@ omi_eurex_t7_edci_fbe_v14_1.fields.sessions_grp_comp_index = ProtoField.new("Ses
 -- Eurex T7 Edci Fbe 14.1 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-eurex_t7_edci_fbe_v14_1.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+eurex_t7_edci_fbe_v14_1.timestamp_format = 2
 
 -- assumed connection role
 local role_enum = {
@@ -191,7 +191,7 @@ omi_eurex_t7_edci_fbe_v14_1.prefs.show_headers = Pref.bool("Show Headers", show.
 omi_eurex_t7_edci_fbe_v14_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_eurex_t7_edci_fbe_v14_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_eurex_t7_edci_fbe_v14_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_eurex_t7_edci_fbe_v14_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_eurex_t7_edci_fbe_v14_1.prefs_changed()
@@ -215,8 +215,8 @@ function omi_eurex_t7_edci_fbe_v14_1.prefs_changed()
   if show.indexes ~= omi_eurex_t7_edci_fbe_v14_1.prefs.show_indexes then
     show.indexes = omi_eurex_t7_edci_fbe_v14_1.prefs.show_indexes
   end
-  if eurex_t7_edci_fbe_v14_1.absolute_time_base ~= omi_eurex_t7_edci_fbe_v14_1.prefs.absolute_time_base then
-    eurex_t7_edci_fbe_v14_1.absolute_time_base = omi_eurex_t7_edci_fbe_v14_1.prefs.absolute_time_base
+  if eurex_t7_edci_fbe_v14_1.timestamp_format ~= omi_eurex_t7_edci_fbe_v14_1.prefs.timestamp_format then
+    eurex_t7_edci_fbe_v14_1.timestamp_format = omi_eurex_t7_edci_fbe_v14_1.prefs.timestamp_format
   end
 end
 
@@ -806,7 +806,7 @@ eurex_t7_edci_fbe_v14_1.exec_id.dissect = function(buffer, offset, packet, paren
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_edci_fbe_v14_1.fields.exec_id
-  if eurex_t7_edci_fbe_v14_1.absolute_time_base == 1 then field = omi_eurex_t7_edci_fbe_v14_1.fields.exec_id_utc end
+  if eurex_t7_edci_fbe_v14_1.timestamp_format == 3 then field = omi_eurex_t7_edci_fbe_v14_1.fields.exec_id_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -2482,7 +2482,7 @@ eurex_t7_edci_fbe_v14_1.request_time.dissect = function(buffer, offset, packet, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_edci_fbe_v14_1.fields.request_time
-  if eurex_t7_edci_fbe_v14_1.absolute_time_base == 1 then field = omi_eurex_t7_edci_fbe_v14_1.fields.request_time_utc end
+  if eurex_t7_edci_fbe_v14_1.timestamp_format == 3 then field = omi_eurex_t7_edci_fbe_v14_1.fields.request_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -2574,7 +2574,7 @@ eurex_t7_edci_fbe_v14_1.sending_time.dissect = function(buffer, offset, packet, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_edci_fbe_v14_1.fields.sending_time
-  if eurex_t7_edci_fbe_v14_1.absolute_time_base == 1 then field = omi_eurex_t7_edci_fbe_v14_1.fields.sending_time_utc end
+  if eurex_t7_edci_fbe_v14_1.timestamp_format == 3 then field = omi_eurex_t7_edci_fbe_v14_1.fields.sending_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead

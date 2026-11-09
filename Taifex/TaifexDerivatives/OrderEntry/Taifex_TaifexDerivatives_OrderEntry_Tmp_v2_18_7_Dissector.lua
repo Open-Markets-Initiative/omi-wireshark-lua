@@ -216,14 +216,14 @@ omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_side_uint_822_ind
 -- Taifex TaifexDerivatives OrderEntry Tmp 2.18.7 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -248,7 +248,7 @@ omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs.show_repeating_groups 
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs_changed()
@@ -272,8 +272,8 @@ function omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs_changed()
   if show.indexes ~= omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs.show_indexes then
     show.indexes = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs.show_indexes
   end
-  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base ~= omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs.absolute_time_base then
-    taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs.absolute_time_base
+  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format ~= omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs.timestamp_format then
+    taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.prefs.timestamp_format
   end
 end
 
@@ -875,7 +875,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_int_324.dissect = functi
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_int_324
-  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_int_324_utc end
+  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_int_324_utc end
 
   local seconds = value
   local nanos = 0
@@ -899,7 +899,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.epoch_s_uint_324.dissect = funct
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_uint_324
-  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_uint_324_utc end
+  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.epoch_s_uint_324_utc end
 
   local seconds = value
   local nanos = 0
@@ -1076,7 +1076,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.header_epoch_s.dissect = functio
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.header_epoch_s
-  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.header_epoch_s_utc end
+  if taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.header_epoch_s_utc end
 
   local seconds = value
   local nanos = 0
@@ -3269,7 +3269,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.display
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Bulletin Time Msg Time X
@@ -3299,7 +3300,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.dissect
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time_x
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time_x_utc end
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time_x_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_uint_324, nanosecond))
     local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time_x.fields(buffer, offset, packet, parent)
 
@@ -4246,7 +4247,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.display
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Transact Time Msg Time X
@@ -4276,7 +4278,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.dissect
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time_x
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time_x_utc end
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time_x_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_uint_324, nanosecond))
     local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time_x.fields(buffer, offset, packet, parent)
 
@@ -4307,7 +4309,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.displa
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Org Trans Time Msg Time X
@@ -4337,7 +4340,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.dissec
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time_x
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time_x_utc end
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time_x_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_uint_324, nanosecond))
     local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time_x.fields(buffer, offset, packet, parent)
 
@@ -5226,7 +5229,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.display =
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  local format = taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect Fields: Bulletin Time Msg Time
@@ -5256,7 +5260,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.dissect =
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time_utc end
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.bulletin_time_msg_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_int_324, ms * 1000000))
     local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_time_msg_time.fields(buffer, offset, packet, parent)
 
@@ -5431,7 +5435,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.display =
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  local format = taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect Fields: Transact Time Msg Time
@@ -5461,7 +5466,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.dissect =
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time_utc end
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.transact_time_msg_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_int_324, ms * 1000000))
     local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.transact_time_msg_time.fields(buffer, offset, packet, parent)
 
@@ -5492,7 +5497,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.display 
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  local format = taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect Fields: Org Trans Time Msg Time
@@ -5522,7 +5528,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.dissect 
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time_utc end
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.org_trans_time_msg_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_int_324, ms * 1000000))
     local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.org_trans_time_msg_time.fields(buffer, offset, packet, parent)
 
@@ -8207,7 +8213,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.header_time.display = function(p
   local seconds = (value / UInt64(1000)):tonumber()
   local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  local format = taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect Fields: Header Time
@@ -8237,7 +8244,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.header_time.dissect = function(b
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.header_time
-    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.header_time_utc end
+    if taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.header_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(header_epoch_s, header_ms * 1000000))
     local index = taifex_taifexderivatives_orderentry_tmp_v2_18_7.header_time.fields(buffer, offset, packet, parent)
 

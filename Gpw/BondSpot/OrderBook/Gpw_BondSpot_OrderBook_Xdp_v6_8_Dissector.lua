@@ -60,6 +60,22 @@ omi_gpw_bondspot_orderbook_xdp_v6_8.fields.order_update_market_sheet_message = P
 omi_gpw_bondspot_orderbook_xdp_v6_8.fields.message_index = ProtoField.new("Message Index", "gpw.bondspot.orderbook.xdp.v6.8.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Gpw BondSpot OrderBook Xdp 6.8 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+gpw_bondspot_orderbook_xdp_v6_8.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -79,6 +95,8 @@ omi_gpw_bondspot_orderbook_xdp_v6_8.prefs.show_application_messages = Pref.bool(
 omi_gpw_bondspot_orderbook_xdp_v6_8.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_gpw_bondspot_orderbook_xdp_v6_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_gpw_bondspot_orderbook_xdp_v6_8.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_gpw_bondspot_orderbook_xdp_v6_8.prefs_changed()
 
@@ -97,6 +115,9 @@ function omi_gpw_bondspot_orderbook_xdp_v6_8.prefs_changed()
   end
   if show.indexes ~= omi_gpw_bondspot_orderbook_xdp_v6_8.prefs.show_indexes then
     show.indexes = omi_gpw_bondspot_orderbook_xdp_v6_8.prefs.show_indexes
+  end
+  if gpw_bondspot_orderbook_xdp_v6_8.timestamp_format ~= omi_gpw_bondspot_orderbook_xdp_v6_8.prefs.timestamp_format then
+    gpw_bondspot_orderbook_xdp_v6_8.timestamp_format = omi_gpw_bondspot_orderbook_xdp_v6_8.prefs.timestamp_format
   end
 end
 
@@ -778,7 +799,7 @@ gpw_bondspot_orderbook_xdp_v6_8.source_time.display = function(value, buffer, of
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if gpw_bondspot_orderbook_xdp_v6_8.timestamp_format == 2 and packet then
+  if gpw_bondspot_orderbook_xdp_v6_8.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -788,7 +809,8 @@ gpw_bondspot_orderbook_xdp_v6_8.source_time.display = function(value, buffer, of
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Source Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = gpw_bondspot_orderbook_xdp_v6_8.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Source Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 

@@ -135,14 +135,14 @@ omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.scaled_trade_pr
 -- Nasdaq NordicDerivatives MarketData GeniumAmd 2.28.7 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format = 2
 
 -- Scaled Tick Size format (true = decimal-scaled, false = raw mantissa)
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.format_decimals = true
@@ -171,7 +171,7 @@ omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs.show_indexes = P
 omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs_changed()
@@ -198,8 +198,8 @@ function omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs_changed
   if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.format_decimals ~= omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs.format_decimals then
     nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.format_decimals = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs.format_decimals
   end
-  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.absolute_time_base ~= omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs.absolute_time_base then
-    nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.absolute_time_base = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs.absolute_time_base
+  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format ~= omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs.timestamp_format then
+    nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.prefs.timestamp_format
   end
 end
 
@@ -597,7 +597,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.first_trading_date_and_tim
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.first_trading_date_and_time
-  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.absolute_time_base == 1 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.first_trading_date_and_time_utc end
+  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format == 3 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.first_trading_date_and_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -741,7 +741,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.last_trading_date_and_time
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.last_trading_date_and_time
-  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.absolute_time_base == 1 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.last_trading_date_and_time_utc end
+  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format == 3 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.last_trading_date_and_time_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -1384,6 +1384,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.lookup = fun
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.display(value, buffer, offset, packet, parent)
 
   if not show.records then
+    nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_directory.current = nil
     parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.order_book_id, range, value, display)
 
     return offset + length, value
@@ -1392,10 +1393,17 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.lookup = fun
   -- Lookup Order Book Directory record
   local record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.conversation.current.order_book_directory[value]
 
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_directory.current = record
+
   local field_tree = parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.order_book_id, range, value, display)
 
   if record ~= nil then
-    nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_directory.current = record
     if record.number_of_decimals_in_price ~= nil then
       local entry_number_of_decimals_in_price = field_tree:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.number_of_decimals_in_price, record.number_of_decimals_in_price)
       entry_number_of_decimals_in_price:set_generated()
@@ -1958,7 +1966,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_agreement.di
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_agreement
-  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.absolute_time_base == 1 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_agreement_utc end
+  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format == 3 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_agreement_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2005,7 +2013,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_disseminatio
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_dissemination
-  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.absolute_time_base == 1 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_dissemination_utc end
+  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format == 3 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_dissemination_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2052,7 +2060,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_execution.di
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_execution
-  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.absolute_time_base == 1 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_execution_utc end
+  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format == 3 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_execution_utc end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2258,7 +2266,7 @@ end
 
 -- Display: Scaled Price From
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price_from.display = function(value)
-  return "Scaled Price From: " .. string.format("%g", value)
+  return "Scaled Price From: " .. string.format("%.15g", value)
 end
 
 -- Composite: Scaled Price From
@@ -2313,7 +2321,7 @@ end
 
 -- Display: Scaled Price
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price.display = function(value)
-  return "Scaled Price: " .. string.format("%g", value)
+  return "Scaled Price: " .. string.format("%.15g", value)
 end
 
 -- Composite: Scaled Price
@@ -2368,7 +2376,7 @@ end
 
 -- Display: Scaled Price To
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price_to.display = function(value)
-  return "Scaled Price To: " .. string.format("%g", value)
+  return "Scaled Price To: " .. string.format("%.15g", value)
 end
 
 -- Composite: Scaled Price To
@@ -2423,7 +2431,7 @@ end
 
 -- Display: Scaled Tick Size
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_tick_size.display = function(value)
-  return "Scaled Tick Size: " .. string.format("%g", value)
+  return "Scaled Tick Size: " .. string.format("%.15g", value)
 end
 
 -- Composite: Scaled Tick Size
@@ -2435,10 +2443,10 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_tick_size.composite
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
-    value = mantissa / 256
+    value = mantissa:tonumber() / 256
     display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_tick_size.display_fraction(value)
   else
-    value = mantissa / (10 ^ record.number_of_decimals_in_price)
+    value = mantissa:tonumber() / (10 ^ record.number_of_decimals_in_price)
     display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_tick_size.display(value)
   end
 
@@ -2478,7 +2486,7 @@ end
 
 -- Display: Scaled Trade Price
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_trade_price.display = function(value)
-  return "Scaled Trade Price: " .. string.format("%g", value)
+  return "Scaled Trade Price: " .. string.format("%.15g", value)
 end
 
 -- Composite: Scaled Trade Price
@@ -3311,6 +3319,8 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_directory.field
   -- Cache Order Book Directory record by order_book_id
   if show.records and not packet.visited then
     nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.conversation.current.order_book_directory[order_book_id] = {
+      record_frame = packet.number,
+      record_previous = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.conversation.current.order_book_directory[order_book_id],
       order_book_id = order_book_id,
       number_of_decimals_in_price = number_of_decimals_in_price,
       number_of_decimals_in_strike_price = number_of_decimals_in_strike_price,

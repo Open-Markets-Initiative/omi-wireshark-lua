@@ -1683,12 +1683,12 @@ box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price = {}
 
 -- Display: Scaled Strike Price
 box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display = function(value)
-  return "Scaled Strike Price: " .. string.format("%g", value)
+  return "Scaled Strike Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Strike Price with an unrecognised code
 box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display_uncoded = function(value)
-  return "Scaled Strike Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Strike Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Strike Price

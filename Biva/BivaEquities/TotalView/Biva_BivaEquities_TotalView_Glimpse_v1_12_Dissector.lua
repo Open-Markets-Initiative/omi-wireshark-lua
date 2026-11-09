@@ -122,14 +122,12 @@ omi_biva_bivaequities_totalview_glimpse_v1_12.experts = { biva_bivaequities_tota
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
 biva_bivaequities_totalview_glimpse_v1_12.timestamp_format = 2
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-biva_bivaequities_totalview_glimpse_v1_12.format_timestamp = true
 
 -- assumed connection role
 local role_enum = {
@@ -161,9 +159,8 @@ omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_structs = Pref.bool("Sh
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
+omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_biva_bivaequities_totalview_glimpse_v1_12.prefs_changed()
@@ -183,9 +180,6 @@ function omi_biva_bivaequities_totalview_glimpse_v1_12.prefs_changed()
   end
   if show.sequences ~= omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_sequences then
     show.sequences = omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_sequences
-  end
-  if biva_bivaequities_totalview_glimpse_v1_12.format_timestamp ~= omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.format_timestamp then
-    biva_bivaequities_totalview_glimpse_v1_12.format_timestamp = omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.format_timestamp
   end
   if biva_bivaequities_totalview_glimpse_v1_12.timestamp_format ~= omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.timestamp_format then
     biva_bivaequities_totalview_glimpse_v1_12.timestamp_format = omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.timestamp_format
@@ -1689,7 +1683,7 @@ biva_bivaequities_totalview_glimpse_v1_12.timestamp = {}
 
 -- Translate: Timestamp
 biva_bivaequities_totalview_glimpse_v1_12.timestamp.translate = function(nanoseconds, stored_second)
-  return UInt64.new(stored_second * 1000000000 + nanoseconds)
+  return UInt64.new(stored_second) * 1000000000 + nanoseconds
 end
 
 -- Display: Timestamp
@@ -1700,7 +1694,7 @@ biva_bivaequities_totalview_glimpse_v1_12.timestamp.display = function(nanosecon
   end
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if biva_bivaequities_totalview_glimpse_v1_12.timestamp_format == 2 and packet then
+  if biva_bivaequities_totalview_glimpse_v1_12.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -1710,7 +1704,8 @@ biva_bivaequities_totalview_glimpse_v1_12.timestamp.display = function(nanosecon
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_second)..string.format("%09d", nanoseconds)
+      local format = biva_bivaequities_totalview_glimpse_v1_12.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + stored_second)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -1737,7 +1732,7 @@ end
 
 -- Dissect: Timestamp
 biva_bivaequities_totalview_glimpse_v1_12.timestamp.dissect = function(buffer, offset, packet, parent)
-  if biva_bivaequities_totalview_glimpse_v1_12.format_timestamp then
+  if biva_bivaequities_totalview_glimpse_v1_12.timestamp_format ~= 0 then
     local stored_second = biva_bivaequities_totalview_glimpse_v1_12.second.current
 
     if stored_second ~= nil then

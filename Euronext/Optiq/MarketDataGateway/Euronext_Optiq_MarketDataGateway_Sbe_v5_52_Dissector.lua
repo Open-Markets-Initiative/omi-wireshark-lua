@@ -523,14 +523,14 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.timetables_group_index = P
 -- Euronext Optiq MarketDataGateway Sbe 5.52 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -553,7 +553,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs.show_headers = Pref.bool("S
 omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs_changed()
@@ -574,8 +574,8 @@ function omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs_changed()
   if show.indexes ~= omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs.show_indexes then
     show.indexes = omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs.show_indexes
   end
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base ~= omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs.absolute_time_base then
-    euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base = omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs.absolute_time_base
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format ~= omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs.timestamp_format then
+    euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format = omi_euronext_optiq_marketdatagateway_sbe_v5_52.prefs.timestamp_format
   end
 end
 
@@ -1362,7 +1362,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52.confirmed_reference_time.dissect = fu
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.confirmed_reference_time
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.confirmed_reference_time_utc end
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.confirmed_reference_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -3270,7 +3270,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52.event_time.dissect = function(buffer,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.event_time
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.event_time_utc end
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.event_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -3894,7 +3894,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52.high_time.dissect = function(buffer, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.high_time
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.high_time_utc end
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.high_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -5367,7 +5367,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52.low_time.dissect = function(buffer, o
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.low_time
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.low_time_utc end
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.low_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -8000,7 +8000,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52.opening_time.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.opening_time
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.opening_time_utc end
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.opening_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -8318,7 +8318,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52.original_report_timestamp.dissect = f
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.original_report_timestamp
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.original_report_timestamp_utc end
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.original_report_timestamp_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -8372,7 +8372,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52.packet_time.dissect = function(buffer
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.packet_time
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.packet_time_utc end
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.packet_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -8635,7 +8635,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52.phase_time.dissect = function(buffer,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.phase_time
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.phase_time_utc end
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.phase_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -9685,7 +9685,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52.retransmission_end_time.dissect = fun
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.retransmission_end_time
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.retransmission_end_time_utc end
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.retransmission_end_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -9716,7 +9716,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52.retransmission_start_time.dissect = f
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.retransmission_start_time
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.retransmission_start_time_utc end
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.retransmission_start_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -9822,7 +9822,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52.scheduled_event_time.dissect = functi
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.scheduled_event_time
-  if euronext_optiq_marketdatagateway_sbe_v5_52.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.scheduled_event_time_utc end
+  if euronext_optiq_marketdatagateway_sbe_v5_52.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_52.fields.scheduled_event_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead

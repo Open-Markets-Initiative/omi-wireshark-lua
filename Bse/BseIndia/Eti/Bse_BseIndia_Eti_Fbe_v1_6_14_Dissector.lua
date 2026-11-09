@@ -426,14 +426,14 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.sessions_grp_comp_index = ProtoField.new
 -- Bse BseIndia Eti Fbe 1.6.14 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-bse_bseindia_eti_fbe_v1_6_14.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+bse_bseindia_eti_fbe_v1_6_14.timestamp_format = 2
 
 -- assumed connection role
 local role_enum = {
@@ -468,7 +468,7 @@ omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_headers = Pref.bool("Show Headers", 
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_bse_bseindia_eti_fbe_v1_6_14.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_bse_bseindia_eti_fbe_v1_6_14.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bse_bseindia_eti_fbe_v1_6_14.prefs_changed()
@@ -492,8 +492,8 @@ function omi_bse_bseindia_eti_fbe_v1_6_14.prefs_changed()
   if show.indexes ~= omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_indexes then
     show.indexes = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_indexes
   end
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base ~= omi_bse_bseindia_eti_fbe_v1_6_14.prefs.absolute_time_base then
-    bse_bseindia_eti_fbe_v1_6_14.absolute_time_base = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.absolute_time_base
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format ~= omi_bse_bseindia_eti_fbe_v1_6_14.prefs.timestamp_format then
+    bse_bseindia_eti_fbe_v1_6_14.timestamp_format = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.timestamp_format
   end
 end
 
@@ -633,7 +633,7 @@ bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect = function(buffer, offset, pa
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.activity_time
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.activity_time_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.activity_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -2060,7 +2060,7 @@ bse_bseindia_eti_fbe_v1_6_14.exec_id.dissect = function(buffer, offset, packet, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_id
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_id_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_id_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -3221,7 +3221,7 @@ bse_bseindia_eti_fbe_v1_6_14.last_login_time.dissect = function(buffer, offset, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_login_time
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_login_time_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_login_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -3758,7 +3758,7 @@ bse_bseindia_eti_fbe_v1_6_14.mass_action_report_id.dissect = function(buffer, of
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.mass_action_report_id
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.mass_action_report_id_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.mass_action_report_id_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -5061,7 +5061,7 @@ bse_bseindia_eti_fbe_v1_6_14.orig_time.dissect = function(buffer, offset, packet
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.orig_time
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.orig_time_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.orig_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -6422,7 +6422,7 @@ bse_bseindia_eti_fbe_v1_6_14.quote_response_id.dissect = function(buffer, offset
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_response_id
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_response_id_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_response_id_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -6761,7 +6761,7 @@ bse_bseindia_eti_fbe_v1_6_14.request_out.dissect = function(buffer, offset, pack
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_out
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_out_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_out_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -6792,7 +6792,7 @@ bse_bseindia_eti_fbe_v1_6_14.request_time.dissect = function(buffer, offset, pac
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_time
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_time_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -6909,7 +6909,7 @@ bse_bseindia_eti_fbe_v1_6_14.response_in.dissect = function(buffer, offset, pack
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.response_in
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.response_in_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.response_in_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -7678,7 +7678,7 @@ bse_bseindia_eti_fbe_v1_6_14.sending_time.dissect = function(buffer, offset, pac
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.sending_time
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.sending_time_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.sending_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -9099,7 +9099,7 @@ bse_bseindia_eti_fbe_v1_6_14.transact_time.dissect = function(buffer, offset, pa
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.transact_time
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.transact_time_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.transact_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -9191,7 +9191,7 @@ bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_entry_time.dissect = function(buffer, of
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_entry_time
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_entry_time_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_entry_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -9222,7 +9222,7 @@ bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_in.dissect = function(buffer, offse
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_in
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_in_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_in_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -9253,7 +9253,7 @@ bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_out.dissect = function(buffer, offs
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_out
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_out_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_out_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -9284,7 +9284,7 @@ bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_priority.dissect = function(buffer,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_priority
-  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_priority_utc end
+  if bse_bseindia_eti_fbe_v1_6_14.timestamp_format == 3 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_priority_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead

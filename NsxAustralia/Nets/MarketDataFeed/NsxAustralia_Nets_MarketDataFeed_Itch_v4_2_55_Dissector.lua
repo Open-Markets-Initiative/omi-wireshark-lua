@@ -151,17 +151,15 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts = { nsxaustralia_nets_
 -- NsxAustralia Nets MarketDataFeed Itch 4.2.55 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base = 0
-
--- Composite Timestamp format (true = decimal-scaled, false = raw mantissa)
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.format_composite_timestamp = true
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format = 2
 
 -- assumed connection role
 local role_enum = {
@@ -193,9 +191,8 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.show_structs = Pref.bool
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.format_composite_timestamp = Pref.bool("Format Composite Timestamp", true, "Compose Composite Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs_changed()
@@ -216,11 +213,8 @@ function omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs_changed()
   if show.sequences ~= omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.show_sequences then
     show.sequences = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.show_sequences
   end
-  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.format_composite_timestamp ~= omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.format_composite_timestamp then
-    nsxaustralia_nets_marketdatafeed_itch_v4_2_55.format_composite_timestamp = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.format_composite_timestamp
-  end
-  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base ~= omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.absolute_time_base then
-    nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.absolute_time_base
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format ~= omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.timestamp_format then
+    nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.timestamp_format
   end
 end
 
@@ -847,7 +841,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.expiry.dissect = function(buffer, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry
-  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base == 1 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry_utc end
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format == 3 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry_utc end
 
   local year = math.floor(packed / 10000000000)
   local month = math.floor(packed / 100000000) % 100
@@ -1029,7 +1023,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.listing.dissect = function(buffer,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing
-  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base == 1 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing_utc end
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format == 3 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing_utc end
 
   local year = math.floor(packed / 10000000000)
   local month = math.floor(packed / 100000000) % 100
@@ -1142,7 +1136,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.nanosecond.dissect = function(buff
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond
-  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base == 1 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond_utc end
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format == 3 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -2350,12 +2344,13 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.composite_timestamp = {}
 
 -- Translate: Composite Timestamp
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.composite_timestamp.translate = function(timestamp, stored_nanosecond)
-  return UInt64.new(stored_nanosecond + timestamp)
+  return UInt64.new(stored_nanosecond) + timestamp
 end
 
 -- Display: Composite Timestamp
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.composite_timestamp.display = function(timestamp, stored_nanosecond)
-  return "Composite Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_nanosecond)..string.format("%09d", timestamp)
+  local format = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Composite Timestamp: "..os.date(format, stored_nanosecond)..string.format("%09d", timestamp)
 end
 
 -- Composite: Composite Timestamp
@@ -2377,7 +2372,7 @@ end
 
 -- Dissect: Composite Timestamp
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.composite_timestamp.dissect = function(buffer, offset, packet, parent)
-  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.format_composite_timestamp then
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format ~= 0 then
     local stored_nanosecond = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.nanosecond.current
 
     if stored_nanosecond ~= nil then

@@ -174,14 +174,14 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_correct_group_index 
 -- SmallX SmallFutures OrderBookFeed Sbe 2.2 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-smallx_smallfutures_orderbookfeed_sbe_v2_2.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -204,7 +204,7 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.show_headers = Pref.bool("S
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs_changed()
@@ -225,8 +225,8 @@ function omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs_changed()
   if show.indexes ~= omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.show_indexes then
     show.indexes = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.show_indexes
   end
-  if smallx_smallfutures_orderbookfeed_sbe_v2_2.absolute_time_base ~= omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.absolute_time_base then
-    smallx_smallfutures_orderbookfeed_sbe_v2_2.absolute_time_base = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.absolute_time_base
+  if smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format ~= omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.timestamp_format then
+    smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.timestamp_format
   end
 end
 
@@ -1151,7 +1151,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.dissect = f
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp
-  if smallx_smallfutures_orderbookfeed_sbe_v2_2.absolute_time_base == 1 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_utc end
+  if smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format == 3 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_utc end
 
   if value == Int64(0x00000000, 0x80000000) then
     -- Null: the field keeps its type, and the line says so instead
@@ -1182,7 +1182,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.di
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_optional
-  if smallx_smallfutures_orderbookfeed_sbe_v2_2.absolute_time_base == 1 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_optional_utc end
+  if smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format == 3 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_optional_utc end
 
   if value == Int64(0x00000000, 0x80000000) then
     -- Null: the field keeps its type, and the line says so instead
@@ -2514,7 +2514,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.time.dissect = function(buffer, offse
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.time
-  if smallx_smallfutures_orderbookfeed_sbe_v2_2.absolute_time_base == 1 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.time_utc end
+  if smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format == 3 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -2723,7 +2723,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.transact_time.dissect = function(buff
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transact_time
-  if smallx_smallfutures_orderbookfeed_sbe_v2_2.absolute_time_base == 1 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transact_time_utc end
+  if smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format == 3 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transact_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

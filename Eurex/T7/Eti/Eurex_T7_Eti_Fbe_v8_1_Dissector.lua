@@ -701,14 +701,14 @@ omi_eurex_t7_eti_fbe_v8_1.fields.underlying_stip_grp_comp_index = ProtoField.new
 -- Eurex T7 Eti Fbe 8.1 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-eurex_t7_eti_fbe_v8_1.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+eurex_t7_eti_fbe_v8_1.timestamp_format = 2
 
 -- assumed connection role
 local role_enum = {
@@ -743,7 +743,7 @@ omi_eurex_t7_eti_fbe_v8_1.prefs.show_headers = Pref.bool("Show Headers", show.he
 omi_eurex_t7_eti_fbe_v8_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_eurex_t7_eti_fbe_v8_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_eurex_t7_eti_fbe_v8_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_eurex_t7_eti_fbe_v8_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_eurex_t7_eti_fbe_v8_1.prefs_changed()
@@ -767,8 +767,8 @@ function omi_eurex_t7_eti_fbe_v8_1.prefs_changed()
   if show.indexes ~= omi_eurex_t7_eti_fbe_v8_1.prefs.show_indexes then
     show.indexes = omi_eurex_t7_eti_fbe_v8_1.prefs.show_indexes
   end
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base ~= omi_eurex_t7_eti_fbe_v8_1.prefs.absolute_time_base then
-    eurex_t7_eti_fbe_v8_1.absolute_time_base = omi_eurex_t7_eti_fbe_v8_1.prefs.absolute_time_base
+  if eurex_t7_eti_fbe_v8_1.timestamp_format ~= omi_eurex_t7_eti_fbe_v8_1.prefs.timestamp_format then
+    eurex_t7_eti_fbe_v8_1.timestamp_format = omi_eurex_t7_eti_fbe_v8_1.prefs.timestamp_format
   end
 end
 
@@ -2657,7 +2657,7 @@ eurex_t7_eti_fbe_v8_1.effective_time.dissect = function(buffer, offset, packet, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.effective_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.effective_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.effective_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -2885,7 +2885,7 @@ eurex_t7_eti_fbe_v8_1.exec_id.dissect = function(buffer, offset, packet, parent)
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.exec_id
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.exec_id_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.exec_id_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -3231,7 +3231,7 @@ eurex_t7_eti_fbe_v8_1.expire_time.dissect = function(buffer, offset, packet, par
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.expire_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.expire_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.expire_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -4369,7 +4369,7 @@ eurex_t7_eti_fbe_v8_1.last_update_time.dissect = function(buffer, offset, packet
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.last_update_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.last_update_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.last_update_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -5128,7 +5128,7 @@ eurex_t7_eti_fbe_v8_1.mass_action_report_id.dissect = function(buffer, offset, p
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.mass_action_report_id
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.mass_action_report_id_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.mass_action_report_id_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -5636,7 +5636,7 @@ eurex_t7_eti_fbe_v8_1.mm_parameter_report_id.dissect = function(buffer, offset, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.mm_parameter_report_id
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.mm_parameter_report_id_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.mm_parameter_report_id_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -5855,7 +5855,7 @@ eurex_t7_eti_fbe_v8_1.negotiation_start_time.dissect = function(buffer, offset, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.negotiation_start_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.negotiation_start_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.negotiation_start_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -6810,7 +6810,7 @@ eurex_t7_eti_fbe_v8_1.notification_in.dissect = function(buffer, offset, packet,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.notification_in
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.notification_in_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.notification_in_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -7473,7 +7473,7 @@ eurex_t7_eti_fbe_v8_1.orig_time.dissect = function(buffer, offset, packet, paren
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.orig_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.orig_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.orig_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -9693,7 +9693,7 @@ eurex_t7_eti_fbe_v8_1.quote_response_id.dissect = function(buffer, offset, packe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.quote_response_id
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.quote_response_id_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.quote_response_id_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -10300,7 +10300,7 @@ eurex_t7_eti_fbe_v8_1.request_time.dissect = function(buffer, offset, packet, pa
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.request_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.request_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.request_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -10553,7 +10553,7 @@ eurex_t7_eti_fbe_v8_1.response_in.dissect = function(buffer, offset, packet, par
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.response_in
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.response_in_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.response_in_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -11585,7 +11585,7 @@ eurex_t7_eti_fbe_v8_1.security_response_id.dissect = function(buffer, offset, pa
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.security_response_id
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.security_response_id_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.security_response_id_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -11733,7 +11733,7 @@ eurex_t7_eti_fbe_v8_1.sending_time.dissect = function(buffer, offset, packet, pa
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.sending_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.sending_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.sending_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -14150,7 +14150,7 @@ eurex_t7_eti_fbe_v8_1.trans_bkd_time.dissect = function(buffer, offset, packet, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.trans_bkd_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trans_bkd_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trans_bkd_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -14181,7 +14181,7 @@ eurex_t7_eti_fbe_v8_1.transact_time.dissect = function(buffer, offset, packet, p
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.transact_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.transact_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.transact_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -14306,7 +14306,7 @@ eurex_t7_eti_fbe_v8_1.trd_reg_ts_entry_time.dissect = function(buffer, offset, p
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_entry_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_entry_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_entry_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -14337,7 +14337,7 @@ eurex_t7_eti_fbe_v8_1.trd_reg_ts_execution_time.dissect = function(buffer, offse
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_execution_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_execution_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_execution_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -14368,7 +14368,7 @@ eurex_t7_eti_fbe_v8_1.trd_reg_ts_time_in.dissect = function(buffer, offset, pack
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_time_in
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_time_in_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_time_in_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -14399,7 +14399,7 @@ eurex_t7_eti_fbe_v8_1.trd_reg_ts_time_out.dissect = function(buffer, offset, pac
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_time_out
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_time_out_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_time_out_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -14430,7 +14430,7 @@ eurex_t7_eti_fbe_v8_1.trd_reg_ts_time_priority.dissect = function(buffer, offset
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_time_priority
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_time_priority_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.trd_reg_ts_time_priority_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -15081,7 +15081,7 @@ eurex_t7_eti_fbe_v8_1.valid_until_time.dissect = function(buffer, offset, packet
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_eurex_t7_eti_fbe_v8_1.fields.valid_until_time
-  if eurex_t7_eti_fbe_v8_1.absolute_time_base == 1 then field = omi_eurex_t7_eti_fbe_v8_1.fields.valid_until_time_utc end
+  if eurex_t7_eti_fbe_v8_1.timestamp_format == 3 then field = omi_eurex_t7_eti_fbe_v8_1.fields.valid_until_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead

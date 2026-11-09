@@ -107,14 +107,14 @@ omi_iex_iexequities_tops_iextp_v1_64.fields.message_sequence_number = ProtoField
 -- Iex IexEquities Tops IexTp 1.64 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-iex_iexequities_tops_iextp_v1_64.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+iex_iexequities_tops_iextp_v1_64.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -139,7 +139,7 @@ omi_iex_iexequities_tops_iextp_v1_64.prefs.show_padding = Pref.bool("Show Paddin
 omi_iex_iexequities_tops_iextp_v1_64.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_iex_iexequities_tops_iextp_v1_64.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_iex_iexequities_tops_iextp_v1_64.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_iex_iexequities_tops_iextp_v1_64.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_iex_iexequities_tops_iextp_v1_64.prefs_changed()
@@ -163,8 +163,8 @@ function omi_iex_iexequities_tops_iextp_v1_64.prefs_changed()
   if show.sequences ~= omi_iex_iexequities_tops_iextp_v1_64.prefs.show_sequences then
     show.sequences = omi_iex_iexequities_tops_iextp_v1_64.prefs.show_sequences
   end
-  if iex_iexequities_tops_iextp_v1_64.absolute_time_base ~= omi_iex_iexequities_tops_iextp_v1_64.prefs.absolute_time_base then
-    iex_iexequities_tops_iextp_v1_64.absolute_time_base = omi_iex_iexequities_tops_iextp_v1_64.prefs.absolute_time_base
+  if iex_iexequities_tops_iextp_v1_64.timestamp_format ~= omi_iex_iexequities_tops_iextp_v1_64.prefs.timestamp_format then
+    iex_iexequities_tops_iextp_v1_64.timestamp_format = omi_iex_iexequities_tops_iextp_v1_64.prefs.timestamp_format
   end
 end
 
@@ -1041,7 +1041,7 @@ iex_iexequities_tops_iextp_v1_64.scheduled_auction_time.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_iex_iexequities_tops_iextp_v1_64.fields.scheduled_auction_time
-  if iex_iexequities_tops_iextp_v1_64.absolute_time_base == 1 then field = omi_iex_iexequities_tops_iextp_v1_64.fields.scheduled_auction_time_utc end
+  if iex_iexequities_tops_iextp_v1_64.timestamp_format == 3 then field = omi_iex_iexequities_tops_iextp_v1_64.fields.scheduled_auction_time_utc end
 
   local seconds = value
   local nanos = 0
@@ -1093,7 +1093,7 @@ iex_iexequities_tops_iextp_v1_64.send_time.dissect = function(buffer, offset, pa
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_iex_iexequities_tops_iextp_v1_64.fields.send_time
-  if iex_iexequities_tops_iextp_v1_64.absolute_time_base == 1 then field = omi_iex_iexequities_tops_iextp_v1_64.fields.send_time_utc end
+  if iex_iexequities_tops_iextp_v1_64.timestamp_format == 3 then field = omi_iex_iexequities_tops_iextp_v1_64.fields.send_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -1268,7 +1268,7 @@ iex_iexequities_tops_iextp_v1_64.timestamp.dissect = function(buffer, offset, pa
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_iex_iexequities_tops_iextp_v1_64.fields.timestamp
-  if iex_iexequities_tops_iextp_v1_64.absolute_time_base == 1 then field = omi_iex_iexequities_tops_iextp_v1_64.fields.timestamp_utc end
+  if iex_iexequities_tops_iextp_v1_64.timestamp_format == 3 then field = omi_iex_iexequities_tops_iextp_v1_64.fields.timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

@@ -58,6 +58,22 @@ omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.sequence_number_reset_message = Proto
 omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.nysebonds.quote.pdp.v1.2.a.symbolindexmappingmessage", ftypes.STRING, nil, nil, nil, "Maps a symbol index to its bond symbol and Cusip.")
 
 -----------------------------------------------------------------------
+-- Nyse NyseBonds Quote Pdp 1.2.a Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -73,6 +89,8 @@ omi_nyse_nysebonds_quote_pdp_v1_2_a.prefs.show_structs = Pref.bool("Show Structs
 omi_nyse_nysebonds_quote_pdp_v1_2_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nysebonds_quote_pdp_v1_2_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 
+omi_nyse_nysebonds_quote_pdp_v1_2_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_nysebonds_quote_pdp_v1_2_a.prefs_changed()
 
@@ -85,6 +103,9 @@ function omi_nyse_nysebonds_quote_pdp_v1_2_a.prefs_changed()
   end
   if show.structs ~= omi_nyse_nysebonds_quote_pdp_v1_2_a.prefs.show_structs then
     show.structs = omi_nyse_nysebonds_quote_pdp_v1_2_a.prefs.show_structs
+  end
+  if nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format ~= omi_nyse_nysebonds_quote_pdp_v1_2_a.prefs.timestamp_format then
+    nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format = omi_nyse_nysebonds_quote_pdp_v1_2_a.prefs.timestamp_format
   end
 end
 
@@ -798,7 +819,7 @@ nyse_nysebonds_quote_pdp_v1_2_a.send_time.display = function(value, buffer, offs
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format == 2 and packet then
+  if nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -808,7 +829,8 @@ nyse_nysebonds_quote_pdp_v1_2_a.send_time.display = function(value, buffer, offs
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Send Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Send Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 

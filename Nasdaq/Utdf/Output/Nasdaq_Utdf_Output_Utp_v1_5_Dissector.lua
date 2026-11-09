@@ -165,14 +165,14 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.message_sequence_number = ProtoField.new(
 -- Nasdaq Utdf Output Utp 1.5 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nasdaq_utdf_output_utp_v1_5.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nasdaq_utdf_output_utp_v1_5.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -197,7 +197,7 @@ omi_nasdaq_utdf_output_utp_v1_5.prefs.show_headers = Pref.bool("Show Headers", s
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_utdf_output_utp_v1_5.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nasdaq_utdf_output_utp_v1_5.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
@@ -221,8 +221,8 @@ function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
   if show.sequences ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sequences then
     show.sequences = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sequences
   end
-  if nasdaq_utdf_output_utp_v1_5.absolute_time_base ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.absolute_time_base then
-    nasdaq_utdf_output_utp_v1_5.absolute_time_base = omi_nasdaq_utdf_output_utp_v1_5.prefs.absolute_time_base
+  if nasdaq_utdf_output_utp_v1_5.timestamp_format ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.timestamp_format then
+    nasdaq_utdf_output_utp_v1_5.timestamp_format = omi_nasdaq_utdf_output_utp_v1_5.prefs.timestamp_format
   end
 end
 
@@ -262,7 +262,7 @@ nasdaq_utdf_output_utp_v1_5.action_timestamp.dissect = function(buffer, offset, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_utdf_output_utp_v1_5.fields.action_timestamp
-  if nasdaq_utdf_output_utp_v1_5.absolute_time_base == 1 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.action_timestamp_utc end
+  if nasdaq_utdf_output_utp_v1_5.timestamp_format == 3 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.action_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -922,7 +922,7 @@ nasdaq_utdf_output_utp_v1_5.finra_timestamp.dissect = function(buffer, offset, p
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_utdf_output_utp_v1_5.fields.finra_timestamp
-  if nasdaq_utdf_output_utp_v1_5.absolute_time_base == 1 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.finra_timestamp_utc end
+  if nasdaq_utdf_output_utp_v1_5.timestamp_format == 3 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.finra_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -1340,7 +1340,7 @@ nasdaq_utdf_output_utp_v1_5.luld_timestamp.dissect = function(buffer, offset, pa
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_utdf_output_utp_v1_5.fields.luld_timestamp
-  if nasdaq_utdf_output_utp_v1_5.absolute_time_base == 1 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.luld_timestamp_utc end
+  if nasdaq_utdf_output_utp_v1_5.timestamp_format == 3 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.luld_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -2057,7 +2057,7 @@ nasdaq_utdf_output_utp_v1_5.participant_timestamp.dissect = function(buffer, off
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_utdf_output_utp_v1_5.fields.participant_timestamp
-  if nasdaq_utdf_output_utp_v1_5.absolute_time_base == 1 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.participant_timestamp_utc end
+  if nasdaq_utdf_output_utp_v1_5.timestamp_format == 3 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.participant_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -2258,7 +2258,7 @@ nasdaq_utdf_output_utp_v1_5.sip_timestamp.dissect = function(buffer, offset, pac
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_utdf_output_utp_v1_5.fields.sip_timestamp
-  if nasdaq_utdf_output_utp_v1_5.absolute_time_base == 1 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.sip_timestamp_utc end
+  if nasdaq_utdf_output_utp_v1_5.timestamp_format == 3 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.sip_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -2406,7 +2406,7 @@ nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.dissect = function(buffer, offset
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_utdf_output_utp_v1_5.fields.timestamp_of_trade
-  if nasdaq_utdf_output_utp_v1_5.absolute_time_base == 1 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.timestamp_of_trade_utc end
+  if nasdaq_utdf_output_utp_v1_5.timestamp_format == 3 then field = omi_nasdaq_utdf_output_utp_v1_5.fields.timestamp_of_trade_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

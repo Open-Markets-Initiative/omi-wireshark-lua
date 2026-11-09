@@ -332,14 +332,14 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.token_and_ref_price_index = ProtoF
 -- Nse NseFo Broadcast NnfBcast 9.50 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nse_nsefo_broadcast_nnfbcast_v9_50.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nse_nsefo_broadcast_nnfbcast_v9_50.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -360,7 +360,7 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.show_application_messages = Pref.bo
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs_changed()
@@ -378,8 +378,8 @@ function omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs_changed()
   if show.indexes ~= omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.show_indexes then
     show.indexes = omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.show_indexes
   end
-  if nse_nsefo_broadcast_nnfbcast_v9_50.absolute_time_base ~= omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.absolute_time_base then
-    nse_nsefo_broadcast_nnfbcast_v9_50.absolute_time_base = omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.absolute_time_base
+  if nse_nsefo_broadcast_nnfbcast_v9_50.timestamp_format ~= omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.timestamp_format then
+    nse_nsefo_broadcast_nnfbcast_v9_50.timestamp_format = omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.timestamp_format
   end
 end
 
@@ -1737,7 +1737,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.expiry_date.dissect = function(buffer, offset
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expiry_date
-  if nse_nsefo_broadcast_nnfbcast_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expiry_date_utc end
+  if nse_nsefo_broadcast_nnfbcast_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expiry_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -9469,7 +9469,6 @@ udp_table:add_for_decode_as(omi_nse_nsefo_broadcast_nnfbcast_v9_50)
 --   Organization: National Stock Exchange of India Ltd
 --   Version: 9.50
 --   Date: Monday, July 27, 2026
---   Specification: TP_FO_Trimmed_NNF_PROTOCOL_9.50_20260820170606.pdf
 --   Specification: TP_FO_Trimmed_NNF_PROTOCOL_9_50.pdf
 --
 -- Script:

@@ -193,14 +193,14 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_sequence_number = ProtoField.ne
 -- Nasdaq Uqdf Output Utp 3.0.c Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nasdaq_uqdf_output_utp_v3_0_c.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nasdaq_uqdf_output_utp_v3_0_c.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -225,7 +225,7 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_headers = Pref.bool("Show Headers",
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_uqdf_output_utp_v3_0_c.prefs_changed()
@@ -249,8 +249,8 @@ function omi_nasdaq_uqdf_output_utp_v3_0_c.prefs_changed()
   if show.sequences ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_sequences then
     show.sequences = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_sequences
   end
-  if nasdaq_uqdf_output_utp_v3_0_c.absolute_time_base ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.absolute_time_base then
-    nasdaq_uqdf_output_utp_v3_0_c.absolute_time_base = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.absolute_time_base
+  if nasdaq_uqdf_output_utp_v3_0_c.timestamp_format ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.timestamp_format then
+    nasdaq_uqdf_output_utp_v3_0_c.timestamp_format = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.timestamp_format
   end
 end
 
@@ -290,7 +290,7 @@ nasdaq_uqdf_output_utp_v3_0_c.action_time.dissect = function(buffer, offset, pac
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.action_time
-  if nasdaq_uqdf_output_utp_v3_0_c.absolute_time_base == 1 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.action_time_utc end
+  if nasdaq_uqdf_output_utp_v3_0_c.timestamp_format == 3 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.action_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -337,7 +337,7 @@ nasdaq_uqdf_output_utp_v3_0_c.adf_timestamp.dissect = function(buffer, offset, p
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.adf_timestamp
-  if nasdaq_uqdf_output_utp_v3_0_c.absolute_time_base == 1 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.adf_timestamp_utc end
+  if nasdaq_uqdf_output_utp_v3_0_c.timestamp_format == 3 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.adf_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -1477,7 +1477,7 @@ nasdaq_uqdf_output_utp_v3_0_c.luld_price_band_effective_time.dissect = function(
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.luld_price_band_effective_time
-  if nasdaq_uqdf_output_utp_v3_0_c.absolute_time_base == 1 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.luld_price_band_effective_time_utc end
+  if nasdaq_uqdf_output_utp_v3_0_c.timestamp_format == 3 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.luld_price_band_effective_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -3135,7 +3135,7 @@ nasdaq_uqdf_output_utp_v3_0_c.sip_timestamp.dissect = function(buffer, offset, p
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.sip_timestamp
-  if nasdaq_uqdf_output_utp_v3_0_c.absolute_time_base == 1 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.sip_timestamp_utc end
+  if nasdaq_uqdf_output_utp_v3_0_c.timestamp_format == 3 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.sip_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -3319,7 +3319,7 @@ nasdaq_uqdf_output_utp_v3_0_c.timestamp_1.dissect = function(buffer, offset, pac
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.timestamp_1
-  if nasdaq_uqdf_output_utp_v3_0_c.absolute_time_base == 1 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.timestamp_1_utc end
+  if nasdaq_uqdf_output_utp_v3_0_c.timestamp_format == 3 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.timestamp_1_utc end
 
   if value == UInt64(0x00000000, 0x00000000) then
     -- Null: the field keeps its type, and the line says so instead
@@ -3350,7 +3350,7 @@ nasdaq_uqdf_output_utp_v3_0_c.timestamp_2.dissect = function(buffer, offset, pac
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.timestamp_2
-  if nasdaq_uqdf_output_utp_v3_0_c.absolute_time_base == 1 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.timestamp_2_utc end
+  if nasdaq_uqdf_output_utp_v3_0_c.timestamp_format == 3 then field = omi_nasdaq_uqdf_output_utp_v3_0_c.fields.timestamp_2_utc end
 
   if value == UInt64(0x00000000, 0x00000000) then
     -- Null: the field keeps its type, and the line says so instead

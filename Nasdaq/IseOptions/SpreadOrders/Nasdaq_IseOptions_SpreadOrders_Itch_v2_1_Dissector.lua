@@ -134,10 +134,11 @@ omi_nasdaq_iseoptions_spreadorders_itch_v2_1.experts = { nasdaq_iseoptions_sprea
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
 nasdaq_iseoptions_spreadorders_itch_v2_1.timestamp_format = 2
 
 -- assumed connection role
@@ -177,7 +178,7 @@ omi_nasdaq_iseoptions_spreadorders_itch_v2_1.prefs.show_padding = Pref.bool("Sho
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_iseoptions_spreadorders_itch_v2_1.prefs_changed()
@@ -1804,7 +1805,7 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.timestamp.display = function(value, buf
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if nasdaq_iseoptions_spreadorders_itch_v2_1.timestamp_format == 2 and packet then
+  if nasdaq_iseoptions_spreadorders_itch_v2_1.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -1814,7 +1815,8 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.timestamp.display = function(value, buf
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%09d", nanoseconds)
+      local format = nasdaq_iseoptions_spreadorders_itch_v2_1.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
     end
   end
 

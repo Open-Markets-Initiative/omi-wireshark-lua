@@ -74,6 +74,7 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.lot_type = ProtoField.new("Lot
 omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.market = ProtoField.new("Market", "hkex.hkexderivatives.fulltick.omd.v2.2.market", ftypes.UINT16, nil, nil, nil, "Market Code")
 omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.match_id = ProtoField.new("Match Id", "hkex.hkexderivatives.fulltick.omd.v2.2.matchid", ftypes.UINT64, nil, nil, nil, "An identifier that links all trade which are executed as part of a single execution operation involving an aggressing order.")
 omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.match_type = ProtoField.new("Match Type", "hkex.hkexderivatives.fulltick.omd.v2.2.matchtype", ftypes.UINT8)
+omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.message_buffer = ProtoField.new("Message Buffer", "hkex.hkexderivatives.fulltick.omd.v2.2.messagebuffer", ftypes.STRING, nil, nil, nil, "The packet's message area: the messages it counts, or one ZliB block holding them")
 omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.modifier = ProtoField.new("Modifier", "hkex.hkexderivatives.fulltick.omd.v2.2.modifier", ftypes.UINT8, nil, nil, nil, "Value is incremented by one each time the instrument is involved in an issue, split, etc")
 omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexderivatives.fulltick.omd.v2.2.msgcount", ftypes.UINT8, nil, nil, nil, "Number of messages included in the packet")
 omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexderivatives.fulltick.omd.v2.2.msgsize", ftypes.UINT16, nil, nil, nil, "Length of the message")
@@ -161,14 +162,14 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.message_index = ProtoField.new
 -- Hkex HkexDerivatives FullTick Omd 2.2 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-hkex_hkexderivatives_fulltick_omd_v2_2.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+hkex_hkexderivatives_fulltick_omd_v2_2.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -191,7 +192,7 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs.show_headers = Pref.bool("Show 
 omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs_changed()
@@ -212,8 +213,8 @@ function omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs_changed()
   if show.indexes ~= omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs.show_indexes then
     show.indexes = omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs.show_indexes
   end
-  if hkex_hkexderivatives_fulltick_omd_v2_2.absolute_time_base ~= omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs.absolute_time_base then
-    hkex_hkexderivatives_fulltick_omd_v2_2.absolute_time_base = omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs.absolute_time_base
+  if hkex_hkexderivatives_fulltick_omd_v2_2.timestamp_format ~= omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs.timestamp_format then
+    hkex_hkexderivatives_fulltick_omd_v2_2.timestamp_format = omi_hkex_hkexderivatives_fulltick_omd_v2_2.prefs.timestamp_format
   end
 end
 
@@ -2167,7 +2168,7 @@ hkex_hkexderivatives_fulltick_omd_v2_2.send_time.dissect = function(buffer, offs
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.send_time
-  if hkex_hkexderivatives_fulltick_omd_v2_2.absolute_time_base == 1 then field = omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.send_time_utc end
+  if hkex_hkexderivatives_fulltick_omd_v2_2.timestamp_format == 3 then field = omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.send_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -4526,6 +4527,62 @@ hkex_hkexderivatives_fulltick_omd_v2_2.message.dissect = function(buffer, offset
   end
 end
 
+-- Message Buffer
+hkex_hkexderivatives_fulltick_omd_v2_2.message_buffer = {}
+
+-- Calculate size of: Message Buffer
+hkex_hkexderivatives_fulltick_omd_v2_2.message_buffer.size = function(buffer, offset)
+  local index = 0
+
+  -- Parse runtime size of: Message
+  index = index + buffer(offset + index - 0, 2):le_uint()
+
+  return index
+end
+
+-- Display: Message Buffer
+hkex_hkexderivatives_fulltick_omd_v2_2.message_buffer.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Buffer
+hkex_hkexderivatives_fulltick_omd_v2_2.message_buffer.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Msg Count
+  local msg_count = buffer(offset - 14, 1):uint()
+
+  -- Repeating: Message
+  for message_index = 1, msg_count do
+
+    -- Dependency element: Msg Size
+    local msg_size = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = hkex_hkexderivatives_fulltick_omd_v2_2.message.dissect(buffer, index, packet, parent, msg_size, message_index)
+  end
+
+  return index
+end
+
+-- Dissect: Message Buffer
+hkex_hkexderivatives_fulltick_omd_v2_2.message_buffer.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_fulltick_omd_v2_2.fields.message_buffer, buffer(offset, 0))
+    local index = hkex_hkexderivatives_fulltick_omd_v2_2.message_buffer.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_fulltick_omd_v2_2.message_buffer.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_fulltick_omd_v2_2.message_buffer.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet Header
 hkex_hkexderivatives_fulltick_omd_v2_2.packet_header = {}
 
@@ -4600,25 +4657,18 @@ hkex_hkexderivatives_fulltick_omd_v2_2.packet.dissect = function(buffer, packet,
   -- Dependency element: Compression Mode
   local compression_mode = buffer(index - 13, 1):uint()
 
-  local message_conversion = compression_mode == 1
+  local message_buffer_conversion = compression_mode == 1
 
-  if message_conversion then
+  if message_buffer_conversion then
     buffer = zlib_decompress(buffer(index, buffer:len() - index))
     index = 0
   end
 
-  -- Dependency element: Msg Count
-  local msg_count = buffer(index - 14, 1):uint()
+  -- Runtime Size Of: Message Buffer
+  local size_of_message_buffer = buffer:len() - index
 
-  -- Repeating: Message
-  for message_index = 1, msg_count do
-
-    -- Dependency element: Msg Size
-    local msg_size = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Message
-    index, message = hkex_hkexderivatives_fulltick_omd_v2_2.message.dissect(buffer, index, packet, parent, msg_size, message_index)
-  end
+  -- Message Buffer: Struct of 1 fields
+  index, message_buffer = hkex_hkexderivatives_fulltick_omd_v2_2.message_buffer.dissect(buffer, index, packet, parent, size_of_message_buffer)
 
   return index
 end

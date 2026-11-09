@@ -66,10 +66,11 @@ omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.experts = { cboe_cxeequities_au
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
 cboe_cxeequities_auctionfeed_asciipitch_v1_4.timestamp_format = 2
 
 
@@ -89,7 +90,7 @@ omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs.show_application_messages
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs_changed()
@@ -758,7 +759,7 @@ cboe_cxeequities_auctionfeed_asciipitch_v1_4.timestamp.display = function(value,
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if cboe_cxeequities_auctionfeed_asciipitch_v1_4.timestamp_format == 2 and packet then
+  if cboe_cxeequities_auctionfeed_asciipitch_v1_4.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -768,7 +769,8 @@ cboe_cxeequities_auctionfeed_asciipitch_v1_4.timestamp.display = function(value,
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = cboe_cxeequities_auctionfeed_asciipitch_v1_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 

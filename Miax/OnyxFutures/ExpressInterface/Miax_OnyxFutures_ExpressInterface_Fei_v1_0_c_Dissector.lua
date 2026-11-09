@@ -142,14 +142,14 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index = Pro
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-miax_onyxfutures_expressinterface_fei_v1_0_c.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+miax_onyxfutures_expressinterface_fei_v1_0_c.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -174,7 +174,7 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_repeating_groups = P
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
@@ -198,8 +198,8 @@ function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
   if show.indexes ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_indexes then
     show.indexes = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_indexes
   end
-  if miax_onyxfutures_expressinterface_fei_v1_0_c.absolute_time_base ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.absolute_time_base then
-    miax_onyxfutures_expressinterface_fei_v1_0_c.absolute_time_base = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.absolute_time_base
+  if miax_onyxfutures_expressinterface_fei_v1_0_c.timestamp_format ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.timestamp_format then
+    miax_onyxfutures_expressinterface_fei_v1_0_c.timestamp_format = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.timestamp_format
   end
 end
 
@@ -386,7 +386,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.dissect = function
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_send_time
-  if miax_onyxfutures_expressinterface_fei_v1_0_c.absolute_time_base == 1 then field = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_send_time_utc end
+  if miax_onyxfutures_expressinterface_fei_v1_0_c.timestamp_format == 3 then field = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_send_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -922,7 +922,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine.dissect = function(
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine
-  if miax_onyxfutures_expressinterface_fei_v1_0_c.absolute_time_base == 1 then field = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_utc end
+  if miax_onyxfutures_expressinterface_fei_v1_0_c.timestamp_format == 3 then field = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -946,7 +946,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.dissect = func
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_time
-  if miax_onyxfutures_expressinterface_fei_v1_0_c.absolute_time_base == 1 then field = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_time_utc end
+  if miax_onyxfutures_expressinterface_fei_v1_0_c.timestamp_format == 3 then field = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

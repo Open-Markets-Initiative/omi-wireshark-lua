@@ -138,14 +138,14 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_message = ProtoFie
 -- Aquis AquisEquities TradingProtocol Atp 4.0 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -166,7 +166,7 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_application_messages
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs_changed()
@@ -184,8 +184,8 @@ function omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs_changed()
   if show.structs ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_structs then
     show.structs = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_structs
   end
-  if aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.absolute_time_base then
-    aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.absolute_time_base
+  if aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp_format ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.timestamp_format then
+    aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp_format = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.timestamp_format
   end
 end
 
@@ -294,7 +294,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.bust_timestamp.dissect = function(b
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.bust_timestamp
-  if aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base == 1 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.bust_timestamp_utc end
+  if aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp_format == 3 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.bust_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -318,7 +318,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.cancellation_timestamp.dissect = fu
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.cancellation_timestamp
-  if aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base == 1 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.cancellation_timestamp_utc end
+  if aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp_format == 3 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.cancellation_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -467,7 +467,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.invite_timestamp.dissect = function
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.invite_timestamp
-  if aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base == 1 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.invite_timestamp_utc end
+  if aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp_format == 3 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.invite_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -640,7 +640,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.modification_timestamp.dissect = fu
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.modification_timestamp
-  if aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base == 1 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.modification_timestamp_utc end
+  if aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp_format == 3 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.modification_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -1440,7 +1440,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp.dissect = function(buffer
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.timestamp
-  if aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base == 1 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.timestamp_utc end
+  if aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp_format == 3 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -1519,7 +1519,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.trade_timestamp.dissect = function(
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_timestamp
-  if aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base == 1 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_timestamp_utc end
+  if aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp_format == 3 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

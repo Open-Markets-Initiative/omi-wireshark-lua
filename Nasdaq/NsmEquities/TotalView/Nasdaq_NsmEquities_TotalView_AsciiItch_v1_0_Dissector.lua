@@ -75,6 +75,15 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.experts = { nasdaq_nsmequities_t
 -- Nasdaq NsmEquities TotalView AsciiItch 1.0 Formatting
 -----------------------------------------------------------------------
 
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nasdaq_nsmequities_totalview_asciiitch_v1_0.timestamp_format = 2
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -104,6 +113,8 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.prefs.show_structs = Pref.bool("
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
+omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.prefs_changed()
 
@@ -119,6 +130,9 @@ function omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.prefs_changed()
   end
   if show.structs ~= omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.prefs.show_structs then
     show.structs = omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.prefs.show_structs
+  end
+  if nasdaq_nsmequities_totalview_asciiitch_v1_0.timestamp_format ~= omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.prefs.timestamp_format then
+    nasdaq_nsmequities_totalview_asciiitch_v1_0.timestamp_format = omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.prefs.timestamp_format
   end
 end
 

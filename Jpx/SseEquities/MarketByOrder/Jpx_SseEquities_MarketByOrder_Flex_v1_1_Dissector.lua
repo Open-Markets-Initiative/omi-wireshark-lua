@@ -94,17 +94,15 @@ omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.timestamp = ProtoField.new("T
 -- Jpx SseEquities MarketByOrder Flex 1.1 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-jpx_sseequities_marketbyorder_flex_v1_1.absolute_time_base = 0
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-jpx_sseequities_marketbyorder_flex_v1_1.format_timestamp = true
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+jpx_sseequities_marketbyorder_flex_v1_1.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -124,9 +122,8 @@ omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.show_application_messages = Pr
 omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs_changed()
@@ -144,11 +141,8 @@ function omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs_changed()
   if show.indexes ~= omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.show_indexes then
     show.indexes = omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.show_indexes
   end
-  if jpx_sseequities_marketbyorder_flex_v1_1.format_timestamp ~= omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.format_timestamp then
-    jpx_sseequities_marketbyorder_flex_v1_1.format_timestamp = omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.format_timestamp
-  end
-  if jpx_sseequities_marketbyorder_flex_v1_1.absolute_time_base ~= omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.absolute_time_base then
-    jpx_sseequities_marketbyorder_flex_v1_1.absolute_time_base = omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.absolute_time_base
+  if jpx_sseequities_marketbyorder_flex_v1_1.timestamp_format ~= omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.timestamp_format then
+    jpx_sseequities_marketbyorder_flex_v1_1.timestamp_format = omi_jpx_sseequities_marketbyorder_flex_v1_1.prefs.timestamp_format
   end
 end
 
@@ -1203,7 +1197,7 @@ jpx_sseequities_marketbyorder_flex_v1_1.time_seconds.generated = function(value,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.time_seconds
-  if jpx_sseequities_marketbyorder_flex_v1_1.absolute_time_base == 1 then field = omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.time_seconds_utc end
+  if jpx_sseequities_marketbyorder_flex_v1_1.timestamp_format == 3 then field = omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.time_seconds_utc end
   local time_seconds = parent:add(field, range, NSTime.new(value, 0))
   time_seconds:set_generated()
 end
@@ -1217,7 +1211,7 @@ jpx_sseequities_marketbyorder_flex_v1_1.time_seconds.dissect = function(buffer, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.time_seconds
-  if jpx_sseequities_marketbyorder_flex_v1_1.absolute_time_base == 1 then field = omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.time_seconds_utc end
+  if jpx_sseequities_marketbyorder_flex_v1_1.timestamp_format == 3 then field = omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.time_seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -1425,12 +1419,13 @@ jpx_sseequities_marketbyorder_flex_v1_1.timestamp = {}
 
 -- Translate: Timestamp
 jpx_sseequities_marketbyorder_flex_v1_1.timestamp.translate = function(time_microseconds, stored_time_seconds)
-  return UInt64.new(stored_time_seconds * 1000000 + time_microseconds)
+  return UInt64.new(stored_time_seconds) * 1000000 + time_microseconds
 end
 
 -- Display: Timestamp
 jpx_sseequities_marketbyorder_flex_v1_1.timestamp.display = function(time_microseconds, stored_time_seconds)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_time_seconds)..string.format("%09d", time_microseconds)
+  local format = jpx_sseequities_marketbyorder_flex_v1_1.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, stored_time_seconds)..string.format("%09d", time_microseconds)
 end
 
 -- Composite: Timestamp
@@ -1452,7 +1447,7 @@ end
 
 -- Dissect: Timestamp
 jpx_sseequities_marketbyorder_flex_v1_1.timestamp.dissect = function(buffer, offset, packet, parent)
-  if jpx_sseequities_marketbyorder_flex_v1_1.format_timestamp then
+  if jpx_sseequities_marketbyorder_flex_v1_1.timestamp_format ~= 0 then
     local stored_time_seconds = jpx_sseequities_marketbyorder_flex_v1_1.time_seconds.current
 
     if stored_time_seconds ~= nil then

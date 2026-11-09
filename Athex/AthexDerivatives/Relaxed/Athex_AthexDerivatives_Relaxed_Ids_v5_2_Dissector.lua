@@ -96,14 +96,14 @@ omi_athex_athexderivatives_relaxed_ids_v5_2.experts = { athex_athexderivatives_r
 -- Athex AthexDerivatives Relaxed Ids 5.2 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+athex_athexderivatives_relaxed_ids_v5_2.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -122,7 +122,7 @@ omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.show_application_messages = Pr
 omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
-omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_athex_athexderivatives_relaxed_ids_v5_2.prefs_changed()
@@ -137,8 +137,8 @@ function omi_athex_athexderivatives_relaxed_ids_v5_2.prefs_changed()
   if show.structs ~= omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.show_structs then
     show.structs = omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.show_structs
   end
-  if athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base ~= omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.absolute_time_base then
-    athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base = omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.absolute_time_base
+  if athex_athexderivatives_relaxed_ids_v5_2.timestamp_format ~= omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.timestamp_format then
+    athex_athexderivatives_relaxed_ids_v5_2.timestamp_format = omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.timestamp_format
   end
 end
 
@@ -365,7 +365,7 @@ athex_athexderivatives_relaxed_ids_v5_2.event_time.dissect = function(buffer, of
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.event_time
-  if athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base == 1 then field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.event_time_utc end
+  if athex_athexderivatives_relaxed_ids_v5_2.timestamp_format == 3 then field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.event_time_utc end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros
@@ -1207,7 +1207,7 @@ athex_athexderivatives_relaxed_ids_v5_2.publication_timestamp.dissect = function
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.publication_timestamp
-  if athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base == 1 then field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.publication_timestamp_utc end
+  if athex_athexderivatives_relaxed_ids_v5_2.timestamp_format == 3 then field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.publication_timestamp_utc end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros
@@ -1681,7 +1681,7 @@ athex_athexderivatives_relaxed_ids_v5_2.trading_date_and_time.dissect = function
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.trading_date_and_time
-  if athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base == 1 then field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.trading_date_and_time_utc end
+  if athex_athexderivatives_relaxed_ids_v5_2.timestamp_format == 3 then field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.trading_date_and_time_utc end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros

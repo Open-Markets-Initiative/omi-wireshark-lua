@@ -105,6 +105,16 @@ grep "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.orderid" Cboe.EdgxEq
 grep "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.executedquantity" Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.OrderExecutedMessage.json
 grep "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.executionid" Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.OrderExecutedMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29/ReduceSizeLongMessage.pcap" \
+  -X "lua_script:Cboe/EdgxEquities/MulticastDepthOfBook/Cboe_EdgxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
+  -T json \
+  > Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ReduceSizeLongMessage.json 2> Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ReduceSizeLongMessage.json.stderr \
+  || { echo "--- tshark FAILED (ReduceSizeLongMessage) ---"; cat Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ReduceSizeLongMessage.json.stderr; exit 1; }
+
+grep "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.timeoffset" Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ReduceSizeLongMessage.json
+grep "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.orderid" Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ReduceSizeLongMessage.json
+grep "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.canceledquantity" Cboe.EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ReduceSizeLongMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/EdgxEquities.MulticastDepthOfBook.Pitch.v2.41.29/ReduceSizeShortMessage.pcap" \
   -X "lua_script:Cboe/EdgxEquities/MulticastDepthOfBook/Cboe_EdgxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
   -T json \

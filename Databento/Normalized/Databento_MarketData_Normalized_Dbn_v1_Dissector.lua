@@ -243,14 +243,14 @@ omi_databento_marketdata_normalized_dbn_v1.fields.symbol_mapping_index = ProtoFi
 -- Databento MarketData Normalized Dbn 1 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-databento_marketdata_normalized_dbn_v1.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+databento_marketdata_normalized_dbn_v1.timestamp_format = 2
 
 -- assumed connection role
 local role_enum = {
@@ -281,7 +281,7 @@ omi_databento_marketdata_normalized_dbn_v1.prefs.show_application_messages = Pre
 omi_databento_marketdata_normalized_dbn_v1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_databento_marketdata_normalized_dbn_v1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_databento_marketdata_normalized_dbn_v1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_databento_marketdata_normalized_dbn_v1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_databento_marketdata_normalized_dbn_v1.prefs_changed()
@@ -299,8 +299,8 @@ function omi_databento_marketdata_normalized_dbn_v1.prefs_changed()
   if show.indexes ~= omi_databento_marketdata_normalized_dbn_v1.prefs.show_indexes then
     show.indexes = omi_databento_marketdata_normalized_dbn_v1.prefs.show_indexes
   end
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base ~= omi_databento_marketdata_normalized_dbn_v1.prefs.absolute_time_base then
-    databento_marketdata_normalized_dbn_v1.absolute_time_base = omi_databento_marketdata_normalized_dbn_v1.prefs.absolute_time_base
+  if databento_marketdata_normalized_dbn_v1.timestamp_format ~= omi_databento_marketdata_normalized_dbn_v1.prefs.timestamp_format then
+    databento_marketdata_normalized_dbn_v1.timestamp_format = omi_databento_marketdata_normalized_dbn_v1.prefs.timestamp_format
   end
 end
 
@@ -427,7 +427,7 @@ databento_marketdata_normalized_dbn_v1.activation.dissect = function(buffer, off
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_databento_marketdata_normalized_dbn_v1.fields.activation
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base == 1 then field = omi_databento_marketdata_normalized_dbn_v1.fields.activation_utc end
+  if databento_marketdata_normalized_dbn_v1.timestamp_format == 3 then field = omi_databento_marketdata_normalized_dbn_v1.fields.activation_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -690,7 +690,7 @@ databento_marketdata_normalized_dbn_v1.auction_time.dissect = function(buffer, o
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_databento_marketdata_normalized_dbn_v1.fields.auction_time
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base == 1 then field = omi_databento_marketdata_normalized_dbn_v1.fields.auction_time_utc end
+  if databento_marketdata_normalized_dbn_v1.timestamp_format == 3 then field = omi_databento_marketdata_normalized_dbn_v1.fields.auction_time_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -1344,7 +1344,7 @@ databento_marketdata_normalized_dbn_v1.end_.dissect = function(buffer, offset, p
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_databento_marketdata_normalized_dbn_v1.fields.end_
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base == 1 then field = omi_databento_marketdata_normalized_dbn_v1.fields.end__utc end
+  if databento_marketdata_normalized_dbn_v1.timestamp_format == 3 then field = omi_databento_marketdata_normalized_dbn_v1.fields.end__utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -1398,7 +1398,7 @@ databento_marketdata_normalized_dbn_v1.end_ts.dissect = function(buffer, offset,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_databento_marketdata_normalized_dbn_v1.fields.end_ts
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base == 1 then field = omi_databento_marketdata_normalized_dbn_v1.fields.end_ts_utc end
+  if databento_marketdata_normalized_dbn_v1.timestamp_format == 3 then field = omi_databento_marketdata_normalized_dbn_v1.fields.end_ts_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -1507,7 +1507,7 @@ databento_marketdata_normalized_dbn_v1.expiration.dissect = function(buffer, off
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_databento_marketdata_normalized_dbn_v1.fields.expiration
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base == 1 then field = omi_databento_marketdata_normalized_dbn_v1.fields.expiration_utc end
+  if databento_marketdata_normalized_dbn_v1.timestamp_format == 3 then field = omi_databento_marketdata_normalized_dbn_v1.fields.expiration_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -4071,7 +4071,7 @@ databento_marketdata_normalized_dbn_v1.start.dissect = function(buffer, offset, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_databento_marketdata_normalized_dbn_v1.fields.start
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base == 1 then field = omi_databento_marketdata_normalized_dbn_v1.fields.start_utc end
+  if databento_marketdata_normalized_dbn_v1.timestamp_format == 3 then field = omi_databento_marketdata_normalized_dbn_v1.fields.start_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -4118,7 +4118,7 @@ databento_marketdata_normalized_dbn_v1.start_ts.dissect = function(buffer, offse
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_databento_marketdata_normalized_dbn_v1.fields.start_ts
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base == 1 then field = omi_databento_marketdata_normalized_dbn_v1.fields.start_ts_utc end
+  if databento_marketdata_normalized_dbn_v1.timestamp_format == 3 then field = omi_databento_marketdata_normalized_dbn_v1.fields.start_ts_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -4825,7 +4825,7 @@ databento_marketdata_normalized_dbn_v1.ts_event.dissect = function(buffer, offse
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_event
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base == 1 then field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_event_utc end
+  if databento_marketdata_normalized_dbn_v1.timestamp_format == 3 then field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_event_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -4917,7 +4917,7 @@ databento_marketdata_normalized_dbn_v1.ts_out_time.dissect = function(buffer, of
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_out_time
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base == 1 then field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_out_time_utc end
+  if databento_marketdata_normalized_dbn_v1.timestamp_format == 3 then field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_out_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -4941,7 +4941,7 @@ databento_marketdata_normalized_dbn_v1.ts_recv.dissect = function(buffer, offset
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_recv
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base == 1 then field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_recv_utc end
+  if databento_marketdata_normalized_dbn_v1.timestamp_format == 3 then field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_recv_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead
@@ -4972,7 +4972,7 @@ databento_marketdata_normalized_dbn_v1.ts_ref.dissect = function(buffer, offset,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_ref
-  if databento_marketdata_normalized_dbn_v1.absolute_time_base == 1 then field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_ref_utc end
+  if databento_marketdata_normalized_dbn_v1.timestamp_format == 3 then field = omi_databento_marketdata_normalized_dbn_v1.fields.ts_ref_utc end
 
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     -- Null: the field keeps its type, and the line says so instead

@@ -270,6 +270,22 @@ omi_qse_qsecash_marketdata_xdp_v2_6.fields.vwap_closing_price_message = ProtoFie
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.message_index = ProtoField.new("Message Index", "qse.qsecash.marketdata.xdp.v2.6.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Qse QseCash MarketData Xdp 2.6 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+qse_qsecash_marketdata_xdp_v2_6.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -289,6 +305,8 @@ omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_headers = Pref.bool("Show Headers
 omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_qse_qsecash_marketdata_xdp_v2_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_qse_qsecash_marketdata_xdp_v2_6.prefs_changed()
 
@@ -307,6 +325,9 @@ function omi_qse_qsecash_marketdata_xdp_v2_6.prefs_changed()
   end
   if show.indexes ~= omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_indexes then
     show.indexes = omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_indexes
+  end
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format ~= omi_qse_qsecash_marketdata_xdp_v2_6.prefs.timestamp_format then
+    qse_qsecash_marketdata_xdp_v2_6.timestamp_format = omi_qse_qsecash_marketdata_xdp_v2_6.prefs.timestamp_format
   end
 end
 
@@ -811,7 +832,7 @@ qse_qsecash_marketdata_xdp_v2_6.clearing_time.display = function(value, buffer, 
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -821,7 +842,8 @@ qse_qsecash_marketdata_xdp_v2_6.clearing_time.display = function(value, buffer, 
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Clearing Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Clearing Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -928,7 +950,7 @@ qse_qsecash_marketdata_xdp_v2_6.closing_reference_time.display = function(value,
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -938,7 +960,8 @@ qse_qsecash_marketdata_xdp_v2_6.closing_reference_time.display = function(value,
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Closing Reference Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Closing Reference Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -1528,7 +1551,7 @@ qse_qsecash_marketdata_xdp_v2_6.first_time.display = function(value, buffer, off
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -1538,7 +1561,8 @@ qse_qsecash_marketdata_xdp_v2_6.first_time.display = function(value, buffer, off
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "First Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "First Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -1767,7 +1791,7 @@ qse_qsecash_marketdata_xdp_v2_6.high_time.display = function(value, buffer, offs
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -1777,7 +1801,8 @@ qse_qsecash_marketdata_xdp_v2_6.high_time.display = function(value, buffer, offs
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "High Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "High Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -2737,7 +2762,7 @@ qse_qsecash_marketdata_xdp_v2_6.liquidation_time.display = function(value, buffe
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -2747,7 +2772,8 @@ qse_qsecash_marketdata_xdp_v2_6.liquidation_time.display = function(value, buffe
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Liquidation Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Liquidation Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -2939,7 +2965,7 @@ qse_qsecash_marketdata_xdp_v2_6.low_time.display = function(value, buffer, offse
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -2949,7 +2975,8 @@ qse_qsecash_marketdata_xdp_v2_6.low_time.display = function(value, buffer, offse
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Low Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Low Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -3622,7 +3649,7 @@ qse_qsecash_marketdata_xdp_v2_6.opening_reference_time.display = function(value,
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -3632,7 +3659,8 @@ qse_qsecash_marketdata_xdp_v2_6.opening_reference_time.display = function(value,
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Opening Reference Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Opening Reference Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -4150,7 +4178,7 @@ qse_qsecash_marketdata_xdp_v2_6.preliminary_opening_time.display = function(valu
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -4160,7 +4188,8 @@ qse_qsecash_marketdata_xdp_v2_6.preliminary_opening_time.display = function(valu
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Preliminary Opening Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Preliminary Opening Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -4960,7 +4989,7 @@ qse_qsecash_marketdata_xdp_v2_6.source_time.display = function(value, buffer, of
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -4970,7 +4999,8 @@ qse_qsecash_marketdata_xdp_v2_6.source_time.display = function(value, buffer, of
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Source Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Source Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 

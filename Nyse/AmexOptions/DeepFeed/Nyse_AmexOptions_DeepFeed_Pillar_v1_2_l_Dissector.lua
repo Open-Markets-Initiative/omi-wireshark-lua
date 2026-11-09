@@ -185,14 +185,14 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.working_price_calculate = Pro
 -- Nyse AmexOptions DeepFeed Pillar 1.2.l Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nyse_amexoptions_deepfeed_pillar_v1_2_l.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp_format = 2
 
 -- Price Calculate format (true = decimal-scaled, false = raw mantissa)
 nyse_amexoptions_deepfeed_pillar_v1_2_l.format_decimals = true
@@ -225,7 +225,7 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs.show_indexes = Pref.bool("Show
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs_changed()
@@ -258,8 +258,8 @@ function omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs_changed()
   if nyse_amexoptions_deepfeed_pillar_v1_2_l.format_decimals ~= omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs.format_decimals then
     nyse_amexoptions_deepfeed_pillar_v1_2_l.format_decimals = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs.format_decimals
   end
-  if nyse_amexoptions_deepfeed_pillar_v1_2_l.absolute_time_base ~= omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs.absolute_time_base then
-    nyse_amexoptions_deepfeed_pillar_v1_2_l.absolute_time_base = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs.absolute_time_base
+  if nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp_format ~= omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs.timestamp_format then
+    nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp_format = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.prefs.timestamp_format
   end
 end
 
@@ -2618,7 +2618,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.seconds.dissect = function(buffer, offse
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.seconds
-  if nyse_amexoptions_deepfeed_pillar_v1_2_l.absolute_time_base == 1 then field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.seconds_utc end
+  if nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp_format == 3 then field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -2828,6 +2828,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup = function(buffer, o
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.display(value, buffer, offset, packet, parent)
 
   if not show.records then
+    nyse_amexoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.current = nil
     parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.series_index, range, value, display)
 
     return offset + length, value
@@ -2836,10 +2837,17 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup = function(buffer, o
   -- Lookup Outright Series Index Mapping Message record
   local record = nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.outright_series_index_mapping_message[value]
 
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.current = record
+
   local field_tree = parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.series_index, range, value, display)
 
   if record ~= nil then
-    nyse_amexoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.current = record
     if record.option_symbol_root ~= nil then
       local entry_option_symbol_root = field_tree:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.option_symbol_root, record.option_symbol_root)
       entry_option_symbol_root:set_generated()
@@ -3968,7 +3976,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price_calculat
 
 -- Display: Auction Interest Clearing Price Calculate
 nyse_amexoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price_calculate.display = function(value)
-  return "Auction Interest Clearing Price Calculate: " .. string.format("%g", value)
+  return "Auction Interest Clearing Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Auction Interest Clearing Price Calculate
@@ -4006,7 +4014,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price_calculate
 
 -- Display: Continuous Book Clearing Price Calculate
 nyse_amexoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price_calculate.display = function(value)
-  return "Continuous Book Clearing Price Calculate: " .. string.format("%g", value)
+  return "Continuous Book Clearing Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Continuous Book Clearing Price Calculate
@@ -4044,7 +4052,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.high_price_calculate = {}
 
 -- Display: High Price Calculate
 nyse_amexoptions_deepfeed_pillar_v1_2_l.high_price_calculate.display = function(value)
-  return "High Price Calculate: " .. string.format("%g", value)
+  return "High Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: High Price Calculate
@@ -4082,7 +4090,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.indicative_match_price_calculate = {}
 
 -- Display: Indicative Match Price Calculate
 nyse_amexoptions_deepfeed_pillar_v1_2_l.indicative_match_price_calculate.display = function(value)
-  return "Indicative Match Price Calculate: " .. string.format("%g", value)
+  return "Indicative Match Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Indicative Match Price Calculate
@@ -4120,7 +4128,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.low_price_calculate = {}
 
 -- Display: Low Price Calculate
 nyse_amexoptions_deepfeed_pillar_v1_2_l.low_price_calculate.display = function(value)
-  return "Low Price Calculate: " .. string.format("%g", value)
+  return "Low Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Low Price Calculate
@@ -4158,7 +4166,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.price_calculate = {}
 
 -- Display: Price Calculate
 nyse_amexoptions_deepfeed_pillar_v1_2_l.price_calculate.display = function(value)
-  return "Price Calculate: " .. string.format("%g", value)
+  return "Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Price Calculate
@@ -4196,7 +4204,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.working_price_calculate = {}
 
 -- Display: Working Price Calculate
 nyse_amexoptions_deepfeed_pillar_v1_2_l.working_price_calculate.display = function(value)
-  return "Working Price Calculate: " .. string.format("%g", value)
+  return "Working Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Working Price Calculate
@@ -5865,6 +5873,8 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.fi
   -- Cache Outright Series Index Mapping Message record by series_index
   if show.records and not packet.visited then
     nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.outright_series_index_mapping_message[series_index] = {
+      record_frame = packet.number,
+      record_previous = nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.outright_series_index_mapping_message[series_index],
       series_index = series_index,
       option_symbol_root = option_symbol_root,
       price_scale_code = price_scale_code,
@@ -6479,7 +6489,8 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.send_time.display = function(packet, par
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Send Time
@@ -6509,7 +6520,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.send_time.dissect = function(buffer, off
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.send_time
-    if nyse_amexoptions_deepfeed_pillar_v1_2_l.absolute_time_base == 1 then field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.send_time_utc end
+    if nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp_format == 3 then field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.send_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_amexoptions_deepfeed_pillar_v1_2_l.send_time.fields(buffer, offset, packet, parent)
 

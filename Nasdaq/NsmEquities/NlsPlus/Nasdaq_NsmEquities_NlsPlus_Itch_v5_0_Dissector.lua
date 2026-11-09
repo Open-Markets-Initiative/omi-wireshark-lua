@@ -110,14 +110,14 @@ omi_nasdaq_nsmequities_nlsplus_itch_v5_0.fields.message_sequence_number = ProtoF
 -- Nasdaq NsmEquities NlsPlus Itch 5.0 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nasdaq_nsmequities_nlsplus_itch_v5_0.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nasdaq_nsmequities_nlsplus_itch_v5_0.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -140,7 +140,7 @@ omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs.show_headers = Pref.bool("Show He
 omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs_changed()
@@ -161,8 +161,8 @@ function omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs_changed()
   if show.sequences ~= omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs.show_sequences then
     show.sequences = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs.show_sequences
   end
-  if nasdaq_nsmequities_nlsplus_itch_v5_0.absolute_time_base ~= omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs.absolute_time_base then
-    nasdaq_nsmequities_nlsplus_itch_v5_0.absolute_time_base = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs.absolute_time_base
+  if nasdaq_nsmequities_nlsplus_itch_v5_0.timestamp_format ~= omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs.timestamp_format then
+    nasdaq_nsmequities_nlsplus_itch_v5_0.timestamp_format = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.prefs.timestamp_format
   end
 end
 
@@ -311,7 +311,7 @@ nasdaq_nsmequities_nlsplus_itch_v5_0.client_timestamp.dissect = function(buffer,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.fields.client_timestamp
-  if nasdaq_nsmequities_nlsplus_itch_v5_0.absolute_time_base == 1 then field = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.fields.client_timestamp_utc end
+  if nasdaq_nsmequities_nlsplus_itch_v5_0.timestamp_format == 3 then field = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.fields.client_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -880,7 +880,7 @@ nasdaq_nsmequities_nlsplus_itch_v5_0.ipo_quotation_release_time.dissect = functi
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.fields.ipo_quotation_release_time
-  if nasdaq_nsmequities_nlsplus_itch_v5_0.absolute_time_base == 1 then field = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.fields.ipo_quotation_release_time_utc end
+  if nasdaq_nsmequities_nlsplus_itch_v5_0.timestamp_format == 3 then field = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.fields.ipo_quotation_release_time_utc end
 
   local seconds = value
   local nanos = 0
@@ -1749,7 +1749,7 @@ nasdaq_nsmequities_nlsplus_itch_v5_0.timestamp.dissect = function(buffer, offset
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.fields.timestamp
-  if nasdaq_nsmequities_nlsplus_itch_v5_0.absolute_time_base == 1 then field = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.fields.timestamp_utc end
+  if nasdaq_nsmequities_nlsplus_itch_v5_0.timestamp_format == 3 then field = omi_nasdaq_nsmequities_nlsplus_itch_v5_0.fields.timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

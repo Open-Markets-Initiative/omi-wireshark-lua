@@ -176,10 +176,11 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.experts = { nasdaq_nsmequities_t
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
 nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp_format = 2
 
 -- assumed connection role
@@ -217,7 +218,7 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.prefs.show_session_messages = Pr
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.prefs_changed()
@@ -1419,6 +1420,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.lookup = function(buffer
   local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.display(value, buffer, offset, packet, parent)
 
   if not show.records then
+    nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_directory_message.current = nil
     parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.locate_code, range, value, display)
 
     return offset + length, value
@@ -1426,6 +1428,14 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.lookup = function(buffer
 
   -- Lookup Stock Directory Message record
   local record = nasdaq_nsmequities_totalview_itch_v5_0_2026.conversation.current.stock_directory_message[value]
+
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_directory_message.current = record
   if record ~= nil and record.stock ~= nil then
     display = "Locate Code: " .. tostring(record.stock) .. " (" .. tostring(value) .. ")"
   end
@@ -1433,7 +1443,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.locate_code.lookup = function(buffer
   local field_tree = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.locate_code, range, value, display)
 
   if record ~= nil then
-    nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_directory_message.current = record
     if record.tracking_number ~= nil then
       local entry_tracking_number = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.tracking_number, record.tracking_number)
       entry_tracking_number:set_generated()
@@ -2001,7 +2010,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.near_execution_time.display = functi
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp_format == 2 and packet then
+  if nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -2011,7 +2020,8 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.near_execution_time.display = functi
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Near Execution Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%09d", nanoseconds)
+      local format = nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Near Execution Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2952,6 +2962,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.lookup = function(buffe
   local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.display(value, buffer, offset, packet, parent)
 
   if not show.records then
+    nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_directory_message.current = nil
     parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.stock_locate, range, value, display)
 
     return offset + length, value
@@ -2959,6 +2970,14 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.lookup = function(buffe
 
   -- Lookup Stock Directory Message record
   local record = nasdaq_nsmequities_totalview_itch_v5_0_2026.conversation.current.stock_directory_message[value]
+
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_directory_message.current = record
   if record ~= nil and record.stock ~= nil then
     display = "Stock Locate: " .. tostring(record.stock) .. " (" .. tostring(value) .. ")"
   end
@@ -2966,7 +2985,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.lookup = function(buffe
   local field_tree = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.stock_locate, range, value, display)
 
   if record ~= nil then
-    nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_directory_message.current = record
     if record.tracking_number ~= nil then
       local entry_tracking_number = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.tracking_number, record.tracking_number)
       entry_tracking_number:set_generated()
@@ -3067,7 +3085,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp.display = function(value, 
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp_format == 2 and packet then
+  if nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -3077,7 +3095,8 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp.display = function(value, 
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%09d", nanoseconds)
+      local format = nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -4708,6 +4727,8 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_directory_message.fields = fun
   -- Cache Stock Directory Message record by stock_locate
   if show.records and not packet.visited then
     nasdaq_nsmequities_totalview_itch_v5_0_2026.conversation.current.stock_directory_message[stock_locate] = {
+      record_frame = packet.number,
+      record_previous = nasdaq_nsmequities_totalview_itch_v5_0_2026.conversation.current.stock_directory_message[stock_locate],
       stock_locate = stock_locate,
       tracking_number = tracking_number,
       stock = stock,

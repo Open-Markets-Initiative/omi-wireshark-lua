@@ -124,17 +124,15 @@ omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.experts = { nasdaq_nord
 -- Nasdaq NordicDerivatives DepthOfBook Glimpse 2.22.4 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.absolute_time_base = 0
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.format_timestamp = true
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp_format = 2
 
 -- assumed connection role
 local role_enum = {
@@ -166,9 +164,8 @@ omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.show_structs = Pr
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs_changed()
@@ -189,11 +186,8 @@ function omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs_changed(
   if show.sequences ~= omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.show_sequences then
     show.sequences = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.show_sequences
   end
-  if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.format_timestamp ~= omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.format_timestamp then
-    nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.format_timestamp = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.format_timestamp
-  end
-  if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.absolute_time_base ~= omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.absolute_time_base then
-    nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.absolute_time_base = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.absolute_time_base
+  if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp_format ~= omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.timestamp_format then
+    nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp_format = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.timestamp_format
   end
 end
 
@@ -1308,7 +1302,7 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.second.generated = function
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second
-  if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.absolute_time_base == 1 then field = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second_utc end
+  if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp_format == 3 then field = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second_utc end
   local second = parent:add(field, range, NSTime.new(value, 0))
   second:set_generated()
 end
@@ -1322,7 +1316,7 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.second.dissect = function(b
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second
-  if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.absolute_time_base == 1 then field = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second_utc end
+  if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp_format == 3 then field = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second_utc end
 
   local seconds = value
   local nanos = 0
@@ -1610,12 +1604,13 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp = {}
 
 -- Translate: Timestamp
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp.translate = function(nanoseconds, stored_second)
-  return UInt64.new(stored_second * 1000000000 + nanoseconds)
+  return UInt64.new(stored_second) * 1000000000 + nanoseconds
 end
 
 -- Display: Timestamp
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp.display = function(nanoseconds, stored_second)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
+  local format = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, stored_second)..string.format("%09d", nanoseconds)
 end
 
 -- Composite: Timestamp
@@ -1637,7 +1632,7 @@ end
 
 -- Dissect: Timestamp
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp.dissect = function(buffer, offset, packet, parent)
-  if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.format_timestamp then
+  if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp_format ~= 0 then
     local stored_second = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.second.current
 
     if stored_second ~= nil then

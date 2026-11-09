@@ -145,17 +145,15 @@ omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.upper_co
 -- Nyse ArcaEquities IntegratedFeedRetransmission Pillar 2.5.h Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.absolute_time_base = 0
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.format_timestamp = true
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp_format = 2
 
 -- Price Calculate format (true = decimal-scaled, false = raw mantissa)
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.format_decimals = true
@@ -184,10 +182,9 @@ omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.show_head
 omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs_changed()
@@ -214,14 +211,11 @@ function omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs_
   if show.sequences ~= omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.show_sequences then
     show.sequences = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.show_sequences
   end
-  if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.format_timestamp ~= omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.format_timestamp then
-    nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.format_timestamp = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.format_timestamp
-  end
   if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.format_decimals ~= omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.format_decimals then
     nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.format_decimals = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.format_decimals
   end
-  if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.absolute_time_base ~= omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.absolute_time_base then
-    nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.absolute_time_base = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.absolute_time_base
+  if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp_format ~= omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.timestamp_format then
+    nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp_format = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.prefs.timestamp_format
   end
 end
 
@@ -1811,7 +1805,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.seconds.dissect = f
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.seconds
-  if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.absolute_time_base == 1 then field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.seconds_utc end
+  if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp_format == 3 then field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -2103,7 +2097,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.source_time.generat
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.source_time
-  if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.absolute_time_base == 1 then field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.source_time_utc end
+  if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp_format == 3 then field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.source_time_utc end
   local source_time = parent:add(field, range, NSTime.new(value, 0))
   source_time:set_generated()
 end
@@ -2117,7 +2111,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.source_time.dissect
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.source_time
-  if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.absolute_time_base == 1 then field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.source_time_utc end
+  if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp_format == 3 then field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.source_time_utc end
 
   local seconds = value
   local nanos = 0
@@ -2397,6 +2391,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup
   local display = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.display(value, buffer, offset, packet, parent)
 
   if not show.records then
+    nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index_mapping_message.current = nil
     parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.symbol_index, range, value, display)
 
     return offset + length, value
@@ -2404,6 +2399,14 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup
 
   -- Lookup Symbol Index Mapping Message record
   local record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.symbol_index_mapping_message[value]
+
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index_mapping_message.current = record
   if record ~= nil and record.symbol ~= nil then
     display = "Symbol Index: " .. tostring(record.symbol) .. " (" .. tostring(value) .. ")"
   end
@@ -2411,7 +2414,6 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup
   local field_tree = parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.symbol_index, range, value, display)
 
   if record ~= nil then
-    nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index_mapping_message.current = record
     if record.symbol ~= nil then
       local entry_symbol = field_tree:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.symbol, record.symbol)
       entry_symbol:set_generated()
@@ -2903,7 +2905,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.auction_interest_cl
 
 -- Display: Auction Interest Clearing Price Calculate
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.auction_interest_clearing_price_calculate.display = function(value)
-  return "Auction Interest Clearing Price Calculate: " .. string.format("%g", value)
+  return "Auction Interest Clearing Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Auction Interest Clearing Price Calculate
@@ -2941,7 +2943,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.continuous_book_cle
 
 -- Display: Continuous Book Clearing Price Calculate
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.continuous_book_clearing_price_calculate.display = function(value)
-  return "Continuous Book Clearing Price Calculate: " .. string.format("%g", value)
+  return "Continuous Book Clearing Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Continuous Book Clearing Price Calculate
@@ -2979,7 +2981,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.indicative_match_pr
 
 -- Display: Indicative Match Price Calculate
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.indicative_match_price_calculate.display = function(value)
-  return "Indicative Match Price Calculate: " .. string.format("%g", value)
+  return "Indicative Match Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Indicative Match Price Calculate
@@ -3017,7 +3019,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.lower_collar_calcul
 
 -- Display: Lower Collar Calculate
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.lower_collar_calculate.display = function(value)
-  return "Lower Collar Calculate: " .. string.format("%g", value)
+  return "Lower Collar Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Lower Collar Calculate
@@ -3055,7 +3057,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.price_calculate = {
 
 -- Display: Price Calculate
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.price_calculate.display = function(value)
-  return "Price Calculate: " .. string.format("%g", value)
+  return "Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Price Calculate
@@ -3093,7 +3095,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.reference_price_cal
 
 -- Display: Reference Price Calculate
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.reference_price_calculate.display = function(value)
-  return "Reference Price Calculate: " .. string.format("%g", value)
+  return "Reference Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Reference Price Calculate
@@ -3131,12 +3133,13 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp = {}
 
 -- Translate: Timestamp
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.translate = function(source_time_ns, stored_source_time)
-  return UInt64.new(stored_source_time * 1000000000 + source_time_ns)
+  return UInt64.new(stored_source_time) * 1000000000 + source_time_ns
 end
 
 -- Display: Timestamp
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.display = function(source_time_ns, stored_source_time)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_source_time)..string.format("%09d", source_time_ns)
+  local format = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, stored_source_time)..string.format("%09d", source_time_ns)
 end
 
 -- Composite: Timestamp
@@ -3158,7 +3161,7 @@ end
 
 -- Dissect: Timestamp
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect = function(buffer, offset, packet, parent)
-  if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.format_timestamp then
+  if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp_format ~= 0 then
     local stored_source_time = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current
 
     if stored_source_time ~= nil then
@@ -3174,7 +3177,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.ssr_filing_price_ca
 
 -- Display: SSR Filing Price Calculate
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.ssr_filing_price_calculate.display = function(value)
-  return "SSR Filing Price Calculate: " .. string.format("%g", value)
+  return "SSR Filing Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: SSR Filing Price Calculate
@@ -3212,7 +3215,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.upper_collar_calcul
 
 -- Display: Upper Collar Calculate
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.upper_collar_calculate.display = function(value)
-  return "Upper Collar Calculate: " .. string.format("%g", value)
+  return "Upper Collar Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Upper Collar Calculate
@@ -4468,6 +4471,8 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index_mappin
   -- Cache Symbol Index Mapping Message record by symbol_index
   if show.records and not packet.visited then
     nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.symbol_index_mapping_message[symbol_index] = {
+      record_frame = packet.number,
+      record_previous = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.symbol_index_mapping_message[symbol_index],
       symbol_index = symbol_index,
       symbol = symbol,
       price_scale_code = price_scale_code,
@@ -4819,7 +4824,8 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.send_time.display =
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Send Time
@@ -4849,7 +4855,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.send_time.dissect =
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.send_time
-    if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.absolute_time_base == 1 then field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.send_time_utc end
+    if nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.timestamp_format == 3 then field = omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.fields.send_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_h.send_time.fields(buffer, offset, packet, parent)
 

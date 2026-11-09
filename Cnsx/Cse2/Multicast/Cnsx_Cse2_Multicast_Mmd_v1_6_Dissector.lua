@@ -108,23 +108,12 @@ omi_cnsx_cse2_multicast_mmd_v1_6.fields.timestamp = ProtoField.new("Timestamp", 
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
 cnsx_cse2_multicast_mmd_v1_6.timestamp_format = 2
-
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
-}
-
--- 0=Local, 1=Utc
-cnsx_cse2_multicast_mmd_v1_6.absolute_time_base = 0
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-cnsx_cse2_multicast_mmd_v1_6.format_timestamp = true
 
 
 -----------------------------------------------------------------------
@@ -146,10 +135,8 @@ omi_cnsx_cse2_multicast_mmd_v1_6.prefs.show_headers = Pref.bool("Show Headers", 
 omi_cnsx_cse2_multicast_mmd_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cnsx_cse2_multicast_mmd_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cnsx_cse2_multicast_mmd_v1_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_cnsx_cse2_multicast_mmd_v1_6.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_cnsx_cse2_multicast_mmd_v1_6.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
-omi_cnsx_cse2_multicast_mmd_v1_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_cnsx_cse2_multicast_mmd_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cnsx_cse2_multicast_mmd_v1_6.prefs_changed()
@@ -170,14 +157,8 @@ function omi_cnsx_cse2_multicast_mmd_v1_6.prefs_changed()
   if show.sequences ~= omi_cnsx_cse2_multicast_mmd_v1_6.prefs.show_sequences then
     show.sequences = omi_cnsx_cse2_multicast_mmd_v1_6.prefs.show_sequences
   end
-  if cnsx_cse2_multicast_mmd_v1_6.format_timestamp ~= omi_cnsx_cse2_multicast_mmd_v1_6.prefs.format_timestamp then
-    cnsx_cse2_multicast_mmd_v1_6.format_timestamp = omi_cnsx_cse2_multicast_mmd_v1_6.prefs.format_timestamp
-  end
   if cnsx_cse2_multicast_mmd_v1_6.timestamp_format ~= omi_cnsx_cse2_multicast_mmd_v1_6.prefs.timestamp_format then
     cnsx_cse2_multicast_mmd_v1_6.timestamp_format = omi_cnsx_cse2_multicast_mmd_v1_6.prefs.timestamp_format
-  end
-  if cnsx_cse2_multicast_mmd_v1_6.absolute_time_base ~= omi_cnsx_cse2_multicast_mmd_v1_6.prefs.absolute_time_base then
-    cnsx_cse2_multicast_mmd_v1_6.absolute_time_base = omi_cnsx_cse2_multicast_mmd_v1_6.prefs.absolute_time_base
   end
 end
 
@@ -630,7 +611,7 @@ cnsx_cse2_multicast_mmd_v1_6.exchange_timestamp.dissect = function(buffer, offse
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cnsx_cse2_multicast_mmd_v1_6.fields.exchange_timestamp
-  if cnsx_cse2_multicast_mmd_v1_6.absolute_time_base == 1 then field = omi_cnsx_cse2_multicast_mmd_v1_6.fields.exchange_timestamp_utc end
+  if cnsx_cse2_multicast_mmd_v1_6.timestamp_format == 3 then field = omi_cnsx_cse2_multicast_mmd_v1_6.fields.exchange_timestamp_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1347,7 +1328,7 @@ cnsx_cse2_multicast_mmd_v1_6.priority_timestamp.dissect = function(buffer, offse
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cnsx_cse2_multicast_mmd_v1_6.fields.priority_timestamp
-  if cnsx_cse2_multicast_mmd_v1_6.absolute_time_base == 1 then field = omi_cnsx_cse2_multicast_mmd_v1_6.fields.priority_timestamp_utc end
+  if cnsx_cse2_multicast_mmd_v1_6.timestamp_format == 3 then field = omi_cnsx_cse2_multicast_mmd_v1_6.fields.priority_timestamp_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1675,7 +1656,7 @@ cnsx_cse2_multicast_mmd_v1_6.timestamp = {}
 
 -- Translate: Timestamp
 cnsx_cse2_multicast_mmd_v1_6.timestamp.translate = function(time_offset, stored_second)
-  return UInt64.new(stored_second * 1000000000 + time_offset)
+  return UInt64.new(stored_second) * 1000000000 + time_offset
 end
 
 -- Display: Timestamp
@@ -1686,7 +1667,7 @@ cnsx_cse2_multicast_mmd_v1_6.timestamp.display = function(time_offset, stored_se
   end
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if cnsx_cse2_multicast_mmd_v1_6.timestamp_format == 2 and packet then
+  if cnsx_cse2_multicast_mmd_v1_6.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -1696,7 +1677,8 @@ cnsx_cse2_multicast_mmd_v1_6.timestamp.display = function(time_offset, stored_se
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_second)..string.format("%09d", time_offset)
+      local format = cnsx_cse2_multicast_mmd_v1_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + stored_second)..string.format("%09d", time_offset)
     end
   end
 
@@ -1723,7 +1705,7 @@ end
 
 -- Dissect: Timestamp
 cnsx_cse2_multicast_mmd_v1_6.timestamp.dissect = function(buffer, offset, packet, parent)
-  if cnsx_cse2_multicast_mmd_v1_6.format_timestamp then
+  if cnsx_cse2_multicast_mmd_v1_6.timestamp_format ~= 0 then
     local stored_second = cnsx_cse2_multicast_mmd_v1_6.second.current
 
     if stored_second ~= nil then

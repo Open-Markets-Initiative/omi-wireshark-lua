@@ -194,14 +194,14 @@ omi_siac_cts_output_cta_v2_10.fields.participants_index = ProtoField.new("Partic
 -- Siac Cts Output Cta 2.10 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-siac_cts_output_cta_v2_10.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+siac_cts_output_cta_v2_10.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -224,7 +224,7 @@ omi_siac_cts_output_cta_v2_10.prefs.show_headers = Pref.bool("Show Headers", sho
 omi_siac_cts_output_cta_v2_10.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_siac_cts_output_cta_v2_10.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_siac_cts_output_cta_v2_10.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v2_10.prefs_changed()
@@ -245,8 +245,8 @@ function omi_siac_cts_output_cta_v2_10.prefs_changed()
   if show.indexes ~= omi_siac_cts_output_cta_v2_10.prefs.show_indexes then
     show.indexes = omi_siac_cts_output_cta_v2_10.prefs.show_indexes
   end
-  if siac_cts_output_cta_v2_10.absolute_time_base ~= omi_siac_cts_output_cta_v2_10.prefs.absolute_time_base then
-    siac_cts_output_cta_v2_10.absolute_time_base = omi_siac_cts_output_cta_v2_10.prefs.absolute_time_base
+  if siac_cts_output_cta_v2_10.timestamp_format ~= omi_siac_cts_output_cta_v2_10.prefs.timestamp_format then
+    siac_cts_output_cta_v2_10.timestamp_format = omi_siac_cts_output_cta_v2_10.prefs.timestamp_format
   end
 end
 
@@ -2332,7 +2332,7 @@ siac_cts_output_cta_v2_10.seconds.dissect = function(buffer, offset, packet, par
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_siac_cts_output_cta_v2_10.fields.seconds
-  if siac_cts_output_cta_v2_10.absolute_time_base == 1 then field = omi_siac_cts_output_cta_v2_10.fields.seconds_utc end
+  if siac_cts_output_cta_v2_10.timestamp_format == 3 then field = omi_siac_cts_output_cta_v2_10.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -3296,7 +3296,8 @@ siac_cts_output_cta_v2_10.timestamp_2.display = function(packet, parent, value)
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = siac_cts_output_cta_v2_10.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Timestamp 2
@@ -3326,7 +3327,7 @@ siac_cts_output_cta_v2_10.timestamp_2.dissect = function(buffer, offset, packet,
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cts_output_cta_v2_10.fields.timestamp_2
-    if siac_cts_output_cta_v2_10.absolute_time_base == 1 then field = omi_siac_cts_output_cta_v2_10.fields.timestamp_2_utc end
+    if siac_cts_output_cta_v2_10.timestamp_format == 3 then field = omi_siac_cts_output_cta_v2_10.fields.timestamp_2_utc end
     if seconds == 0 and nanoseconds == 0 then
       -- Null: the field keeps its type, and the line says so instead
       parent = parent:add(field, buffer(offset, length), NSTime.new(0, 0))
@@ -3415,7 +3416,8 @@ siac_cts_output_cta_v2_10.timestamp_1.display = function(packet, parent, value)
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = siac_cts_output_cta_v2_10.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Timestamp 1
@@ -3445,7 +3447,7 @@ siac_cts_output_cta_v2_10.timestamp_1.dissect = function(buffer, offset, packet,
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cts_output_cta_v2_10.fields.timestamp_1
-    if siac_cts_output_cta_v2_10.absolute_time_base == 1 then field = omi_siac_cts_output_cta_v2_10.fields.timestamp_1_utc end
+    if siac_cts_output_cta_v2_10.timestamp_format == 3 then field = omi_siac_cts_output_cta_v2_10.fields.timestamp_1_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_output_cta_v2_10.timestamp_1.fields(buffer, offset, packet, parent)
 
@@ -5652,7 +5654,8 @@ siac_cts_output_cta_v2_10.prior_day_trade_date_and_time.display = function(packe
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = siac_cts_output_cta_v2_10.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Prior Day Trade Date And Time
@@ -5682,7 +5685,7 @@ siac_cts_output_cta_v2_10.prior_day_trade_date_and_time.dissect = function(buffe
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_date_and_time
-    if siac_cts_output_cta_v2_10.absolute_time_base == 1 then field = omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_date_and_time_utc end
+    if siac_cts_output_cta_v2_10.timestamp_format == 3 then field = omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_date_and_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_output_cta_v2_10.prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
 
@@ -8155,7 +8158,8 @@ siac_cts_output_cta_v2_10.sip_block_timestamp.display = function(packet, parent,
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = siac_cts_output_cta_v2_10.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Sip Block Timestamp
@@ -8185,7 +8189,7 @@ siac_cts_output_cta_v2_10.sip_block_timestamp.dissect = function(buffer, offset,
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cts_output_cta_v2_10.fields.sip_block_timestamp
-    if siac_cts_output_cta_v2_10.absolute_time_base == 1 then field = omi_siac_cts_output_cta_v2_10.fields.sip_block_timestamp_utc end
+    if siac_cts_output_cta_v2_10.timestamp_format == 3 then field = omi_siac_cts_output_cta_v2_10.fields.sip_block_timestamp_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_output_cta_v2_10.sip_block_timestamp.fields(buffer, offset, packet, parent)
 

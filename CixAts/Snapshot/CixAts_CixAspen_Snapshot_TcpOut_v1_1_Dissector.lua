@@ -74,14 +74,14 @@ omi_cixats_cixaspen_snapshot_tcpout_v1_1.experts = { cixats_cixaspen_snapshot_tc
 -- CixAts CixAspen Snapshot TcpOut 1.1 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-cixats_cixaspen_snapshot_tcpout_v1_1.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cixats_cixaspen_snapshot_tcpout_v1_1.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -100,7 +100,7 @@ omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_structs = Pref.bool("Show St
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs_changed()
@@ -115,8 +115,8 @@ function omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs_changed()
   if show.structs ~= omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_structs then
     show.structs = omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_structs
   end
-  if cixats_cixaspen_snapshot_tcpout_v1_1.absolute_time_base ~= omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.absolute_time_base then
-    cixats_cixaspen_snapshot_tcpout_v1_1.absolute_time_base = omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.absolute_time_base
+  if cixats_cixaspen_snapshot_tcpout_v1_1.timestamp_format ~= omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.timestamp_format then
+    cixats_cixaspen_snapshot_tcpout_v1_1.timestamp_format = omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.timestamp_format
   end
 end
 
@@ -903,7 +903,7 @@ cixats_cixaspen_snapshot_tcpout_v1_1.timestamp.dissect = function(buffer, offset
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp
-  if cixats_cixaspen_snapshot_tcpout_v1_1.absolute_time_base == 1 then field = omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp_utc end
+  if cixats_cixaspen_snapshot_tcpout_v1_1.timestamp_format == 3 then field = omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

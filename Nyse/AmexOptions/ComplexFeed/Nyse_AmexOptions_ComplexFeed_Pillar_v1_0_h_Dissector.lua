@@ -153,14 +153,14 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.working_price_calculate = 
 -- Nyse AmexOptions ComplexFeed Pillar 1.0.h Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nyse_amexoptions_complexfeed_pillar_v1_0_h.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nyse_amexoptions_complexfeed_pillar_v1_0_h.timestamp_format = 2
 
 -- Ask Price Calculate format (true = decimal-scaled, false = raw mantissa)
 nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals = true
@@ -193,7 +193,7 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_indexes = Pref.bool("S
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs_changed()
@@ -226,8 +226,8 @@ function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs_changed()
   if nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.format_decimals then
     nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.format_decimals
   end
-  if nyse_amexoptions_complexfeed_pillar_v1_0_h.absolute_time_base ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.absolute_time_base then
-    nyse_amexoptions_complexfeed_pillar_v1_0_h.absolute_time_base = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.absolute_time_base
+  if nyse_amexoptions_complexfeed_pillar_v1_0_h.timestamp_format ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.timestamp_format then
+    nyse_amexoptions_complexfeed_pillar_v1_0_h.timestamp_format = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.timestamp_format
   end
 end
 
@@ -1954,7 +1954,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.seconds.dissect = function(buffer, of
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seconds
-  if nyse_amexoptions_complexfeed_pillar_v1_0_h.absolute_time_base == 1 then field = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seconds_utc end
+  if nyse_amexoptions_complexfeed_pillar_v1_0_h.timestamp_format == 3 then field = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -2164,6 +2164,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.lookup = function(buffer
   local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.display(value, buffer, offset, packet, parent)
 
   if not show.records then
+    nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message.current = nil
     parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.series_index, range, value, display)
 
     return offset + length, value
@@ -2172,10 +2173,17 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.lookup = function(buffer
   -- Lookup Outright Series Index Mapping Message record
   local record = nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.current.outright_series_index_mapping_message[value]
 
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message.current = record
+
   local field_tree = parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.series_index, range, value, display)
 
   if record ~= nil then
-    nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message.current = record
     if record.option_symbol_root ~= nil then
       local entry_option_symbol_root = field_tree:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.option_symbol_root, record.option_symbol_root)
       entry_option_symbol_root:set_generated()
@@ -3281,7 +3289,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price_calculate = {}
 
 -- Display: Ask Price Calculate
 nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price_calculate.display = function(value)
-  return "Ask Price Calculate: " .. string.format("%g", value)
+  return "Ask Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Ask Price Calculate
@@ -3319,7 +3327,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price_calculate = {}
 
 -- Display: Bid Price Calculate
 nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price_calculate.display = function(value)
-  return "Bid Price Calculate: " .. string.format("%g", value)
+  return "Bid Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Bid Price Calculate
@@ -3357,7 +3365,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price_calculate = {}
 
 -- Display: Trade Price Calculate
 nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price_calculate.display = function(value)
-  return "Trade Price Calculate: " .. string.format("%g", value)
+  return "Trade Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Trade Price Calculate
@@ -3395,7 +3403,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price_calculate = {}
 
 -- Display: Working Price Calculate
 nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price_calculate.display = function(value)
-  return "Working Price Calculate: " .. string.format("%g", value)
+  return "Working Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Working Price Calculate
@@ -4392,6 +4400,8 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message
   -- Cache Outright Series Index Mapping Message record by series_index
   if show.records and not packet.visited then
     nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.current.outright_series_index_mapping_message[series_index] = {
+      record_frame = packet.number,
+      record_previous = nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.current.outright_series_index_mapping_message[series_index],
       series_index = series_index,
       option_symbol_root = option_symbol_root,
       price_scale_code = price_scale_code,
@@ -4997,7 +5007,8 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.send_time.display = function(packet, 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = nyse_amexoptions_complexfeed_pillar_v1_0_h.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Send Time
@@ -5027,7 +5038,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.send_time.dissect = function(buffer, 
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time
-    if nyse_amexoptions_complexfeed_pillar_v1_0_h.absolute_time_base == 1 then field = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time_utc end
+    if nyse_amexoptions_complexfeed_pillar_v1_0_h.timestamp_format == 3 then field = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_amexoptions_complexfeed_pillar_v1_0_h.send_time.fields(buffer, offset, packet, parent)
 

@@ -110,14 +110,12 @@ omi_odx_odxsecuritytoken_pts_itch_v1_0.experts = { odx_odxsecuritytoken_pts_itch
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
 odx_odxsecuritytoken_pts_itch_v1_0.timestamp_format = 2
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-odx_odxsecuritytoken_pts_itch_v1_0.format_timestamp = true
 
 -- assumed connection role
 local role_enum = {
@@ -149,9 +147,8 @@ omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.show_headers = Pref.bool("Show Head
 omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
+omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs_changed()
@@ -171,9 +168,6 @@ function omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs_changed()
   end
   if show.sequences ~= omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.show_sequences then
     show.sequences = omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.show_sequences
-  end
-  if odx_odxsecuritytoken_pts_itch_v1_0.format_timestamp ~= omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.format_timestamp then
-    odx_odxsecuritytoken_pts_itch_v1_0.format_timestamp = omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.format_timestamp
   end
   if odx_odxsecuritytoken_pts_itch_v1_0.timestamp_format ~= omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.timestamp_format then
     odx_odxsecuritytoken_pts_itch_v1_0.timestamp_format = omi_odx_odxsecuritytoken_pts_itch_v1_0.prefs.timestamp_format
@@ -1449,7 +1443,7 @@ odx_odxsecuritytoken_pts_itch_v1_0.timestamp = {}
 
 -- Translate: Timestamp
 odx_odxsecuritytoken_pts_itch_v1_0.timestamp.translate = function(nanoseconds, stored_seconds)
-  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
+  return UInt64.new(stored_seconds) * 1000000000 + nanoseconds
 end
 
 -- Display: Timestamp
@@ -1460,7 +1454,7 @@ odx_odxsecuritytoken_pts_itch_v1_0.timestamp.display = function(nanoseconds, sto
   end
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if odx_odxsecuritytoken_pts_itch_v1_0.timestamp_format == 2 and packet then
+  if odx_odxsecuritytoken_pts_itch_v1_0.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -1470,7 +1464,8 @@ odx_odxsecuritytoken_pts_itch_v1_0.timestamp.display = function(nanoseconds, sto
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_seconds)..string.format("%09d", nanoseconds)
+      local format = odx_odxsecuritytoken_pts_itch_v1_0.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + stored_seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -1497,7 +1492,7 @@ end
 
 -- Dissect: Timestamp
 odx_odxsecuritytoken_pts_itch_v1_0.timestamp.dissect = function(buffer, offset, packet, parent)
-  if odx_odxsecuritytoken_pts_itch_v1_0.format_timestamp then
+  if odx_odxsecuritytoken_pts_itch_v1_0.timestamp_format ~= 0 then
     local stored_seconds = odx_odxsecuritytoken_pts_itch_v1_0.seconds.current
 
     if stored_seconds ~= nil then

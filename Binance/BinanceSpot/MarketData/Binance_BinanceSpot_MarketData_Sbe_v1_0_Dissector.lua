@@ -82,14 +82,14 @@ omi_binance_binancespot_marketdata_sbe_v1_0.fields.qty_calculate = ProtoField.ne
 -- Binance BinanceSpot MarketData Sbe 1.0 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-binance_binancespot_marketdata_sbe_v1_0.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+binance_binancespot_marketdata_sbe_v1_0.timestamp_format = 2
 
 -- Price Calculate format (true = decimal-scaled, false = raw mantissa)
 binance_binancespot_marketdata_sbe_v1_0.format_decimals = true
@@ -116,7 +116,7 @@ omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_structs = Pref.bool("Show
 omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_binance_binancespot_marketdata_sbe_v1_0.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_binance_binancespot_marketdata_sbe_v1_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_binance_binancespot_marketdata_sbe_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_binance_binancespot_marketdata_sbe_v1_0.prefs_changed()
@@ -140,8 +140,8 @@ function omi_binance_binancespot_marketdata_sbe_v1_0.prefs_changed()
   if binance_binancespot_marketdata_sbe_v1_0.format_decimals ~= omi_binance_binancespot_marketdata_sbe_v1_0.prefs.format_decimals then
     binance_binancespot_marketdata_sbe_v1_0.format_decimals = omi_binance_binancespot_marketdata_sbe_v1_0.prefs.format_decimals
   end
-  if binance_binancespot_marketdata_sbe_v1_0.absolute_time_base ~= omi_binance_binancespot_marketdata_sbe_v1_0.prefs.absolute_time_base then
-    binance_binancespot_marketdata_sbe_v1_0.absolute_time_base = omi_binance_binancespot_marketdata_sbe_v1_0.prefs.absolute_time_base
+  if binance_binancespot_marketdata_sbe_v1_0.timestamp_format ~= omi_binance_binancespot_marketdata_sbe_v1_0.prefs.timestamp_format then
+    binance_binancespot_marketdata_sbe_v1_0.timestamp_format = omi_binance_binancespot_marketdata_sbe_v1_0.prefs.timestamp_format
   end
 end
 
@@ -333,7 +333,7 @@ binance_binancespot_marketdata_sbe_v1_0.event_time.dissect = function(buffer, of
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time
-  if binance_binancespot_marketdata_sbe_v1_0.absolute_time_base == 1 then field = omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time_utc end
+  if binance_binancespot_marketdata_sbe_v1_0.timestamp_format == 3 then field = omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time_utc end
 
   local seconds = (value / UInt64(1000000)):tonumber()
   local nanos = (value % UInt64(1000000)):tonumber() * 1000
@@ -711,7 +711,7 @@ binance_binancespot_marketdata_sbe_v1_0.transact_time.dissect = function(buffer,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time
-  if binance_binancespot_marketdata_sbe_v1_0.absolute_time_base == 1 then field = omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time_utc end
+  if binance_binancespot_marketdata_sbe_v1_0.timestamp_format == 3 then field = omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time_utc end
 
   local seconds = (value / UInt64(1000000)):tonumber()
   local nanos = (value % UInt64(1000000)):tonumber() * 1000
@@ -752,7 +752,7 @@ binance_binancespot_marketdata_sbe_v1_0.ask_price_calculate = {}
 
 -- Display: Ask Price Calculate
 binance_binancespot_marketdata_sbe_v1_0.ask_price_calculate.display = function(value)
-  return "Ask Price Calculate: " .. string.format("%g", value)
+  return "Ask Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Ask Price Calculate
@@ -791,7 +791,7 @@ binance_binancespot_marketdata_sbe_v1_0.ask_qty_calculate = {}
 
 -- Display: Ask Qty Calculate
 binance_binancespot_marketdata_sbe_v1_0.ask_qty_calculate.display = function(value)
-  return "Ask Qty Calculate: " .. string.format("%g", value)
+  return "Ask Qty Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Ask Qty Calculate
@@ -830,7 +830,7 @@ binance_binancespot_marketdata_sbe_v1_0.bid_price_calculate = {}
 
 -- Display: Bid Price Calculate
 binance_binancespot_marketdata_sbe_v1_0.bid_price_calculate.display = function(value)
-  return "Bid Price Calculate: " .. string.format("%g", value)
+  return "Bid Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Bid Price Calculate
@@ -869,7 +869,7 @@ binance_binancespot_marketdata_sbe_v1_0.bid_qty_calculate = {}
 
 -- Display: Bid Qty Calculate
 binance_binancespot_marketdata_sbe_v1_0.bid_qty_calculate.display = function(value)
-  return "Bid Qty Calculate: " .. string.format("%g", value)
+  return "Bid Qty Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Bid Qty Calculate
@@ -908,7 +908,7 @@ binance_binancespot_marketdata_sbe_v1_0.price_calculate = {}
 
 -- Display: Price Calculate
 binance_binancespot_marketdata_sbe_v1_0.price_calculate.display = function(value)
-  return "Price Calculate: " .. string.format("%g", value)
+  return "Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Price Calculate
@@ -947,7 +947,7 @@ binance_binancespot_marketdata_sbe_v1_0.qty_calculate = {}
 
 -- Display: Qty Calculate
 binance_binancespot_marketdata_sbe_v1_0.qty_calculate.display = function(value)
-  return "Qty Calculate: " .. string.format("%g", value)
+  return "Qty Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Qty Calculate

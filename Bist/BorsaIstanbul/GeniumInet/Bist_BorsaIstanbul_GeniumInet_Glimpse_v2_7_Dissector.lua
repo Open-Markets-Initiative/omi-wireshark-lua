@@ -120,17 +120,15 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.experts = { bist_borsaistanbul_ge
 -- Bist BorsaIstanbul GeniumInet Glimpse 2.7 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-bist_borsaistanbul_geniuminet_glimpse_v2_7.absolute_time_base = 0
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-bist_borsaistanbul_geniuminet_glimpse_v2_7.format_timestamp = true
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp_format = 2
 
 -- assumed connection role
 local role_enum = {
@@ -164,9 +162,8 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_headers = Pref.bool("S
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs_changed()
@@ -190,11 +187,8 @@ function omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs_changed()
   if show.sequences ~= omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_sequences then
     show.sequences = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_sequences
   end
-  if bist_borsaistanbul_geniuminet_glimpse_v2_7.format_timestamp ~= omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.format_timestamp then
-    bist_borsaistanbul_geniuminet_glimpse_v2_7.format_timestamp = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.format_timestamp
-  end
-  if bist_borsaistanbul_geniuminet_glimpse_v2_7.absolute_time_base ~= omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.absolute_time_base then
-    bist_borsaistanbul_geniuminet_glimpse_v2_7.absolute_time_base = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.absolute_time_base
+  if bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp_format ~= omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.timestamp_format then
+    bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp_format = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.timestamp_format
   end
 end
 
@@ -1086,7 +1080,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_time.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time
-  if bist_borsaistanbul_geniuminet_glimpse_v2_7.absolute_time_base == 1 then field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time_utc end
+  if bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp_format == 3 then field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -1264,7 +1258,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.second.generated = function(value, ra
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second
-  if bist_borsaistanbul_geniuminet_glimpse_v2_7.absolute_time_base == 1 then field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second_utc end
+  if bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp_format == 3 then field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second_utc end
   local second = parent:add(field, range, NSTime.new(value, 0))
   second:set_generated()
 end
@@ -1278,7 +1272,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.second.dissect = function(buffer, off
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second
-  if bist_borsaistanbul_geniuminet_glimpse_v2_7.absolute_time_base == 1 then field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second_utc end
+  if bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp_format == 3 then field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second_utc end
 
   local seconds = value
   local nanos = 0
@@ -1642,12 +1636,13 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp = {}
 
 -- Translate: Timestamp
 bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp.translate = function(nanoseconds, stored_second)
-  return UInt64.new(stored_second * 1000000000 + nanoseconds)
+  return UInt64.new(stored_second) * 1000000000 + nanoseconds
 end
 
 -- Display: Timestamp
 bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp.display = function(nanoseconds, stored_second)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
+  local format = bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, stored_second)..string.format("%09d", nanoseconds)
 end
 
 -- Composite: Timestamp
@@ -1669,7 +1664,7 @@ end
 
 -- Dissect: Timestamp
 bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp.dissect = function(buffer, offset, packet, parent)
-  if bist_borsaistanbul_geniuminet_glimpse_v2_7.format_timestamp then
+  if bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp_format ~= 0 then
     local stored_second = bist_borsaistanbul_geniuminet_glimpse_v2_7.second.current
 
     if stored_second ~= nil then

@@ -116,14 +116,16 @@ omi_otcmarkets_overnight_retransmission_link_v1_0.fields.trading_session_message
 -- OtcMarkets Overnight Retransmission Link 1.0 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-otcmarkets_overnight_retransmission_link_v1_0.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+otcmarkets_overnight_retransmission_link_v1_0.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -142,7 +144,7 @@ omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_application_message
 omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_otcmarkets_overnight_retransmission_link_v1_0.prefs_changed()
@@ -157,8 +159,8 @@ function omi_otcmarkets_overnight_retransmission_link_v1_0.prefs_changed()
   if show.structs ~= omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_structs then
     show.structs = omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_structs
   end
-  if otcmarkets_overnight_retransmission_link_v1_0.absolute_time_base ~= omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.absolute_time_base then
-    otcmarkets_overnight_retransmission_link_v1_0.absolute_time_base = omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.absolute_time_base
+  if otcmarkets_overnight_retransmission_link_v1_0.timestamp_format ~= omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.timestamp_format then
+    otcmarkets_overnight_retransmission_link_v1_0.timestamp_format = omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.timestamp_format
   end
 end
 
@@ -614,7 +616,7 @@ otcmarkets_overnight_retransmission_link_v1_0.last_update_milli.dissect = functi
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.last_update_milli
-  if otcmarkets_overnight_retransmission_link_v1_0.absolute_time_base == 1 then field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.last_update_milli_utc end
+  if otcmarkets_overnight_retransmission_link_v1_0.timestamp_format == 3 then field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.last_update_milli_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -961,7 +963,7 @@ otcmarkets_overnight_retransmission_link_v1_0.recovery_start_time.dissect = func
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.recovery_start_time
-  if otcmarkets_overnight_retransmission_link_v1_0.absolute_time_base == 1 then field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.recovery_start_time_utc end
+  if otcmarkets_overnight_retransmission_link_v1_0.timestamp_format == 3 then field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.recovery_start_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1237,7 +1239,7 @@ otcmarkets_overnight_retransmission_link_v1_0.session_time.dissect = function(bu
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.session_time
-  if otcmarkets_overnight_retransmission_link_v1_0.absolute_time_base == 1 then field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.session_time_utc end
+  if otcmarkets_overnight_retransmission_link_v1_0.timestamp_format == 3 then field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.session_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1289,7 +1291,7 @@ otcmarkets_overnight_retransmission_link_v1_0.spin_end_time_milli.dissect = func
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_end_time_milli
-  if otcmarkets_overnight_retransmission_link_v1_0.absolute_time_base == 1 then field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_end_time_milli_utc end
+  if otcmarkets_overnight_retransmission_link_v1_0.timestamp_format == 3 then field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_end_time_milli_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1359,7 +1361,7 @@ otcmarkets_overnight_retransmission_link_v1_0.spin_start_time_milli.dissect = fu
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_start_time_milli
-  if otcmarkets_overnight_retransmission_link_v1_0.absolute_time_base == 1 then field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_start_time_milli_utc end
+  if otcmarkets_overnight_retransmission_link_v1_0.timestamp_format == 3 then field = omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_start_time_milli_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1522,7 +1524,7 @@ otcmarkets_overnight_retransmission_link_v1_0.time.display = function(value, buf
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if otcmarkets_overnight_retransmission_link_v1_0.timestamp_format == 2 and packet then
+  if otcmarkets_overnight_retransmission_link_v1_0.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -1532,7 +1534,8 @@ otcmarkets_overnight_retransmission_link_v1_0.time.display = function(value, buf
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = otcmarkets_overnight_retransmission_link_v1_0.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 

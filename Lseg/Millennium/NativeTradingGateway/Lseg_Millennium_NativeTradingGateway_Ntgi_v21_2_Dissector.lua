@@ -196,14 +196,14 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.system_status_message
 -- Lseg Millennium NativeTradingGateway Ntgi 21.2 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+lseg_millennium_nativetradinggateway_ntgi_v21_2.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -224,7 +224,7 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_structs = Pref.bo
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs_changed()
@@ -242,8 +242,8 @@ function omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs_changed()
   if show.structs ~= omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_structs then
     show.structs = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_structs
   end
-  if lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base ~= omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.absolute_time_base then
-    lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.absolute_time_base
+  if lseg_millennium_nativetradinggateway_ntgi_v21_2.timestamp_format ~= omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.timestamp_format then
+    lseg_millennium_nativetradinggateway_ntgi_v21_2.timestamp_format = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.timestamp_format
   end
 end
 
@@ -1294,7 +1294,7 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_date_time.dissect = funct
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_date_time
-  if lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base == 1 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_date_time_utc end
+  if lseg_millennium_nativetradinggateway_ntgi_v21_2.timestamp_format == 3 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_date_time_utc end
 
   local seconds = value
   local nanos = 0
@@ -1318,7 +1318,7 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_time.dissect = function(b
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time
-  if lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base == 1 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time_utc end
+  if lseg_millennium_nativetradinggateway_ntgi_v21_2.timestamp_format == 3 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time_utc end
 
   local seconds = value
   local nanos = 0
@@ -3402,7 +3402,7 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.seconds.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.seconds
-  if lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base == 1 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.seconds_utc end
+  if lseg_millennium_nativetradinggateway_ntgi_v21_2.timestamp_format == 3 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -3823,7 +3823,8 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.transact_time.display = function
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = lseg_millennium_nativetradinggateway_ntgi_v21_2.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Transact Time
@@ -3853,7 +3854,7 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.transact_time.dissect = function
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.transact_time
-    if lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base == 1 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.transact_time_utc end
+    if lseg_millennium_nativetradinggateway_ntgi_v21_2.timestamp_format == 3 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.transact_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = lseg_millennium_nativetradinggateway_ntgi_v21_2.transact_time.fields(buffer, offset, packet, parent)
 

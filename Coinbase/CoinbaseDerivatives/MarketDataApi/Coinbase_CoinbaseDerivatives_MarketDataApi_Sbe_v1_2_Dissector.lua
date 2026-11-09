@@ -147,14 +147,14 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sbe_message_index
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -175,7 +175,7 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_application_m
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs_changed()
@@ -193,8 +193,8 @@ function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs_changed()
   if show.indexes ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_indexes then
     show.indexes = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_indexes
   end
-  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.absolute_time_base then
-    coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.absolute_time_base
+  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.timestamp_format ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.timestamp_format then
+    coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.timestamp_format = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.timestamp_format
   end
 end
 
@@ -1132,7 +1132,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_time.dissect = fu
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time
-  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time_utc end
+  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.timestamp_format == 3 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time_utc end
 
   if value == Int64(0x00000000, 0x80000000) then
     -- Null: the field keeps its type, and the line says so instead
@@ -2136,7 +2136,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.sending_time.dissect = funct
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time
-  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time_utc end
+  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.timestamp_format == 3 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -2518,7 +2518,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.transact_time.dissect = func
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time
-  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time_utc end
+  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.timestamp_format == 3 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

@@ -23,6 +23,7 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_type = ProtoF
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_version = ProtoField.new("Esesm Version", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmversion", ftypes.STRING, nil, nil, nil, "Protocol version")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "the highest sequence number that the server currently has for the client")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_matching_engine = ProtoField.new("Login Matching Engine", "miax.pearlequities.headeronly.esesm.v1.0.a.loginmatchingengine", ftypes.STRING, nil, nil, nil, "The login status, trading session and highest sequence number of one matching engine, repeated once for each the login response counts")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_request = ProtoField.new("Login Request", "miax.pearlequities.headeronly.esesm.v1.0.a.loginrequest", ftypes.STRING, nil, nil, nil, "The SesM client must send a Login request packet immediately upon establishing a new TCP/IP socket connection to the server")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_response = ProtoField.new("Login Response", "miax.pearlequities.headeronly.esesm.v1.0.a.loginresponse", ftypes.STRING, nil, nil, nil, "The SesM server sends a Login response packet in response a Login request packet from the client")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_status = ProtoField.new("Login Status", "miax.pearlequities.headeronly.esesm.v1.0.a.loginstatus", ftypes.STRING)
@@ -30,7 +31,6 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_reason = ProtoField
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.headeronly.esesm.v1.0.a.logoutrequest", ftypes.STRING, nil, nil, nil, "The client may send a Logout request packet to request the connection be terminated")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_text = ProtoField.new("Logout Text", "miax.pearlequities.headeronly.esesm.v1.0.a.logouttext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.pearlequities.headeronly.esesm.v1.0.a.matchingengineid", ftypes.UINT8, nil, nil, nil, "Matching Engine that originated the packet")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_status = ProtoField.new("Matching Engine Status", "miax.pearlequities.headeronly.esesm.v1.0.a.matchingenginestatus", ftypes.STRING, nil, nil, nil, "The login status, trading session and highest sequence number of one matching engine, repeated once for each the login response counts")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.pearlequities.headeronly.esesm.v1.0.a.numberofmatchingengines", ftypes.UINT8, nil, nil, nil, "Count of all Matching Engines for the exchange")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_matching_engine = ProtoField.new("Requested Matching Engine", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedmatchingengine", ftypes.STRING, nil, nil, nil, "The trading session and sequence number the client asks of one matching engine, repeated once for each the login request counts")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies client requested sequence number")
@@ -56,7 +56,7 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_tcp_packet = ProtoFi
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.packet", ftypes.STRING, nil, nil, nil, "ESesM Packet")
 
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Generated Fields
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_status_index = ProtoField.new("Matching Engine Status Index", "miax.pearlequities.headeronly.esesm.v1.0.a.matchingenginestatusindex", ftypes.UINT16)
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_matching_engine_index = ProtoField.new("Login Matching Engine Index", "miax.pearlequities.headeronly.esesm.v1.0.a.loginmatchingengineindex", ftypes.UINT16)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_matching_engine_index = ProtoField.new("Requested Matching Engine Index", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedmatchingengineindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -991,27 +991,27 @@ miax_pearlequities_headeronly_esesm_v1_0_a.synchronization_complete.dissect = fu
   end
 end
 
--- Matching Engine Status
-miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status = {}
+-- Login Matching Engine
+miax_pearlequities_headeronly_esesm_v1_0_a.login_matching_engine = {}
 
--- Size: Matching Engine Status
-miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.size =
+-- Size: Login Matching Engine
+miax_pearlequities_headeronly_esesm_v1_0_a.login_matching_engine.size =
   miax_pearlequities_headeronly_esesm_v1_0_a.login_status.size + 
   miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_id.size + 
   miax_pearlequities_headeronly_esesm_v1_0_a.highest_sequence_number.size
 
--- Display: Matching Engine Status
-miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.display = function(packet, parent, length)
+-- Display: Login Matching Engine
+miax_pearlequities_headeronly_esesm_v1_0_a.login_matching_engine.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Matching Engine Status
-miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.fields = function(buffer, offset, packet, parent, matching_engine_status_index)
+-- Dissect Fields: Login Matching Engine
+miax_pearlequities_headeronly_esesm_v1_0_a.login_matching_engine.fields = function(buffer, offset, packet, parent, login_matching_engine_index)
   local index = offset
 
-  -- Implicit Matching Engine Status Index
-  if matching_engine_status_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_status_index, matching_engine_status_index)
+  -- Implicit Login Matching Engine Index
+  if login_matching_engine_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_matching_engine_index, login_matching_engine_index)
     iteration:set_generated()
   end
 
@@ -1027,21 +1027,21 @@ miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.fields = funct
   return index
 end
 
--- Dissect: Matching Engine Status
-miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.dissect = function(buffer, offset, packet, parent, matching_engine_status_index)
+-- Dissect: Login Matching Engine
+miax_pearlequities_headeronly_esesm_v1_0_a.login_matching_engine.dissect = function(buffer, offset, packet, parent, login_matching_engine_index)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_status, buffer(offset, 0))
-    local index = miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.fields(buffer, offset, packet, parent, matching_engine_status_index)
+    parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_matching_engine, buffer(offset, 0))
+    local index = miax_pearlequities_headeronly_esesm_v1_0_a.login_matching_engine.fields(buffer, offset, packet, parent, login_matching_engine_index)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.display(packet, parent, length)
+    local display = miax_pearlequities_headeronly_esesm_v1_0_a.login_matching_engine.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.fields(buffer, offset, packet, parent, matching_engine_status_index)
+    return miax_pearlequities_headeronly_esesm_v1_0_a.login_matching_engine.fields(buffer, offset, packet, parent, login_matching_engine_index)
   end
 end
 
@@ -1055,8 +1055,8 @@ miax_pearlequities_headeronly_esesm_v1_0_a.login_response.size = function(buffer
   index = index + miax_pearlequities_headeronly_esesm_v1_0_a.number_of_matching_engines.size
 
   -- Calculate field size from count
-  local matching_engine_status_count = buffer(offset + index - 1, 1):uint()
-  index = index + matching_engine_status_count * 10
+  local login_matching_engine_count = buffer(offset + index - 1, 1):uint()
+  index = index + login_matching_engine_count * 10
 
   return index
 end
@@ -1073,9 +1073,9 @@ miax_pearlequities_headeronly_esesm_v1_0_a.login_response.fields = function(buff
   -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
   index, number_of_matching_engines = miax_pearlequities_headeronly_esesm_v1_0_a.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Matching Engine Status
-  for matching_engine_status_index = 1, number_of_matching_engines do
-    index, matching_engine_status = miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.dissect(buffer, index, packet, parent, matching_engine_status_index)
+  -- Repeating: Login Matching Engine
+  for login_matching_engine_index = 1, number_of_matching_engines do
+    index, login_matching_engine = miax_pearlequities_headeronly_esesm_v1_0_a.login_matching_engine.dissect(buffer, index, packet, parent, login_matching_engine_index)
   end
 
   return index

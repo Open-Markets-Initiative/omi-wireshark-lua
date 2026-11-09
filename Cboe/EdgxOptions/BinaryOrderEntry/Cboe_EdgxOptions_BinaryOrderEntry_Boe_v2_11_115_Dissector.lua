@@ -3588,14 +3588,14 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.units_index = ProtoFi
 -- Cboe EdgxOptions BinaryOrderEntry Boe 2.11.115 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -3620,7 +3620,7 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs.show_headers = Pref.bo
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs_changed()
@@ -3644,8 +3644,8 @@ function omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs_changed()
   if show.indexes ~= omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs.show_indexes then
     show.indexes = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs.show_indexes
   end
-  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.absolute_time_base ~= omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs.absolute_time_base then
-    cboe_edgxoptions_binaryorderentry_boe_v2_11_115.absolute_time_base = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs.absolute_time_base
+  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.timestamp_format ~= omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs.timestamp_format then
+    cboe_edgxoptions_binaryorderentry_boe_v2_11_115.timestamp_format = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prefs.timestamp_format
   end
 end
 
@@ -5915,7 +5915,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.equity_transact_time.dissect = f
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.equity_transact_time
-  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.absolute_time_base == 1 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.equity_transact_time_utc end
+  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.timestamp_format == 3 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.equity_transact_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -6174,7 +6174,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.expire_time.dissect = function(b
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.expire_time
-  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.absolute_time_base == 1 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.expire_time_utc end
+  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.timestamp_format == 3 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.expire_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -6325,7 +6325,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.floor_trade_time.dissect = funct
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.floor_trade_time
-  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.absolute_time_base == 1 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.floor_trade_time_utc end
+  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.timestamp_format == 3 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.floor_trade_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -8597,7 +8597,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.orig_time.dissect = function(buf
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.orig_time
-  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.absolute_time_base == 1 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.orig_time_utc end
+  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.timestamp_format == 3 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.orig_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -10126,7 +10126,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.send_time.dissect = function(buf
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.send_time
-  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.absolute_time_base == 1 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.send_time_utc end
+  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.timestamp_format == 3 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.send_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -11098,7 +11098,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.transaction_time.dissect = funct
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.transaction_time
-  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.absolute_time_base == 1 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.transaction_time_utc end
+  if cboe_edgxoptions_binaryorderentry_boe_v2_11_115.timestamp_format == 3 then field = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.transaction_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

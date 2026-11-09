@@ -66,7 +66,7 @@ omi_siac_opra_output_obi_v6_3_a.fields.messages_in_block = ProtoField.new("Messa
 omi_siac_opra_output_obi_v6_3_a.fields.multicast_line_number = ProtoField.new("Multicast Line Number", "siac.opra.output.obi.v6.3.a.multicastlinenumber", ftypes.UINT16, nil, nil, nil, "Multicast Line Number assigned to the option series (values between 1 and 96)")
 omi_siac_opra_output_obi_v6_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.opra.output.obi.v6.3.a.nanoseconds", ftypes.UINT32, nil, nil, nil, "the nanosecond portion of the time currently rounded to the nearest microsecond")
 omi_siac_opra_output_obi_v6_3_a.fields.net_change = ProtoField.new("Net Change", "siac.opra.output.obi.v6.3.a.netchange", ftypes.INT32, nil, nil, nil, "Represents the change in the price of an option from the closing price of one day to the closing price on the next day on which the option is traded.")
-omi_siac_opra_output_obi_v6_3_a.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.opra.output.obi.v6.3.a.offerindexvalue", ftypes.INT32, nil, nil, nil, "The Offer Index Value represents the value of the index’s calculation formula using the current Offer values of the component securities.")
+omi_siac_opra_output_obi_v6_3_a.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.opra.output.obi.v6.3.a.offerindexvalue", ftypes.INT64, nil, nil, nil, "The Offer Index Value represents the value of the index’s calculation formula using the current Offer values of the component securities.")
 omi_siac_opra_output_obi_v6_3_a.fields.offer_price = ProtoField.new("Offer Price", "siac.opra.output.obi.v6.3.a.offerprice", ftypes.INT32, nil, nil, nil, "Represents the price at which a seller is offering to sell an option.")
 omi_siac_opra_output_obi_v6_3_a.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.opra.output.obi.v6.3.a.offerpriceshort", ftypes.DOUBLE, nil, nil, nil, "Represents the price at which a seller is offering to sell an option.")
 omi_siac_opra_output_obi_v6_3_a.fields.offer_size = ProtoField.new("Offer Size", "siac.opra.output.obi.v6.3.a.offersize", ftypes.UINT32, nil, nil, nil, "The Offer Size identifies the number of contracts for sale for an option at the Offer Price.")
@@ -135,14 +135,14 @@ omi_siac_opra_output_obi_v6_3_a.fields.scaled_underlying_price = ProtoField.new(
 -- Siac Opra Output Obi 6.3.a Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-siac_opra_output_obi_v6_3_a.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+siac_opra_output_obi_v6_3_a.timestamp_format = 2
 
 -- Scaled Strike Price format (true = decimal-scaled, false = raw mantissa)
 siac_opra_output_obi_v6_3_a.format_decimals = true
@@ -169,7 +169,7 @@ omi_siac_opra_output_obi_v6_3_a.prefs.show_padding = Pref.bool("Show Padding", s
 omi_siac_opra_output_obi_v6_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_siac_opra_output_obi_v6_3_a.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_siac_opra_output_obi_v6_3_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_siac_opra_output_obi_v6_3_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_siac_opra_output_obi_v6_3_a.prefs_changed()
@@ -193,8 +193,8 @@ function omi_siac_opra_output_obi_v6_3_a.prefs_changed()
   if siac_opra_output_obi_v6_3_a.format_decimals ~= omi_siac_opra_output_obi_v6_3_a.prefs.format_decimals then
     siac_opra_output_obi_v6_3_a.format_decimals = omi_siac_opra_output_obi_v6_3_a.prefs.format_decimals
   end
-  if siac_opra_output_obi_v6_3_a.absolute_time_base ~= omi_siac_opra_output_obi_v6_3_a.prefs.absolute_time_base then
-    siac_opra_output_obi_v6_3_a.absolute_time_base = omi_siac_opra_output_obi_v6_3_a.prefs.absolute_time_base
+  if siac_opra_output_obi_v6_3_a.timestamp_format ~= omi_siac_opra_output_obi_v6_3_a.prefs.timestamp_format then
+    siac_opra_output_obi_v6_3_a.timestamp_format = omi_siac_opra_output_obi_v6_3_a.prefs.timestamp_format
   end
 end
 
@@ -1419,7 +1419,7 @@ end
 siac_opra_output_obi_v6_3_a.offer_index_value = {}
 
 -- Size: Offer Index Value
-siac_opra_output_obi_v6_3_a.offer_index_value.size = 4
+siac_opra_output_obi_v6_3_a.offer_index_value.size = 8
 
 -- Display: Offer Index Value
 siac_opra_output_obi_v6_3_a.offer_index_value.display = function(value)
@@ -1430,7 +1430,7 @@ end
 siac_opra_output_obi_v6_3_a.offer_index_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.offer_index_value.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:int64()
   local display = siac_opra_output_obi_v6_3_a.offer_index_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_3_a.fields.offer_index_value, range, value, display)
@@ -1850,7 +1850,7 @@ siac_opra_output_obi_v6_3_a.seconds.dissect = function(buffer, offset, packet, p
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_siac_opra_output_obi_v6_3_a.fields.seconds
-  if siac_opra_output_obi_v6_3_a.absolute_time_base == 1 then field = omi_siac_opra_output_obi_v6_3_a.fields.seconds_utc end
+  if siac_opra_output_obi_v6_3_a.timestamp_format == 3 then field = omi_siac_opra_output_obi_v6_3_a.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -2296,12 +2296,12 @@ siac_opra_output_obi_v6_3_a.scaled_best_bid_price = {}
 
 -- Display: Scaled Best Bid Price
 siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display = function(value)
-  return "Scaled Best Bid Price: " .. string.format("%g", value)
+  return "Scaled Best Bid Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Best Bid Price with an unrecognised code
 siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display_uncoded = function(value)
-  return "Scaled Best Bid Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Best Bid Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Best Bid Price
@@ -2360,12 +2360,12 @@ siac_opra_output_obi_v6_3_a.scaled_best_offer_price = {}
 
 -- Display: Scaled Best Offer Price
 siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display = function(value)
-  return "Scaled Best Offer Price: " .. string.format("%g", value)
+  return "Scaled Best Offer Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Best Offer Price with an unrecognised code
 siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display_uncoded = function(value)
-  return "Scaled Best Offer Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Best Offer Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Best Offer Price
@@ -2424,12 +2424,12 @@ siac_opra_output_obi_v6_3_a.scaled_index_value = {}
 
 -- Display: Scaled Index Value
 siac_opra_output_obi_v6_3_a.scaled_index_value.display = function(value)
-  return "Scaled Index Value: " .. string.format("%g", value)
+  return "Scaled Index Value: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Index Value with an unrecognised code
 siac_opra_output_obi_v6_3_a.scaled_index_value.display_uncoded = function(value)
-  return "Scaled Index Value: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Index Value: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Index Value
@@ -2485,12 +2485,12 @@ siac_opra_output_obi_v6_3_a.scaled_premium_price = {}
 
 -- Display: Scaled Premium Price
 siac_opra_output_obi_v6_3_a.scaled_premium_price.display = function(value)
-  return "Scaled Premium Price: " .. string.format("%g", value)
+  return "Scaled Premium Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Premium Price with an unrecognised code
 siac_opra_output_obi_v6_3_a.scaled_premium_price.display_uncoded = function(value)
-  return "Scaled Premium Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Premium Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Premium Price
@@ -2546,12 +2546,12 @@ siac_opra_output_obi_v6_3_a.scaled_strike_price = {}
 
 -- Display: Scaled Strike Price
 siac_opra_output_obi_v6_3_a.scaled_strike_price.display = function(value)
-  return "Scaled Strike Price: " .. string.format("%g", value)
+  return "Scaled Strike Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Strike Price with an unrecognised code
 siac_opra_output_obi_v6_3_a.scaled_strike_price.display_uncoded = function(value)
-  return "Scaled Strike Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Strike Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Strike Price
@@ -2601,12 +2601,12 @@ siac_opra_output_obi_v6_3_a.scaled_underlying_price = {}
 
 -- Display: Scaled Underlying Price
 siac_opra_output_obi_v6_3_a.scaled_underlying_price.display = function(value)
-  return "Scaled Underlying Price: " .. string.format("%g", value)
+  return "Scaled Underlying Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Underlying Price with an unrecognised code
 siac_opra_output_obi_v6_3_a.scaled_underlying_price.display_uncoded = function(value)
-  return "Scaled Underlying Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Underlying Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Underlying Price
@@ -2618,34 +2618,34 @@ siac_opra_output_obi_v6_3_a.scaled_underlying_price.dissect = function(buffer, o
   local value
   local display
   if underlying_price_denominator_code == "A" then
-    value = mantissa / (10 ^ 1)
+    value = mantissa:tonumber() / (10 ^ 1)
     display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "B" then
-    value = mantissa / (10 ^ 2)
+    value = mantissa:tonumber() / (10 ^ 2)
     display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "C" then
-    value = mantissa / (10 ^ 3)
+    value = mantissa:tonumber() / (10 ^ 3)
     display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "D" then
-    value = mantissa / (10 ^ 4)
+    value = mantissa:tonumber() / (10 ^ 4)
     display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "E" then
-    value = mantissa / (10 ^ 5)
+    value = mantissa:tonumber() / (10 ^ 5)
     display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "F" then
-    value = mantissa / (10 ^ 6)
+    value = mantissa:tonumber() / (10 ^ 6)
     display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "G" then
-    value = mantissa / (10 ^ 7)
+    value = mantissa:tonumber() / (10 ^ 7)
     display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "H" then
-    value = mantissa / (10 ^ 8)
+    value = mantissa:tonumber() / (10 ^ 8)
     display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "I" then
-    value = mantissa
+    value = mantissa:tonumber()
     display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   else
-    value = mantissa
+    value = mantissa:tonumber()
     display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display_uncoded(value)
   end
 
@@ -4586,7 +4586,8 @@ siac_opra_output_obi_v6_3_a.block_timestamp.display = function(packet, parent, v
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = siac_opra_output_obi_v6_3_a.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Block Timestamp
@@ -4616,7 +4617,7 @@ siac_opra_output_obi_v6_3_a.block_timestamp.dissect = function(buffer, offset, p
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_opra_output_obi_v6_3_a.fields.block_timestamp
-    if siac_opra_output_obi_v6_3_a.absolute_time_base == 1 then field = omi_siac_opra_output_obi_v6_3_a.fields.block_timestamp_utc end
+    if siac_opra_output_obi_v6_3_a.timestamp_format == 3 then field = omi_siac_opra_output_obi_v6_3_a.fields.block_timestamp_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_opra_output_obi_v6_3_a.block_timestamp.fields(buffer, offset, packet, parent)
 
@@ -4786,7 +4787,6 @@ udp_table:add_for_decode_as(omi_siac_opra_output_obi_v6_3_a)
 --   Organization: The Securities Industry Automation Corporation
 --   Version: 6.3.a
 --   Date: Friday, February 20, 2026
---   Specification: OPRA_Pillar_Output_Specification.pdf
 --   Specification: OPRA_Pillar_Output_Specification (6.3a).pdf
 --
 -- Script:

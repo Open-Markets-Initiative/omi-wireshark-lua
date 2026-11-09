@@ -170,14 +170,12 @@ omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.timestamp = Pro
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp_format = 2
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.format_timestamp = true
 
 
 -----------------------------------------------------------------------
@@ -201,9 +199,8 @@ omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.show_repeating_g
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
+omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs_changed()
@@ -226,9 +223,6 @@ function omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs_changed
   end
   if show.sequences ~= omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.show_sequences then
     show.sequences = omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.show_sequences
-  end
-  if cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.format_timestamp ~= omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.format_timestamp then
-    cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.format_timestamp = omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.format_timestamp
   end
   if cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp_format ~= omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.timestamp_format then
     cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp_format = omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.prefs.timestamp_format
@@ -2689,7 +2683,7 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp = {}
 
 -- Translate: Timestamp
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp.translate = function(time_offset, stored_time)
-  return UInt64.new(stored_time * 1000000000 + time_offset)
+  return UInt64.new(stored_time) * 1000000000 + time_offset
 end
 
 -- Display: Timestamp
@@ -2700,7 +2694,7 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp.display = functi
   end
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp_format == 2 and packet then
+  if cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -2710,7 +2704,8 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp.display = functi
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_time)..string.format("%09d", time_offset)
+      local format = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + stored_time)..string.format("%09d", time_offset)
     end
   end
 
@@ -2737,7 +2732,7 @@ end
 
 -- Dissect: Timestamp
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp.dissect = function(buffer, offset, packet, parent)
-  if cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.format_timestamp then
+  if cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.timestamp_format ~= 0 then
     local stored_time = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.time.current
 
     if stored_time ~= nil then

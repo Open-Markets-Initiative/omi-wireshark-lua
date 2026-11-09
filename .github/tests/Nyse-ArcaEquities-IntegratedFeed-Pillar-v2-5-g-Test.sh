@@ -44,6 +44,35 @@ grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.symbolindex" Nyse.ArcaEquit
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.symbolseqnum" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.DeleteOrderMessage.json
 grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.orderid" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.DeleteOrderMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Nyse/ArcaEquities.IntegratedFeed.Pillar.v2.5.g/ImbalanceMessage.pcap" \
+  -X "lua_script:Nyse/ArcaEquities/IntegratedFeed/Nyse_ArcaEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
+  -T json \
+  > Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json 2> Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json.stderr \
+  || { echo "--- tshark FAILED (ImbalanceMessage) ---"; cat Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json.stderr; exit 1; }
+
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.sourcetime" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.sourcetimens" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.symbolindex" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.symbolseqnum" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.referenceprice" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.pairedqty" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.totalimbalanceqty" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.marketimbalanceqty" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.auctiontime" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.auctiontype" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.imbalanceside" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.continuousbookclearingprice" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.auctioninterestclearingprice" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.ssrfilingprice" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.indicativematchprice" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.uppercollar" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.lowercollar" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.auctionstatus" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.freezestatus" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.numextensions" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.unpairedqty" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+grep "nyse.arcaequities.integratedfeed.pillar.v2.5.g.unpairedside" Nyse.ArcaEquities.IntegratedFeed.Pillar.v2.5.g.ImbalanceMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaEquities.IntegratedFeed.Pillar.v2.5.g/ModifyOrderMessage.pcap" \
   -X "lua_script:Nyse/ArcaEquities/IntegratedFeed/Nyse_ArcaEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
   -T json \

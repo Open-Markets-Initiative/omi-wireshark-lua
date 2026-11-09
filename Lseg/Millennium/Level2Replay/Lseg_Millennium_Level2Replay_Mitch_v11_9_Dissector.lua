@@ -127,6 +127,20 @@ omi_lseg_millennium_level2replay_mitch_v11_9.fields.trade_message = ProtoField.n
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.level2replay.mitch.v11.9.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Lseg Millennium Level2Replay Mitch 11.9 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+lseg_millennium_level2replay_mitch_v11_9.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -146,6 +160,8 @@ omi_lseg_millennium_level2replay_mitch_v11_9.prefs.show_headers = Pref.bool("Sho
 omi_lseg_millennium_level2replay_mitch_v11_9.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_millennium_level2replay_mitch_v11_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lseg_millennium_level2replay_mitch_v11_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_lseg_millennium_level2replay_mitch_v11_9.prefs_changed()
 
@@ -164,6 +180,9 @@ function omi_lseg_millennium_level2replay_mitch_v11_9.prefs_changed()
   end
   if show.indexes ~= omi_lseg_millennium_level2replay_mitch_v11_9.prefs.show_indexes then
     show.indexes = omi_lseg_millennium_level2replay_mitch_v11_9.prefs.show_indexes
+  end
+  if lseg_millennium_level2replay_mitch_v11_9.timestamp_format ~= omi_lseg_millennium_level2replay_mitch_v11_9.prefs.timestamp_format then
+    lseg_millennium_level2replay_mitch_v11_9.timestamp_format = omi_lseg_millennium_level2replay_mitch_v11_9.prefs.timestamp_format
   end
 end
 

@@ -131,14 +131,12 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.experts = { nasdaq_nsmequities_t
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
 nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp_format = 2
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-nasdaq_nsmequities_totalview_asciiitch_v3_1.format_timestamp = true
 
 -- assumed connection role
 local role_enum = {
@@ -172,9 +170,8 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.show_headers = Pref.bool("
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.timestamp_format = Pref.enum("Millisecond Format", 2, "Millisecond display format", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs_changed()
@@ -197,9 +194,6 @@ function omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs_changed()
   end
   if show.sequences ~= omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.show_sequences then
     show.sequences = omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.show_sequences
-  end
-  if nasdaq_nsmequities_totalview_asciiitch_v3_1.format_timestamp ~= omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.format_timestamp then
-    nasdaq_nsmequities_totalview_asciiitch_v3_1.format_timestamp = omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.format_timestamp
   end
   if nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp_format ~= omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.timestamp_format then
     nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp_format = omi_nasdaq_nsmequities_totalview_asciiitch_v3_1.prefs.timestamp_format
@@ -2102,7 +2096,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp = {}
 
 -- Translate: Timestamp
 nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp.translate = function(millisecond, stored_second)
-  return UInt64.new(stored_second * 1000 + millisecond)
+  return UInt64.new(stored_second) * 1000 + millisecond
 end
 
 -- Display: Timestamp
@@ -2113,7 +2107,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp.display = function(millise
   end
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp_format == 2 and packet then
+  if nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -2123,7 +2117,8 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp.display = function(millise
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_second)..string.format("%09d", millisecond)
+      local format = nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + stored_second)..string.format("%09d", millisecond)
     end
   end
 
@@ -2150,7 +2145,7 @@ end
 
 -- Dissect: Timestamp
 nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp.dissect = function(buffer, offset, packet, parent)
-  if nasdaq_nsmequities_totalview_asciiitch_v3_1.format_timestamp then
+  if nasdaq_nsmequities_totalview_asciiitch_v3_1.timestamp_format ~= 0 then
     local stored_second = nasdaq_nsmequities_totalview_asciiitch_v3_1.second.current
 
     if stored_second ~= nil then

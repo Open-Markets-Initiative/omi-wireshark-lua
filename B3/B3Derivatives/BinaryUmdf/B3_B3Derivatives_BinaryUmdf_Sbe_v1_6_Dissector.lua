@@ -279,14 +279,14 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_orders_mb_
 -- B3 B3Derivatives BinaryUmdf Sbe 1.6 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-b3_b3derivatives_binaryumdf_sbe_v1_6.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+b3_b3derivatives_binaryumdf_sbe_v1_6.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -311,7 +311,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_headers = Pref.bool("Show He
 omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs_changed()
@@ -335,8 +335,8 @@ function omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs_changed()
   if show.indexes ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_indexes then
     show.indexes = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_indexes
   end
-  if b3_b3derivatives_binaryumdf_sbe_v1_6.absolute_time_base ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.absolute_time_base then
-    b3_b3derivatives_binaryumdf_sbe_v1_6.absolute_time_base = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.absolute_time_base
+  if b3_b3derivatives_binaryumdf_sbe_v1_6.timestamp_format ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.timestamp_format then
+    b3_b3derivatives_binaryumdf_sbe_v1_6.timestamp_format = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.timestamp_format
   end
 end
 
@@ -389,7 +389,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.aggressor_time.dissect = function(buffer, o
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.aggressor_time
-  if b3_b3derivatives_binaryumdf_sbe_v1_6.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.aggressor_time_utc end
+  if b3_b3derivatives_binaryumdf_sbe_v1_6.timestamp_format == 3 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.aggressor_time_utc end
 
   if value == UInt64(0x00000000, 0x00000000) then
     -- Null: the field keeps its type, and the line says so instead
@@ -2063,7 +2063,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.md_entry_timestamp.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.md_entry_timestamp
-  if b3_b3derivatives_binaryumdf_sbe_v1_6.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.md_entry_timestamp_utc end
+  if b3_b3derivatives_binaryumdf_sbe_v1_6.timestamp_format == 3 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.md_entry_timestamp_utc end
 
   if value == UInt64(0x00000000, 0x00000000) then
     -- Null: the field keeps its type, and the line says so instead
@@ -2223,7 +2223,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.md_insert_timestamp.dissect = function(buff
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.md_insert_timestamp
-  if b3_b3derivatives_binaryumdf_sbe_v1_6.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.md_insert_timestamp_utc end
+  if b3_b3derivatives_binaryumdf_sbe_v1_6.timestamp_format == 3 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.md_insert_timestamp_utc end
 
   if value == UInt64(0x00000000, 0x00000000) then
     -- Null: the field keeps its type, and the line says so instead
@@ -3050,7 +3050,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.orig_time.dissect = function(buffer, offset
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.orig_time
-  if b3_b3derivatives_binaryumdf_sbe_v1_6.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.orig_time_utc end
+  if b3_b3derivatives_binaryumdf_sbe_v1_6.timestamp_format == 3 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.orig_time_utc end
 
   if value == UInt64(0x00000000, 0x00000000) then
     -- Null: the field keeps its type, and the line says so instead
@@ -4047,7 +4047,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.sending_time.dissect = function(buffer, off
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.sending_time
-  if b3_b3derivatives_binaryumdf_sbe_v1_6.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.sending_time_utc end
+  if b3_b3derivatives_binaryumdf_sbe_v1_6.timestamp_format == 3 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.sending_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -4618,7 +4618,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.trad_ses_open_time.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.trad_ses_open_time
-  if b3_b3derivatives_binaryumdf_sbe_v1_6.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.trad_ses_open_time_utc end
+  if b3_b3derivatives_binaryumdf_sbe_v1_6.timestamp_format == 3 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.trad_ses_open_time_utc end
 
   if value == UInt64(0x00000000, 0x00000000) then
     -- Null: the field keeps its type, and the line says so instead

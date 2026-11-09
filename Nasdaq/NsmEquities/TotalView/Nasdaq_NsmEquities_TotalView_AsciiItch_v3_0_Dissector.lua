@@ -130,14 +130,12 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.experts = { nasdaq_nsmequities_t
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
 nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp_format = 2
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-nasdaq_nsmequities_totalview_asciiitch_v3_0.format_timestamp = true
 
 -- assumed connection role
 local role_enum = {
@@ -173,9 +171,8 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.show_headers = Pref.bool("
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.timestamp_format = Pref.enum("Millisecond Format", 2, "Millisecond display format", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs_changed()
@@ -201,9 +198,6 @@ function omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs_changed()
   end
   if show.sequences ~= omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.show_sequences then
     show.sequences = omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.show_sequences
-  end
-  if nasdaq_nsmequities_totalview_asciiitch_v3_0.format_timestamp ~= omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.format_timestamp then
-    nasdaq_nsmequities_totalview_asciiitch_v3_0.format_timestamp = omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.format_timestamp
   end
   if nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp_format ~= omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.timestamp_format then
     nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp_format = omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.prefs.timestamp_format
@@ -1925,6 +1919,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup = functi
   local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.display(value, buffer, offset, packet, parent)
 
   if not show.records then
+    nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_directory_message.current = nil
     parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock_alphanumeric_6, range, value, display)
 
     return offset + length, value
@@ -1932,6 +1927,14 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup = functi
 
   -- Lookup Stock Directory Message record
   local record = nasdaq_nsmequities_totalview_asciiitch_v3_0.conversation.current.stock_directory_message[value]
+
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_directory_message.current = record
   if record ~= nil and record.market_category ~= nil then
     display = "Stock Alphanumeric 6: " .. tostring(record.market_category) .. " (" .. tostring(value) .. ")"
   end
@@ -1939,7 +1942,6 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup = functi
   local field_tree = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock_alphanumeric_6, range, value, display)
 
   if record ~= nil then
-    nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_directory_message.current = record
     if record.market_category ~= nil then
       local entry_market_category = field_tree:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.market_category, record.market_category)
       entry_market_category:set_generated()
@@ -2073,7 +2075,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp = {}
 
 -- Translate: Timestamp
 nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp.translate = function(millisecond, stored_second)
-  return UInt64.new(stored_second * 1000 + millisecond)
+  return UInt64.new(stored_second) * 1000 + millisecond
 end
 
 -- Display: Timestamp
@@ -2084,7 +2086,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp.display = function(millise
   end
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp_format == 2 and packet then
+  if nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -2094,7 +2096,8 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp.display = function(millise
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + stored_second)..string.format("%09d", millisecond)
+      local format = nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + stored_second)..string.format("%09d", millisecond)
     end
   end
 
@@ -2121,7 +2124,7 @@ end
 
 -- Dissect: Timestamp
 nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp.dissect = function(buffer, offset, packet, parent)
-  if nasdaq_nsmequities_totalview_asciiitch_v3_0.format_timestamp then
+  if nasdaq_nsmequities_totalview_asciiitch_v3_0.timestamp_format ~= 0 then
     local stored_second = nasdaq_nsmequities_totalview_asciiitch_v3_0.second.current
 
     if stored_second ~= nil then
@@ -2815,6 +2818,8 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_directory_message.fields = fun
   -- Cache Stock Directory Message record by stock_alphabetic_6
   if show.records and not packet.visited then
     nasdaq_nsmequities_totalview_asciiitch_v3_0.conversation.current.stock_directory_message[stock_alphabetic_6] = {
+      record_frame = packet.number,
+      record_previous = nasdaq_nsmequities_totalview_asciiitch_v3_0.conversation.current.stock_directory_message[stock_alphabetic_6],
       stock_alphabetic_6 = stock_alphabetic_6,
       market_category = market_category,
       financial_status_indicator = financial_status_indicator,

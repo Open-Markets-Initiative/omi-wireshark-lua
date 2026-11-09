@@ -71,17 +71,15 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.timestamp = ProtoField.new
 -- Miax PearlEquities TopOfMarket Mach 1.1.a Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-miax_pearlequities_topofmarket_mach_v1_1_a.absolute_time_base = 0
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-miax_pearlequities_topofmarket_mach_v1_1_a.format_timestamp = true
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+miax_pearlequities_topofmarket_mach_v1_1_a.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -101,9 +99,8 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_structs = Pref.bool("S
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()
@@ -121,11 +118,8 @@ function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()
   if show.structs ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_structs then
     show.structs = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_structs
   end
-  if miax_pearlequities_topofmarket_mach_v1_1_a.format_timestamp ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.format_timestamp then
-    miax_pearlequities_topofmarket_mach_v1_1_a.format_timestamp = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.format_timestamp
-  end
-  if miax_pearlequities_topofmarket_mach_v1_1_a.absolute_time_base ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.absolute_time_base then
-    miax_pearlequities_topofmarket_mach_v1_1_a.absolute_time_base = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.absolute_time_base
+  if miax_pearlequities_topofmarket_mach_v1_1_a.timestamp_format ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.timestamp_format then
+    miax_pearlequities_topofmarket_mach_v1_1_a.timestamp_format = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.timestamp_format
   end
 end
 
@@ -672,7 +666,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.seconds.generated = function(value, r
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds
-  if miax_pearlequities_topofmarket_mach_v1_1_a.absolute_time_base == 1 then field = omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds_utc end
+  if miax_pearlequities_topofmarket_mach_v1_1_a.timestamp_format == 3 then field = omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds_utc end
   local seconds = parent:add(field, range, NSTime.new(value, 0))
   seconds:set_generated()
 end
@@ -686,7 +680,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.seconds.dissect = function(buffer, of
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds
-  if miax_pearlequities_topofmarket_mach_v1_1_a.absolute_time_base == 1 then field = omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds_utc end
+  if miax_pearlequities_topofmarket_mach_v1_1_a.timestamp_format == 3 then field = omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -1001,12 +995,13 @@ miax_pearlequities_topofmarket_mach_v1_1_a.timestamp = {}
 
 -- Translate: Timestamp
 miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.translate = function(nanoseconds, stored_seconds)
-  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
+  return UInt64.new(stored_seconds) * 1000000000 + nanoseconds
 end
 
 -- Display: Timestamp
 miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.display = function(nanoseconds, stored_seconds)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_seconds)..string.format("%09d", nanoseconds)
+  local format = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, stored_seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Composite: Timestamp
@@ -1028,7 +1023,7 @@ end
 
 -- Dissect: Timestamp
 miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect = function(buffer, offset, packet, parent)
-  if miax_pearlequities_topofmarket_mach_v1_1_a.format_timestamp then
+  if miax_pearlequities_topofmarket_mach_v1_1_a.timestamp_format ~= 0 then
     local stored_seconds = miax_pearlequities_topofmarket_mach_v1_1_a.seconds.current
 
     if stored_seconds ~= nil then

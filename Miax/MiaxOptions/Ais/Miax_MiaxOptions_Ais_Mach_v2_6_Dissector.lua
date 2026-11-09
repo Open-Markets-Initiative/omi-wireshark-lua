@@ -151,17 +151,15 @@ omi_miax_miaxoptions_ais_mach_v2_6.fields.timestamp = ProtoField.new("Timestamp"
 -- Miax MiaxOptions Ais Mach 2.6 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-miax_miaxoptions_ais_mach_v2_6.absolute_time_base = 0
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-miax_miaxoptions_ais_mach_v2_6.format_timestamp = true
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+miax_miaxoptions_ais_mach_v2_6.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -185,9 +183,8 @@ omi_miax_miaxoptions_ais_mach_v2_6.prefs.show_repeating_groups = Pref.bool("Show
 omi_miax_miaxoptions_ais_mach_v2_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_miaxoptions_ais_mach_v2_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_miaxoptions_ais_mach_v2_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_6.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_miax_miaxoptions_ais_mach_v2_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_miax_miaxoptions_ais_mach_v2_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_ais_mach_v2_6.prefs_changed()
@@ -211,11 +208,8 @@ function omi_miax_miaxoptions_ais_mach_v2_6.prefs_changed()
   if show.indexes ~= omi_miax_miaxoptions_ais_mach_v2_6.prefs.show_indexes then
     show.indexes = omi_miax_miaxoptions_ais_mach_v2_6.prefs.show_indexes
   end
-  if miax_miaxoptions_ais_mach_v2_6.format_timestamp ~= omi_miax_miaxoptions_ais_mach_v2_6.prefs.format_timestamp then
-    miax_miaxoptions_ais_mach_v2_6.format_timestamp = omi_miax_miaxoptions_ais_mach_v2_6.prefs.format_timestamp
-  end
-  if miax_miaxoptions_ais_mach_v2_6.absolute_time_base ~= omi_miax_miaxoptions_ais_mach_v2_6.prefs.absolute_time_base then
-    miax_miaxoptions_ais_mach_v2_6.absolute_time_base = omi_miax_miaxoptions_ais_mach_v2_6.prefs.absolute_time_base
+  if miax_miaxoptions_ais_mach_v2_6.timestamp_format ~= omi_miax_miaxoptions_ais_mach_v2_6.prefs.timestamp_format then
+    miax_miaxoptions_ais_mach_v2_6.timestamp_format = omi_miax_miaxoptions_ais_mach_v2_6.prefs.timestamp_format
   end
 end
 
@@ -2018,7 +2012,7 @@ miax_miaxoptions_ais_mach_v2_6.seconds.generated = function(value, range, packet
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_miax_miaxoptions_ais_mach_v2_6.fields.seconds
-  if miax_miaxoptions_ais_mach_v2_6.absolute_time_base == 1 then field = omi_miax_miaxoptions_ais_mach_v2_6.fields.seconds_utc end
+  if miax_miaxoptions_ais_mach_v2_6.timestamp_format == 3 then field = omi_miax_miaxoptions_ais_mach_v2_6.fields.seconds_utc end
   local seconds = parent:add(field, range, NSTime.new(value, 0))
   seconds:set_generated()
 end
@@ -2032,7 +2026,7 @@ miax_miaxoptions_ais_mach_v2_6.seconds.dissect = function(buffer, offset, packet
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_miax_miaxoptions_ais_mach_v2_6.fields.seconds
-  if miax_miaxoptions_ais_mach_v2_6.absolute_time_base == 1 then field = omi_miax_miaxoptions_ais_mach_v2_6.fields.seconds_utc end
+  if miax_miaxoptions_ais_mach_v2_6.timestamp_format == 3 then field = omi_miax_miaxoptions_ais_mach_v2_6.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -2709,12 +2703,13 @@ miax_miaxoptions_ais_mach_v2_6.timestamp = {}
 
 -- Translate: Timestamp
 miax_miaxoptions_ais_mach_v2_6.timestamp.translate = function(nanoseconds, stored_seconds)
-  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
+  return UInt64.new(stored_seconds) * 1000000000 + nanoseconds
 end
 
 -- Display: Timestamp
 miax_miaxoptions_ais_mach_v2_6.timestamp.display = function(nanoseconds, stored_seconds)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_seconds)..string.format("%09d", nanoseconds)
+  local format = miax_miaxoptions_ais_mach_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, stored_seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Composite: Timestamp
@@ -2736,7 +2731,7 @@ end
 
 -- Dissect: Timestamp
 miax_miaxoptions_ais_mach_v2_6.timestamp.dissect = function(buffer, offset, packet, parent)
-  if miax_miaxoptions_ais_mach_v2_6.format_timestamp then
+  if miax_miaxoptions_ais_mach_v2_6.timestamp_format ~= 0 then
     local stored_seconds = miax_miaxoptions_ais_mach_v2_6.seconds.current
 
     if stored_seconds ~= nil then

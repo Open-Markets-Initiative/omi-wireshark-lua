@@ -522,14 +522,14 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_limits_index = ProtoField.n
 -- Nse NseFo OrderEntry NnfDirect 9.50 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format = 2
 
 -- assumed connection role
 local role_enum = {
@@ -562,7 +562,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_headers = Pref.bool("Show He
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs_changed()
@@ -583,8 +583,8 @@ function omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs_changed()
   if show.indexes ~= omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_indexes then
     show.indexes = omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_indexes
   end
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base ~= omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.absolute_time_base then
-    nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base = omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.absolute_time_base
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format ~= omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.timestamp_format then
+    nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format = omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.timestamp_format
   end
 end
 
@@ -693,7 +693,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.activity_time.dissect = function(buffer, of
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.activity_time
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.activity_time_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.activity_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -838,7 +838,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.batch_2_start_time.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.batch_2_start_time
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.batch_2_start_time_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.batch_2_start_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2340,7 +2340,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.end_time.dissect = function(buffer, offset,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.end_time
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.end_time_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.end_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2364,7 +2364,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time.dissect = function(buffer, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.entry_date_time
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.entry_date_time_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.entry_date_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2388,7 +2388,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time_1.dissect = function(buffer
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.entry_date_time_1
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.entry_date_time_1_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.entry_date_time_1_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2878,7 +2878,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expiry_date.dissect = function(buffer, offs
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expiry_date
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expiry_date_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expiry_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2902,7 +2902,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_1.dissect = function(buffer, off
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expirydate_1
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expirydate_1_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expirydate_1_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2926,7 +2926,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_2.dissect = function(buffer, off
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expirydate_2
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expirydate_2_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expirydate_2_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -3790,7 +3790,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.inner_log_time.dissect = function(buffer, o
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.inner_log_time
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.inner_log_time_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.inner_log_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -4136,7 +4136,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_modified_date_time.dissect = function(
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_modified_date_time
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_modified_date_time_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_modified_date_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -4160,7 +4160,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_password_change_date.dissect = functio
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_password_change_date
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_password_change_date_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_password_change_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -4184,7 +4184,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_index_time.dissect = function(b
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_index_time
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_index_time_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_index_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -4208,7 +4208,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_instrument_time.dissect = funct
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_instrument_time
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_instrument_time_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_instrument_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -4232,7 +4232,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_participant_time.dissect = func
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_participant_time
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_participant_time_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_participant_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -4256,7 +4256,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_portfolio_t_ime.dissect = funct
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_portfolio_t_ime
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_portfolio_t_ime_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_portfolio_t_ime_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -4280,7 +4280,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_security_time.dissect = functio
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_security_time
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_security_time_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.last_update_security_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -4419,7 +4419,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.log_time.dissect = function(buffer, offset,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.log_time
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.log_time_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.log_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -6589,7 +6589,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.report_date.dissect = function(buffer, offs
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.report_date
-  if nse_nsefo_orderentry_nnfdirect_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.report_date_utc end
+  if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.report_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0

@@ -8089,12 +8089,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_ask_price_futures_depth = {}
 
 -- Display: Scaled Ask Price Futures Depth
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_ask_price_futures_depth.display = function(value)
-  return "Scaled Ask Price Futures Depth: " .. string.format("%g", value)
+  return "Scaled Ask Price Futures Depth: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Ask Price Futures Depth with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_ask_price_futures_depth.display_uncoded = function(value)
-  return "Scaled Ask Price Futures Depth: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Ask Price Futures Depth: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Ask Price Futures Depth
@@ -8178,12 +8178,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_ask_price_quote = {}
 
 -- Display: Scaled Ask Price Quote
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_ask_price_quote.display = function(value)
-  return "Scaled Ask Price Quote: " .. string.format("%g", value)
+  return "Scaled Ask Price Quote: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Ask Price Quote with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_ask_price_quote.display_uncoded = function(value)
-  return "Scaled Ask Price Quote: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Ask Price Quote: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Ask Price Quote
@@ -8267,12 +8267,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_ask_price_summary = {}
 
 -- Display: Scaled Ask Price Summary
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_ask_price_summary.display = function(value)
-  return "Scaled Ask Price Summary: " .. string.format("%g", value)
+  return "Scaled Ask Price Summary: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Ask Price Summary with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_ask_price_summary.display_uncoded = function(value)
-  return "Scaled Ask Price Summary: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Ask Price Summary: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Ask Price Summary
@@ -8356,12 +8356,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_bid_price_quote = {}
 
 -- Display: Scaled Bid Price Quote
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_bid_price_quote.display = function(value)
-  return "Scaled Bid Price Quote: " .. string.format("%g", value)
+  return "Scaled Bid Price Quote: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Bid Price Quote with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_bid_price_quote.display_uncoded = function(value)
-  return "Scaled Bid Price Quote: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Bid Price Quote: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Bid Price Quote
@@ -8445,12 +8445,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_bid_price_summary = {}
 
 -- Display: Scaled Bid Price Summary
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_bid_price_summary.display = function(value)
-  return "Scaled Bid Price Summary: " .. string.format("%g", value)
+  return "Scaled Bid Price Summary: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Bid Price Summary with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_bid_price_summary.display_uncoded = function(value)
-  return "Scaled Bid Price Summary: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Bid Price Summary: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Bid Price Summary
@@ -8534,12 +8534,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_external_price_at_source = {}
 
 -- Display: Scaled External Price At Source
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_external_price_at_source.display = function(value)
-  return "Scaled External Price At Source: " .. string.format("%g", value)
+  return "Scaled External Price At Source: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled External Price At Source with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_external_price_at_source.display_uncoded = function(value)
-  return "Scaled External Price At Source: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled External Price At Source: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled External Price At Source
@@ -8623,12 +8623,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_fixed_rate = {}
 
 -- Display: Scaled Fixed Rate
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_fixed_rate.display = function(value)
-  return "Scaled Fixed Rate: " .. string.format("%g", value)
+  return "Scaled Fixed Rate: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Fixed Rate with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_fixed_rate.display_uncoded = function(value)
-  return "Scaled Fixed Rate: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Fixed Rate: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Fixed Rate
@@ -8712,12 +8712,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_high_price = {}
 
 -- Display: Scaled High Price
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_high_price.display = function(value)
-  return "Scaled High Price: " .. string.format("%g", value)
+  return "Scaled High Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled High Price with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_high_price.display_uncoded = function(value)
-  return "Scaled High Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled High Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled High Price
@@ -8801,12 +8801,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_historical_coupon_b = {}
 
 -- Display: Scaled Historical Coupon B
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_historical_coupon_b.display = function(value)
-  return "Scaled Historical Coupon B: " .. string.format("%g", value)
+  return "Scaled Historical Coupon B: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Historical Coupon B with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_historical_coupon_b.display_uncoded = function(value)
-  return "Scaled Historical Coupon B: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Historical Coupon B: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Historical Coupon B
@@ -8890,12 +8890,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_last_price = {}
 
 -- Display: Scaled Last Price
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_last_price.display = function(value)
-  return "Scaled Last Price: " .. string.format("%g", value)
+  return "Scaled Last Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Last Price with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_last_price.display_uncoded = function(value)
-  return "Scaled Last Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Last Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Last Price
@@ -8979,12 +8979,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_low_price = {}
 
 -- Display: Scaled Low Price
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_low_price.display = function(value)
-  return "Scaled Low Price: " .. string.format("%g", value)
+  return "Scaled Low Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Low Price with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_low_price.display_uncoded = function(value)
-  return "Scaled Low Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Low Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Low Price
@@ -9068,12 +9068,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_maximum_threshold_price_futures =
 
 -- Display: Scaled Maximum Threshold Price Futures
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_maximum_threshold_price_futures.display = function(value)
-  return "Scaled Maximum Threshold Price Futures: " .. string.format("%g", value)
+  return "Scaled Maximum Threshold Price Futures: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Maximum Threshold Price Futures with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_maximum_threshold_price_futures.display_uncoded = function(value)
-  return "Scaled Maximum Threshold Price Futures: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Maximum Threshold Price Futures: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Maximum Threshold Price Futures
@@ -9157,12 +9157,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_maximum_threshold_price_options =
 
 -- Display: Scaled Maximum Threshold Price Options
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_maximum_threshold_price_options.display = function(value)
-  return "Scaled Maximum Threshold Price Options: " .. string.format("%g", value)
+  return "Scaled Maximum Threshold Price Options: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Maximum Threshold Price Options with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_maximum_threshold_price_options.display_uncoded = function(value)
-  return "Scaled Maximum Threshold Price Options: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Maximum Threshold Price Options: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Maximum Threshold Price Options
@@ -9246,12 +9246,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_min_price = {}
 
 -- Display: Scaled Min Price
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_min_price.display = function(value)
-  return "Scaled Min Price: " .. string.format("%g", value)
+  return "Scaled Min Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Min Price with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_min_price.display_uncoded = function(value)
-  return "Scaled Min Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Min Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Min Price
@@ -9335,12 +9335,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_minimum_threshold_price_futures =
 
 -- Display: Scaled Minimum Threshold Price Futures
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_minimum_threshold_price_futures.display = function(value)
-  return "Scaled Minimum Threshold Price Futures: " .. string.format("%g", value)
+  return "Scaled Minimum Threshold Price Futures: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Minimum Threshold Price Futures with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_minimum_threshold_price_futures.display_uncoded = function(value)
-  return "Scaled Minimum Threshold Price Futures: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Minimum Threshold Price Futures: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Minimum Threshold Price Futures
@@ -9424,12 +9424,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_minimum_threshold_price_options =
 
 -- Display: Scaled Minimum Threshold Price Options
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_minimum_threshold_price_options.display = function(value)
-  return "Scaled Minimum Threshold Price Options: " .. string.format("%g", value)
+  return "Scaled Minimum Threshold Price Options: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Minimum Threshold Price Options with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_minimum_threshold_price_options.display_uncoded = function(value)
-  return "Scaled Minimum Threshold Price Options: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Minimum Threshold Price Options: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Minimum Threshold Price Options
@@ -9513,12 +9513,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_net_change = {}
 
 -- Display: Scaled Net Change
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_net_change.display = function(value)
-  return "Scaled Net Change: " .. string.format("%g", value)
+  return "Scaled Net Change: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Net Change with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_net_change.display_uncoded = function(value)
-  return "Scaled Net Change: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Net Change: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Net Change
@@ -9602,12 +9602,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_net_present_value_a = {}
 
 -- Display: Scaled Net Present Value A
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_net_present_value_a.display = function(value)
-  return "Scaled Net Present Value A: " .. string.format("%g", value)
+  return "Scaled Net Present Value A: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Net Present Value A with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_net_present_value_a.display_uncoded = function(value)
-  return "Scaled Net Present Value A: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Net Present Value A: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Net Present Value A
@@ -9691,12 +9691,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_notional_principal_amount = {}
 
 -- Display: Scaled Notional Principal Amount
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_notional_principal_amount.display = function(value)
-  return "Scaled Notional Principal Amount: " .. string.format("%g", value)
+  return "Scaled Notional Principal Amount: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Notional Principal Amount with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_notional_principal_amount.display_uncoded = function(value)
-  return "Scaled Notional Principal Amount: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Notional Principal Amount: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Notional Principal Amount
@@ -9780,12 +9780,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_open_price = {}
 
 -- Display: Scaled Open Price
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_open_price.display = function(value)
-  return "Scaled Open Price: " .. string.format("%g", value)
+  return "Scaled Open Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Open Price with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_open_price.display_uncoded = function(value)
-  return "Scaled Open Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Open Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Open Price
@@ -9869,12 +9869,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_opening_price = {}
 
 -- Display: Scaled Opening Price
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_opening_price.display = function(value)
-  return "Scaled Opening Price: " .. string.format("%g", value)
+  return "Scaled Opening Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Opening Price with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_opening_price.display_uncoded = function(value)
-  return "Scaled Opening Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Opening Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Opening Price
@@ -9958,12 +9958,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_previous_reset_rate = {}
 
 -- Display: Scaled Previous Reset Rate
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_previous_reset_rate.display = function(value)
-  return "Scaled Previous Reset Rate: " .. string.format("%g", value)
+  return "Scaled Previous Reset Rate: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Previous Reset Rate with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_previous_reset_rate.display_uncoded = function(value)
-  return "Scaled Previous Reset Rate: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Previous Reset Rate: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Previous Reset Rate
@@ -10047,12 +10047,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_previous_settlement = {}
 
 -- Display: Scaled Previous Settlement
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_previous_settlement.display = function(value)
-  return "Scaled Previous Settlement: " .. string.format("%g", value)
+  return "Scaled Previous Settlement: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Previous Settlement with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_previous_settlement.display_uncoded = function(value)
-  return "Scaled Previous Settlement: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Previous Settlement: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Previous Settlement
@@ -10136,12 +10136,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_previous_settlement_price = {}
 
 -- Display: Scaled Previous Settlement Price
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_previous_settlement_price.display = function(value)
-  return "Scaled Previous Settlement Price: " .. string.format("%g", value)
+  return "Scaled Previous Settlement Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Previous Settlement Price with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_previous_settlement_price.display_uncoded = function(value)
-  return "Scaled Previous Settlement Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Previous Settlement Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Previous Settlement Price
@@ -10225,12 +10225,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_price = {}
 
 -- Display: Scaled Price
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_price.display = function(value)
-  return "Scaled Price: " .. string.format("%g", value)
+  return "Scaled Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Price with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_price.display_uncoded = function(value)
-  return "Scaled Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Price
@@ -10314,12 +10314,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_price_alignment_interest_c = {}
 
 -- Display: Scaled Price Alignment Interest C
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_price_alignment_interest_c.display = function(value)
-  return "Scaled Price Alignment Interest C: " .. string.format("%g", value)
+  return "Scaled Price Alignment Interest C: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Price Alignment Interest C with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_price_alignment_interest_c.display_uncoded = function(value)
-  return "Scaled Price Alignment Interest C: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Price Alignment Interest C: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Price Alignment Interest C
@@ -10403,12 +10403,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_settlement_price = {}
 
 -- Display: Scaled Settlement Price
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_settlement_price.display = function(value)
-  return "Scaled Settlement Price: " .. string.format("%g", value)
+  return "Scaled Settlement Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Settlement Price with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_settlement_price.display_uncoded = function(value)
-  return "Scaled Settlement Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Settlement Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Settlement Price
@@ -10492,12 +10492,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_strike_price_instrument = {}
 
 -- Display: Scaled Strike Price Instrument
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_strike_price_instrument.display = function(value)
-  return "Scaled Strike Price Instrument: " .. string.format("%g", value)
+  return "Scaled Strike Price Instrument: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Strike Price Instrument with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_strike_price_instrument.display_uncoded = function(value)
-  return "Scaled Strike Price Instrument: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Strike Price Instrument: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Strike Price Instrument
@@ -10581,12 +10581,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_strike_price_schedule_notice = {}
 
 -- Display: Scaled Strike Price Schedule Notice
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_strike_price_schedule_notice.display = function(value)
-  return "Scaled Strike Price Schedule Notice: " .. string.format("%g", value)
+  return "Scaled Strike Price Schedule Notice: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Strike Price Schedule Notice with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_strike_price_schedule_notice.display_uncoded = function(value)
-  return "Scaled Strike Price Schedule Notice: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Strike Price Schedule Notice: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Strike Price Schedule Notice
@@ -10670,12 +10670,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_tick_increment = {}
 
 -- Display: Scaled Tick Increment
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_tick_increment.display = function(value)
-  return "Scaled Tick Increment: " .. string.format("%g", value)
+  return "Scaled Tick Increment: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Tick Increment with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_tick_increment.display_uncoded = function(value)
-  return "Scaled Tick Increment: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Tick Increment: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Tick Increment
@@ -10759,12 +10759,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_tick_price = {}
 
 -- Display: Scaled Tick Price
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_tick_price.display = function(value)
-  return "Scaled Tick Price: " .. string.format("%g", value)
+  return "Scaled Tick Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Tick Price with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_tick_price.display_uncoded = function(value)
-  return "Scaled Tick Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Tick Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Tick Price
@@ -10848,12 +10848,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_tick_value = {}
 
 -- Display: Scaled Tick Value
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_tick_value.display = function(value)
-  return "Scaled Tick Value: " .. string.format("%g", value)
+  return "Scaled Tick Value: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Tick Value with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_tick_value.display_uncoded = function(value)
-  return "Scaled Tick Value: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Tick Value: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Tick Value
@@ -10937,12 +10937,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_trade_price = {}
 
 -- Display: Scaled Trade Price
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_trade_price.display = function(value)
-  return "Scaled Trade Price: " .. string.format("%g", value)
+  return "Scaled Trade Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Trade Price with an unrecognised code
 tmx_mx_solatcpretransmission_hsvf_v1_11.scaled_trade_price.display_uncoded = function(value)
-  return "Scaled Trade Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Trade Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Trade Price

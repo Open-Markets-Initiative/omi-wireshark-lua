@@ -42,6 +42,22 @@ omi_otcmarkets_linkats_headers_link_v1.fields.heartbeat_packet = ProtoField.new(
 omi_otcmarkets_linkats_headers_link_v1.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linkats.headers.link.v1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- OtcMarkets LinkAts Headers Link 1 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+otcmarkets_linkats_headers_link_v1.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -57,6 +73,8 @@ omi_otcmarkets_linkats_headers_link_v1.prefs.show_structs = Pref.bool("Show Stru
 omi_otcmarkets_linkats_headers_link_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_otcmarkets_linkats_headers_link_v1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_otcmarkets_linkats_headers_link_v1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_otcmarkets_linkats_headers_link_v1.prefs_changed()
 
@@ -69,6 +87,9 @@ function omi_otcmarkets_linkats_headers_link_v1.prefs_changed()
   end
   if show.indexes ~= omi_otcmarkets_linkats_headers_link_v1.prefs.show_indexes then
     show.indexes = omi_otcmarkets_linkats_headers_link_v1.prefs.show_indexes
+  end
+  if otcmarkets_linkats_headers_link_v1.timestamp_format ~= omi_otcmarkets_linkats_headers_link_v1.prefs.timestamp_format then
+    otcmarkets_linkats_headers_link_v1.timestamp_format = omi_otcmarkets_linkats_headers_link_v1.prefs.timestamp_format
   end
 end
 
@@ -164,7 +185,7 @@ otcmarkets_linkats_headers_link_v1.packet_milli.display = function(value, buffer
   local milliseconds = value % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if otcmarkets_linkats_headers_link_v1.timestamp_format == 2 and packet then
+  if otcmarkets_linkats_headers_link_v1.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -174,7 +195,8 @@ otcmarkets_linkats_headers_link_v1.packet_milli.display = function(value, buffer
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Packet Milli: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%03d", milliseconds)
+      local format = otcmarkets_linkats_headers_link_v1.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Packet Milli: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
     end
   end
 

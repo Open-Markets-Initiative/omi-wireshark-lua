@@ -71,14 +71,14 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.experts = { imperative_i
 -- Imperative IntelligentCross DepthOfBook Aspen 1.11 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-imperative_intelligentcross_depthofbook_aspen_v1_11.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -99,7 +99,7 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_structs = Pre
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs_changed()
@@ -117,8 +117,8 @@ function omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs_changed()
   if show.indexes ~= omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_indexes then
     show.indexes = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_indexes
   end
-  if imperative_intelligentcross_depthofbook_aspen_v1_11.absolute_time_base ~= omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.absolute_time_base then
-    imperative_intelligentcross_depthofbook_aspen_v1_11.absolute_time_base = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.absolute_time_base
+  if imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp_format ~= omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.timestamp_format then
+    imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp_format = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.timestamp_format
   end
 end
 
@@ -744,7 +744,7 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp.dissect = function
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.timestamp
-  if imperative_intelligentcross_depthofbook_aspen_v1_11.absolute_time_base == 1 then field = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.timestamp_utc end
+  if imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp_format == 3 then field = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

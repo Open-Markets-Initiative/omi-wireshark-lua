@@ -141,14 +141,14 @@ omi_athex_athexderivatives_realtime_ids_v5_2.experts = { athex_athexderivatives_
 -- Athex AthexDerivatives RealTime Ids 5.2 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-athex_athexderivatives_realtime_ids_v5_2.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+athex_athexderivatives_realtime_ids_v5_2.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -171,7 +171,7 @@ omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_headers = Pref.bool("Sho
 omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_athex_athexderivatives_realtime_ids_v5_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_athex_athexderivatives_realtime_ids_v5_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_athex_athexderivatives_realtime_ids_v5_2.prefs_changed()
@@ -192,8 +192,8 @@ function omi_athex_athexderivatives_realtime_ids_v5_2.prefs_changed()
   if show.indexes ~= omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_indexes then
     show.indexes = omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_indexes
   end
-  if athex_athexderivatives_realtime_ids_v5_2.absolute_time_base ~= omi_athex_athexderivatives_realtime_ids_v5_2.prefs.absolute_time_base then
-    athex_athexderivatives_realtime_ids_v5_2.absolute_time_base = omi_athex_athexderivatives_realtime_ids_v5_2.prefs.absolute_time_base
+  if athex_athexderivatives_realtime_ids_v5_2.timestamp_format ~= omi_athex_athexderivatives_realtime_ids_v5_2.prefs.timestamp_format then
+    athex_athexderivatives_realtime_ids_v5_2.timestamp_format = omi_athex_athexderivatives_realtime_ids_v5_2.prefs.timestamp_format
   end
 end
 
@@ -2079,7 +2079,7 @@ athex_athexderivatives_realtime_ids_v5_2.publication_timestamp.dissect = functio
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp
-  if athex_athexderivatives_realtime_ids_v5_2.absolute_time_base == 1 then field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp_utc end
+  if athex_athexderivatives_realtime_ids_v5_2.timestamp_format == 3 then field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp_utc end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros
@@ -2513,7 +2513,7 @@ athex_athexderivatives_realtime_ids_v5_2.time_stamp.dissect = function(buffer, o
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp
-  if athex_athexderivatives_realtime_ids_v5_2.absolute_time_base == 1 then field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp_utc end
+  if athex_athexderivatives_realtime_ids_v5_2.timestamp_format == 3 then field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp_utc end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros

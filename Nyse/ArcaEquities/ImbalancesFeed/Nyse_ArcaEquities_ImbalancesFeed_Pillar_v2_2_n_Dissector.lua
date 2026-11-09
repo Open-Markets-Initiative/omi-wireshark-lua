@@ -127,14 +127,14 @@ omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.ssr_filing_price_calcu
 -- Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.timestamp_format = 2
 
 -- Reference Price Calculate format (true = decimal-scaled, false = raw mantissa)
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.format_decimals = true
@@ -165,7 +165,7 @@ omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.show_indexes = Pref.boo
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs_changed()
@@ -195,8 +195,8 @@ function omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs_changed()
   if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.format_decimals ~= omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.format_decimals then
     nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.format_decimals = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.format_decimals
   end
-  if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.absolute_time_base ~= omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.absolute_time_base then
-    nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.absolute_time_base = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.absolute_time_base
+  if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.timestamp_format ~= omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.timestamp_format then
+    nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.timestamp_format = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.timestamp_format
   end
 end
 
@@ -1578,7 +1578,7 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.seconds.dissect = function(buffer
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.seconds
-  if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.absolute_time_base == 1 then field = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.seconds_utc end
+  if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.timestamp_format == 3 then field = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -2204,6 +2204,7 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.lookup = function(bu
   local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.display(value, buffer, offset, packet, parent)
 
   if not show.records then
+    nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.current = nil
     parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.symbol_index, range, value, display)
 
     return offset + length, value
@@ -2212,10 +2213,17 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.lookup = function(bu
   -- Lookup Symbol Index Mapping Message record
   local record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.current.symbol_index_mapping_message[value]
 
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.current = record
+
   local field_tree = parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.symbol_index, range, value, display)
 
   if record ~= nil then
-    nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.current = record
     if record.symbol ~= nil then
       local entry_symbol = field_tree:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.symbol, record.symbol)
       entry_symbol:set_generated()
@@ -2491,7 +2499,7 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price_c
 
 -- Display: Auction Interest Clearing Price Calculate
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price_calculate.display = function(value)
-  return "Auction Interest Clearing Price Calculate: " .. string.format("%g", value)
+  return "Auction Interest Clearing Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Auction Interest Clearing Price Calculate
@@ -2529,7 +2537,7 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price_ca
 
 -- Display: Continuous Book Clearing Price Calculate
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price_calculate.display = function(value)
-  return "Continuous Book Clearing Price Calculate: " .. string.format("%g", value)
+  return "Continuous Book Clearing Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Continuous Book Clearing Price Calculate
@@ -2567,7 +2575,7 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price_calculate 
 
 -- Display: Indicative Match Price Calculate
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price_calculate.display = function(value)
-  return "Indicative Match Price Calculate: " .. string.format("%g", value)
+  return "Indicative Match Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Indicative Match Price Calculate
@@ -2605,7 +2613,7 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price_calculate = {}
 
 -- Display: Reference Price Calculate
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price_calculate.display = function(value)
-  return "Reference Price Calculate: " .. string.format("%g", value)
+  return "Reference Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: Reference Price Calculate
@@ -2643,7 +2651,7 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price_calculate = {}
 
 -- Display: SSR Filing Price Calculate
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price_calculate.display = function(value)
-  return "SSR Filing Price Calculate: " .. string.format("%g", value)
+  return "SSR Filing Price Calculate: " .. string.format("%.15g", value)
 end
 
 -- Composite: SSR Filing Price Calculate
@@ -3485,6 +3493,8 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.fiel
   -- Cache Symbol Index Mapping Message record by symbol_index
   if show.records and not packet.visited then
     nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.current.symbol_index_mapping_message[symbol_index] = {
+      record_frame = packet.number,
+      record_previous = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.current.symbol_index_mapping_message[symbol_index],
       symbol_index = symbol_index,
       symbol = symbol,
       price_scale_code = price_scale_code,
@@ -3817,7 +3827,8 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.send_time.display = function(pack
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Send Time
@@ -3847,7 +3858,7 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.send_time.dissect = function(buff
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.send_time
-    if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.absolute_time_base == 1 then field = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.send_time_utc end
+    if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.timestamp_format == 3 then field = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.send_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.send_time.fields(buffer, offset, packet, parent)
 

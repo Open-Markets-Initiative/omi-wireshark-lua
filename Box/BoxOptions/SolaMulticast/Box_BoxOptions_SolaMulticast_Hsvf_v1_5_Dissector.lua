@@ -4318,12 +4318,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_ask_price = {}
 
 -- Display: Scaled Ask Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_ask_price.display = function(value)
-  return "Scaled Ask Price: " .. string.format("%g", value)
+  return "Scaled Ask Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Ask Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_ask_price.display_uncoded = function(value)
-  return "Scaled Ask Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Ask Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Ask Price
@@ -4407,12 +4407,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.ask_price_quote = {}
 
 -- Display: Ask Price Quote
 box_boxoptions_solamulticast_hsvf_v1_5.ask_price_quote.display = function(value)
-  return "Ask Price Quote: " .. string.format("%g", value)
+  return "Ask Price Quote: " .. string.format("%.15g", value)
 end
 
 -- Display: Ask Price Quote with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.ask_price_quote.display_uncoded = function(value)
-  return "Ask Price Quote: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Ask Price Quote: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Ask Price Quote
@@ -4496,12 +4496,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_bid_price = {}
 
 -- Display: Scaled Bid Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_bid_price.display = function(value)
-  return "Scaled Bid Price: " .. string.format("%g", value)
+  return "Scaled Bid Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Bid Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_bid_price.display_uncoded = function(value)
-  return "Scaled Bid Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Bid Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Bid Price
@@ -4585,12 +4585,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.bid_price_quote = {}
 
 -- Display: Bid Price Quote
 box_boxoptions_solamulticast_hsvf_v1_5.bid_price_quote.display = function(value)
-  return "Bid Price Quote: " .. string.format("%g", value)
+  return "Bid Price Quote: " .. string.format("%.15g", value)
 end
 
 -- Display: Bid Price Quote with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.bid_price_quote.display_uncoded = function(value)
-  return "Bid Price Quote: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Bid Price Quote: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Bid Price Quote
@@ -4674,12 +4674,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_high_price = {}
 
 -- Display: Scaled High Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_high_price.display = function(value)
-  return "Scaled High Price: " .. string.format("%g", value)
+  return "Scaled High Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled High Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_high_price.display_uncoded = function(value)
-  return "Scaled High Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled High Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled High Price
@@ -4763,12 +4763,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_initial_order_price = {}
 
 -- Display: Scaled Initial Order Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_initial_order_price.display = function(value)
-  return "Scaled Initial Order Price: " .. string.format("%g", value)
+  return "Scaled Initial Order Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Initial Order Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_initial_order_price.display_uncoded = function(value)
-  return "Scaled Initial Order Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Initial Order Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Initial Order Price
@@ -4852,12 +4852,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_last_price = {}
 
 -- Display: Scaled Last Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_last_price.display = function(value)
-  return "Scaled Last Price: " .. string.format("%g", value)
+  return "Scaled Last Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Last Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_last_price.display_uncoded = function(value)
-  return "Scaled Last Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Last Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Last Price
@@ -4941,12 +4941,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_limit_entered_for_an_order = {}
 
 -- Display: Scaled Limit Entered For An Order
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_limit_entered_for_an_order.display = function(value)
-  return "Scaled Limit Entered For An Order: " .. string.format("%g", value)
+  return "Scaled Limit Entered For An Order: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Limit Entered For An Order with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_limit_entered_for_an_order.display_uncoded = function(value)
-  return "Scaled Limit Entered For An Order: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Limit Entered For An Order: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Limit Entered For An Order
@@ -5030,12 +5030,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_low_price = {}
 
 -- Display: Scaled Low Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_low_price.display = function(value)
-  return "Scaled Low Price: " .. string.format("%g", value)
+  return "Scaled Low Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Low Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_low_price.display_uncoded = function(value)
-  return "Scaled Low Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Low Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Low Price
@@ -5119,12 +5119,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_max_threshold_price = {}
 
 -- Display: Scaled Max Threshold Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_max_threshold_price.display = function(value)
-  return "Scaled Max Threshold Price: " .. string.format("%g", value)
+  return "Scaled Max Threshold Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Max Threshold Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_max_threshold_price.display_uncoded = function(value)
-  return "Scaled Max Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Max Threshold Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Max Threshold Price
@@ -5208,12 +5208,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_maximum_threshold_price = {}
 
 -- Display: Scaled Maximum Threshold Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_maximum_threshold_price.display = function(value)
-  return "Scaled Maximum Threshold Price: " .. string.format("%g", value)
+  return "Scaled Maximum Threshold Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Maximum Threshold Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_maximum_threshold_price.display_uncoded = function(value)
-  return "Scaled Maximum Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Maximum Threshold Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Maximum Threshold Price
@@ -5297,12 +5297,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_min_threshold_price = {}
 
 -- Display: Scaled Min Threshold Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_min_threshold_price.display = function(value)
-  return "Scaled Min Threshold Price: " .. string.format("%g", value)
+  return "Scaled Min Threshold Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Min Threshold Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_min_threshold_price.display_uncoded = function(value)
-  return "Scaled Min Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Min Threshold Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Min Threshold Price
@@ -5386,12 +5386,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_minimum_threshold_price = {}
 
 -- Display: Scaled Minimum Threshold Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_minimum_threshold_price.display = function(value)
-  return "Scaled Minimum Threshold Price: " .. string.format("%g", value)
+  return "Scaled Minimum Threshold Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Minimum Threshold Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_minimum_threshold_price.display_uncoded = function(value)
-  return "Scaled Minimum Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Minimum Threshold Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Minimum Threshold Price
@@ -5475,12 +5475,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_net_change = {}
 
 -- Display: Scaled Net Change
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_net_change.display = function(value)
-  return "Scaled Net Change: " .. string.format("%g", value)
+  return "Scaled Net Change: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Net Change with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_net_change.display_uncoded = function(value)
-  return "Scaled Net Change: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Net Change: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Net Change
@@ -5564,12 +5564,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_open_price = {}
 
 -- Display: Scaled Open Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_open_price.display = function(value)
-  return "Scaled Open Price: " .. string.format("%g", value)
+  return "Scaled Open Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Open Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_open_price.display_uncoded = function(value)
-  return "Scaled Open Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Open Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Open Price
@@ -5653,12 +5653,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_reference_price = {}
 
 -- Display: Scaled Reference Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_reference_price.display = function(value)
-  return "Scaled Reference Price: " .. string.format("%g", value)
+  return "Scaled Reference Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Reference Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_reference_price.display_uncoded = function(value)
-  return "Scaled Reference Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Reference Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Reference Price
@@ -5742,12 +5742,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_strike_price = {}
 
 -- Display: Scaled Strike Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_strike_price.display = function(value)
-  return "Scaled Strike Price: " .. string.format("%g", value)
+  return "Scaled Strike Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Strike Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_strike_price.display_uncoded = function(value)
-  return "Scaled Strike Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Strike Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Strike Price
@@ -5831,12 +5831,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_tick_increment = {}
 
 -- Display: Scaled Tick Increment
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_tick_increment.display = function(value)
-  return "Scaled Tick Increment: " .. string.format("%g", value)
+  return "Scaled Tick Increment: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Tick Increment with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_tick_increment.display_uncoded = function(value)
-  return "Scaled Tick Increment: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Tick Increment: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Tick Increment
@@ -5920,12 +5920,12 @@ box_boxoptions_solamulticast_hsvf_v1_5.scaled_trade_price = {}
 
 -- Display: Scaled Trade Price
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_trade_price.display = function(value)
-  return "Scaled Trade Price: " .. string.format("%g", value)
+  return "Scaled Trade Price: " .. string.format("%.15g", value)
 end
 
 -- Display: Scaled Trade Price with an unrecognised code
 box_boxoptions_solamulticast_hsvf_v1_5.scaled_trade_price.display_uncoded = function(value)
-  return "Scaled Trade Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+  return "Scaled Trade Price: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
 -- Composite: Scaled Trade Price

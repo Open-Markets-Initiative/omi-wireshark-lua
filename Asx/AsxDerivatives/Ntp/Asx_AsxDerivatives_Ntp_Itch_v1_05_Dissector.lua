@@ -162,17 +162,15 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.timestamp = ProtoField.new("Timesta
 -- Asx AsxDerivatives Ntp Itch 1.05 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-asx_asxderivatives_ntp_itch_v1_05.absolute_time_base = 0
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-asx_asxderivatives_ntp_itch_v1_05.format_timestamp = true
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+asx_asxderivatives_ntp_itch_v1_05.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -194,9 +192,8 @@ omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_structs = Pref.bool("Show Struc
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
-omi_asx_asxderivatives_ntp_itch_v1_05.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_asx_asxderivatives_ntp_itch_v1_05.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_asx_asxderivatives_ntp_itch_v1_05.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_asx_asxderivatives_ntp_itch_v1_05.prefs_changed()
@@ -217,11 +214,8 @@ function omi_asx_asxderivatives_ntp_itch_v1_05.prefs_changed()
   if show.sequences ~= omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_sequences then
     show.sequences = omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_sequences
   end
-  if asx_asxderivatives_ntp_itch_v1_05.format_timestamp ~= omi_asx_asxderivatives_ntp_itch_v1_05.prefs.format_timestamp then
-    asx_asxderivatives_ntp_itch_v1_05.format_timestamp = omi_asx_asxderivatives_ntp_itch_v1_05.prefs.format_timestamp
-  end
-  if asx_asxderivatives_ntp_itch_v1_05.absolute_time_base ~= omi_asx_asxderivatives_ntp_itch_v1_05.prefs.absolute_time_base then
-    asx_asxderivatives_ntp_itch_v1_05.absolute_time_base = omi_asx_asxderivatives_ntp_itch_v1_05.prefs.absolute_time_base
+  if asx_asxderivatives_ntp_itch_v1_05.timestamp_format ~= omi_asx_asxderivatives_ntp_itch_v1_05.prefs.timestamp_format then
+    asx_asxderivatives_ntp_itch_v1_05.timestamp_format = omi_asx_asxderivatives_ntp_itch_v1_05.prefs.timestamp_format
   end
 end
 
@@ -2001,7 +1995,7 @@ asx_asxderivatives_ntp_itch_v1_05.second.generated = function(value, range, pack
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_asx_asxderivatives_ntp_itch_v1_05.fields.second
-  if asx_asxderivatives_ntp_itch_v1_05.absolute_time_base == 1 then field = omi_asx_asxderivatives_ntp_itch_v1_05.fields.second_utc end
+  if asx_asxderivatives_ntp_itch_v1_05.timestamp_format == 3 then field = omi_asx_asxderivatives_ntp_itch_v1_05.fields.second_utc end
   local second = parent:add(field, range, NSTime.new(value, 0))
   second:set_generated()
 end
@@ -2015,7 +2009,7 @@ asx_asxderivatives_ntp_itch_v1_05.second.dissect = function(buffer, offset, pack
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_asx_asxderivatives_ntp_itch_v1_05.fields.second
-  if asx_asxderivatives_ntp_itch_v1_05.absolute_time_base == 1 then field = omi_asx_asxderivatives_ntp_itch_v1_05.fields.second_utc end
+  if asx_asxderivatives_ntp_itch_v1_05.timestamp_format == 3 then field = omi_asx_asxderivatives_ntp_itch_v1_05.fields.second_utc end
 
   local seconds = value
   local nanos = 0
@@ -2726,12 +2720,13 @@ asx_asxderivatives_ntp_itch_v1_05.timestamp = {}
 
 -- Translate: Timestamp
 asx_asxderivatives_ntp_itch_v1_05.timestamp.translate = function(nanoseconds, stored_second)
-  return UInt64.new(stored_second * 1000000000 + nanoseconds)
+  return UInt64.new(stored_second) * 1000000000 + nanoseconds
 end
 
 -- Display: Timestamp
 asx_asxderivatives_ntp_itch_v1_05.timestamp.display = function(nanoseconds, stored_second)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
+  local format = asx_asxderivatives_ntp_itch_v1_05.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, stored_second)..string.format("%09d", nanoseconds)
 end
 
 -- Composite: Timestamp
@@ -2753,7 +2748,7 @@ end
 
 -- Dissect: Timestamp
 asx_asxderivatives_ntp_itch_v1_05.timestamp.dissect = function(buffer, offset, packet, parent)
-  if asx_asxderivatives_ntp_itch_v1_05.format_timestamp then
+  if asx_asxderivatives_ntp_itch_v1_05.timestamp_format ~= 0 then
     local stored_second = asx_asxderivatives_ntp_itch_v1_05.second.current
 
     if stored_second ~= nil then

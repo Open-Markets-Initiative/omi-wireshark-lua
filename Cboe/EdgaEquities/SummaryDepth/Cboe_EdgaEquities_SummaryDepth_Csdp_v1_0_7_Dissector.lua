@@ -87,10 +87,11 @@ omi_cboe_edgaequities_summarydepth_csdp_v1_0_7.fields.message_sequence_number = 
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
 cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp_format = 2
 
 
@@ -118,7 +119,7 @@ omi_cboe_edgaequities_summarydepth_csdp_v1_0_7.prefs.show_padding = Pref.bool("S
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_edgaequities_summarydepth_csdp_v1_0_7.prefs.timestamp_format = Pref.enum("Last Update Timestamp Format", 2, "Last Update Timestamp display format", timestamp_format_enum, false)
+omi_cboe_edgaequities_summarydepth_csdp_v1_0_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_edgaequities_summarydepth_csdp_v1_0_7.prefs_changed()
@@ -356,7 +357,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_7.last_update_timestamp.display = funct
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp_format == 2 and packet then
+  if cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -366,7 +367,8 @@ cboe_edgaequities_summarydepth_csdp_v1_0_7.last_update_timestamp.display = funct
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Last Update Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%09d", nanoseconds)
+      local format = cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Last Update Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -875,7 +877,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp.display = function(value, b
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp_format == 2 and packet then
+  if cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -885,7 +887,8 @@ cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp.display = function(value, b
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%09d", nanoseconds)
+      local format = cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -923,7 +926,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_7.transaction_time.display = function(v
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
   -- Full datetime mode (the day the frame that carried it settled on)
-  if cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp_format == 2 and packet then
+  if cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
 
     -- A frame a file handler read states no instant and reads as the epoch
@@ -933,7 +936,8 @@ cboe_edgaequities_summarydepth_csdp_v1_0_7.transaction_time.display = function(v
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
-      return "Transaction Time: "..os.date("!%Y-%m-%d %H:%M:%S.", midnight + seconds)..string.format("%09d", nanoseconds)
+      local format = cboe_edgaequities_summarydepth_csdp_v1_0_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Transaction Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
     end
   end
 

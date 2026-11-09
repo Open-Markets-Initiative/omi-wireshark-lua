@@ -113,14 +113,14 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.snapshot_price_point_
 -- Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -145,7 +145,7 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_headers = Pref.bo
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs_changed()
@@ -169,8 +169,8 @@ function omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs_changed()
   if show.indexes ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_indexes then
     show.indexes = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_indexes
   end
-  if nyse_nyseequities_openbookaggregated_xdp_v2_1_d.absolute_time_base ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.absolute_time_base then
-    nyse_nyseequities_openbookaggregated_xdp_v2_1_d.absolute_time_base = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.absolute_time_base
+  if nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp_format ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.timestamp_format then
+    nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp_format = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.timestamp_format
   end
 end
 
@@ -1227,7 +1227,7 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.seconds.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.seconds
-  if nyse_nyseequities_openbookaggregated_xdp_v2_1_d.absolute_time_base == 1 then field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.seconds_utc end
+  if nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp_format == 3 then field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.seconds_utc end
 
   local seconds = value
   local nanos = 0
@@ -3369,7 +3369,8 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.send_time.display = function(pac
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Send Time
@@ -3399,7 +3400,7 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.send_time.dissect = function(buf
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.send_time
-    if nyse_nyseequities_openbookaggregated_xdp_v2_1_d.absolute_time_base == 1 then field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.send_time_utc end
+    if nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp_format == 3 then field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.send_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.send_time.fields(buffer, offset, packet, parent)
 

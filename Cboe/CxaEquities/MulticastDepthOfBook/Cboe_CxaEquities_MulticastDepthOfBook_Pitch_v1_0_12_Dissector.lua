@@ -86,14 +86,14 @@ omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.message_sequence_
 -- Cboe CxaEquities MulticastDepthOfBook Pitch 1.0.12 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -116,7 +116,7 @@ omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.show_headers = Pre
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs_changed()
@@ -137,8 +137,8 @@ function omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs_changed()
   if show.sequences ~= omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.show_sequences then
     show.sequences = omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.show_sequences
   end
-  if cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.absolute_time_base ~= omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.absolute_time_base then
-    cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.absolute_time_base = omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.absolute_time_base
+  if cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.timestamp_format ~= omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.timestamp_format then
+    cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.timestamp_format = omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.timestamp_format
   end
 end
 
@@ -833,7 +833,7 @@ cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.timestamp.dissect = function
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.timestamp
-  if cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.absolute_time_base == 1 then field = omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.timestamp_utc end
+  if cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.timestamp_format == 3 then field = omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

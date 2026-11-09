@@ -321,14 +321,14 @@ omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.token_and_refprice_index = ProtoFie
 -- Nse NseCm Broadcast NnfBcast 6.6 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -349,7 +349,7 @@ omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_structs = Pref.bool("Show Struc
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs_changed()
@@ -367,8 +367,8 @@ function omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs_changed()
   if show.indexes ~= omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_indexes then
     show.indexes = omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.show_indexes
   end
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base ~= omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.absolute_time_base then
-    nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base = omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.absolute_time_base
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format ~= omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.timestamp_format then
+    nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format = omi_nse_nsecm_broadcast_nnfbcast_v6_6.prefs.timestamp_format
   end
 end
 
@@ -1070,7 +1070,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.book_closure_end_date.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.book_closure_end_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.book_closure_end_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.book_closure_end_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -1094,7 +1094,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.book_closure_start_date.dissect = function(buf
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.book_closure_start_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.book_closure_start_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.book_closure_start_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -1654,7 +1654,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.end_date.dissect = function(buffer, offset, pa
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.end_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.end_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.end_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -1701,7 +1701,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.expiry_date.dissect = function(buffer, offset,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.expiry_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.expiry_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.expiry_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -1725,7 +1725,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.expulsion_date.dissect = function(buffer, offs
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.expulsion_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.expulsion_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.expulsion_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2345,7 +2345,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interest_payment_date.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.interest_payment_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.interest_payment_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.interest_payment_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2392,7 +2392,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.issue_maturity_date.dissect = function(buffer,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.issue_maturity_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.issue_maturity_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.issue_maturity_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2416,7 +2416,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.issue_start_date.dissect = function(buffer, of
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.issue_start_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.issue_start_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.issue_start_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2515,7 +2515,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.last_trade_time.dissect = function(buffer, off
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.last_trade_time
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.last_trade_time_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.last_trade_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2568,7 +2568,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.listing_date.dissect = function(buffer, offset
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.listing_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.listing_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.listing_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -2592,7 +2592,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.local_update_date_time.dissect = function(buff
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.local_update_date_time
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.local_update_date_time_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.local_update_date_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -3015,7 +3015,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.no_delivery_end_date.dissect = function(buffer
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.no_delivery_end_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.no_delivery_end_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.no_delivery_end_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -3039,7 +3039,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.no_delivery_start_date.dissect = function(buff
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.no_delivery_start_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.no_delivery_start_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.no_delivery_start_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -3356,7 +3356,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.participant_update_date_time.dissect = functio
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.participant_update_date_time
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.participant_update_date_time_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.participant_update_date_time_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -3617,7 +3617,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.re_admission_date.dissect = function(buffer, o
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.re_admission_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.re_admission_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.re_admission_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -3641,7 +3641,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.record_date.dissect = function(buffer, offset,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.record_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.record_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.record_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -4142,7 +4142,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.start_date.dissect = function(buffer, offset, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.start_date
-  if nse_nsecm_broadcast_nnfbcast_v6_6.absolute_time_base == 1 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.start_date_utc end
+  if nse_nsecm_broadcast_nnfbcast_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.start_date_utc end
 
   local seconds = value + 315532800
   local nanos = 0
@@ -9395,7 +9395,6 @@ udp_table:add_for_decode_as(omi_nse_nsecm_broadcast_nnfbcast_v6_6)
 --   Organization: National Stock Exchange of India Ltd
 --   Version: 6.6
 --   Date: Monday, August 3, 2026
---   Specification: TP_CM_Trimmed_NNF_PROTOCOL_6.6_20260803151116.pdf
 --   Specification: TP_CM_Trimmed_NNF_PROTOCOL_6.6_20260803151116.pdf
 --
 -- Script:

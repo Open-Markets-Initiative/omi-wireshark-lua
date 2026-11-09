@@ -333,14 +333,14 @@ omi_ice_icefutures_mdf_impact_v1_1_43.fields.strategy_leg_definition_index = Pro
 -- Ice IceFutures Mdf iMpact 1.1.43 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-ice_icefutures_mdf_impact_v1_1_43.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+ice_icefutures_mdf_impact_v1_1_43.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -365,7 +365,7 @@ omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_headers = Pref.bool("Show Heade
 omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_ice_icefutures_mdf_impact_v1_1_43.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_ice_icefutures_mdf_impact_v1_1_43.prefs_changed()
@@ -389,8 +389,8 @@ function omi_ice_icefutures_mdf_impact_v1_1_43.prefs_changed()
   if show.indexes ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_indexes then
     show.indexes = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_indexes
   end
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.absolute_time_base then
-    ice_icefutures_mdf_impact_v1_1_43.absolute_time_base = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.absolute_time_base
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.timestamp_format then
+    ice_icefutures_mdf_impact_v1_1_43.timestamp_format = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.timestamp_format
   end
 end
 
@@ -766,7 +766,7 @@ ice_icefutures_mdf_impact_v1_1_43.auction_end_time.dissect = function(buffer, of
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.auction_end_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.auction_end_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.auction_end_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1140,7 +1140,7 @@ ice_icefutures_mdf_impact_v1_1_43.delivery_begin_date_time.dissect = function(bu
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_begin_date_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_begin_date_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_begin_date_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -1164,7 +1164,7 @@ ice_icefutures_mdf_impact_v1_1_43.delivery_end_date_time.dissect = function(buff
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_end_date_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_end_date_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_end_date_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -3295,7 +3295,7 @@ ice_icefutures_mdf_impact_v1_1_43.last_trade_date_time.dissect = function(buffer
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_trade_date_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_trade_date_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_trade_date_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -4096,7 +4096,7 @@ ice_icefutures_mdf_impact_v1_1_43.message_date_time.dissect = function(buffer, o
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_date_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_date_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_date_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -4120,7 +4120,7 @@ ice_icefutures_mdf_impact_v1_1_43.message_timestamp.dissect = function(buffer, o
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_timestamp
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_timestamp_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_timestamp_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -4360,7 +4360,7 @@ ice_icefutures_mdf_impact_v1_1_43.modification_timestamp.dissect = function(buff
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.modification_timestamp
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.modification_timestamp_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.modification_timestamp_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -4384,7 +4384,7 @@ ice_icefutures_mdf_impact_v1_1_43.notification_date_time.dissect = function(buff
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.notification_date_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.notification_date_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.notification_date_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -5369,7 +5369,7 @@ ice_icefutures_mdf_impact_v1_1_43.order_entry_date_time.dissect = function(buffe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_entry_date_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_entry_date_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_entry_date_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -5711,7 +5711,7 @@ ice_icefutures_mdf_impact_v1_1_43.published_date_time.dissect = function(buffer,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.published_date_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.published_date_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.published_date_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -5758,7 +5758,7 @@ ice_icefutures_mdf_impact_v1_1_43.request_trading_engine_received_timestamp.diss
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.request_trading_engine_received_timestamp
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.request_trading_engine_received_timestamp_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.request_trading_engine_received_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -6088,7 +6088,7 @@ ice_icefutures_mdf_impact_v1_1_43.sent_date_time.dissect = function(buffer, offs
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.sent_date_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.sent_date_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.sent_date_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -6181,7 +6181,7 @@ ice_icefutures_mdf_impact_v1_1_43.settle_price_date_time.dissect = function(buff
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.settle_price_date_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.settle_price_date_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.settle_price_date_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -6961,7 +6961,7 @@ ice_icefutures_mdf_impact_v1_1_43.timestamp.dissect = function(buffer, offset, p
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.timestamp
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.timestamp_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -7129,7 +7129,7 @@ ice_icefutures_mdf_impact_v1_1_43.transact_date_time.dissect = function(buffer, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.transact_date_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.transact_date_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.transact_date_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000
@@ -7359,7 +7359,7 @@ ice_icefutures_mdf_impact_v1_1_43.valuation_date_time.dissect = function(buffer,
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.valuation_date_time
-  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.valuation_date_time_utc end
+  if ice_icefutures_mdf_impact_v1_1_43.timestamp_format == 3 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.valuation_date_time_utc end
 
   local seconds = (value / UInt64(1000)):tonumber()
   local nanos = (value % UInt64(1000)):tonumber() * 1000000

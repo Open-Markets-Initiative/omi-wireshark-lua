@@ -411,14 +411,14 @@ omi_cme_globex_mdp3_sbe_v1_10.fields.snapshot_refresh_top_orders_group_index = P
 -- Cme Globex Mdp3 Sbe 1.10 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-cme_globex_mdp3_sbe_v1_10.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cme_globex_mdp3_sbe_v1_10.timestamp_format = 2
 
 -- assumed connection role
 local role_enum = {
@@ -455,7 +455,7 @@ omi_cme_globex_mdp3_sbe_v1_10.prefs.show_schema_messages = Pref.bool("Show Schem
 omi_cme_globex_mdp3_sbe_v1_10.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cme_globex_mdp3_sbe_v1_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cme_globex_mdp3_sbe_v1_10.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_cme_globex_mdp3_sbe_v1_10.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cme_globex_mdp3_sbe_v1_10.prefs_changed()
@@ -482,8 +482,8 @@ function omi_cme_globex_mdp3_sbe_v1_10.prefs_changed()
   if show.indexes ~= omi_cme_globex_mdp3_sbe_v1_10.prefs.show_indexes then
     show.indexes = omi_cme_globex_mdp3_sbe_v1_10.prefs.show_indexes
   end
-  if cme_globex_mdp3_sbe_v1_10.absolute_time_base ~= omi_cme_globex_mdp3_sbe_v1_10.prefs.absolute_time_base then
-    cme_globex_mdp3_sbe_v1_10.absolute_time_base = omi_cme_globex_mdp3_sbe_v1_10.prefs.absolute_time_base
+  if cme_globex_mdp3_sbe_v1_10.timestamp_format ~= omi_cme_globex_mdp3_sbe_v1_10.prefs.timestamp_format then
+    cme_globex_mdp3_sbe_v1_10.timestamp_format = omi_cme_globex_mdp3_sbe_v1_10.prefs.timestamp_format
   end
 end
 
@@ -1295,7 +1295,7 @@ cme_globex_mdp3_sbe_v1_10.event_time.dissect = function(buffer, offset, packet, 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cme_globex_mdp3_sbe_v1_10.fields.event_time
-  if cme_globex_mdp3_sbe_v1_10.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.event_time_utc end
+  if cme_globex_mdp3_sbe_v1_10.timestamp_format == 3 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.event_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -1728,7 +1728,7 @@ cme_globex_mdp3_sbe_v1_10.last_update_time.dissect = function(buffer, offset, pa
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cme_globex_mdp3_sbe_v1_10.fields.last_update_time
-  if cme_globex_mdp3_sbe_v1_10.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.last_update_time_utc end
+  if cme_globex_mdp3_sbe_v1_10.timestamp_format == 3 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.last_update_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -4319,7 +4319,7 @@ cme_globex_mdp3_sbe_v1_10.request_timestamp.dissect = function(buffer, offset, p
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cme_globex_mdp3_sbe_v1_10.fields.request_timestamp
-  if cme_globex_mdp3_sbe_v1_10.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.request_timestamp_utc end
+  if cme_globex_mdp3_sbe_v1_10.timestamp_format == 3 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.request_timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -4878,7 +4878,7 @@ cme_globex_mdp3_sbe_v1_10.sending_time.dissect = function(buffer, offset, packet
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cme_globex_mdp3_sbe_v1_10.fields.sending_time
-  if cme_globex_mdp3_sbe_v1_10.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.sending_time_utc end
+  if cme_globex_mdp3_sbe_v1_10.timestamp_format == 3 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.sending_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -5238,7 +5238,7 @@ cme_globex_mdp3_sbe_v1_10.tcp_sending_time.dissect = function(buffer, offset, pa
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cme_globex_mdp3_sbe_v1_10.fields.tcp_sending_time
-  if cme_globex_mdp3_sbe_v1_10.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.tcp_sending_time_utc end
+  if cme_globex_mdp3_sbe_v1_10.timestamp_format == 3 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.tcp_sending_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -5624,7 +5624,7 @@ cme_globex_mdp3_sbe_v1_10.transact_time.dissect = function(buffer, offset, packe
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cme_globex_mdp3_sbe_v1_10.fields.transact_time
-  if cme_globex_mdp3_sbe_v1_10.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.transact_time_utc end
+  if cme_globex_mdp3_sbe_v1_10.timestamp_format == 3 then field = omi_cme_globex_mdp3_sbe_v1_10.fields.transact_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

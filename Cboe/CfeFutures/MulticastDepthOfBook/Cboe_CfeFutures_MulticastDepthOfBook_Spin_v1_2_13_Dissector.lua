@@ -118,17 +118,15 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.timestamp = ProtoFi
 -- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.13 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.absolute_time_base = 0
-
--- Timestamp format (true = decimal-scaled, false = raw mantissa)
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.format_timestamp = true
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -150,9 +148,8 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.show_repeating_group
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs_changed()
@@ -173,11 +170,8 @@ function omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs_changed()
   if show.indexes ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.show_indexes then
     show.indexes = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.show_indexes
   end
-  if cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.format_timestamp ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.format_timestamp then
-    cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.format_timestamp = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.format_timestamp
-  end
-  if cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.absolute_time_base ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.absolute_time_base then
-    cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.absolute_time_base = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.absolute_time_base
+  if cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.timestamp_format ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.timestamp_format then
+    cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.timestamp_format = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.timestamp_format
   end
 end
 
@@ -907,7 +901,7 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.midnight_reference.generated =
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.midnight_reference
-  if cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.absolute_time_base == 1 then field = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.midnight_reference_utc end
+  if cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.timestamp_format == 3 then field = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.midnight_reference_utc end
   local midnight_reference = parent:add(field, range, NSTime.new(value, 0))
   midnight_reference:set_generated()
 end
@@ -921,7 +915,7 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.midnight_reference.dissect = f
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.midnight_reference
-  if cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.absolute_time_base == 1 then field = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.midnight_reference_utc end
+  if cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.timestamp_format == 3 then field = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.midnight_reference_utc end
 
   local seconds = value
   local nanos = 0
@@ -1707,12 +1701,13 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.timestamp = {}
 
 -- Translate: Timestamp
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time_reference)
-  return UInt64.new((stored_midnight_reference + stored_time_reference) * 1000000000 + time_offset)
+  return (UInt64.new(stored_midnight_reference) + stored_time_reference) * 1000000000 + time_offset
 end
 
 -- Display: Timestamp
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.timestamp.display = function(time_offset, stored_midnight_reference, stored_time_reference)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_midnight_reference + stored_time_reference)..string.format("%09d", time_offset)
+  local format = cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, stored_midnight_reference + stored_time_reference)..string.format("%09d", time_offset)
 end
 
 -- Composite: Timestamp

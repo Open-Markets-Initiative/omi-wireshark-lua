@@ -265,14 +265,14 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.quote_ack_with_id_g
 -- Nyse AmexOptions BinaryGateway PillarStream 3.28 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-nyse_amexoptions_binarygateway_pillarstream_v3_28.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nyse_amexoptions_binarygateway_pillarstream_v3_28.timestamp_format = 2
 
 -- assumed connection role
 local role_enum = {
@@ -309,7 +309,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs.show_headers = Pref.
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs_changed()
@@ -336,8 +336,8 @@ function omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs_changed()
   if show.indexes ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs.show_indexes then
     show.indexes = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs.show_indexes
   end
-  if nyse_amexoptions_binarygateway_pillarstream_v3_28.absolute_time_base ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs.absolute_time_base then
-    nyse_amexoptions_binarygateway_pillarstream_v3_28.absolute_time_base = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs.absolute_time_base
+  if nyse_amexoptions_binarygateway_pillarstream_v3_28.timestamp_format ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs.timestamp_format then
+    nyse_amexoptions_binarygateway_pillarstream_v3_28.timestamp_format = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.prefs.timestamp_format
   end
 end
 
@@ -2275,7 +2275,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_28.mm_sent_time.dissect = functio
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.mm_sent_time
-  if nyse_amexoptions_binarygateway_pillarstream_v3_28.absolute_time_base == 1 then field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.mm_sent_time_utc end
+  if nyse_amexoptions_binarygateway_pillarstream_v3_28.timestamp_format == 3 then field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.mm_sent_time_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -5017,7 +5017,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_28.timestamp.dissect = function(b
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.timestamp
-  if nyse_amexoptions_binarygateway_pillarstream_v3_28.absolute_time_base == 1 then field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.timestamp_utc end
+  if nyse_amexoptions_binarygateway_pillarstream_v3_28.timestamp_format == 3 then field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.timestamp_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -5070,7 +5070,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_28.transact_time_timestamp_8.diss
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.transact_time_timestamp_8
-  if nyse_amexoptions_binarygateway_pillarstream_v3_28.absolute_time_base == 1 then field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.transact_time_timestamp_8_utc end
+  if nyse_amexoptions_binarygateway_pillarstream_v3_28.timestamp_format == 3 then field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.transact_time_timestamp_8_utc end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()

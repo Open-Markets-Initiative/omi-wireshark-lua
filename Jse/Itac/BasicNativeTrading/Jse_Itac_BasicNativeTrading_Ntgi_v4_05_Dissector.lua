@@ -124,14 +124,14 @@ omi_jse_itac_basicnativetrading_ntgi_v4_05.fields.transmission_complete_message 
 -- Jse Itac BasicNativeTrading Ntgi 4.05 Formatting
 -----------------------------------------------------------------------
 
--- absolute time base
-local absolute_time_base_enum = {
-  { 1, "Local", 0 },
-  { 2, "Utc", 1 }
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
 }
 
--- 0=Local, 1=Utc
-jse_itac_basicnativetrading_ntgi_v4_05.absolute_time_base = 0
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+jse_itac_basicnativetrading_ntgi_v4_05.timestamp_format = 2
 
 
 -----------------------------------------------------------------------
@@ -150,7 +150,7 @@ omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs.show_application_messages = Pre
 omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs_changed()
@@ -165,8 +165,8 @@ function omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs_changed()
   if show.structs ~= omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs.show_structs then
     show.structs = omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs.show_structs
   end
-  if jse_itac_basicnativetrading_ntgi_v4_05.absolute_time_base ~= omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs.absolute_time_base then
-    jse_itac_basicnativetrading_ntgi_v4_05.absolute_time_base = omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs.absolute_time_base
+  if jse_itac_basicnativetrading_ntgi_v4_05.timestamp_format ~= omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs.timestamp_format then
+    jse_itac_basicnativetrading_ntgi_v4_05.timestamp_format = omi_jse_itac_basicnativetrading_ntgi_v4_05.prefs.timestamp_format
   end
 end
 
@@ -2573,7 +2573,8 @@ jse_itac_basicnativetrading_ntgi_v4_05.transact_time.display = function(packet, 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  local format = jse_itac_basicnativetrading_ntgi_v4_05.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Transact Time
@@ -2603,7 +2604,7 @@ jse_itac_basicnativetrading_ntgi_v4_05.transact_time.dissect = function(buffer, 
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_jse_itac_basicnativetrading_ntgi_v4_05.fields.transact_time
-    if jse_itac_basicnativetrading_ntgi_v4_05.absolute_time_base == 1 then field = omi_jse_itac_basicnativetrading_ntgi_v4_05.fields.transact_time_utc end
+    if jse_itac_basicnativetrading_ntgi_v4_05.timestamp_format == 3 then field = omi_jse_itac_basicnativetrading_ntgi_v4_05.fields.transact_time_utc end
     parent = parent:add(field, buffer(offset, length), NSTime.new(transact_time_seconds, transact_time_nanoseconds))
     local index = jse_itac_basicnativetrading_ntgi_v4_05.transact_time.fields(buffer, offset, packet, parent)
 
