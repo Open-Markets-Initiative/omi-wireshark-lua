@@ -15,7 +15,8 @@ local hkex_hkexderivatives_literefresh_omd_v2_0 = {}
 -----------------------------------------------------------------------
 
 -- Hkex HkexDerivatives LiteRefresh Omd 2.0 Fields
-omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.literefresh.omd.v2.0.actualstarttime", ftypes.UINT64)
+omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.literefresh.omd.v2.0.actualstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.actual_start_time_utc = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.literefresh.omd.v2.0.actualstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexderivatives.literefresh.omd.v2.0.aggregatequantity", ftypes.UINT64, nil, nil, nil, "Aggregated number of shares")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.alert_id = ProtoField.new("Alert Id", "hkex.hkexderivatives.literefresh.omd.v2.0.alertid", ftypes.UINT64, nil, nil, nil, "The reference ID for this alert, unique for any given day")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.base_currency = ProtoField.new("Base Currency", "hkex.hkexderivatives.literefresh.omd.v2.0.basecurrency", ftypes.STRING, nil, nil, nil, "Defines the trading currency")
@@ -29,8 +30,10 @@ omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.commodity_name = ProtoField
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.compression_mode = ProtoField.new("Compression Mode", "hkex.hkexderivatives.literefresh.omd.v2.0.compressionmode", ftypes.UINT8, nil, nil, nil, "Indicates if compression is applied on messages in the packet")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.content = ProtoField.new("Content", "hkex.hkexderivatives.literefresh.omd.v2.0.content", ftypes.BYTES, nil, nil, nil, "Market Alert Content")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.contract_size = ProtoField.new("Contract Size", "hkex.hkexderivatives.literefresh.omd.v2.0.contractsize", ftypes.UINT32, nil, nil, nil, "Number of Underlying entities per contract")
-omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.literefresh.omd.v2.0.coolingoffendtime", ftypes.UINT64, nil, nil, nil, "Time when the cooling off period ends (UTC timestamp)")
-omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.literefresh.omd.v2.0.coolingoffstarttime", ftypes.UINT64, nil, nil, nil, "Time when the cooling off period starts (UTC timestamp)")
+omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.literefresh.omd.v2.0.coolingoffendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period ends (UTC timestamp)")
+omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_end_time_utc = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.literefresh.omd.v2.0.coolingoffendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period ends (UTC timestamp)")
+omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.literefresh.omd.v2.0.coolingoffstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period starts (UTC timestamp)")
+omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_start_time_utc = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.literefresh.omd.v2.0.coolingoffstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period starts (UTC timestamp)")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.day_indicator = ProtoField.new("Day Indicator", "hkex.hkexderivatives.literefresh.omd.v2.0.dayindicator", ftypes.UINT16, nil, nil, nil, "Session indicator used to")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.decimal_in_contract_size = ProtoField.new("Decimal In Contract Size", "hkex.hkexderivatives.literefresh.omd.v2.0.decimalincontractsize", ftypes.UINT16, nil, nil, nil, "Implicit decimals in Contract Size and Price Quotation Factor")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.decimal_in_price = ProtoField.new("Decimal In Price", "hkex.hkexderivatives.literefresh.omd.v2.0.decimalinprice", ftypes.UINT16, nil, nil, nil, "Number of implicit decimals in Price fields and Tick Size")
@@ -91,7 +94,8 @@ omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.order_id = ProtoField.new("
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.order_type = ProtoField.new("Order Type", "hkex.hkexderivatives.literefresh.omd.v2.0.ordertype", ftypes.UINT8, nil, nil, nil, "Additional order attributes")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.hkexderivatives.literefresh.omd.v2.0.orderbookid", ftypes.UINT32, nil, nil, nil, "Uniquely identifies an instrument available for trading")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexderivatives.literefresh.omd.v2.0.pktsize", ftypes.UINT16, nil, nil, nil, "Size of the packet including this field")
-omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.literefresh.omd.v2.0.plannedstarttime", ftypes.UINT64, nil, nil, nil, "Next planned time")
+omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.literefresh.omd.v2.0.plannedstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Next planned time")
+omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.planned_start_time_utc = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.literefresh.omd.v2.0.plannedstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Next planned time")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.price = ProtoField.new("Price", "hkex.hkexderivatives.literefresh.omd.v2.0.price", ftypes.INT64)
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.price_level = ProtoField.new("Price Level", "hkex.hkexderivatives.literefresh.omd.v2.0.pricelevel", ftypes.UINT8, nil, nil, nil, "Indicates the price level (within")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.price_quotation_factor = ProtoField.new("Price Quotation Factor", "hkex.hkexderivatives.literefresh.omd.v2.0.pricequotationfactor", ftypes.UINT32, nil, nil, nil, "Implies the contracted value of the product")
@@ -103,7 +107,7 @@ omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.send_time_utc = ProtoField.
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.literefresh.omd.v2.0.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.session = ProtoField.new("Session", "hkex.hkexderivatives.literefresh.omd.v2.0.session", ftypes.UINT8, nil, nil, nil, "Session indicator used to distinguish between the T and T+1 sessions")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.settlement_currency_id = ProtoField.new("Settlement Currency Id", "hkex.hkexderivatives.literefresh.omd.v2.0.settlementcurrencyid", ftypes.STRING, nil, nil, nil, "Full descriptive name of the Settlement Currency")
-omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.settlement_price = ProtoField.new("Settlement Price", "hkex.hkexderivatives.literefresh.omd.v2.0.settlementprice", ftypes.INT32, nil, nil, nil, "‘DecimalInPremium’")
+omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.settlement_price = ProtoField.new("Settlement Price", "hkex.hkexderivatives.literefresh.omd.v2.0.settlementprice", ftypes.INT32, nil, nil, nil, "‘DecimalInPrice’")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.side = ProtoField.new("Side", "hkex.hkexderivatives.literefresh.omd.v2.0.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.source = ProtoField.new("Source", "hkex.hkexderivatives.literefresh.omd.v2.0.source", ftypes.STRING, nil, nil, nil, "Source ID for this alert message")
 omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.state = ProtoField.new("State", "hkex.hkexderivatives.literefresh.omd.v2.0.state", ftypes.UINT16, nil, nil, nil, "Numeric identification of the State Type")
@@ -258,19 +262,20 @@ hkex_hkexderivatives_literefresh_omd_v2_0.actual_start_time = {}
 -- Size: Actual Start Time
 hkex_hkexderivatives_literefresh_omd_v2_0.actual_start_time.size = 8
 
--- Display: Actual Start Time
-hkex_hkexderivatives_literefresh_omd_v2_0.actual_start_time.display = function(value)
-  return "Actual Start Time: "..value
-end
-
 -- Dissect: Actual Start Time
 hkex_hkexderivatives_literefresh_omd_v2_0.actual_start_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_literefresh_omd_v2_0.actual_start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_literefresh_omd_v2_0.actual_start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.actual_start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.actual_start_time
+  if hkex_hkexderivatives_literefresh_omd_v2_0.timestamp_format == 3 then field = omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.actual_start_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -352,6 +357,11 @@ hkex_hkexderivatives_literefresh_omd_v2_0.calculated_opening_price.size = 8
 
 -- Display: Calculated Opening Price
 hkex_hkexderivatives_literefresh_omd_v2_0.calculated_opening_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Calculated Opening Price: No Value"
+  end
+
   return "Calculated Opening Price: "..value
 end
 
@@ -489,8 +499,13 @@ hkex_hkexderivatives_literefresh_omd_v2_0.compression_mode = {}
 hkex_hkexderivatives_literefresh_omd_v2_0.compression_mode.size = 1
 
 -- Display: Compression Mode
+hkex_hkexderivatives_literefresh_omd_v2_0.compression_mode.labels = {
+  [0] = "Compression Mode: No Compression Applied (0)",
+  [1] = "Compression Mode: Compression Applied (1)",
+}
+
 hkex_hkexderivatives_literefresh_omd_v2_0.compression_mode.display = function(value)
-  return "Compression Mode: "..value
+  return hkex_hkexderivatives_literefresh_omd_v2_0.compression_mode.labels[value] or "Compression Mode: Unknown("..value..")"
 end
 
 -- Dissect: Compression Mode
@@ -557,19 +572,20 @@ hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_end_time = {}
 -- Size: Cooling Off End Time
 hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_end_time.size = 8
 
--- Display: Cooling Off End Time
-hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_end_time.display = function(value)
-  return "Cooling Off End Time: "..value
-end
-
 -- Dissect: Cooling Off End Time
 hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_end_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_end_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_end_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_end_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_end_time
+  if hkex_hkexderivatives_literefresh_omd_v2_0.timestamp_format == 3 then field = omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_end_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -580,19 +596,20 @@ hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_start_time = {}
 -- Size: Cooling Off Start Time
 hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_start_time.size = 8
 
--- Display: Cooling Off Start Time
-hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_start_time.display = function(value)
-  return "Cooling Off Start Time: "..value
-end
-
 -- Dissect: Cooling Off Start Time
 hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_start_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_literefresh_omd_v2_0.cooling_off_start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_start_time
+  if hkex_hkexderivatives_literefresh_omd_v2_0.timestamp_format == 3 then field = omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.cooling_off_start_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1006,6 +1023,11 @@ hkex_hkexderivatives_literefresh_omd_v2_0.gross_oi.size = 4
 
 -- Display: Gross Oi
 hkex_hkexderivatives_literefresh_omd_v2_0.gross_oi.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Gross Oi: No Value"
+  end
+
   return "Gross Oi: "..value
 end
 
@@ -1052,6 +1074,11 @@ hkex_hkexderivatives_literefresh_omd_v2_0.high_price.size = 8
 
 -- Display: High Price
 hkex_hkexderivatives_literefresh_omd_v2_0.high_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "High Price: No Value"
+  end
+
   return "High Price: "..value
 end
 
@@ -1075,6 +1102,11 @@ hkex_hkexderivatives_literefresh_omd_v2_0.implied_price.size = 8
 
 -- Display: Implied Price
 hkex_hkexderivatives_literefresh_omd_v2_0.implied_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Implied Price: No Value"
+  end
+
   return "Implied Price: "..value
 end
 
@@ -1212,8 +1244,45 @@ hkex_hkexderivatives_literefresh_omd_v2_0.instrument_group = {}
 hkex_hkexderivatives_literefresh_omd_v2_0.instrument_group.size = 2
 
 -- Display: Instrument Group
+hkex_hkexderivatives_literefresh_omd_v2_0.instrument_group.labels = {
+  [4] = "Instrument Group: Futures (4)",
+  [6] = "Instrument Group: Call American Style (6)",
+  [7] = "Instrument Group: Put American Style (7)",
+  [22] = "Instrument Group: Call European Style (22)",
+  [23] = "Instrument Group: Put European Style (23)",
+  [170] = "Instrument Group: Options Straddle (170)",
+  [171] = "Instrument Group: Options Strangle (171)",
+  [172] = "Instrument Group: Standard Combination Instrument For Stock Options Market Som Synthetic Futures (172)",
+  [201] = "Instrument Group: Time Spread Level 01 (201)",
+  [202] = "Instrument Group: Time Spread Level 02 (202)",
+  [203] = "Instrument Group: Time Spread Level 03 (203)",
+  [204] = "Instrument Group: Time Spread Level 04 (204)",
+  [205] = "Instrument Group: Time Spread Level 05 (205)",
+  [206] = "Instrument Group: Time Spread Level 06 (206)",
+  [207] = "Instrument Group: Time Spread Level 07 (207)",
+  [208] = "Instrument Group: Time Spread Level 08 (208)",
+  [209] = "Instrument Group: Time Spread Level 09 (209)",
+  [210] = "Instrument Group: Time Spread Level 10 (210)",
+  [211] = "Instrument Group: Time Spread Level 11 (211)",
+  [212] = "Instrument Group: Time Spread Level 12 (212)",
+  [213] = "Instrument Group: Time Spread Level 13 (213)",
+  [214] = "Instrument Group: Time Spread Level 14 (214)",
+  [215] = "Instrument Group: Time Spread Level 15 (215)",
+  [216] = "Instrument Group: Time Spread Level 16 (216)",
+  [217] = "Instrument Group: Time Spread Level 17 (217)",
+  [218] = "Instrument Group: Time Spread Level 18 (218)",
+  [219] = "Instrument Group: Time Spread Level 19 (219)",
+  [220] = "Instrument Group: Time Spread Level 20 (220)",
+  [221] = "Instrument Group: Time Spread Level 21 (221)",
+  [222] = "Instrument Group: Time Spread Level 22 (222)",
+  [223] = "Instrument Group: Time Spread Level 23 (223)",
+  [250] = "Instrument Group: Tailor Made Combination (250)",
+  [254] = "Instrument Group: Exchange Rate (254)",
+  [255] = "Instrument Group: Payment Currency (255)",
+}
+
 hkex_hkexderivatives_literefresh_omd_v2_0.instrument_group.display = function(value)
-  return "Instrument Group: "..value
+  return hkex_hkexderivatives_literefresh_omd_v2_0.instrument_group.labels[value] or "Instrument Group: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Group
@@ -1386,7 +1455,7 @@ hkex_hkexderivatives_literefresh_omd_v2_0.last_fragment.size = 1
 -- Display: Last Fragment
 hkex_hkexderivatives_literefresh_omd_v2_0.last_fragment.labels = {
   ["Y"] = "Last Fragment: Complete (Y)",
-  ["M"] = "Last Fragment: Not Complete (M)",
+  ["N"] = "Last Fragment: Not Complete (N)",
 }
 
 hkex_hkexderivatives_literefresh_omd_v2_0.last_fragment.display = function(value)
@@ -1413,6 +1482,11 @@ hkex_hkexderivatives_literefresh_omd_v2_0.last_price.size = 8
 
 -- Display: Last Price
 hkex_hkexderivatives_literefresh_omd_v2_0.last_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Last Price: No Value"
+  end
+
   return "Last Price: "..value
 end
 
@@ -1606,6 +1680,11 @@ hkex_hkexderivatives_literefresh_omd_v2_0.low_price.size = 8
 
 -- Display: Low Price
 hkex_hkexderivatives_literefresh_omd_v2_0.low_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Low Price: No Value"
+  end
+
   return "Low Price: "..value
 end
 
@@ -1628,8 +1707,52 @@ hkex_hkexderivatives_literefresh_omd_v2_0.market = {}
 hkex_hkexderivatives_literefresh_omd_v2_0.market.size = 2
 
 -- Display: Market
+hkex_hkexderivatives_literefresh_omd_v2_0.market.labels = {
+  [1] = "Market: Cesc Index Futures Options (1)",
+  [2] = "Market: Stock Futures (2)",
+  [3] = "Market: Three Year Exchange Fund Note Futures (3)",
+  [16] = "Market: Mini Hang Seng Index Futures Options (16)",
+  [20] = "Market: Stock Options (20)",
+  [24] = "Market: Hibor (24)",
+  [27] = "Market: Dividend Futures (27)",
+  [32] = "Market: Physically Settled Options On Futures Contracts On Hang Seng Index Futures (32)",
+  [34] = "Market: Hang Seng Index Futures Options (34)",
+  [35] = "Market: Flexible Hang Seng Index Options (35)",
+  [37] = "Market: Flexible Hang Seng China Enterprises Index Options (37)",
+  [38] = "Market: Hang Seng China Enterprises Index Futures Options (38)",
+  [39] = "Market: Weekly Hang Seng Index Options (39)",
+  [40] = "Market: Physically Settled Options On Futures Contracts On Hang Seng China Enterprises Index Futures (40)",
+  [51] = "Market: Hsi Volatility Index Futures (51)",
+  [60] = "Market: Sector Index Futures (60)",
+  [70] = "Market: Renminbi Currency Futures Options (70)",
+  [86] = "Market: Hang Seng Tech Index Futures Options Hang Seng Index Hang Seng China Enterprises Index Gross Net Total Return Index Futures (86)",
+  [87] = "Market: Weekly Hang Seng China Enterprises Index Options (87)",
+  [93] = "Market: Ibovespa Index Futures (93)",
+  [96] = "Market: Sp Bse Sensex Index Futures (96)",
+  [99] = "Market: Ftsejse Top 40 Index Futures (99)",
+  [102] = "Market: Micex Index Futures (102)",
+  [108] = "Market: Msci Ax J Futures Ntr (108)",
+  [111] = "Market: Physically Settled Usd Silver Futures (111)",
+  [112] = "Market: Physically Settled Cnh Silver Futures (112)",
+  [115] = "Market: Physically Settled Cnh Gold Futures (115)",
+  [116] = "Market: Physically Settled Usd Gold Futures (116)",
+  [117] = "Market: Mof T Bond Futures (117)",
+  [118] = "Market: Usd Base And Ferrous Futures (118)",
+  [120] = "Market: Cnh London Metal Mini Futures (120)",
+  [122] = "Market: Cash Settled Rmb Currency Futures (122)",
+  [125] = "Market: Cash Settled Cnhusd Futures (125)",
+  [153] = "Market: Msci China A 50 Connect Index Futures (153)",
+  [160] = "Market: Msci Jpy Index Futures Price Ntr (160)",
+  [161] = "Market: Msci Usd Index Futures Ntr (161)",
+  [163] = "Market: Msci Usd Index Futures Options Price Market 163 (163)",
+  [164] = "Market: Msci Usd Index Futures Options Price Market 164 (164)",
+  [166] = "Market: Msci Usd Index Futures Options Price Market 166 (166)",
+  [168] = "Market: Msci Usd Index Futures Options Price Market 168 (168)",
+  [170] = "Market: Msci Sgd Index Futures Price (170)",
+}
+
 hkex_hkexderivatives_literefresh_omd_v2_0.market.display = function(value)
-  return "Market: "..value
+  return hkex_hkexderivatives_literefresh_omd_v2_0.market.labels[value] or "Market: Unknown("..value..")"
 end
 
 -- Dissect: Market
@@ -1765,6 +1888,11 @@ hkex_hkexderivatives_literefresh_omd_v2_0.net_oi.size = 4
 
 -- Display: Net Oi
 hkex_hkexderivatives_literefresh_omd_v2_0.net_oi.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Net Oi: No Value"
+  end
+
   return "Net Oi: "..value
 end
 
@@ -1880,6 +2008,11 @@ hkex_hkexderivatives_literefresh_omd_v2_0.open_price.size = 8
 
 -- Display: Open Price
 hkex_hkexderivatives_literefresh_omd_v2_0.open_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Open Price: No Value"
+  end
+
   return "Open Price: "..value
 end
 
@@ -2022,19 +2155,20 @@ hkex_hkexderivatives_literefresh_omd_v2_0.planned_start_time = {}
 -- Size: Planned Start Time
 hkex_hkexderivatives_literefresh_omd_v2_0.planned_start_time.size = 8
 
--- Display: Planned Start Time
-hkex_hkexderivatives_literefresh_omd_v2_0.planned_start_time.display = function(value)
-  return "Planned Start Time: "..value
-end
-
 -- Dissect: Planned Start Time
 hkex_hkexderivatives_literefresh_omd_v2_0.planned_start_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_literefresh_omd_v2_0.planned_start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_literefresh_omd_v2_0.planned_start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.planned_start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.planned_start_time
+  if hkex_hkexderivatives_literefresh_omd_v2_0.timestamp_format == 3 then field = omi_hkex_hkexderivatives_literefresh_omd_v2_0.fields.planned_start_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2047,6 +2181,11 @@ hkex_hkexderivatives_literefresh_omd_v2_0.price.size = 8
 
 -- Display: Price
 hkex_hkexderivatives_literefresh_omd_v2_0.price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
@@ -2289,6 +2428,11 @@ hkex_hkexderivatives_literefresh_omd_v2_0.settlement_price.size = 4
 
 -- Display: Settlement Price
 hkex_hkexderivatives_literefresh_omd_v2_0.settlement_price.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Settlement Price: No Value"
+  end
+
   return "Settlement Price: "..value
 end
 
@@ -2421,8 +2565,53 @@ hkex_hkexderivatives_literefresh_omd_v2_0.status_market = {}
 hkex_hkexderivatives_literefresh_omd_v2_0.status_market.size = 4
 
 -- Display: Status Market
+hkex_hkexderivatives_literefresh_omd_v2_0.status_market.labels = {
+  [0] = "Status Market: If Not Available (0)",
+  [1] = "Status Market: Cesc Index Futures Options (1)",
+  [2] = "Status Market: Stock Futures (2)",
+  [3] = "Status Market: Three Year Exchange Fund Note Futures (3)",
+  [16] = "Status Market: Mini Hang Seng Index Futures Options (16)",
+  [20] = "Status Market: Stock Options (20)",
+  [24] = "Status Market: Hibor (24)",
+  [27] = "Status Market: Dividend Futures (27)",
+  [32] = "Status Market: Physically Settled Options On Futures Contracts On Hang Seng Index Futures (32)",
+  [34] = "Status Market: Hang Seng Index Futures Options (34)",
+  [35] = "Status Market: Flexible Hang Seng Index Options (35)",
+  [37] = "Status Market: Flexible Hang Seng China Enterprises Index Options (37)",
+  [38] = "Status Market: Hang Seng China Enterprises Index Futures Options (38)",
+  [39] = "Status Market: Weekly Hang Seng Index Options (39)",
+  [40] = "Status Market: Physically Settled Options On Futures Contracts On Hang Seng China Enterprises Index Futures (40)",
+  [51] = "Status Market: Hsi Volatility Index Futures (51)",
+  [60] = "Status Market: Sector Index Futures (60)",
+  [70] = "Status Market: Renminbi Currency Futures Options (70)",
+  [86] = "Status Market: Hang Seng Tech Index Futures Options Hang Seng Index Hang Seng China Enterprises Index Gross Net Total Return Index Futures (86)",
+  [87] = "Status Market: Weekly Hang Seng China Enterprises Index Options (87)",
+  [93] = "Status Market: Ibovespa Index Futures (93)",
+  [96] = "Status Market: Sp Bse Sensex Index Futures (96)",
+  [99] = "Status Market: Ftsejse Top 40 Index Futures (99)",
+  [102] = "Status Market: Micex Index Futures (102)",
+  [108] = "Status Market: Msci Ax J Futures Ntr (108)",
+  [111] = "Status Market: Physically Settled Usd Silver Futures (111)",
+  [112] = "Status Market: Physically Settled Cnh Silver Futures (112)",
+  [115] = "Status Market: Physically Settled Cnh Gold Futures (115)",
+  [116] = "Status Market: Physically Settled Usd Gold Futures (116)",
+  [117] = "Status Market: Mof T Bond Futures (117)",
+  [118] = "Status Market: Usd Base And Ferrous Futures (118)",
+  [120] = "Status Market: Cnh London Metal Mini Futures (120)",
+  [122] = "Status Market: Cash Settled Rmb Currency Futures (122)",
+  [125] = "Status Market: Cash Settled Cnhusd Futures (125)",
+  [153] = "Status Market: Msci China A 50 Connect Index Futures (153)",
+  [160] = "Status Market: Msci Jpy Index Futures Price Ntr (160)",
+  [161] = "Status Market: Msci Usd Index Futures Ntr (161)",
+  [163] = "Status Market: Msci Usd Index Futures Options Price Market 163 (163)",
+  [164] = "Status Market: Msci Usd Index Futures Options Price Market 164 (164)",
+  [166] = "Status Market: Msci Usd Index Futures Options Price Market 166 (166)",
+  [168] = "Status Market: Msci Usd Index Futures Options Price Market 168 (168)",
+  [170] = "Status Market: Msci Sgd Index Futures Price (170)",
+}
+
 hkex_hkexderivatives_literefresh_omd_v2_0.status_market.display = function(value)
-  return "Status Market: "..value
+  return hkex_hkexderivatives_literefresh_omd_v2_0.status_market.labels[value] or "Status Market: Unknown("..value..")"
 end
 
 -- Dissect: Status Market
@@ -4384,7 +4573,7 @@ hkex_hkexderivatives_literefresh_omd_v2_0.packet_header.fields = function(buffer
   -- Msg Count: 1 Byte Unsigned Fixed Width Integer
   index, msg_count = hkex_hkexderivatives_literefresh_omd_v2_0.msg_count.dissect(buffer, index, packet, parent)
 
-  -- Compression Mode: 1 Byte Unsigned Fixed Width Integer
+  -- Compression Mode: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, compression_mode = hkex_hkexderivatives_literefresh_omd_v2_0.compression_mode.dissect(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer

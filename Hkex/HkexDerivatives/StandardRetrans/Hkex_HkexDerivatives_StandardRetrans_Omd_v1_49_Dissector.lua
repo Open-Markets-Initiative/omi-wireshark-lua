@@ -435,6 +435,11 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.calculated_opening_price.size = 4
 
 -- Display: Calculated Opening Price
 hkex_hkexderivatives_standardretrans_omd_v1_49.calculated_opening_price.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Calculated Opening Price: No Value"
+  end
+
   return "Calculated Opening Price: "..value
 end
 
@@ -572,8 +577,13 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.compression_mode = {}
 hkex_hkexderivatives_standardretrans_omd_v1_49.compression_mode.size = 1
 
 -- Display: Compression Mode
+hkex_hkexderivatives_standardretrans_omd_v1_49.compression_mode.labels = {
+  [0] = "Compression Mode: No Compression Applied (0)",
+  [1] = "Compression Mode: Compression Applied (1)",
+}
+
 hkex_hkexderivatives_standardretrans_omd_v1_49.compression_mode.display = function(value)
-  return "Compression Mode: "..value
+  return hkex_hkexderivatives_standardretrans_omd_v1_49.compression_mode.labels[value] or "Compression Mode: Unknown("..value..")"
 end
 
 -- Dissect: Compression Mode
@@ -1204,6 +1214,11 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.gross_oi.size = 4
 
 -- Display: Gross Oi
 hkex_hkexderivatives_standardretrans_omd_v1_49.gross_oi.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Gross Oi: No Value"
+  end
+
   return "Gross Oi: "..value
 end
 
@@ -1250,6 +1265,11 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.high.size = 4
 
 -- Display: High
 hkex_hkexderivatives_standardretrans_omd_v1_49.high.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "High: No Value"
+  end
+
   return "High: "..value
 end
 
@@ -1303,8 +1323,46 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.instrument = {}
 hkex_hkexderivatives_standardretrans_omd_v1_49.instrument.size = 1
 
 -- Display: Instrument
+hkex_hkexderivatives_standardretrans_omd_v1_49.instrument.labels = {
+  [0] = "Instrument: If Not Available (0)",
+  [4] = "Instrument: Futures (4)",
+  [6] = "Instrument: Call American Style (6)",
+  [7] = "Instrument: Put American Style (7)",
+  [22] = "Instrument: Call European Style (22)",
+  [23] = "Instrument: Put European Style (23)",
+  [170] = "Instrument: Options Straddle (170)",
+  [171] = "Instrument: Options Strangle (171)",
+  [172] = "Instrument: Standard Combo Series For Stock Options Market Som Synthetic Futures (172)",
+  [201] = "Instrument: Time Spread Level 01 (201)",
+  [202] = "Instrument: Time Spread Level 02 (202)",
+  [203] = "Instrument: Time Spread Level 03 (203)",
+  [204] = "Instrument: Time Spread Level 04 (204)",
+  [205] = "Instrument: Time Spread Level 05 (205)",
+  [206] = "Instrument: Time Spread Level 06 (206)",
+  [207] = "Instrument: Time Spread Level 07 (207)",
+  [208] = "Instrument: Time Spread Level 08 (208)",
+  [209] = "Instrument: Time Spread Level 09 (209)",
+  [210] = "Instrument: Time Spread Level 10 (210)",
+  [211] = "Instrument: Time Spread Level 11 (211)",
+  [212] = "Instrument: Time Spread Level 12 (212)",
+  [213] = "Instrument: Time Spread Level 13 (213)",
+  [214] = "Instrument: Time Spread Level 14 (214)",
+  [215] = "Instrument: Time Spread Level 15 (215)",
+  [216] = "Instrument: Time Spread Level 16 (216)",
+  [217] = "Instrument: Time Spread Level 17 (217)",
+  [218] = "Instrument: Time Spread Level 18 (218)",
+  [219] = "Instrument: Time Spread Level 19 (219)",
+  [220] = "Instrument: Time Spread Level 20 (220)",
+  [221] = "Instrument: Time Spread Level 21 (221)",
+  [222] = "Instrument: Time Spread Level 22 (222)",
+  [223] = "Instrument: Time Spread Level 23 (223)",
+  [250] = "Instrument: Tailor Made Combination (250)",
+  [254] = "Instrument: Exchange Rate (254)",
+  [255] = "Instrument: Payment Currency (255)",
+}
+
 hkex_hkexderivatives_standardretrans_omd_v1_49.instrument.display = function(value)
-  return "Instrument: "..value
+  return hkex_hkexderivatives_standardretrans_omd_v1_49.instrument.labels[value] or "Instrument: Unknown("..value..")"
 end
 
 -- Dissect: Instrument
@@ -1485,7 +1543,7 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.last_fragment.size = 1
 -- Display: Last Fragment
 hkex_hkexderivatives_standardretrans_omd_v1_49.last_fragment.labels = {
   ["Y"] = "Last Fragment: Complete (Y)",
-  ["M"] = "Last Fragment: Not Complete (M)",
+  ["N"] = "Last Fragment: Not Complete (N)",
 }
 
 hkex_hkexderivatives_standardretrans_omd_v1_49.last_fragment.display = function(value)
@@ -1583,7 +1641,6 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.leg_side.size = 1
 hkex_hkexderivatives_standardretrans_omd_v1_49.leg_side.labels = {
   ["B"] = "Leg Side: As Defined (B)",
   ["C"] = "Leg Side: Opposite (C)",
-  ["2"] = "Leg Side: Net Value (2)",
 }
 
 hkex_hkexderivatives_standardretrans_omd_v1_49.leg_side.display = function(value)
@@ -1638,6 +1695,11 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.low.size = 4
 
 -- Display: Low
 hkex_hkexderivatives_standardretrans_omd_v1_49.low.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Low: No Value"
+  end
+
   return "Low: "..value
 end
 
@@ -1661,53 +1723,54 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.market.size = 1
 
 -- Display: Market
 hkex_hkexderivatives_standardretrans_omd_v1_49.market.labels = {
-  [1] = "Market: Cesc Index Futures And Options (1)",
+  [0] = "Market: If Not Available (0)",
+  [1] = "Market: Cesc Index Futures Options (1)",
   [2] = "Market: Stock Futures In Omd D Partition 1 (2)",
   [3] = "Market: Three Year Exchange Fund Note Futures (3)",
-  [16] = "Market: Mini Hang Seng Index Futures And Options (16)",
+  [16] = "Market: Mini Hang Seng Index Futures Options (16)",
   [18] = "Market: Weekly Stock Options In Omd D Partition 1 (18)",
   [20] = "Market: Stock Options In Omd D Partition 1 (20)",
   [24] = "Market: Hibor (24)",
   [27] = "Market: Dividend Futures (27)",
   [32] = "Market: Physically Settled Options On Futures Contracts On Hang Seng Index Futures (32)",
-  [34] = "Market: Hang Seng Index Futures And Options (34)",
+  [34] = "Market: Hang Seng Index Futures Options (34)",
   [35] = "Market: Flexible Hang Seng Index Options (35)",
   [37] = "Market: Flexible Hang Seng China Enterprises Index Options (37)",
-  [38] = "Market: Hang Seng China Enterprises Index Futures And Options (38)",
+  [38] = "Market: Hang Seng China Enterprises Index Futures Options (38)",
   [39] = "Market: Weekly Hang Seng Index Options (39)",
   [40] = "Market: Physically Settled Options On Futures Contracts On Hang Seng China Enterprises Index Futures (40)",
   [51] = "Market: Hsi Volatility Index Futures (51)",
   [60] = "Market: Sector Index Futures (60)",
-  [70] = "Market: Renminbi Currency Futures And Options (70)",
+  [70] = "Market: Renminbi Currency Futures Options (70)",
   [80] = "Market: Hang Seng Biotech Index Futures (80)",
   [83] = "Market: Physically Settled Options On Futures Contracts On Hang Seng Tech Index Futures Options (83)",
   [84] = "Market: Weekly Hang Seng Tech Index Options (84)",
-  [86] = "Market: Hang Seng Tech Index Futures And Options (86)",
-  [87] = "Market: Hang Seng Index And Hang Seng China Enterprises Index Gross And Net Total Return Index Futures (87)",
-  [93] = "Market: Weekly Hang Seng China Enterprises Index Options (93)",
-  [96] = "Market: Ibovespa Index Futures (96)",
-  [99] = "Market: Sp Bse Sensex Index Futures (99)",
-  [102] = "Market: Ftse And Jse Top 40 Index Futures (102)",
-  [108] = "Market: Micex Index Futures (108)",
-  [111] = "Market: Msci Ax J Futures Ntr (111)",
-  [112] = "Market: Physically Settled Usd Silver Futures (112)",
-  [115] = "Market: Physically Settled Cnh Silver Futures (115)",
-  [116] = "Market: Physically Settled Cnh Gold Futures (116)",
-  [117] = "Market: Physically Settled Usd Gold Futures (117)",
-  [118] = "Market: Five Year China Government Bond Futures (118)",
-  [120] = "Market: Usd Base And Ferrous Futures (120)",
-  [122] = "Market: Cnh London Metal Mini Futures (122)",
-  [125] = "Market: Cash Settled Rmb Currency Futures (125)",
-  [141] = "Market: Cash Settled Cnhusd Futures (141)",
-  [143] = "Market: Stock Futures In Omd D Partition 3 (143)",
+  [86] = "Market: Hang Seng Tech Index Futures Options Hang Seng Index Hang Seng China Enterprises Index Gross Net Total Return Index Futures (86)",
+  [87] = "Market: Weekly Hang Seng China Enterprises Index Options (87)",
+  [93] = "Market: Ibovespa Index Futures (93)",
+  [96] = "Market: Sp Bse Sensex Index Futures (96)",
+  [99] = "Market: Ftsejse Top 40 Index Futures (99)",
+  [102] = "Market: Micex Index Futures (102)",
+  [108] = "Market: Msci Ax J Futures Ntr (108)",
+  [111] = "Market: Physically Settled Usd Silver Futures (111)",
+  [112] = "Market: Physically Settled Cnh Silver Futures (112)",
+  [115] = "Market: Physically Settled Cnh Gold Futures (115)",
+  [116] = "Market: Physically Settled Usd Gold Futures (116)",
+  [117] = "Market: 5 Year China Government Bond Futures (117)",
+  [118] = "Market: Usd Base And Ferrous Futures (118)",
+  [120] = "Market: Cnh London Metal Mini Futures (120)",
+  [122] = "Market: Cash Settled Rmb Currency Futures (122)",
+  [125] = "Market: Cash Settled Cnhusd Futures (125)",
+  [141] = "Market: Stock Futures In Omd D Partition 3 (141)",
+  [143] = "Market: Stock Options In Omd D Partition 3 (143)",
   [145] = "Market: Weekly Stock Options In Omd D Partition 3 (145)",
   [153] = "Market: Msci China A 50 Connect Index Futures (153)",
-  [160] = "Market: Msci Jpy Index Futures Price And Ntr (160)",
+  [160] = "Market: Msci Jpy Index Futures Price Ntr (160)",
   [161] = "Market: Msci Usd Index Futures Ntr (161)",
-  [163] = "Market: Msci Usd Index Futures And Options Price 1 (163)",
-  [164] = "Market: Msci Usd Index Futures And Options Price 2 (164)",
-  [166] = "Market: Msci Usd Index Futures And Options Price 3 (166)",
-  [168] = "Market: Msci Usd Index Futures And Options Price 4 (168)",
+  [163] = "Market: Msci Usd Index Futures Options Price Market 163 (163)",
+  [164] = "Market: Msci Usd Index Futures Options Price Market 164 (164)",
+  [166] = "Market: Msci Usd Index Futures Options Price Market 166 (166)",
+  [168] = "Market: Msci Usd Index Futures Options Price Market 168 (168)",
   [170] = "Market: Msci Sgd Index Futures Price (170)",
 }
 
@@ -1851,6 +1914,11 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.net_oi.size = 4
 
 -- Display: Net Oi
 hkex_hkexderivatives_standardretrans_omd_v1_49.net_oi.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Net Oi: No Value"
+  end
+
   return "Net Oi: "..value
 end
 
@@ -2058,6 +2126,11 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.open.size = 4
 
 -- Display: Open
 hkex_hkexderivatives_standardretrans_omd_v1_49.open.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Open: No Value"
+  end
+
   return "Open: "..value
 end
 
@@ -2208,6 +2281,11 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.price.size = 4
 
 -- Display: Price
 hkex_hkexderivatives_standardretrans_omd_v1_49.price.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
@@ -2615,6 +2693,11 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.settlement.size = 4
 
 -- Display: Settlement
 hkex_hkexderivatives_standardretrans_omd_v1_49.settlement.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Settlement: No Value"
+  end
+
   return "Settlement: "..value
 end
 
@@ -2717,6 +2800,7 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.state.size = 2
 
 -- Display: State
 hkex_hkexderivatives_standardretrans_omd_v1_49.state.labels = {
+  [0] = "State: End Of The Current State If Not Available (0)",
   [1] = "State: Open Allocation (1)",
   [2] = "State: Market Closed (2)",
   [3] = "State: Market Open (3)",
@@ -4932,7 +5016,7 @@ hkex_hkexderivatives_standardretrans_omd_v1_49.packet_header.fields = function(b
   -- Msg Count: 1 Byte Unsigned Fixed Width Integer
   index, msg_count = hkex_hkexderivatives_standardretrans_omd_v1_49.msg_count.dissect(buffer, index, packet, parent)
 
-  -- Compression Mode: 1 Byte Unsigned Fixed Width Integer
+  -- Compression Mode: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, compression_mode = hkex_hkexderivatives_standardretrans_omd_v1_49.compression_mode.dissect(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer

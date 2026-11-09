@@ -146,12 +146,22 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.closing_value = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.closing_value.size = 8
 
 -- Display: Closing Value
-hkex_hkexsecurities_indexrefresh_omd_v1_44.closing_value.display = function(value)
+hkex_hkexsecurities_indexrefresh_omd_v1_44.closing_value.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Closing Value: No Value"
+  end
+
   return "Closing Value: "..value
 end
 
 -- Translate: Closing Value
 hkex_hkexsecurities_indexrefresh_omd_v1_44.closing_value.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -161,7 +171,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.closing_value.dissect = function(buff
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = hkex_hkexsecurities_indexrefresh_omd_v1_44.closing_value.translate(raw)
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.closing_value.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.closing_value.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.closing_value, range, value, display)
 
@@ -198,12 +208,22 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.eas_value = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.eas_value.size = 8
 
 -- Display: Eas Value
-hkex_hkexsecurities_indexrefresh_omd_v1_44.eas_value.display = function(value)
+hkex_hkexsecurities_indexrefresh_omd_v1_44.eas_value.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Eas Value: No Value"
+  end
+
   return "Eas Value: "..value
 end
 
 -- Translate: Eas Value
 hkex_hkexsecurities_indexrefresh_omd_v1_44.eas_value.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100
 end
 
@@ -213,7 +233,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.eas_value.dissect = function(buffer, 
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = hkex_hkexsecurities_indexrefresh_omd_v1_44.eas_value.translate(raw)
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.eas_value.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.eas_value.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.eas_value, range, value, display)
 
@@ -326,12 +346,22 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.high_value = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.high_value.size = 8
 
 -- Display: High Value
-hkex_hkexsecurities_indexrefresh_omd_v1_44.high_value.display = function(value)
+hkex_hkexsecurities_indexrefresh_omd_v1_44.high_value.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "High Value: No Value"
+  end
+
   return "High Value: "..value
 end
 
 -- Translate: High Value
 hkex_hkexsecurities_indexrefresh_omd_v1_44.high_value.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -341,7 +371,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.high_value.dissect = function(buffer,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = hkex_hkexsecurities_indexrefresh_omd_v1_44.high_value.translate(raw)
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.high_value.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.high_value.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.high_value, range, value, display)
 
@@ -441,6 +471,11 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.index_time.size = 8
 
 -- Display: Index Time
 hkex_hkexsecurities_indexrefresh_omd_v1_44.index_time.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Index Time: No Value"
+  end
+
   return "Index Time: "..value
 end
 
@@ -463,12 +498,22 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.index_turnover = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.index_turnover.size = 8
 
 -- Display: Index Turnover
-hkex_hkexsecurities_indexrefresh_omd_v1_44.index_turnover.display = function(value)
+hkex_hkexsecurities_indexrefresh_omd_v1_44.index_turnover.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Index Turnover: No Value"
+  end
+
   return "Index Turnover: "..value
 end
 
 -- Translate: Index Turnover
 hkex_hkexsecurities_indexrefresh_omd_v1_44.index_turnover.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -478,7 +523,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.index_turnover.dissect = function(buf
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = hkex_hkexsecurities_indexrefresh_omd_v1_44.index_turnover.translate(raw)
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.index_turnover.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.index_turnover.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.index_turnover, range, value, display)
 
@@ -492,12 +537,22 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.index_value = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.index_value.size = 8
 
 -- Display: Index Value
-hkex_hkexsecurities_indexrefresh_omd_v1_44.index_value.display = function(value)
+hkex_hkexsecurities_indexrefresh_omd_v1_44.index_value.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Index Value: No Value"
+  end
+
   return "Index Value: "..value
 end
 
 -- Translate: Index Value
 hkex_hkexsecurities_indexrefresh_omd_v1_44.index_value.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -507,7 +562,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.index_value.dissect = function(buffer
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = hkex_hkexsecurities_indexrefresh_omd_v1_44.index_value.translate(raw)
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.index_value.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.index_value.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.index_value, range, value, display)
 
@@ -522,6 +577,11 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.index_volume.size = 8
 
 -- Display: Index Volume
 hkex_hkexsecurities_indexrefresh_omd_v1_44.index_volume.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Index Volume: No Value"
+  end
+
   return "Index Volume: "..value
 end
 
@@ -567,12 +627,22 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.low_value = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.low_value.size = 8
 
 -- Display: Low Value
-hkex_hkexsecurities_indexrefresh_omd_v1_44.low_value.display = function(value)
+hkex_hkexsecurities_indexrefresh_omd_v1_44.low_value.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Low Value: No Value"
+  end
+
   return "Low Value: "..value
 end
 
 -- Translate: Low Value
 hkex_hkexsecurities_indexrefresh_omd_v1_44.low_value.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -582,7 +652,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.low_value.dissect = function(buffer, 
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = hkex_hkexsecurities_indexrefresh_omd_v1_44.low_value.translate(raw)
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.low_value.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.low_value.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.low_value, range, value, display)
 
@@ -671,12 +741,22 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.net_chg_prev_day = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.net_chg_prev_day.size = 8
 
 -- Display: Net Chg Prev Day
-hkex_hkexsecurities_indexrefresh_omd_v1_44.net_chg_prev_day.display = function(value)
+hkex_hkexsecurities_indexrefresh_omd_v1_44.net_chg_prev_day.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Net Chg Prev Day: No Value"
+  end
+
   return "Net Chg Prev Day: "..value
 end
 
 -- Translate: Net Chg Prev Day
 hkex_hkexsecurities_indexrefresh_omd_v1_44.net_chg_prev_day.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -686,7 +766,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.net_chg_prev_day.dissect = function(b
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = hkex_hkexsecurities_indexrefresh_omd_v1_44.net_chg_prev_day.translate(raw)
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.net_chg_prev_day.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.net_chg_prev_day.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.net_chg_prev_day, range, value, display)
 
@@ -729,12 +809,22 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.opening_value = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.opening_value.size = 8
 
 -- Display: Opening Value
-hkex_hkexsecurities_indexrefresh_omd_v1_44.opening_value.display = function(value)
+hkex_hkexsecurities_indexrefresh_omd_v1_44.opening_value.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Opening Value: No Value"
+  end
+
   return "Opening Value: "..value
 end
 
 -- Translate: Opening Value
 hkex_hkexsecurities_indexrefresh_omd_v1_44.opening_value.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -744,7 +834,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.opening_value.dissect = function(buff
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = hkex_hkexsecurities_indexrefresh_omd_v1_44.opening_value.translate(raw)
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.opening_value.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.opening_value.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.opening_value, range, value, display)
 
@@ -781,12 +871,22 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.previous_ses_close = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.previous_ses_close.size = 8
 
 -- Display: Previous Ses Close
-hkex_hkexsecurities_indexrefresh_omd_v1_44.previous_ses_close.display = function(value)
+hkex_hkexsecurities_indexrefresh_omd_v1_44.previous_ses_close.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Previous Ses Close: No Value"
+  end
+
   return "Previous Ses Close: "..value
 end
 
 -- Translate: Previous Ses Close
 hkex_hkexsecurities_indexrefresh_omd_v1_44.previous_ses_close.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -796,7 +896,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.previous_ses_close.dissect = function
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = hkex_hkexsecurities_indexrefresh_omd_v1_44.previous_ses_close.translate(raw)
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.previous_ses_close.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.previous_ses_close.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.previous_ses_close, range, value, display)
 

@@ -32,8 +32,10 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.commodity_name = ProtoField.ne
 omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.compression_mode = ProtoField.new("Compression Mode", "hkex.hkexderivatives.fulltick.omd.v2.3.compressionmode", ftypes.UINT8, nil, nil, nil, "Indicates if compression is applied on messages in the packet")
 omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.content = ProtoField.new("Content", "hkex.hkexderivatives.fulltick.omd.v2.3.content", ftypes.BYTES, nil, nil, nil, "Market Alert Content")
 omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.contract_size = ProtoField.new("Contract Size", "hkex.hkexderivatives.fulltick.omd.v2.3.contractsize", ftypes.UINT32, nil, nil, nil, "Number of Underlying entities per contract")
-omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.fulltick.omd.v2.3.coolingoffendtime", ftypes.UINT64, nil, nil, nil, "Time when the cooling off period ends (UTC timestamp)")
-omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.fulltick.omd.v2.3.coolingoffstarttime", ftypes.UINT64, nil, nil, nil, "Time when the cooling off period starts (UTC timestamp)")
+omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.fulltick.omd.v2.3.coolingoffendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period ends (UTC timestamp)")
+omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_end_time_utc = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.fulltick.omd.v2.3.coolingoffendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period ends (UTC timestamp)")
+omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.fulltick.omd.v2.3.coolingoffstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period starts (UTC timestamp)")
+omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_start_time_utc = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.fulltick.omd.v2.3.coolingoffstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period starts (UTC timestamp)")
 omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.date_time_first_trading = ProtoField.new("Date Time First Trading", "hkex.hkexderivatives.fulltick.omd.v2.3.datetimefirsttrading", ftypes.UINT64, nil, nil, nil, "The first trading time of the instrument in UTC timestamp (nanoseconds since 1970)")
 omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.date_time_last_trading = ProtoField.new("Date Time Last Trading", "hkex.hkexderivatives.fulltick.omd.v2.3.datetimelasttrading", ftypes.UINT64, nil, nil, nil, "The last trading time of the instrument in UTC timestamp (nanoseconds since 1970)")
 omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.decimal_in_contract_size = ProtoField.new("Decimal In Contract Size", "hkex.hkexderivatives.fulltick.omd.v2.3.decimalincontractsize", ftypes.UINT8, nil, nil, nil, "Implicit decimals in Contract Size and Price Quotation Factor")
@@ -446,6 +448,11 @@ hkex_hkexderivatives_fulltick_omd_v2_3.calculated_opening_price.size = 8
 
 -- Display: Calculated Opening Price
 hkex_hkexderivatives_fulltick_omd_v2_3.calculated_opening_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Calculated Opening Price: No Value"
+  end
+
   return "Calculated Opening Price: "..value
 end
 
@@ -583,8 +590,13 @@ hkex_hkexderivatives_fulltick_omd_v2_3.compression_mode = {}
 hkex_hkexderivatives_fulltick_omd_v2_3.compression_mode.size = 1
 
 -- Display: Compression Mode
+hkex_hkexderivatives_fulltick_omd_v2_3.compression_mode.labels = {
+  [0] = "Compression Mode: No Compression Applied (0)",
+  [1] = "Compression Mode: Compression Applied (1)",
+}
+
 hkex_hkexderivatives_fulltick_omd_v2_3.compression_mode.display = function(value)
-  return "Compression Mode: "..value
+  return hkex_hkexderivatives_fulltick_omd_v2_3.compression_mode.labels[value] or "Compression Mode: Unknown("..value..")"
 end
 
 -- Dissect: Compression Mode
@@ -651,19 +663,20 @@ hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_end_time = {}
 -- Size: Cooling Off End Time
 hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_end_time.size = 8
 
--- Display: Cooling Off End Time
-hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_end_time.display = function(value)
-  return "Cooling Off End Time: "..value
-end
-
 -- Dissect: Cooling Off End Time
 hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_end_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_end_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_end_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_end_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_end_time
+  if hkex_hkexderivatives_fulltick_omd_v2_3.timestamp_format == 3 then field = omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_end_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -674,19 +687,20 @@ hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_start_time = {}
 -- Size: Cooling Off Start Time
 hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_start_time.size = 8
 
--- Display: Cooling Off Start Time
-hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_start_time.display = function(value)
-  return "Cooling Off Start Time: "..value
-end
-
 -- Dissect: Cooling Off Start Time
 hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_start_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_fulltick_omd_v2_3.cooling_off_start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_start_time
+  if hkex_hkexderivatives_fulltick_omd_v2_3.timestamp_format == 3 then field = omi_hkex_hkexderivatives_fulltick_omd_v2_3.fields.cooling_off_start_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1100,7 +1114,35 @@ hkex_hkexderivatives_fulltick_omd_v2_3.financial_product.size = 1
 
 -- Display: Financial Product
 hkex_hkexderivatives_fulltick_omd_v2_3.financial_product.display = function(value)
-  return "Financial Product: "..value
+  if value == "O" then
+    return "Financial Product: Options (O)"
+  end
+  if value == "F" then
+    return "Financial Product: Forward (F)"
+  end
+  if value == "U" then
+    return "Financial Product: Futures (U)"
+  end
+  if value == "A" then
+    return "Financial Product: Fra (A)"
+  end
+  if value == "C" then
+    return "Financial Product: Cash (C)"
+  end
+  if value == "P" then
+    return "Financial Product: Payment (P)"
+  end
+  if value == "E" then
+    return "Financial Product: Exchange Rate (E)"
+  end
+  if value == "S" then
+    return "Financial Product: Interest Rate Swap (S)"
+  end
+  if value == " " then
+    return "Financial Product: Not Available (<whitespace>)"
+  end
+
+  return "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -1146,6 +1188,11 @@ hkex_hkexderivatives_fulltick_omd_v2_3.implied_price.size = 8
 
 -- Display: Implied Price
 hkex_hkexderivatives_fulltick_omd_v2_3.implied_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Implied Price: No Value"
+  end
+
   return "Implied Price: "..value
 end
 
@@ -1291,8 +1338,45 @@ hkex_hkexderivatives_fulltick_omd_v2_3.instrument_group = {}
 hkex_hkexderivatives_fulltick_omd_v2_3.instrument_group.size = 2
 
 -- Display: Instrument Group
+hkex_hkexderivatives_fulltick_omd_v2_3.instrument_group.labels = {
+  [4] = "Instrument Group: Futures (4)",
+  [6] = "Instrument Group: Call American Style (6)",
+  [7] = "Instrument Group: Put American Style (7)",
+  [22] = "Instrument Group: Call European Style (22)",
+  [23] = "Instrument Group: Put European Style (23)",
+  [170] = "Instrument Group: Options Straddle (170)",
+  [171] = "Instrument Group: Options Strangle (171)",
+  [172] = "Instrument Group: Standard Combination Instrument For Stock Options Market Som Synthetic Futures (172)",
+  [201] = "Instrument Group: Time Spread Level 01 (201)",
+  [202] = "Instrument Group: Time Spread Level 02 (202)",
+  [203] = "Instrument Group: Time Spread Level 03 (203)",
+  [204] = "Instrument Group: Time Spread Level 04 (204)",
+  [205] = "Instrument Group: Time Spread Level 05 (205)",
+  [206] = "Instrument Group: Time Spread Level 06 (206)",
+  [207] = "Instrument Group: Time Spread Level 07 (207)",
+  [208] = "Instrument Group: Time Spread Level 08 (208)",
+  [209] = "Instrument Group: Time Spread Level 09 (209)",
+  [210] = "Instrument Group: Time Spread Level 10 (210)",
+  [211] = "Instrument Group: Time Spread Level 11 (211)",
+  [212] = "Instrument Group: Time Spread Level 12 (212)",
+  [213] = "Instrument Group: Time Spread Level 13 (213)",
+  [214] = "Instrument Group: Time Spread Level 14 (214)",
+  [215] = "Instrument Group: Time Spread Level 15 (215)",
+  [216] = "Instrument Group: Time Spread Level 16 (216)",
+  [217] = "Instrument Group: Time Spread Level 17 (217)",
+  [218] = "Instrument Group: Time Spread Level 18 (218)",
+  [219] = "Instrument Group: Time Spread Level 19 (219)",
+  [220] = "Instrument Group: Time Spread Level 20 (220)",
+  [221] = "Instrument Group: Time Spread Level 21 (221)",
+  [222] = "Instrument Group: Time Spread Level 22 (222)",
+  [223] = "Instrument Group: Time Spread Level 23 (223)",
+  [250] = "Instrument Group: Tailor Made Combination (250)",
+  [254] = "Instrument Group: Exchange Rate (254)",
+  [255] = "Instrument Group: Payment Currency (255)",
+}
+
 hkex_hkexderivatives_fulltick_omd_v2_3.instrument_group.display = function(value)
-  return "Instrument Group: "..value
+  return hkex_hkexderivatives_fulltick_omd_v2_3.instrument_group.labels[value] or "Instrument Group: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Group
@@ -1541,8 +1625,53 @@ hkex_hkexderivatives_fulltick_omd_v2_3.market = {}
 hkex_hkexderivatives_fulltick_omd_v2_3.market.size = 2
 
 -- Display: Market
+hkex_hkexderivatives_fulltick_omd_v2_3.market.labels = {
+  [1] = "Market: Cesc Index Futures Options (1)",
+  [2] = "Market: Stock Futures Market 2 (2)",
+  [16] = "Market: Mini Hang Seng Index Futures Options (16)",
+  [18] = "Market: Weekly Stock Options Market 18 (18)",
+  [20] = "Market: Stock Options Market 20 (20)",
+  [24] = "Market: Hibor (24)",
+  [27] = "Market: Dividend Futures (27)",
+  [32] = "Market: Physically Settled Options On Futures Contracts On Hang Seng Index Futures (32)",
+  [34] = "Market: Hang Seng Index Futures Options (34)",
+  [35] = "Market: Flexible Hang Seng Index Options (35)",
+  [37] = "Market: Flexible Hang Seng China Enterprises Index Options (37)",
+  [38] = "Market: Hang Seng China Enterprises Index Futures Options (38)",
+  [39] = "Market: Weekly Hang Seng Index Options (39)",
+  [40] = "Market: Physically Settled Options On Futures Contracts On Hang Seng China Enterprises Index Futures (40)",
+  [51] = "Market: Hsi Volatility Index Futures (51)",
+  [60] = "Market: Sector Index Futures (60)",
+  [70] = "Market: Renminbi Currency Futures Options (70)",
+  [80] = "Market: Hang Seng Biotech Index Futures (80)",
+  [83] = "Market: Physically Settled Options On Futures Contracts On Hang Seng Tech Index Futures Options (83)",
+  [84] = "Market: Weekly Hang Seng Tech Index Options (84)",
+  [86] = "Market: Hang Seng Tech Index Futures Options Hang Seng Index Hang Seng China Enterprises Index Gross Net Total Return Index Futures (86)",
+  [87] = "Market: Weekly Hang Seng China Enterprises Index Options (87)",
+  [108] = "Market: Msci Ax J Futures Ntr (108)",
+  [111] = "Market: Physically Settled Usd Silver Futures (111)",
+  [112] = "Market: Physically Settled Cnh Silver Futures (112)",
+  [115] = "Market: Physically Settled Cnh Gold Futures (115)",
+  [116] = "Market: Physically Settled Usd Gold Futures (116)",
+  [117] = "Market: 5 Year China Government Bond Futures (117)",
+  [118] = "Market: Usd Base And Ferrous Futures (118)",
+  [120] = "Market: Cnh London Metal Mini Futures (120)",
+  [122] = "Market: Cash Settled Rmb Currency Futures (122)",
+  [125] = "Market: Cash Settled Cnhusd Futures (125)",
+  [141] = "Market: Stock Futures Market 141 (141)",
+  [143] = "Market: Stock Options Market 143 (143)",
+  [145] = "Market: Weekly Stock Options Market 145 (145)",
+  [153] = "Market: Msci China A 50 Connect Index Futures (153)",
+  [161] = "Market: Msci Usd Index Futures Ntr (161)",
+  [163] = "Market: Msci Usd Index Futures Options Price Market 163 (163)",
+  [164] = "Market: Msci Usd Index Futures Options Price Market 164 (164)",
+  [166] = "Market: Msci Usd Index Futures Options Price Market 166 (166)",
+  [168] = "Market: Msci Usd Index Futures Options Price Market 168 (168)",
+  [170] = "Market: Msci Sgd Index Futures Price (170)",
+}
+
 hkex_hkexderivatives_fulltick_omd_v2_3.market.display = function(value)
-  return "Market: "..value
+  return hkex_hkexderivatives_fulltick_omd_v2_3.market.labels[value] or "Market: Unknown("..value..")"
 end
 
 -- Dissect: Market
@@ -1970,6 +2099,11 @@ hkex_hkexderivatives_fulltick_omd_v2_3.price.size = 8
 
 -- Display: Price
 hkex_hkexderivatives_fulltick_omd_v2_3.price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
@@ -2044,8 +2178,14 @@ hkex_hkexderivatives_fulltick_omd_v2_3.put_or_call = {}
 hkex_hkexderivatives_fulltick_omd_v2_3.put_or_call.size = 1
 
 -- Display: Put Or Call
+hkex_hkexderivatives_fulltick_omd_v2_3.put_or_call.labels = {
+  [0] = "Put Or Call: Undefined (0)",
+  [1] = "Put Or Call: Call (1)",
+  [2] = "Put Or Call: Put (2)",
+}
+
 hkex_hkexderivatives_fulltick_omd_v2_3.put_or_call.display = function(value)
-  return "Put Or Call: "..value
+  return hkex_hkexderivatives_fulltick_omd_v2_3.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -2239,8 +2379,28 @@ hkex_hkexderivatives_fulltick_omd_v2_3.state = {}
 hkex_hkexderivatives_fulltick_omd_v2_3.state.size = 2
 
 -- Display: State
+hkex_hkexderivatives_fulltick_omd_v2_3.state.labels = {
+  [1] = "State: Sod (1)",
+  [2] = "State: Intervention (2)",
+  [3] = "State: Dayend (3)",
+  [11] = "State: Aht Pre Mkt Act (11)",
+  [12] = "State: Pre Mkt Act (12)",
+  [13] = "State: Preopen (13)",
+  [14] = "State: Preopenalloc (14)",
+  [15] = "State: Openalloc (15)",
+  [16] = "State: Uncross (16)",
+  [17] = "State: Blk Trade Only (17)",
+  [18] = "State: Open (18)",
+  [19] = "State: Open Dpl Vcm Am (19)",
+  [20] = "State: Open Dpl Vcm (20)",
+  [21] = "State: Aht Open (21)",
+  [22] = "State: Aht Open Pl (22)",
+  [23] = "State: Close (23)",
+  [24] = "State: Pause (24)",
+}
+
 hkex_hkexderivatives_fulltick_omd_v2_3.state.display = function(value)
-  return "State: "..value
+  return hkex_hkexderivatives_fulltick_omd_v2_3.state.labels[value] or "State: Unknown("..value..")"
 end
 
 -- Dissect: State
@@ -2633,8 +2793,15 @@ hkex_hkexderivatives_fulltick_omd_v2_3.trading_session = {}
 hkex_hkexderivatives_fulltick_omd_v2_3.trading_session.size = 1
 
 -- Display: Trading Session
+hkex_hkexderivatives_fulltick_omd_v2_3.trading_session.labels = {
+  [1] = "Trading Session: Day (1)",
+  [2] = "Trading Session: Morning (2)",
+  [3] = "Trading Session: Afternoon (3)",
+  [4] = "Trading Session: After Hours (4)",
+}
+
 hkex_hkexderivatives_fulltick_omd_v2_3.trading_session.display = function(value)
-  return "Trading Session: "..value
+  return hkex_hkexderivatives_fulltick_omd_v2_3.trading_session.labels[value] or "Trading Session: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session
@@ -4597,7 +4764,7 @@ hkex_hkexderivatives_fulltick_omd_v2_3.packet_header.fields = function(buffer, o
   -- Msg Count: 1 Byte Unsigned Fixed Width Integer
   index, msg_count = hkex_hkexderivatives_fulltick_omd_v2_3.msg_count.dissect(buffer, index, packet, parent)
 
-  -- Compression Mode: 1 Byte Unsigned Fixed Width Integer
+  -- Compression Mode: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, compression_mode = hkex_hkexderivatives_fulltick_omd_v2_3.compression_mode.dissect(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer

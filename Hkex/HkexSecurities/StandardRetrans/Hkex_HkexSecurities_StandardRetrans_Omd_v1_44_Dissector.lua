@@ -36,7 +36,7 @@ omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.cooling_off_start_time 
 omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.coupon_rate = ProtoField.new("Coupon Rate", "hkex.hkexsecurities.standardretrans.omd.v1.44.couponrate", ftypes.DOUBLE, nil, nil, nil, "Coupon rate of a bond security. 3 implied decimal places.")
 omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.currency_code = ProtoField.new("Currency Code", "hkex.hkexsecurities.standardretrans.omd.v1.44.currencycode", ftypes.STRING, nil, nil, nil, "Base currency code of the market segment.")
 omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.currency_factor = ProtoField.new("Currency Factor", "hkex.hkexsecurities.standardretrans.omd.v1.44.currencyfactor", ftypes.UINT16, nil, nil, nil, "Currency factor conversion. A non-zero value n means all price fields for this security should be interpreted as a value equal to the price multiplied by 10^n.")
-omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.currency_rate = ProtoField.new("Currency Rate", "hkex.hkexsecurities.standardretrans.omd.v1.44.currencyrate", ftypes.UINT32, nil, nil, nil, "Rate, expressed in HKD for one foreign currency unit. 4 decimals implied.")
+omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.currency_rate = ProtoField.new("Currency Rate", "hkex.hkexsecurities.standardretrans.omd.v1.44.currencyrate", ftypes.DOUBLE, nil, nil, nil, "Rate, expressed in HKD for one foreign currency unit. 4 decimals implied.")
 omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.decimals_in_call_price = ProtoField.new("Decimals In Call Price", "hkex.hkexsecurities.standardretrans.omd.v1.44.decimalsincallprice", ftypes.UINT8, nil, nil, nil, "Number of decimal places in Call Price. Not applicable if CallPrice = 0.")
 omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.decimals_in_entitlement = ProtoField.new("Decimals In Entitlement", "hkex.hkexsecurities.standardretrans.omd.v1.44.decimalsinentitlement", ftypes.UINT8, nil, nil, nil, "Number of decimal places in Entitlement. Not applicable if Entitlement = 0.")
 omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.decimals_in_face_value = ProtoField.new("Decimals In Face Value", "hkex.hkexsecurities.standardretrans.omd.v1.44.decimalsinfacevalue", ftypes.UINT8, nil, nil, nil, "Number of decimal places in Face Value. Not applicable if FaceValue = 0.")
@@ -795,11 +795,17 @@ hkex_hkexsecurities_standardretrans_omd_v1_44.currency_rate.display = function(v
   return "Currency Rate: "..value
 end
 
+-- Translate: Currency Rate
+hkex_hkexsecurities_standardretrans_omd_v1_44.currency_rate.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Currency Rate
 hkex_hkexsecurities_standardretrans_omd_v1_44.currency_rate.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standardretrans_omd_v1_44.currency_rate.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = hkex_hkexsecurities_standardretrans_omd_v1_44.currency_rate.translate(raw)
   local display = hkex_hkexsecurities_standardretrans_omd_v1_44.currency_rate.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.currency_rate, range, value, display)
