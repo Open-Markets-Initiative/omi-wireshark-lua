@@ -230,7 +230,7 @@ omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.reserved_615 = ProtoField.new("Res
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.result = ProtoField.new("Result", "gpw.wse.snapshotbbo.wats.v1.7.6.20.result", ftypes.UINT8, nil, nil, nil, "see the LoginResult description")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.rho = ProtoField.new("Rho", "gpw.wse.snapshotbbo.wats.v1.7.6.20.rho", ftypes.DOUBLE, nil, nil, nil, "Value of Rho indicator from the current session")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.scenario_name = ProtoField.new("Scenario Name", "gpw.wse.snapshotbbo.wats.v1.7.6.20.scenarioname", ftypes.STRING, nil, nil, nil, "Test scenario name")
-omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.secret_key = ProtoField.new("Secret Key", "gpw.wse.snapshotbbo.wats.v1.7.6.20.secretkey", ftypes.BYTES, nil, nil, nil, "Secret Key value")
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.secret_key = ProtoField.new("Secret Key", "gpw.wse.snapshotbbo.wats.v1.7.6.20.secretkey", ftypes.UINT8, nil, nil, nil, "Secret Key value")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.sector = ProtoField.new("Sector", "gpw.wse.snapshotbbo.wats.v1.7.6.20.sector", ftypes.UINT16, nil, nil, nil, "Defines the sector of the economy that the company belongs to")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.sell = ProtoField.new("Sell", "gpw.wse.snapshotbbo.wats.v1.7.6.20.sell", ftypes.STRING, nil, nil, nil, "PriceLevel table")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.sequence_number = ProtoField.new("Sequence Number", "gpw.wse.snapshotbbo.wats.v1.7.6.20.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the message, used for gap detection and, for orders at one price level, for priority")
@@ -307,7 +307,7 @@ omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.vega = ProtoField.new("Vega", "gpw
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.version_number = ProtoField.new("Version Number", "gpw.wse.snapshotbbo.wats.v1.7.6.20.versionnumber", ftypes.UINT8, nil, nil, nil, "Version of the derivative")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.volatility = ProtoField.new("Volatility", "gpw.wse.snapshotbbo.wats.v1.7.6.20.volatility", ftypes.DOUBLE, nil, nil, nil, "Volatility is calculated according to algorithm worked out by the WSE")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.vwap = ProtoField.new("Vwap", "gpw.wse.snapshotbbo.wats.v1.7.6.20.vwap", ftypes.DOUBLE, nil, nil, nil, "Volume-weighted average price")
-omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.weekdays = ProtoField.new("Weekdays", "gpw.wse.snapshotbbo.wats.v1.7.6.20.weekdays", ftypes.BYTES, nil, nil, nil, "Boolean array of weekdays (Monday to Sunday) open or closed for trading; true – weekday open for trading, false – weekday closed for trading")
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.weekdays = ProtoField.new("Weekdays", "gpw.wse.snapshotbbo.wats.v1.7.6.20.weekdays", ftypes.UINT8, nil, nil, nil, "Boolean array of weekdays (Monday to Sunday) open or closed for trading; true – weekday open for trading, false – weekday closed for trading")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.ytm_ask_no_calc = ProtoField.new("Ytm Ask No Calc", "gpw.wse.snapshotbbo.wats.v1.7.6.20.ytmasknocalc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020, "Ask YTM was not provided due to the absence of its calculation")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.ytm_bid_no_calc = ProtoField.new("Ytm Bid No Calc", "gpw.wse.snapshotbbo.wats.v1.7.6.20.ytmbidnocalc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010, "Bid YTM was not provided due to the absence of its calculation")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.ytm_no_calc = ProtoField.new("Ytm No Calc", "gpw.wse.snapshotbbo.wats.v1.7.6.20.ytmnocalc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "YTM was not provided due to the absence of its calculation")
@@ -358,7 +358,9 @@ omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.week_plan = ProtoField.new("Week P
 -- Gpw Wse SnapshotBbo Wats 1.7.6.20 Generated Fields
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.buy_index = ProtoField.new("Buy Index", "gpw.wse.snapshotbbo.wats.v1.7.6.20.buyindex", ftypes.UINT16)
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.items_index = ProtoField.new("Items Index", "gpw.wse.snapshotbbo.wats.v1.7.6.20.itemsindex", ftypes.UINT16)
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.secret_key_index = ProtoField.new("Secret Key Index", "gpw.wse.snapshotbbo.wats.v1.7.6.20.secretkeyindex", ftypes.UINT16)
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.sell_index = ProtoField.new("Sell Index", "gpw.wse.snapshotbbo.wats.v1.7.6.20.sellindex", ftypes.UINT16)
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.weekdays_index = ProtoField.new("Weekdays Index", "gpw.wse.snapshotbbo.wats.v1.7.6.20.weekdaysindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Gpw Wse SnapshotBbo Wats 1.7.6.20 Formatting
@@ -6160,7 +6162,7 @@ end
 gpw_wse_snapshotbbo_wats_v1_7_6_20.secret_key = {}
 
 -- Size: Secret Key
-gpw_wse_snapshotbbo_wats_v1_7_6_20.secret_key.size = 32
+gpw_wse_snapshotbbo_wats_v1_7_6_20.secret_key.size = 1
 
 -- Display: Secret Key
 gpw_wse_snapshotbbo_wats_v1_7_6_20.secret_key.display = function(value)
@@ -6171,7 +6173,7 @@ end
 gpw_wse_snapshotbbo_wats_v1_7_6_20.secret_key.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_snapshotbbo_wats_v1_7_6_20.secret_key.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:le_uint()
   local display = gpw_wse_snapshotbbo_wats_v1_7_6_20.secret_key.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.secret_key, range, value, display)
@@ -8307,7 +8309,7 @@ end
 gpw_wse_snapshotbbo_wats_v1_7_6_20.weekdays = {}
 
 -- Size: Weekdays
-gpw_wse_snapshotbbo_wats_v1_7_6_20.weekdays.size = 7
+gpw_wse_snapshotbbo_wats_v1_7_6_20.weekdays.size = 1
 
 -- Display: Weekdays
 gpw_wse_snapshotbbo_wats_v1_7_6_20.weekdays.display = function(value)
@@ -8318,7 +8320,7 @@ end
 gpw_wse_snapshotbbo_wats_v1_7_6_20.weekdays.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_snapshotbbo_wats_v1_7_6_20.weekdays.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:le_uint()
   local display = gpw_wse_snapshotbbo_wats_v1_7_6_20.weekdays.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.weekdays, range, value, display)
@@ -8532,7 +8534,7 @@ gpw_wse_snapshotbbo_wats_v1_7_6_20.encryption_key = {}
 -- Size: Encryption Key
 gpw_wse_snapshotbbo_wats_v1_7_6_20.encryption_key.size =
   gpw_wse_snapshotbbo_wats_v1_7_6_20.id.size + 
-  gpw_wse_snapshotbbo_wats_v1_7_6_20.secret_key.size
+  32 * gpw_wse_snapshotbbo_wats_v1_7_6_20.secret_key.size
 
 -- Display: Encryption Key
 gpw_wse_snapshotbbo_wats_v1_7_6_20.encryption_key.display = function(packet, parent, length)
@@ -8546,8 +8548,10 @@ gpw_wse_snapshotbbo_wats_v1_7_6_20.encryption_key.fields = function(buffer, offs
   -- Id: ElementId
   index, id = gpw_wse_snapshotbbo_wats_v1_7_6_20.id.dissect(buffer, index, packet, parent)
 
-  -- Secret Key: EncryptionGroupKey
-  index, secret_key = gpw_wse_snapshotbbo_wats_v1_7_6_20.secret_key.dissect(buffer, index, packet, parent)
+  -- Array Of: Secret Key
+  for secret_key_index = 1, 32 do
+    index, secret_key = gpw_wse_snapshotbbo_wats_v1_7_6_20.secret_key.dissect(buffer, index, packet, parent, secret_key_index)
+  end
 
   return index
 end
@@ -11982,7 +11986,7 @@ gpw_wse_snapshotbbo_wats_v1_7_6_20.week_plan = {}
 -- Size: Week Plan
 gpw_wse_snapshotbbo_wats_v1_7_6_20.week_plan.size =
   gpw_wse_snapshotbbo_wats_v1_7_6_20.calendar_id.size + 
-  gpw_wse_snapshotbbo_wats_v1_7_6_20.weekdays.size
+  7 * gpw_wse_snapshotbbo_wats_v1_7_6_20.weekdays.size
 
 -- Display: Week Plan
 gpw_wse_snapshotbbo_wats_v1_7_6_20.week_plan.display = function(packet, parent, length)
@@ -11996,8 +12000,10 @@ gpw_wse_snapshotbbo_wats_v1_7_6_20.week_plan.fields = function(buffer, offset, p
   -- Calendar Id: ElementId
   index, calendar_id = gpw_wse_snapshotbbo_wats_v1_7_6_20.calendar_id.dissect(buffer, index, packet, parent)
 
-  -- Weekdays: Weekdays
-  index, weekdays = gpw_wse_snapshotbbo_wats_v1_7_6_20.weekdays.dissect(buffer, index, packet, parent)
+  -- Array Of: Weekdays
+  for weekdays_index = 1, 7 do
+    index, weekdays = gpw_wse_snapshotbbo_wats_v1_7_6_20.weekdays.dissect(buffer, index, packet, parent, weekdays_index)
+  end
 
   return index
 end

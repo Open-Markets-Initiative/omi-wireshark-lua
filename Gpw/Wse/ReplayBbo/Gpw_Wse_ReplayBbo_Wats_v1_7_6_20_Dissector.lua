@@ -302,7 +302,7 @@ omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.vega = ProtoField.new("Vega", "gpw.w
 omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.version_number = ProtoField.new("Version Number", "gpw.wse.replaybbo.wats.v1.7.6.20.versionnumber", ftypes.UINT8, nil, nil, nil, "Version of the derivative")
 omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.volatility = ProtoField.new("Volatility", "gpw.wse.replaybbo.wats.v1.7.6.20.volatility", ftypes.DOUBLE, nil, nil, nil, "Volatility is calculated according to algorithm worked out by the WSE")
 omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.vwap = ProtoField.new("Vwap", "gpw.wse.replaybbo.wats.v1.7.6.20.vwap", ftypes.DOUBLE, nil, nil, nil, "Volume-weighted average price")
-omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.weekdays = ProtoField.new("Weekdays", "gpw.wse.replaybbo.wats.v1.7.6.20.weekdays", ftypes.BYTES, nil, nil, nil, "Boolean array of weekdays (Monday to Sunday) open or closed for trading; true – weekday open for trading, false – weekday closed for trading")
+omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.weekdays = ProtoField.new("Weekdays", "gpw.wse.replaybbo.wats.v1.7.6.20.weekdays", ftypes.UINT8, nil, nil, nil, "Boolean array of weekdays (Monday to Sunday) open or closed for trading; true – weekday open for trading, false – weekday closed for trading")
 omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.ytm_ask_no_calc = ProtoField.new("Ytm Ask No Calc", "gpw.wse.replaybbo.wats.v1.7.6.20.ytmasknocalc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020, "Ask YTM was not provided due to the absence of its calculation")
 omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.ytm_bid_no_calc = ProtoField.new("Ytm Bid No Calc", "gpw.wse.replaybbo.wats.v1.7.6.20.ytmbidnocalc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010, "Bid YTM was not provided due to the absence of its calculation")
 omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.ytm_no_calc = ProtoField.new("Ytm No Calc", "gpw.wse.replaybbo.wats.v1.7.6.20.ytmnocalc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "YTM was not provided due to the absence of its calculation")
@@ -353,6 +353,7 @@ omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.week_plan = ProtoField.new("Week Pla
 omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.buy_index = ProtoField.new("Buy Index", "gpw.wse.replaybbo.wats.v1.7.6.20.buyindex", ftypes.UINT16)
 omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.items_index = ProtoField.new("Items Index", "gpw.wse.replaybbo.wats.v1.7.6.20.itemsindex", ftypes.UINT16)
 omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.sell_index = ProtoField.new("Sell Index", "gpw.wse.replaybbo.wats.v1.7.6.20.sellindex", ftypes.UINT16)
+omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.weekdays_index = ProtoField.new("Weekdays Index", "gpw.wse.replaybbo.wats.v1.7.6.20.weekdaysindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Gpw Wse ReplayBbo Wats 1.7.6.20 Formatting
@@ -8269,7 +8270,7 @@ end
 gpw_wse_replaybbo_wats_v1_7_6_20.weekdays = {}
 
 -- Size: Weekdays
-gpw_wse_replaybbo_wats_v1_7_6_20.weekdays.size = 7
+gpw_wse_replaybbo_wats_v1_7_6_20.weekdays.size = 1
 
 -- Display: Weekdays
 gpw_wse_replaybbo_wats_v1_7_6_20.weekdays.display = function(value)
@@ -8280,7 +8281,7 @@ end
 gpw_wse_replaybbo_wats_v1_7_6_20.weekdays.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replaybbo_wats_v1_7_6_20.weekdays.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:le_uint()
   local display = gpw_wse_replaybbo_wats_v1_7_6_20.weekdays.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replaybbo_wats_v1_7_6_20.fields.weekdays, range, value, display)
@@ -11894,7 +11895,7 @@ gpw_wse_replaybbo_wats_v1_7_6_20.week_plan = {}
 -- Size: Week Plan
 gpw_wse_replaybbo_wats_v1_7_6_20.week_plan.size =
   gpw_wse_replaybbo_wats_v1_7_6_20.calendar_id.size + 
-  gpw_wse_replaybbo_wats_v1_7_6_20.weekdays.size
+  7 * gpw_wse_replaybbo_wats_v1_7_6_20.weekdays.size
 
 -- Display: Week Plan
 gpw_wse_replaybbo_wats_v1_7_6_20.week_plan.display = function(packet, parent, length)
@@ -11908,8 +11909,10 @@ gpw_wse_replaybbo_wats_v1_7_6_20.week_plan.fields = function(buffer, offset, pac
   -- Calendar Id: ElementId
   index, calendar_id = gpw_wse_replaybbo_wats_v1_7_6_20.calendar_id.dissect(buffer, index, packet, parent)
 
-  -- Weekdays: Weekdays
-  index, weekdays = gpw_wse_replaybbo_wats_v1_7_6_20.weekdays.dissect(buffer, index, packet, parent)
+  -- Array Of: Weekdays
+  for weekdays_index = 1, 7 do
+    index, weekdays = gpw_wse_replaybbo_wats_v1_7_6_20.weekdays.dissect(buffer, index, packet, parent, weekdays_index)
+  end
 
   return index
 end
