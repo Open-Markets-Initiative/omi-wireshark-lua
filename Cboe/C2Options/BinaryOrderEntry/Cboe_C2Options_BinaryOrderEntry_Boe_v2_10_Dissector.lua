@@ -90,6 +90,7 @@ omi_cboe_c2options_binaryorderentry_boe_v2_10.fields.exec_inst = ProtoField.new(
 omi_cboe_c2options_binaryorderentry_boe_v2_10.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.c2options.binaryorderentry.boe.v2.10.execrefid", ftypes.UINT64, nil, nil, nil, "Refers to the ExecID of the fill being cancelled or corrected. Corresponds to ExecRefID (19) in Cboe FIX.")
 omi_cboe_c2options_binaryorderentry_boe_v2_10.fields.expire_time = ProtoField.new("Expire Time", "cboe.c2options.binaryorderentry.boe.v2.10.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_c2options_binaryorderentry_boe_v2_10.fields.expire_time_utc = ProtoField.new("Expire Time", "cboe.c2options.binaryorderentry.boe.v2.10.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_cboe_c2options_binaryorderentry_boe_v2_10.fields.ext_exec_inst = ProtoField.new("Ext Exec Inst", "cboe.c2options.binaryorderentry.boe.v2.10.extexecinst", ftypes.STRING)
 omi_cboe_c2options_binaryorderentry_boe_v2_10.fields.fee_code = ProtoField.new("Fee Code", "cboe.c2options.binaryorderentry.boe.v2.10.feecode", ftypes.STRING, nil, nil, nil, "Corresponds to FeeCode (9882) in Cboe FIX.")
 omi_cboe_c2options_binaryorderentry_boe_v2_10.fields.floor_destination = ProtoField.new("Floor Destination", "cboe.c2options.binaryorderentry.boe.v2.10.floordestination", ftypes.STRING)
 omi_cboe_c2options_binaryorderentry_boe_v2_10.fields.floor_routing_inst = ProtoField.new("Floor Routing Inst", "cboe.c2options.binaryorderentry.boe.v2.10.floorroutinginst", ftypes.STRING)
@@ -2965,6 +2966,42 @@ cboe_c2options_binaryorderentry_boe_v2_10.expire_time.dissect = function(buffer,
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
   parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Ext Exec Inst
+cboe_c2options_binaryorderentry_boe_v2_10.ext_exec_inst = {}
+
+-- Size: Ext Exec Inst
+cboe_c2options_binaryorderentry_boe_v2_10.ext_exec_inst.size = 1
+
+-- Display: Ext Exec Inst
+cboe_c2options_binaryorderentry_boe_v2_10.ext_exec_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ext Exec Inst: No Value"
+  end
+
+  return "Ext Exec Inst: "..value
+end
+
+-- Dissect: Ext Exec Inst
+cboe_c2options_binaryorderentry_boe_v2_10.ext_exec_inst.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2options_binaryorderentry_boe_v2_10.ext_exec_inst.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cboe_c2options_binaryorderentry_boe_v2_10.ext_exec_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2options_binaryorderentry_boe_v2_10.fields.ext_exec_inst, range, value, display)
 
   return offset + length, value
 end
@@ -23417,6 +23454,15 @@ cboe_c2options_binaryorderentry_boe_v2_10.new_order_message.fields = function(bu
 
   if attributed_quote_exists then
     index, attributed_quote = cboe_c2options_binaryorderentry_boe_v2_10.attributed_quote.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Ext Exec Inst
+  local ext_exec_inst = nil
+
+  local ext_exec_inst_exists = number_of_new_order_bitfields >= 5 and bit.rshift(bit.band(new_order_bitfield_5, 0x08), 3) > 0
+
+  if ext_exec_inst_exists then
+    index, ext_exec_inst = cboe_c2options_binaryorderentry_boe_v2_10.ext_exec_inst.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Range
