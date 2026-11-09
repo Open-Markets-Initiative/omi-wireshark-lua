@@ -8534,7 +8534,7 @@ udp_table:add_for_decode_as(omi_bme_meff_topofbook_bmegate_v1_6)
 --   Organization: Bolsas y Mercados Españoles
 --   Version: 1.6
 --   Date: Friday, June 13, 2025
---   Specification: BMEGate binary protocol B1.6.pdf
+--   Specification: MEFF BMEGate Binary Protocol (B1.6).pdf
 --   Specification: BMEGate Codification Tables.pdf
 --
 -- Script:
