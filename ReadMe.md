@@ -39,7 +39,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1937 | 12,925,270 |
+| 1937 | 12,925,159 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -94,7 +94,7 @@ The Open Markets Initiative provides protocol definitions in several formats:
 - [Lean Definitions][Lean.Definitions.Repository] — Lean 4 definitions with machine checked encode and decode proofs
 - [Rocq Definitions][Rocq.Definitions.Repository] — Rocq Prover definitions whose encode and decode proofs the prover checks
 - [TLA+ Definitions][Tla.Definitions.Repository] — TLA+ modules whose encode and decode are model checked with TLC
-- [Spin Definitions][Spin.Definitions.Repository] — Promela models whose encode and decode are checked by the spin model checker
+- [Promela Definitions][Promela.Definitions.Repository] — Promela models whose encode and decode are checked by the spin model checker
 - [FIX Dictionaries][Fix.Dictionaries.Repository] — QuickFIX format xml data dictionaries, one per FIX version
 - [Xml Specifications][Xml.Specifications.Repository] — Formatted exchange specification xmls
 ## Disclaimer
@@ -1272,6 +1272,6 @@ Enjoy.
 [Lean.Definitions.Repository]: https://github.com/Open-Markets-Initiative/omi-lean4-definitions "Omi Lean Definitions"
 [Rocq.Definitions.Repository]: https://github.com/Open-Markets-Initiative/omi-rocq-definitions "Omi Rocq Definitions"
 [Tla.Definitions.Repository]: https://github.com/Open-Markets-Initiative/omi-tlaplus-definitions "Omi TLA+ Definitions"
-[Spin.Definitions.Repository]: https://github.com/Open-Markets-Initiative/omi-spin-definitions "Omi Spin Definitions"
+[Promela.Definitions.Repository]: https://github.com/Open-Markets-Initiative/omi-promela-definitions "Omi Promela Definitions"
 [Fix.Dictionaries.Repository]: https://github.com/Open-Markets-Initiative/omi-fix-dictionaries "Omi FIX Dictionaries"
 [Xml.Specifications.Repository]: https://github.com/Open-Markets-Initiative/omi-xml-specifications "Omi Xml Specifications"
