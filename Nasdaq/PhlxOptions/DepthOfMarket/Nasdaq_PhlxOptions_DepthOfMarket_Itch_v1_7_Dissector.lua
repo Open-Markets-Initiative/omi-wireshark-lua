@@ -5448,7 +5448,7 @@ udp_table:add_for_decode_as(omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7)
 --   Version: 1.7
 --   Date: Friday, April 25, 2025
 --   Specification: phlxdepth - TCP Update.pdf
---   Specification: PHLX Depth of Market (1.7).pdf
+--   Specification: PHLX Depth of Market (2025-04-25).pdf
 --
 -- Script:
 --   Compiler: 2.0

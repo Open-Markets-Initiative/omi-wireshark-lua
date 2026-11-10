@@ -1785,8 +1785,8 @@ siac_cts_output_cta_v2_11_b.indices_message_type.size = 1
 
 -- Display: Indices Message Type
 siac_cts_output_cta_v2_11_b.indices_message_type.labels = {
-  ["I"] = "Indices Message Type: Indices (I)",
-  ["Q"] = "Indices Message Type: Bid And Offer Index (Q)",
+  ["I"] = "Indices Message Type: Index Message (I)",
+  ["Q"] = "Indices Message Type: Bid And Offer Index Message (Q)",
 }
 
 siac_cts_output_cta_v2_11_b.indices_message_type.display = function(value)

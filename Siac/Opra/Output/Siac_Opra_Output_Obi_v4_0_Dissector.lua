@@ -4601,7 +4601,7 @@ udp_table:add_for_decode_as(omi_siac_opra_output_obi_v4_0)
 --   Organization: The Securities Industry Automation Corporation
 --   Version: 4.0
 --   Date: Friday, January 17, 2020
---   Specification: OPRA_Binary_DR_Spec (4.0).pdf
+--   Specification: OPRA_Binary_DR_Spec (2020-01-17).pdf
 --
 -- Script:
 --   Compiler: 2.0

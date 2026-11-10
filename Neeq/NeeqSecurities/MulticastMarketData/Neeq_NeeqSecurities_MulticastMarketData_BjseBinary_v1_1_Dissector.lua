@@ -4635,8 +4635,8 @@ udp_table:add_for_decode_as(omi_neeq_neeqsecurities_multicastmarketdata_bjsebina
 --   Organization: National Equities Exchange and Quotations
 --   Version: 1.1
 --   Date: Wednesday, December 31, 2025
---   Specification: Multicast Market Data Distribution Protocol V1.0 (2025-08-12).pdf
---   Specification: Market Data Interface Specification Binary V1.1 (2025-12-31).pdf
+--   Specification: 20250812182320_fau0f6i7bk.pdf
+--   Specification: 20251231194517_82kitaljxu.pdf
 --
 -- Script:
 --   Compiler: 2.0

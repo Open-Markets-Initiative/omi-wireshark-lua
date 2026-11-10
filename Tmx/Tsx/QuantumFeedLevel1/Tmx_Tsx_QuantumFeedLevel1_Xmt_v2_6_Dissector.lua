@@ -3239,7 +3239,7 @@ udp_table:add_for_decode_as(omi_tmx_tsx_quantumfeedlevel1_xmt_v2_6)
 --   Organization: TMX Group
 --   Version: 2.6
 --   Date: Tuesday, August 10, 2021
---   Specification: TSX TSXV Level 1 QuantumFeed Business Message Specification (2.6.0).pdf
+--   Specification: TSX TSXV Level 1 QuantumFeed Business Message Specification (2021-08-10).pdf
 --
 -- Script:
 --   Compiler: 2.0

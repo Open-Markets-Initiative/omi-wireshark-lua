@@ -4063,7 +4063,7 @@ udp_table:add_for_decode_as(omi_nasdaq_phlxoptions_topofmarket_itch_v3_4)
 --   Version: 3.4
 --   Date: Friday, April 25, 2025
 --   Specification: Top of PHLX - TCP Update.pdf
---   Specification: Top of PHLX Options (3.4).pdf
+--   Specification: Top of PHLX Options (2025-04-25).pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -926,7 +926,7 @@ udp_table:add_for_decode_as(omi_tmx_tsx_globalfx_gfx_v1_0)
 --   Organization: TMX Group
 --   Version: 1.0
 --   Date: Friday, May 20, 2016
---   Specification: TMX Global FX (1).pdf
+--   Specification: TMX Global FX (2016-05-20).pdf
 --
 -- Script:
 --   Compiler: 2.0

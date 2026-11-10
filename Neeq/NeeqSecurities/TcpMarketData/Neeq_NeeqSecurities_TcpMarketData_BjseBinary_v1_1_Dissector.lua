@@ -4260,7 +4260,7 @@ tcp_table:add_for_decode_as(omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_
 --   Organization: National Equities Exchange and Quotations
 --   Version: 1.1
 --   Date: Wednesday, December 31, 2025
---   Specification: Market Data Interface Specification Binary V1.1 (2025-12-31).pdf
+--   Specification: 20251231194517_82kitaljxu.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -9296,7 +9296,7 @@ tcp_table:add_for_decode_as(omi_bjse_bjsesecurities_orderentry_bjsebinary_v1_1)
 --   Organization: Beijing Stock Exchange
 --   Version: 1.1
 --   Date: Wednesday, December 31, 2025
---   Specification: Trade Interface Specification Binary V1.1 (2025-12-31).pdf
+--   Specification: 20251231195243_5i45xtn5c6.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -689,7 +689,7 @@ tcp_table:add_for_decode_as(omi_aquis_aquisstockexchange_replay_amd_v1_2_3)
 --   Organization: Aquis Exchange
 --   Version: 1.2.3
 --   Date: Tuesday, April 23, 2024
---   Specification: Aquis Stock Exchange Multicast Market Data Specification v1.2.3 (2024).pdf
+--   Specification: Aquis Stock Exchange Multicast Market Data Specification v1.2.3 (2024-04-23).pdf
 --
 -- Script:
 --   Compiler: 2.0

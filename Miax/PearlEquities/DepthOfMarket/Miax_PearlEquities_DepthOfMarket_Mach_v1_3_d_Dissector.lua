@@ -19,20 +19,18 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.application_message = Pr
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.application_protocol = ProtoField.new("Application Protocol", "miax.pearlequities.depthofmarket.mach.v1.3.d.applicationprotocol", ftypes.STRING, nil, nil, nil, "Miax Application Protocol")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.attributable_id = ProtoField.new("Attributable Id", "miax.pearlequities.depthofmarket.mach.v1.3.d.attributableid", ftypes.STRING, nil, nil, nil, "MPID of the firm if attributed; \"RTAL\" if attributed as such; space-filled if no attribution specified.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.closing_time = ProtoField.new("Closing Time", "miax.pearlequities.depthofmarket.mach.v1.3.d.closingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. Eg: 20:00:00.")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.computer_id = ProtoField.new("Computer Id", "miax.pearlequities.depthofmarket.mach.v1.3.d.computerid", ftypes.STRING, nil, nil, nil, "issued by MIAX Futures Exchange during initial setup")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.computer_id = ProtoField.new("Computer Id", "miax.pearlequities.depthofmarket.mach.v1.3.d.computerid", ftypes.STRING, nil, nil, nil, "ID issued by MIAX during initial setup")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.correction_number = ProtoField.new("Correction Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.correctionnumber", ftypes.UINT8, nil, nil, nil, "Trade correction number. Set to zero for new trades. Increments by 1 for each subsequent correction.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.do_m_version = ProtoField.new("Do M Version", "miax.pearlequities.depthofmarket.mach.v1.3.d.domversion", ftypes.STRING, nil, nil, nil, "Eg: DoM1.0.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.endsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the last packet to be retransmitted")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_length = ProtoField.new("Esesm Packet Length", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpacketlength", ftypes.UINT16, nil, nil, nil, "The length of rest of the packet")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_type = ProtoField.new("Esesm Packet Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpackettype", ftypes.STRING, nil, nil, nil, "ESesM protocol packet type")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_version = ProtoField.new("Esesm Version", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmversion", ftypes.STRING, nil, nil, nil, "Protocol version")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "the highest sequence number that the server currently has for the client")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_request = ProtoField.new("Login Request", "miax.pearlequities.depthofmarket.mach.v1.3.d.loginrequest", ftypes.STRING, nil, nil, nil, "The SesM client must send a Login request packet immediately upon establishing a new TCP/IP socket connection to the server")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_response = ProtoField.new("Login Response", "miax.pearlequities.depthofmarket.mach.v1.3.d.loginresponse", ftypes.STRING, nil, nil, nil, "The SesM server sends a Login response packet in response a Login request packet from the client")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.goodbye_reason = ProtoField.new("Goodbye Reason", "miax.pearlequities.depthofmarket.mach.v1.3.d.goodbyereason", ftypes.STRING, nil, nil, nil, "GoodBye Packet Reason")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "The highest sequence number the server currently has for the client from the Matching Engine")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_matching_engine = ProtoField.new("Login Matching Engine", "miax.pearlequities.depthofmarket.mach.v1.3.d.loginmatchingengine", ftypes.STRING, nil, nil, nil, "The login status, trading session and highest sequence number of one matching engine, repeated once for each the login response counts")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_status = ProtoField.new("Login Status", "miax.pearlequities.depthofmarket.mach.v1.3.d.loginstatus", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_reason = ProtoField.new("Logout Reason", "miax.pearlequities.depthofmarket.mach.v1.3.d.logoutreason", ftypes.STRING, nil, nil, nil, "Logout Request Reason")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.depthofmarket.mach.v1.3.d.logoutrequest", ftypes.STRING, nil, nil, nil, "The client may send a Logout request packet to request the connection be terminated")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_text = ProtoField.new("Logout Text", "miax.pearlequities.depthofmarket.mach.v1.3.d.logouttext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.depthofmarket.mach.v1.3.d.lotsize", ftypes.UINT16, nil, nil, nil, "Round Lot size in shares.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_packet_length = ProtoField.new("Mach Packet Length", "miax.pearlequities.depthofmarket.mach.v1.3.d.machpacketlength", ftypes.UINT16, nil, nil, nil, "Length of the packet")
@@ -51,13 +49,13 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.order_side = ProtoField.
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.price = ProtoField.new("Price", "miax.pearlequities.depthofmarket.mach.v1.3.d.price", ftypes.DOUBLE, nil, nil, nil, "Displayed price.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.depthofmarket.mach.v1.3.d.primarymarketcode", ftypes.STRING, nil, nil, nil, "Primary listing exchange code for the security.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.refresh_message_type = ProtoField.new("Refresh Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.refreshmessagetype", ftypes.STRING, nil, nil, nil, "Identifies the data set the firm is requesting a refresh of.")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies client requested sequence number")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.depthofmarket.mach.v1.3.d.requestedtradingsessionid", ftypes.UINT8, nil, nil, nil, "Specifies the session the client would like to log into, or zero to log into the currently active session")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.requested_matching_engine = ProtoField.new("Requested Matching Engine", "miax.pearlequities.depthofmarket.mach.v1.3.d.requestedmatchingengine", ftypes.STRING, nil, nil, nil, "The trading session and sequence number the client asks of one matching engine, repeated once for each the login request counts")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies client requested sequence number for the Matching Engine")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.depthofmarket.mach.v1.3.d.requestedtradingsessionid", ftypes.UINT8, nil, nil, nil, "Specifies the Matching Engine trading session the client would like to log into, or zero to log into the currently active trading session")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.depthofmarket.mach.v1.3.d.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.reserved_6 = ProtoField.new("Reserved 6", "miax.pearlequities.depthofmarket.mach.v1.3.d.reserved6", ftypes.UINT8, nil, base.DEC, 0xFC, "Reserved for future use.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.reserved_7 = ProtoField.new("Reserved 7", "miax.pearlequities.depthofmarket.mach.v1.3.d.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE, "Undefined.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.retail_trade_indicator = ProtoField.new("Retail Trade Indicator", "miax.pearlequities.depthofmarket.mach.v1.3.d.retailtradeindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "0 - Neither side is Retail; 1 - At least one side is Retail.")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.depthofmarket.mach.v1.3.d.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The ESesM client uses this packet to request a retransmission server to retransmit a range of packets")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.depthofmarket.mach.v1.3.d.secondreserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.depthofmarket.mach.v1.3.d.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds_utc = ProtoField.new("Seconds", "miax.pearlequities.depthofmarket.mach.v1.3.d.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
@@ -71,9 +69,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.sip_reporting = ProtoFie
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.size = ProtoField.new("Size", "miax.pearlequities.depthofmarket.mach.v1.3.d.size", ftypes.UINT32, nil, nil, nil, "Number of displayed shares of the order.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.symbol_id = ProtoField.new("Symbol Id", "miax.pearlequities.depthofmarket.mach.v1.3.d.symbolid", ftypes.UINT32, nil, nil, nil, "Symbol ID mapped to a given symbol. It is assigned per trading session and is valid for that session.")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearlequities.depthofmarket.mach.v1.3.d.synchronizationcomplete", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Login response packet in response a Login request packet from the client")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.system_status = ProtoField.new("System Status", "miax.pearlequities.depthofmarket.mach.v1.3.d.systemstatus", ftypes.STRING, nil, nil, nil, "Current state of the system.")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.test_packet = ProtoField.new("Test Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.testpacket", ftypes.STRING, nil, nil, nil, "Test packets are intended to provide human readable text that may aid in debugging problems")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.test_security_indicator = ProtoField.new("Test Security Indicator", "miax.pearlequities.depthofmarket.mach.v1.3.d.testsecurityindicator", ftypes.STRING, nil, nil, nil, "Y - Yes, N - No.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.test_text = ProtoField.new("Test Text", "miax.pearlequities.depthofmarket.mach.v1.3.d.testtext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.ticker_symbol = ProtoField.new("Ticker Symbol", "miax.pearlequities.depthofmarket.mach.v1.3.d.tickersymbol", ftypes.STRING, nil, nil, nil, "Ticker symbol for the security in NASDAQ Integrated Platform format.")
@@ -110,7 +106,21 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.system_time_message = Pr
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.tradecancelmessage", ftypes.STRING, nil, nil, nil, "This message format is used to publish cancellation of a trade which was previously published via an Order Execution Message or a Trade Message.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.trade_message = ProtoField.new("Trade Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.trademessage", ftypes.STRING, nil, nil, nil, "This message format is used to publish trade executions for orders not displayed on the book. Executions for orders routed and executed in another trading center and trade corrections are also published using this message.")
 
+-- Miax PearlEquities DepthOfMarket 1.3.d Session Messages
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "miax.pearlequities.depthofmarket.mach.v1.3.d.clientheartbeat", ftypes.BYTES, nil, nil, nil, "The ESesM client sends a Client Heartbeat packet anytime more than 1 second passes where no data has been sent to the server")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_request = ProtoField.new("Login Request", "miax.pearlequities.depthofmarket.mach.v1.3.d.loginrequest", ftypes.STRING, nil, nil, nil, "The ESesM client must send a Login request packet immediately upon establishing a new TCP/IP socket connection to the server")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_response = ProtoField.new("Login Response", "miax.pearlequities.depthofmarket.mach.v1.3.d.loginresponse", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Login response packet in response to a Login request packet from the client")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.depthofmarket.mach.v1.3.d.logoutrequest", ftypes.STRING, nil, nil, nil, "The client may send a Logout request packet to request the connection be terminated")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.depthofmarket.mach.v1.3.d.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The ESesM client uses this packet to request a retransmission server to retransmit a range of packets")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "miax.pearlequities.depthofmarket.mach.v1.3.d.serverheartbeat", ftypes.BYTES, nil, nil, nil, "The ESesM server sends a Server Heartbeat packet anytime more than 1 second passes where no data has been sent to the client")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearlequities.depthofmarket.mach.v1.3.d.synchronizationcomplete", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Synchronization complete packet when it is done replaying all the old packets and is ready to start sending new packets from the Matching Engine")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.test_packet = ProtoField.new("Test Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.testpacket", ftypes.STRING, nil, nil, nil, "Test packets are intended to provide human readable text that may aid in debugging problems")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.trading_session_update = ProtoField.new("Trading Session Update", "miax.pearlequities.depthofmarket.mach.v1.3.d.tradingsessionupdate", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Trading Session Update packet to inform the client that a new trading session is starting on the specified Matching Engine")
+
 -- Miax PearlEquities DepthOfMarket Mach 1.3.d Generated Fields
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_matching_engine_index = ProtoField.new("Login Matching Engine Index", "miax.pearlequities.depthofmarket.mach.v1.3.d.loginmatchingengineindex", ftypes.UINT16)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.requested_matching_engine_index = ProtoField.new("Requested Matching Engine Index", "miax.pearlequities.depthofmarket.mach.v1.3.d.requestedmatchingengineindex", ftypes.UINT16)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.depthofmarket.mach.v1.3.d.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -138,13 +148,17 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.session_messages = true
 show.padding = false
+show.indexes = true
 
 -- Register Miax PearlEquities DepthOfMarket Mach 1.3.d Show Options
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
@@ -161,8 +175,14 @@ function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs_changed()
   if show.padding ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_padding then
     show.padding = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_padding
   end
+  if show.session_messages ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_session_messages then
+    show.session_messages = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_session_messages
+  end
   if show.structs ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs then
     show.structs = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs
+  end
+  if show.indexes ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_indexes then
+    show.indexes = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_indexes
   end
   if miax_pearlequities_depthofmarket_mach_v1_3_d.timestamp_format ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.timestamp_format then
     miax_pearlequities_depthofmarket_mach_v1_3_d.timestamp_format = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.timestamp_format
@@ -465,6 +485,35 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_version.dissect = function(bu
   return offset + length, value
 end
 
+-- Goodbye Reason
+miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_reason = {}
+
+-- Size: Goodbye Reason
+miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_reason.size = 1
+
+-- Display: Goodbye Reason
+miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_reason.labels = {
+  ["B"] = "Goodbye Reason: Bad Packet (B)",
+  ["L"] = "Goodbye Reason: Timed Out (L)",
+  ["A"] = "Goodbye Reason: Application Terminating Connection (A)",
+}
+
+miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_reason.display = function(value)
+  return miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_reason.labels[value] or "Goodbye Reason: Unknown("..value..")"
+end
+
+-- Dissect: Goodbye Reason
+miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_reason.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.goodbye_reason, range, value, display)
+
+  return offset + length, value
+end
+
 -- Highest Sequence Number
 miax_pearlequities_depthofmarket_mach_v1_3_d.highest_sequence_number = {}
 
@@ -502,20 +551,23 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.login_status.display = function(val
   if value == "S" then
     return "Login Status: Invalid Trading Session Requested (S)"
   end
+  if value == "N" then
+    return "Login Status: Invalid Start Sequence Number Requested (N)"
+  end
   if value == "U" then
     return "Login Status: No Active Trading Session Exists (U)"
   end
   if value == "X" then
     return "Login Status: Rejected (X)"
   end
-  if value == "N" then
-    return "Login Status: Invalid Start Sequence Number Requested (N)"
-  end
   if value == "I" then
     return "Login Status: Incompatible Session Protocol Version (I)"
   end
   if value == "A" then
     return "Login Status: Incompatible Application Protocol Version (A)"
+  end
+  if value == "C" then
+    return "Login Status: Invalid Number Of Matching Engines Specified In Login Request (C)"
   end
   if value == "L" then
     return "Login Status: Request Rejected Because Client Already Logged In (L)"
@@ -1614,7 +1666,7 @@ end
 
 -- Dissect: Test Packet
 miax_pearlequities_depthofmarket_mach_v1_3_d.test_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.test_packet, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.test_packet.fields(buffer, offset, packet, parent)
@@ -1667,18 +1719,45 @@ end
 -- Trading Session Update
 miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_update = {}
 
+-- Size: Trading Session Update
+miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_update.size =
+  miax_pearlequities_depthofmarket_mach_v1_3_d.matching_engine_id.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_id.size
+
 -- Display: Trading Session Update
 miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_update.display = function(packet, parent, length)
-  return "Trading Session Update"
+  return ""
 end
 
+-- Dissect Fields: Trading Session Update
+miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_update.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Id: 1 Byte Unsigned Fixed Width Integer
+  index, matching_engine_id = miax_pearlequities_depthofmarket_mach_v1_3_d.matching_engine_id.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, trading_session_id = miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
 
 -- Dissect: Trading Session Update
 miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_update.dissect = function(buffer, offset, packet, parent)
-  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_update.display(packet, parent, 0)
-  packet.cols.info = display
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.trading_session_update, buffer(offset, 0))
+    local index = miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_update.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_update.display(packet, parent, length)
+    parent:append_text(display)
 
-  return offset
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_update.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Goodbye Packet
@@ -1688,7 +1767,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet = {}
 miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.logout_reason.size
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_reason.size
 
   -- Parse runtime size of: Logout Text
   index = index + buffer(offset + index - 4, 2):le_uint()
@@ -1705,8 +1784,8 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Logout Reason: 1 Byte Ascii String Enum with 4 values
-  index, logout_reason = miax_pearlequities_depthofmarket_mach_v1_3_d.logout_reason.dissect(buffer, index, packet, parent)
+  -- Goodbye Reason: 1 Byte Ascii String Enum with 3 values
+  index, goodbye_reason = miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_reason.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Esesm Packet Length
   local esesm_packet_length = buffer(offset - 3, 2):le_uint()
@@ -1722,7 +1801,7 @@ end
 
 -- Dissect: Goodbye Packet
 miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.goodbye_packet, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet.fields(buffer, offset, packet, parent)
@@ -1779,7 +1858,7 @@ end
 
 -- Dissect: Logout Request
 miax_pearlequities_depthofmarket_mach_v1_3_d.logout_request.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_request, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.logout_request.fields(buffer, offset, packet, parent)
@@ -1823,7 +1902,7 @@ end
 
 -- Dissect: Retransmission Request
 miax_pearlequities_depthofmarket_mach_v1_3_d.retransmission_request.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.retransmission_request, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.retransmission_request.fields(buffer, offset, packet, parent)
@@ -1844,7 +1923,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.synchronization_complete = {}
 
 -- Size: Synchronization Complete
 miax_pearlequities_depthofmarket_mach_v1_3_d.synchronization_complete.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_d.number_of_matching_engines.size
+  miax_pearlequities_depthofmarket_mach_v1_3_d.matching_engine_id.size
 
 -- Display: Synchronization Complete
 miax_pearlequities_depthofmarket_mach_v1_3_d.synchronization_complete.display = function(packet, parent, length)
@@ -1855,15 +1934,15 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_d.synchronization_complete.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_matching_engines = miax_pearlequities_depthofmarket_mach_v1_3_d.number_of_matching_engines.dissect(buffer, index, packet, parent)
+  -- Matching Engine Id: 1 Byte Unsigned Fixed Width Integer
+  index, matching_engine_id = miax_pearlequities_depthofmarket_mach_v1_3_d.matching_engine_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Synchronization Complete
 miax_pearlequities_depthofmarket_mach_v1_3_d.synchronization_complete.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.synchronization_complete, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.synchronization_complete.fields(buffer, offset, packet, parent)
@@ -1879,15 +1958,75 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.synchronization_complete.dissect = 
   end
 end
 
--- Login Response
-miax_pearlequities_depthofmarket_mach_v1_3_d.login_response = {}
+-- Login Matching Engine
+miax_pearlequities_depthofmarket_mach_v1_3_d.login_matching_engine = {}
 
--- Size: Login Response
-miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_d.number_of_matching_engines.size + 
+-- Size: Login Matching Engine
+miax_pearlequities_depthofmarket_mach_v1_3_d.login_matching_engine.size =
   miax_pearlequities_depthofmarket_mach_v1_3_d.login_status.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_d.highest_sequence_number.size
+
+-- Display: Login Matching Engine
+miax_pearlequities_depthofmarket_mach_v1_3_d.login_matching_engine.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Matching Engine
+miax_pearlequities_depthofmarket_mach_v1_3_d.login_matching_engine.fields = function(buffer, offset, packet, parent, login_matching_engine_index)
+  local index = offset
+
+  -- Implicit Login Matching Engine Index
+  if login_matching_engine_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_matching_engine_index, login_matching_engine_index)
+    iteration:set_generated()
+  end
+
+  -- Login Status: 1 Byte Ascii String Enum with 9 values
+  index, login_status = miax_pearlequities_depthofmarket_mach_v1_3_d.login_status.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, trading_session_id = miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_id.dissect(buffer, index, packet, parent)
+
+  -- Highest Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, highest_sequence_number = miax_pearlequities_depthofmarket_mach_v1_3_d.highest_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Matching Engine
+miax_pearlequities_depthofmarket_mach_v1_3_d.login_matching_engine.dissect = function(buffer, offset, packet, parent, login_matching_engine_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_matching_engine, buffer(offset, 0))
+    local index = miax_pearlequities_depthofmarket_mach_v1_3_d.login_matching_engine.fields(buffer, offset, packet, parent, login_matching_engine_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_depthofmarket_mach_v1_3_d.login_matching_engine.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.login_matching_engine.fields(buffer, offset, packet, parent, login_matching_engine_index)
+  end
+end
+
+-- Login Response
+miax_pearlequities_depthofmarket_mach_v1_3_d.login_response = {}
+
+-- Calculate size of: Login Response
+miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.number_of_matching_engines.size
+
+  -- Calculate field size from count
+  local login_matching_engine_count = buffer(offset + index - 1, 1):uint()
+  index = index + login_matching_engine_count * 10
+
+  return index
+end
 
 -- Display: Login Response
 miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.display = function(packet, parent, length)
@@ -1901,21 +2040,17 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.fields = function(bu
   -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
   index, number_of_matching_engines = miax_pearlequities_depthofmarket_mach_v1_3_d.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
-  -- Login Status: 1 Byte Ascii String Enum with 8 values
-  index, login_status = miax_pearlequities_depthofmarket_mach_v1_3_d.login_status.dissect(buffer, index, packet, parent)
-
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
-  index, trading_session_id = miax_pearlequities_depthofmarket_mach_v1_3_d.trading_session_id.dissect(buffer, index, packet, parent)
-
-  -- Highest Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, highest_sequence_number = miax_pearlequities_depthofmarket_mach_v1_3_d.highest_sequence_number.dissect(buffer, index, packet, parent)
+  -- Repeating: Login Matching Engine
+  for login_matching_engine_index = 1, number_of_matching_engines do
+    index, login_matching_engine = miax_pearlequities_depthofmarket_mach_v1_3_d.login_matching_engine.dissect(buffer, index, packet, parent, login_matching_engine_index)
+  end
 
   return index
 end
 
 -- Dissect: Login Response
 miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_response, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.fields(buffer, offset, packet, parent)
@@ -1931,17 +2066,79 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.dissect = function(b
   end
 end
 
+-- Requested Matching Engine
+miax_pearlequities_depthofmarket_mach_v1_3_d.requested_matching_engine = {}
+
+-- Size: Requested Matching Engine
+miax_pearlequities_depthofmarket_mach_v1_3_d.requested_matching_engine.size =
+  miax_pearlequities_depthofmarket_mach_v1_3_d.requested_trading_session_id.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_d.requested_sequence_number.size
+
+-- Display: Requested Matching Engine
+miax_pearlequities_depthofmarket_mach_v1_3_d.requested_matching_engine.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Requested Matching Engine
+miax_pearlequities_depthofmarket_mach_v1_3_d.requested_matching_engine.fields = function(buffer, offset, packet, parent, requested_matching_engine_index)
+  local index = offset
+
+  -- Implicit Requested Matching Engine Index
+  if requested_matching_engine_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.requested_matching_engine_index, requested_matching_engine_index)
+    iteration:set_generated()
+  end
+
+  -- Requested Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, requested_trading_session_id = miax_pearlequities_depthofmarket_mach_v1_3_d.requested_trading_session_id.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, requested_sequence_number = miax_pearlequities_depthofmarket_mach_v1_3_d.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Requested Matching Engine
+miax_pearlequities_depthofmarket_mach_v1_3_d.requested_matching_engine.dissect = function(buffer, offset, packet, parent, requested_matching_engine_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.requested_matching_engine, buffer(offset, 0))
+    local index = miax_pearlequities_depthofmarket_mach_v1_3_d.requested_matching_engine.fields(buffer, offset, packet, parent, requested_matching_engine_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_depthofmarket_mach_v1_3_d.requested_matching_engine.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.requested_matching_engine.fields(buffer, offset, packet, parent, requested_matching_engine_index)
+  end
+end
+
 -- Login Request
 miax_pearlequities_depthofmarket_mach_v1_3_d.login_request = {}
 
--- Size: Login Request
-miax_pearlequities_depthofmarket_mach_v1_3_d.login_request.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_version.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_d.username.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_d.computer_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_d.application_protocol.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_d.requested_trading_session_id.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_d.requested_sequence_number.size
+-- Calculate size of: Login Request
+miax_pearlequities_depthofmarket_mach_v1_3_d.login_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_version.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.username.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.computer_id.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.application_protocol.size
+
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.number_of_matching_engines.size
+
+  -- Calculate field size from count
+  local requested_matching_engine_count = buffer(offset + index - 1, 1):uint()
+  index = index + requested_matching_engine_count * 9
+
+  return index
+end
 
 -- Display: Login Request
 miax_pearlequities_depthofmarket_mach_v1_3_d.login_request.display = function(packet, parent, length)
@@ -1964,18 +2161,20 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.login_request.fields = function(buf
   -- Application Protocol: 8 Byte Ascii String
   index, application_protocol = miax_pearlequities_depthofmarket_mach_v1_3_d.application_protocol.dissect(buffer, index, packet, parent)
 
-  -- Requested Trading Session Id: 1 Byte Unsigned Fixed Width Integer
-  index, requested_trading_session_id = miax_pearlequities_depthofmarket_mach_v1_3_d.requested_trading_session_id.dissect(buffer, index, packet, parent)
+  -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
+  index, number_of_matching_engines = miax_pearlequities_depthofmarket_mach_v1_3_d.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
-  -- Requested Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, requested_sequence_number = miax_pearlequities_depthofmarket_mach_v1_3_d.requested_sequence_number.dissect(buffer, index, packet, parent)
+  -- Repeating: Requested Matching Engine
+  for requested_matching_engine_index = 1, number_of_matching_engines do
+    index, requested_matching_engine = miax_pearlequities_depthofmarket_mach_v1_3_d.requested_matching_engine.dissect(buffer, index, packet, parent, requested_matching_engine_index)
+  end
 
   return index
 end
 
 -- Dissect: Login Request
 miax_pearlequities_depthofmarket_mach_v1_3_d.login_request.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_request, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.login_request.fields(buffer, offset, packet, parent)

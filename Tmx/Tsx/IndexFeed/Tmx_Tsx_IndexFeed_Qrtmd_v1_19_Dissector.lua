@@ -1358,7 +1358,7 @@ udp_table:add_for_decode_as(omi_tmx_tsx_indexfeed_qrtmd_v1_19)
 --   Organization: TMX Group
 --   Version: 1.19
 --   Date: Tuesday, October 12, 2021
---   Specification: QRTMD TX1 (1.19).pdf
+--   Specification: QRTMD TX1 (2021-10-12).pdf
 --   Specification: QRTMD PSSAG (2.10).pdf
 --
 -- Script:

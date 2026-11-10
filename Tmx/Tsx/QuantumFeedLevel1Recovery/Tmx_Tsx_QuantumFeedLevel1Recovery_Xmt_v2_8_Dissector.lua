@@ -3813,10 +3813,6 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.server_body = {}
 -- Dissect: Server Body
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.server_body.dissect = function(buffer, offset, packet, parent)
   local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
   -- Dissect Heartbeat Body
   if msg_type == "0" then
     return tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.heartbeat_body.dissect(buffer, offset, packet, parent)
@@ -4266,9 +4262,6 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.client_body = {}
 
 -- Dissect: Client Body
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.client_body.dissect = function(buffer, offset, packet, parent)
-  local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
   local msg_type = buffer(offset + 2, 1):string()
   -- Dissect Heartbeat Body
   if msg_type == "0" then

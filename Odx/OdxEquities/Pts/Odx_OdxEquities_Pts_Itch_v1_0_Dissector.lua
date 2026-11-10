@@ -1998,7 +1998,7 @@ udp_table:add_for_decode_as(omi_odx_odxequities_pts_itch_v1_0)
 --   Organization: Osaka Digital Exchange
 --   Version: 1.0
 --   Date: Monday, May 2, 2022
---   Specification: ODX PTS ITCH Equities (1.0).pdf
+--   Specification: ODX PTS ITCH Equities (2022-05-02).pdf
 --
 -- Script:
 --   Compiler: 2.0

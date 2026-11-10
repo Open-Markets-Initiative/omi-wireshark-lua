@@ -4787,7 +4787,7 @@ udp_table:add_for_decode_as(omi_siac_opra_output_obi_v6_3_a)
 --   Organization: The Securities Industry Automation Corporation
 --   Version: 6.3.a
 --   Date: Friday, February 20, 2026
---   Specification: OPRA_Pillar_Output_Specification (6.3a).pdf
+--   Specification: OPRA_Pillar_Output_Specification (2026-02-20).pdf
 --
 -- Script:
 --   Compiler: 2.0

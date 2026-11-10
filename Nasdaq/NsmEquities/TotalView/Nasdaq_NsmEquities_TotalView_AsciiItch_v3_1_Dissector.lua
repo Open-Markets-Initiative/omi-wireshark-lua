@@ -4403,7 +4403,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.1
 --   Date: Wednesday, October 6, 2010
---   Specification: Nasdaq TotalView ITCH (3.1).pdf
+--   Specification: Nasdaq TotalView ITCH (2010-10-06).pdf
 --
 -- Script:
 --   Compiler: 2.0

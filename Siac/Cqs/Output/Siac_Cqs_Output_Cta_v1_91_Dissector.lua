@@ -2918,8 +2918,8 @@ siac_cqs_output_cta_v1_91.participant_timestamp.size =
 -- Display: Participant Timestamp
 siac_cqs_output_cta_v1_91.participant_timestamp.display = function(packet, parent, value)
   -- Check null value
-  if value == nil then
-    return "No Value"
+  if value == nil or value == UInt64(0) then
+    return "Not Provided"
 
   end
 
@@ -2959,7 +2959,13 @@ siac_cqs_output_cta_v1_91.participant_timestamp.dissect = function(buffer, offse
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cqs_output_cta_v1_91.fields.participant_timestamp
     if siac_cqs_output_cta_v1_91.timestamp_format == 3 then field = omi_siac_cqs_output_cta_v1_91.fields.participant_timestamp_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    if seconds == 0 and nanoseconds == 0 then
+      -- Null: the field keeps its type, and the line says so instead
+      parent = parent:add(field, buffer(offset, length), NSTime.new(0, 0))
+      parent:set_text("Participant Timestamp: Not Provided")
+    else
+      parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    end
     local index = siac_cqs_output_cta_v1_91.participant_timestamp.fields(buffer, offset, packet, parent)
 
     return index, parent

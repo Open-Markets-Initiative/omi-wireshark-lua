@@ -3200,7 +3200,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.06
 --   Date: Tuesday, February 14, 2012
---   Specification: Nasdaq Nordic Genium INET ITCH Protocol Specification (1.06).pdf
+--   Specification: Nasdaq Nordic Genium INET ITCH Protocol Specification (2012-02-14).pdf
 --
 -- Script:
 --   Compiler: 2.0

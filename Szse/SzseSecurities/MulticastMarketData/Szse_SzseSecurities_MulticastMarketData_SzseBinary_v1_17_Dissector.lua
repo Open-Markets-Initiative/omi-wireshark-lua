@@ -6907,7 +6907,7 @@ udp_table:add_for_decode_as(omi_szse_szsesecurities_multicastmarketdata_szsebina
 --   Organization: Shenzhen Stock Exchange
 --   Version: 1.17
 --   Date: Tuesday, April 1, 2025
---   Specification: SZSE Multicast Market Data Distribution Protocol (1.0).pdf
+--   Specification: SZSE Multicast Market Data Distribution Protocol (2025-04-01).pdf
 --   Specification: SZSE Interface Specification of BINARY Market Data Feed (Ver1.17).pdf
 --
 -- Script:

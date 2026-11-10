@@ -5158,10 +5158,6 @@ tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.server_body = {}
 -- Dissect: Server Body
 tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.server_body.dissect = function(buffer, offset, packet, parent)
   local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
   -- Dissect Heartbeat Body
   if msg_type == "0" then
     return tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.heartbeat_body.dissect(buffer, offset, packet, parent)
@@ -5611,9 +5607,6 @@ tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.client_body = {}
 
 -- Dissect: Client Body
 tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6.client_body.dissect = function(buffer, offset, packet, parent)
-  local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
-  local msg_type = buffer(offset + 2, 1):string()
   local msg_type = buffer(offset + 2, 1):string()
   -- Dissect Heartbeat Body
   if msg_type == "0" then
@@ -6199,7 +6192,7 @@ tcp_table:add_for_decode_as(omi_tmx_tsx_quantumfeedlevel2recovery_xmt_v3_6)
 --   Organization: TMX Group
 --   Version: 3.6
 --   Date: Tuesday, August 10, 2021
---   Specification: TSX TSXV Level 2 QuantumFeed Business Message Specification (3.6.0).pdf
+--   Specification: TSX TSXV Level 2 QuantumFeed Business Message Specification (2021-08-10).pdf
 --   Specification: tmx-xmt-protocol-spec-v1-2-0.pdf
 --   Specification: TSX QuantumFeed Service Access Guide (4.1.0).pdf
 --

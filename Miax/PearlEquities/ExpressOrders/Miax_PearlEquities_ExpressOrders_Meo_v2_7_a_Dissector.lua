@@ -29,7 +29,7 @@ omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.capacity = ProtoField.new
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.clearing_account = ProtoField.new("Clearing Account", "miax.pearlequities.expressorders.meo.v2.7.a.clearingaccount", ftypes.STRING, nil, nil, nil, "Optional supplemental order identifier")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.client_order_id = ProtoField.new("Client Order Id", "miax.pearlequities.expressorders.meo.v2.7.a.clientorderid", ftypes.STRING, nil, nil, nil, "Firm specified unique order Id")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.closing_time = ProtoField.new("Closing Time", "miax.pearlequities.expressorders.meo.v2.7.a.closingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format Eg:")
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.computer_id = ProtoField.new("Computer Id", "miax.pearlequities.expressorders.meo.v2.7.a.computerid", ftypes.STRING, nil, nil, nil, "issued by MIAX Futures Exchange during initial setup")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.computer_id = ProtoField.new("Computer Id", "miax.pearlequities.expressorders.meo.v2.7.a.computerid", ftypes.STRING, nil, nil, nil, "ID issued by MIAX during initial setup")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.correction_number = ProtoField.new("Correction Number", "miax.pearlequities.expressorders.meo.v2.7.a.correctionnumber", ftypes.UINT8, nil, nil, nil, "Trade correction number")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.display_qty = ProtoField.new("Display Qty", "miax.pearlequities.expressorders.meo.v2.7.a.displayqty", ftypes.UINT32, nil, nil, nil, "Display size of the Reserve order after replenishment")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.display_range_qty = ProtoField.new("Display Range Qty", "miax.pearlequities.expressorders.meo.v2.7.a.displayrangeqty", ftypes.UINT32, nil, nil, nil, "Used for random replenishment of Reserve orders")
@@ -42,8 +42,8 @@ omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.executing_trading_center 
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.executing_trading_center_mpid = ProtoField.new("Executing Trading Center Mpid", "miax.pearlequities.expressorders.meo.v2.7.a.executingtradingcentermpid", ftypes.STRING, nil, nil, nil, "Reserved for future use")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.execution_id = ProtoField.new("Execution Id", "miax.pearlequities.expressorders.meo.v2.7.a.executionid", ftypes.UINT64, nil, nil, nil, "Exchange assigned unique Execution ID See notes")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.future = ProtoField.new("Future", "miax.pearlequities.expressorders.meo.v2.7.a.future", ftypes.UINT8, nil, nil, nil, "Reserved for future use")
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.expressorders.meo.v2.7.a.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.pearlequities.expressorders.meo.v2.7.a.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "the highest sequence number that the server currently has for the client")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.goodbye_reason = ProtoField.new("Goodbye Reason", "miax.pearlequities.expressorders.meo.v2.7.a.goodbyereason", ftypes.STRING, nil, nil, nil, "GoodBye Packet Reason")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.pearlequities.expressorders.meo.v2.7.a.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "The highest sequence number the server currently has for the client from the Matching Engine")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.iso = ProtoField.new("Iso", "miax.pearlequities.expressorders.meo.v2.7.a.iso", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.last_price = ProtoField.new("Last Price", "miax.pearlequities.expressorders.meo.v2.7.a.lastprice", ftypes.DOUBLE, nil, nil, nil, "Match price if the order had not been prevented")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.last_size = ProtoField.new("Last Size", "miax.pearlequities.expressorders.meo.v2.7.a.lastsize", ftypes.UINT32, nil, nil, nil, "Number of shares that would have matched if the")
@@ -52,11 +52,8 @@ omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.liquidity_indicator = Pro
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.locate_account = ProtoField.new("Locate Account", "miax.pearlequities.expressorders.meo.v2.7.a.locateaccount", ftypes.STRING, nil, nil, nil, "Optional information provided by Firm for Sell")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.locate_required = ProtoField.new("Locate Required", "miax.pearlequities.expressorders.meo.v2.7.a.locaterequired", ftypes.UINT16, {[0]="Not Applicable", [1]="Yes"}, base.DEC, 0x0020)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.login_matching_engine = ProtoField.new("Login Matching Engine", "miax.pearlequities.expressorders.meo.v2.7.a.loginmatchingengine", ftypes.STRING, nil, nil, nil, "The login status, trading session and highest sequence number of one matching engine, repeated once for each the login response counts")
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.login_request = ProtoField.new("Login Request", "miax.pearlequities.expressorders.meo.v2.7.a.loginrequest", ftypes.STRING, nil, nil, nil, "The SesM client must send a Login request packet immediately upon establishing a new TCP/IP socket connection to the server")
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.login_response = ProtoField.new("Login Response", "miax.pearlequities.expressorders.meo.v2.7.a.loginresponse", ftypes.STRING, nil, nil, nil, "The SesM server sends a Login response packet in response a Login request packet from the client")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.login_status = ProtoField.new("Login Status", "miax.pearlequities.expressorders.meo.v2.7.a.loginstatus", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.logout_reason = ProtoField.new("Logout Reason", "miax.pearlequities.expressorders.meo.v2.7.a.logoutreason", ftypes.STRING, nil, nil, nil, "Logout Request Reason")
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.expressorders.meo.v2.7.a.logoutrequest", ftypes.STRING, nil, nil, nil, "The client may send a Logout request packet to request the connection be terminated")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.logout_text = ProtoField.new("Logout Text", "miax.pearlequities.expressorders.meo.v2.7.a.logouttext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.expressorders.meo.v2.7.a.lotsize", ftypes.UINT32, nil, nil, nil, "Round Lot size in shares")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.matching_engine = ProtoField.new("Matching Engine", "miax.pearlequities.expressorders.meo.v2.7.a.matchingengine", ftypes.STRING, nil, nil, nil, "Status response for the Mass Cancel Request from each Matching Engine, in sequential order")
@@ -99,8 +96,8 @@ omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.purge_group = ProtoField.
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.purge_instructions = ProtoField.new("Purge Instructions", "miax.pearlequities.expressorders.meo.v2.7.a.purgeinstructions", ftypes.STRING, nil, nil, nil, "Asp flags")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.purge_status = ProtoField.new("Purge Status", "miax.pearlequities.expressorders.meo.v2.7.a.purgestatus", ftypes.STRING, nil, nil, nil, "Status of this request")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.requested_matching_engine = ProtoField.new("Requested Matching Engine", "miax.pearlequities.expressorders.meo.v2.7.a.requestedmatchingengine", ftypes.STRING, nil, nil, nil, "The trading session and sequence number the client asks of one matching engine, repeated once for each the login request counts")
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.expressorders.meo.v2.7.a.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies client requested sequence number")
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.expressorders.meo.v2.7.a.requestedtradingsessionid", ftypes.UINT8, nil, nil, nil, "Specifies the session the client would like to log into, or zero to log into the currently active session")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.expressorders.meo.v2.7.a.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies client requested sequence number for the Matching Engine")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.expressorders.meo.v2.7.a.requestedtradingsessionid", ftypes.UINT8, nil, nil, nil, "Specifies the Matching Engine trading session the client would like to log into, or zero to log into the currently active trading session")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.expressorders.meo.v2.7.a.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.pearlequities.expressorders.meo.v2.7.a.reserved10", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.reserved_11 = ProtoField.new("Reserved 11", "miax.pearlequities.expressorders.meo.v2.7.a.reserved11", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
@@ -110,7 +107,6 @@ omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.reserved_19 = ProtoField.
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearlequities.expressorders.meo.v2.7.a.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.reserved_9 = ProtoField.new("Reserved 9", "miax.pearlequities.expressorders.meo.v2.7.a.reserved9", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.retail_order = ProtoField.new("Retail Order", "miax.pearlequities.expressorders.meo.v2.7.a.retailorder", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080)
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.expressorders.meo.v2.7.a.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The ESesM client uses this packet to request a retransmission server to retransmit a range of packets")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.routing = ProtoField.new("Routing", "miax.pearlequities.expressorders.meo.v2.7.a.routing", ftypes.STRING, nil, nil, nil, "Routing Flags")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.routing_instruction = ProtoField.new("Routing Instruction", "miax.pearlequities.expressorders.meo.v2.7.a.routinginstruction", ftypes.UINT8, {[0]="Route Once", [1]="Reroutable", [2]="Do Not Route"}, base.DEC, 0x07)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.routing_strategy = ProtoField.new("Routing Strategy", "miax.pearlequities.expressorders.meo.v2.7.a.routingstrategy", ftypes.UINT8, {[0]="Not Applicable", [1]="Order Protection", [2]="Primary Auction"}, base.DEC, 0x38)
@@ -130,9 +126,7 @@ omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.size = ProtoField.new("Si
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.pearlequities.expressorders.meo.v2.7.a.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.symbol_id = ProtoField.new("Symbol Id", "miax.pearlequities.expressorders.meo.v2.7.a.symbolid", ftypes.UINT32, nil, nil, nil, "Symbol ID mapped to a given symbol")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.symbold_id = ProtoField.new("Symbold Id", "miax.pearlequities.expressorders.meo.v2.7.a.symboldid", ftypes.UINT32, nil, nil, nil, "As specified in the Aggressive Side Purge (ASP)")
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearlequities.expressorders.meo.v2.7.a.synchronizationcomplete", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Login response packet in response a Login request packet from the client")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.system_status = ProtoField.new("System Status", "miax.pearlequities.expressorders.meo.v2.7.a.systemstatus", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.test_packet = ProtoField.new("Test Packet", "miax.pearlequities.expressorders.meo.v2.7.a.testpacket", ftypes.STRING, nil, nil, nil, "Test packets are intended to provide human readable text that may aid in debugging problems")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.test_security_indicator = ProtoField.new("Test Security Indicator", "miax.pearlequities.expressorders.meo.v2.7.a.testsecurityindicator", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.test_text = ProtoField.new("Test Text", "miax.pearlequities.expressorders.meo.v2.7.a.testtext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.ticker_symbol = ProtoField.new("Ticker Symbol", "miax.pearlequities.expressorders.meo.v2.7.a.tickersymbol", ftypes.STRING, nil, nil, nil, "Ticker symbol for the security in NASDAQ")
@@ -176,6 +170,18 @@ omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.reserve_order_replenishme
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.symbol_update = ProtoField.new("Symbol Update", "miax.pearlequities.expressorders.meo.v2.7.a.symbolupdate", ftypes.STRING, nil, nil, nil, "used to disseminate all security symbols traded on MIAX Pearl Equities for the current session")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.system_state_notification = ProtoField.new("System State Notification", "miax.pearlequities.expressorders.meo.v2.7.a.systemstatenotification", ftypes.STRING, nil, nil, nil, "This message is published whenever system state events take place")
 
+-- Miax PearlEquities ExpressOrders 2.7.a Session Messages
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "miax.pearlequities.expressorders.meo.v2.7.a.clientheartbeat", ftypes.BYTES, nil, nil, nil, "The ESesM client sends a Client Heartbeat packet anytime more than 1 second passes where no data has been sent to the server")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.expressorders.meo.v2.7.a.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.login_request = ProtoField.new("Login Request", "miax.pearlequities.expressorders.meo.v2.7.a.loginrequest", ftypes.STRING, nil, nil, nil, "The ESesM client must send a Login request packet immediately upon establishing a new TCP/IP socket connection to the server")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.login_response = ProtoField.new("Login Response", "miax.pearlequities.expressorders.meo.v2.7.a.loginresponse", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Login response packet in response to a Login request packet from the client")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.expressorders.meo.v2.7.a.logoutrequest", ftypes.STRING, nil, nil, nil, "The client may send a Logout request packet to request the connection be terminated")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.expressorders.meo.v2.7.a.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The ESesM client uses this packet to request a retransmission server to retransmit a range of packets")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "miax.pearlequities.expressorders.meo.v2.7.a.serverheartbeat", ftypes.BYTES, nil, nil, nil, "The ESesM server sends a Server Heartbeat packet anytime more than 1 second passes where no data has been sent to the client")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearlequities.expressorders.meo.v2.7.a.synchronizationcomplete", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Synchronization complete packet when it is done replaying all the old packets and is ready to start sending new packets from the Matching Engine")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.test_packet = ProtoField.new("Test Packet", "miax.pearlequities.expressorders.meo.v2.7.a.testpacket", ftypes.STRING, nil, nil, nil, "Test packets are intended to provide human readable text that may aid in debugging problems")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.trading_session_update = ProtoField.new("Trading Session Update", "miax.pearlequities.expressorders.meo.v2.7.a.tradingsessionupdate", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Trading Session Update packet to inform the client that a new trading session is starting on the specified Matching Engine")
+
 -- Miax PearlEquities ExpressOrders Meo 2.7.a Generated Fields
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.login_matching_engine_index = ProtoField.new("Login Matching Engine Index", "miax.pearlequities.expressorders.meo.v2.7.a.loginmatchingengineindex", ftypes.UINT16)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.matching_engine_index = ProtoField.new("Matching Engine Index", "miax.pearlequities.expressorders.meo.v2.7.a.matchingengineindex", ftypes.UINT16)
@@ -205,6 +211,7 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.session_messages = true
 show.repeating_groups = true
 show.padding = false
 show.indexes = true
@@ -213,6 +220,7 @@ show.indexes = true
 omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -234,6 +242,9 @@ function omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs_changed()
   end
   if show.repeating_groups ~= omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_repeating_groups then
     show.repeating_groups = omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_repeating_groups
+  end
+  if show.session_messages ~= omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_session_messages then
+    show.session_messages = omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_session_messages
   end
   if show.structs ~= omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_structs then
     show.structs = omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_structs
@@ -977,6 +988,35 @@ miax_pearlequities_expressorders_meo_v2_7_a.future.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Goodbye Reason
+miax_pearlequities_expressorders_meo_v2_7_a.goodbye_reason = {}
+
+-- Size: Goodbye Reason
+miax_pearlequities_expressorders_meo_v2_7_a.goodbye_reason.size = 1
+
+-- Display: Goodbye Reason
+miax_pearlequities_expressorders_meo_v2_7_a.goodbye_reason.labels = {
+  ["B"] = "Goodbye Reason: Bad Packet (B)",
+  ["L"] = "Goodbye Reason: Timed Out (L)",
+  ["A"] = "Goodbye Reason: Application Terminating Connection (A)",
+}
+
+miax_pearlequities_expressorders_meo_v2_7_a.goodbye_reason.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_a.goodbye_reason.labels[value] or "Goodbye Reason: Unknown("..value..")"
+end
+
+-- Dissect: Goodbye Reason
+miax_pearlequities_expressorders_meo_v2_7_a.goodbye_reason.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v2_7_a.goodbye_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v2_7_a.goodbye_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.goodbye_reason, range, value, display)
+
+  return offset + length, value
+end
+
 -- Highest Sequence Number
 miax_pearlequities_expressorders_meo_v2_7_a.highest_sequence_number = {}
 
@@ -1167,20 +1207,23 @@ miax_pearlequities_expressorders_meo_v2_7_a.login_status.display = function(valu
   if value == "S" then
     return "Login Status: Invalid Trading Session Requested (S)"
   end
+  if value == "N" then
+    return "Login Status: Invalid Start Sequence Number Requested (N)"
+  end
   if value == "U" then
     return "Login Status: No Active Trading Session Exists (U)"
   end
   if value == "X" then
     return "Login Status: Rejected (X)"
   end
-  if value == "N" then
-    return "Login Status: Invalid Start Sequence Number Requested (N)"
-  end
   if value == "I" then
     return "Login Status: Incompatible Session Protocol Version (I)"
   end
   if value == "A" then
     return "Login Status: Incompatible Application Protocol Version (A)"
+  end
+  if value == "C" then
+    return "Login Status: Invalid Number Of Matching Engines Specified In Login Request (C)"
   end
   if value == "L" then
     return "Login Status: Request Rejected Because Client Already Logged In (L)"
@@ -3296,7 +3339,7 @@ end
 
 -- Dissect: Test Packet
 miax_pearlequities_expressorders_meo_v2_7_a.test_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.test_packet, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_7_a.test_packet.fields(buffer, offset, packet, parent)
@@ -3349,18 +3392,45 @@ end
 -- Trading Session Update
 miax_pearlequities_expressorders_meo_v2_7_a.trading_session_update = {}
 
+-- Size: Trading Session Update
+miax_pearlequities_expressorders_meo_v2_7_a.trading_session_update.size =
+  miax_pearlequities_expressorders_meo_v2_7_a.matching_engine_id.size + 
+  miax_pearlequities_expressorders_meo_v2_7_a.trading_session_id.size
+
 -- Display: Trading Session Update
 miax_pearlequities_expressorders_meo_v2_7_a.trading_session_update.display = function(packet, parent, length)
-  return "Trading Session Update"
+  return ""
 end
 
+-- Dissect Fields: Trading Session Update
+miax_pearlequities_expressorders_meo_v2_7_a.trading_session_update.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Id: 1 Byte Unsigned Fixed Width Integer
+  index, matching_engine_id = miax_pearlequities_expressorders_meo_v2_7_a.matching_engine_id.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, trading_session_id = miax_pearlequities_expressorders_meo_v2_7_a.trading_session_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
 
 -- Dissect: Trading Session Update
 miax_pearlequities_expressorders_meo_v2_7_a.trading_session_update.dissect = function(buffer, offset, packet, parent)
-  local display = miax_pearlequities_expressorders_meo_v2_7_a.trading_session_update.display(packet, parent, 0)
-  packet.cols.info = display
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.trading_session_update, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_a.trading_session_update.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_a.trading_session_update.display(packet, parent, length)
+    parent:append_text(display)
 
-  return offset
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_a.trading_session_update.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Goodbye Packet
@@ -3370,7 +3440,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.goodbye_packet = {}
 miax_pearlequities_expressorders_meo_v2_7_a.goodbye_packet.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_pearlequities_expressorders_meo_v2_7_a.logout_reason.size
+  index = index + miax_pearlequities_expressorders_meo_v2_7_a.goodbye_reason.size
 
   -- Parse runtime size of: Logout Text
   index = index + buffer(offset + index - 4, 2):le_uint()
@@ -3387,8 +3457,8 @@ end
 miax_pearlequities_expressorders_meo_v2_7_a.goodbye_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Logout Reason: 1 Byte Ascii String Enum with 4 values
-  index, logout_reason = miax_pearlequities_expressorders_meo_v2_7_a.logout_reason.dissect(buffer, index, packet, parent)
+  -- Goodbye Reason: 1 Byte Ascii String Enum with 3 values
+  index, goodbye_reason = miax_pearlequities_expressorders_meo_v2_7_a.goodbye_reason.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Esesm Packet Length
   local esesm_packet_length = buffer(offset - 3, 2):le_uint()
@@ -3404,7 +3474,7 @@ end
 
 -- Dissect: Goodbye Packet
 miax_pearlequities_expressorders_meo_v2_7_a.goodbye_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.goodbye_packet, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_7_a.goodbye_packet.fields(buffer, offset, packet, parent)
@@ -3461,7 +3531,7 @@ end
 
 -- Dissect: Logout Request
 miax_pearlequities_expressorders_meo_v2_7_a.logout_request.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.logout_request, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_7_a.logout_request.fields(buffer, offset, packet, parent)
@@ -3505,7 +3575,7 @@ end
 
 -- Dissect: Retransmission Request
 miax_pearlequities_expressorders_meo_v2_7_a.retransmission_request.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.retransmission_request, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_7_a.retransmission_request.fields(buffer, offset, packet, parent)
@@ -3526,7 +3596,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.synchronization_complete = {}
 
 -- Size: Synchronization Complete
 miax_pearlequities_expressorders_meo_v2_7_a.synchronization_complete.size =
-  miax_pearlequities_expressorders_meo_v2_7_a.number_of_matching_engines.size
+  miax_pearlequities_expressorders_meo_v2_7_a.matching_engine_id.size
 
 -- Display: Synchronization Complete
 miax_pearlequities_expressorders_meo_v2_7_a.synchronization_complete.display = function(packet, parent, length)
@@ -3537,15 +3607,15 @@ end
 miax_pearlequities_expressorders_meo_v2_7_a.synchronization_complete.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Matching Engines: BinaryU
-  index, number_of_matching_engines = miax_pearlequities_expressorders_meo_v2_7_a.number_of_matching_engines.dissect(buffer, index, packet, parent)
+  -- Matching Engine Id: 1 Byte Unsigned Fixed Width Integer
+  index, matching_engine_id = miax_pearlequities_expressorders_meo_v2_7_a.matching_engine_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Synchronization Complete
 miax_pearlequities_expressorders_meo_v2_7_a.synchronization_complete.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.synchronization_complete, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_7_a.synchronization_complete.fields(buffer, offset, packet, parent)
@@ -3585,7 +3655,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.login_matching_engine.fields = funct
     iteration:set_generated()
   end
 
-  -- Login Status: 1 Byte Ascii String Enum with 8 values
+  -- Login Status: 1 Byte Ascii String Enum with 9 values
   index, login_status = miax_pearlequities_expressorders_meo_v2_7_a.login_status.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
@@ -3653,7 +3723,7 @@ end
 
 -- Dissect: Login Response
 miax_pearlequities_expressorders_meo_v2_7_a.login_response.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.login_response, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_7_a.login_response.fields(buffer, offset, packet, parent)
@@ -3777,7 +3847,7 @@ end
 
 -- Dissect: Login Request
 miax_pearlequities_expressorders_meo_v2_7_a.login_request.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.login_request, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_7_a.login_request.fields(buffer, offset, packet, parent)

@@ -26694,7 +26694,7 @@ tcp_table:add_for_decode_as(omi_eurex_t7_xti_fbe_v8_0)
 --   Organization: Eurex Exchange
 --   Version: 8.0
 --   Date: Tuesday, October 15, 2019
---   Specification: T7_Enhanced_Trading_Interface_-_Manual_v.1.2 (8.0).pdf
+--   Specification: T7_Enhanced_Trading_Interface_-_Manual_v.1.2 (2019-10-15).pdf
 --
 -- Script:
 --   Compiler: 2.0

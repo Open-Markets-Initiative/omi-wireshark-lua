@@ -5572,7 +5572,7 @@ udp_table:add_for_decode_as(omi_moex_spectra_futinforeplay_simba_v9_9_0)
 --   Organization: Moscow Exchange
 --   Version: 9.9.0
 --   Date: Thursday, July 16, 2026
---   Specification: MOEX Spectra SIMBA Market Data (SBE) (9.9.0).pdf
+--   Specification: MOEX Spectra SIMBA Market Data (SBE) (2026-07-16).pdf
 --
 -- Script:
 --   Compiler: 2.0

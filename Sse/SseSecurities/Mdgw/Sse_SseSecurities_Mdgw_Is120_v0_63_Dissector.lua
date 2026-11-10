@@ -3285,7 +3285,7 @@ tcp_table:add_for_decode_as(omi_sse_ssesecurities_mdgw_is120_v0_63)
 --   Organization: Shanghai Stock Exchange
 --   Version: 0.63
 --   Date: Friday, September 18, 2026
---   Specification: IS120_上海证券交易所行情网关BINARY数据接口规范0.63版_20260918.pdf
+--   Specification: 03ec823b9825422ba4c74e2f5cb3c42e.pdf
 --
 -- Script:
 --   Compiler: 2.0

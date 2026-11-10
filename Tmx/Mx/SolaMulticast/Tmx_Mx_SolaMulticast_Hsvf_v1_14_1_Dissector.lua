@@ -29624,9 +29624,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_strategy_market_depth_level.si
 tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_strategy_market_depth_level.dissect = function(buffer, offset, packet, parent)
   local ask_price_quote_opening = buffer(offset, 7):string()
   local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Ask Price Quote Strategy Market Depth Level Opening Pair
-  if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
+  if ask_price_quote_opening == "0000OUV" and ask_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_strategy_market_depth_level_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Ask Price Quote Numeric Ask Price Quote Strategy Market Depth Level Numeric Pair Negative Whole Pair
@@ -30067,9 +30066,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_strategy_market_depth_level.si
 tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_strategy_market_depth_level.dissect = function(buffer, offset, packet, parent)
   local bid_price_quote_opening = buffer(offset, 7):string()
   local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Bid Price Quote Strategy Market Depth Level Opening Pair
-  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+  if bid_price_quote_opening == "0000OUV" and bid_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_strategy_market_depth_level_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bid Price Quote Numeric Bid Price Quote Strategy Market Depth Level Numeric Pair Negative Whole Pair
@@ -30657,9 +30655,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_futures_depth_market_depth_level_hf.
 tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_futures_depth_market_depth_level_hf.dissect = function(buffer, offset, packet, parent)
   local ask_price_futures_depth_opening = buffer(offset, 7):string()
   local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Ask Price Futures Depth Market Depth Level HF Opening Pair
-  if ask_price_futures_depth_opening == "OUV" and ask_price_fraction_indicator == "0" then
+  if ask_price_futures_depth_opening == "0000OUV" and ask_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_futures_depth_market_depth_level_hf_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Ask Price Futures Depth Numeric Negative Whole Pair
@@ -31100,9 +31097,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_market_depth_level_hf.size = 8
 tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_market_depth_level_hf.dissect = function(buffer, offset, packet, parent)
   local bid_price_quote_opening = buffer(offset, 7):string()
   local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Bid Price Quote Market Depth Level HF Opening Pair
-  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+  if bid_price_quote_opening == "0000OUV" and bid_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_market_depth_level_hf_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bid Price Quote Numeric Bid Price Quote Market Depth Level HF Numeric Pair Negative Whole Pair
@@ -31682,9 +31678,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_market_depth_level_hb.size = 8
 tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_market_depth_level_hb.dissect = function(buffer, offset, packet, parent)
   local ask_price_quote_opening = buffer(offset, 7):string()
   local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Ask Price Quote Market Depth Level HB Opening Pair
-  if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
+  if ask_price_quote_opening == "0000OUV" and ask_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_market_depth_level_hb_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Ask Price Quote Numeric Ask Price Quote Market Depth Level HB Numeric Pair Negative Whole Pair
@@ -32125,9 +32120,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_market_depth_level_hb.size = 8
 tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_market_depth_level_hb.dissect = function(buffer, offset, packet, parent)
   local bid_price_quote_opening = buffer(offset, 7):string()
   local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Bid Price Quote Market Depth Level HB Opening Pair
-  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+  if bid_price_quote_opening == "0000OUV" and bid_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_market_depth_level_hb_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bid Price Quote Numeric Bid Price Quote Market Depth Level HB Numeric Pair Negative Whole Pair
@@ -32707,9 +32701,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_market_depth_level.size = 8
 tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_market_depth_level.dissect = function(buffer, offset, packet, parent)
   local ask_price_quote_opening = buffer(offset, 7):string()
   local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Ask Price Quote Market Depth Level Opening Pair
-  if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
+  if ask_price_quote_opening == "0000OUV" and ask_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_market_depth_level_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Ask Price Quote Numeric Ask Price Quote Market Depth Level Numeric Pair Negative Whole Pair
@@ -33150,9 +33143,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_market_depth_level.size = 8
 tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_market_depth_level.dissect = function(buffer, offset, packet, parent)
   local bid_price_quote_opening = buffer(offset, 7):string()
   local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Bid Price Quote Market Depth Level Opening Pair
-  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+  if bid_price_quote_opening == "0000OUV" and bid_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_market_depth_level_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bid Price Quote Numeric Bid Price Quote Market Depth Level Numeric Pair Negative Whole Pair
@@ -33732,9 +33724,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote.size = 8
 tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote.dissect = function(buffer, offset, packet, parent)
   local ask_price_quote_opening = buffer(offset, 7):string()
   local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Ask Price Quote Opening Pair
-  if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
+  if ask_price_quote_opening == "0000OUV" and ask_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Ask Price Quote Numeric Negative Whole Pair
@@ -34175,9 +34166,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote.size = 8
 tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote.dissect = function(buffer, offset, packet, parent)
   local bid_price_quote_opening = buffer(offset, 7):string()
   local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Bid Price Quote Opening Pair
-  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+  if bid_price_quote_opening == "0000OUV" and bid_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bid Price Quote Numeric Negative Whole Pair
@@ -34690,9 +34680,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_futures_quote_message.size = 8
 tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_futures_quote_message.dissect = function(buffer, offset, packet, parent)
   local ask_price_quote_opening = buffer(offset, 7):string()
   local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local ask_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Ask Price Quote Futures Quote Message Opening Pair
-  if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
+  if ask_price_quote_opening == "0000OUV" and ask_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.ask_price_quote_futures_quote_message_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Ask Price Quote Numeric Ask Price Quote Futures Quote Message Numeric Pair Negative Whole Pair
@@ -35133,9 +35122,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_futures_quote_message.size = 8
 tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_futures_quote_message.dissect = function(buffer, offset, packet, parent)
   local bid_price_quote_opening = buffer(offset, 7):string()
   local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
-  local bid_price_fraction_indicator = buffer(offset + 7, 1):string()
   -- Dissect Bid Price Quote Futures Quote Message Opening Pair
-  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+  if bid_price_quote_opening == "0000OUV" and bid_price_fraction_indicator == "0" then
     return tmx_mx_solamulticast_hsvf_v1_14_1.bid_price_quote_futures_quote_message_opening_pair.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bid Price Quote Numeric Bid Price Quote Futures Quote Message Numeric Pair Negative Whole Pair
@@ -37936,7 +37924,7 @@ udp_table:add_for_decode_as(omi_tmx_mx_solamulticast_hsvf_v1_14_1)
 --   Organization: TMX Group
 --   Version: 1.14.1
 --   Date: Monday, February 5, 2024
---   Specification: MX SOLA HSVF Multicast Specifications Guide (1.14.1).pdf
+--   Specification: MX SOLA HSVF Multicast Specifications Guide (2024-02-05).pdf
 --
 -- Script:
 --   Compiler: 2.0

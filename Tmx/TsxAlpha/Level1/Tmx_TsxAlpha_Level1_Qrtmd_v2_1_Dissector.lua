@@ -2458,7 +2458,7 @@ udp_table:add_for_decode_as(omi_tmx_tsxalpha_level1_qrtmd_v2_1)
 --   Organization: TMX Group
 --   Version: 2.1
 --   Date: Tuesday, October 20, 2020
---   Specification: QRTMD Alpha Level 1 (2.1).pdf
+--   Specification: QRTMD Alpha Level 1 (2020-10-20).pdf
 --   Specification: QRTMD PSSAG (2.10).pdf
 --
 -- Script:

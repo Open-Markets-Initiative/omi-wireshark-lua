@@ -141,8 +141,8 @@ omi_siac_cts_output_cta_v2_9.fields.consolidated_start_of_day_summary_message = 
 omi_siac_cts_output_cta_v2_9.fields.crossing_session_summary_message = ProtoField.new("Crossing Session Summary Message", "siac.cts.output.cta.v2.9.crossingsessionsummarymessage", ftypes.STRING, nil, nil, nil, "The Crossing Session message is used to report the total volume and dollar value of trades transacted after the close of a Participant’s regular session.")
 omi_siac_cts_output_cta_v2_9.fields.disaster_recovery_data_center_activation_message = ProtoField.new("Disaster Recovery Data Center Activation Message", "siac.cts.output.cta.v2.9.disasterrecoverydatacenteractivationmessage", ftypes.STRING, nil, nil, nil, "The Disaster Recovery Data Center Activation message is transmitted to signify that the Consolidated Quotation System (CQS) has switched processing from the Primary Data Center to the Disaster Recovery Data Center")
 omi_siac_cts_output_cta_v2_9.fields.end_of_day_message = ProtoField.new("End Of Day Message", "siac.cts.output.cta.v2.9.endofdaymessage", ftypes.STRING, nil, nil, nil, "The End of Day message is transmitted over the multicast lines to advise all Data Recipients that there are no further messages of any type transmitted for the day")
-omi_siac_cts_output_cta_v2_9.fields.end_of_end_of_day_message = ProtoField.new("End Of End Of Day Message", "siac.cts.output.cta.v2.9.endofendofdaymessage", ftypes.STRING, nil, nil, nil, "The End of End of Day message signals the end of Consolidated End of Day Summary and Participant End of Day Summary message iterations")
-omi_siac_cts_output_cta_v2_9.fields.end_of_start_of_day_message = ProtoField.new("End Of Start Of Day Message", "siac.cts.output.cta.v2.9.endofstartofdaymessage", ftypes.STRING, nil, nil, nil, "The End of Start of Day message signals the start of Start of Day Summary message iterations")
+omi_siac_cts_output_cta_v2_9.fields.end_of_end_of_day_summary_message = ProtoField.new("End Of End Of Day Summary Message", "siac.cts.output.cta.v2.9.endofendofdaysummarymessage", ftypes.STRING, nil, nil, nil, "The End of End of Day message signals the end of Consolidated End of Day Summary and Participant End of Day Summary message iterations")
+omi_siac_cts_output_cta_v2_9.fields.end_of_start_of_day_summary_message = ProtoField.new("End Of Start Of Day Summary Message", "siac.cts.output.cta.v2.9.endofstartofdaysummarymessage", ftypes.STRING, nil, nil, nil, "The End of Start of Day message signals the start of Start of Day Summary message iterations")
 omi_siac_cts_output_cta_v2_9.fields.index_message = ProtoField.new("Index Message", "siac.cts.output.cta.v2.9.indexmessage", ftypes.STRING, nil, nil, nil, "The Index message contains the index and the index value")
 omi_siac_cts_output_cta_v2_9.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cts.output.cta.v2.9.lineintegritymessage", ftypes.STRING, nil, nil, nil, "The Line Integrity message is transmitted over the multicast lines at intervals of sixty (60) seconds to verify continued integrity of multicast transmission")
 omi_siac_cts_output_cta_v2_9.fields.long_trade_message = ProtoField.new("Long Trade Message", "siac.cts.output.cta.v2.9.longtrademessage", ftypes.STRING, nil, nil, nil, "The Long Trade message is used to report trade information for Cta eligible Equity, Local Issue or Bonds.")
@@ -156,8 +156,8 @@ omi_siac_cts_output_cta_v2_9.fields.prior_day_trade_message = ProtoField.new("Pr
 omi_siac_cts_output_cta_v2_9.fields.reset_block_sequence_number_message = ProtoField.new("Reset Block Sequence Number Message", "siac.cts.output.cta.v2.9.resetblocksequencenumbermessage", ftypes.STRING, nil, nil, nil, "The Reset Block Sequence Number message is transmitted when the block sequence number on an output multicast line requires resetting.")
 omi_siac_cts_output_cta_v2_9.fields.short_trade_message = ProtoField.new("Short Trade Message", "siac.cts.output.cta.v2.9.shorttrademessage", ftypes.STRING, nil, nil, nil, "The Short Trade message is used to report trade information for Cta eligible Equity only (not used for Local Issues or Bonds) if the trade meets message format requirements otherwise Long Trade message is used.")
 omi_siac_cts_output_cta_v2_9.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "siac.cts.output.cta.v2.9.startofdaymessage", ftypes.STRING, nil, nil, nil, "The Start of Day message signals the start of normal data dissemination over the multicast lines")
-omi_siac_cts_output_cta_v2_9.fields.start_of_end_of_day_message = ProtoField.new("Start Of End Of Day Message", "siac.cts.output.cta.v2.9.startofendofdaymessage", ftypes.STRING, nil, nil, nil, "The Start of End of Day message signals the start of Consolidated End of Day Summary and Participant End of Day Summary message iterations")
-omi_siac_cts_output_cta_v2_9.fields.start_of_start_of_day_message = ProtoField.new("Start Of Start Of Day Message", "siac.cts.output.cta.v2.9.startofstartofdaymessage", ftypes.STRING, nil, nil, nil, "The Start of Start of Day message signals the end of Consolidated End of Day Summary and Participant End of Day Summary message iterations")
+omi_siac_cts_output_cta_v2_9.fields.start_of_end_of_day_summary_message = ProtoField.new("Start Of End Of Day Summary Message", "siac.cts.output.cta.v2.9.startofendofdaysummarymessage", ftypes.STRING, nil, nil, nil, "The Start of End of Day message signals the start of Consolidated End of Day Summary and Participant End of Day Summary message iterations")
+omi_siac_cts_output_cta_v2_9.fields.start_of_start_of_day_summary_message = ProtoField.new("Start Of Start Of Day Summary Message", "siac.cts.output.cta.v2.9.startofstartofdaysummarymessage", ftypes.STRING, nil, nil, nil, "The Start of Start of Day message signals the end of Consolidated End of Day Summary and Participant End of Day Summary message iterations")
 omi_siac_cts_output_cta_v2_9.fields.trade_cancel_error_message = ProtoField.new("Trade Cancel Error Message", "siac.cts.output.cta.v2.9.tradecancelerrormessage", ftypes.STRING, nil, nil, nil, "The Trade Cancel/Error message is used cancel or error Cta eligible securities, Local Issues or Bond information.")
 omi_siac_cts_output_cta_v2_9.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "siac.cts.output.cta.v2.9.tradecorrectionmessage", ftypes.STRING, nil, nil, nil, "The Trade Correction message is used to correct Cta eligible Equity, Local Issue or Bond information.")
 omi_siac_cts_output_cta_v2_9.fields.trading_status_message = ProtoField.new("Trading Status Message", "siac.cts.output.cta.v2.9.tradingstatusmessage", ftypes.STRING, nil, nil, nil, "The Trading Status message is transmitted when a Participant in a Cta eligible security, Local Issue or a Bond elects to notify CTS of an Opening Delay, a Trading Halt, a Trading Resume, a Price Indication or a Market Imbalance.")
@@ -255,10 +255,10 @@ siac_cts_output_cta_v2_9.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
 siac_cts_output_cta_v2_9.administrative_message_type.labels = {
-  ["A"] = "Administrative Message Type: Start Of End Of Day Message (A)",
-  ["B"] = "Administrative Message Type: End Of End Of Day Message (B)",
-  ["C"] = "Administrative Message Type: Start Of Start Of Day Message (C)",
-  ["D"] = "Administrative Message Type: End Of Start Of Day Message (D)",
+  ["A"] = "Administrative Message Type: Start Of End Of Day Summary Message (A)",
+  ["B"] = "Administrative Message Type: End Of End Of Day Summary Message (B)",
+  ["C"] = "Administrative Message Type: Start Of Start Of Day Summary Message (C)",
+  ["D"] = "Administrative Message Type: End Of Start Of Day Summary Message (D)",
 }
 
 siac_cts_output_cta_v2_9.administrative_message_type.display = function(value)
@@ -6044,24 +6044,24 @@ siac_cts_output_cta_v2_9.control_message.dissect = function(buffer, offset, pack
   end
 end
 
--- End Of Start Of Day Message
-siac_cts_output_cta_v2_9.end_of_start_of_day_message = {}
+-- End Of Start Of Day Summary Message
+siac_cts_output_cta_v2_9.end_of_start_of_day_summary_message = {}
 
--- Size: End Of Start Of Day Message
-siac_cts_output_cta_v2_9.end_of_start_of_day_message.size =
+-- Size: End Of Start Of Day Summary Message
+siac_cts_output_cta_v2_9.end_of_start_of_day_summary_message.size =
   siac_cts_output_cta_v2_9.participant_id.size + 
   siac_cts_output_cta_v2_9.timestamp_1.size + 
   siac_cts_output_cta_v2_9.message_id.size + 
   siac_cts_output_cta_v2_9.transaction_id.size + 
   siac_cts_output_cta_v2_9.participant_reference_number.size
 
--- Display: End Of Start Of Day Message
-siac_cts_output_cta_v2_9.end_of_start_of_day_message.display = function(packet, parent, length)
+-- Display: End Of Start Of Day Summary Message
+siac_cts_output_cta_v2_9.end_of_start_of_day_summary_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: End Of Start Of Day Message
-siac_cts_output_cta_v2_9.end_of_start_of_day_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: End Of Start Of Day Summary Message
+siac_cts_output_cta_v2_9.end_of_start_of_day_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -6082,42 +6082,42 @@ siac_cts_output_cta_v2_9.end_of_start_of_day_message.fields = function(buffer, o
   return index
 end
 
--- Dissect: End Of Start Of Day Message
-siac_cts_output_cta_v2_9.end_of_start_of_day_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: End Of Start Of Day Summary Message
+siac_cts_output_cta_v2_9.end_of_start_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.end_of_start_of_day_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_9.end_of_start_of_day_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.end_of_start_of_day_summary_message, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9.end_of_start_of_day_summary_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_cts_output_cta_v2_9.end_of_start_of_day_message.display(packet, parent, length)
+    local display = siac_cts_output_cta_v2_9.end_of_start_of_day_summary_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_9.end_of_start_of_day_message.fields(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v2_9.end_of_start_of_day_summary_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Start Of Start Of Day Message
-siac_cts_output_cta_v2_9.start_of_start_of_day_message = {}
+-- Start Of Start Of Day Summary Message
+siac_cts_output_cta_v2_9.start_of_start_of_day_summary_message = {}
 
--- Size: Start Of Start Of Day Message
-siac_cts_output_cta_v2_9.start_of_start_of_day_message.size =
+-- Size: Start Of Start Of Day Summary Message
+siac_cts_output_cta_v2_9.start_of_start_of_day_summary_message.size =
   siac_cts_output_cta_v2_9.participant_id.size + 
   siac_cts_output_cta_v2_9.timestamp_1.size + 
   siac_cts_output_cta_v2_9.message_id.size + 
   siac_cts_output_cta_v2_9.transaction_id.size + 
   siac_cts_output_cta_v2_9.participant_reference_number.size
 
--- Display: Start Of Start Of Day Message
-siac_cts_output_cta_v2_9.start_of_start_of_day_message.display = function(packet, parent, length)
+-- Display: Start Of Start Of Day Summary Message
+siac_cts_output_cta_v2_9.start_of_start_of_day_summary_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Start Of Start Of Day Message
-siac_cts_output_cta_v2_9.start_of_start_of_day_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Start Of Start Of Day Summary Message
+siac_cts_output_cta_v2_9.start_of_start_of_day_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -6138,42 +6138,42 @@ siac_cts_output_cta_v2_9.start_of_start_of_day_message.fields = function(buffer,
   return index
 end
 
--- Dissect: Start Of Start Of Day Message
-siac_cts_output_cta_v2_9.start_of_start_of_day_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Start Of Start Of Day Summary Message
+siac_cts_output_cta_v2_9.start_of_start_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.start_of_start_of_day_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_9.start_of_start_of_day_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.start_of_start_of_day_summary_message, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9.start_of_start_of_day_summary_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_cts_output_cta_v2_9.start_of_start_of_day_message.display(packet, parent, length)
+    local display = siac_cts_output_cta_v2_9.start_of_start_of_day_summary_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_9.start_of_start_of_day_message.fields(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v2_9.start_of_start_of_day_summary_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- End Of End Of Day Message
-siac_cts_output_cta_v2_9.end_of_end_of_day_message = {}
+-- End Of End Of Day Summary Message
+siac_cts_output_cta_v2_9.end_of_end_of_day_summary_message = {}
 
--- Size: End Of End Of Day Message
-siac_cts_output_cta_v2_9.end_of_end_of_day_message.size =
+-- Size: End Of End Of Day Summary Message
+siac_cts_output_cta_v2_9.end_of_end_of_day_summary_message.size =
   siac_cts_output_cta_v2_9.participant_id.size + 
   siac_cts_output_cta_v2_9.timestamp_1.size + 
   siac_cts_output_cta_v2_9.message_id.size + 
   siac_cts_output_cta_v2_9.transaction_id.size + 
   siac_cts_output_cta_v2_9.participant_reference_number.size
 
--- Display: End Of End Of Day Message
-siac_cts_output_cta_v2_9.end_of_end_of_day_message.display = function(packet, parent, length)
+-- Display: End Of End Of Day Summary Message
+siac_cts_output_cta_v2_9.end_of_end_of_day_summary_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: End Of End Of Day Message
-siac_cts_output_cta_v2_9.end_of_end_of_day_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: End Of End Of Day Summary Message
+siac_cts_output_cta_v2_9.end_of_end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -6194,42 +6194,42 @@ siac_cts_output_cta_v2_9.end_of_end_of_day_message.fields = function(buffer, off
   return index
 end
 
--- Dissect: End Of End Of Day Message
-siac_cts_output_cta_v2_9.end_of_end_of_day_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: End Of End Of Day Summary Message
+siac_cts_output_cta_v2_9.end_of_end_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.end_of_end_of_day_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_9.end_of_end_of_day_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.end_of_end_of_day_summary_message, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9.end_of_end_of_day_summary_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_cts_output_cta_v2_9.end_of_end_of_day_message.display(packet, parent, length)
+    local display = siac_cts_output_cta_v2_9.end_of_end_of_day_summary_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_9.end_of_end_of_day_message.fields(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v2_9.end_of_end_of_day_summary_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Start Of End Of Day Message
-siac_cts_output_cta_v2_9.start_of_end_of_day_message = {}
+-- Start Of End Of Day Summary Message
+siac_cts_output_cta_v2_9.start_of_end_of_day_summary_message = {}
 
--- Size: Start Of End Of Day Message
-siac_cts_output_cta_v2_9.start_of_end_of_day_message.size =
+-- Size: Start Of End Of Day Summary Message
+siac_cts_output_cta_v2_9.start_of_end_of_day_summary_message.size =
   siac_cts_output_cta_v2_9.participant_id.size + 
   siac_cts_output_cta_v2_9.timestamp_1.size + 
   siac_cts_output_cta_v2_9.message_id.size + 
   siac_cts_output_cta_v2_9.transaction_id.size + 
   siac_cts_output_cta_v2_9.participant_reference_number.size
 
--- Display: Start Of End Of Day Message
-siac_cts_output_cta_v2_9.start_of_end_of_day_message.display = function(packet, parent, length)
+-- Display: Start Of End Of Day Summary Message
+siac_cts_output_cta_v2_9.start_of_end_of_day_summary_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Start Of End Of Day Message
-siac_cts_output_cta_v2_9.start_of_end_of_day_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Start Of End Of Day Summary Message
+siac_cts_output_cta_v2_9.start_of_end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -6250,21 +6250,21 @@ siac_cts_output_cta_v2_9.start_of_end_of_day_message.fields = function(buffer, o
   return index
 end
 
--- Dissect: Start Of End Of Day Message
-siac_cts_output_cta_v2_9.start_of_end_of_day_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Start Of End Of Day Summary Message
+siac_cts_output_cta_v2_9.start_of_end_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.start_of_end_of_day_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_9.start_of_end_of_day_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.start_of_end_of_day_summary_message, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9.start_of_end_of_day_summary_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_cts_output_cta_v2_9.start_of_end_of_day_message.display(packet, parent, length)
+    local display = siac_cts_output_cta_v2_9.start_of_end_of_day_summary_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_9.start_of_end_of_day_message.fields(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v2_9.start_of_end_of_day_summary_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6273,10 +6273,10 @@ siac_cts_output_cta_v2_9.administrative_message_payload = {}
 
 -- Dispatch: Administrative Message Payload
 siac_cts_output_cta_v2_9.administrative_message_payload.dispatch = {
-  ["A"] = siac_cts_output_cta_v2_9.start_of_end_of_day_message.dissect,
-  ["B"] = siac_cts_output_cta_v2_9.end_of_end_of_day_message.dissect,
-  ["C"] = siac_cts_output_cta_v2_9.start_of_start_of_day_message.dissect,
-  ["D"] = siac_cts_output_cta_v2_9.end_of_start_of_day_message.dissect,
+  ["A"] = siac_cts_output_cta_v2_9.start_of_end_of_day_summary_message.dissect,
+  ["B"] = siac_cts_output_cta_v2_9.end_of_end_of_day_summary_message.dissect,
+  ["C"] = siac_cts_output_cta_v2_9.start_of_start_of_day_summary_message.dissect,
+  ["D"] = siac_cts_output_cta_v2_9.end_of_start_of_day_summary_message.dissect,
 }
 
 -- Dissect: Administrative Message Payload

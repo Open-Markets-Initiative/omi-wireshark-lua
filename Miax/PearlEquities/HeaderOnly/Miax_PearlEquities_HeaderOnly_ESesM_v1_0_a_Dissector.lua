@@ -16,33 +16,27 @@ local miax_pearlequities_headeronly_esesm_v1_0_a = {}
 
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Fields
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.application_protocol = ProtoField.new("Application Protocol", "miax.pearlequities.headeronly.esesm.v1.0.a.applicationprotocol", ftypes.STRING, nil, nil, nil, "Miax Application Protocol")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.computer_id = ProtoField.new("Computer Id", "miax.pearlequities.headeronly.esesm.v1.0.a.computerid", ftypes.STRING, nil, nil, nil, "issued by MIAX Futures Exchange during initial setup")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.computer_id = ProtoField.new("Computer Id", "miax.pearlequities.headeronly.esesm.v1.0.a.computerid", ftypes.STRING, nil, nil, nil, "ID issued by MIAX during initial setup")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.endsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the last packet to be retransmitted")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_length = ProtoField.new("Esesm Packet Length", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmpacketlength", ftypes.UINT16, nil, nil, nil, "The length of rest of the packet")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_type = ProtoField.new("Esesm Packet Type", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmpackettype", ftypes.STRING, nil, nil, nil, "ESesM protocol packet type")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_version = ProtoField.new("Esesm Version", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmversion", ftypes.STRING, nil, nil, nil, "Protocol version")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "the highest sequence number that the server currently has for the client")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.goodbye_reason = ProtoField.new("Goodbye Reason", "miax.pearlequities.headeronly.esesm.v1.0.a.goodbyereason", ftypes.STRING, nil, nil, nil, "GoodBye Packet Reason")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "The highest sequence number the server currently has for the client from the Matching Engine")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_matching_engine = ProtoField.new("Login Matching Engine", "miax.pearlequities.headeronly.esesm.v1.0.a.loginmatchingengine", ftypes.STRING, nil, nil, nil, "The login status, trading session and highest sequence number of one matching engine, repeated once for each the login response counts")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_request = ProtoField.new("Login Request", "miax.pearlequities.headeronly.esesm.v1.0.a.loginrequest", ftypes.STRING, nil, nil, nil, "The SesM client must send a Login request packet immediately upon establishing a new TCP/IP socket connection to the server")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_response = ProtoField.new("Login Response", "miax.pearlequities.headeronly.esesm.v1.0.a.loginresponse", ftypes.STRING, nil, nil, nil, "The SesM server sends a Login response packet in response a Login request packet from the client")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_status = ProtoField.new("Login Status", "miax.pearlequities.headeronly.esesm.v1.0.a.loginstatus", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_reason = ProtoField.new("Logout Reason", "miax.pearlequities.headeronly.esesm.v1.0.a.logoutreason", ftypes.STRING, nil, nil, nil, "Logout Request Reason")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.headeronly.esesm.v1.0.a.logoutrequest", ftypes.STRING, nil, nil, nil, "The client may send a Logout request packet to request the connection be terminated")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_text = ProtoField.new("Logout Text", "miax.pearlequities.headeronly.esesm.v1.0.a.logouttext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.pearlequities.headeronly.esesm.v1.0.a.matchingengineid", ftypes.UINT8, nil, nil, nil, "Matching Engine that originated the packet")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.pearlequities.headeronly.esesm.v1.0.a.numberofmatchingengines", ftypes.UINT8, nil, nil, nil, "Count of all Matching Engines for the exchange")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_matching_engine = ProtoField.new("Requested Matching Engine", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedmatchingengine", ftypes.STRING, nil, nil, nil, "The trading session and sequence number the client asks of one matching engine, repeated once for each the login request counts")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies client requested sequence number")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedtradingsessionid", ftypes.UINT8, nil, nil, nil, "Specifies the session the client would like to log into, or zero to log into the currently active session")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.headeronly.esesm.v1.0.a.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The ESesM client uses this packet to request a retransmission server to retransmit a range of packets")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies client requested sequence number for the Matching Engine")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedtradingsessionid", ftypes.UINT8, nil, nil, nil, "Specifies the Matching Engine trading session the client would like to log into, or zero to log into the currently active trading session")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this sequenced data packet")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The ESesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.sequenced_message = ProtoField.new("Sequenced Message", "miax.pearlequities.headeronly.esesm.v1.0.a.sequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw sequenced message bytes")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.pearlequities.headeronly.esesm.v1.0.a.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "ESesM sequenced message type")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearlequities.headeronly.esesm.v1.0.a.synchronizationcomplete", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Login response packet in response a Login request packet from the client")
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.test_packet = ProtoField.new("Test Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.testpacket", ftypes.STRING, nil, nil, nil, "Test packets are intended to provide human readable text that may aid in debugging problems")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.test_text = ProtoField.new("Test Text", "miax.pearlequities.headeronly.esesm.v1.0.a.testtext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.pearlequities.headeronly.esesm.v1.0.a.tradingsessionid", ftypes.UINT8, nil, nil, nil, "The current trading session ID of the corresponding Matching Engine")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "Each unsequenced data packet carries one unsequenced message from the higher-lever protocol")
@@ -54,6 +48,18 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.username = ProtoField.new(
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmpacketheader", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.packet", ftypes.STRING, nil, nil, nil, "ESesM Packet")
+
+-- Miax PearlEquities HeaderOnly 1.0.a Session Messages
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "miax.pearlequities.headeronly.esesm.v1.0.a.clientheartbeat", ftypes.BYTES, nil, nil, nil, "The ESesM client sends a Client Heartbeat packet anytime more than 1 second passes where no data has been sent to the server")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_request = ProtoField.new("Login Request", "miax.pearlequities.headeronly.esesm.v1.0.a.loginrequest", ftypes.STRING, nil, nil, nil, "The ESesM client must send a Login request packet immediately upon establishing a new TCP/IP socket connection to the server")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_response = ProtoField.new("Login Response", "miax.pearlequities.headeronly.esesm.v1.0.a.loginresponse", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Login response packet in response to a Login request packet from the client")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.headeronly.esesm.v1.0.a.logoutrequest", ftypes.STRING, nil, nil, nil, "The client may send a Logout request packet to request the connection be terminated")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.headeronly.esesm.v1.0.a.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The ESesM client uses this packet to request a retransmission server to retransmit a range of packets")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "miax.pearlequities.headeronly.esesm.v1.0.a.serverheartbeat", ftypes.BYTES, nil, nil, nil, "The ESesM server sends a Server Heartbeat packet anytime more than 1 second passes where no data has been sent to the client")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearlequities.headeronly.esesm.v1.0.a.synchronizationcomplete", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Synchronization complete packet when it is done replaying all the old packets and is ready to start sending new packets from the Matching Engine")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.test_packet = ProtoField.new("Test Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.testpacket", ftypes.STRING, nil, nil, nil, "Test packets are intended to provide human readable text that may aid in debugging problems")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.trading_session_update = ProtoField.new("Trading Session Update", "miax.pearlequities.headeronly.esesm.v1.0.a.tradingsessionupdate", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Trading Session Update packet to inform the client that a new trading session is starting on the specified Matching Engine")
 
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Generated Fields
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_matching_engine_index = ProtoField.new("Login Matching Engine Index", "miax.pearlequities.headeronly.esesm.v1.0.a.loginmatchingengineindex", ftypes.UINT16)
@@ -68,11 +74,13 @@ local show = {}
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Element Dissection Options
 show.headers = true
 show.structs = true
+show.session_messages = true
 show.indexes = true
 
 -- Register Miax PearlEquities HeaderOnly ESesM 1.0.a Show Options
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -81,6 +89,9 @@ function omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs_changed()
   -- Check if preferences have changed
   if show.headers ~= omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_headers then
     show.headers = omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_headers
+  end
+  if show.session_messages ~= omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_session_messages then
+    show.session_messages = omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_session_messages
   end
   if show.structs ~= omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_structs then
     show.structs = omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_structs
@@ -264,6 +275,35 @@ miax_pearlequities_headeronly_esesm_v1_0_a.esesm_version.dissect = function(buff
   return offset + length, value
 end
 
+-- Goodbye Reason
+miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_reason = {}
+
+-- Size: Goodbye Reason
+miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_reason.size = 1
+
+-- Display: Goodbye Reason
+miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_reason.labels = {
+  ["B"] = "Goodbye Reason: Bad Packet (B)",
+  ["L"] = "Goodbye Reason: Timed Out (L)",
+  ["A"] = "Goodbye Reason: Application Terminating Connection (A)",
+}
+
+miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_reason.display = function(value)
+  return miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_reason.labels[value] or "Goodbye Reason: Unknown("..value..")"
+end
+
+-- Dissect: Goodbye Reason
+miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_reason.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.goodbye_reason, range, value, display)
+
+  return offset + length, value
+end
+
 -- Highest Sequence Number
 miax_pearlequities_headeronly_esesm_v1_0_a.highest_sequence_number = {}
 
@@ -301,20 +341,23 @@ miax_pearlequities_headeronly_esesm_v1_0_a.login_status.display = function(value
   if value == "S" then
     return "Login Status: Invalid Trading Session Requested (S)"
   end
+  if value == "N" then
+    return "Login Status: Invalid Start Sequence Number Requested (N)"
+  end
   if value == "U" then
     return "Login Status: No Active Trading Session Exists (U)"
   end
   if value == "X" then
     return "Login Status: Rejected (X)"
   end
-  if value == "N" then
-    return "Login Status: Invalid Start Sequence Number Requested (N)"
-  end
   if value == "I" then
     return "Login Status: Incompatible Session Protocol Version (I)"
   end
   if value == "A" then
     return "Login Status: Incompatible Application Protocol Version (A)"
+  end
+  if value == "C" then
+    return "Login Status: Invalid Number Of Matching Engines Specified In Login Request (C)"
   end
   if value == "L" then
     return "Login Status: Request Rejected Because Client Already Logged In (L)"
@@ -726,7 +769,7 @@ end
 
 -- Dissect: Test Packet
 miax_pearlequities_headeronly_esesm_v1_0_a.test_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.test_packet, buffer(offset, 0))
     local index = miax_pearlequities_headeronly_esesm_v1_0_a.test_packet.fields(buffer, offset, packet, parent)
@@ -779,18 +822,45 @@ end
 -- Trading Session Update
 miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_update = {}
 
+-- Size: Trading Session Update
+miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_update.size =
+  miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_id.size + 
+  miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_id.size
+
 -- Display: Trading Session Update
 miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_update.display = function(packet, parent, length)
-  return "Trading Session Update"
+  return ""
 end
 
+-- Dissect Fields: Trading Session Update
+miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_update.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Id: 1 Byte Unsigned Fixed Width Integer
+  index, matching_engine_id = miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_id.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, trading_session_id = miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
 
 -- Dissect: Trading Session Update
 miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_update.dissect = function(buffer, offset, packet, parent)
-  local display = miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_update.display(packet, parent, 0)
-  packet.cols.info = display
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.trading_session_update, buffer(offset, 0))
+    local index = miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_update.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_update.display(packet, parent, length)
+    parent:append_text(display)
 
-  return offset
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_update.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Goodbye Packet
@@ -800,7 +870,7 @@ miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_packet = {}
 miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_packet.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_pearlequities_headeronly_esesm_v1_0_a.logout_reason.size
+  index = index + miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_reason.size
 
   -- Parse runtime size of: Logout Text
   index = index + buffer(offset + index - 4, 2):le_uint()
@@ -817,8 +887,8 @@ end
 miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Logout Reason: 1 Byte Ascii String Enum with 4 values
-  index, logout_reason = miax_pearlequities_headeronly_esesm_v1_0_a.logout_reason.dissect(buffer, index, packet, parent)
+  -- Goodbye Reason: 1 Byte Ascii String Enum with 3 values
+  index, goodbye_reason = miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_reason.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Esesm Packet Length
   local esesm_packet_length = buffer(offset - 3, 2):le_uint()
@@ -834,7 +904,7 @@ end
 
 -- Dissect: Goodbye Packet
 miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.goodbye_packet, buffer(offset, 0))
     local index = miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_packet.fields(buffer, offset, packet, parent)
@@ -891,7 +961,7 @@ end
 
 -- Dissect: Logout Request
 miax_pearlequities_headeronly_esesm_v1_0_a.logout_request.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_request, buffer(offset, 0))
     local index = miax_pearlequities_headeronly_esesm_v1_0_a.logout_request.fields(buffer, offset, packet, parent)
@@ -935,7 +1005,7 @@ end
 
 -- Dissect: Retransmission Request
 miax_pearlequities_headeronly_esesm_v1_0_a.retransmission_request.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.retransmission_request, buffer(offset, 0))
     local index = miax_pearlequities_headeronly_esesm_v1_0_a.retransmission_request.fields(buffer, offset, packet, parent)
@@ -956,7 +1026,7 @@ miax_pearlequities_headeronly_esesm_v1_0_a.synchronization_complete = {}
 
 -- Size: Synchronization Complete
 miax_pearlequities_headeronly_esesm_v1_0_a.synchronization_complete.size =
-  miax_pearlequities_headeronly_esesm_v1_0_a.number_of_matching_engines.size
+  miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_id.size
 
 -- Display: Synchronization Complete
 miax_pearlequities_headeronly_esesm_v1_0_a.synchronization_complete.display = function(packet, parent, length)
@@ -967,15 +1037,15 @@ end
 miax_pearlequities_headeronly_esesm_v1_0_a.synchronization_complete.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_matching_engines = miax_pearlequities_headeronly_esesm_v1_0_a.number_of_matching_engines.dissect(buffer, index, packet, parent)
+  -- Matching Engine Id: 1 Byte Unsigned Fixed Width Integer
+  index, matching_engine_id = miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Synchronization Complete
 miax_pearlequities_headeronly_esesm_v1_0_a.synchronization_complete.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.synchronization_complete, buffer(offset, 0))
     local index = miax_pearlequities_headeronly_esesm_v1_0_a.synchronization_complete.fields(buffer, offset, packet, parent)
@@ -1015,7 +1085,7 @@ miax_pearlequities_headeronly_esesm_v1_0_a.login_matching_engine.fields = functi
     iteration:set_generated()
   end
 
-  -- Login Status: 1 Byte Ascii String Enum with 8 values
+  -- Login Status: 1 Byte Ascii String Enum with 9 values
   index, login_status = miax_pearlequities_headeronly_esesm_v1_0_a.login_status.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
@@ -1083,7 +1153,7 @@ end
 
 -- Dissect: Login Response
 miax_pearlequities_headeronly_esesm_v1_0_a.login_response.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_response, buffer(offset, 0))
     local index = miax_pearlequities_headeronly_esesm_v1_0_a.login_response.fields(buffer, offset, packet, parent)
@@ -1207,7 +1277,7 @@ end
 
 -- Dissect: Login Request
 miax_pearlequities_headeronly_esesm_v1_0_a.login_request.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_request, buffer(offset, 0))
     local index = miax_pearlequities_headeronly_esesm_v1_0_a.login_request.fields(buffer, offset, packet, parent)

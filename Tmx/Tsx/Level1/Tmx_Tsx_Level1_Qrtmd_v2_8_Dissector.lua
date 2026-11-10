@@ -3782,7 +3782,7 @@ udp_table:add_for_decode_as(omi_tmx_tsx_level1_qrtmd_v2_8)
 --   Organization: TMX Group
 --   Version: 2.8
 --   Date: Tuesday, August 10, 2021
---   Specification: QRTMD TSX Level 1 CL1 (2.8.0).pdf
+--   Specification: QRTMD TSX Level 1 CL1 (2021-08-10).pdf
 --   Specification: QRTMD PSSAG (2.10).pdf
 --
 -- Script:
