@@ -13058,7 +13058,7 @@ tcp_table:add_for_decode_as(omi_tmx_mx_solaorderentry_sail_v1_21)
 --   Organization: TMX Group
 --   Version: 1.21
 --   Date: Thursday, June 18, 2020
---   Specification: MX SAIL Specifications Guide (2020-06-18).pdf
+--   Specification: MX SAIL Specifications Guide.pdf
 --
 -- Script:
 --   Compiler: 2.0

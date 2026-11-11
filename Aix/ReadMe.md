@@ -7,8 +7,8 @@
 
 | Division | [Protocol][Omi.Aix.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Aix.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [AixMarket][AixMarket.Exchange] | [GeniumInet][Aix.AixMarket.GeniumInet] | [Glimpse][Omi.Encoding.Glimpse] | [1.0][Aix.AixMarket.GeniumInet.Glimpse.v1.0.Dissector] | 9/26/2025 | 3577 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aix.AixMarket.GeniumInet.Glimpse.v1.0.Url] - [pdf][Aix.AixMarket.GeniumInet.Glimpse.v1.0.Pdf] |
-| [AixMarket][AixMarket.Exchange] | [GeniumInet][Aix.AixMarket.GeniumInet] | [Itch][Omi.Encoding.Itch] | [3.0][Aix.AixMarket.GeniumInet.Itch.v3.0.Dissector] | 6/4/2026 | 4748 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aix.AixMarket.GeniumInet.Itch.v3.0.Url] - [pdf][Aix.AixMarket.GeniumInet.Itch.v3.0.Pdf] |
+| [AixMarket][AixMarket.Exchange] | [GeniumInet][Aix.AixMarket.GeniumInet] | [Glimpse][Omi.Encoding.Glimpse] | [1.0][Aix.AixMarket.GeniumInet.Glimpse.v1.0.Dissector] | 9/26/2025 | 3576 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aix.AixMarket.GeniumInet.Glimpse.v1.0.Url] - [pdf][Aix.AixMarket.GeniumInet.Glimpse.v1.0.Pdf] |
+| [AixMarket][AixMarket.Exchange] | [GeniumInet][Aix.AixMarket.GeniumInet] | [Itch][Omi.Encoding.Itch] | [3.0][Aix.AixMarket.GeniumInet.Itch.v3.0.Dissector] | 6/4/2026 | 4747 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Aix.AixMarket.GeniumInet.Itch.v3.0.Url] - [pdf][Aix.AixMarket.GeniumInet.Itch.v3.0.Pdf] |
 
 
 <p align="center"><a href="https://www.aixkz.com" title="Astana International Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a></p>

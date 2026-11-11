@@ -149,30 +149,25 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.auction_time.size = 4
 
 -- Display: Auction Time
 nyse_nysebonds_depthofbook_abp_v4_01_b.auction_time.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Auction Time: No Value"
+  if #value < 4 then
+    return "Auction Time: "..value
   end
 
-  return "Auction Time: "..value
+  local hour = value:sub(1, 2)
+  local minute = value:sub(3, 4)
+
+  if minute:match("^%s*$") then
+    return "Auction Time: "..hour
+  end
+
+  return "Auction Time: "..hour..":"..minute
 end
 
 -- Dissect: Auction Time
 nyse_nysebonds_depthofbook_abp_v4_01_b.auction_time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.auction_time.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:string()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.auction_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.auction_time, range, value, display)

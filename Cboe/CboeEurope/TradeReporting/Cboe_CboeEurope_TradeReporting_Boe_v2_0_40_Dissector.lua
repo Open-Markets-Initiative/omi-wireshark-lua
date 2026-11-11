@@ -19349,7 +19349,7 @@ tcp_table:add_for_decode_as(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40)
 --   Version: 2.0.40
 --   Since: 2.0.39
 --   Date: Wednesday, May 27, 2026
---   Specification: Cboe Europe TRF BOE2 Specification.pdf
+--   Specification: BATS_Europe_TRF_BOE2_Specification.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -6148,7 +6148,7 @@ udp_table:add_for_decode_as(omi_jse_itac_marketdata_mitch_v4_07)
 --   Organization: JSE Limited
 --   Version: 4.07
 --   Date: Monday, April 20, 2026
---   Specification: JSE Volume 05 - Market Data Gateway MITCH-UDP (2026-04-20).pdf
+--   Specification: JSE Volume 05 - Market Data Gateway MITCH-UDP.pdf
 --
 -- Script:
 --   Compiler: 2.0

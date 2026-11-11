@@ -2472,7 +2472,7 @@ udp_table:add_for_decode_as(omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1)
 --   Organization: TMX Group
 --   Version: 2.1
 --   Date: Tuesday, October 20, 2020
---   Specification: Alpha Level 1 QuantumFeed Business Message Specification (2020-10-20).pdf
+--   Specification: Alpha Level 1 QuantumFeed Business Message Specification.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -1347,6 +1347,10 @@ nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.display = function(nanoseconds
     return "Timestamp: "..(stored_second * 1000000000 + nanoseconds)
   end
 
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_second + math.floor(nanoseconds / 1000000000)
+  local fraction = nanoseconds % 1000000000
+
   -- Full datetime mode (the day the frame that carried it settled on)
   if nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
@@ -1354,17 +1358,17 @@ nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.display = function(nanoseconds
     -- A frame a file handler read states no instant and reads as the epoch
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
-      local settled = math.floor((capture_time - stored_second) / 900 + 0.5) * 900
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
       local format = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + stored_second)..string.format("%09d", nanoseconds)
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
     end
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp
@@ -2498,6 +2502,7 @@ udp_table:add_for_decode_as(omi_nasdaq_ntxoptions_topofmarket_itch_v1_2)
 --   Version: 1.2
 --   Date: Thursday, November 2, 2017
 --   Specification: BXOptions_TopofMarket.pdf
+--   Specification: BXOptions_TopofMarket (alt).pdf
 --
 -- Script:
 --   Compiler: 2.0

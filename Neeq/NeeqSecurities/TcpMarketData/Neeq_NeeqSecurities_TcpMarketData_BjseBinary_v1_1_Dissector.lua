@@ -137,7 +137,7 @@ omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.switch_index = Prot
 -----------------------------------------------------------------------
 
 -- Text field character encoding (Wireshark ENC_ constant)
-neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.text_encoding = ENC_ASCII
+neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.text_encoding = ENC_GB18030
 
 -- timestamp format
 local timestamp_format_enum = {

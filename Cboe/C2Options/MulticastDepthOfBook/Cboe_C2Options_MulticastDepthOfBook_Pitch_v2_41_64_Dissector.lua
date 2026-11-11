@@ -72,7 +72,6 @@ omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.symbol = ProtoFiel
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.symbolcondition", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.time = ProtoField.new("Time", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.time", ftypes.UINT32, nil, nil, nil, "Number of whole seconds from midnight Eastern Time")
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.time_offset = ProtoField.new("Time Offset", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.timeoffset", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp")
-omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.timestamp = ProtoField.new("Timestamp", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.timestamp", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp")
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.tradecondition", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.trading_status = ProtoField.new("Trading Status", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.tradingstatus", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.underlying = ProtoField.new("Underlying", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.underlying", ftypes.STRING, nil, nil, nil, "Underlying right padded with spaces.")
@@ -120,6 +119,7 @@ omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.ox_width_update_me
 -- Cboe C2Options MulticastDepthOfBook Pitch 2.41.64 Generated Fields
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.message_index = ProtoField.new("Message Index", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.messageindex", ftypes.UINT16)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.messagesequencenumber", ftypes.UINT64)
+omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.auction_end_time = ProtoField.new("Auction End Time", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.auctionendtime", ftypes.UINT64)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.timestamp = ProtoField.new("Timestamp", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -1556,29 +1556,6 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.time_offset.dissect = functio
   return offset + length, value
 end
 
--- Timestamp
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp = {}
-
--- Size: Timestamp
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.size = 4
-
--- Display: Timestamp
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Condition
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.trade_condition = {}
 
@@ -1736,6 +1713,75 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.width_type.dissect = function
   return offset + length, value
 end
 
+-- Auction End Time
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_time = {}
+
+-- Translate: Auction End Time
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_time.translate = function(auction_end_offset, stored_time)
+  return UInt64.new(stored_time) * 1000000000 + auction_end_offset
+end
+
+-- Display: Auction End Time
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_time.display = function(auction_end_offset, stored_time, packet)
+  -- Raw display mode
+  if cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp_format == 0 then
+    return "Auction End Time: "..(stored_time * 1000000000 + auction_end_offset)
+  end
+
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_time + math.floor(auction_end_offset / 1000000000)
+  local fraction = auction_end_offset % 1000000000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Auction End Time: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+    end
+  end
+
+  -- Time of day mode
+  return "Auction End Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Auction End Time
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_time.composite = function(buffer, offset, stored_time, packet, parent)
+  local length = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_offset.size
+  local range = buffer(offset, length)
+  local auction_end_offset = range:le_uint()
+  local value = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_time.translate(auction_end_offset, stored_time)
+  local display = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_time.display(auction_end_offset, stored_time, packet)
+  parent = parent:add(omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.auction_end_time, range, value, display)
+
+  cboe_c2options_multicastdepthofbook_pitch_v2_41_64.time.generated(stored_time, range, packet, parent)
+
+  display = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_offset.display(auction_end_offset)
+  parent:add(omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.auction_end_offset, range, auction_end_offset, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Auction End Time
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_time.dissect = function(buffer, offset, packet, parent)
+  if cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp_format ~= 0 then
+    local stored_time = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.time.current
+
+    if stored_time ~= nil then
+      return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_time.composite(buffer, offset, stored_time, packet, parent)
+    end
+  end
+
+  return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_offset.dissect(buffer, offset, packet, parent)
+end
+
 -- Timestamp
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp = {}
 
@@ -1751,6 +1797,10 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.display = function(
     return "Timestamp: "..(stored_time * 1000000000 + time_offset)
   end
 
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_time + math.floor(time_offset / 1000000000)
+  local fraction = time_offset % 1000000000
+
   -- Full datetime mode (the day the frame that carried it settled on)
   if cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
@@ -1758,17 +1808,17 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.display = function(
     -- A frame a file handler read states no instant and reads as the epoch
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
-      local settled = math.floor((capture_time - stored_time) / 900 + 0.5) * 900
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
       local format = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + stored_time)..string.format("%09d", time_offset)
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
     end
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", time_offset)
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp
@@ -2068,7 +2118,7 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_auction_notification_messa
   index, participant_id = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.participant_id.dissect(buffer, index, packet, parent)
 
   -- Auction End Offset: Binary
-  index, auction_end_offset = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_offset.dissect(buffer, index, packet, parent)
+  index, auction_end_offset = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_end_time.dissect(buffer, index, packet, parent)
 
   -- Client Id: Alphanumeric
   index, client_id = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.client_id.dissect(buffer, index, packet, parent)
@@ -2415,7 +2465,7 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_end_of_session = {}
 
 -- Size: Ox End Of Session
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_end_of_session.size =
-  cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.size
+  cboe_c2options_multicastdepthofbook_pitch_v2_41_64.time_offset.size
 
 -- Display: Ox End Of Session
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_end_of_session.display = function(packet, parent, length)
@@ -2426,8 +2476,8 @@ end
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_end_of_session.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Time Offset
+  index, time_offset = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end

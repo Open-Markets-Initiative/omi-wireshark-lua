@@ -18,6 +18,7 @@ local nasdaq_psxequities_orders_ouch_v4_2 = {}
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.psxequities.orders.ouch.v4.2.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.psxequities.orders.ouch.v4.2.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.aiq_canceled_reason = ProtoField.new("Aiq Canceled Reason", "nasdaq.psxequities.orders.ouch.v4.2.aiqcanceledreason", ftypes.STRING, nil, nil, nil, "Reason the order was reduced or canceled. For AIQ Cancel message, this value will be “Q”.")
+omi_nasdaq_psxequities_orders_ouch_v4_2.fields.aiq_strategy = ProtoField.new("Aiq Strategy", "nasdaq.psxequities.orders.ouch.v4.2.aiqstrategy", ftypes.STRING, nil, nil, nil, "AIQ strategy used on the cancelled order")
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.bbo_weight_indicator = ProtoField.new("Bbo Weight Indicator", "nasdaq.psxequities.orders.ouch.v4.2.bboweightindicator", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.broken_trade_reason = ProtoField.new("Broken Trade Reason", "nasdaq.psxequities.orders.ouch.v4.2.brokentradereason", ftypes.STRING, nil, nil, nil, "The reason the trade was broken. See currently supported Broken Trade Reasons table below. Clients should anticipate additions to this list and thus support all capital letters of the English alphabet.")
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.psxequities.orders.ouch.v4.2.buysellindicator", ftypes.STRING, nil, nil, nil, "Buy/Sell Indicator")
@@ -226,23 +227,18 @@ end
 
 -- ascii digits as an unsigned 64 bit value, nil when the run is no number
 ascii_to_uint64 = function(str)
-  local digits = str:match("^%s*(%d+)%s*$")
+  -- UInt64.new reads a leading zero as octal, so "0045296" would read as 298
+  local significant = str:match("^%s*0*(%d+)%s*$")
 
-  if digits == nil then
+  if significant == nil then
     return nil
   end
 
-  local value = UInt64.new(digits)
+  local value = UInt64.new(significant)
 
-  -- UInt64.new stops at its maximum rather than failing, so an overrun would
-  -- read as that maximum. Nineteen digits always fit, so only a longer run is
-  -- read back and compared against the digits it came from
-  if #digits > 19 then
-    local significant = digits:match("^0*(%d+)$")
-
-    if tostring(value) ~= significant then
-      return nil
-    end
+  -- UInt64.new stops at its maximum rather than failing, so a wider run is read back
+  if #significant > 19 and tostring(value) ~= significant then
+    return nil
   end
 
   return value
@@ -326,6 +322,29 @@ nasdaq_psxequities_orders_ouch_v4_2.aiq_canceled_reason.dissect = function(buffe
   local display = nasdaq_psxequities_orders_ouch_v4_2.aiq_canceled_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2.fields.aiq_canceled_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Aiq Strategy
+nasdaq_psxequities_orders_ouch_v4_2.aiq_strategy = {}
+
+-- Size: Aiq Strategy
+nasdaq_psxequities_orders_ouch_v4_2.aiq_strategy.size = 1
+
+-- Display: Aiq Strategy
+nasdaq_psxequities_orders_ouch_v4_2.aiq_strategy.display = function(value)
+  return "Aiq Strategy: "..value
+end
+
+-- Dissect: Aiq Strategy
+nasdaq_psxequities_orders_ouch_v4_2.aiq_strategy.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_orders_ouch_v4_2.aiq_strategy.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_orders_ouch_v4_2.aiq_strategy.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2.fields.aiq_strategy, range, value, display)
 
   return offset + length, value
 end
@@ -1857,7 +1876,8 @@ nasdaq_psxequities_orders_ouch_v4_2.aiq_canceled_message.size =
   nasdaq_psxequities_orders_ouch_v4_2.aiq_canceled_reason.size + 
   nasdaq_psxequities_orders_ouch_v4_2.quantity_prevented_from_trading.size + 
   nasdaq_psxequities_orders_ouch_v4_2.execution_price.size + 
-  nasdaq_psxequities_orders_ouch_v4_2.liquidity_flag.size
+  nasdaq_psxequities_orders_ouch_v4_2.liquidity_flag.size + 
+  nasdaq_psxequities_orders_ouch_v4_2.aiq_strategy.size
 
 -- Display: Aiq Canceled Message
 nasdaq_psxequities_orders_ouch_v4_2.aiq_canceled_message.display = function(packet, parent, length)
@@ -1888,6 +1908,9 @@ nasdaq_psxequities_orders_ouch_v4_2.aiq_canceled_message.fields = function(buffe
 
   -- Liquidity Flag: 1 Byte Ascii String Enum with 12 values
   index, liquidity_flag = nasdaq_psxequities_orders_ouch_v4_2.liquidity_flag.dissect(buffer, index, packet, parent)
+
+  -- Aiq Strategy: 1 Byte Ascii String
+  index, aiq_strategy = nasdaq_psxequities_orders_ouch_v4_2.aiq_strategy.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3493,6 +3516,7 @@ tcp_table:add_for_decode_as(omi_nasdaq_psxequities_orders_ouch_v4_2)
 --   Version: 4.2
 --   Date: Monday, July 8, 2019
 --   Specification: psxouch42.pdf
+--   Specification: PSX OUCH (4.2 - 2016).pdf
 --
 -- Script:
 --   Compiler: 2.0

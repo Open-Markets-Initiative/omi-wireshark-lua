@@ -238,23 +238,18 @@ end
 
 -- ascii digits as an unsigned 64 bit value, nil when the run is no number
 ascii_to_uint64 = function(str)
-  local digits = str:match("^%s*(%d+)%s*$")
+  -- UInt64.new reads a leading zero as octal, so "0045296" would read as 298
+  local significant = str:match("^%s*0*(%d+)%s*$")
 
-  if digits == nil then
+  if significant == nil then
     return nil
   end
 
-  local value = UInt64.new(digits)
+  local value = UInt64.new(significant)
 
-  -- UInt64.new stops at its maximum rather than failing, so an overrun would
-  -- read as that maximum. Nineteen digits always fit, so only a longer run is
-  -- read back and compared against the digits it came from
-  if #digits > 19 then
-    local significant = digits:match("^0*(%d+)$")
-
-    if tostring(value) ~= significant then
-      return nil
-    end
+  -- UInt64.new stops at its maximum rather than failing, so a wider run is read back
+  if #significant > 19 and tostring(value) ~= significant then
+    return nil
   end
 
   return value
@@ -1453,6 +1448,10 @@ odx_odxsecuritytoken_pts_itch_v1_0.timestamp.display = function(nanoseconds, sto
     return "Timestamp: "..(stored_seconds * 1000000000 + nanoseconds)
   end
 
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_seconds + math.floor(nanoseconds / 1000000000)
+  local fraction = nanoseconds % 1000000000
+
   -- Full datetime mode (the day the frame that carried it settled on)
   if odx_odxsecuritytoken_pts_itch_v1_0.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
@@ -1460,17 +1459,17 @@ odx_odxsecuritytoken_pts_itch_v1_0.timestamp.display = function(nanoseconds, sto
     -- A frame a file handler read states no instant and reads as the epoch
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
-      local settled = math.floor((capture_time - stored_seconds) / 900 + 0.5) * 900
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
       local format = odx_odxsecuritytoken_pts_itch_v1_0.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + stored_seconds)..string.format("%09d", nanoseconds)
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
     end
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_seconds)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp

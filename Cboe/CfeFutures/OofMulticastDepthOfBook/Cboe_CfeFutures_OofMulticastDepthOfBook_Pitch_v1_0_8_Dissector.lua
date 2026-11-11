@@ -1619,8 +1619,12 @@ end
 
 -- Display: Timestamp
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.timestamp.display = function(time_offset, stored_midnight_reference, stored_time_reference)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_midnight_reference + stored_time_reference + math.floor(time_offset / 1000000000)
+  local fraction = time_offset % 1000000000
+
   local format = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-  return "Timestamp: "..os.date(format, stored_midnight_reference + stored_time_reference)..string.format("%09d", time_offset)
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp

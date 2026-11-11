@@ -125,6 +125,7 @@ omi_lseg_millennium_level2replay_mitch_v11_9.fields.trade_message = ProtoField.n
 
 -- Lseg Millennium Level2Replay Mitch 11.9 Generated Fields
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.level2replay.mitch.v11.9.messageindex", ftypes.UINT16)
+omi_lseg_millennium_level2replay_mitch_v11_9.fields.timestamp = ProtoField.new("Timestamp", "lseg.millennium.level2replay.mitch.v11.9.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Lseg Millennium Level2Replay Mitch 11.9 Formatting
@@ -132,8 +133,10 @@ omi_lseg_millennium_level2replay_mitch_v11_9.fields.message_index = ProtoField.n
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
 }
 
 -- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
@@ -185,6 +188,36 @@ function omi_lseg_millennium_level2replay_mitch_v11_9.prefs_changed()
     lseg_millennium_level2replay_mitch_v11_9.timestamp_format = omi_lseg_millennium_level2replay_mitch_v11_9.prefs.timestamp_format
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+lseg_millennium_level2replay_mitch_v11_9.conversation = {}
+lseg_millennium_level2replay_mitch_v11_9.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+lseg_millennium_level2replay_mitch_v11_9.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+lseg_millennium_level2replay_mitch_v11_9.conversation.data = function(packet)
+  local key = lseg_millennium_level2replay_mitch_v11_9.conversation.key(packet)
+  local data = lseg_millennium_level2replay_mitch_v11_9.conversation.flows[key]
+  if data == nil then
+    data = { seconds = { last = nil, frames = {} } }
+    lseg_millennium_level2replay_mitch_v11_9.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+lseg_millennium_level2replay_mitch_v11_9.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -1269,6 +1302,16 @@ lseg_millennium_level2replay_mitch_v11_9.seconds = {}
 -- Size: Seconds
 lseg_millennium_level2replay_mitch_v11_9.seconds.size = 4
 
+-- Store: Seconds
+lseg_millennium_level2replay_mitch_v11_9.seconds.current = nil
+
+-- Generated: Seconds
+lseg_millennium_level2replay_mitch_v11_9.seconds.generated = function(value, range, packet, parent)
+  local display = lseg_millennium_level2replay_mitch_v11_9.seconds.display(value)
+  local seconds = parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.seconds, range, value, display)
+  seconds:set_generated()
+end
+
 -- Display: Seconds
 lseg_millennium_level2replay_mitch_v11_9.seconds.display = function(value)
   return "Seconds: "..value
@@ -1706,6 +1749,75 @@ lseg_millennium_level2replay_mitch_v11_9.username.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Timestamp
+lseg_millennium_level2replay_mitch_v11_9.timestamp = {}
+
+-- Translate: Timestamp
+lseg_millennium_level2replay_mitch_v11_9.timestamp.translate = function(nanosecond, stored_seconds)
+  return UInt64.new(stored_seconds) * 1000000000 + nanosecond
+end
+
+-- Display: Timestamp
+lseg_millennium_level2replay_mitch_v11_9.timestamp.display = function(nanosecond, stored_seconds, packet)
+  -- Raw display mode
+  if lseg_millennium_level2replay_mitch_v11_9.timestamp_format == 0 then
+    return "Timestamp: "..(stored_seconds * 1000000000 + nanosecond)
+  end
+
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_seconds + math.floor(nanosecond / 1000000000)
+  local fraction = nanosecond % 1000000000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if lseg_millennium_level2replay_mitch_v11_9.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = lseg_millennium_level2replay_mitch_v11_9.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+    end
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+lseg_millennium_level2replay_mitch_v11_9.timestamp.composite = function(buffer, offset, stored_seconds, packet, parent)
+  local length = lseg_millennium_level2replay_mitch_v11_9.nanosecond.size
+  local range = buffer(offset, length)
+  local nanosecond = range:le_uint()
+  local value = lseg_millennium_level2replay_mitch_v11_9.timestamp.translate(nanosecond, stored_seconds)
+  local display = lseg_millennium_level2replay_mitch_v11_9.timestamp.display(nanosecond, stored_seconds, packet)
+  parent = parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.timestamp, range, value, display)
+
+  lseg_millennium_level2replay_mitch_v11_9.seconds.generated(stored_seconds, range, packet, parent)
+
+  display = lseg_millennium_level2replay_mitch_v11_9.nanosecond.display(nanosecond)
+  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.nanosecond, range, nanosecond, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect = function(buffer, offset, packet, parent)
+  if lseg_millennium_level2replay_mitch_v11_9.timestamp_format ~= 0 then
+    local stored_seconds = lseg_millennium_level2replay_mitch_v11_9.seconds.current
+
+    if stored_seconds ~= nil then
+      return lseg_millennium_level2replay_mitch_v11_9.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    end
+  end
+
+  return lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Lseg Millennium Level2Replay Mitch 11.9
@@ -1733,7 +1845,7 @@ lseg_millennium_level2replay_mitch_v11_9.top_of_book_message.fields = function(b
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2replay_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
@@ -1833,7 +1945,7 @@ lseg_millennium_level2replay_mitch_v11_9.statistics_message.fields = function(bu
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2replay_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
@@ -1910,7 +2022,7 @@ lseg_millennium_level2replay_mitch_v11_9.auction_info_message.fields = function(
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Paired Quantity: UInt32
   index, paired_quantity = lseg_millennium_level2replay_mitch_v11_9.paired_quantity.dissect(buffer, index, packet, parent)
@@ -2048,7 +2160,7 @@ lseg_millennium_level2replay_mitch_v11_9.auction_trade_message.fields = function
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Quantity: UInt32
   index, quantity = lseg_millennium_level2replay_mitch_v11_9.quantity.dissect(buffer, index, packet, parent)
@@ -2129,7 +2241,7 @@ lseg_millennium_level2replay_mitch_v11_9.trade_message.fields = function(buffer,
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Executed Quantity: UInt32
   index, executed_quantity = lseg_millennium_level2replay_mitch_v11_9.executed_quantity.dissect(buffer, index, packet, parent)
@@ -2210,7 +2322,7 @@ lseg_millennium_level2replay_mitch_v11_9.order_executed_with_price_size_message.
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = lseg_millennium_level2replay_mitch_v11_9.order_id.dissect(buffer, index, packet, parent)
@@ -2271,7 +2383,7 @@ lseg_millennium_level2replay_mitch_v11_9.order_executed_message.fields = functio
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = lseg_millennium_level2replay_mitch_v11_9.order_id.dissect(buffer, index, packet, parent)
@@ -2381,7 +2493,7 @@ lseg_millennium_level2replay_mitch_v11_9.order_book_clear_message.fields = funct
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2replay_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
@@ -2498,7 +2610,7 @@ lseg_millennium_level2replay_mitch_v11_9.order_modified_message.fields = functio
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = lseg_millennium_level2replay_mitch_v11_9.order_id.dissect(buffer, index, packet, parent)
@@ -2599,7 +2711,7 @@ lseg_millennium_level2replay_mitch_v11_9.order_deleted_message.fields = function
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = lseg_millennium_level2replay_mitch_v11_9.order_id.dissect(buffer, index, packet, parent)
@@ -2710,7 +2822,7 @@ lseg_millennium_level2replay_mitch_v11_9.add_attributed_order_message.fields = f
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = lseg_millennium_level2replay_mitch_v11_9.order_id.dissect(buffer, index, packet, parent)
@@ -2858,7 +2970,7 @@ lseg_millennium_level2replay_mitch_v11_9.add_order_message.fields = function(buf
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = lseg_millennium_level2replay_mitch_v11_9.order_id.dissect(buffer, index, packet, parent)
@@ -2992,7 +3104,7 @@ lseg_millennium_level2replay_mitch_v11_9.symbol_status_message.fields = function
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2replay_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
@@ -3079,7 +3191,7 @@ lseg_millennium_level2replay_mitch_v11_9.symbol_directory_message.fields = funct
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2replay_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
@@ -3172,7 +3284,7 @@ lseg_millennium_level2replay_mitch_v11_9.system_event_message.fields = function(
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2replay_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event Code: Byte
   index, event_code = lseg_millennium_level2replay_mitch_v11_9.event_code.dissect(buffer, index, packet, parent)
@@ -3216,6 +3328,13 @@ lseg_millennium_level2replay_mitch_v11_9.time_message.fields = function(buffer, 
 
   -- Seconds: UInt32
   index, seconds = lseg_millennium_level2replay_mitch_v11_9.seconds.dissect(buffer, index, packet, parent)
+
+  -- Store Seconds Value
+  lseg_millennium_level2replay_mitch_v11_9.seconds.current = seconds
+
+  if not packet.visited then
+    lseg_millennium_level2replay_mitch_v11_9.conversation.current.seconds.last = seconds
+  end
 
   return index
 end
@@ -3764,6 +3883,14 @@ end
 
 -- Dissect Packet
 lseg_millennium_level2replay_mitch_v11_9.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = lseg_millennium_level2replay_mitch_v11_9.conversation.data(packet)
+  if not packet.visited then
+    data.seconds.frames[packet.number] = data.seconds.last
+  end
+  lseg_millennium_level2replay_mitch_v11_9.seconds.current = data.seconds.frames[packet.number]
+  lseg_millennium_level2replay_mitch_v11_9.conversation.current = data
+
   local index = 0
 
   -- Dependency for Tcp Unit
@@ -3799,6 +3926,9 @@ end
 
 -- Initialize Dissector
 function omi_lseg_millennium_level2replay_mitch_v11_9.init()
+  lseg_millennium_level2replay_mitch_v11_9.seconds.current = nil
+  lseg_millennium_level2replay_mitch_v11_9.conversation.current = nil
+  lseg_millennium_level2replay_mitch_v11_9.conversation.flows = {}
 end
 
 -- Dissector for Lseg Millennium Level2Replay Mitch 11.9

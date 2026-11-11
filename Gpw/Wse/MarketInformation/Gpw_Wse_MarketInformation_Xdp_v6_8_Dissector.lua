@@ -1113,7 +1113,11 @@ gpw_wse_marketinformation_xdp_v6_8.date_ascii_str_8.size = 8
 
 -- Display: Date Ascii Str 8
 gpw_wse_marketinformation_xdp_v6_8.date_ascii_str_8.display = function(value)
-  return "Date Ascii Str 8: "..value
+  if #value < 8 then
+    return "Date Ascii Str 8: "..value
+  end
+
+  return "Date Ascii Str 8: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Date Ascii Str 8

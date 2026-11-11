@@ -328,7 +328,10 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_h.auction_time.size = 2
 
 -- Display: Auction Time
 nyse_nyseequities_integratedfeed_pillar_v2_5_h.auction_time.display = function(value)
-  return "Auction Time: "..value
+  local hour = math.floor(value / 100)
+  local minute = value % 100
+
+  return string.format("Auction Time: %02d:%02d", hour, minute)
 end
 
 -- Dissect: Auction Time
@@ -3088,8 +3091,12 @@ end
 
 -- Display: Timestamp
 nyse_nyseequities_integratedfeed_pillar_v2_5_h.timestamp.display = function(source_time_ns, stored_source_time)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_source_time + math.floor(source_time_ns / 1000000000)
+  local fraction = source_time_ns % 1000000000
+
   local format = nyse_nyseequities_integratedfeed_pillar_v2_5_h.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-  return "Timestamp: "..os.date(format, stored_source_time)..string.format("%09d", source_time_ns)
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp

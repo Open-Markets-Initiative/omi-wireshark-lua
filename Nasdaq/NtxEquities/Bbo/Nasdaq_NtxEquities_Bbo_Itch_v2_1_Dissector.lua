@@ -2496,6 +2496,7 @@ udp_table:add_for_decode_as(omi_nasdaq_ntxequities_bbo_itch_v2_1)
 --   Version: 2.1
 --   Date: Friday, August 2, 2024
 --   Specification: NQ_QBBO_Specification__1_.pdf
+--   Specification: BXbbospecification2.1.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -67,7 +67,6 @@ omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.symbol_condition = ProtoF
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.symbol_id = ProtoField.new("Symbol Id", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.symbolid", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.time = ProtoField.new("Time", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.time", ftypes.UINT32, nil, nil, nil, "Number of whole seconds elapsed since the start of the current Eastern Time calendar day, derived by converting the current Eastern wall clock time (HH:MM:SS) to seconds.")
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.time_offset = ProtoField.new("Time Offset", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.timeoffset", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp.")
-omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.timestamp", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp.")
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.total_volume = ProtoField.new("Total Volume", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.totalvolume", ftypes.UINT32, nil, nil, nil, "Total number of contracts traded on the current trading session (may decrease if the Trade Condition field indicates a canceled trade).")
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.tradecondition", ftypes.STRING, nil, nil, nil, "See Options Trade Condition Codes for details.")
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.trading_status = ProtoField.new("Trading Status", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.tradingstatus", ftypes.STRING, nil, nil, nil, "H = Halted, L = Curb Trading (C1 Only), Q = Quote-Only, R = Opening Rotation, T = RTH Trading.")
@@ -1454,29 +1453,6 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.time_offset.dissect = function(buffe
   return offset + length, value
 end
 
--- Timestamp
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp = {}
-
--- Size: Timestamp
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp.size = 4
-
--- Display: Timestamp
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Total Volume
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.total_volume = {}
 
@@ -1669,6 +1645,10 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp.display = function(time_of
     return "Timestamp: "..(stored_time * 1000000000 + time_offset)
   end
 
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_time + math.floor(time_offset / 1000000000)
+  local fraction = time_offset % 1000000000
+
   -- Full datetime mode (the day the frame that carried it settled on)
   if cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
@@ -1676,17 +1656,17 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp.display = function(time_of
     -- A frame a file handler read states no instant and reads as the epoch
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
-      local settled = math.floor((capture_time - stored_time) / 900 + 0.5) * 900
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
       local format = cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + stored_time)..string.format("%09d", time_offset)
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
     end
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", time_offset)
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp
@@ -1729,7 +1709,7 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.end_of_session_message = {}
 
 -- Size: End Of Session Message
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.end_of_session_message.size =
-  cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp.size
+  cboe_edgxoptions_multicasttop_pitch_v1_2_54.time_offset.size
 
 -- Display: End Of Session Message
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.end_of_session_message.display = function(packet, parent, length)
@@ -1740,8 +1720,8 @@ end
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.end_of_session_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Time Offset
+  index, time_offset = cboe_edgxoptions_multicasttop_pitch_v1_2_54.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end

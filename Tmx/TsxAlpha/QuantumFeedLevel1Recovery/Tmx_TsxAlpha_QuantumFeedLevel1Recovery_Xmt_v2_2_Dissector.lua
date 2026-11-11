@@ -4001,9 +4001,9 @@ tcp_table:add_for_decode_as(omi_tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2)
 --   Organization: TMX Group
 --   Version: 2.2
 --   Date: Monday, April 17, 2023
---   Specification: Alpha Level 1 QuantumFeed Business Message Specification (2023-04-17).pdf
+--   Specification: Alpha Level 1 QuantumFeed Business Message Specification.pdf
 --   Specification: tmx-xmt-protocol-spec-v1-2-0.pdf
---   Specification: TSX QuantumFeed Service Access Guide (4.1.0).pdf
+--   Specification: TSX QuantumFeed Service Access Guide.pdf
 --
 -- Script:
 --   Compiler: 2.0

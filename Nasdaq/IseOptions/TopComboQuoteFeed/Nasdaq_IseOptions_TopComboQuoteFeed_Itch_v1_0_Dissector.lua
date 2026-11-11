@@ -2623,7 +2623,7 @@ udp_table:add_for_decode_as(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.0
 --   Date: Wednesday, August 23, 2017
---   Specification: ISE GEMX MRX Top Combo Quote Feed (1.0).pdf
+--   Specification: ISE GEMX MRX Top Combo Quote Feed.pdf
 --
 -- Script:
 --   Compiler: 2.0

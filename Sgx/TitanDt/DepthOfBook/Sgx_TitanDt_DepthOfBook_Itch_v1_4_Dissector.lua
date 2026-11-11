@@ -1713,8 +1713,12 @@ end
 
 -- Display: Timestamp
 sgx_titandt_depthofbook_itch_v1_4.timestamp.display = function(nanoseconds, stored_second)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_second + math.floor(nanoseconds / 1000000000)
+  local fraction = nanoseconds % 1000000000
+
   local format = sgx_titandt_depthofbook_itch_v1_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-  return "Timestamp: "..os.date(format, stored_second)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp

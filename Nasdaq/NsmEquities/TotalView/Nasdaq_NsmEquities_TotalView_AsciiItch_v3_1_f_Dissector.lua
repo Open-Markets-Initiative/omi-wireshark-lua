@@ -313,23 +313,18 @@ end
 
 -- ascii digits as an unsigned 64 bit value, nil when the run is no number
 ascii_to_uint64 = function(str)
-  local digits = str:match("^%s*(%d+)%s*$")
+  -- UInt64.new reads a leading zero as octal, so "0045296" would read as 298
+  local significant = str:match("^%s*0*(%d+)%s*$")
 
-  if digits == nil then
+  if significant == nil then
     return nil
   end
 
-  local value = UInt64.new(digits)
+  local value = UInt64.new(significant)
 
-  -- UInt64.new stops at its maximum rather than failing, so an overrun would
-  -- read as that maximum. Nineteen digits always fit, so only a longer run is
-  -- read back and compared against the digits it came from
-  if #digits > 19 then
-    local significant = digits:match("^0*(%d+)$")
-
-    if tostring(value) ~= significant then
-      return nil
-    end
+  -- UInt64.new stops at its maximum rather than failing, so a wider run is read back
+  if #significant > 19 and tostring(value) ~= significant then
+    return nil
   end
 
   return value
@@ -1744,8 +1739,39 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.second = {}
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.second.size = 5
 
 -- Display: Second
-nasdaq_nsmequities_totalview_asciiitch_v3_1_f.second.display = function(value)
-  return "Second: "..value
+nasdaq_nsmequities_totalview_asciiitch_v3_1_f.second.display = function(value, buffer, offset, packet, parent)
+  -- A field wide enough for a 64 bit ftype reads as a UInt64 object, a narrow one as a number
+  local count = type(value) == "number" and value or tonumber(tostring(value))
+
+  -- Digits no reader could make a number of
+  if count == nil then
+    return "Second: "..tostring(value)
+  end
+
+  if nasdaq_nsmequities_totalview_asciiitch_v3_1_f.timestamp_format == 0 then
+    return "Second: "..value
+  end
+
+  local seconds = count
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if nasdaq_nsmequities_totalview_asciiitch_v3_1_f.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S" or "%Y-%m-%d %H:%M:%S"
+      return "Second: "..os.date(format, midnight + seconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Second: "..os.date("!%H:%M:%S", seconds)
 end
 
 -- Dissect: Second
@@ -2129,6 +2155,10 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.timestamp.display = function(milli
     return "Timestamp: "..(stored_second * 1000000000 + millisecond)
   end
 
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_second + math.floor(millisecond / 1000000000)
+  local fraction = millisecond % 1000000000
+
   -- Full datetime mode (the day the frame that carried it settled on)
   if nasdaq_nsmequities_totalview_asciiitch_v3_1_f.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
@@ -2136,17 +2166,17 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.timestamp.display = function(milli
     -- A frame a file handler read states no instant and reads as the epoch
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
-      local settled = math.floor((capture_time - stored_second) / 900 + 0.5) * 900
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
       local format = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + stored_second)..string.format("%09d", millisecond)
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
     end
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_second)..string.format("%09d", millisecond)
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp
@@ -4481,7 +4511,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.1.f
 --   Date: Wednesday, July 8, 2009
---   Specification: Nasdaq TotalView ITCH (2009-07-08).pdf
+--   Specification: Nasdaq TotalView ITCH.pdf
 --
 -- Script:
 --   Compiler: 2.0

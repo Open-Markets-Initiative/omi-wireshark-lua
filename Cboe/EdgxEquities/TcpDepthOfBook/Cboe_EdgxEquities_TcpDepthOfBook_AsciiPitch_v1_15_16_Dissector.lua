@@ -97,6 +97,22 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number = Prot
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts = { cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number }
 
 -----------------------------------------------------------------------
+-- Cboe EdgxEquities TcpDepthOfBook AsciiPitch 1.15.16 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -110,6 +126,8 @@ show.structs = true
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.prefs_changed()
 
@@ -119,6 +137,9 @@ function omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.prefs_changed(
   end
   if show.structs ~= omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.prefs.show_structs then
     show.structs = omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.prefs.show_structs
+  end
+  if cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp_format ~= omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.prefs.timestamp_format then
+    cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp_format = omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.prefs.timestamp_format
   end
 end
 
@@ -203,23 +224,18 @@ end
 
 -- ascii digits as an unsigned 64 bit value, nil when the run is no number
 ascii_to_uint64 = function(str)
-  local digits = str:match("^%s*(%d+)%s*$")
+  -- UInt64.new reads a leading zero as octal, so "0045296" would read as 298
+  local significant = str:match("^%s*0*(%d+)%s*$")
 
-  if digits == nil then
+  if significant == nil then
     return nil
   end
 
-  local value = UInt64.new(digits)
+  local value = UInt64.new(significant)
 
-  -- UInt64.new stops at its maximum rather than failing, so an overrun would
-  -- read as that maximum. Nineteen digits always fit, so only a longer run is
-  -- read back and compared against the digits it came from
-  if #digits > 19 then
-    local significant = digits:match("^0*(%d+)$")
-
-    if tostring(value) ~= significant then
-      return nil
-    end
+  -- UInt64.new stops at its maximum rather than failing, so a wider run is read back
+  if #significant > 19 and tostring(value) ~= significant then
+    return nil
   end
 
   return value
@@ -1415,8 +1431,39 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.time = {}
 cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.time.size = 10
 
 -- Display: Time
-cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.time.display = function(value)
-  return "Time: "..value
+cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.time.display = function(value, buffer, offset, packet, parent)
+  -- A field wide enough for a 64 bit ftype reads as a UInt64 object, a narrow one as a number
+  local count = type(value) == "number" and value or tonumber(tostring(value))
+
+  -- Digits no reader could make a number of
+  if count == nil then
+    return "Time: "..tostring(value)
+  end
+
+  if cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp_format == 0 then
+    return "Time: "..value
+  end
+
+  local seconds = count
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S" or "%Y-%m-%d %H:%M:%S"
+      return "Time: "..os.date(format, midnight + seconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Time: "..os.date("!%H:%M:%S", seconds)
 end
 
 -- Dissect: Time
@@ -1446,8 +1493,41 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp = {}
 cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp.size = 8
 
 -- Display: Timestamp
-cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp.display = function(value)
-  return "Timestamp: "..value
+cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- A field wide enough for a 64 bit ftype reads as a UInt64 object, a narrow one as a number
+  local count = type(value) == "number" and value or tonumber(tostring(value))
+
+  -- Digits no reader could make a number of
+  if count == nil then
+    return "Timestamp: "..tostring(value)
+  end
+
+  if cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(count / 1000)
+  local milliseconds = count % 1000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Timestamp

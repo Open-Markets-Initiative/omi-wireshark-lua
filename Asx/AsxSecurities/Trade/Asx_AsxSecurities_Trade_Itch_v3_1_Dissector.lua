@@ -1488,8 +1488,12 @@ end
 
 -- Display: Timestamp
 asx_asxsecurities_trade_itch_v3_1.timestamp.display = function(nanoseconds, stored_second)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_second + math.floor(nanoseconds / 1000000000)
+  local fraction = nanoseconds % 1000000000
+
   local format = asx_asxsecurities_trade_itch_v3_1.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-  return "Timestamp: "..os.date(format, stored_second)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp
@@ -3088,7 +3092,7 @@ udp_table:add_for_decode_as(omi_asx_asxsecurities_trade_itch_v3_1)
 --   Organization: Australian Securities Exchange
 --   Version: 3.1
 --   Date: Wednesday, March 1, 2023
---   Specification: asx-trade-itch-message-specification (2024-08-07).pdf
+--   Specification: asx-trade-itch-message-specification.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -4198,7 +4198,7 @@ tcp_table:add_for_decode_as(omi_jse_itac_basicnativetrading_ntgi_v4_05)
 --   Organization: JSE Limited
 --   Version: 4.05
 --   Date: Tuesday, May 28, 2024
---   Specification: JSE Volume 01E - Basic Native Trading Gateway (2024-05-28).pdf
+--   Specification: JSE Volume 01E - Basic Native Trading Gateway.pdf
 --
 -- Script:
 --   Compiler: 2.0

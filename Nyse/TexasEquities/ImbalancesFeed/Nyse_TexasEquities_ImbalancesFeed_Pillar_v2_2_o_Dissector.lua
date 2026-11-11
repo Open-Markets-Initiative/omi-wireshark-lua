@@ -297,7 +297,10 @@ nyse_texasequities_imbalancesfeed_pillar_v2_2_o.auction_time.size = 2
 
 -- Display: Auction Time
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.auction_time.display = function(value)
-  return "Auction Time: "..value
+  local hour = math.floor(value / 100)
+  local minute = value % 100
+
+  return string.format("Auction Time: %02d:%02d", hour, minute)
 end
 
 -- Dissect: Auction Time

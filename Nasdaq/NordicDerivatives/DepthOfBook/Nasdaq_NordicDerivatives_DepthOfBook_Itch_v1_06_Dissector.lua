@@ -1708,8 +1708,12 @@ end
 
 -- Display: Timestamp
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.timestamp.display = function(nanoseconds, stored_second)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_second + math.floor(nanoseconds / 1000000000)
+  local fraction = nanoseconds % 1000000000
+
   local format = nasdaq_nordicderivatives_depthofbook_itch_v1_06.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-  return "Timestamp: "..os.date(format, stored_second)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp
@@ -3200,7 +3204,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.06
 --   Date: Tuesday, February 14, 2012
---   Specification: Nasdaq Nordic Genium INET ITCH Protocol Specification (2012-02-14).pdf
+--   Specification: Nasdaq Nordic Genium INET ITCH Protocol Specification.pdf
 --
 -- Script:
 --   Compiler: 2.0

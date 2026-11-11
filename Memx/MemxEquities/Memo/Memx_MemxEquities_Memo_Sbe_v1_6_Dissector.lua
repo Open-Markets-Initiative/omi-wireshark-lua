@@ -5792,7 +5792,6 @@ tcp_table:add_for_decode_as(omi_memx_memxequities_memo_sbe_v1_6)
 --   Organization: The Members Exchange
 --   Version: 1.6
 --   Date: Monday, July 12, 2021
---   Specification: MEMO SBE-v1_6.pdf
 --
 -- Script:
 --   Compiler: 2.0

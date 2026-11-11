@@ -120,6 +120,7 @@ omi_cboe_c1options_complex_pitch_v2_1_61.fields.complex_leg_index = ProtoField.n
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.edcid_leg_index = ProtoField.new("Edcid Leg Index", "cboe.c1options.complex.pitch.v2.1.61.edcidlegindex", ftypes.UINT16)
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.complex.pitch.v2.1.61.messageindex", ftypes.UINT16)
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.c1options.complex.pitch.v2.1.61.messagesequencenumber", ftypes.UINT64)
+omi_cboe_c1options_complex_pitch_v2_1_61.fields.auction_end_time = ProtoField.new("Auction End Time", "cboe.c1options.complex.pitch.v2.1.61.auctionendtime", ftypes.UINT64)
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.complex.pitch.v2.1.61.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -1862,6 +1863,53 @@ cboe_c1options_complex_pitch_v2_1_61.unit.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Auction End Time
+cboe_c1options_complex_pitch_v2_1_61.auction_end_time = {}
+
+-- Translate: Auction End Time
+cboe_c1options_complex_pitch_v2_1_61.auction_end_time.translate = function(auction_end_offset, stored_midnight_reference, stored_time)
+  return (UInt64.new(stored_midnight_reference) + stored_time) * 1000000000 + auction_end_offset
+end
+
+-- Display: Auction End Time
+cboe_c1options_complex_pitch_v2_1_61.auction_end_time.display = function(auction_end_offset, stored_midnight_reference, stored_time)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_midnight_reference + stored_time + math.floor(auction_end_offset / 1000000000)
+  local fraction = auction_end_offset % 1000000000
+
+  local format = cboe_c1options_complex_pitch_v2_1_61.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Auction End Time: "..os.date(format, seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Auction End Time
+cboe_c1options_complex_pitch_v2_1_61.auction_end_time.composite = function(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
+  local length = cboe_c1options_complex_pitch_v2_1_61.auction_end_offset.size
+  local range = buffer(offset, length)
+  local auction_end_offset = range:le_uint()
+  local value = cboe_c1options_complex_pitch_v2_1_61.auction_end_time.translate(auction_end_offset, stored_midnight_reference, stored_time)
+  local display = cboe_c1options_complex_pitch_v2_1_61.auction_end_time.display(auction_end_offset, stored_midnight_reference, stored_time)
+  parent = parent:add(omi_cboe_c1options_complex_pitch_v2_1_61.fields.auction_end_time, range, value, display)
+
+  cboe_c1options_complex_pitch_v2_1_61.time.generated(stored_time, range, packet, parent)
+
+  display = cboe_c1options_complex_pitch_v2_1_61.auction_end_offset.display(auction_end_offset)
+  parent:add(omi_cboe_c1options_complex_pitch_v2_1_61.fields.auction_end_offset, range, auction_end_offset, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Auction End Time
+cboe_c1options_complex_pitch_v2_1_61.auction_end_time.dissect = function(buffer, offset, packet, parent)
+  local stored_midnight_reference = cboe_c1options_complex_pitch_v2_1_61.midnight_reference.current
+  local stored_time = cboe_c1options_complex_pitch_v2_1_61.time.current
+
+  if stored_midnight_reference ~= nil and stored_time ~= nil then
+    return cboe_c1options_complex_pitch_v2_1_61.auction_end_time.composite(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
+  end
+
+  return cboe_c1options_complex_pitch_v2_1_61.auction_end_offset.dissect(buffer, offset, packet, parent)
+end
+
 -- Timestamp
 cboe_c1options_complex_pitch_v2_1_61.timestamp = {}
 
@@ -1872,8 +1920,12 @@ end
 
 -- Display: Timestamp
 cboe_c1options_complex_pitch_v2_1_61.timestamp.display = function(time_offset, stored_midnight_reference, stored_time)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_midnight_reference + stored_time + math.floor(time_offset / 1000000000)
+  local fraction = time_offset % 1000000000
+
   local format = cboe_c1options_complex_pitch_v2_1_61.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-  return "Timestamp: "..os.date(format, stored_midnight_reference + stored_time)..string.format("%09d", time_offset)
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp
@@ -2316,7 +2368,7 @@ cboe_c1options_complex_pitch_v2_1_61.auction_notification_message.fields = funct
   index, participant_id = cboe_c1options_complex_pitch_v2_1_61.participant_id.dissect(buffer, index, packet, parent)
 
   -- Auction End Offset: Binary
-  index, auction_end_offset = cboe_c1options_complex_pitch_v2_1_61.auction_end_offset.dissect(buffer, index, packet, parent)
+  index, auction_end_offset = cboe_c1options_complex_pitch_v2_1_61.auction_end_time.dissect(buffer, index, packet, parent)
 
   -- Client Id: Alphanumeric
   index, client_id = cboe_c1options_complex_pitch_v2_1_61.client_id.dissect(buffer, index, packet, parent)

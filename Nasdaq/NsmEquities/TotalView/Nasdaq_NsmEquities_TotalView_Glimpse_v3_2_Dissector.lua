@@ -1,0 +1,2576 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Nasdaq NsmEquities TotalView Glimpse 3.2 Protocol
+local omi_nasdaq_nsmequities_totalview_glimpse_v3_2 = Proto("Omi.Nasdaq.NsmEquities.TotalView.Glimpse.v3.2", "Nasdaq NsmEquities TotalView Glimpse 3.2")
+
+-- Protocol table
+local nasdaq_nsmequities_totalview_glimpse_v3_2 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Nasdaq NsmEquities TotalView Glimpse 3.2 Fields
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.totalview.glimpse.v3.2.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.totalview.glimpse.v3.2.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.attribution = ProtoField.new("Attribution", "nasdaq.nsmequities.totalview.glimpse.v3.2.attribution", ftypes.STRING, nil, nil, nil, "NASDAQ market participant identifier associated with the entered order.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.nsmequities.totalview.glimpse.v3.2.buysellindicator", ftypes.STRING, nil, nil, nil, "The type of order being added.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.nsmequities.totalview.glimpse.v3.2.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.totalview.glimpse.v3.2.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes below.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.nsmequities.totalview.glimpse.v3.2.financialstatusindicator", ftypes.STRING, nil, nil, nil, "For NASDAQ-listed issues, this field indicates when a firm is not in compliance with NASDAQ continued listing requirements. For NYSE, NYSE Amex, NYSE Arca and BATS issues, this field will also be space-filled. Redistributors should refer to SIAC feeds for code if needed.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.interest_flag = ProtoField.new("Interest Flag", "nasdaq.nsmequities.totalview.glimpse.v3.2.interestflag", ftypes.STRING, nil, nil, nil, "Identifies the retail interest indication for the issue.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.itch_sequence_number = ProtoField.new("Itch Sequence Number", "nasdaq.nsmequities.totalview.glimpse.v3.2.itchsequencenumber", ftypes.UINT64, nil, nil, nil, "TotalView-ITCH 3.2 sequence number when the GLIMPSE 3.2 snapshot was taken. To keep the order book current, firms should process real-time TotalView-ITCH 3.2 messages beginning with the message sequence number reflected in this snapshot message.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.totalview.glimpse.v3.2.marketcategory", ftypes.STRING, nil, nil, nil, "Indicates Listing market or listing market tier for the issue.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.totalview.glimpse.v3.2.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.millisecond = ProtoField.new("Millisecond", "nasdaq.nsmequities.totalview.glimpse.v3.2.millisecond", ftypes.UINT16, nil, nil, nil, "Number of milliseconds since last second.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.totalview.glimpse.v3.2.orderreferencenumber", ftypes.UINT64, nil, nil, nil, "The unique reference number assigned to the new order. The order reference number is increasing, but not necessarily sequential.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.password = ProtoField.new("Password", "nasdaq.nsmequities.totalview.glimpse.v3.2.password", ftypes.STRING, nil, nil, nil, "Login password")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.totalview.glimpse.v3.2.price", ftypes.UINT64, nil, nil, nil, "The display price of the new order. Refer to Data Types for field processing notes.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.totalview.glimpse.v3.2.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.totalview.glimpse.v3.2.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.glimpse.v3.2.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.glimpse.v3.2.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.totalview.glimpse.v3.2.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.nsmequities.totalview.glimpse.v3.2.reserved1", ftypes.STRING, nil, nil, nil, "Reserved.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.totalview.glimpse.v3.2.roundlotsize", ftypes.UINT24, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.totalview.glimpse.v3.2.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if NASDAQ system limits order entry for issue.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.second = ProtoField.new("Second", "nasdaq.nsmequities.totalview.glimpse.v3.2.second", ftypes.UINT24, nil, nil, nil, "Number of second since midnight.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.totalview.glimpse.v3.2.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nsmequities.totalview.glimpse.v3.2.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.totalview.glimpse.v3.2.shares", ftypes.UINT24, nil, nil, nil, "The total number of shares associated with the order being added to the book.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.totalview.glimpse.v3.2.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.glimpse.v3.2.stock", ftypes.STRING, nil, nil, nil, "The security symbol for which the order is being added.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.totalview.glimpse.v3.2.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.totalview.glimpse.v3.2.tradingstate", ftypes.STRING, nil, nil, nil, "Indicates the current trading state for the stock.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.totalview.glimpse.v3.2.unsequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw unsequenced message bytes")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.totalview.glimpse.v3.2.username", ftypes.STRING, nil, nil, nil, "Session username")
+
+-- Nasdaq NsmEquities TotalView Glimpse 3.2 Framing
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.client_frame = ProtoField.new("Client Frame", "nasdaq.nsmequities.totalview.glimpse.v3.2.clientframe", ftypes.STRING, nil, nil, nil, "One SoupTcp packet sent by the client, closed by a line feed")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.client_packet = ProtoField.new("Client Packet", "nasdaq.nsmequities.totalview.glimpse.v3.2.clientpacket", ftypes.STRING, nil, nil, nil, "SoupTcp Packet")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.client_packet_header = ProtoField.new("Client Packet Header", "nasdaq.nsmequities.totalview.glimpse.v3.2.clientpacketheader", ftypes.STRING, nil, nil, nil, "SoupTcp Packet Header sent by the client")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "nasdaq.nsmequities.totalview.glimpse.v3.2.sequencedmessageheader", ftypes.STRING, nil, nil, nil, "Time and type carried ahead of every sequenced Itch message")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.server_frame = ProtoField.new("Server Frame", "nasdaq.nsmequities.totalview.glimpse.v3.2.serverframe", ftypes.STRING, nil, nil, nil, "One SoupTcp packet sent by the server, closed by a line feed")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.server_packet = ProtoField.new("Server Packet", "nasdaq.nsmequities.totalview.glimpse.v3.2.serverpacket", ftypes.STRING, nil, nil, nil, "SoupTcp Packet")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.server_packet_header = ProtoField.new("Server Packet Header", "nasdaq.nsmequities.totalview.glimpse.v3.2.serverpacketheader", ftypes.STRING, nil, nil, nil, "SoupTcp Packet Header sent by the server")
+
+-- Nasdaq NsmEquities TotalView 3.2 Application Messages
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.nsmequities.totalview.glimpse.v3.2.addordermessage", ftypes.STRING, nil, nil, nil, "Add Order - No MPID Attribution Message. This message will be generated for unattributed orders accepted by the NASDAQ system.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.add_order_mpid_attribution_message = ProtoField.new("Add Order Mpid Attribution Message", "nasdaq.nsmequities.totalview.glimpse.v3.2.addordermpidattributionmessage", ftypes.STRING, nil, nil, nil, "Add Order - MPID Attribution Message. This message will be generated for attributed orders and quotations accepted by the NASDAQ system.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "nasdaq.nsmequities.totalview.glimpse.v3.2.endofsnapshotmessage", ftypes.STRING, nil, nil, nil, "The Snapshot message reflects the NASDAQ TotalView-ITCH 3.2 sequence number at the time that the GLIMPSE 3.2 spin was requested.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.milliseconds_message = ProtoField.new("Milliseconds Message", "nasdaq.nsmequities.totalview.glimpse.v3.2.millisecondsmessage", ftypes.STRING, nil, nil, nil, "This message is sent every millisecond for which at least one NASDAQ GLIMPSE 3.2 / NASDAQ TotalView-ITCH 3.2 message is being generated.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "nasdaq.nsmequities.totalview.glimpse.v3.2.regshorestrictionmessage", ftypes.STRING, nil, nil, nil, "Reg SHO Short Sale Price Test Restricted Indicator. NASDAQ will process orders based on the most Reg SHO Restriction status value.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.retail_price_improvement_indicator_message = ProtoField.new("Retail Price Improvement Indicator Message", "nasdaq.nsmequities.totalview.glimpse.v3.2.retailpriceimprovementindicatormessage", ftypes.STRING, nil, nil, nil, "Identifies a retail interest indication of the Bid, Ask or both the Bid and Ask for NASDAQ-listed securities.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.seconds_message = ProtoField.new("Seconds Message", "nasdaq.nsmequities.totalview.glimpse.v3.2.secondsmessage", ftypes.STRING, nil, nil, nil, "This message is sent every second for which at least one NASDAQ GLIMPSE 3.2 / NASDAQ TotalView-ITCH 3.2 message is being generated.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.nsmequities.totalview.glimpse.v3.2.stockdirectorymessage", ftypes.STRING, nil, nil, nil, "At the start of each GLIMPSE transmission, NASDAQ will disseminate stock directory messages for all symbols in NASDAQ execution system for the current trading day. Please note that the Symbol Directory spin may include halted issues. Firms must process the Trading Action message for current trading state information.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.nsmequities.totalview.glimpse.v3.2.stocktradingactionmessage", ftypes.STRING, nil, nil, nil, "NASDAQ uses this administrative message to indicate the current trading status of a security to the trading community. In the GLIMPSE transmission, NASDAQ will send out a Stock Trading Action message for only those issues that were eligible for trading during the current trading session.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.totalview.glimpse.v3.2.systemeventmessage", ftypes.STRING, nil, nil, nil, "NASDAQ GLIMPSE product is designed to support the same system event messages as the NASDAQ TotalView-ITCH feed. On GLIMPSE, NASDAQ will send out system event messages for those events that occurred up to the time of the GLIMPSE snapshot request.")
+
+-- Nasdaq NsmEquities TotalView 3.2 Session Messages
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.totalview.glimpse.v3.2.debugpacket", ftypes.STRING, nil, nil, nil, "Debug packets are intended to provide human readable text that may aid in debugging problems.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.totalview.glimpse.v3.2.loginacceptedpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp server sends a Login Accepted Packet in response to receiving a valid Login Request from the client.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.totalview.glimpse.v3.2.loginrejectedpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp server sends this packet in response to an invalid Login Request Packet from the client.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.totalview.glimpse.v3.2.loginrequestpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp client must send a Login Request Packet immediately upon establishing a new TCP/IP socket connection to the server.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.totalview.glimpse.v3.2.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server. These messages are not sequenced and may be lost in the event of a socket failure.")
+
+-- Nasdaq NsmEquities TotalView Glimpse 3.2 Expert Info
+nasdaq_nsmequities_totalview_glimpse_v3_2.experts = {}
+nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.totalview.glimpse.v3.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.experts = { nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number }
+
+-----------------------------------------------------------------------
+-- Nasdaq NsmEquities TotalView Glimpse 3.2 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Nasdaq NsmEquities TotalView Glimpse 3.2 Element Dissection Options
+show.application_messages = true
+show.structs = true
+show.headers = true
+show.session_messages = true
+
+-- Register Nasdaq NsmEquities TotalView Glimpse 3.2 Show Options
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+
+-- Handle changed preferences
+function omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_headers then
+    show.headers = omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_headers
+  end
+  if show.session_messages ~= omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_session_messages then
+    show.session_messages = omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_session_messages
+  end
+  if show.structs ~= omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_structs then
+    show.structs = omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_structs
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  -- UInt64.new reads a leading zero as octal, so "0045296" would read as 298
+  local significant = str:match("^%s*0*(%d+)%s*$")
+
+  if significant == nil then
+    return nil
+  end
+
+  local value = UInt64.new(significant)
+
+  -- UInt64.new stops at its maximum rather than failing, so a wider run is read back
+  if #significant > 19 and tostring(value) ~= significant then
+    return nil
+  end
+
+  return value
+end
+
+
+-----------------------------------------------------------------------
+-- Nasdaq NsmEquities TotalView Glimpse 3.2 Fields
+-----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_session = {}
+
+-- Size: Accepted Session
+nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_session.size = 10
+
+-- Display: Accepted Session
+nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Attribution
+nasdaq_nsmequities_totalview_glimpse_v3_2.attribution = {}
+
+-- Size: Attribution
+nasdaq_nsmequities_totalview_glimpse_v3_2.attribution.size = 4
+
+-- Display: Attribution
+nasdaq_nsmequities_totalview_glimpse_v3_2.attribution.display = function(value)
+  return "Attribution: "..value
+end
+
+-- Dissect: Attribution
+nasdaq_nsmequities_totalview_glimpse_v3_2.attribution.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.attribution.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.attribution.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.attribution, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Sell Indicator
+nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator = {}
+
+-- Size: Buy Sell Indicator
+nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator.size = 1
+
+-- Display: Buy Sell Indicator
+nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy Order (B)",
+  ["S"] = "Buy Sell Indicator: Sell Order (S)",
+}
+
+nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator.display = function(value)
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Buy Sell Indicator
+nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.buy_sell_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Packet Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_type = {}
+
+-- Size: Client Packet Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_type.size = 1
+
+-- Display: Client Packet Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_type.labels = {
+  ["+"] = "Client Packet Type: Debug Packet (+)",
+  ["L"] = "Client Packet Type: Login Request Packet (L)",
+  ["U"] = "Client Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Client Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Client Packet Type: Logout Request Packet (O)",
+}
+
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_type.display = function(value)
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_type.labels[value] or "Client Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Packet Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.client_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+nasdaq_nsmequities_totalview_glimpse_v3_2.event_code = {}
+
+-- Size: Event Code
+nasdaq_nsmequities_totalview_glimpse_v3_2.event_code.size = 1
+
+-- Display: Event Code
+nasdaq_nsmequities_totalview_glimpse_v3_2.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["A"] = "Event Code: Emergency Market Condition Halt (A)",
+  ["R"] = "Event Code: Emergency Market Condition Quote Only Period (R)",
+  ["B"] = "Event Code: Emergency Market Condition Resumption (B)",
+}
+
+nasdaq_nsmequities_totalview_glimpse_v3_2.event_code.display = function(value)
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.event_code.labels[value] or "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+nasdaq_nsmequities_totalview_glimpse_v3_2.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Financial Status Indicator
+nasdaq_nsmequities_totalview_glimpse_v3_2.financial_status_indicator = {}
+
+-- Size: Financial Status Indicator
+nasdaq_nsmequities_totalview_glimpse_v3_2.financial_status_indicator.size = 1
+
+-- Display: Financial Status Indicator
+nasdaq_nsmequities_totalview_glimpse_v3_2.financial_status_indicator.labels = {
+  ["D"] = "Financial Status Indicator: Deficient (D)",
+  ["E"] = "Financial Status Indicator: Delinquent (E)",
+  ["Q"] = "Financial Status Indicator: Bankrupt (Q)",
+  ["S"] = "Financial Status Indicator: Suspended (S)",
+  ["G"] = "Financial Status Indicator: Deficient And Bankrupt (G)",
+  ["H"] = "Financial Status Indicator: Deficient And Delinquent (H)",
+  ["J"] = "Financial Status Indicator: Delinquent And Bankrupt (J)",
+  ["K"] = "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)",
+}
+
+nasdaq_nsmequities_totalview_glimpse_v3_2.financial_status_indicator.display = function(value)
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.financial_status_indicator.labels[value] or "Financial Status Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Financial Status Indicator
+nasdaq_nsmequities_totalview_glimpse_v3_2.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.financial_status_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.financial_status_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.financial_status_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Interest Flag
+nasdaq_nsmequities_totalview_glimpse_v3_2.interest_flag = {}
+
+-- Size: Interest Flag
+nasdaq_nsmequities_totalview_glimpse_v3_2.interest_flag.size = 1
+
+-- Display: Interest Flag
+nasdaq_nsmequities_totalview_glimpse_v3_2.interest_flag.labels = {
+  ["B"] = "Interest Flag: Rpi Buy (B)",
+  ["S"] = "Interest Flag: Rpi Sell (S)",
+  ["A"] = "Interest Flag: Rpi Both (A)",
+  ["N"] = "Interest Flag: No Rpi (N)",
+}
+
+nasdaq_nsmequities_totalview_glimpse_v3_2.interest_flag.display = function(value)
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.interest_flag.labels[value] or "Interest Flag: Unknown("..value..")"
+end
+
+-- Dissect: Interest Flag
+nasdaq_nsmequities_totalview_glimpse_v3_2.interest_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.interest_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.interest_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.interest_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Itch Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.itch_sequence_number = {}
+
+-- Size: Itch Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.itch_sequence_number.size = 20
+
+-- Display: Itch Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.itch_sequence_number.display = function(value)
+  return "Itch Sequence Number: "..value
+end
+
+-- Dissect: Itch Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.itch_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.itch_sequence_number.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.itch_sequence_number, range, value, "Itch Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number, "Itch Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.itch_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.itch_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Category
+nasdaq_nsmequities_totalview_glimpse_v3_2.market_category = {}
+
+-- Size: Market Category
+nasdaq_nsmequities_totalview_glimpse_v3_2.market_category.size = 1
+
+-- Display: Market Category
+nasdaq_nsmequities_totalview_glimpse_v3_2.market_category.labels = {
+  ["N"] = "Market Category: New York Stock Exchange (N)",
+  ["A"] = "Market Category: Nyse Amex (A)",
+  ["P"] = "Market Category: Nyse Arca (P)",
+  ["Q"] = "Market Category: Nasdaq Global Select Market (Q)",
+  ["G"] = "Market Category: Nasdaq Global Market (G)",
+  ["S"] = "Market Category: Nasdaq Capital Market (S)",
+  ["Z"] = "Market Category: Bats Bzx Exchange (Z)",
+}
+
+nasdaq_nsmequities_totalview_glimpse_v3_2.market_category.display = function(value)
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.market_category.labels[value] or "Market Category: Unknown("..value..")"
+end
+
+-- Dissect: Market Category
+nasdaq_nsmequities_totalview_glimpse_v3_2.market_category.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.market_category.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.market_category.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.market_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.message_type = {}
+
+-- Size: Message Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.message_type.size = 1
+
+-- Display: Message Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.message_type.labels = {
+  ["T"] = "Message Type: Seconds Message (T)",
+  ["M"] = "Message Type: Milliseconds Message (M)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["F"] = "Message Type: Add Order Mpid Attribution Message (F)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+  ["H"] = "Message Type: Stock Trading Action Message (H)",
+  ["Y"] = "Message Type: Reg Sho Restriction Message (Y)",
+  ["N"] = "Message Type: Retail Price Improvement Indicator Message (N)",
+  ["G"] = "Message Type: End Of Snapshot Message (G)",
+}
+
+nasdaq_nsmequities_totalview_glimpse_v3_2.message_type.display = function(value)
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.message_type.labels[value] or "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Millisecond
+nasdaq_nsmequities_totalview_glimpse_v3_2.millisecond = {}
+
+-- Size: Millisecond
+nasdaq_nsmequities_totalview_glimpse_v3_2.millisecond.size = 3
+
+-- Display: Millisecond
+nasdaq_nsmequities_totalview_glimpse_v3_2.millisecond.display = function(value)
+  return "Millisecond: "..value
+end
+
+-- Dissect: Millisecond
+nasdaq_nsmequities_totalview_glimpse_v3_2.millisecond.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.millisecond.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.millisecond, range, value, "Millisecond: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number, "Millisecond is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.millisecond.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.millisecond, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Reference Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.order_reference_number = {}
+
+-- Size: Order Reference Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.order_reference_number.size = 12
+
+-- Display: Order Reference Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.order_reference_number.display = function(value)
+  return "Order Reference Number: "..value
+end
+
+-- Dissect: Order Reference Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.order_reference_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.order_reference_number.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.order_reference_number, range, value, "Order Reference Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number, "Order Reference Number is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.order_reference_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.order_reference_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+nasdaq_nsmequities_totalview_glimpse_v3_2.password = {}
+
+-- Size: Password
+nasdaq_nsmequities_totalview_glimpse_v3_2.password.size = 10
+
+-- Display: Password
+nasdaq_nsmequities_totalview_glimpse_v3_2.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+nasdaq_nsmequities_totalview_glimpse_v3_2.password.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.password.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+nasdaq_nsmequities_totalview_glimpse_v3_2.price = {}
+
+-- Size: Price
+nasdaq_nsmequities_totalview_glimpse_v3_2.price.size = 10
+
+-- Display: Price
+nasdaq_nsmequities_totalview_glimpse_v3_2.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+nasdaq_nsmequities_totalview_glimpse_v3_2.price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.price.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+nasdaq_nsmequities_totalview_glimpse_v3_2.reason = {}
+
+-- Size: Reason
+nasdaq_nsmequities_totalview_glimpse_v3_2.reason.size = 4
+
+-- Display: Reason
+nasdaq_nsmequities_totalview_glimpse_v3_2.reason.display = function(value)
+  return "Reason: "..value
+end
+
+-- Dissect: Reason
+nasdaq_nsmequities_totalview_glimpse_v3_2.reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.reason.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reg Sho Action
+nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_action = {}
+
+-- Size: Reg Sho Action
+nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_action.size = 1
+
+-- Display: Reg Sho Action
+nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test (0)",
+  ["1"] = "Reg Sho Action: Restriction In Effect (1)",
+  ["2"] = "Reg Sho Action: Restriction Remains In Effect (2)",
+}
+
+nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_action.display = function(value)
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
+end
+
+-- Dissect: Reg Sho Action
+nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_action.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reg_sho_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason Code
+nasdaq_nsmequities_totalview_glimpse_v3_2.reject_reason_code = {}
+
+-- Size: Reject Reason Code
+nasdaq_nsmequities_totalview_glimpse_v3_2.reject_reason_code.size = 1
+
+-- Display: Reject Reason Code
+nasdaq_nsmequities_totalview_glimpse_v3_2.reject_reason_code.display = function(value)
+  return "Reject Reason Code: "..value
+end
+
+-- Dissect: Reject Reason Code
+nasdaq_nsmequities_totalview_glimpse_v3_2.reject_reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.reject_reason_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.reject_reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reject_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.requested_sequence_number = {}
+
+-- Size: Requested Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.requested_sequence_number.size = 20
+
+-- Display: Requested Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.requested_sequence_number.display = function(value)
+  return "Requested Sequence Number: "..value
+end
+
+-- Dissect: Requested Sequence Number
+nasdaq_nsmequities_totalview_glimpse_v3_2.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.requested_sequence_number.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.requested_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.requested_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Session
+nasdaq_nsmequities_totalview_glimpse_v3_2.requested_session = {}
+
+-- Size: Requested Session
+nasdaq_nsmequities_totalview_glimpse_v3_2.requested_session.size = 10
+
+-- Display: Requested Session
+nasdaq_nsmequities_totalview_glimpse_v3_2.requested_session.display = function(value)
+  return "Requested Session: "..value
+end
+
+-- Dissect: Requested Session
+nasdaq_nsmequities_totalview_glimpse_v3_2.requested_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.requested_session.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.requested_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.requested_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+nasdaq_nsmequities_totalview_glimpse_v3_2.reserved_1 = {}
+
+-- Size: Reserved 1
+nasdaq_nsmequities_totalview_glimpse_v3_2.reserved_1.size = 1
+
+-- Display: Reserved 1
+nasdaq_nsmequities_totalview_glimpse_v3_2.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+nasdaq_nsmequities_totalview_glimpse_v3_2.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot Size
+nasdaq_nsmequities_totalview_glimpse_v3_2.round_lot_size = {}
+
+-- Size: Round Lot Size
+nasdaq_nsmequities_totalview_glimpse_v3_2.round_lot_size.size = 6
+
+-- Display: Round Lot Size
+nasdaq_nsmequities_totalview_glimpse_v3_2.round_lot_size.display = function(value)
+  return "Round Lot Size: "..value
+end
+
+-- Dissect: Round Lot Size
+nasdaq_nsmequities_totalview_glimpse_v3_2.round_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.round_lot_size.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.round_lot_size, range, value, "Round Lot Size: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number, "Round Lot Size is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.round_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.round_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lots Only
+nasdaq_nsmequities_totalview_glimpse_v3_2.round_lots_only = {}
+
+-- Size: Round Lots Only
+nasdaq_nsmequities_totalview_glimpse_v3_2.round_lots_only.size = 1
+
+-- Display: Round Lots Only
+nasdaq_nsmequities_totalview_glimpse_v3_2.round_lots_only.labels = {
+  ["Y"] = "Round Lots Only: Round Lots Only (Y)",
+  ["N"] = "Round Lots Only: Odd And Mixed Lots Allowed (N)",
+}
+
+nasdaq_nsmequities_totalview_glimpse_v3_2.round_lots_only.display = function(value)
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.round_lots_only.labels[value] or "Round Lots Only: Unknown("..value..")"
+end
+
+-- Dissect: Round Lots Only
+nasdaq_nsmequities_totalview_glimpse_v3_2.round_lots_only.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.round_lots_only.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.round_lots_only.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.round_lots_only, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second
+nasdaq_nsmequities_totalview_glimpse_v3_2.second = {}
+
+-- Size: Second
+nasdaq_nsmequities_totalview_glimpse_v3_2.second.size = 5
+
+-- Display: Second
+nasdaq_nsmequities_totalview_glimpse_v3_2.second.display = function(value)
+  return "Second: "..value
+end
+
+-- Dissect: Second
+nasdaq_nsmequities_totalview_glimpse_v3_2.second.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.second.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.second, range, value, "Second: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number, "Second is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.second.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.second, range, value, display)
+
+  return offset + length, value
+end
+
+-- Server Packet Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_type = {}
+
+-- Size: Server Packet Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_type.size = 1
+
+-- Display: Server Packet Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_type.labels = {
+  ["+"] = "Server Packet Type: Debug Packet (+)",
+  ["A"] = "Server Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Server Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Server Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Server Packet Type: Server Heartbeat Packet (H)",
+}
+
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_type.display = function(value)
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_type.labels[value] or "Server Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Server Packet Type
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Shares
+nasdaq_nsmequities_totalview_glimpse_v3_2.shares = {}
+
+-- Size: Shares
+nasdaq_nsmequities_totalview_glimpse_v3_2.shares.size = 6
+
+-- Display: Shares
+nasdaq_nsmequities_totalview_glimpse_v3_2.shares.display = function(value)
+  return "Shares: "..value
+end
+
+-- Dissect: Shares
+nasdaq_nsmequities_totalview_glimpse_v3_2.shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.shares.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.shares, range, value, "Shares: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number, "Shares is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Soup Lf
+nasdaq_nsmequities_totalview_glimpse_v3_2.soup_lf = {}
+
+-- Size: Soup Lf
+nasdaq_nsmequities_totalview_glimpse_v3_2.soup_lf.size = 1
+
+-- Display: Soup Lf
+nasdaq_nsmequities_totalview_glimpse_v3_2.soup_lf.display = function(value)
+  if value == 10 then
+    return "Soup Lf: Line Feed"
+  end
+
+  return "Soup Lf: Unknown("..value..")"
+end
+
+-- Dissect: Soup Lf
+nasdaq_nsmequities_totalview_glimpse_v3_2.soup_lf.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.soup_lf.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.soup_lf.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.soup_lf, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stock
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock = {}
+
+-- Size: Stock
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock.size = 8
+
+-- Display: Stock
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock.display = function(value)
+  return "Stock: "..value
+end
+
+-- Dissect: Stock
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.stock.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.stock.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.stock, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+nasdaq_nsmequities_totalview_glimpse_v3_2.text = {}
+
+-- Display: Text
+nasdaq_nsmequities_totalview_glimpse_v3_2.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect runtime sized field: Text
+nasdaq_nsmequities_totalview_glimpse_v3_2.text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.text.display(value, packet, parent, size)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.text, range, value, display)
+
+  return offset + size, value
+end
+
+-- Trading State
+nasdaq_nsmequities_totalview_glimpse_v3_2.trading_state = {}
+
+-- Size: Trading State
+nasdaq_nsmequities_totalview_glimpse_v3_2.trading_state.size = 1
+
+-- Display: Trading State
+nasdaq_nsmequities_totalview_glimpse_v3_2.trading_state.labels = {
+  ["H"] = "Trading State: Halted (H)",
+  ["P"] = "Trading State: Paused (P)",
+  ["Q"] = "Trading State: Quotation Only Period (Q)",
+  ["T"] = "Trading State: Trading (T)",
+}
+
+nasdaq_nsmequities_totalview_glimpse_v3_2.trading_state.display = function(value)
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.trading_state.labels[value] or "Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Trading State
+nasdaq_nsmequities_totalview_glimpse_v3_2.trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unsequenced Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_message = {}
+
+-- Display: Unsequenced Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_message.display = function(value)
+  return "Unsequenced Message: "..value
+end
+
+-- Dissect runtime sized field: Unsequenced Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_message.display(value, packet, parent, size)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.unsequenced_message, range, value, display)
+
+  return offset + size, value
+end
+
+-- Username
+nasdaq_nsmequities_totalview_glimpse_v3_2.username = {}
+
+-- Size: Username
+nasdaq_nsmequities_totalview_glimpse_v3_2.username.size = 6
+
+-- Display: Username
+nasdaq_nsmequities_totalview_glimpse_v3_2.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+nasdaq_nsmequities_totalview_glimpse_v3_2.username.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_glimpse_v3_2.username.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_totalview_glimpse_v3_2.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq NsmEquities TotalView Glimpse 3.2
+-----------------------------------------------------------------------
+
+-- End Of Snapshot Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.end_of_snapshot_message = {}
+
+-- Size: End Of Snapshot Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.end_of_snapshot_message.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.itch_sequence_number.size
+
+-- Display: End Of Snapshot Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.end_of_snapshot_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: End Of Snapshot Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.end_of_snapshot_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Itch Sequence Number: Numeric
+  index, itch_sequence_number = nasdaq_nsmequities_totalview_glimpse_v3_2.itch_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: End Of Snapshot Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.end_of_snapshot_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.end_of_snapshot_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.end_of_snapshot_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.end_of_snapshot_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.end_of_snapshot_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Retail Price Improvement Indicator Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.retail_price_improvement_indicator_message = {}
+
+-- Size: Retail Price Improvement Indicator Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.retail_price_improvement_indicator_message.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.stock.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.interest_flag.size
+
+-- Display: Retail Price Improvement Indicator Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.retail_price_improvement_indicator_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retail Price Improvement Indicator Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.retail_price_improvement_indicator_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
+
+  -- Interest Flag: Alpha
+  index, interest_flag = nasdaq_nsmequities_totalview_glimpse_v3_2.interest_flag.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retail Price Improvement Indicator Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.retail_price_improvement_indicator_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.retail_price_improvement_indicator_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.retail_price_improvement_indicator_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.retail_price_improvement_indicator_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.retail_price_improvement_indicator_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Reg Sho Restriction Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_restriction_message = {}
+
+-- Size: Reg Sho Restriction Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_restriction_message.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.stock.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_action.size
+
+-- Display: Reg Sho Restriction Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_restriction_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Reg Sho Restriction Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_restriction_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
+
+  -- Reg Sho Action: Alpha
+  index, reg_sho_action = nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_action.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Reg Sho Restriction Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_restriction_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reg_sho_restriction_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_restriction_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_restriction_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_restriction_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stock Trading Action Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock_trading_action_message = {}
+
+-- Size: Stock Trading Action Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock_trading_action_message.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.stock.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.trading_state.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.reserved_1.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.reason.size
+
+-- Display: Stock Trading Action Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock_trading_action_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stock Trading Action Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock_trading_action_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
+
+  -- Trading State: Alpha
+  index, trading_state = nasdaq_nsmequities_totalview_glimpse_v3_2.trading_state.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: Alpha
+  index, reserved_1 = nasdaq_nsmequities_totalview_glimpse_v3_2.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Reason: Alpha
+  index, reason = nasdaq_nsmequities_totalview_glimpse_v3_2.reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stock Trading Action Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock_trading_action_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.stock_trading_action_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.stock_trading_action_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.stock_trading_action_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.stock_trading_action_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stock Directory Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock_directory_message = {}
+
+-- Size: Stock Directory Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock_directory_message.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.stock.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.market_category.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.financial_status_indicator.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.round_lot_size.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.round_lots_only.size
+
+-- Display: Stock Directory Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock_directory_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stock Directory Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock_directory_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
+
+  -- Market Category: Alpha
+  index, market_category = nasdaq_nsmequities_totalview_glimpse_v3_2.market_category.dissect(buffer, index, packet, parent)
+
+  -- Financial Status Indicator: Alpha
+  index, financial_status_indicator = nasdaq_nsmequities_totalview_glimpse_v3_2.financial_status_indicator.dissect(buffer, index, packet, parent)
+
+  -- Round Lot Size: Numeric
+  index, round_lot_size = nasdaq_nsmequities_totalview_glimpse_v3_2.round_lot_size.dissect(buffer, index, packet, parent)
+
+  -- Round Lots Only: Alpha
+  index, round_lots_only = nasdaq_nsmequities_totalview_glimpse_v3_2.round_lots_only.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stock Directory Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.stock_directory_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.stock_directory_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.stock_directory_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.stock_directory_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.stock_directory_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Add Order Mpid Attribution Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message = {}
+
+-- Size: Add Order Mpid Attribution Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.order_reference_number.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.shares.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.stock.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.price.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.attribution.size
+
+-- Display: Add Order Mpid Attribution Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Order Mpid Attribution Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Reference Number: Numeric
+  index, order_reference_number = nasdaq_nsmequities_totalview_glimpse_v3_2.order_reference_number.dissect(buffer, index, packet, parent)
+
+  -- Buy Sell Indicator: Alpha
+  index, buy_sell_indicator = nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator.dissect(buffer, index, packet, parent)
+
+  -- Shares: Numeric
+  index, shares = nasdaq_nsmequities_totalview_glimpse_v3_2.shares.dissect(buffer, index, packet, parent)
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
+
+  -- Price: Numeric
+  index, price = nasdaq_nsmequities_totalview_glimpse_v3_2.price.dissect(buffer, index, packet, parent)
+
+  -- Attribution: Alpha
+  index, attribution = nasdaq_nsmequities_totalview_glimpse_v3_2.attribution.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Add Order Mpid Attribution Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.add_order_mpid_attribution_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Add Order Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_message = {}
+
+-- Size: Add Order Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_message.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.order_reference_number.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.shares.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.stock.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.price.size
+
+-- Display: Add Order Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Order Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Reference Number: Numeric
+  index, order_reference_number = nasdaq_nsmequities_totalview_glimpse_v3_2.order_reference_number.dissect(buffer, index, packet, parent)
+
+  -- Buy Sell Indicator: Alpha
+  index, buy_sell_indicator = nasdaq_nsmequities_totalview_glimpse_v3_2.buy_sell_indicator.dissect(buffer, index, packet, parent)
+
+  -- Shares: Numeric
+  index, shares = nasdaq_nsmequities_totalview_glimpse_v3_2.shares.dissect(buffer, index, packet, parent)
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
+
+  -- Price: Numeric
+  index, price = nasdaq_nsmequities_totalview_glimpse_v3_2.price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Add Order Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.add_order_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- System Event Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.system_event_message = {}
+
+-- Size: System Event Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.system_event_message.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.event_code.size
+
+-- Display: System Event Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.system_event_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: System Event Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.system_event_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Event Code: Alpha
+  index, event_code = nasdaq_nsmequities_totalview_glimpse_v3_2.event_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: System Event Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.system_event_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.system_event_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.system_event_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.system_event_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Milliseconds Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.milliseconds_message = {}
+
+-- Size: Milliseconds Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.milliseconds_message.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.millisecond.size
+
+-- Display: Milliseconds Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.milliseconds_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Milliseconds Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.milliseconds_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Millisecond: Numeric
+  index, millisecond = nasdaq_nsmequities_totalview_glimpse_v3_2.millisecond.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Milliseconds Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.milliseconds_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.milliseconds_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.milliseconds_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.milliseconds_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.milliseconds_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Seconds Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.seconds_message = {}
+
+-- Size: Seconds Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.seconds_message.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.second.size
+
+-- Display: Seconds Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.seconds_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Seconds Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.seconds_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Second: Numeric
+  index, second = nasdaq_nsmequities_totalview_glimpse_v3_2.second.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Seconds Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.seconds_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.seconds_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.seconds_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.seconds_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.seconds_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequenced Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message = {}
+
+-- Dispatch: Sequenced Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message.dispatch = {
+  ["T"] = nasdaq_nsmequities_totalview_glimpse_v3_2.seconds_message.dissect,
+  ["M"] = nasdaq_nsmequities_totalview_glimpse_v3_2.milliseconds_message.dissect,
+  ["S"] = nasdaq_nsmequities_totalview_glimpse_v3_2.system_event_message.dissect,
+  ["A"] = nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_message.dissect,
+  ["F"] = nasdaq_nsmequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.dissect,
+  ["R"] = nasdaq_nsmequities_totalview_glimpse_v3_2.stock_directory_message.dissect,
+  ["H"] = nasdaq_nsmequities_totalview_glimpse_v3_2.stock_trading_action_message.dissect,
+  ["Y"] = nasdaq_nsmequities_totalview_glimpse_v3_2.reg_sho_restriction_message.dissect,
+  ["N"] = nasdaq_nsmequities_totalview_glimpse_v3_2.retail_price_improvement_indicator_message.dissect,
+  ["G"] = nasdaq_nsmequities_totalview_glimpse_v3_2.end_of_snapshot_message.dissect,
+}
+
+-- Dissect: Sequenced Message
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
+  local dissect = nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Sequenced Message Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message_header = {}
+
+-- Size: Sequenced Message Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message_header.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.message_type.size
+
+-- Display: Sequenced Message Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Message Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: 1 Byte Ascii String Enum with 10 values
+  index, message_type = nasdaq_nsmequities_totalview_glimpse_v3_2.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequenced Message Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.sequenced_message_header, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequenced Data Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_data_packet = {}
+
+-- Calculate size of: Sequenced Data Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_data_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message_header.size
+
+  -- Calculate runtime size of Sequenced Message field
+  local sequenced_message_offset = offset + index
+  local sequenced_message_type = buffer(sequenced_message_offset - 1, 1):string()
+  index = index + nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message.size(buffer, sequenced_message_offset, sequenced_message_type)
+
+  return index
+end
+
+-- Display: Sequenced Data Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Data Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_data_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sequenced Message Header: Struct of 1 fields
+  index, sequenced_message_header = nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):string()
+
+  -- Sequenced Message: Runtime Type with 10 branches
+  index = nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_message.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Sequenced Data Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_data_packet.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.sequenced_data_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_data_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_data_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_data_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Rejected Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_rejected_packet = {}
+
+-- Size: Login Rejected Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_rejected_packet.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.reject_reason_code.size
+
+-- Display: Login Rejected Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_rejected_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Rejected Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_rejected_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reject Reason Code: 1 Byte Ascii String
+  index, reject_reason_code = nasdaq_nsmequities_totalview_glimpse_v3_2.reject_reason_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Rejected Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.login_rejected_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.login_rejected_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.login_rejected_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.login_rejected_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Accepted Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_accepted_packet = {}
+
+-- Size: Login Accepted Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_accepted_packet.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_session.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_sequence_number.size
+
+-- Display: Login Accepted Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_accepted_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Accepted Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_accepted_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_session.dissect(buffer, index, packet, parent)
+
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = nasdaq_nsmequities_totalview_glimpse_v3_2.accepted_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Accepted Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.login_accepted_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.login_accepted_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.login_accepted_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.login_accepted_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Debug Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.debug_packet = {}
+
+-- Calculate size of: Debug Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Remaining size of: Text
+  index = index + ((buffer:len() - (offset + index)) - 1)
+
+  return index
+end
+
+-- Display: Debug Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.debug_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Debug Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.debug_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Runtime Size Of: Text
+  local size_of_text = buffer:len() - index - 1
+
+  -- Text: 0 Byte Ascii String
+  index, text = nasdaq_nsmequities_totalview_glimpse_v3_2.text.dissect(buffer, index, packet, parent, size_of_text)
+
+  return index
+end
+
+-- Dissect: Debug Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.debug_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.debug_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.debug_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.debug_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.debug_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Payload
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_payload = {}
+
+-- Dispatch: Server Payload
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_totalview_glimpse_v3_2.debug_packet.dissect,
+  ["A"] = nasdaq_nsmequities_totalview_glimpse_v3_2.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nsmequities_totalview_glimpse_v3_2.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nsmequities_totalview_glimpse_v3_2.sequenced_data_packet.dissect,
+}
+
+-- Dissect: Server Payload
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
+  local dissect = nasdaq_nsmequities_totalview_glimpse_v3_2.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Server Packet Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_header = {}
+
+-- Size: Server Packet Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_header.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_type.size
+
+-- Display: Server Packet Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Packet Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Server Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, server_packet_type = nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Server Packet Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.server_packet_header, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Frame
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame = {}
+
+-- Display: Server Frame
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Frame
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.fields = function(buffer, offset, packet, parent, size_of_server_frame)
+  local index = offset
+
+  -- Server Packet Header: Struct of 1 fields
+  index, server_packet_header = nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Server Packet Type
+  local server_packet_type = buffer(index - 1, 1):string()
+
+  -- Server Payload: Runtime Type with 4 branches
+  index = nasdaq_nsmequities_totalview_glimpse_v3_2.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
+
+  -- Soup Lf: 1 Byte Fixed Width Integer Static
+  index, soup_lf = nasdaq_nsmequities_totalview_glimpse_v3_2.soup_lf.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Server Frame
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.dissect = function(buffer, offset, packet, parent, size_of_server_frame)
+  local index = offset + size_of_server_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.server_frame, buffer(offset, 0))
+    local current = nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    parent:set_len(size_of_server_frame)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Frame
+local server_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- A message runs to the first terminator byte: scan for it
+  local terminator = 10
+  local current = 0
+  while current < remaining and buffer(index + current, 1):uint() ~= terminator do
+    current = current + 1
+  end
+
+  -- The terminator is not in the bytes available yet: ask for one more segment
+  if current >= remaining then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- The message includes the terminator byte it ends on
+  current = current + 1
+
+  return remaining, current
+end
+
+-- Server Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet = {}
+
+-- Verify required size of Tcp packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet_header.size
+end
+
+-- Dissect Server Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Server Frame
+  local end_of_payload = buffer:len()
+
+  -- Server Frame: Struct of 3 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_frame = server_frame_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_frame):tvb()
+      index = nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.dissect(frame, index, packet, parent, size_of_server_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+-- Unsequenced Data Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_data_packet = {}
+
+-- Calculate size of: Unsequenced Data Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_data_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Remaining size of: Unsequenced Message
+  index = index + ((buffer:len() - (offset + index)) - 1)
+
+  return index
+end
+
+-- Display: Unsequenced Data Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Runtime Size Of: Unsequenced Message
+  local size_of_unsequenced_message = buffer:len() - index - 1
+
+  -- Unsequenced Message: 0 Byte
+  index, unsequenced_message = nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.unsequenced_data_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_data_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_data_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_data_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Request Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_request_packet = {}
+
+-- Size: Login Request Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_request_packet.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.username.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.password.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.requested_session.size + 
+  nasdaq_nsmequities_totalview_glimpse_v3_2.requested_sequence_number.size
+
+-- Display: Login Request Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = nasdaq_nsmequities_totalview_glimpse_v3_2.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = nasdaq_nsmequities_totalview_glimpse_v3_2.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = nasdaq_nsmequities_totalview_glimpse_v3_2.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 20 Byte Ascii String
+  index, requested_sequence_number = nasdaq_nsmequities_totalview_glimpse_v3_2.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.login_request_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_payload = {}
+
+-- Dispatch: Client Payload
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_totalview_glimpse_v3_2.debug_packet.dissect,
+  ["L"] = nasdaq_nsmequities_totalview_glimpse_v3_2.login_request_packet.dissect,
+  ["U"] = nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_data_packet.dissect,
+}
+
+-- Dissect: Client Payload
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+  local dissect = nasdaq_nsmequities_totalview_glimpse_v3_2.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Packet Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_header = {}
+
+-- Size: Client Packet Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_header.size =
+  nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_type.size
+
+-- Display: Client Packet Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Packet Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, client_packet_type = nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Packet Header
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.client_packet_header, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Frame
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame = {}
+
+-- Display: Client Frame
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Frame
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.fields = function(buffer, offset, packet, parent, size_of_client_frame)
+  local index = offset
+
+  -- Client Packet Header: Struct of 1 fields
+  index, client_packet_header = nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Client Packet Type
+  local client_packet_type = buffer(index - 1, 1):string()
+
+  -- Client Payload: Runtime Type with 3 branches
+  index = nasdaq_nsmequities_totalview_glimpse_v3_2.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
+
+  -- Soup Lf: 1 Byte Fixed Width Integer Static
+  index, soup_lf = nasdaq_nsmequities_totalview_glimpse_v3_2.soup_lf.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Frame
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.dissect = function(buffer, offset, packet, parent, size_of_client_frame)
+  local index = offset + size_of_client_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.client_frame, buffer(offset, 0))
+    local current = nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    parent:set_len(size_of_client_frame)
+    local display = nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Frame
+local client_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- A message runs to the first terminator byte: scan for it
+  local terminator = 10
+  local current = 0
+  while current < remaining and buffer(index + current, 1):uint() ~= terminator do
+    current = current + 1
+  end
+
+  -- The terminator is not in the bytes available yet: ask for one more segment
+  if current >= remaining then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- The message includes the terminator byte it ends on
+  current = current + 1
+
+  return remaining, current
+end
+
+-- Client Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet = {}
+
+-- Verify required size of Tcp packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet_header.size
+end
+
+-- Dissect Client Packet
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Frame
+  local end_of_payload = buffer:len()
+
+  -- Client Frame: Struct of 3 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_frame = client_frame_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_frame):tvb()
+      index = nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.dissect(frame, index, packet, parent, size_of_client_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_nasdaq_nsmequities_totalview_glimpse_v3_2.init()
+end
+
+-- Connection roles for Nasdaq NsmEquities TotalView Glimpse 3.2: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+nasdaq_nsmequities_totalview_glimpse_v3_2.role = function(packet)
+  if omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nasdaq_nsmequities_totalview_glimpse_v3_2.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
+-- Dissector for Nasdaq NsmEquities TotalView Glimpse 3.2
+function omi_nasdaq_nsmequities_totalview_glimpse_v3_2.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_nasdaq_nsmequities_totalview_glimpse_v3_2.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2, buffer(), omi_nasdaq_nsmequities_totalview_glimpse_v3_2.description, "("..buffer:len().." Bytes)")
+  local role = nasdaq_nsmequities_totalview_glimpse_v3_2.role(packet)
+
+  if role == "initiator" then
+    return nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet.dissect(buffer, packet, protocol)
+  end
+
+  return nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local client_packet_type = buffer(0, 1):string()
+
+  -- Debug Packet
+  if client_packet_type == "+" then
+    return true
+  end
+
+  -- Login Request Packet
+  if client_packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return true
+  end
+
+  return false
+end
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local server_packet_type = buffer(0, 1):string()
+
+  -- Debug Packet
+  if server_packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if server_packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if server_packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if server_packet_type == "S" then
+    if buffer:len() < 2 then
+      return false
+    end
+
+    local message_type = buffer(1, 1):string()
+
+    -- Seconds Message
+    if message_type == "T" then
+      return true
+    end
+
+    -- Milliseconds Message
+    if message_type == "M" then
+      return true
+    end
+
+    -- System Event Message
+    if message_type == "S" then
+      return true
+    end
+
+    -- Add Order Message
+    if message_type == "A" then
+      return true
+    end
+
+    -- Add Order Mpid Attribution Message
+    if message_type == "F" then
+      return true
+    end
+
+    -- Stock Directory Message
+    if message_type == "R" then
+      return true
+    end
+
+    -- Stock Trading Action Message
+    if message_type == "H" then
+      return true
+    end
+
+    -- Reg Sho Restriction Message
+    if message_type == "Y" then
+      return true
+    end
+
+    -- Retail Price Improvement Indicator Message
+    if message_type == "N" then
+      return true
+    end
+
+    -- End Of Snapshot Message
+    if message_type == "G" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Nasdaq NsmEquities TotalView Glimpse 3.2 (Tcp)
+local function omi_nasdaq_nsmequities_totalview_glimpse_v3_2_tcp_initiator_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp client packet message dispatch
+  if not nasdaq_nsmequities_totalview_glimpse_v3_2.client_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nasdaq_nsmequities_totalview_glimpse_v3_2
+  omi_nasdaq_nsmequities_totalview_glimpse_v3_2.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nasdaq NsmEquities TotalView Glimpse 3.2 (Tcp)
+local function omi_nasdaq_nsmequities_totalview_glimpse_v3_2_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp server packet message dispatch
+  if not nasdaq_nsmequities_totalview_glimpse_v3_2.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nasdaq_nsmequities_totalview_glimpse_v3_2
+  omi_nasdaq_nsmequities_totalview_glimpse_v3_2.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nasdaq NsmEquities TotalView Glimpse 3.2 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nasdaq_nsmequities_totalview_glimpse_v3_2_tcp_heuristic(buffer, packet, parent)
+  local role = nasdaq_nsmequities_totalview_glimpse_v3_2.role(packet)
+  local initiator = omi_nasdaq_nsmequities_totalview_glimpse_v3_2_tcp_initiator_heuristic
+  local acceptor = omi_nasdaq_nsmequities_totalview_glimpse_v3_2_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nasdaq_nsmequities_totalview_glimpse_v3_2.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  nasdaq_nsmequities_totalview_glimpse_v3_2.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Nasdaq NsmEquities TotalView Glimpse 3.2
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2:register_heuristic("tcp", omi_nasdaq_nsmequities_totalview_glimpse_v3_2_tcp_heuristic)
+
+-- Register Nasdaq NsmEquities TotalView Glimpse 3.2 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nasdaq_nsmequities_totalview_glimpse_v3_2)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
+--   Version: 3.2
+--   Date: Wednesday, January 9, 2013
+--   Specification: Nasdaq Glimpse.pdf
+--
+-- Script:
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------

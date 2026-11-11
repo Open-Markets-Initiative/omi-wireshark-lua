@@ -4771,7 +4771,7 @@ tcp_table:add_for_decode_as(omi_tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_2)
 --   Date: Monday, April 17, 2023
 --   Specification: alpha_level_2_tmx_quantumfeed_business_message_specifications-v2-2-0.pdf
 --   Specification: tmx-xmt-protocol-spec-v1-2-0.pdf
---   Specification: TSX QuantumFeed Service Access Guide (4.1.0).pdf
+--   Specification: TSX QuantumFeed Service Access Guide.pdf
 --
 -- Script:
 --   Compiler: 2.0

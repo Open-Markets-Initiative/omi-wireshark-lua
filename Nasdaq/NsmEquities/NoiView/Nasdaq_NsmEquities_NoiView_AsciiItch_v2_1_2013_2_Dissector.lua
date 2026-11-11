@@ -214,23 +214,18 @@ end
 
 -- ascii digits as an unsigned 64 bit value, nil when the run is no number
 ascii_to_uint64 = function(str)
-  local digits = str:match("^%s*(%d+)%s*$")
+  -- UInt64.new reads a leading zero as octal, so "0045296" would read as 298
+  local significant = str:match("^%s*0*(%d+)%s*$")
 
-  if digits == nil then
+  if significant == nil then
     return nil
   end
 
-  local value = UInt64.new(digits)
+  local value = UInt64.new(significant)
 
-  -- UInt64.new stops at its maximum rather than failing, so an overrun would
-  -- read as that maximum. Nineteen digits always fit, so only a longer run is
-  -- read back and compared against the digits it came from
-  if #digits > 19 then
-    local significant = digits:match("^0*(%d+)$")
-
-    if tostring(value) ~= significant then
-      return nil
-    end
+  -- UInt64.new stops at its maximum rather than failing, so a wider run is read back
+  if #significant > 19 and tostring(value) ~= significant then
+    return nil
   end
 
   return value
@@ -1137,8 +1132,11 @@ nasdaq_nsmequities_noiview_asciiitch_v2_1_2013_2.timestamp.size = 8
 
 -- Display: Timestamp
 nasdaq_nsmequities_noiview_asciiitch_v2_1_2013_2.timestamp.display = function(value, buffer, offset, packet, parent)
-  -- Raw display mode (or unparsable ASCII fell back to a non-number)
-  if type(value) ~= "number" then
+  -- A field wide enough for a 64 bit ftype reads as a UInt64 object, a narrow one as a number
+  local count = type(value) == "number" and value or tonumber(tostring(value))
+
+  -- Digits no reader could make a number of
+  if count == nil then
     return "Timestamp: "..tostring(value)
   end
 
@@ -1147,8 +1145,8 @@ nasdaq_nsmequities_noiview_asciiitch_v2_1_2013_2.timestamp.display = function(va
   end
 
   -- Parse milliseconds since midnight
-  local seconds = math.floor(value / 1000)
-  local milliseconds = value % 1000
+  local seconds = math.floor(count / 1000)
+  local milliseconds = count % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
   if nasdaq_nsmequities_noiview_asciiitch_v2_1_2013_2.timestamp_format >= 2 and packet then

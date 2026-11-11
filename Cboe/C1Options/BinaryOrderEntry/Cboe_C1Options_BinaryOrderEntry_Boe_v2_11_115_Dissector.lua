@@ -58752,7 +58752,6 @@ tcp_table:add_for_decode_as(omi_cboe_c1options_binaryorderentry_boe_v2_11_115)
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.11.115
 --   Date: Monday, September 14, 2026
---   Specification: Cboe Titanium U.S. Options BOE Specification.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -92,6 +92,22 @@ cboe_bzxequities_top_asciipitch_v1_3_8.experts.not_a_number = ProtoExpert.new("c
 omi_cboe_bzxequities_top_asciipitch_v1_3_8.experts = { cboe_bzxequities_top_asciipitch_v1_3_8.experts.not_a_number }
 
 -----------------------------------------------------------------------
+-- Cboe BzxEquities Top AsciiPitch 1.3.8 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_bzxequities_top_asciipitch_v1_3_8.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -105,6 +121,8 @@ show.structs = true
 omi_cboe_bzxequities_top_asciipitch_v1_3_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_bzxequities_top_asciipitch_v1_3_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
+omi_cboe_bzxequities_top_asciipitch_v1_3_8.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_bzxequities_top_asciipitch_v1_3_8.prefs_changed()
 
@@ -114,6 +132,9 @@ function omi_cboe_bzxequities_top_asciipitch_v1_3_8.prefs_changed()
   end
   if show.structs ~= omi_cboe_bzxequities_top_asciipitch_v1_3_8.prefs.show_structs then
     show.structs = omi_cboe_bzxequities_top_asciipitch_v1_3_8.prefs.show_structs
+  end
+  if cboe_bzxequities_top_asciipitch_v1_3_8.timestamp_format ~= omi_cboe_bzxequities_top_asciipitch_v1_3_8.prefs.timestamp_format then
+    cboe_bzxequities_top_asciipitch_v1_3_8.timestamp_format = omi_cboe_bzxequities_top_asciipitch_v1_3_8.prefs.timestamp_format
   end
 end
 
@@ -928,8 +949,41 @@ cboe_bzxequities_top_asciipitch_v1_3_8.last_trade_time = {}
 cboe_bzxequities_top_asciipitch_v1_3_8.last_trade_time.size = 8
 
 -- Display: Last Trade Time
-cboe_bzxequities_top_asciipitch_v1_3_8.last_trade_time.display = function(value)
-  return "Last Trade Time: "..value
+cboe_bzxequities_top_asciipitch_v1_3_8.last_trade_time.display = function(value, buffer, offset, packet, parent)
+  -- A field wide enough for a 64 bit ftype reads as a UInt64 object, a narrow one as a number
+  local count = type(value) == "number" and value or tonumber(tostring(value))
+
+  -- Digits no reader could make a number of
+  if count == nil then
+    return "Last Trade Time: "..tostring(value)
+  end
+
+  if cboe_bzxequities_top_asciipitch_v1_3_8.timestamp_format == 0 then
+    return "Last Trade Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(count / 1000)
+  local milliseconds = count % 1000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_bzxequities_top_asciipitch_v1_3_8.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_bzxequities_top_asciipitch_v1_3_8.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Last Trade Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Last Trade Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Last Trade Time
@@ -1286,8 +1340,41 @@ cboe_bzxequities_top_asciipitch_v1_3_8.timestamp = {}
 cboe_bzxequities_top_asciipitch_v1_3_8.timestamp.size = 8
 
 -- Display: Timestamp
-cboe_bzxequities_top_asciipitch_v1_3_8.timestamp.display = function(value)
-  return "Timestamp: "..value
+cboe_bzxequities_top_asciipitch_v1_3_8.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- A field wide enough for a 64 bit ftype reads as a UInt64 object, a narrow one as a number
+  local count = type(value) == "number" and value or tonumber(tostring(value))
+
+  -- Digits no reader could make a number of
+  if count == nil then
+    return "Timestamp: "..tostring(value)
+  end
+
+  if cboe_bzxequities_top_asciipitch_v1_3_8.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(count / 1000)
+  local milliseconds = count % 1000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_bzxequities_top_asciipitch_v1_3_8.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_bzxequities_top_asciipitch_v1_3_8.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Timestamp

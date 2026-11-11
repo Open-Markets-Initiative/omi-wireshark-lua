@@ -53,7 +53,6 @@ omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.symbol_long = Pr
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.symbolshort", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces")
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.time = ProtoField.new("Time", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.time", ftypes.UINT32, nil, nil, nil, "Number of whole seconds from midnight Eastern Time")
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.time_offset = ProtoField.new("Time Offset", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.timeoffset", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp")
-omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.timestamp = ProtoField.new("Timestamp", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.timestamp", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp")
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.trading_status = ProtoField.new("Trading Status", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.tradingstatus", ftypes.STRING)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.unit = ProtoField.new("Unit", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.unused_6 = ProtoField.new("Unused 6", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.unused6", ftypes.UINT8, nil, base.DEC, 0xFC, "Reserved 2-7 Bits")
@@ -1107,29 +1106,6 @@ cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.time_offset.dissect = funct
   return offset + length, value
 end
 
--- Timestamp
-cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp = {}
-
--- Size: Timestamp
-cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp.size = 4
-
--- Display: Timestamp
-cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading Status
 cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.trading_status = {}
 
@@ -1199,6 +1175,10 @@ cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp.display = functio
     return "Timestamp: "..(stored_time * 1000000000 + time_offset)
   end
 
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_time + math.floor(time_offset / 1000000000)
+  local fraction = time_offset % 1000000000
+
   -- Full datetime mode (the day the frame that carried it settled on)
   if cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
@@ -1206,17 +1186,17 @@ cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp.display = functio
     -- A frame a file handler read states no instant and reads as the epoch
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
-      local settled = math.floor((capture_time - stored_time) / 900 + 0.5) * 900
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
       local format = cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + stored_time)..string.format("%09d", time_offset)
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
     end
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", time_offset)
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp
@@ -1491,7 +1471,7 @@ cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.eq_end_of_session = {}
 
 -- Size: Eq End Of Session
 cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.eq_end_of_session.size =
-  cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp.size
+  cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.time_offset.size
 
 -- Display: Eq End Of Session
 cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.eq_end_of_session.display = function(packet, parent, length)
@@ -1502,8 +1482,8 @@ end
 cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.eq_end_of_session.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Time Offset
+  index, time_offset = cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end

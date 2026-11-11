@@ -7,18 +7,18 @@
 
 | Division | [Protocol][Omi.Asx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Asx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [2.0][Asx.AsxSecurities.Trade.Itch.v2.0.Dissector] | 4/1/2015 | 3168 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] |  |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [3.1][Asx.AsxSecurities.Trade.Itch.v3.1.Dissector] | 3/1/2023 | 3111 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Asx.AsxSecurities.Trade.Itch.v3.1.Url] |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [2.0][Asx.AsxSecurities.Trade.Ouch.v2.0.Dissector] | 4/1/2015 | 3315 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] |  |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [3.6][Asx.AsxSecurities.Trade.Ouch.v3.6.Dissector] | 2/1/2023 | 3311 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Asx.AsxSecurities.Trade.Ouch.v3.6.Url] |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [2.0][Asx.AsxSecurities.Trade.Itch.v2.0.Dissector] | 4/1/2015 | 3172 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] |  |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [3.1][Asx.AsxSecurities.Trade.Itch.v3.1.Dissector] | 3/1/2023 | 3115 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Asx.AsxSecurities.Trade.Itch.v3.1.Url] |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [2.0][Asx.AsxSecurities.Trade.Ouch.v2.0.Dissector] | 4/1/2015 | 3310 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] |  |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [3.6][Asx.AsxSecurities.Trade.Ouch.v3.6.Dissector] | 2/1/2023 | 3306 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Asx.AsxSecurities.Trade.Ouch.v3.6.Url] |
 
 
 ### Market Data
 
 | Division | [Protocol][Omi.Asx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Asx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [AsxDerivatives][AsxDerivatives.Exchange] | [Ntp][Asx.AsxDerivatives.Ntp] | [Itch][Omi.Encoding.Itch] | [1.05][Asx.AsxDerivatives.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | 5191 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Asx.AsxDerivatives.Ntp.Itch.v1.05.Url] |
-| [AsxDerivatives][AsxDerivatives.Exchange] | [T24][Asx.AsxDerivatives.T24] | [Itch][Omi.Encoding.Itch] | [1.13][Asx.AsxDerivatives.T24.Itch.v1.13.Dissector] | 7/15/2014 | 5484 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] |  |
+| [AsxDerivatives][AsxDerivatives.Exchange] | [Ntp][Asx.AsxDerivatives.Ntp] | [Itch][Omi.Encoding.Itch] | [1.05][Asx.AsxDerivatives.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | 5195 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Asx.AsxDerivatives.Ntp.Itch.v1.05.Url] |
+| [AsxDerivatives][AsxDerivatives.Exchange] | [T24][Asx.AsxDerivatives.T24] | [Itch][Omi.Encoding.Itch] | [1.13][Asx.AsxDerivatives.T24.Itch.v1.13.Dissector] | 7/15/2014 | 5488 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] |  |
 
 
 <p align="center"><a href="https://www.asx.com.au" title="Australian Securities Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/asx" title="Australian Securities Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Australian_Securities_Exchange" title="Australian Securities Exchange on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

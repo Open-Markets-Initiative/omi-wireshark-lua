@@ -282,23 +282,18 @@ end
 
 -- ascii digits as an unsigned 64 bit value, nil when the run is no number
 ascii_to_uint64 = function(str)
-  local digits = str:match("^%s*(%d+)%s*$")
+  -- UInt64.new reads a leading zero as octal, so "0045296" would read as 298
+  local significant = str:match("^%s*0*(%d+)%s*$")
 
-  if digits == nil then
+  if significant == nil then
     return nil
   end
 
-  local value = UInt64.new(digits)
+  local value = UInt64.new(significant)
 
-  -- UInt64.new stops at its maximum rather than failing, so an overrun would
-  -- read as that maximum. Nineteen digits always fit, so only a longer run is
-  -- read back and compared against the digits it came from
-  if #digits > 19 then
-    local significant = digits:match("^0*(%d+)$")
-
-    if tostring(value) ~= significant then
-      return nil
-    end
+  -- UInt64.new stops at its maximum rather than failing, so a wider run is read back
+  if #significant > 19 and tostring(value) ~= significant then
+    return nil
   end
 
   return value
@@ -2349,8 +2344,12 @@ end
 
 -- Display: Composite Timestamp
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.composite_timestamp.display = function(timestamp, stored_nanosecond)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_nanosecond + math.floor(timestamp / 1000000000)
+  local fraction = timestamp % 1000000000
+
   local format = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-  return "Composite Timestamp: "..os.date(format, stored_nanosecond)..string.format("%09d", timestamp)
+  return "Composite Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Composite Timestamp

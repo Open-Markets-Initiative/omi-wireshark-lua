@@ -4210,7 +4210,7 @@ tcp_table:add_for_decode_as(omi_jse_itac_enhancednativetrading_ntgi_v4_04)
 --   Organization: JSE Limited
 --   Version: 4.04
 --   Date: Thursday, March 28, 2024
---   Specification: JSE Volume 01D - Enhanced Native Trading Gateway (2024-03-28).pdf
+--   Specification: JSE Volume 01D - Enhanced Native Trading Gateway.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -957,8 +957,12 @@ end
 
 -- Display: Timestamp
 miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.display = function(nanoseconds, stored_seconds)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_seconds + math.floor(nanoseconds / 1000000000)
+  local fraction = nanoseconds % 1000000000
+
   local format = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-  return "Timestamp: "..os.date(format, stored_seconds)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp

@@ -83,7 +83,6 @@ omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.summary_flags = ProtoField
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.symbol = ProtoField.new("Symbol", "cboe.cfefutures.multicasttop.pitch.v1.2.20.symbol", ftypes.STRING, nil, nil, nil, "Six character, base 62 symbol.")
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.time_offset = ProtoField.new("Time Offset", "cboe.cfefutures.multicasttop.pitch.v1.2.20.timeoffset", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp.")
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.time_reference = ProtoField.new("Time Reference", "cboe.cfefutures.multicasttop.pitch.v1.2.20.timereference", ftypes.UINT32, nil, nil, nil, "Number of whole seconds from midnight Central Time.")
-omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicasttop.pitch.v1.2.20.timestamp", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp.")
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.total_volume = ProtoField.new("Total Volume", "cboe.cfefutures.multicasttop.pitch.v1.2.20.totalvolume", ftypes.UINT32, nil, nil, nil, "Total number of contracts traded on the current business day.")
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.cfefutures.multicasttop.pitch.v1.2.20.tradecondition", ftypes.STRING, nil, nil, nil, "Trade Condition Values")
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.trade_date = ProtoField.new("Trade Date", "cboe.cfefutures.multicasttop.pitch.v1.2.20.tradedate", ftypes.UINT32, nil, nil, nil, "Current Trade Date")
@@ -1768,29 +1767,6 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.time_reference.dissect = function(buf
   return offset + length, value
 end
 
--- Timestamp
-cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp = {}
-
--- Size: Timestamp
-cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size = 4
-
--- Display: Timestamp
-cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Total Volume
 cboe_cfefutures_multicasttop_pitch_v1_2_20.total_volume = {}
 
@@ -1997,8 +1973,12 @@ end
 
 -- Display: Timestamp
 cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.display = function(time_offset, stored_midnight_reference, stored_time_reference)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_midnight_reference + stored_time_reference + math.floor(time_offset / 1000000000)
+  local fraction = time_offset % 1000000000
+
   local format = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-  return "Timestamp: "..os.date(format, stored_midnight_reference + stored_time_reference)..string.format("%09d", time_offset)
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp
@@ -2040,7 +2020,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.end_of_session_message = {}
 
 -- Size: End Of Session Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.end_of_session_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size
 
 -- Display: End Of Session Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.end_of_session_message.display = function(packet, parent, length)
@@ -2051,8 +2031,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.end_of_session_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end

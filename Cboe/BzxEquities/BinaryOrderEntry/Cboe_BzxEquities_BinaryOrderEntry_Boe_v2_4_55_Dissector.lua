@@ -203,6 +203,9 @@ omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.order_reject_reason = P
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.origclordid", ftypes.STRING, nil, nil, nil, "Corresponds to OrigClOrdID (41) in Cboe FIX. ClOrdID of the order to cancel.")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.orig_time = ProtoField.new("Orig Time", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.orig_time_utc = ProtoField.new("Orig Time", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.param_group = ProtoField.new("Param Group", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.paramgroup", ftypes.STRING, nil, nil, nil, "Repeating parameter group appended to the Login Request and Login Response messages. NumberOfParamGroups instances follow (count may be 0 — the group is optional). Each instance starts with the 2-byte ParamGroupLength + 1-byte ParamGroupType header; the remaining (ParamGroupLength - 3) payload bytes are interpreted per ParamGroupType (0x80 = Unit Sequences Parameter Group, 0x81 = Return Bitfields Parameter Group). New parameter group types may be added without notice; unrecognized types should be skipped using ParamGroupLength.")
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.paramgrouplength", ftypes.UINT16)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.paramgrouptype", ftypes.UINT8)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.password = ProtoField.new("Password", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.password", ftypes.STRING, nil, nil, nil, "Password supplied by Cboe.")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.peg_difference = ProtoField.new("Peg Difference", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.pegdifference", ftypes.DOUBLE)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.preventmatch", ftypes.STRING)
@@ -399,7 +402,10 @@ omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.return_bitfield_9_liqui
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.return_bitfield_9_marketing_fee_code = ProtoField.new("Return Bitfield 9 Marketing Fee Code", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.returnbitfield9marketingfeecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.return_bitfield_9_order_category = ProtoField.new("Return Bitfield 9 Order Category", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.returnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.return_bitfield_9_target_party_id = ProtoField.new("Return Bitfield 9 Target Party Id", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.returnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.return_bitfields_param_group = ProtoField.new("Return Bitfields Param Group", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.returnbitfieldsparamgroup", ftypes.STRING, nil, nil, nil, "ReturnBitfieldsParamGroup")
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.risk_group_i_ds = ProtoField.new("Risk Group I Ds", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.riskgroupids", ftypes.STRING, nil, nil, nil, "Repeating group stated RiskGroupIDCnt times.")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.risk_group_id = ProtoField.new("Risk Group Id", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.riskgroupid", ftypes.UINT16)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.risk_group_id_cnt = ProtoField.new("Risk Group Id Cnt", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.riskgroupidcnt", ftypes.UINT8, nil, nil, nil, "Number of repeating RiskGroupID values included in this message.")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.riskreset", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.rout_strategy = ProtoField.new("Rout Strategy", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.routstrategy", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.route_delivery_method = ProtoField.new("Route Delivery Method", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.routedeliverymethod", ftypes.STRING)
@@ -418,6 +424,10 @@ omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.text = ProtoField.new("
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.time_in_force = ProtoField.new("Time In Force", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.timeinforce", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the Cboe Matching Engine (not the time the message was sent).")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the Cboe Matching Engine (not the time the message was sent).")
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.unit_number = ProtoField.new("Unit Number", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.unitnumber", ftypes.UINT8)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.unitsequence", ftypes.UINT32)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.unit_sequences = ProtoField.new("Unit Sequences", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.unitsequences", ftypes.STRING, nil, nil, nil, "Repeating unit/sequence pair appended after NumberOfUnits in Login Response and Logout messages. NumberOfUnits instances follow (count may be 0). Each instance gives the highest Cboe to Member sequence number available for the named matching unit.")
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.unit_sequences_param_group = ProtoField.new("Unit Sequences Param Group", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.unitsequencesparamgroup", ftypes.STRING, nil, nil, nil, "UnitSequencesParamGroup")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.username = ProtoField.new("Username", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.username", ftypes.STRING, nil, nil, nil, "Username supplied by Cboe.")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.working_price = ProtoField.new("Working Price", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.workingprice", ftypes.DOUBLE)
 
@@ -449,6 +459,11 @@ omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.server_heartbeat_messag
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.trade_cancel_or_correct_message = ProtoField.new("Trade Cancel Or Correct Message", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.tradecancelorcorrectmessage", ftypes.STRING, nil, nil, nil, "Used to relay a trade which has been cancelled (busted) or corrected (price change only). The CorrectedPrice field will be set to 0 for cancelled trades and to the new trade price for corrected trades. Trade Cancel or Correct messages can be sent for same day as well as previous day trades.")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.user_modify_rejected_message = ProtoField.new("User Modify Rejected Message", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.usermodifyrejectedmessage", ftypes.STRING, nil, nil, nil, "User Modify Rejected messages are sent in response to a Modify Order message for an order which cannot be modified. User Modify Rejected messages are unsequenced.")
 
+-- Cboe BzxEquities BinaryOrderEntry Boe 2.4.55 Generated Fields
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.paramgroupindex", ftypes.UINT16)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.risk_group_i_ds_index = ProtoField.new("Risk Group I Ds Index", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.riskgroupidsindex", ftypes.UINT16)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.unit_sequences_index = ProtoField.new("Unit Sequences Index", "cboe.bzxequities.binaryorderentry.boe.v2.4.55.unitsequencesindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Cboe BzxEquities BinaryOrderEntry Boe 2.4.55 Formatting
 -----------------------------------------------------------------------
@@ -473,13 +488,17 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.repeating_groups = true
 show.padding = false
+show.indexes = true
 
 -- Register Cboe BzxEquities BinaryOrderEntry Boe 2.4.55 Show Options
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
+omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
@@ -496,8 +515,14 @@ function omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs_changed()
   if show.padding ~= omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_padding then
     show.padding = omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_padding
   end
+  if show.repeating_groups ~= omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_repeating_groups
+  end
   if show.structs ~= omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_structs then
     show.structs = omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_structs
+  end
+  if show.indexes ~= omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_indexes then
+    show.indexes = omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.show_indexes
   end
   if cboe_bzxequities_binaryorderentry_boe_v2_4_55.timestamp_format ~= omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.timestamp_format then
     cboe_bzxequities_binaryorderentry_boe_v2_4_55.timestamp_format = omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.prefs.timestamp_format
@@ -2645,6 +2670,52 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.orig_time.dissect = function(buffe
   return offset + length, value
 end
 
+-- Param Group Length
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_length = {}
+
+-- Size: Param Group Length
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_length.size = 2
+
+-- Display: Param Group Length
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_length.display = function(value)
+  return "Param Group Length: "..value
+end
+
+-- Dissect: Param Group Length
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.param_group_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Param Group Type
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_type = {}
+
+-- Size: Param Group Type
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_type.size = 1
+
+-- Display: Param Group Type
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_type.display = function(value)
+  return "Param Group Type: "..value
+end
+
+-- Dissect: Param Group Type
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.param_group_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Password
 cboe_bzxequities_binaryorderentry_boe_v2_4_55.password = {}
 
@@ -2917,6 +2988,29 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id.dissect = function(b
   local display = cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.risk_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Group Id Cnt
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id_cnt = {}
+
+-- Size: Risk Group Id Cnt
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id_cnt.size = 1
+
+-- Display: Risk Group Id Cnt
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id_cnt.display = function(value)
+  return "Risk Group Id Cnt: "..value
+end
+
+-- Dissect: Risk Group Id Cnt
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id_cnt.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id_cnt.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id_cnt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.risk_group_id_cnt, range, value, display)
 
   return offset + length, value
 end
@@ -3569,6 +3663,52 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.transaction_time.dissect = functio
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
   parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Unit Number
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_number = {}
+
+-- Size: Unit Number
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_number.size = 1
+
+-- Display: Unit Number
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_number.display = function(value)
+  return "Unit Number: "..value
+end
+
+-- Dissect: Unit Number
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_number.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.unit_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Sequence
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequence = {}
+
+-- Size: Unit Sequence
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequence.size = 4
+
+-- Display: Unit Sequence
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequence.display = function(value)
+  return "Unit Sequence: "..value
+end
+
+-- Dissect: Unit Sequence
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.unit_sequence, range, value, display)
 
   return offset + length, value
 end
@@ -10205,6 +10345,52 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.disse
   end
 end
 
+-- Risk Group I Ds
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_i_ds = {}
+
+-- Size: Risk Group I Ds
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_i_ds.size =
+  cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id.size
+
+-- Display: Risk Group I Ds
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_i_ds.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Risk Group I Ds
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_i_ds.fields = function(buffer, offset, packet, parent, risk_group_i_ds_index)
+  local index = offset
+
+  -- Implicit Risk Group I Ds Index
+  if risk_group_i_ds_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.risk_group_i_ds_index, risk_group_i_ds_index)
+    iteration:set_generated()
+  end
+
+  -- Risk Group Id: Binary
+  index, risk_group_id = cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Risk Group I Ds
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_i_ds.dissect = function(buffer, offset, packet, parent, risk_group_i_ds_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.risk_group_i_ds, buffer(offset, 0))
+    local index = cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_i_ds.fields(buffer, offset, packet, parent, risk_group_i_ds_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_i_ds.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_i_ds.fields(buffer, offset, packet, parent, risk_group_i_ds_index)
+  end
+end
+
 -- Purge Orders Bitfield 2
 cboe_bzxequities_binaryorderentry_boe_v2_4_55.purge_orders_bitfield_2 = {}
 
@@ -10435,6 +10621,14 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.purge_orders_message.fields = func
 
     -- Purge Orders Bitfield 2: Struct of 8 fields
     index, purge_orders_bitfield_2 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.purge_orders_bitfield_2.dissect(buffer, index, packet, parent)
+  end
+
+  -- Risk Group Id Cnt: Binary
+  index, risk_group_id_cnt = cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id_cnt.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Risk Group I Ds
+  for risk_group_i_ds_index = 1, risk_group_id_cnt do
+    index, risk_group_i_ds = cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_i_ds.dissect(buffer, index, packet, parent, risk_group_i_ds_index)
   end
 
   -- Runtime optional field: Clearing Firm
@@ -12514,6 +12708,56 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.server_heartbeat_message.dissect =
   return offset
 end
 
+-- Unit Sequences
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences = {}
+
+-- Size: Unit Sequences
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences.size =
+  cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_number.size + 
+  cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequence.size
+
+-- Display: Unit Sequences
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unit Sequences
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences.fields = function(buffer, offset, packet, parent, unit_sequences_index)
+  local index = offset
+
+  -- Implicit Unit Sequences Index
+  if unit_sequences_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.unit_sequences_index, unit_sequences_index)
+    iteration:set_generated()
+  end
+
+  -- Unit Number: Binary
+  index, unit_number = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_number.dissect(buffer, index, packet, parent)
+
+  -- Unit Sequence: Binary
+  index, unit_sequence = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequence.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Unit Sequences
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences.dissect = function(buffer, offset, packet, parent, unit_sequences_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.unit_sequences, buffer(offset, 0))
+    local index = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences.fields(buffer, offset, packet, parent, unit_sequences_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences.fields(buffer, offset, packet, parent, unit_sequences_index)
+  end
+end
+
 -- Logout Message
 cboe_bzxequities_binaryorderentry_boe_v2_4_55.logout_message = {}
 
@@ -12548,6 +12792,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.logout_message.fields = function(b
   -- Number Of Units: Binary
   index, number_of_units = cboe_bzxequities_binaryorderentry_boe_v2_4_55.number_of_units.dissect(buffer, index, packet, parent)
 
+  -- Repeating: Unit Sequences
+  for unit_sequences_index = 1, number_of_units do
+    index, unit_sequences = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences.dissect(buffer, index, packet, parent, unit_sequences_index)
+  end
+
   return index
 end
 
@@ -12570,6 +12819,538 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.logout_message.dissect = function(
     cboe_bzxequities_binaryorderentry_boe_v2_4_55.logout_message.fields(buffer, offset, packet, parent, size_of_logout_message)
 
     return index
+  end
+end
+
+-- Return Bitfields Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfields_param_group = {}
+
+-- Calculate size of: Return Bitfields Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfields_param_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.message_type.size
+
+  index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.number_of_return_bitfields.size
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 1 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_1.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 2 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_2.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 3 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_3.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 4 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_4.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 5 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_5.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 6 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_6.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 7 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_7.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 8 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_8.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 9 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_9.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 10 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_10.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 11 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_11.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 12 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_12.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 13 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_13.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 14 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_14.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 15 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_15.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 16 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_16.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 17 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_17.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 18 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_18.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 19 then
+    index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_19.size
+
+  end
+
+  return index
+end
+
+-- Display: Return Bitfields Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfields_param_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Return Bitfields Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfields_param_group.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: Binary
+  index, message_type = cboe_bzxequities_binaryorderentry_boe_v2_4_55.message_type.dissect(buffer, index, packet, parent)
+
+  -- Number Of Return Bitfields: Binary
+  index, number_of_return_bitfields = cboe_bzxequities_binaryorderentry_boe_v2_4_55.number_of_return_bitfields.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Return Bitfield 1
+  local return_bitfield_1 = nil
+
+  local return_bitfield_1_exists = number_of_return_bitfields >= 1
+
+  if return_bitfield_1_exists then
+
+    -- Return Bitfield 1: Struct of 8 fields
+    index, return_bitfield_1 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_1.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 2
+  local return_bitfield_2 = nil
+
+  local return_bitfield_2_exists = number_of_return_bitfields >= 2
+
+  if return_bitfield_2_exists then
+
+    -- Return Bitfield 2: Struct of 8 fields
+    index, return_bitfield_2 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_2.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 3
+  local return_bitfield_3 = nil
+
+  local return_bitfield_3_exists = number_of_return_bitfields >= 3
+
+  if return_bitfield_3_exists then
+
+    -- Return Bitfield 3: Struct of 8 fields
+    index, return_bitfield_3 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_3.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 4
+  local return_bitfield_4 = nil
+
+  local return_bitfield_4_exists = number_of_return_bitfields >= 4
+
+  if return_bitfield_4_exists then
+
+    -- Return Bitfield 4: Struct of 8 fields
+    index, return_bitfield_4 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_4.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 5
+  local return_bitfield_5 = nil
+
+  local return_bitfield_5_exists = number_of_return_bitfields >= 5
+
+  if return_bitfield_5_exists then
+
+    -- Return Bitfield 5: Struct of 8 fields
+    index, return_bitfield_5 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_5.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 6
+  local return_bitfield_6 = nil
+
+  local return_bitfield_6_exists = number_of_return_bitfields >= 6
+
+  if return_bitfield_6_exists then
+
+    -- Return Bitfield 6: Struct of 8 fields
+    index, return_bitfield_6 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_6.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 7
+  local return_bitfield_7 = nil
+
+  local return_bitfield_7_exists = number_of_return_bitfields >= 7
+
+  if return_bitfield_7_exists then
+
+    -- Return Bitfield 7: Struct of 8 fields
+    index, return_bitfield_7 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_7.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 8
+  local return_bitfield_8 = nil
+
+  local return_bitfield_8_exists = number_of_return_bitfields >= 8
+
+  if return_bitfield_8_exists then
+
+    -- Return Bitfield 8: Struct of 8 fields
+    index, return_bitfield_8 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_8.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 9
+  local return_bitfield_9 = nil
+
+  local return_bitfield_9_exists = number_of_return_bitfields >= 9
+
+  if return_bitfield_9_exists then
+
+    -- Return Bitfield 9: Struct of 8 fields
+    index, return_bitfield_9 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_9.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 10
+  local return_bitfield_10 = nil
+
+  local return_bitfield_10_exists = number_of_return_bitfields >= 10
+
+  if return_bitfield_10_exists then
+
+    -- Return Bitfield 10: Struct of 8 fields
+    index, return_bitfield_10 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_10.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 11
+  local return_bitfield_11 = nil
+
+  local return_bitfield_11_exists = number_of_return_bitfields >= 11
+
+  if return_bitfield_11_exists then
+
+    -- Return Bitfield 11: Struct of 8 fields
+    index, return_bitfield_11 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_11.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 12
+  local return_bitfield_12 = nil
+
+  local return_bitfield_12_exists = number_of_return_bitfields >= 12
+
+  if return_bitfield_12_exists then
+
+    -- Return Bitfield 12: Struct of 8 fields
+    index, return_bitfield_12 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_12.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 13
+  local return_bitfield_13 = nil
+
+  local return_bitfield_13_exists = number_of_return_bitfields >= 13
+
+  if return_bitfield_13_exists then
+
+    -- Return Bitfield 13: Struct of 8 fields
+    index, return_bitfield_13 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_13.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 14
+  local return_bitfield_14 = nil
+
+  local return_bitfield_14_exists = number_of_return_bitfields >= 14
+
+  if return_bitfield_14_exists then
+
+    -- Return Bitfield 14: Struct of 8 fields
+    index, return_bitfield_14 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_14.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 15
+  local return_bitfield_15 = nil
+
+  local return_bitfield_15_exists = number_of_return_bitfields >= 15
+
+  if return_bitfield_15_exists then
+
+    -- Return Bitfield 15: Struct of 8 fields
+    index, return_bitfield_15 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_15.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 16
+  local return_bitfield_16 = nil
+
+  local return_bitfield_16_exists = number_of_return_bitfields >= 16
+
+  if return_bitfield_16_exists then
+
+    -- Return Bitfield 16: Struct of 8 fields
+    index, return_bitfield_16 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_16.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 17
+  local return_bitfield_17 = nil
+
+  local return_bitfield_17_exists = number_of_return_bitfields >= 17
+
+  if return_bitfield_17_exists then
+
+    -- Return Bitfield 17: Struct of 8 fields
+    index, return_bitfield_17 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_17.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 18
+  local return_bitfield_18 = nil
+
+  local return_bitfield_18_exists = number_of_return_bitfields >= 18
+
+  if return_bitfield_18_exists then
+
+    -- Return Bitfield 18: Struct of 8 fields
+    index, return_bitfield_18 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_18.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Return Bitfield 19
+  local return_bitfield_19 = nil
+
+  local return_bitfield_19_exists = number_of_return_bitfields >= 19
+
+  if return_bitfield_19_exists then
+
+    -- Return Bitfield 19: Struct of 8 fields
+    index, return_bitfield_19 = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfield_19.dissect(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Return Bitfields Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfields_param_group.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.return_bitfields_param_group, buffer(offset, 0))
+    local index = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfields_param_group.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfields_param_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfields_param_group.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Unit Sequences Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences_param_group = {}
+
+-- Calculate size of: Unit Sequences Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences_param_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.no_unspecified_unit_replay.size
+
+  index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.number_of_units.size
+
+  -- Calculate field size from count
+  local unit_sequences_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + unit_sequences_count * 5
+
+  return index
+end
+
+-- Display: Unit Sequences Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences_param_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unit Sequences Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences_param_group.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- No Unspecified Unit Replay: Binary
+  index, no_unspecified_unit_replay = cboe_bzxequities_binaryorderentry_boe_v2_4_55.no_unspecified_unit_replay.dissect(buffer, index, packet, parent)
+
+  -- Number Of Units: Binary
+  index, number_of_units = cboe_bzxequities_binaryorderentry_boe_v2_4_55.number_of_units.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Unit Sequences
+  for unit_sequences_index = 1, number_of_units do
+    index, unit_sequences = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences.dissect(buffer, index, packet, parent, unit_sequences_index)
+  end
+
+  return index
+end
+
+-- Dissect: Unit Sequences Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences_param_group.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.unit_sequences_param_group, buffer(offset, 0))
+    local index = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences_param_group.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences_param_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences_param_group.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- ParamGroupPayload
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.paramgrouppayload = {}
+
+-- Dissect: ParamGroupPayload
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.paramgrouppayload.dissect = function(buffer, offset, packet, parent, param_group_type)
+  -- Dissect Unit Sequences Param Group
+  if param_group_type == 0x80 then
+    return cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences_param_group.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Return Bitfields Param Group
+  if param_group_type == 0x81 then
+    return cboe_bzxequities_binaryorderentry_boe_v2_4_55.return_bitfields_param_group.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group = {}
+
+-- Calculate size of: Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_length.size
+
+  index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_type.size
+
+  -- Calculate runtime size of ParamGroupPayload field
+  local paramgrouppayload_offset = offset + index
+  local paramgrouppayload_type = buffer(paramgrouppayload_offset - 1, 1):le_uint()
+  index = index + cboe_bzxequities_binaryorderentry_boe_v2_4_55.paramgrouppayload.size(buffer, paramgrouppayload_offset, paramgrouppayload_type)
+
+  return index
+end
+
+-- Display: Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group.fields = function(buffer, offset, packet, parent, param_group_index)
+  local index = offset
+
+  -- Implicit Param Group Index
+  if param_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.param_group_index, param_group_index)
+    iteration:set_generated()
+  end
+
+  -- Param Group Length: Binary
+  index, param_group_length = cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_length.dissect(buffer, index, packet, parent)
+
+  -- Param Group Type: Binary
+  index, param_group_type = cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group_type.dissect(buffer, index, packet, parent)
+
+  -- ParamGroupPayload: Runtime Type with 2 branches
+  index = cboe_bzxequities_binaryorderentry_boe_v2_4_55.paramgrouppayload.dissect(buffer, index, packet, parent, param_group_type)
+
+  return index
+end
+
+-- Dissect: Param Group
+cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group.dissect = function(buffer, offset, packet, parent, param_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_4_55.fields.param_group, buffer(offset, 0))
+    local index = cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group.fields(buffer, offset, packet, parent, param_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group.fields(buffer, offset, packet, parent, param_group_index)
   end
 end
 
@@ -12610,8 +13391,18 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.login_response_message.fields = fu
   -- Number Of Units: Binary
   index, number_of_units = cboe_bzxequities_binaryorderentry_boe_v2_4_55.number_of_units.dissect(buffer, index, packet, parent)
 
+  -- Repeating: Unit Sequences
+  for unit_sequences_index = 1, number_of_units do
+    index, unit_sequences = cboe_bzxequities_binaryorderentry_boe_v2_4_55.unit_sequences.dissect(buffer, index, packet, parent, unit_sequences_index)
+  end
+
   -- Number Of Param Groups: Binary
   index, number_of_param_groups = cboe_bzxequities_binaryorderentry_boe_v2_4_55.number_of_param_groups.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Param Group
+  for param_group_index = 1, number_of_param_groups do
+    index, param_group = cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group.dissect(buffer, index, packet, parent, param_group_index)
+  end
 
   return index
 end
@@ -12705,6 +13496,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.login_request_message.fields = fun
 
   -- Number Of Param Groups: Binary
   index, number_of_param_groups = cboe_bzxequities_binaryorderentry_boe_v2_4_55.number_of_param_groups.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Param Group
+  for param_group_index = 1, number_of_param_groups do
+    index, param_group = cboe_bzxequities_binaryorderentry_boe_v2_4_55.param_group.dissect(buffer, index, packet, parent, param_group_index)
+  end
 
   return index
 end

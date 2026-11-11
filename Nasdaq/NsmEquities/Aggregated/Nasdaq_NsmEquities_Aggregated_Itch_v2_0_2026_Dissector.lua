@@ -3443,6 +3443,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_aggregated_itch_v2_0_2026)
 --   Date: Thursday, June 11, 2026
 --   Specification: 9-14-26 TVAggSpecification.pdf
 --   Specification: 6-11-26_TVAggSpecification_1.pdf
+--   Specification: Nasdaq TotalView Aggregated (2.0 - 2017).pdf
 --
 -- Script:
 --   Compiler: 2.0

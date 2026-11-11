@@ -1666,6 +1666,10 @@ cnsx_cse2_multicast_mmd_v1_6.timestamp.display = function(time_offset, stored_se
     return "Timestamp: "..(stored_second * 1000000000 + time_offset)
   end
 
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_second + math.floor(time_offset / 1000000000)
+  local fraction = time_offset % 1000000000
+
   -- Full datetime mode (the day the frame that carried it settled on)
   if cnsx_cse2_multicast_mmd_v1_6.timestamp_format >= 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
@@ -1673,17 +1677,17 @@ cnsx_cse2_multicast_mmd_v1_6.timestamp.display = function(time_offset, stored_se
     -- A frame a file handler read states no instant and reads as the epoch
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
-      local settled = math.floor((capture_time - stored_second) / 900 + 0.5) * 900
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
       local midnight = math.floor(settled / 86400 + 0.5) * 86400
 
       local format = cnsx_cse2_multicast_mmd_v1_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + stored_second)..string.format("%09d", time_offset)
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
     end
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_second)..string.format("%09d", time_offset)
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp

@@ -1296,7 +1296,7 @@ tcp_table:add_for_decode_as(omi_txse_txseequities_framing_tcp_v1_0)
 --   Organization: Texas Stock Exchange
 --   Version: 1.0
 --   Date: Friday, June 12, 2026
---   Specification: TXSE RAKE TCP and UDP (1.0).pdf
+--   Specification: TXSE RAKE TCP and UDP.pdf
 --
 -- Script:
 --   Compiler: 2.0

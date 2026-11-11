@@ -2503,7 +2503,7 @@ udp_table:add_for_decode_as(omi_iex_iexequities_deep_iextp_v1_06)
 --   Organization: Investors Exchange
 --   Version: 1.06
 --   Date: Tuesday, February 27, 2018
---   Specification: IEX DEEP Specification (2018).pdf
+--   Specification: IEX DEEP Specification.pdf
 --
 -- Script:
 --   Compiler: 2.0

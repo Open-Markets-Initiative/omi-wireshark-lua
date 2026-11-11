@@ -421,8 +421,11 @@ nasdaq_psxequities_matchview_asciiitch_v1_1.timestamp.size = 8
 
 -- Display: Timestamp
 nasdaq_psxequities_matchview_asciiitch_v1_1.timestamp.display = function(value, buffer, offset, packet, parent)
-  -- Raw display mode (or unparsable ASCII fell back to a non-number)
-  if type(value) ~= "number" then
+  -- A field wide enough for a 64 bit ftype reads as a UInt64 object, a narrow one as a number
+  local count = type(value) == "number" and value or tonumber(tostring(value))
+
+  -- Digits no reader could make a number of
+  if count == nil then
     return "Timestamp: "..tostring(value)
   end
 
@@ -431,8 +434,8 @@ nasdaq_psxequities_matchview_asciiitch_v1_1.timestamp.display = function(value, 
   end
 
   -- Parse milliseconds since midnight
-  local seconds = math.floor(value / 1000)
-  local milliseconds = value % 1000
+  local seconds = math.floor(count / 1000)
+  local milliseconds = count % 1000
 
   -- Full datetime mode (the day the frame that carried it settled on)
   if nasdaq_psxequities_matchview_asciiitch_v1_1.timestamp_format >= 2 and packet then

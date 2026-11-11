@@ -17687,7 +17687,6 @@ udp_table:add_for_decode_as(omi_euronext_optiq_marketdatagateway_sbe_v4_11)
 --   Organization: Euronext
 --   Version: 4.11
 --   Date: Wednesday, January 19, 2022
---   Specification: Euronext Markets - Optiq MDG Client Specifications - v4.11.0 +TC.pdf
 --
 -- Script:
 --   Compiler: 2.0

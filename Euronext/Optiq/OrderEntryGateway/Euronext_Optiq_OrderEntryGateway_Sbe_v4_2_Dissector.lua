@@ -17682,7 +17682,7 @@ tcp_table:add_for_decode_as(omi_euronext_optiq_orderentrygateway_sbe_v4_2)
 --   Organization: Euronext
 --   Version: 4.2
 --   Date: Tuesday, July 7, 2020
---   Specification: Euronext Markets - Optiq OEG Client Specifications - SBE Interface - v4.2.2 (2020-07-07).pdf
+--   Specification: Euronext Markets - Optiq OEG Client Specifications - SBE Interface - v4.2.2.pdf
 --
 -- Script:
 --   Compiler: 2.0

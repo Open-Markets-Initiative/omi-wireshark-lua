@@ -1524,8 +1524,12 @@ end
 
 -- Display: Timestamp
 jpx_tseequities_marketbyorder_flex_v1_3.timestamp.display = function(time_microseconds, stored_time_seconds)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_time_seconds + math.floor(time_microseconds / 1000000000)
+  local fraction = time_microseconds % 1000000000
+
   local format = jpx_tseequities_marketbyorder_flex_v1_3.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-  return "Timestamp: "..os.date(format, stored_time_seconds)..string.format("%09d", time_microseconds)
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
 end
 
 -- Composite: Timestamp

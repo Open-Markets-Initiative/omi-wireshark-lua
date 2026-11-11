@@ -2355,7 +2355,7 @@ udp_table:add_for_decode_as(omi_txse_txseequities_bale_rake_v1_0)
 --   Organization: Texas Stock Exchange
 --   Version: 1.0
 --   Date: Friday, June 12, 2026
---   Specification: TXSE BALE Top-of-Book Market Data Feed (2026-06-12).pdf
+--   Specification: TXSE BALE Top-of-Book Market Data Feed.pdf
 --
 -- Script:
 --   Compiler: 2.0

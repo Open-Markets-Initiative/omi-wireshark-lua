@@ -1815,6 +1815,7 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_rejected_return_
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_rejected_return_bitfield_9_target_party_id = ProtoField.new("Purge Rejected Return Bitfield 9 Target Party Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgerejectedreturnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for Cboe internal use.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.restatementreason", ftypes.STRING, nil, nil, nil, "The reason for this Order Restated message. C=Cboe Market Close (CMC) L=Reload P=Peg or Price Sliding Reprice Q=Liquidity Updated R=Reroute S=Reduction of OrderQty due to SWP W=Wash or MTP Decrement Cboe reserves the right to add new values as necessary without prior notice.")
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.return_bitfields_param_group = ProtoField.new("Return Bitfields Param Group", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.returnbitfieldsparamgroup", ftypes.STRING, nil, nil, nil, "ReturnBitfieldsParamGroup")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_i_ds = ProtoField.new("Risk Group I Ds", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.riskgroupids", ftypes.STRING, nil, nil, nil, "Repeating group stated RiskGroupIDCnt times.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_id = ProtoField.new("Risk Group Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.riskgroupid", ftypes.UINT16)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_id_cnt = ProtoField.new("Risk Group Id Cnt", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.riskgroupidcnt", ftypes.UINT8, nil, nil, nil, "Number of repeating RiskGroupID values included in this message.")
@@ -2027,6 +2028,7 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.transaction_time = Pro
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the Cboe Matching Engine (not the time the message was sent).")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_number = ProtoField.new("Unit Number", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.unitnumber", ftypes.UINT8, nil, nil, nil, "A unit number.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.unitsequence", ftypes.UINT32, nil, nil, nil, "Highest available Cboe to Member sequence number for the unit.")
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_sequences_param_group = ProtoField.new("Unit Sequences Param Group", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.unitsequencesparamgroup", ftypes.STRING, nil, nil, nil, "UnitSequencesParamGroup")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.units = ProtoField.new("Units", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.units", ftypes.STRING, nil, nil, nil, "Repeating group stated NumberOfUnits times.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.user_modify_rejected_return_bitfield_1 = ProtoField.new("User Modify Rejected Return Bitfield 1", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.usermodifyrejectedreturnbitfield1", ftypes.STRING, nil, nil, nil, "BitSet UserModifyRejected byte 1.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.user_modify_rejected_return_bitfield_1_exec_inst = ProtoField.new("User Modify Rejected Return Bitfield 1 Exec Inst", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.usermodifyrejectedreturnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
@@ -3506,7 +3508,7 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.exec_inst.display = function(valu
     return "Exec Inst: Midpoint (M)"
   end
   if value == "m" then
-    return "Exec Inst: Midpoint (m)"
+    return "Exec Inst: Midpoint Peg But No Match On Nbbo Lock (m)"
   end
   if value == "L" then
     return "Exec Inst: Alternate Midpoint (L)"
@@ -33322,13 +33324,546 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.logout_message.dissect = function
   end
 end
 
+-- Return Bitfields Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.return_bitfields_param_group = {}
+
+-- Calculate size of: Return Bitfields Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.return_bitfields_param_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.message_type.size
+
+  index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.number_of_return_bitfields.size
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 1 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_1.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 2 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_2.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 3 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_3.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 4 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_4.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 5 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_5.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 6 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_6.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 7 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_7.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 8 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_8.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 9 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_9.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 10 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_10.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 11 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_11.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 12 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_12.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 13 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_13.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 14 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_14.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 15 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_15.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 16 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_16.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 17 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_17.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 18 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_18.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 19 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_19.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 20 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_20.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 21 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_21.size
+
+  end
+
+  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+
+  if number_of_return_bitfields >= 22 then
+    index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_22.size
+
+  end
+
+  return index
+end
+
+-- Display: Return Bitfields Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.return_bitfields_param_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Return Bitfields Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.return_bitfields_param_group.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: Binary
+  index, message_type = cboe_edgaequities_binaryorderentry_boe_v2_4_57.message_type.dissect(buffer, index, packet, parent)
+
+  -- Number Of Return Bitfields: Binary
+  index, number_of_return_bitfields = cboe_edgaequities_binaryorderentry_boe_v2_4_57.number_of_return_bitfields.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 1
+  local order_acknowledgment_return_bitfield_1 = nil
+
+  local order_acknowledgment_return_bitfield_1_exists = number_of_return_bitfields >= 1
+
+  if order_acknowledgment_return_bitfield_1_exists then
+
+    -- Order Acknowledgment Return Bitfield 1: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_1 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_1.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 2
+  local order_acknowledgment_return_bitfield_2 = nil
+
+  local order_acknowledgment_return_bitfield_2_exists = number_of_return_bitfields >= 2
+
+  if order_acknowledgment_return_bitfield_2_exists then
+
+    -- Order Acknowledgment Return Bitfield 2: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_2 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_2.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 3
+  local order_acknowledgment_return_bitfield_3 = nil
+
+  local order_acknowledgment_return_bitfield_3_exists = number_of_return_bitfields >= 3
+
+  if order_acknowledgment_return_bitfield_3_exists then
+
+    -- Order Acknowledgment Return Bitfield 3: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_3 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_3.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 4
+  local order_acknowledgment_return_bitfield_4 = nil
+
+  local order_acknowledgment_return_bitfield_4_exists = number_of_return_bitfields >= 4
+
+  if order_acknowledgment_return_bitfield_4_exists then
+
+    -- Order Acknowledgment Return Bitfield 4: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_4 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_4.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 5
+  local order_acknowledgment_return_bitfield_5 = nil
+
+  local order_acknowledgment_return_bitfield_5_exists = number_of_return_bitfields >= 5
+
+  if order_acknowledgment_return_bitfield_5_exists then
+
+    -- Order Acknowledgment Return Bitfield 5: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_5 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_5.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 6
+  local order_acknowledgment_return_bitfield_6 = nil
+
+  local order_acknowledgment_return_bitfield_6_exists = number_of_return_bitfields >= 6
+
+  if order_acknowledgment_return_bitfield_6_exists then
+
+    -- Order Acknowledgment Return Bitfield 6: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_6 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_6.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 7
+  local order_acknowledgment_return_bitfield_7 = nil
+
+  local order_acknowledgment_return_bitfield_7_exists = number_of_return_bitfields >= 7
+
+  if order_acknowledgment_return_bitfield_7_exists then
+
+    -- Order Acknowledgment Return Bitfield 7: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_7 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_7.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 8
+  local order_acknowledgment_return_bitfield_8 = nil
+
+  local order_acknowledgment_return_bitfield_8_exists = number_of_return_bitfields >= 8
+
+  if order_acknowledgment_return_bitfield_8_exists then
+
+    -- Order Acknowledgment Return Bitfield 8: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_8 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_8.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 9
+  local order_acknowledgment_return_bitfield_9 = nil
+
+  local order_acknowledgment_return_bitfield_9_exists = number_of_return_bitfields >= 9
+
+  if order_acknowledgment_return_bitfield_9_exists then
+
+    -- Order Acknowledgment Return Bitfield 9: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_9 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_9.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 10
+  local order_acknowledgment_return_bitfield_10 = nil
+
+  local order_acknowledgment_return_bitfield_10_exists = number_of_return_bitfields >= 10
+
+  if order_acknowledgment_return_bitfield_10_exists then
+
+    -- Order Acknowledgment Return Bitfield 10: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_10 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_10.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 11
+  local order_acknowledgment_return_bitfield_11 = nil
+
+  local order_acknowledgment_return_bitfield_11_exists = number_of_return_bitfields >= 11
+
+  if order_acknowledgment_return_bitfield_11_exists then
+
+    -- Order Acknowledgment Return Bitfield 11: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_11 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_11.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 12
+  local order_acknowledgment_return_bitfield_12 = nil
+
+  local order_acknowledgment_return_bitfield_12_exists = number_of_return_bitfields >= 12
+
+  if order_acknowledgment_return_bitfield_12_exists then
+
+    -- Order Acknowledgment Return Bitfield 12: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_12 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_12.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 13
+  local order_acknowledgment_return_bitfield_13 = nil
+
+  local order_acknowledgment_return_bitfield_13_exists = number_of_return_bitfields >= 13
+
+  if order_acknowledgment_return_bitfield_13_exists then
+
+    -- Order Acknowledgment Return Bitfield 13: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_13 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_13.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 14
+  local order_acknowledgment_return_bitfield_14 = nil
+
+  local order_acknowledgment_return_bitfield_14_exists = number_of_return_bitfields >= 14
+
+  if order_acknowledgment_return_bitfield_14_exists then
+
+    -- Order Acknowledgment Return Bitfield 14: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_14 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_14.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 15
+  local order_acknowledgment_return_bitfield_15 = nil
+
+  local order_acknowledgment_return_bitfield_15_exists = number_of_return_bitfields >= 15
+
+  if order_acknowledgment_return_bitfield_15_exists then
+
+    -- Order Acknowledgment Return Bitfield 15: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_15 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_15.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 16
+  local order_acknowledgment_return_bitfield_16 = nil
+
+  local order_acknowledgment_return_bitfield_16_exists = number_of_return_bitfields >= 16
+
+  if order_acknowledgment_return_bitfield_16_exists then
+
+    -- Order Acknowledgment Return Bitfield 16: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_16 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_16.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 17
+  local order_acknowledgment_return_bitfield_17 = nil
+
+  local order_acknowledgment_return_bitfield_17_exists = number_of_return_bitfields >= 17
+
+  if order_acknowledgment_return_bitfield_17_exists then
+
+    -- Order Acknowledgment Return Bitfield 17: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_17 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_17.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 18
+  local order_acknowledgment_return_bitfield_18 = nil
+
+  local order_acknowledgment_return_bitfield_18_exists = number_of_return_bitfields >= 18
+
+  if order_acknowledgment_return_bitfield_18_exists then
+
+    -- Order Acknowledgment Return Bitfield 18: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_18 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_18.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 19
+  local order_acknowledgment_return_bitfield_19 = nil
+
+  local order_acknowledgment_return_bitfield_19_exists = number_of_return_bitfields >= 19
+
+  if order_acknowledgment_return_bitfield_19_exists then
+
+    -- Order Acknowledgment Return Bitfield 19: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_19 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_19.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 20
+  local order_acknowledgment_return_bitfield_20 = nil
+
+  local order_acknowledgment_return_bitfield_20_exists = number_of_return_bitfields >= 20
+
+  if order_acknowledgment_return_bitfield_20_exists then
+
+    -- Order Acknowledgment Return Bitfield 20: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_20 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_20.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 21
+  local order_acknowledgment_return_bitfield_21 = nil
+
+  local order_acknowledgment_return_bitfield_21_exists = number_of_return_bitfields >= 21
+
+  if order_acknowledgment_return_bitfield_21_exists then
+
+    -- Order Acknowledgment Return Bitfield 21: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_21 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_21.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Acknowledgment Return Bitfield 22
+  local order_acknowledgment_return_bitfield_22 = nil
+
+  local order_acknowledgment_return_bitfield_22_exists = number_of_return_bitfields >= 22
+
+  if order_acknowledgment_return_bitfield_22_exists then
+
+    -- Order Acknowledgment Return Bitfield 22: Struct of 8 fields
+    index, order_acknowledgment_return_bitfield_22 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_return_bitfield_22.dissect(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Return Bitfields Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.return_bitfields_param_group.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.return_bitfields_param_group, buffer(offset, 0))
+    local index = cboe_edgaequities_binaryorderentry_boe_v2_4_57.return_bitfields_param_group.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.return_bitfields_param_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_edgaequities_binaryorderentry_boe_v2_4_57.return_bitfields_param_group.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Unit Sequences Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequences_param_group = {}
+
+-- Calculate size of: Unit Sequences Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequences_param_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.no_unspecified_unit_replay.size
+
+  index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.number_of_units.size
+
+  -- Calculate field size from count
+  local units_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + units_count * 5
+
+  return index
+end
+
+-- Display: Unit Sequences Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequences_param_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unit Sequences Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequences_param_group.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- No Unspecified Unit Replay: Binary
+  index, no_unspecified_unit_replay = cboe_edgaequities_binaryorderentry_boe_v2_4_57.no_unspecified_unit_replay.dissect(buffer, index, packet, parent)
+
+  -- Number Of Units: Binary
+  index, number_of_units = cboe_edgaequities_binaryorderentry_boe_v2_4_57.number_of_units.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Units
+  for units_index = 1, number_of_units do
+    index, units = cboe_edgaequities_binaryorderentry_boe_v2_4_57.units.dissect(buffer, index, packet, parent, units_index)
+  end
+
+  return index
+end
+
+-- Dissect: Unit Sequences Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequences_param_group.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_sequences_param_group, buffer(offset, 0))
+    local index = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequences_param_group.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequences_param_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequences_param_group.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- ParamGroupPayload
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.paramgrouppayload = {}
+
+-- Dissect: ParamGroupPayload
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.paramgrouppayload.dissect = function(buffer, offset, packet, parent, param_group_type)
+  -- Dissect Unit Sequences Param Group
+  if param_group_type == 0x80 then
+    return cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequences_param_group.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Return Bitfields Param Group
+  if param_group_type == 0x81 then
+    return cboe_edgaequities_binaryorderentry_boe_v2_4_57.return_bitfields_param_group.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
 -- Param Group
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group = {}
 
--- Size: Param Group
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.size =
-  cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_length.size + 
-  cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_type.size
+-- Calculate size of: Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_length.size
+
+  index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_type.size
+
+  -- Calculate runtime size of ParamGroupPayload field
+  local paramgrouppayload_offset = offset + index
+  local paramgrouppayload_type = buffer(paramgrouppayload_offset - 1, 1):le_uint()
+  index = index + cboe_edgaequities_binaryorderentry_boe_v2_4_57.paramgrouppayload.size(buffer, paramgrouppayload_offset, paramgrouppayload_type)
+
+  return index
+end
 
 -- Display: Param Group
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.display = function(packet, parent, length)
@@ -33350,6 +33885,9 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.fields = function(buf
 
   -- Param Group Type: Binary
   index, param_group_type = cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_type.dissect(buffer, index, packet, parent)
+
+  -- ParamGroupPayload: Runtime Type with 2 branches
+  index = cboe_edgaequities_binaryorderentry_boe_v2_4_57.paramgrouppayload.dissect(buffer, index, packet, parent, param_group_type)
 
   return index
 end
