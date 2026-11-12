@@ -10634,7 +10634,7 @@ udp_table:add_for_decode_as(omi_ice_icefutures_mdf_impact_v1_1_33)
 --   Organization: Intercontinental Exchange
 --   Version: 1.1.33
 --   Date: Monday, August 6, 2018
---   Specification: ICE_iMpact_Multicast_Feed_Message_Spec_1.1.33.pdf
+--   Specification: ICE_iMpact_Multicast_Feed_Message_Spec_1.1.33.1.pdf
 --
 -- Script:
 --   Compiler: 2.0
