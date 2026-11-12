@@ -18,6 +18,8 @@ local taifex_taifexderivatives_clearingmember_tmp_v2_18_7 = {}
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.ap_code = ProtoField.new("Ap Code", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.apcode", ftypes.UINT8, nil, nil, nil, "Application system code, naming the line the session joins.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.append_no = ProtoField.new("Append No", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.appendno", ftypes.UINT16, nil, nil, nil, "Appended check value, a three-digit random number the futures commission merchant is asked to include in its logon message for the calculation of KEY-VALUE.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.before_qty = ProtoField.new("Before Qty", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.beforeqty", ftypes.UINT16, nil, nil, nil, "Remaining order quantity before match.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.both_leg_qtys = ProtoField.new("Both Leg Qtys", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.bothlegqtys", ftypes.UINT16, nil, nil, nil, "Quantity executed for both legs.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.both_leg_sides = ProtoField.new("Both Leg Sides", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.bothlegsides", ftypes.UINT8, nil, nil, nil, "Buy/sell code for both legs, where 0 in the first element means a single order.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.cancel_order_sec = ProtoField.new("Cancel Order Sec", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.cancelordersec", ftypes.UINT8, nil, nil, nil, "Reject order second on an order line, and the reply data per second in units of 100 on a TMPCM or TMPDC session.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.check_sum = ProtoField.new("Check Sum", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.checksum", ftypes.UINT8, nil, nil, nil, "Check sum, the remainder of the sum of the binary values of every byte from the front-end field up to the field right before the CheckSum field divided by 256")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.cm_id = ProtoField.new("Cm Id", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.cmid", ftypes.UINT16, nil, nil, nil, "Clearing member ID, read from the FCM ID Mapping File P06.")
@@ -25,10 +27,6 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.comb_op = ProtoFi
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.cum_qty = ProtoField.new("Cum Qty", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.cumqty", ftypes.UINT16, nil, nil, nil, "Total quantity executed.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.encrypt_method = ProtoField.new("Encrypt Method", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.encryptmethod", ftypes.UINT8, nil, nil, nil, "Encryption method, 0 if unencrypted.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.end_out_bound_num = ProtoField.new("End Out Bound Num", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.endoutboundnum", ftypes.UINT32, nil, nil, nil, "The last end message No, the number of the last valid response message Taifex sent the futures commission merchant.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.epoch_s_int_324 = ProtoField.new("Epoch S Int 324", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.epochsint324", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.epoch_s_int_324_utc = ProtoField.new("Epoch S Int 324", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.epochsint324.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.epoch_s_uint_324 = ProtoField.new("Epoch S Uint 324", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.epochsuint324", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.epoch_s_uint_324_utc = ProtoField.new("Epoch S Uint 324", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.epochsuint324.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.exec_type = ProtoField.new("Exec Type", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.exectype", ftypes.STRING, nil, nil, nil, "Execution type.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.fcm_id = ProtoField.new("Fcm Id", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.fcmid", ftypes.UINT16, nil, nil, nil, "FCM ID, read from the FCM ID Mapping File P06.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_epoch_s = ProtoField.new("Header Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.headerepochs", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC")
@@ -46,12 +44,11 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leaves_qty = Prot
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_entry_num = ProtoField.new("Leg Entry Num", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legentrynum", ftypes.STRING, nil, nil, nil, "One leg of a multi leg FLEX order whose product is named by a numeric product serial number")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_entry_txt = ProtoField.new("Leg Entry Txt", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legentrytxt", ftypes.STRING, nil, nil, nil, "One leg of a multi leg FLEX order whose product is named by a textual product symbol")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_px = ProtoField.new("Leg Px", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legpx", ftypes.INT32, nil, nil, nil, "Execution price for both legs.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_qty_uint_162 = ProtoField.new("Leg Qty Uint 162", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legqtyuint162", ftypes.UINT16, nil, nil, nil, "Quantity for one leg.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_qty_uint_1624 = ProtoField.new("Leg Qty Uint 1624", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legqtyuint1624", ftypes.UINT16, nil, nil, nil, "Quantity executed for both legs.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_side_uint_81 = ProtoField.new("Leg Side Uint 81", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legsideuint81", ftypes.UINT8, nil, nil, nil, "Buy/sell code for one leg.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_side_uint_822 = ProtoField.new("Leg Side Uint 822", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legsideuint822", ftypes.UINT8, nil, nil, nil, "Buy/sell code for both legs, where 0 in the first element means a single order.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_qty = ProtoField.new("Leg Qty", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legqty", ftypes.UINT16, nil, nil, nil, "Quantity for one leg.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_side = ProtoField.new("Leg Side", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legside", ftypes.UINT8, nil, nil, nil, "Buy/sell code for one leg.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_sym_symbol_num_x = ProtoField.new("Leg Sym Symbol Num X", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legsymsymbolnumx", ftypes.STRING, nil, nil, nil, "FLEX Numeric Single Product Serial number, naming a FLEX product by the serial number of the XP08 product and time flow group definition file")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_sym_symbol_txt_x = ProtoField.new("Leg Sym Symbol Txt X", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legsymsymboltxtx", ftypes.STRING, nil, nil, nil, "FLEX Textual Single Product Symbol, naming a FLEX product by the product symbol of the XP08 product and time flow group definition file")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.long_symbol = ProtoField.new("Long Symbol", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.longsymbol", ftypes.STRING, nil, nil, nil, "Text product ID.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.long_symbol_num = ProtoField.new("Long Symbol Num", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.longsymbolnum", ftypes.STRING, nil, nil, nil, "Numeric product ID in the long product format, naming a product by the number Taifex assigns it in each session")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.long_symbol_text = ProtoField.new("Long Symbol Text", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.longsymboltext", ftypes.STRING, nil, nil, nil, "Text product ID in the long product format, naming a product by its Ascii character string symbol")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.max_flow_ctrl_cnt = ProtoField.new("Max Flow Ctrl Cnt", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.maxflowctrlcnt", ftypes.UINT16, nil, nil, nil, "Maximum flow per second, informing the futures commission merchant of the limit of input per second in this session.")
@@ -61,7 +58,11 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.message_type = Pr
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.ms = ProtoField.new("Ms", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.ms", ftypes.UINT16, nil, nil, nil, "One thousandth of a second.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_length = ProtoField.new("Msg Length", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msglength", ftypes.UINT16, nil, nil, nil, "Message length, the total number of bytes behind the msg_length field up to before the CheckSum field")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgseqnum", ftypes.UINT32, nil, nil, nil, "Message sequence number, assigned to each new order, cancel or change order message as a unique identification code and entered as zero on the messages that carry none")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_epoch_s = ProtoField.new("Msg Time Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimeepochs", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_epoch_s_utc = ProtoField.new("Msg Time Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimeepochs.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_ns = ProtoField.new("Msg Time Ns", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimens", ftypes.UINT32, nil, nil, nil, "Nanosecond-level timing details for the msg_time field in the hdr, of which currently only data at the microsecond level is available.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_x_epoch_s = ProtoField.new("Msg Time X Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimexepochs", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_x_epoch_s_utc = ProtoField.new("Msg Time X Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimexepochs.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_type_ext = ProtoField.new("Msg Type Ext", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtypeext", ftypes.UINT8, nil, nil, nil, "Expanded MessageType, by which additional subcategories of a MessageType assign different functionalities based on each specific definition.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.multi_leg_num = ProtoField.new("Multi Leg Num", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.multilegnum", ftypes.STRING, nil, nil, nil, "Multi leg FLEX product named by numeric product serial numbers, which section 2.17.1 lays out as a number of legs, the multi leg order code and one block per leg")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.multi_leg_txt = ProtoField.new("Multi Leg Txt", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.multilegtxt", ftypes.STRING, nil, nil, nil, "Multi leg FLEX product named by textual product symbols, which section 2.17.1 lays out as a number of legs, the multi leg order code and one block per leg")
@@ -98,11 +99,9 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.rpt_session_seq =
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.session_id = ProtoField.new("Session Id", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.sessionid", ftypes.UINT16, nil, nil, nil, "Tcp connection session number, connection to the trading system being allowed only if fcm_id and session_id are provided together.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.side = ProtoField.new("Side", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.side", ftypes.UINT8, nil, nil, nil, "Buy/sell code.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.start_in_bound_num = ProtoField.new("Start In Bound Num", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.startinboundnum", ftypes.UINT32, nil, nil, nil, "Order message start No, assigned zero.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.status_code_uint_162 = ProtoField.new("Status Code Uint 162", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.statuscodeuint162", ftypes.UINT16, nil, nil, nil, "Status code, referring to the Error Message Table.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.status_code_uint_81 = ProtoField.new("Status Code Uint 81", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.statuscodeuint81", ftypes.UINT8, nil, nil, nil, "Status code, referring to the Error Message Tables.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.status_code = ProtoField.new("Status Code", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.statuscode", ftypes.UINT8, nil, nil, nil, "Status code, referring to the Error Message Tables.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.sub_hdr = ProtoField.new("Sub Hdr", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.subhdr", ftypes.STRING, nil, nil, nil, "Tmp Expanded Message Header, which assigns different functionalities to a MessageType by defining additional subcategories for it")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.symbol_char_2020 = ProtoField.new("Symbol Char 2020", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.symbolchar2020", ftypes.STRING, nil, nil, nil, "Text product ID.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.symbol_char_4040 = ProtoField.new("Symbol Char 4040", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.symbolchar4040", ftypes.STRING, nil, nil, nil, "Text product ID.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.symbol = ProtoField.new("Symbol", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.symbol", ftypes.STRING, nil, nil, nil, "Text product ID.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.symbol_num = ProtoField.new("Symbol Num", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.symbolnum", ftypes.STRING, nil, nil, nil, "Numeric product ID, naming a product by the number Taifex assigns it in each session")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.symbol_num_x = ProtoField.new("Symbol Num X", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.symbolnumx", ftypes.STRING, nil, nil, nil, "FLEX Numeric Single Product Serial number, naming a FLEX product by the serial number of the XP08 product and time flow group definition file")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.symbol_text = ProtoField.new("Symbol Text", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.symboltext", ftypes.STRING, nil, nil, nil, "Text product ID, naming a product by its Ascii character string symbol")
@@ -118,6 +117,7 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.uniq_id = ProtoField.new("Uniq Id", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.uniqid", ftypes.UINT32, nil, nil, nil, "Unique ID, a system unique No assigned to the order reply of each order.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.user_define = ProtoField.new("User Define", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.userdefine", ftypes.STRING, nil, nil, nil, "FCM defined variable, which the trading system updates in the order status when it adds, cancels or changes an order.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.version = ProtoField.new("Version", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.version", ftypes.UINT8, nil, nil, nil, "Version, indicating the message version, with 1 denoting the use of the new FLEX message.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.wide_status_code = ProtoField.new("Wide Status Code", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.widestatuscode", ftypes.UINT16, nil, nil, nil, "Status code, referring to the Error Message Table.")
 
 -- Taifex TaifexDerivatives ClearingMember Tmp 2.18.7 Framing
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.hdr = ProtoField.new("Hdr", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.hdr", ftypes.STRING, nil, nil, nil, "Tmp Common message header, carried by every Tmp message")
@@ -145,11 +145,11 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.wake_up_call_conf
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.wake_up_call_message = ProtoField.new("Wake Up Call Message", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.wakeupcallmessage", ftypes.STRING, nil, nil, nil, "Wake up call message, which either Taifex or the futures commission merchant may initiate in the logon phase of the Link Subsystem.")
 
 -- Taifex TaifexDerivatives ClearingMember Tmp 2.18.7 Generated Fields
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.both_leg_qtys_index = ProtoField.new("Both Leg Qtys Index", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.bothlegqtysindex", ftypes.UINT16)
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.both_leg_sides_index = ProtoField.new("Both Leg Sides Index", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.bothlegsidesindex", ftypes.UINT16)
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_entry_num_index = ProtoField.new("Leg Entry Num Index", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legentrynumindex", ftypes.UINT16)
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_entry_txt_index = ProtoField.new("Leg Entry Txt Index", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legentrytxtindex", ftypes.UINT16)
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_px_index = ProtoField.new("Leg Px Index", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legpxindex", ftypes.UINT16)
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_qty_uint_1624_index = ProtoField.new("Leg Qty Uint 1624 Index", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legqtyuint1624index", ftypes.UINT16)
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_side_uint_822_index = ProtoField.new("Leg Side Uint 822 Index", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.legsideuint822index", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Taifex TaifexDerivatives ClearingMember Tmp 2.18.7 Formatting
@@ -293,6 +293,58 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.before_qty.dissect = functio
   local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.before_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.before_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Both Leg Qtys
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys = {}
+
+-- Size: Both Leg Qtys
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys.size = 2
+
+-- Display: Both Leg Qtys
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys.display = function(value)
+  return "Both Leg Qtys: "..value
+end
+
+-- Dissect: Both Leg Qtys
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.both_leg_qtys, range, value, display)
+
+  return offset + length, value
+end
+
+-- Both Leg Sides
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides = {}
+
+-- Size: Both Leg Sides
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.size = 1
+
+-- Display: Both Leg Sides
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.labels = {
+  [0] = "Both Leg Sides: Single Order (0)",
+  [1] = "Both Leg Sides: Buy (1)",
+  [2] = "Both Leg Sides: Sell (2)",
+}
+
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.display = function(value)
+  return taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.labels[value] or "Both Leg Sides: Unknown("..value..")"
+end
+
+-- Dissect: Both Leg Sides
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.both_leg_sides, range, value, display)
 
   return offset + length, value
 end
@@ -467,54 +519,6 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.end_out_bound_num.dissect = 
   local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.end_out_bound_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.end_out_bound_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Epoch S Int 324
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_int_324 = {}
-
--- Size: Epoch S Int 324
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_int_324.size = 4
-
--- Dissect: Epoch S Int 324
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_int_324.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_int_324.size
-  local range = buffer(offset, length)
-  local value = range:int()
-
-  -- A field's absolute time base is fixed when it is declared, so the
-  -- protocol declares one per base and the preference picks between them
-  local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.epoch_s_int_324
-  if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.epoch_s_int_324_utc end
-
-  local seconds = value
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
-
-  return offset + length, value
-end
-
--- Epoch S Uint 324
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_uint_324 = {}
-
--- Size: Epoch S Uint 324
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_uint_324.size = 4
-
--- Dissect: Epoch S Uint 324
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_uint_324.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_uint_324.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-
-  -- A field's absolute time base is fixed when it is declared, so the
-  -- protocol declares one per base and the preference picks between them
-  local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.epoch_s_uint_324
-  if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.epoch_s_uint_324_utc end
-
-  local seconds = value
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -807,106 +811,77 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_px.dissect = function(bu
   return offset + length, value
 end
 
--- Leg Qty Uint 162
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_162 = {}
+-- Leg Qty
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty = {}
 
--- Size: Leg Qty Uint 162
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_162.size = 2
+-- Size: Leg Qty
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty.size = 2
 
--- Display: Leg Qty Uint 162
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_162.display = function(value)
-  return "Leg Qty Uint 162: "..value
+-- Display: Leg Qty
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty.display = function(value)
+  return "Leg Qty: "..value
 end
 
--- Dissect: Leg Qty Uint 162
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_162.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_162.size
+-- Dissect: Leg Qty
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_162.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_qty_uint_162, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_qty, range, value, display)
 
   return offset + length, value
 end
 
--- Leg Qty Uint 1624
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624 = {}
+-- Leg Side
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side = {}
 
--- Size: Leg Qty Uint 1624
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624.size = 2
+-- Size: Leg Side
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side.size = 1
 
--- Display: Leg Qty Uint 1624
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624.display = function(value)
-  return "Leg Qty Uint 1624: "..value
-end
-
--- Dissect: Leg Qty Uint 1624
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_qty_uint_1624, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Side Uint 81
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81 = {}
-
--- Size: Leg Side Uint 81
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81.size = 1
-
--- Display: Leg Side Uint 81
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81.labels = {
-  [0] = "Leg Side Uint 81: Single Order (0)",
-  [1] = "Leg Side Uint 81: Buy (1)",
-  [2] = "Leg Side Uint 81: Sell (2)",
+-- Display: Leg Side
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side.labels = {
+  [0] = "Leg Side: Single Order (0)",
+  [1] = "Leg Side: Buy (1)",
+  [2] = "Leg Side: Sell (2)",
 }
 
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81.display = function(value)
-  return taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81.labels[value] or "Leg Side Uint 81: Unknown("..value..")"
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side.display = function(value)
+  return taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
--- Dissect: Leg Side Uint 81
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81.size
+-- Dissect: Leg Side
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_side_uint_81, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_side, range, value, display)
 
   return offset + length, value
 end
 
--- Leg Side Uint 822
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822 = {}
+-- Long Symbol
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol = {}
 
--- Size: Leg Side Uint 822
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.size = 1
+-- Size: Long Symbol
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol.size = 40
 
--- Display: Leg Side Uint 822
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.labels = {
-  [0] = "Leg Side Uint 822: Single Order (0)",
-  [1] = "Leg Side Uint 822: Buy (1)",
-  [2] = "Leg Side Uint 822: Sell (2)",
-}
-
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.display = function(value)
-  return taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.labels[value] or "Leg Side Uint 822: Unknown("..value..")"
+-- Display: Long Symbol
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol.display = function(value)
+  return "Long Symbol: "..value
 end
 
--- Dissect: Leg Side Uint 822
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.size
+-- Dissect: Long Symbol
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol.size
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_side_uint_822, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.long_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1071,6 +1046,30 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_seq_num.dissect = functi
   return offset + length, value
 end
 
+-- Msg Time Epoch S
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_epoch_s = {}
+
+-- Size: Msg Time Epoch S
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_epoch_s.size = 4
+
+-- Dissect: Msg Time Epoch S
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_epoch_s.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_epoch_s.size
+  local range = buffer(offset, length)
+  local value = range:int()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_epoch_s
+  if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_epoch_s_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
 -- Msg Time Ns
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_ns = {}
 
@@ -1090,6 +1089,30 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_ns.dissect = functi
   local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_ns.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_ns, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Time X Epoch S
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_x_epoch_s = {}
+
+-- Size: Msg Time X Epoch S
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_x_epoch_s.size = 4
+
+-- Dissect: Msg Time X Epoch S
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_x_epoch_s.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_x_epoch_s.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_x_epoch_s
+  if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_x_epoch_s_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1824,355 +1847,170 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.start_in_bound_num.dissect =
   return offset + length, value
 end
 
--- Status Code Uint 162
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162 = {}
+-- Status Code
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code = {}
 
--- Size: Status Code Uint 162
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.size = 2
+-- Size: Status Code
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size = 1
 
--- Display: Status Code Uint 162
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.labels = {
-  [0] = "Status Code Uint 162: Succeed (0)",
-  [1] = "Status Code Uint 162: Trading Time Over (1)",
-  [2] = "Status Code Uint 162: Order Acceptance Not Yet Started Or Trading Halt (2)",
-  [3] = "Status Code Uint 162: Price Quote Not Yet Accepted (3)",
-  [4] = "Status Code Uint 162: In Processing No Order Accepted For The Time Being (4)",
-  [5] = "Status Code Uint 162: No Such Order No (5)",
-  [6] = "Status Code Uint 162: Order Or Quote Filled (6)",
-  [7] = "Status Code Uint 162: Order Or Quote Cancelled (7)",
-  [8] = "Status Code Uint 162: Stop Order (8)",
-  [9] = "Status Code Uint 162: Order Limit (9)",
-  [10] = "Status Code Uint 162: Order Not In The Book (10)",
-  [11] = "Status Code Uint 162: Exec Type Error (11)",
-  [12] = "Status Code Uint 162: Broker Id Error (12)",
-  [13] = "Status Code Uint 162: Branch No Error (13)",
-  [14] = "Status Code Uint 162: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)",
-  [15] = "Status Code Uint 162: Investor Id Code Error (15)",
-  [16] = "Status Code Uint 162: Reject Delete Or Modify Order During Non Cancel Period (16)",
-  [17] = "Status Code Uint 162: Duplicate Order No Or Quote No (17)",
-  [18] = "Status Code Uint 162: Order No Or Quote No Error (18)",
-  [19] = "Status Code Uint 162: The Same Side Order Not Exist (19)",
-  [20] = "Status Code Uint 162: Product Id Error (20)",
-  [21] = "Status Code Uint 162: Exceeding Risefall Limit (21)",
-  [22] = "Status Code Uint 162: Order Quantity Error (22)",
-  [23] = "Status Code Uint 162: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)",
-  [24] = "Status Code Uint 162: Buy Sell Error (24)",
-  [25] = "Status Code Uint 162: Ord Type Error (25)",
-  [26] = "Status Code Uint 162: Order Type And Price Not Matched (26)",
-  [27] = "Status Code Uint 162: Time In Force Error (27)",
-  [28] = "Status Code Uint 162: Position Effect Error (28)",
-  [29] = "Status Code Uint 162: Price And Tick Size Not Matched (29)",
-  [30] = "Status Code Uint 162: Product Expired (30)",
-  [31] = "Status Code Uint 162: Broker Id Product Group And Market Makers Account No Inconsistent (31)",
-  [32] = "Status Code Uint 162: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)",
-  [33] = "Status Code Uint 162: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)",
-  [34] = "Status Code Uint 162: Bid Price Exceeding Ask Price (34)",
-  [35] = "Status Code Uint 162: Remaining Quantity Of The Unmodified Side Is Zero (35)",
-  [36] = "Status Code Uint 162: The Unfilled Part Of The One Way Quote Is Less Than The Minimum Quantity Limit (36)",
-  [37] = "Status Code Uint 162: Price Inquiry Already Present (37)",
-  [38] = "Status Code Uint 162: Market Orderand Mwp Does Not Accept Rod (38)",
-  [39] = "Status Code Uint 162: Decrease Quantity Error (39)",
-  [40] = "Status Code Uint 162: Price Error Single Side Quote Order Modification (40)",
-  [41] = "Status Code Uint 162: Settlement Month Error (41)",
-  [42] = "Status Code Uint 162: Strike Price Error (42)",
-  [43] = "Status Code Uint 162: Clearing Member Id Error (43)",
-  [44] = "Status Code Uint 162: Order Source Error (44)",
-  [45] = "Status Code Uint 162: Info Source Error (45)",
-  [46] = "Status Code Uint 162: Disable Kill Switch Operation Error (46)",
-  [47] = "Status Code Uint 162: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)",
-  [48] = "Status Code Uint 162: Dynamic Price Banding Limit Price Disclosure (48)",
-  [51] = "Status Code Uint 162: Fok Not Filled And Deleted By System (51)",
-  [52] = "Status Code Uint 162: Ioc Is Partially Filled (52)",
-  [53] = "Status Code Uint 162: Ioc Not Filled And Deleted By System (53)",
-  [54] = "Status Code Uint 162: Delete The Order Because Of Cod (54)",
-  [61] = "Status Code Uint 162: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)",
-  [62] = "Status Code Uint 162: Product Id Of Canceldecrease Order Not Matching Original Order (62)",
-  [63] = "Status Code Uint 162: Modify Price Of Ioc Order Not Allowed (63)",
-  [64] = "Status Code Uint 162: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)",
-  [65] = "Status Code Uint 162: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)",
-  [77] = "Status Code Uint 162: No Such Contract (77)",
-  [78] = "Status Code Uint 162: Order Of This Contract Is Restricted For This Account Code (78)",
-  [79] = "Status Code Uint 162: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)",
-  [80] = "Status Code Uint 162: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)",
-  [89] = "Status Code Uint 162: Too Many Errors (89)",
-  [91] = "Status Code Uint 162: Message Time Out (91)",
-  [92] = "Status Code Uint 162: Message Length Error (92)",
-  [93] = "Status Code Uint 162: Message Format Error (93)",
-  [99] = "Status Code Uint 162: Major Error (99)",
-  [110] = "Status Code Uint 162: Illegal File Code (110)",
-  [113] = "Status Code Uint 162: Wrong File Request Range (113)",
-  [114] = "Status Code Uint 162: File Is Not Ready (114)",
-  [117] = "Status Code Uint 162: File Is Ready But Empty (117)",
-  [120] = "Status Code Uint 162: File Not Found For Broker (120)",
-  [121] = "Status Code Uint 162: Illegal Time To Get File (121)",
-  [150] = "Status Code Uint 162: Fcm Unique Id Or Serial No Duplicate (150)",
-  [151] = "Status Code Uint 162: Product Can Not Block Trade (151)",
-  [152] = "Status Code Uint 162: Block Trade Order Quantity Error (152)",
-  [153] = "Status Code Uint 162: Invalid Prod Count (153)",
-  [154] = "Status Code Uint 162: Prod Count Is Not Match With The Number Of Legs In A Block Trade Order (154)",
-  [155] = "Status Code Uint 162: Invalid Fcm Unique Id Or Serial No (155)",
-  [156] = "Status Code Uint 162: Block Trade Id Duplicate (156)",
-  [157] = "Status Code Uint 162: Invalid Block Trade Id (157)",
-  [158] = "Status Code Uint 162: Invalid Participant Fcm Count (158)",
-  [159] = "Status Code Uint 162: Participant Fcm Count Is Not Consistent With Participant Fcm Id List (159)",
-  [160] = "Status Code Uint 162: Participant Fcm Id Error (160)",
-  [161] = "Status Code Uint 162: Invalid Prod Count (161)",
-  [162] = "Status Code Uint 162: Block Trade Id Does Not Exist (162)",
-  [163] = "Status Code Uint 162: Negotiated Block Trade Success (163)",
-  [164] = "Status Code Uint 162: Negotiated Block Trade Fail (164)",
-  [165] = "Status Code Uint 162: Negotiated Block Trade Calcelled (165)",
-  [166] = "Status Code Uint 162: Negotiated Block Trade Wait Fcm To Comfirm Order (166)",
-  [167] = "Status Code Uint 162: Fcm Id Not Matching Represent Fcm (167)",
-  [168] = "Status Code Uint 162: Symbol Type Error (168)",
-  [169] = "Status Code Uint 162: Invalid Order Count Of Negotiated Block Trade Confirm Input (169)",
-  [170] = "Status Code Uint 162: Number Of Orders In B 31 Xb 31 Is Not Consistent With Order Count Field (170)",
-  [171] = "Status Code Uint 162: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)",
-  [172] = "Status Code Uint 162: Investor Acno Duplicate In Negotiated Block Trade Confirm Input (172)",
-  [175] = "Status Code Uint 162: Negotiated Block Trade Timed Out (175)",
-  [176] = "Status Code Uint 162: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)",
-  [177] = "Status Code Uint 162: Negotiated Block Trade Beyond The Position Limit (177)",
-  [186] = "Status Code Uint 162: Illegal Source Id (186)",
-  [200] = "Status Code Uint 162: Significant System Time Error (200)",
-  [201] = "Status Code Uint 162: Append No Error (201)",
-  [202] = "Status Code Uint 162: Fcm Id Error (202)",
-  [203] = "Status Code Uint 162: Ap Code Error (203)",
-  [204] = "Status Code Uint 162: Key Value Error (204)",
-  [205] = "Status Code Uint 162: Session Id Error (205)",
-  [206] = "Status Code Uint 162: System Type Error (206)",
-  [207] = "Status Code Uint 162: Msg Seq Num Error (207)",
-  [208] = "Status Code Uint 162: Target Id Error (208)",
-  [209] = "Status Code Uint 162: Flow Group No Error (209)",
-  [210] = "Status Code Uint 162: Subscription Request Type Error (210)",
-  [220] = "Status Code Uint 162: Msg Type Ext Error (220)",
-  [221] = "Status Code Uint 162: Part Id Error (221)",
-  [240] = "Status Code Uint 162: Session Exceeds The Flow Limit (240)",
-  [241] = "Status Code Uint 162: Session Exceeds Flow Limit Continuously And Is Locked (241)",
-  [242] = "Status Code Uint 162: Order Older Than Cancel Order Sec And Rejected (242)",
-  [248] = "Status Code Uint 162: Session Reach 80% Of The Flow Limit (248)",
-  [249] = "Status Code Uint 162: Session Reach 90% Of The Flow Limit (249)",
-  [250] = "Status Code Uint 162: Order Older Than Two Seconds (250)",
-  [300] = "Status Code Uint 162: The Flex Contract Has Been Resubmitted (300)",
-  [301] = "Status Code Uint 162: Open Interest For Today Undetermined (301)",
-  [302] = "Status Code Uint 162: The Flex Contract Is Listed For Trading (302)",
-  [303] = "Status Code Uint 162: Incorrect Expiration Date For The Flex Contract (303)",
-  [304] = "Status Code Uint 162: Duplicate Unique Id Of A Security Definition Request For The Flex Contract (304)",
-  [305] = "Status Code Uint 162: Exceeding The Flex Contract Limit (305)",
-  [306] = "Status Code Uint 162: No Record Of Successful Flex Contract Application Was Found (306)",
-  [310] = "Status Code Uint 162: Non Flexible Contract Application Period (310)",
-  [311] = "Status Code Uint 162: The Proprietary Trading Account Has Not Been Approved To Apply For Flex Contracts (311)",
-  [312] = "Status Code Uint 162: The Fcm Account Has Not Been Approved To Apply For Flex Contracts (312)",
-  [313] = "Status Code Uint 162: Incorrect Coverage Range For The Flex Contract (313)",
-  [314] = "Status Code Uint 162: Invalid Strike Price For The Flex Contract (314)",
-  [315] = "Status Code Uint 162: Invalid Security Request Type For The Flex Contract (315)",
-  [316] = "Status Code Uint 162: Invalid Application Type For The Flex Contract (316)",
-  [317] = "Status Code Uint 162: Invalid Type For The Flex Contract (317)",
-  [318] = "Status Code Uint 162: Expiry Type Error (318)",
-  [319] = "Status Code Uint 162: Call Put Code Error (319)",
+-- Display: Status Code
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.labels = {
+  [0] = "Status Code: Succeed (0)",
+  [1] = "Status Code: Trading Time Over (1)",
+  [2] = "Status Code: Order Acceptance Not Yet Started Or Trading Halt (2)",
+  [3] = "Status Code: Price Quote Not Yet Accepted (3)",
+  [4] = "Status Code: In Processing No Order Accepted For The Time Being (4)",
+  [5] = "Status Code: No Such Order No (5)",
+  [6] = "Status Code: Order Or Quote Filled (6)",
+  [7] = "Status Code: Order Or Quote Cancelled (7)",
+  [8] = "Status Code: Stop Order (8)",
+  [9] = "Status Code: Order Limit (9)",
+  [10] = "Status Code: Order Not In The Book (10)",
+  [11] = "Status Code: Exec Type Error (11)",
+  [12] = "Status Code: Broker Id Error (12)",
+  [13] = "Status Code: Branch No Error (13)",
+  [14] = "Status Code: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)",
+  [15] = "Status Code: Investor Id Code Error (15)",
+  [16] = "Status Code: Reject Delete Or Modify Order During Non Cancel Period (16)",
+  [17] = "Status Code: Duplicate Order No Or Quote No (17)",
+  [18] = "Status Code: Order No Or Quote No Error (18)",
+  [19] = "Status Code: The Same Side Order Not Exist (19)",
+  [20] = "Status Code: Product Id Error (20)",
+  [21] = "Status Code: Exceeding Risefall Limit (21)",
+  [22] = "Status Code: Order Quantity Error (22)",
+  [23] = "Status Code: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)",
+  [24] = "Status Code: Buy Sell Error (24)",
+  [25] = "Status Code: Ord Type Error (25)",
+  [26] = "Status Code: Order Type And Price Not Matched (26)",
+  [27] = "Status Code: Time In Force Error (27)",
+  [28] = "Status Code: Position Effect Error (28)",
+  [29] = "Status Code: Price And Tick Size Not Matched (29)",
+  [30] = "Status Code: Product Expired (30)",
+  [31] = "Status Code: Broker Id Product Group And Market Makers Account No Inconsistent (31)",
+  [32] = "Status Code: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)",
+  [33] = "Status Code: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)",
+  [34] = "Status Code: Bid Price Exceeding Ask Price (34)",
+  [35] = "Status Code: Remaining Quantity Of The Unmodified Side Is Zero (35)",
+  [36] = "Status Code: The Unfilled Part Of The One Way Quote Is Less Than The Minimum Quantity Limit (36)",
+  [37] = "Status Code: Price Inquiry Already Present (37)",
+  [38] = "Status Code: Market Orderand Mwp Does Not Accept Rod (38)",
+  [39] = "Status Code: Decrease Quantity Error (39)",
+  [40] = "Status Code: Price Error Single Side Quote Order Modification (40)",
+  [41] = "Status Code: Settlement Month Error (41)",
+  [42] = "Status Code: Strike Price Error (42)",
+  [43] = "Status Code: Clearing Member Id Error (43)",
+  [44] = "Status Code: Order Source Error (44)",
+  [45] = "Status Code: Info Source Error (45)",
+  [46] = "Status Code: Disable Kill Switch Operation Error (46)",
+  [47] = "Status Code: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)",
+  [48] = "Status Code: Dynamic Price Banding Limit Price Disclosure (48)",
+  [51] = "Status Code: Fok Not Filled And Deleted By System (51)",
+  [52] = "Status Code: Ioc Is Partially Filled (52)",
+  [53] = "Status Code: Ioc Not Filled And Deleted By System (53)",
+  [54] = "Status Code: Delete The Order Because Of Cod (54)",
+  [61] = "Status Code: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)",
+  [62] = "Status Code: Product Id Of Canceldecrease Order Not Matching Original Order (62)",
+  [63] = "Status Code: Modify Price Of Ioc Order Not Allowed (63)",
+  [64] = "Status Code: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)",
+  [65] = "Status Code: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)",
+  [77] = "Status Code: No Such Contract (77)",
+  [78] = "Status Code: Order Of This Contract Is Restricted For This Account Code (78)",
+  [79] = "Status Code: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)",
+  [80] = "Status Code: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)",
+  [89] = "Status Code: Too Many Errors (89)",
+  [91] = "Status Code: Message Time Out (91)",
+  [92] = "Status Code: Message Length Error (92)",
+  [93] = "Status Code: Message Format Error (93)",
+  [99] = "Status Code: Major Error (99)",
+  [110] = "Status Code: Illegal File Code (110)",
+  [113] = "Status Code: Wrong File Request Range (113)",
+  [114] = "Status Code: File Is Not Ready (114)",
+  [117] = "Status Code: File Is Ready But Empty (117)",
+  [120] = "Status Code: File Not Found For Broker (120)",
+  [121] = "Status Code: Illegal Time To Get File (121)",
+  [150] = "Status Code: Fcm Unique Id Or Serial No Duplicate (150)",
+  [151] = "Status Code: Product Can Not Block Trade (151)",
+  [152] = "Status Code: Block Trade Order Quantity Error (152)",
+  [153] = "Status Code: Invalid Prod Count (153)",
+  [154] = "Status Code: Prod Count Is Not Match With The Number Of Legs In A Block Trade Order (154)",
+  [155] = "Status Code: Invalid Fcm Unique Id Or Serial No (155)",
+  [156] = "Status Code: Block Trade Id Duplicate (156)",
+  [157] = "Status Code: Invalid Block Trade Id (157)",
+  [158] = "Status Code: Invalid Participant Fcm Count (158)",
+  [159] = "Status Code: Participant Fcm Count Is Not Consistent With Participant Fcm Id List (159)",
+  [160] = "Status Code: Participant Fcm Id Error (160)",
+  [161] = "Status Code: Invalid Prod Count (161)",
+  [162] = "Status Code: Block Trade Id Does Not Exist (162)",
+  [163] = "Status Code: Negotiated Block Trade Success (163)",
+  [164] = "Status Code: Negotiated Block Trade Fail (164)",
+  [165] = "Status Code: Negotiated Block Trade Calcelled (165)",
+  [166] = "Status Code: Negotiated Block Trade Wait Fcm To Comfirm Order (166)",
+  [167] = "Status Code: Fcm Id Not Matching Represent Fcm (167)",
+  [168] = "Status Code: Symbol Type Error (168)",
+  [169] = "Status Code: Invalid Order Count Of Negotiated Block Trade Confirm Input (169)",
+  [170] = "Status Code: Number Of Orders In B 31 Xb 31 Is Not Consistent With Order Count Field (170)",
+  [171] = "Status Code: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)",
+  [172] = "Status Code: Investor Acno Duplicate In Negotiated Block Trade Confirm Input (172)",
+  [175] = "Status Code: Negotiated Block Trade Timed Out (175)",
+  [176] = "Status Code: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)",
+  [177] = "Status Code: Negotiated Block Trade Beyond The Position Limit (177)",
+  [186] = "Status Code: Illegal Source Id (186)",
+  [200] = "Status Code: Significant System Time Error (200)",
+  [201] = "Status Code: Append No Error (201)",
+  [202] = "Status Code: Fcm Id Error (202)",
+  [203] = "Status Code: Ap Code Error (203)",
+  [204] = "Status Code: Key Value Error (204)",
+  [205] = "Status Code: Session Id Error (205)",
+  [206] = "Status Code: System Type Error (206)",
+  [207] = "Status Code: Msg Seq Num Error (207)",
+  [208] = "Status Code: Target Id Error (208)",
+  [209] = "Status Code: Flow Group No Error (209)",
+  [210] = "Status Code: Subscription Request Type Error (210)",
+  [220] = "Status Code: Msg Type Ext Error (220)",
+  [221] = "Status Code: Part Id Error (221)",
+  [240] = "Status Code: Session Exceeds The Flow Limit (240)",
+  [241] = "Status Code: Session Exceeds Flow Limit Continuously And Is Locked (241)",
+  [242] = "Status Code: Order Older Than Cancel Order Sec And Rejected (242)",
+  [248] = "Status Code: Session Reach 80% Of The Flow Limit (248)",
+  [249] = "Status Code: Session Reach 90% Of The Flow Limit (249)",
+  [250] = "Status Code: Order Older Than Two Seconds (250)",
 }
 
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.display = function(value)
-  return taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.labels[value] or "Status Code Uint 162: Unknown("..value..")"
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.display = function(value)
+  return taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.labels[value] or "Status Code: Unknown("..value..")"
 end
 
--- Dissect: Status Code Uint 162
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.size
+-- Dissect: Status Code
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.status_code_uint_162, range, value, display)
-
-  return offset + length, value
-end
-
--- Status Code Uint 81
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81 = {}
-
--- Size: Status Code Uint 81
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size = 1
-
--- Display: Status Code Uint 81
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.labels = {
-  [0] = "Status Code Uint 81: Succeed (0)",
-  [1] = "Status Code Uint 81: Trading Time Over (1)",
-  [2] = "Status Code Uint 81: Order Acceptance Not Yet Started Or Trading Halt (2)",
-  [3] = "Status Code Uint 81: Price Quote Not Yet Accepted (3)",
-  [4] = "Status Code Uint 81: In Processing No Order Accepted For The Time Being (4)",
-  [5] = "Status Code Uint 81: No Such Order No (5)",
-  [6] = "Status Code Uint 81: Order Or Quote Filled (6)",
-  [7] = "Status Code Uint 81: Order Or Quote Cancelled (7)",
-  [8] = "Status Code Uint 81: Stop Order (8)",
-  [9] = "Status Code Uint 81: Order Limit (9)",
-  [10] = "Status Code Uint 81: Order Not In The Book (10)",
-  [11] = "Status Code Uint 81: Exec Type Error (11)",
-  [12] = "Status Code Uint 81: Broker Id Error (12)",
-  [13] = "Status Code Uint 81: Branch No Error (13)",
-  [14] = "Status Code Uint 81: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)",
-  [15] = "Status Code Uint 81: Investor Id Code Error (15)",
-  [16] = "Status Code Uint 81: Reject Delete Or Modify Order During Non Cancel Period (16)",
-  [17] = "Status Code Uint 81: Duplicate Order No Or Quote No (17)",
-  [18] = "Status Code Uint 81: Order No Or Quote No Error (18)",
-  [19] = "Status Code Uint 81: The Same Side Order Not Exist (19)",
-  [20] = "Status Code Uint 81: Product Id Error (20)",
-  [21] = "Status Code Uint 81: Exceeding Risefall Limit (21)",
-  [22] = "Status Code Uint 81: Order Quantity Error (22)",
-  [23] = "Status Code Uint 81: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)",
-  [24] = "Status Code Uint 81: Buy Sell Error (24)",
-  [25] = "Status Code Uint 81: Ord Type Error (25)",
-  [26] = "Status Code Uint 81: Order Type And Price Not Matched (26)",
-  [27] = "Status Code Uint 81: Time In Force Error (27)",
-  [28] = "Status Code Uint 81: Position Effect Error (28)",
-  [29] = "Status Code Uint 81: Price And Tick Size Not Matched (29)",
-  [30] = "Status Code Uint 81: Product Expired (30)",
-  [31] = "Status Code Uint 81: Broker Id Product Group And Market Makers Account No Inconsistent (31)",
-  [32] = "Status Code Uint 81: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)",
-  [33] = "Status Code Uint 81: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)",
-  [34] = "Status Code Uint 81: Bid Price Exceeding Ask Price (34)",
-  [35] = "Status Code Uint 81: Remaining Quantity Of The Unmodified Side Is Zero (35)",
-  [36] = "Status Code Uint 81: The Unfilled Part Of The One Way Quote Is Less Than The Minimum Quantity Limit (36)",
-  [37] = "Status Code Uint 81: Price Inquiry Already Present (37)",
-  [38] = "Status Code Uint 81: Market Orderand Mwp Does Not Accept Rod (38)",
-  [39] = "Status Code Uint 81: Decrease Quantity Error (39)",
-  [40] = "Status Code Uint 81: Price Error Single Side Quote Order Modification (40)",
-  [41] = "Status Code Uint 81: Settlement Month Error (41)",
-  [42] = "Status Code Uint 81: Strike Price Error (42)",
-  [43] = "Status Code Uint 81: Clearing Member Id Error (43)",
-  [44] = "Status Code Uint 81: Order Source Error (44)",
-  [45] = "Status Code Uint 81: Info Source Error (45)",
-  [46] = "Status Code Uint 81: Disable Kill Switch Operation Error (46)",
-  [47] = "Status Code Uint 81: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)",
-  [48] = "Status Code Uint 81: Dynamic Price Banding Limit Price Disclosure (48)",
-  [51] = "Status Code Uint 81: Fok Not Filled And Deleted By System (51)",
-  [52] = "Status Code Uint 81: Ioc Is Partially Filled (52)",
-  [53] = "Status Code Uint 81: Ioc Not Filled And Deleted By System (53)",
-  [54] = "Status Code Uint 81: Delete The Order Because Of Cod (54)",
-  [61] = "Status Code Uint 81: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)",
-  [62] = "Status Code Uint 81: Product Id Of Canceldecrease Order Not Matching Original Order (62)",
-  [63] = "Status Code Uint 81: Modify Price Of Ioc Order Not Allowed (63)",
-  [64] = "Status Code Uint 81: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)",
-  [65] = "Status Code Uint 81: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)",
-  [77] = "Status Code Uint 81: No Such Contract (77)",
-  [78] = "Status Code Uint 81: Order Of This Contract Is Restricted For This Account Code (78)",
-  [79] = "Status Code Uint 81: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)",
-  [80] = "Status Code Uint 81: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)",
-  [89] = "Status Code Uint 81: Too Many Errors (89)",
-  [91] = "Status Code Uint 81: Message Time Out (91)",
-  [92] = "Status Code Uint 81: Message Length Error (92)",
-  [93] = "Status Code Uint 81: Message Format Error (93)",
-  [99] = "Status Code Uint 81: Major Error (99)",
-  [110] = "Status Code Uint 81: Illegal File Code (110)",
-  [113] = "Status Code Uint 81: Wrong File Request Range (113)",
-  [114] = "Status Code Uint 81: File Is Not Ready (114)",
-  [117] = "Status Code Uint 81: File Is Ready But Empty (117)",
-  [120] = "Status Code Uint 81: File Not Found For Broker (120)",
-  [121] = "Status Code Uint 81: Illegal Time To Get File (121)",
-  [150] = "Status Code Uint 81: Fcm Unique Id Or Serial No Duplicate (150)",
-  [151] = "Status Code Uint 81: Product Can Not Block Trade (151)",
-  [152] = "Status Code Uint 81: Block Trade Order Quantity Error (152)",
-  [153] = "Status Code Uint 81: Invalid Prod Count (153)",
-  [154] = "Status Code Uint 81: Prod Count Is Not Match With The Number Of Legs In A Block Trade Order (154)",
-  [155] = "Status Code Uint 81: Invalid Fcm Unique Id Or Serial No (155)",
-  [156] = "Status Code Uint 81: Block Trade Id Duplicate (156)",
-  [157] = "Status Code Uint 81: Invalid Block Trade Id (157)",
-  [158] = "Status Code Uint 81: Invalid Participant Fcm Count (158)",
-  [159] = "Status Code Uint 81: Participant Fcm Count Is Not Consistent With Participant Fcm Id List (159)",
-  [160] = "Status Code Uint 81: Participant Fcm Id Error (160)",
-  [161] = "Status Code Uint 81: Invalid Prod Count (161)",
-  [162] = "Status Code Uint 81: Block Trade Id Does Not Exist (162)",
-  [163] = "Status Code Uint 81: Negotiated Block Trade Success (163)",
-  [164] = "Status Code Uint 81: Negotiated Block Trade Fail (164)",
-  [165] = "Status Code Uint 81: Negotiated Block Trade Calcelled (165)",
-  [166] = "Status Code Uint 81: Negotiated Block Trade Wait Fcm To Comfirm Order (166)",
-  [167] = "Status Code Uint 81: Fcm Id Not Matching Represent Fcm (167)",
-  [168] = "Status Code Uint 81: Symbol Type Error (168)",
-  [169] = "Status Code Uint 81: Invalid Order Count Of Negotiated Block Trade Confirm Input (169)",
-  [170] = "Status Code Uint 81: Number Of Orders In B 31 Xb 31 Is Not Consistent With Order Count Field (170)",
-  [171] = "Status Code Uint 81: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)",
-  [172] = "Status Code Uint 81: Investor Acno Duplicate In Negotiated Block Trade Confirm Input (172)",
-  [175] = "Status Code Uint 81: Negotiated Block Trade Timed Out (175)",
-  [176] = "Status Code Uint 81: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)",
-  [177] = "Status Code Uint 81: Negotiated Block Trade Beyond The Position Limit (177)",
-  [186] = "Status Code Uint 81: Illegal Source Id (186)",
-  [200] = "Status Code Uint 81: Significant System Time Error (200)",
-  [201] = "Status Code Uint 81: Append No Error (201)",
-  [202] = "Status Code Uint 81: Fcm Id Error (202)",
-  [203] = "Status Code Uint 81: Ap Code Error (203)",
-  [204] = "Status Code Uint 81: Key Value Error (204)",
-  [205] = "Status Code Uint 81: Session Id Error (205)",
-  [206] = "Status Code Uint 81: System Type Error (206)",
-  [207] = "Status Code Uint 81: Msg Seq Num Error (207)",
-  [208] = "Status Code Uint 81: Target Id Error (208)",
-  [209] = "Status Code Uint 81: Flow Group No Error (209)",
-  [210] = "Status Code Uint 81: Subscription Request Type Error (210)",
-  [220] = "Status Code Uint 81: Msg Type Ext Error (220)",
-  [221] = "Status Code Uint 81: Part Id Error (221)",
-  [240] = "Status Code Uint 81: Session Exceeds The Flow Limit (240)",
-  [241] = "Status Code Uint 81: Session Exceeds Flow Limit Continuously And Is Locked (241)",
-  [242] = "Status Code Uint 81: Order Older Than Cancel Order Sec And Rejected (242)",
-  [248] = "Status Code Uint 81: Session Reach 80% Of The Flow Limit (248)",
-  [249] = "Status Code Uint 81: Session Reach 90% Of The Flow Limit (249)",
-  [250] = "Status Code Uint 81: Order Older Than Two Seconds (250)",
-}
-
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.display = function(value)
-  return taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.labels[value] or "Status Code Uint 81: Unknown("..value..")"
-end
-
--- Dissect: Status Code Uint 81
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.status_code_uint_81, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.status_code, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Char 2020
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_2020 = {}
+-- Symbol
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol = {}
 
--- Size: Symbol Char 2020
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_2020.size = 20
+-- Size: Symbol
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol.size = 20
 
--- Display: Symbol Char 2020
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_2020.display = function(value)
-  return "Symbol Char 2020: "..value
+-- Display: Symbol
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol.display = function(value)
+  return "Symbol: "..value
 end
 
--- Dissect: Symbol Char 2020
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_2020.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_2020.size
+-- Dissect: Symbol
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_2020.display(value, buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.symbol_char_2020, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Char 4040
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_4040 = {}
-
--- Size: Symbol Char 4040
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_4040.size = 40
-
--- Display: Symbol Char 4040
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_4040.display = function(value)
-  return "Symbol Char 4040: "..value
-end
-
--- Dissect: Symbol Char 4040
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_4040.dissect = function(buffer, offset, packet, parent)
-  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_4040.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_4040.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.symbol_char_4040, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2377,6 +2215,168 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.version.dissect = function(b
   return offset + length, value
 end
 
+-- Wide Status Code
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code = {}
+
+-- Size: Wide Status Code
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.size = 2
+
+-- Display: Wide Status Code
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.labels = {
+  [0] = "Wide Status Code: Succeed (0)",
+  [1] = "Wide Status Code: Trading Time Over (1)",
+  [2] = "Wide Status Code: Order Acceptance Not Yet Started Or Trading Halt (2)",
+  [3] = "Wide Status Code: Price Quote Not Yet Accepted (3)",
+  [4] = "Wide Status Code: In Processing No Order Accepted For The Time Being (4)",
+  [5] = "Wide Status Code: No Such Order No (5)",
+  [6] = "Wide Status Code: Order Or Quote Filled (6)",
+  [7] = "Wide Status Code: Order Or Quote Cancelled (7)",
+  [8] = "Wide Status Code: Stop Order (8)",
+  [9] = "Wide Status Code: Order Limit (9)",
+  [10] = "Wide Status Code: Order Not In The Book (10)",
+  [11] = "Wide Status Code: Exec Type Error (11)",
+  [12] = "Wide Status Code: Broker Id Error (12)",
+  [13] = "Wide Status Code: Branch No Error (13)",
+  [14] = "Wide Status Code: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)",
+  [15] = "Wide Status Code: Investor Id Code Error (15)",
+  [16] = "Wide Status Code: Reject Delete Or Modify Order During Non Cancel Period (16)",
+  [17] = "Wide Status Code: Duplicate Order No Or Quote No (17)",
+  [18] = "Wide Status Code: Order No Or Quote No Error (18)",
+  [19] = "Wide Status Code: The Same Side Order Not Exist (19)",
+  [20] = "Wide Status Code: Product Id Error (20)",
+  [21] = "Wide Status Code: Exceeding Risefall Limit (21)",
+  [22] = "Wide Status Code: Order Quantity Error (22)",
+  [23] = "Wide Status Code: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)",
+  [24] = "Wide Status Code: Buy Sell Error (24)",
+  [25] = "Wide Status Code: Ord Type Error (25)",
+  [26] = "Wide Status Code: Order Type And Price Not Matched (26)",
+  [27] = "Wide Status Code: Time In Force Error (27)",
+  [28] = "Wide Status Code: Position Effect Error (28)",
+  [29] = "Wide Status Code: Price And Tick Size Not Matched (29)",
+  [30] = "Wide Status Code: Product Expired (30)",
+  [31] = "Wide Status Code: Broker Id Product Group And Market Makers Account No Inconsistent (31)",
+  [32] = "Wide Status Code: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)",
+  [33] = "Wide Status Code: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)",
+  [34] = "Wide Status Code: Bid Price Exceeding Ask Price (34)",
+  [35] = "Wide Status Code: Remaining Quantity Of The Unmodified Side Is Zero (35)",
+  [36] = "Wide Status Code: The Unfilled Part Of The One Way Quote Is Less Than The Minimum Quantity Limit (36)",
+  [37] = "Wide Status Code: Price Inquiry Already Present (37)",
+  [38] = "Wide Status Code: Market Orderand Mwp Does Not Accept Rod (38)",
+  [39] = "Wide Status Code: Decrease Quantity Error (39)",
+  [40] = "Wide Status Code: Price Error Single Side Quote Order Modification (40)",
+  [41] = "Wide Status Code: Settlement Month Error (41)",
+  [42] = "Wide Status Code: Strike Price Error (42)",
+  [43] = "Wide Status Code: Clearing Member Id Error (43)",
+  [44] = "Wide Status Code: Order Source Error (44)",
+  [45] = "Wide Status Code: Info Source Error (45)",
+  [46] = "Wide Status Code: Disable Kill Switch Operation Error (46)",
+  [47] = "Wide Status Code: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)",
+  [48] = "Wide Status Code: Dynamic Price Banding Limit Price Disclosure (48)",
+  [51] = "Wide Status Code: Fok Not Filled And Deleted By System (51)",
+  [52] = "Wide Status Code: Ioc Is Partially Filled (52)",
+  [53] = "Wide Status Code: Ioc Not Filled And Deleted By System (53)",
+  [54] = "Wide Status Code: Delete The Order Because Of Cod (54)",
+  [61] = "Wide Status Code: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)",
+  [62] = "Wide Status Code: Product Id Of Canceldecrease Order Not Matching Original Order (62)",
+  [63] = "Wide Status Code: Modify Price Of Ioc Order Not Allowed (63)",
+  [64] = "Wide Status Code: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)",
+  [65] = "Wide Status Code: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)",
+  [77] = "Wide Status Code: No Such Contract (77)",
+  [78] = "Wide Status Code: Order Of This Contract Is Restricted For This Account Code (78)",
+  [79] = "Wide Status Code: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)",
+  [80] = "Wide Status Code: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)",
+  [89] = "Wide Status Code: Too Many Errors (89)",
+  [91] = "Wide Status Code: Message Time Out (91)",
+  [92] = "Wide Status Code: Message Length Error (92)",
+  [93] = "Wide Status Code: Message Format Error (93)",
+  [99] = "Wide Status Code: Major Error (99)",
+  [110] = "Wide Status Code: Illegal File Code (110)",
+  [113] = "Wide Status Code: Wrong File Request Range (113)",
+  [114] = "Wide Status Code: File Is Not Ready (114)",
+  [117] = "Wide Status Code: File Is Ready But Empty (117)",
+  [120] = "Wide Status Code: File Not Found For Broker (120)",
+  [121] = "Wide Status Code: Illegal Time To Get File (121)",
+  [150] = "Wide Status Code: Fcm Unique Id Or Serial No Duplicate (150)",
+  [151] = "Wide Status Code: Product Can Not Block Trade (151)",
+  [152] = "Wide Status Code: Block Trade Order Quantity Error (152)",
+  [153] = "Wide Status Code: Invalid Prod Count (153)",
+  [154] = "Wide Status Code: Prod Count Is Not Match With The Number Of Legs In A Block Trade Order (154)",
+  [155] = "Wide Status Code: Invalid Fcm Unique Id Or Serial No (155)",
+  [156] = "Wide Status Code: Block Trade Id Duplicate (156)",
+  [157] = "Wide Status Code: Invalid Block Trade Id (157)",
+  [158] = "Wide Status Code: Invalid Participant Fcm Count (158)",
+  [159] = "Wide Status Code: Participant Fcm Count Is Not Consistent With Participant Fcm Id List (159)",
+  [160] = "Wide Status Code: Participant Fcm Id Error (160)",
+  [161] = "Wide Status Code: Invalid Prod Count (161)",
+  [162] = "Wide Status Code: Block Trade Id Does Not Exist (162)",
+  [163] = "Wide Status Code: Negotiated Block Trade Success (163)",
+  [164] = "Wide Status Code: Negotiated Block Trade Fail (164)",
+  [165] = "Wide Status Code: Negotiated Block Trade Calcelled (165)",
+  [166] = "Wide Status Code: Negotiated Block Trade Wait Fcm To Comfirm Order (166)",
+  [167] = "Wide Status Code: Fcm Id Not Matching Represent Fcm (167)",
+  [168] = "Wide Status Code: Symbol Type Error (168)",
+  [169] = "Wide Status Code: Invalid Order Count Of Negotiated Block Trade Confirm Input (169)",
+  [170] = "Wide Status Code: Number Of Orders In B 31 Xb 31 Is Not Consistent With Order Count Field (170)",
+  [171] = "Wide Status Code: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)",
+  [172] = "Wide Status Code: Investor Acno Duplicate In Negotiated Block Trade Confirm Input (172)",
+  [175] = "Wide Status Code: Negotiated Block Trade Timed Out (175)",
+  [176] = "Wide Status Code: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)",
+  [177] = "Wide Status Code: Negotiated Block Trade Beyond The Position Limit (177)",
+  [186] = "Wide Status Code: Illegal Source Id (186)",
+  [200] = "Wide Status Code: Significant System Time Error (200)",
+  [201] = "Wide Status Code: Append No Error (201)",
+  [202] = "Wide Status Code: Fcm Id Error (202)",
+  [203] = "Wide Status Code: Ap Code Error (203)",
+  [204] = "Wide Status Code: Key Value Error (204)",
+  [205] = "Wide Status Code: Session Id Error (205)",
+  [206] = "Wide Status Code: System Type Error (206)",
+  [207] = "Wide Status Code: Msg Seq Num Error (207)",
+  [208] = "Wide Status Code: Target Id Error (208)",
+  [209] = "Wide Status Code: Flow Group No Error (209)",
+  [210] = "Wide Status Code: Subscription Request Type Error (210)",
+  [220] = "Wide Status Code: Msg Type Ext Error (220)",
+  [221] = "Wide Status Code: Part Id Error (221)",
+  [240] = "Wide Status Code: Session Exceeds The Flow Limit (240)",
+  [241] = "Wide Status Code: Session Exceeds Flow Limit Continuously And Is Locked (241)",
+  [242] = "Wide Status Code: Order Older Than Cancel Order Sec And Rejected (242)",
+  [248] = "Wide Status Code: Session Reach 80% Of The Flow Limit (248)",
+  [249] = "Wide Status Code: Session Reach 90% Of The Flow Limit (249)",
+  [250] = "Wide Status Code: Order Older Than Two Seconds (250)",
+  [300] = "Wide Status Code: The Flex Contract Has Been Resubmitted (300)",
+  [301] = "Wide Status Code: Open Interest For Today Undetermined (301)",
+  [302] = "Wide Status Code: The Flex Contract Is Listed For Trading (302)",
+  [303] = "Wide Status Code: Incorrect Expiration Date For The Flex Contract (303)",
+  [304] = "Wide Status Code: Duplicate Unique Id Of A Security Definition Request For The Flex Contract (304)",
+  [305] = "Wide Status Code: Exceeding The Flex Contract Limit (305)",
+  [306] = "Wide Status Code: No Record Of Successful Flex Contract Application Was Found (306)",
+  [310] = "Wide Status Code: Non Flexible Contract Application Period (310)",
+  [311] = "Wide Status Code: The Proprietary Trading Account Has Not Been Approved To Apply For Flex Contracts (311)",
+  [312] = "Wide Status Code: The Fcm Account Has Not Been Approved To Apply For Flex Contracts (312)",
+  [313] = "Wide Status Code: Incorrect Coverage Range For The Flex Contract (313)",
+  [314] = "Wide Status Code: Invalid Strike Price For The Flex Contract (314)",
+  [315] = "Wide Status Code: Invalid Security Request Type For The Flex Contract (315)",
+  [316] = "Wide Status Code: Invalid Application Type For The Flex Contract (316)",
+  [317] = "Wide Status Code: Invalid Type For The Flex Contract (317)",
+  [318] = "Wide Status Code: Expiry Type Error (318)",
+  [319] = "Wide Status Code: Call Put Code Error (319)",
+}
+
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.display = function(value)
+  return taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.labels[value] or "Wide Status Code: Unknown("..value..")"
+end
+
+-- Dissect: Wide Status Code
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.dissect = function(buffer, offset, packet, parent)
+  local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.wide_status_code, range, value, display)
+
+  return offset + length, value
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Taifex TaifexDerivatives ClearingMember Tmp 2.18.7
@@ -2477,7 +2477,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.flex_clearing_member_initiat
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.flex_clearing_member_initiate_operation_confirmed_message.size =
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.sub_hdr.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.part_id.size + 
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.member_id.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.target_id.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.req_cm_seq.size + 
@@ -2498,8 +2498,8 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.flex_clearing_member_initiat
   -- Part Id: uint8
   index, part_id = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.part_id.dissect(buffer, index, packet, parent)
 
-  -- Status Code Uint 162: uint16
-  index, status_code_uint_162 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.dissect(buffer, index, packet, parent)
+  -- Wide Status Code: uint16
+  index, wide_status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.dissect(buffer, index, packet, parent)
 
   -- Member Id: uint16
   index, member_id = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.member_id.dissect(buffer, index, packet, parent)
@@ -2599,7 +2599,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.clearing_member_initiate_ope
 
 -- Size: Clearing Member Initiate Operation Confirmed Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.clearing_member_initiate_operation_confirmed_message.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.member_id.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.target_id.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.req_cm_seq.size
@@ -2613,8 +2613,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.clearing_member_initiate_operation_confirmed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   -- Member Id: uint16
   index, member_id = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.member_id.dissect(buffer, index, packet, parent)
@@ -2699,7 +2699,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time_x = {
 
 -- Size: Transact Time Msg Time X
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time_x.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_uint_324.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_x_epoch_s.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.nanosecond.size
 
 -- Display: Transact Time Msg Time X
@@ -2722,14 +2722,14 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time_x.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Epoch S Uint 324: uint32
-  index, epoch_s_uint_324 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_uint_324.dissect(buffer, index, packet, parent)
+  -- Msg Time X Epoch S: uint32
+  index, msg_time_x_epoch_s = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_x_epoch_s.dissect(buffer, index, packet, parent)
 
   -- Nanosecond: uint32
   index, nanosecond = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.nanosecond.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local transact_time_msg_time_x = UInt64.new(epoch_s_uint_324) * 1000000000 + nanosecond
+  local transact_time_msg_time_x = UInt64.new(msg_time_x_epoch_s) * 1000000000 + nanosecond
 
   return index, transact_time_msg_time_x
 end
@@ -2739,14 +2739,14 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time_x.dis
   if show.structs then
     -- An absolute time item carries its value from the moment it is created,
     -- so the parts are read here rather than taken from the fields below it
-    local epoch_s_uint_324 = buffer(offset, 4):uint()
+    local msg_time_x_epoch_s = buffer(offset, 4):uint()
     local nanosecond = buffer(offset + 4, 4):uint()
     local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time_x.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_x
     if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_x_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_uint_324, nanosecond))
+    parent = parent:add(field, buffer(offset, length), NSTime.new(msg_time_x_epoch_s, nanosecond))
     local index = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time_x.fields(buffer, offset, packet, parent)
 
     return index, parent
@@ -2761,7 +2761,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time_x = 
 
 -- Size: Org Trans Time Msg Time X
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time_x.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_uint_324.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_x_epoch_s.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.nanosecond.size
 
 -- Display: Org Trans Time Msg Time X
@@ -2784,14 +2784,14 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time_x.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Epoch S Uint 324: uint32
-  index, epoch_s_uint_324 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_uint_324.dissect(buffer, index, packet, parent)
+  -- Msg Time X Epoch S: uint32
+  index, msg_time_x_epoch_s = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_x_epoch_s.dissect(buffer, index, packet, parent)
 
   -- Nanosecond: uint32
   index, nanosecond = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.nanosecond.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local org_trans_time_msg_time_x = UInt64.new(epoch_s_uint_324) * 1000000000 + nanosecond
+  local org_trans_time_msg_time_x = UInt64.new(msg_time_x_epoch_s) * 1000000000 + nanosecond
 
   return index, org_trans_time_msg_time_x
 end
@@ -2801,14 +2801,14 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time_x.di
   if show.structs then
     -- An absolute time item carries its value from the moment it is created,
     -- so the parts are read here rather than taken from the fields below it
-    local epoch_s_uint_324 = buffer(offset, 4):uint()
+    local msg_time_x_epoch_s = buffer(offset, 4):uint()
     local nanosecond = buffer(offset + 4, 4):uint()
     local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time_x.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_x
     if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_x_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_uint_324, nanosecond))
+    parent = parent:add(field, buffer(offset, length), NSTime.new(msg_time_x_epoch_s, nanosecond))
     local index = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time_x.fields(buffer, offset, packet, parent)
 
     return index, parent
@@ -2864,8 +2864,8 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_entry_txt = {}
 -- Size: Leg Entry Txt
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_entry_txt.size =
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_sym_symbol_txt_x.size + 
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81.size + 
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_162.size
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty.size
 
 -- Display: Leg Entry Txt
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_entry_txt.display = function(packet, parent, length)
@@ -2885,11 +2885,11 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_entry_txt.fields = funct
   -- Leg Sym Symbol Txt X: Struct of 1 fields
   index, leg_sym_symbol_txt_x = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_sym_symbol_txt_x.dissect(buffer, index, packet, parent)
 
-  -- Leg Side Uint 81: uint8
-  index, leg_side_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81.dissect(buffer, index, packet, parent)
+  -- Leg Side: uint8
+  index, leg_side = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Qty Uint 162: uint16
-  index, leg_qty_uint_162 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_162.dissect(buffer, index, packet, parent)
+  -- Leg Qty: uint16
+  index, leg_qty = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3017,8 +3017,8 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_entry_num = {}
 -- Size: Leg Entry Num
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_entry_num.size =
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_sym_symbol_num_x.size + 
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81.size + 
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_162.size
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty.size
 
 -- Display: Leg Entry Num
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_entry_num.display = function(packet, parent, length)
@@ -3038,11 +3038,11 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_entry_num.fields = funct
   -- Leg Sym Symbol Num X: Struct of 1 fields
   index, leg_sym_symbol_num_x = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_sym_symbol_num_x.dissect(buffer, index, packet, parent)
 
-  -- Leg Side Uint 81: uint8
-  index, leg_side_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_81.dissect(buffer, index, packet, parent)
+  -- Leg Side: uint8
+  index, leg_side = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Qty Uint 162: uint16
-  index, leg_qty_uint_162 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_162.dissect(buffer, index, packet, parent)
+  -- Leg Qty: uint16
+  index, leg_qty = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3238,7 +3238,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.flex_order_status_report_mes
 
   index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.no_leg.size
 
-  index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.size
+  index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.size
 
   index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.exec_type.size
 
@@ -3322,8 +3322,8 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.flex_order_status_report_mes
   -- No Leg: uint8
   index, no_leg = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.no_leg.dissect(buffer, index, packet, parent)
 
-  -- Status Code Uint 162: uint16
-  index, status_code_uint_162 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.dissect(buffer, index, packet, parent)
+  -- Wide Status Code: uint16
+  index, wide_status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
@@ -3445,7 +3445,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time = {}
 
 -- Size: Transact Time Msg Time
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_int_324.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_epoch_s.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.ms.size
 
 -- Display: Transact Time Msg Time
@@ -3468,14 +3468,14 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Epoch S Int 324: int32
-  index, epoch_s_int_324 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_int_324.dissect(buffer, index, packet, parent)
+  -- Msg Time Epoch S: int32
+  index, msg_time_epoch_s = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_epoch_s.dissect(buffer, index, packet, parent)
 
   -- Ms: uint16
   index, ms = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.ms.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local transact_time_msg_time = epoch_s_int_324 * 1000 + ms
+  local transact_time_msg_time = msg_time_epoch_s * 1000 + ms
 
   return index, transact_time_msg_time
 end
@@ -3485,14 +3485,14 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time.disse
   if show.structs then
     -- An absolute time item carries its value from the moment it is created,
     -- so the parts are read here rather than taken from the fields below it
-    local epoch_s_int_324 = buffer(offset, 4):int()
+    local msg_time_epoch_s = buffer(offset, 4):int()
     local ms = buffer(offset + 4, 2):uint()
     local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time
     if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_int_324, ms * 1000000))
+    parent = parent:add(field, buffer(offset, length), NSTime.new(msg_time_epoch_s, ms * 1000000))
     local index = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time.fields(buffer, offset, packet, parent)
 
     return index, parent
@@ -3507,7 +3507,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time = {}
 
 -- Size: Org Trans Time Msg Time
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_int_324.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_epoch_s.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.ms.size
 
 -- Display: Org Trans Time Msg Time
@@ -3530,14 +3530,14 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Epoch S Int 324: int32
-  index, epoch_s_int_324 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.epoch_s_int_324.dissect(buffer, index, packet, parent)
+  -- Msg Time Epoch S: int32
+  index, msg_time_epoch_s = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.msg_time_epoch_s.dissect(buffer, index, packet, parent)
 
   -- Ms: uint16
   index, ms = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.ms.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local org_trans_time_msg_time = epoch_s_int_324 * 1000 + ms
+  local org_trans_time_msg_time = msg_time_epoch_s * 1000 + ms
 
   return index, org_trans_time_msg_time
 end
@@ -3547,14 +3547,14 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time.diss
   if show.structs then
     -- An absolute time item carries its value from the moment it is created,
     -- so the parts are read here rather than taken from the fields below it
-    local epoch_s_int_324 = buffer(offset, 4):int()
+    local msg_time_epoch_s = buffer(offset, 4):int()
     local ms = buffer(offset + 4, 2):uint()
     local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
     local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time
     if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(epoch_s_int_324, ms * 1000000))
+    parent = parent:add(field, buffer(offset, length), NSTime.new(msg_time_epoch_s, ms * 1000000))
     local index = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time.fields(buffer, offset, packet, parent)
 
     return index, parent
@@ -3569,7 +3569,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_text = {}
 
 -- Size: Symbol Text
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_text.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_2020.size
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol.size
 
 -- Display: Symbol Text
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_text.display = function(packet, parent, length)
@@ -3580,8 +3580,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_text.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Char 2020: char [20]
-  index, symbol_char_2020 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_2020.dissect(buffer, index, packet, parent)
+  -- Symbol: char [20]
+  index, symbol = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3611,7 +3611,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_num = {}
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_num.size =
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.pseq_1.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.pseq_2.size + 
-  2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.size + 
+  2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.comb_op.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_13.size
 
@@ -3630,9 +3630,9 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_num.fields = function
   -- Pseq 2: uint16
   index, pseq_2 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.pseq_2.dissect(buffer, index, packet, parent)
 
-  -- Array Of: Leg Side Uint 822
-  for leg_side_uint_822_index = 1, 2 do
-    index, leg_side_uint_822 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.dissect(buffer, index, packet, parent, leg_side_uint_822_index)
+  -- Array Of: Both Leg Sides
+  for both_leg_sides_index = 1, 2 do
+    index, both_leg_sides = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.dissect(buffer, index, packet, parent, both_leg_sides_index)
   end
 
   -- Comb Op: uint8
@@ -3692,7 +3692,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.execution_report_including_h
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.execution_report_including_head_office_and_branch_offices_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size
+  index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size
 
   index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.exec_type.size
 
@@ -3741,11 +3741,11 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.execution_report_including_h
 
   index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.before_qty.size
 
-  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.size
+  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.size
 
   index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_px.size
 
-  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624.size
+  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys.size
 
   index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time.size
 
@@ -3773,8 +3773,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.execution_report_including_head_office_and_branch_offices_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
@@ -3842,9 +3842,9 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.execution_report_including_h
   -- Before Qty: uint16
   index, before_qty = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.before_qty.dissect(buffer, index, packet, parent)
 
-  -- Array Of: Leg Side Uint 822
-  for leg_side_uint_822_index = 1, 2 do
-    index, leg_side_uint_822 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.dissect(buffer, index, packet, parent, leg_side_uint_822_index)
+  -- Array Of: Both Leg Sides
+  for both_leg_sides_index = 1, 2 do
+    index, both_leg_sides = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.dissect(buffer, index, packet, parent, both_leg_sides_index)
   end
 
   -- Array Of: Leg Px
@@ -3852,9 +3852,9 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.execution_report_including_h
     index, leg_px = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_px.dissect(buffer, index, packet, parent, leg_px_index)
   end
 
-  -- Array Of: Leg Qty Uint 1624
-  for leg_qty_uint_1624_index = 1, 2 do
-    index, leg_qty_uint_1624 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624.dissect(buffer, index, packet, parent, leg_qty_uint_1624_index)
+  -- Array Of: Both Leg Qtys
+  for both_leg_qtys_index = 1, 2 do
+    index, both_leg_qtys = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys.dissect(buffer, index, packet, parent, both_leg_qtys_index)
   end
 
   -- Org Trans Time Msg Time: Struct of 2 fields
@@ -3904,7 +3904,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol_text = {}
 
 -- Size: Long Symbol Text
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol_text.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_4040.size
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol.size
 
 -- Display: Long Symbol Text
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol_text.display = function(packet, parent, length)
@@ -3915,8 +3915,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol_text.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Char 4040: char [40]
-  index, symbol_char_4040 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.symbol_char_4040.dissect(buffer, index, packet, parent)
+  -- Long Symbol: char [40]
+  index, long_symbol = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3946,7 +3946,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol_num = {}
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol_num.size =
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.pseq_1.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.pseq_2.size + 
-  2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.size + 
+  2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.comb_op.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_33.size
 
@@ -3965,9 +3965,9 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.long_symbol_num.fields = fun
   -- Pseq 2: uint16
   index, pseq_2 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.pseq_2.dissect(buffer, index, packet, parent)
 
-  -- Array Of: Leg Side Uint 822
-  for leg_side_uint_822_index = 1, 2 do
-    index, leg_side_uint_822 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.dissect(buffer, index, packet, parent, leg_side_uint_822_index)
+  -- Array Of: Both Leg Sides
+  for both_leg_sides_index = 1, 2 do
+    index, both_leg_sides = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.dissect(buffer, index, packet, parent, both_leg_sides_index)
   end
 
   -- Comb Op: uint8
@@ -4027,7 +4027,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_long_for
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_long_format_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size
+  index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size
 
   index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.exec_type.size
 
@@ -4076,11 +4076,11 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_long_for
 
   index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.before_qty.size
 
-  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.size
+  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.size
 
   index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_px.size
 
-  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624.size
+  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys.size
 
   index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time.size
 
@@ -4106,8 +4106,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_long_format_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
@@ -4175,9 +4175,9 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_long_for
   -- Before Qty: uint16
   index, before_qty = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.before_qty.dissect(buffer, index, packet, parent)
 
-  -- Array Of: Leg Side Uint 822
-  for leg_side_uint_822_index = 1, 2 do
-    index, leg_side_uint_822 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.dissect(buffer, index, packet, parent, leg_side_uint_822_index)
+  -- Array Of: Both Leg Sides
+  for both_leg_sides_index = 1, 2 do
+    index, both_leg_sides = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.dissect(buffer, index, packet, parent, both_leg_sides_index)
   end
 
   -- Array Of: Leg Px
@@ -4185,9 +4185,9 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_long_for
     index, leg_px = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_px.dissect(buffer, index, packet, parent, leg_px_index)
   end
 
-  -- Array Of: Leg Qty Uint 1624
-  for leg_qty_uint_1624_index = 1, 2 do
-    index, leg_qty_uint_1624 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624.dissect(buffer, index, packet, parent, leg_qty_uint_1624_index)
+  -- Array Of: Both Leg Qtys
+  for both_leg_qtys_index = 1, 2 do
+    index, both_leg_qtys = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys.dissect(buffer, index, packet, parent, both_leg_qtys_index)
   end
 
   -- Org Trans Time Msg Time: Struct of 2 fields
@@ -4236,7 +4236,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_message 
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size
+  index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size
 
   index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.exec_type.size
 
@@ -4285,11 +4285,11 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_message.
 
   index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.before_qty.size
 
-  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.size
+  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.size
 
   index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_px.size
 
-  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624.size
+  index = index + 2 * taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys.size
 
   index = index + taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time.size
 
@@ -4315,8 +4315,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   -- Exec Type: char
   index, exec_type = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.exec_type.dissect(buffer, index, packet, parent)
@@ -4384,9 +4384,9 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_message.
   -- Before Qty: uint16
   index, before_qty = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.before_qty.dissect(buffer, index, packet, parent)
 
-  -- Array Of: Leg Side Uint 822
-  for leg_side_uint_822_index = 1, 2 do
-    index, leg_side_uint_822 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_side_uint_822.dissect(buffer, index, packet, parent, leg_side_uint_822_index)
+  -- Array Of: Both Leg Sides
+  for both_leg_sides_index = 1, 2 do
+    index, both_leg_sides = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_sides.dissect(buffer, index, packet, parent, both_leg_sides_index)
   end
 
   -- Array Of: Leg Px
@@ -4394,9 +4394,9 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.order_status_report_message.
     index, leg_px = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_px.dissect(buffer, index, packet, parent, leg_px_index)
   end
 
-  -- Array Of: Leg Qty Uint 1624
-  for leg_qty_uint_1624_index = 1, 2 do
-    index, leg_qty_uint_1624 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.leg_qty_uint_1624.dissect(buffer, index, packet, parent, leg_qty_uint_1624_index)
+  -- Array Of: Both Leg Qtys
+  for both_leg_qtys_index = 1, 2 do
+    index, both_leg_qtys = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.both_leg_qtys.dissect(buffer, index, packet, parent, both_leg_qtys_index)
   end
 
   -- Org Trans Time Msg Time: Struct of 2 fields
@@ -4443,7 +4443,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.connection_confirmed_message
 
 -- Size: Connection Confirmed Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.connection_confirmed_message.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size
 
 -- Display: Connection Confirmed Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.connection_confirmed_message.display = function(packet, parent, length)
@@ -4454,8 +4454,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.connection_confirmed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4483,7 +4483,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.confirm_connection_message =
 
 -- Size: Confirm Connection Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.confirm_connection_message.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size
 
 -- Display: Confirm Connection Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.confirm_connection_message.display = function(packet, parent, length)
@@ -4494,8 +4494,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.confirm_connection_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4523,7 +4523,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logout_confirmed_message = {
 
 -- Size: Logout Confirmed Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logout_confirmed_message.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size
 
 -- Display: Logout Confirmed Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logout_confirmed_message.display = function(packet, parent, length)
@@ -4534,8 +4534,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logout_confirmed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4580,7 +4580,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.activate_application_system_
 
 -- Size: Activate Application System Confirmed Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.activate_application_system_confirmed_message.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size
 
 -- Display: Activate Application System Confirmed Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.activate_application_system_confirmed_message.display = function(packet, parent, length)
@@ -4591,8 +4591,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.activate_application_system_confirmed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4620,7 +4620,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.activate_application_system_
 
 -- Size: Activate Application System Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.activate_application_system_message.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.heart_bt_int.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.max_flow_ctrl_cnt.size
 
@@ -4633,8 +4633,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.activate_application_system_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   -- Heart Bt Int: uint8
   index, heart_bt_int = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.heart_bt_int.dissect(buffer, index, packet, parent)
@@ -4668,7 +4668,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.request_logon_message = {}
 
 -- Size: Request Logon Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.request_logon_message.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.append_no.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fcm_id.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.session_id.size + 
@@ -4687,8 +4687,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.request_logon_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   -- Append No: uint16
   index, append_no = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.append_no.dissect(buffer, index, packet, parent)
@@ -4741,7 +4741,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.final_sequential_number_noti
 -- Size: Final Sequential Number Notification For Group Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.final_sequential_number_notification_for_group_message.size =
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.sub_hdr.size + 
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.part_id.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.end_out_bound_num.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_8.size
@@ -4758,8 +4758,8 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.final_sequential_number_noti
   -- Sub Hdr: Struct of 3 fields
   index, sub_hdr = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.sub_hdr.dissect(buffer, index, packet, parent)
 
-  -- Status Code Uint 162: uint16
-  index, status_code_uint_162 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_162.dissect(buffer, index, packet, parent)
+  -- Wide Status Code: uint16
+  index, wide_status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wide_status_code.dissect(buffer, index, packet, parent)
 
   -- Part Id: uint8
   index, part_id = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.part_id.dissect(buffer, index, packet, parent)
@@ -4800,7 +4800,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logon_notice_message = {}
 
 -- Size: Logon Notice Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logon_notice_message.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.append_no.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.end_out_bound_num.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.system_type.size + 
@@ -4815,8 +4815,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logon_notice_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   -- Append No: uint16
   index, append_no = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.append_no.dissect(buffer, index, packet, parent)
@@ -4896,7 +4896,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wake_up_call_message = {}
 
 -- Size: Wake Up Call Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wake_up_call_message.size =
-  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.size + 
+  taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.size + 
   taifex_taifexderivatives_clearingmember_tmp_v2_18_7.start_in_bound_num.size
 
 -- Display: Wake Up Call Message
@@ -4908,8 +4908,8 @@ end
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.wake_up_call_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status Code Uint 81: uint8
-  index, status_code_uint_81 = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code_uint_81.dissect(buffer, index, packet, parent)
+  -- Status Code: uint8
+  index, status_code = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.status_code.dissect(buffer, index, packet, parent)
 
   -- Start In Bound Num: uint32
   index, start_in_bound_num = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.start_in_bound_num.dissect(buffer, index, packet, parent)
