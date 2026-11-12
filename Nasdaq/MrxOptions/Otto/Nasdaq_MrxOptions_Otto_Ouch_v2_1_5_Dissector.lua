@@ -128,6 +128,7 @@ omi_nasdaq_mrxoptions_otto_ouch_v2_1_5.fields.requested_sequence_number = ProtoF
 omi_nasdaq_mrxoptions_otto_ouch_v2_1_5.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.mrxoptions.otto.ouch.v2.1.5.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_mrxoptions_otto_ouch_v2_1_5.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.mrxoptions.otto.ouch.v2.1.5.reserved1", ftypes.BYTES, nil, nil, nil, "This instruction is reserved and will only be accepted when blank space is provided")
 omi_nasdaq_mrxoptions_otto_ouch_v2_1_5.fields.scope = ProtoField.new("Scope", "nasdaq.mrxoptions.otto.ouch.v2.1.5.scope", ftypes.STRING, nil, nil, nil, "Scope of the deletion request: InstrumentType (requires ProductID). InstrumentID must be set to 0. InstrumentID (requires InstrumentID). ProductID must be set to 0. ProductId and InstrumentId must be set to zero(0).")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_5.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "nasdaq.mrxoptions.otto.ouch.v2.1.5.secondreserved1", ftypes.BYTES, nil, nil, nil, "This instruction is reserved and will only be accepted when blank space is provided")
 omi_nasdaq_mrxoptions_otto_ouch_v2_1_5.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.mrxoptions.otto.ouch.v2.1.5.securitysymbol", ftypes.STRING, nil, nil, nil, "Industry assigned security symbol for the option contract")
 omi_nasdaq_mrxoptions_otto_ouch_v2_1_5.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.mrxoptions.otto.ouch.v2.1.5.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_nasdaq_mrxoptions_otto_ouch_v2_1_5.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.mrxoptions.otto.ouch.v2.1.5.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
@@ -3430,6 +3431,29 @@ nasdaq_mrxoptions_otto_ouch_v2_1_5.scope.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
+-- Second Reserved 1
+nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_5.fields.second_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Security Symbol
 nasdaq_mrxoptions_otto_ouch_v2_1_5.security_symbol = {}
 
@@ -5188,7 +5212,7 @@ nasdaq_mrxoptions_otto_ouch_v2_1_5.order_accepted_long_form_message.size =
   nasdaq_mrxoptions_otto_ouch_v2_1_5.position_effect_mask.size + 
   nasdaq_mrxoptions_otto_ouch_v2_1_5.stock_leg_short_sale.size + 
   nasdaq_mrxoptions_otto_ouch_v2_1_5.stock_leg_mpid.size + 
-  nasdaq_mrxoptions_otto_ouch_v2_1_5.reserved_1.size
+  nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1.size
 
 -- Display: Order Accepted Long Form Message
 nasdaq_mrxoptions_otto_ouch_v2_1_5.order_accepted_long_form_message.display = function(packet, parent, length)
@@ -5296,11 +5320,11 @@ nasdaq_mrxoptions_otto_ouch_v2_1_5.order_accepted_long_form_message.fields = fun
   -- Stock Leg Mpid: Alphanumeric
   index, stock_leg_mpid = nasdaq_mrxoptions_otto_ouch_v2_1_5.stock_leg_mpid.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Alpha
+  -- Second Reserved 1: Alpha
   if show.padding then
-    index, reserved_1 = nasdaq_mrxoptions_otto_ouch_v2_1_5.reserved_1.dissect(buffer, index, packet, parent)
+    index, second_reserved_1 = nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1.dissect(buffer, index, packet, parent)
   else
-    index = index + nasdaq_mrxoptions_otto_ouch_v2_1_5.reserved_1.size
+    index = index + nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1.size
   end
 
   return index
@@ -7130,7 +7154,7 @@ nasdaq_mrxoptions_otto_ouch_v2_1_5.new_order_long_form_message.size =
   nasdaq_mrxoptions_otto_ouch_v2_1_5.stock_leg_short_sale.size + 
   nasdaq_mrxoptions_otto_ouch_v2_1_5.stock_leg_mpid.size + 
   nasdaq_mrxoptions_otto_ouch_v2_1_5.stock_capacity.size + 
-  nasdaq_mrxoptions_otto_ouch_v2_1_5.reserved_1.size
+  nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1.size
 
 -- Display: New Order Long Form Message
 nasdaq_mrxoptions_otto_ouch_v2_1_5.new_order_long_form_message.display = function(packet, parent, length)
@@ -7238,11 +7262,11 @@ nasdaq_mrxoptions_otto_ouch_v2_1_5.new_order_long_form_message.fields = function
   -- Stock Capacity: Alpha
   index, stock_capacity = nasdaq_mrxoptions_otto_ouch_v2_1_5.stock_capacity.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Alpha
+  -- Second Reserved 1: Alpha
   if show.padding then
-    index, reserved_1 = nasdaq_mrxoptions_otto_ouch_v2_1_5.reserved_1.dissect(buffer, index, packet, parent)
+    index, second_reserved_1 = nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1.dissect(buffer, index, packet, parent)
   else
-    index = index + nasdaq_mrxoptions_otto_ouch_v2_1_5.reserved_1.size
+    index = index + nasdaq_mrxoptions_otto_ouch_v2_1_5.second_reserved_1.size
   end
 
   return index
