@@ -836,7 +836,23 @@ bmv_bmvmarketdata_product11_intra_v1_1.message_type.size = 1
 
 -- Display: Message Type
 bmv_bmvmarketdata_product11_intra_v1_1.message_type.display = function(value)
-  return "Message Type: "..value
+  if value == 0x53 then
+    return "Message Type: Events System Message (0x53)"
+  end
+  if value == 0x48 then
+    return "Message Type: Trade Cancellation Message (0x48)"
+  end
+  if value == 0x50 then
+    return "Message Type: Capital Trades Message (0x50)"
+  end
+  if value == 0x5A then
+    return "Message Type: Registry Operations Message (0x5A)"
+  end
+  if value == 0x42 then
+    return "Message Type: Public Offerings Message (0x42)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

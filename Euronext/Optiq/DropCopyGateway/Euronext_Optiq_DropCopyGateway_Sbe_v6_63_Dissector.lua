@@ -8419,10 +8419,6 @@ euronext_optiq_dropcopygateway_sbe_v6_63.dark_execution_instruction.display = fu
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "Dark Passive Order Indicator"
   end
-  -- Is Unused Dark Execution Instructionset 7 flag set?
-  if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Unused Dark Execution Instructionset 7"
-  end
 
   return table.concat(flags, "|")
 end
@@ -14191,10 +14187,6 @@ euronext_optiq_dropcopygateway_sbe_v6_63.trading_session.size = 1
 euronext_optiq_dropcopygateway_sbe_v6_63.trading_session.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused Trading Session Validityset 0 flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Unused Trading Session Validityset 0"
-  end
   -- Is Session 1 flag set?
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Session 1"

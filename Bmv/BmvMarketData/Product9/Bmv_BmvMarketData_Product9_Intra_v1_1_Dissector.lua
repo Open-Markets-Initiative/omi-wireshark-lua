@@ -622,7 +622,29 @@ bmv_bmvmarketdata_product9_intra_v1_1.message_type.size = 1
 
 -- Display: Message Type
 bmv_bmvmarketdata_product9_intra_v1_1.message_type.display = function(value)
-  return "Message Type: "..value
+  if value == 0x53 then
+    return "Message Type: Events System Message (0x53)"
+  end
+  if value == 0x48 then
+    return "Message Type: Trade Cancellation Message (0x48)"
+  end
+  if value == 0x34 then
+    return "Message Type: Status Changes Message (0x34)"
+  end
+  if value == 0x4D then
+    return "Message Type: Weighted Average Price Settlement Prices Message (0x4D)"
+  end
+  if value == 0x4F then
+    return "Message Type: Best Offer Message (0x4F)"
+  end
+  if value == 0x49 then
+    return "Message Type: Open Interest Message (0x49)"
+  end
+  if value == 0x51 then
+    return "Message Type: Derivatives Market Trades Message (0x51)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

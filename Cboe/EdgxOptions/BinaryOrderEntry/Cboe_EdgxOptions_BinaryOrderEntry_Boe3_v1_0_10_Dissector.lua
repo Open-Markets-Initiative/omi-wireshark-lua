@@ -154,7 +154,7 @@ omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.replay_instruction = P
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.request_received_time = ProtoField.new("Request Received Time", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.requestreceivedtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "A hardware timestamp, populated with nanosecond precision, that")
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.request_received_time_utc = ProtoField.new("Request Received Time", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.requestreceivedtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "A hardware timestamp, populated with nanosecond precision, that")
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.reserved = ProtoField.new("Reserved", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.reserved", ftypes.BYTES)
-omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.reservedfield", ftypes.UINT8, nil, nil, nil, "Reserved header field")
+omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.reservedfield", ftypes.BYTES, nil, nil, nil, "Reserved header field")
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.restatementreason", ftypes.STRING, nil, nil, nil, "The reason for this Quote Restated message")
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.riskreset", ftypes.STRING, nil, nil, nil, "For use by customers using Cboe's Risk Management tools to reset or release EFID Group, EFID, Risk Root, or Custom Group ID level lockout conditions resulting from risk profile trips or self-imposed lockouts issued via Cancel Orderor Purge Orders messages")
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.risk_reset_result = ProtoField.new("Risk Reset Result", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.riskresetresult", ftypes.STRING, nil, nil, nil, "<space> = Ignored; exceeds 1 reset per 100 milliseconds")
@@ -4974,7 +4974,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved_field.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved_field.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.reserved_field, range, value, display)
@@ -9349,8 +9349,12 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.exchange_message_header.fields = 
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.matching_unit.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
-  index, reserved_field = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved Field: 1 Byte
+  if show.padding then
+    index, reserved_field = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved_field.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved_field.size
+  end
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.sequence_number.dissect(buffer, index, packet, parent)
@@ -11730,8 +11734,12 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.firm_message_header.fields = func
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.matching_unit.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
-  index, reserved_field = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved Field: 1 Byte
+  if show.padding then
+    index, reserved_field = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved_field.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved_field.size
+  end
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.sequence_number.dissect(buffer, index, packet, parent)

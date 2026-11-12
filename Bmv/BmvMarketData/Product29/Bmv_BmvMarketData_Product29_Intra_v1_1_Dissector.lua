@@ -628,7 +628,23 @@ bmv_bmvmarketdata_product29_intra_v1_1.message_type.size = 1
 
 -- Display: Message Type
 bmv_bmvmarketdata_product29_intra_v1_1.message_type.display = function(value)
-  return "Message Type: "..value
+  if value == 0x6D then
+    return "Message Type: Last Quote Message (0x6D)"
+  end
+  if value == 0x3A then
+    return "Message Type: Benchmark Trade Message (0x3A)"
+  end
+  if value == 0x40 then
+    return "Message Type: Price Leaderboard Message (0x40)"
+  end
+  if value == 0x3C then
+    return "Message Type: Trading Sniper Message (0x3C)"
+  end
+  if value == 0x5E then
+    return "Message Type: Depth At Best Prices Message (0x5E)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

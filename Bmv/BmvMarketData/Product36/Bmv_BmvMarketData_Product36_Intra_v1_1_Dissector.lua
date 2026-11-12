@@ -612,7 +612,14 @@ bmv_bmvmarketdata_product36_intra_v1_1.message_type.size = 1
 
 -- Display: Message Type
 bmv_bmvmarketdata_product36_intra_v1_1.message_type.display = function(value)
-  return "Message Type: "..value
+  if value == 0x53 then
+    return "Message Type: Events System Message (0x53)"
+  end
+  if value == 0x57 then
+    return "Message Type: Indices Components Message (0x57)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

@@ -1363,7 +1363,23 @@ bmv_bmvmarketdata_product21_intra_v1_1.message_type.size = 1
 
 -- Display: Message Type
 bmv_bmvmarketdata_product21_intra_v1_1.message_type.display = function(value)
-  return "Message Type: "..value
+  if value == 0x53 then
+    return "Message Type: Events System Message (0x53)"
+  end
+  if value == 0x72 then
+    return "Message Type: Dollar Buy Sell Message (0x72)"
+  end
+  if value == 0x73 then
+    return "Message Type: Short Sales Balances Per Instrument Message (0x73)"
+  end
+  if value == 0x74 then
+    return "Message Type: Capital Market Multiples Message (0x74)"
+  end
+  if value == 0x78 then
+    return "Message Type: Benchmark Message (0x78)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

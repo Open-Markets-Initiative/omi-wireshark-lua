@@ -60,8 +60,8 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.cur
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.current_time = ProtoField.new("Current Time", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.currenttime", ftypes.STRING, nil, nil, nil, "Current time in HHMM format, transmitted at one-minute intervals.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.duration = ProtoField.new("Duration", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.duration", ftypes.DOUBLE, nil, nil, nil, "Bond index average duration (7 ASCII digits with 3 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.end_keyword = ProtoField.new("End Keyword", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.endkeyword", ftypes.UINT8, nil, nil, nil, "End of text sentinel (0xFF).")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.filler_3 = ProtoField.new("Filler 3", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.filler3", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.filler4", ftypes.STRING, nil, nil, nil, "Reserved filler. Always 4 ASCII space characters.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.filler_3 = ProtoField.new("Filler 3", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.filler3", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.filler4", ftypes.BYTES, nil, nil, nil, "Reserved filler. Always 4 ASCII space characters.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.futures_basis_price = ProtoField.new("Futures Basis Price", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.futuresbasisprice", ftypes.DOUBLE, nil, nil, nil, "Futures basis price (10 ASCII digits with 2 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.group_code = ProtoField.new("Group Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.groupcode", ftypes.STRING, nil, nil, nil, "Bond Prime Index Group Code. JA000 group identifier; check the TR-CODE for the specific group.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index = ProtoField.new("Index", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.index", ftypes.DOUBLE, nil, nil, nil, "Current index value (9 ASCII digits with 2 implied decimal places).")
@@ -145,10 +145,12 @@ local show = {}
 -- Koscom MdcsRealtime ReferenceInfoInvestorActivities Exture 2.020 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.padding = false
 
 -- Register Koscom MdcsRealtime ReferenceInfoInvestorActivities Exture 2.020 Show Options
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 -- Handle changed preferences
 function omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.prefs_changed()
@@ -156,6 +158,9 @@ function omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.p
   -- Check if preferences have changed
   if show.application_messages ~= omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.prefs.show_application_messages then
     show.application_messages = omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.prefs.show_application_messages
+  end
+  if show.padding ~= omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.prefs.show_padding then
+    show.padding = omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.prefs.show_padding
   end
   if show.structs ~= omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.prefs.show_structs then
     show.structs = omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.prefs.show_structs
@@ -1943,7 +1948,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.filler_3, range, value, display)
@@ -1966,7 +1971,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.filler_4, range, value, display)
@@ -3894,7 +3899,11 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_inv
   index, accumulated_bid_trading_value = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_bid_trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_3.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.end_keyword.dissect(buffer, index, packet, parent)
@@ -4402,7 +4411,11 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.global_index_m
   index, currency_code = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.currency_code.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.end_keyword.dissect(buffer, index, packet, parent)
@@ -4478,7 +4491,11 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.krx_estimated_
   index, accumulated_trading_value = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.end_keyword.dissect(buffer, index, packet, parent)
@@ -4554,7 +4571,11 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.krx_index_mess
   index, accumulated_trading_value = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.end_keyword.dissect(buffer, index, packet, parent)

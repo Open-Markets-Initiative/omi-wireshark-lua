@@ -40,8 +40,8 @@ omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.price_short = ProtoField.ne
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.bzxequities.summarydepth.csdp.v1.0.7.quantitylong", ftypes.UINT64, nil, nil, nil, "Quantity of shares at this price level in the ADAP book. A value of zero implies deletion of this ADAP level.")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.bzxequities.summarydepth.csdp.v1.0.7.quantityshort", ftypes.UINT32, nil, nil, nil, "Quantity of shares at this price level in the ADAP book. A value of zero implies deletion of this ADAP level.")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.bzxequities.summarydepth.csdp.v1.0.7.regshoaction", ftypes.STRING)
-omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.bzxequities.summarydepth.csdp.v1.0.7.reserved1", ftypes.STRING, nil, nil, nil, "Reserved")
-omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.reserved_8 = ProtoField.new("Reserved 8", "cboe.bzxequities.summarydepth.csdp.v1.0.7.reserved8", ftypes.UINT64, nil, nil, nil, "Reserved")
+omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.bzxequities.summarydepth.csdp.v1.0.7.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved")
+omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.reserved_8 = ProtoField.new("Reserved 8", "cboe.bzxequities.summarydepth.csdp.v1.0.7.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.bzxequities.summarydepth.csdp.v1.0.7.retailpriceimprovement", ftypes.STRING)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.sequence = ProtoField.new("Sequence", "cboe.bzxequities.summarydepth.csdp.v1.0.7.sequence", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.session_indicator = ProtoField.new("Session Indicator", "cboe.bzxequities.summarydepth.csdp.v1.0.7.sessionindicator", ftypes.STRING)
@@ -678,7 +678,7 @@ end
 cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.reserved_1, range, value, display)
@@ -701,7 +701,7 @@ end
 cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.reserved_8, range, value, display)
@@ -1012,7 +1012,11 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.trading_status_message.fields = functi
   index, symbol = cboe_bzxequities_summarydepth_csdp_v1_0_7.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.size
+  end
 
   -- Halt Status: Alphanumeric
   index, halt_status = cboe_bzxequities_summarydepth_csdp_v1_0_7.halt_status.dissect(buffer, index, packet, parent)
@@ -1106,7 +1110,11 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.trade_break_message.fields = function(
   index, symbol = cboe_bzxequities_summarydepth_csdp_v1_0_7.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.size
+  end
 
   -- Execution Id: Binary
   index, execution_id = cboe_bzxequities_summarydepth_csdp_v1_0_7.execution_id.dissect(buffer, index, packet, parent)
@@ -1115,7 +1123,11 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.trade_break_message.fields = function(
   index, cboe_cumulative_executed_volume = cboe_bzxequities_summarydepth_csdp_v1_0_7.cboe_cumulative_executed_volume.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Binary
-  index, reserved_8 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_8.size
+  end
 
   -- Trade Break Flags: Struct of 1 fields
   index, trade_break_flags = cboe_bzxequities_summarydepth_csdp_v1_0_7.trade_break_flags.dissect(buffer, index, packet, parent)
@@ -1218,7 +1230,11 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.trade_message.fields = function(buffer
   index, symbol = cboe_bzxequities_summarydepth_csdp_v1_0_7.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.size
+  end
 
   -- Execution Id: Binary
   index, execution_id = cboe_bzxequities_summarydepth_csdp_v1_0_7.execution_id.dissect(buffer, index, packet, parent)
@@ -1233,7 +1249,11 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.trade_message.fields = function(buffer
   index, cboe_cumulative_executed_volume = cboe_bzxequities_summarydepth_csdp_v1_0_7.cboe_cumulative_executed_volume.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Binary
-  index, reserved_8 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_8.size
+  end
 
   -- Trade Flags: Struct of 3 fields
   index, trade_flags = cboe_bzxequities_summarydepth_csdp_v1_0_7.trade_flags.dissect(buffer, index, packet, parent)
@@ -1285,7 +1305,11 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.rpi_message.fields = function(buffer, 
   index, symbol = cboe_bzxequities_summarydepth_csdp_v1_0_7.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.size
+  end
 
   -- Retail Price Improvement: Alphanumeric
   index, retail_price_improvement = cboe_bzxequities_summarydepth_csdp_v1_0_7.retail_price_improvement.dissect(buffer, index, packet, parent)
@@ -1331,7 +1355,11 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.long_update_adap_block.fields = functi
   local index = offset
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.size
+  end
 
   -- Side: Alphanumeric
   index, side = cboe_bzxequities_summarydepth_csdp_v1_0_7.side.dissect(buffer, index, packet, parent)
@@ -1383,7 +1411,11 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.short_update_adap_block.fields = funct
   local index = offset
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.size
+  end
 
   -- Side: Alphanumeric
   index, side = cboe_bzxequities_summarydepth_csdp_v1_0_7.side.dissect(buffer, index, packet, parent)
@@ -1655,7 +1687,11 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.cboe_market_status_message.fields = fu
   index, timestamp = cboe_bzxequities_summarydepth_csdp_v1_0_7.timestamp.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.size
+  end
 
   -- Market Status: Alphanumeric
   index, market_status = cboe_bzxequities_summarydepth_csdp_v1_0_7.market_status.dissect(buffer, index, packet, parent)
@@ -1709,7 +1745,11 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.clear_quote_message.fields = function(
   index, symbol = cboe_bzxequities_summarydepth_csdp_v1_0_7.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_bzxequities_summarydepth_csdp_v1_0_7.reserved_1.size
+  end
 
   return index
 end

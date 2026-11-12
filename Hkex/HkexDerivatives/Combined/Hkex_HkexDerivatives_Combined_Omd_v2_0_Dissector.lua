@@ -19,7 +19,8 @@ omi_hkex_hkexderivatives_combined_omd_v2_0.fields.actual_start_time = ProtoField
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.actual_start_time_utc = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.combined.omd.v2.0.actualstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexderivatives.combined.omd.v2.0.aggregatequantity", ftypes.UINT64, nil, nil, nil, "Aggregated number of shares")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.alert_id = ProtoField.new("Alert Id", "hkex.hkexderivatives.combined.omd.v2.0.alertid", ftypes.UINT64, nil, nil, nil, "The reference ID for this alert, unique for any given day")
-omi_hkex_hkexderivatives_combined_omd_v2_0.fields.amendment_execution_time = ProtoField.new("Amendment Execution Time", "hkex.hkexderivatives.combined.omd.v2.0.amendmentexecutiontime", ftypes.UINT64, nil, nil, nil, "Date and time of the trade amendment execution")
+omi_hkex_hkexderivatives_combined_omd_v2_0.fields.amendment_execution_time = ProtoField.new("Amendment Execution Time", "hkex.hkexderivatives.combined.omd.v2.0.amendmentexecutiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time of the trade amendment execution")
+omi_hkex_hkexderivatives_combined_omd_v2_0.fields.amendment_execution_time_utc = ProtoField.new("Amendment Execution Time", "hkex.hkexderivatives.combined.omd.v2.0.amendmentexecutiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time of the trade amendment execution")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.base_currency = ProtoField.new("Base Currency", "hkex.hkexderivatives.combined.omd.v2.0.basecurrency", ftypes.STRING, nil, nil, nil, "Defines the trading currency")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.bid_ask_flag = ProtoField.new("Bid Ask Flag", "hkex.hkexderivatives.combined.omd.v2.0.bidaskflag", ftypes.UINT8, nil, nil, nil, "Indicates if the quote request is for a Bid or Ask or both")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.book_entry = ProtoField.new("Book Entry", "hkex.hkexderivatives.combined.omd.v2.0.bookentry", ftypes.STRING, nil, nil, nil, "The aggregate order book is sent whenever there is a orderbook change")
@@ -53,7 +54,8 @@ omi_hkex_hkexderivatives_combined_omd_v2_0.fields.filler_4 = ProtoField.new("Fil
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.filler_5 = ProtoField.new("Filler 5", "hkex.hkexderivatives.combined.omd.v2.0.filler5", ftypes.BYTES, nil, nil, nil, "Padding")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.filler_6 = ProtoField.new("Filler 6", "hkex.hkexderivatives.combined.omd.v2.0.filler6", ftypes.BYTES, nil, nil, nil, "Padding")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.first_trading_date = ProtoField.new("First Trading Date", "hkex.hkexderivatives.combined.omd.v2.0.firsttradingdate", ftypes.UINT32, nil, nil, nil, "The first trading date")
-omi_hkex_hkexderivatives_combined_omd_v2_0.fields.first_trading_time = ProtoField.new("First Trading Time", "hkex.hkexderivatives.combined.omd.v2.0.firsttradingtime", ftypes.UINT64, nil, nil, nil, "The first trading time (UTC timestamp)")
+omi_hkex_hkexderivatives_combined_omd_v2_0.fields.first_trading_time = ProtoField.new("First Trading Time", "hkex.hkexderivatives.combined.omd.v2.0.firsttradingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The first trading time (UTC timestamp)")
+omi_hkex_hkexderivatives_combined_omd_v2_0.fields.first_trading_time_utc = ProtoField.new("First Trading Time", "hkex.hkexderivatives.combined.omd.v2.0.firsttradingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The first trading time (UTC timestamp)")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.gross_oi = ProtoField.new("Gross Oi", "hkex.hkexderivatives.combined.omd.v2.0.grossoi", ftypes.INT32, nil, nil, nil, "If DayIndicator = 1,")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.header = ProtoField.new("Header", "hkex.hkexderivatives.combined.omd.v2.0.header", ftypes.BYTES)
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.high_price = ProtoField.new("High Price", "hkex.hkexderivatives.combined.omd.v2.0.highprice", ftypes.INT64, nil, nil, nil, "Highest price of normal trades in")
@@ -75,7 +77,8 @@ omi_hkex_hkexderivatives_combined_omd_v2_0.fields.last_fragment = ProtoField.new
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.last_price = ProtoField.new("Last Price", "hkex.hkexderivatives.combined.omd.v2.0.lastprice", ftypes.INT64, nil, nil, nil, "Last Traded Price")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.hkexderivatives.combined.omd.v2.0.lastseqnum", ftypes.UINT32, nil, nil, nil, "Sequence number with which")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.last_trading_date = ProtoField.new("Last Trading Date", "hkex.hkexderivatives.combined.omd.v2.0.lasttradingdate", ftypes.UINT32, nil, nil, nil, "Last trading date of the instrument")
-omi_hkex_hkexderivatives_combined_omd_v2_0.fields.last_trading_time = ProtoField.new("Last Trading Time", "hkex.hkexderivatives.combined.omd.v2.0.lasttradingtime", ftypes.UINT64, nil, nil, nil, "The last trading time of the instrument")
+omi_hkex_hkexderivatives_combined_omd_v2_0.fields.last_trading_time = ProtoField.new("Last Trading Time", "hkex.hkexderivatives.combined.omd.v2.0.lasttradingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The last trading time of the instrument")
+omi_hkex_hkexderivatives_combined_omd_v2_0.fields.last_trading_time_utc = ProtoField.new("Last Trading Time", "hkex.hkexderivatives.combined.omd.v2.0.lasttradingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The last trading time of the instrument")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.leg_orderbook_id = ProtoField.new("Leg Orderbook Id", "hkex.hkexderivatives.combined.omd.v2.0.legorderbookid", ftypes.UINT32, nil, nil, nil, "Uniquely identifies a leg instrument")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.leg_ratio = ProtoField.new("Leg Ratio", "hkex.hkexderivatives.combined.omd.v2.0.legratio", ftypes.INT32, nil, nil, nil, "Relative numbers of bid and ask contracts between legs")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.leg_side = ProtoField.new("Leg Side", "hkex.hkexderivatives.combined.omd.v2.0.legside", ftypes.STRING, nil, nil, nil, "Identifies the leg side within the combination")
@@ -131,7 +134,8 @@ omi_hkex_hkexderivatives_combined_omd_v2_0.fields.trade_id = ProtoField.new("Tra
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.trade_report_volume = ProtoField.new("Trade Report Volume", "hkex.hkexderivatives.combined.omd.v2.0.tradereportvolume", ftypes.UINT64, nil, nil, nil, "Total volume of reported trades for the respective Session")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.trade_state = ProtoField.new("Trade State", "hkex.hkexderivatives.combined.omd.v2.0.tradestate", ftypes.UINT8)
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.trade_sub_type = ProtoField.new("Trade Sub Type", "hkex.hkexderivatives.combined.omd.v2.0.tradesubtype", ftypes.UINT8)
-omi_hkex_hkexderivatives_combined_omd_v2_0.fields.trade_time = ProtoField.new("Trade Time", "hkex.hkexderivatives.combined.omd.v2.0.tradetime", ftypes.UINT64, nil, nil, nil, "Date and time of the last")
+omi_hkex_hkexderivatives_combined_omd_v2_0.fields.trade_time = ProtoField.new("Trade Time", "hkex.hkexderivatives.combined.omd.v2.0.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time of the last")
+omi_hkex_hkexderivatives_combined_omd_v2_0.fields.trade_time_utc = ProtoField.new("Trade Time", "hkex.hkexderivatives.combined.omd.v2.0.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time of the last")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.turnover = ProtoField.new("Turnover", "hkex.hkexderivatives.combined.omd.v2.0.turnover", ftypes.UINT64, nil, nil, nil, "Cumulative volume for the respective Session")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.underlying_code = ProtoField.new("Underlying Code", "hkex.hkexderivatives.combined.omd.v2.0.underlyingcode", ftypes.STRING, nil, nil, nil, "Underlying Code of the Commodity")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.underlying_type = ProtoField.new("Underlying Type", "hkex.hkexderivatives.combined.omd.v2.0.underlyingtype", ftypes.STRING, nil, nil, nil, "Type of the underlying")
@@ -353,19 +357,20 @@ hkex_hkexderivatives_combined_omd_v2_0.amendment_execution_time = {}
 -- Size: Amendment Execution Time
 hkex_hkexderivatives_combined_omd_v2_0.amendment_execution_time.size = 8
 
--- Display: Amendment Execution Time
-hkex_hkexderivatives_combined_omd_v2_0.amendment_execution_time.display = function(value)
-  return "Amendment Execution Time: "..value
-end
-
 -- Dissect: Amendment Execution Time
 hkex_hkexderivatives_combined_omd_v2_0.amendment_execution_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combined_omd_v2_0.amendment_execution_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_combined_omd_v2_0.amendment_execution_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combined_omd_v2_0.fields.amendment_execution_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_combined_omd_v2_0.fields.amendment_execution_time
+  if hkex_hkexderivatives_combined_omd_v2_0.timestamp_format == 3 then field = omi_hkex_hkexderivatives_combined_omd_v2_0.fields.amendment_execution_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1099,19 +1104,20 @@ hkex_hkexderivatives_combined_omd_v2_0.first_trading_time = {}
 -- Size: First Trading Time
 hkex_hkexderivatives_combined_omd_v2_0.first_trading_time.size = 8
 
--- Display: First Trading Time
-hkex_hkexderivatives_combined_omd_v2_0.first_trading_time.display = function(value)
-  return "First Trading Time: "..value
-end
-
 -- Dissect: First Trading Time
 hkex_hkexderivatives_combined_omd_v2_0.first_trading_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combined_omd_v2_0.first_trading_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_combined_omd_v2_0.first_trading_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combined_omd_v2_0.fields.first_trading_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_combined_omd_v2_0.fields.first_trading_time
+  if hkex_hkexderivatives_combined_omd_v2_0.timestamp_format == 3 then field = omi_hkex_hkexderivatives_combined_omd_v2_0.fields.first_trading_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1684,19 +1690,20 @@ hkex_hkexderivatives_combined_omd_v2_0.last_trading_time = {}
 -- Size: Last Trading Time
 hkex_hkexderivatives_combined_omd_v2_0.last_trading_time.size = 8
 
--- Display: Last Trading Time
-hkex_hkexderivatives_combined_omd_v2_0.last_trading_time.display = function(value)
-  return "Last Trading Time: "..value
-end
-
 -- Dissect: Last Trading Time
 hkex_hkexderivatives_combined_omd_v2_0.last_trading_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combined_omd_v2_0.last_trading_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_combined_omd_v2_0.last_trading_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combined_omd_v2_0.fields.last_trading_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_combined_omd_v2_0.fields.last_trading_time
+  if hkex_hkexderivatives_combined_omd_v2_0.timestamp_format == 3 then field = omi_hkex_hkexderivatives_combined_omd_v2_0.fields.last_trading_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3128,19 +3135,20 @@ hkex_hkexderivatives_combined_omd_v2_0.trade_time = {}
 -- Size: Trade Time
 hkex_hkexderivatives_combined_omd_v2_0.trade_time.size = 8
 
--- Display: Trade Time
-hkex_hkexderivatives_combined_omd_v2_0.trade_time.display = function(value)
-  return "Trade Time: "..value
-end
-
 -- Dissect: Trade Time
 hkex_hkexderivatives_combined_omd_v2_0.trade_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combined_omd_v2_0.trade_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_combined_omd_v2_0.trade_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combined_omd_v2_0.fields.trade_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_combined_omd_v2_0.fields.trade_time
+  if hkex_hkexderivatives_combined_omd_v2_0.timestamp_format == 3 then field = omi_hkex_hkexderivatives_combined_omd_v2_0.fields.trade_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

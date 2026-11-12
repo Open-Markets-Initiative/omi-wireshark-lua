@@ -244,11 +244,11 @@ omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.exercising_period = Pro
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.expected_time_of_expanding_price_limit_range = ProtoField.new("Expected Time Of Expanding Price Limit Range", "koscom.mdcsrealtime.securitiesc.exture.v2.018.expectedtimeofexpandingpricelimitrange", ftypes.STRING, nil, nil, nil, "Expected Time of Expanding Price Limit Range.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.expiration_date = ProtoField.new("Expiration Date", "koscom.mdcsrealtime.securitiesc.exture.v2.018.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration Date.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.expiration_date_for_right = ProtoField.new("Expiration Date For Right", "koscom.mdcsrealtime.securitiesc.exture.v2.018.expirationdateforright", ftypes.STRING, nil, nil, nil, "Expiration Date for Right.")
-omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_1 = ProtoField.new("Filler 1", "koscom.mdcsrealtime.securitiesc.exture.v2.018.filler1", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_11 = ProtoField.new("Filler 11", "koscom.mdcsrealtime.securitiesc.exture.v2.018.filler11", ftypes.DOUBLE, nil, nil, nil, "Upper Limit Price on the Single Price Trade in the Off-Hours Session.")
-omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_3 = ProtoField.new("Filler 3", "koscom.mdcsrealtime.securitiesc.exture.v2.018.filler3", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.securitiesc.exture.v2.018.filler4", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_8 = ProtoField.new("Filler 8", "koscom.mdcsrealtime.securitiesc.exture.v2.018.filler8", ftypes.STRING, nil, nil, nil, "Filler 8.")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_1 = ProtoField.new("Filler 1", "koscom.mdcsrealtime.securitiesc.exture.v2.018.filler1", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_11 = ProtoField.new("Filler 11", "koscom.mdcsrealtime.securitiesc.exture.v2.018.filler11", ftypes.BYTES, nil, nil, nil, "Upper Limit Price on the Single Price Trade in the Off-Hours Session.")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_3 = ProtoField.new("Filler 3", "koscom.mdcsrealtime.securitiesc.exture.v2.018.filler3", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.securitiesc.exture.v2.018.filler4", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_8 = ProtoField.new("Filler 8", "koscom.mdcsrealtime.securitiesc.exture.v2.018.filler8", ftypes.BYTES, nil, nil, nil, "Filler 8.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.final_ask_bid_type_code = ProtoField.new("Final Ask Bid Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.finalaskbidtypecode", ftypes.STRING, nil, nil, nil, "Ask/Bid Type Code space: order filled with single price 0: N/A 1: ASK 2: BID.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.first_best_order_permission_type_code = ProtoField.new("First Best Order Permission Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.firstbestorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.futures_basis_price = ProtoField.new("Futures Basis Price", "koscom.mdcsrealtime.securitiesc.exture.v2.018.futuresbasisprice", ftypes.DOUBLE, nil, nil, nil, "Futures basis price (10 ASCII digits with 2 implied decimal places).")
@@ -256,8 +256,10 @@ omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.group_code = ProtoField
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.group_number = ProtoField.new("Group Number", "koscom.mdcsrealtime.securitiesc.exture.v2.018.groupnumber", ftypes.STRING, nil, nil, nil, "Group Number.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.highest_order_price = ProtoField.new("Highest Order Price", "koscom.mdcsrealtime.securitiesc.exture.v2.018.highestorderprice", ftypes.DOUBLE, nil, nil, nil, "An upper limit price of an issue of which base price is settled with today's single price.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index = ProtoField.new("Index", "koscom.mdcsrealtime.securitiesc.exture.v2.018.index", ftypes.DOUBLE, nil, nil, nil, "Current index value (9 ASCII digits with 2 implied decimal places).")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index_accumulated_trading_value = ProtoField.new("Index Accumulated Trading Value", "koscom.mdcsrealtime.securitiesc.exture.v2.018.indexaccumulatedtradingvalue", ftypes.UINT64, nil, nil, nil, "Accumulated trading value of the index constituents (12 ASCII digits). Unit: Million KRW.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index_asset_classification_id_1 = ProtoField.new("Index Asset Classification Id 1", "koscom.mdcsrealtime.securitiesc.exture.v2.018.indexassetclassificationid1", ftypes.STRING, nil, nil, nil, "*Level 1_classification(2 digits) + Level 2_classification(2 digits) + Level 3 classification(2 digits). - '00' is marked in case the value(s) of each classification is(are) omitted. However, the valu.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index_asset_classification_id_2 = ProtoField.new("Index Asset Classification Id 2", "koscom.mdcsrealtime.securitiesc.exture.v2.018.indexassetclassificationid2", ftypes.STRING, nil, nil, nil, "*Level 1_classification(2 digits) + Level 2_classification(2 digits) + Level 3 classification(2 digits). - '00' is marked in case the value(s) of each classification is(are) omitted. However, the valu.")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index_business_date = ProtoField.new("Index Business Date", "koscom.mdcsrealtime.securitiesc.exture.v2.018.indexbusinessdate", ftypes.STRING, nil, nil, nil, "Business date for the index calculation in YYYYMMDD format.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index_calculation_institution_type_code = ProtoField.new("Index Calculation Institution Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.indexcalculationinstitutiontypecode", ftypes.STRING, nil, nil, nil, "Index Calculation Institution_Type Code.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index_change_against_the_previous_day = ProtoField.new("Index Change Against The Previous Day", "koscom.mdcsrealtime.securitiesc.exture.v2.018.indexchangeagainstthepreviousday", ftypes.DOUBLE, nil, nil, nil, "Magnitude of the index change against the previous day (9 ASCII digits with 2 implied decimal places).")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index_change_sign_against_the_previous_day = ProtoField.new("Index Change Sign Against The Previous Day", "koscom.mdcsrealtime.securitiesc.exture.v2.018.indexchangesignagainstthepreviousday", ftypes.STRING, nil, nil, nil, "Sign of the index change against the previous day. '+' ascended, ' ' unchanged, '-' declined.")
@@ -359,6 +361,7 @@ omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.market_id_2_for_underly
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.market_id_3_for_underlying_assets_indices = ProtoField.new("Market Id 3 For Underlying Assets Indices", "koscom.mdcsrealtime.securitiesc.exture.v2.018.marketid3forunderlyingassetsindices", ftypes.STRING, nil, nil, nil, "Market ID (KOSPI, KOSDAQ, Stock Market Index Derivatives, Equities Derivatives and Bond Derivatives).")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.market_id_4_for_underlying_assets_indices = ProtoField.new("Market Id 4 For Underlying Assets Indices", "koscom.mdcsrealtime.securitiesc.exture.v2.018.marketid4forunderlyingassetsindices", ftypes.STRING, nil, nil, nil, "Market ID (KOSPI, KOSDAQ, Stock Market Index Derivatives, Equities Derivatives and Bond Derivatives).")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.market_id_5_for_underlying_assets_indices = ProtoField.new("Market Id 5 For Underlying Assets Indices", "koscom.mdcsrealtime.securitiesc.exture.v2.018.marketid5forunderlyingassetsindices", ftypes.STRING, nil, nil, nil, "Market ID (KOSPI, KOSDAQ, Stock Market Index Derivatives, Equities Derivatives and Bond Derivatives).")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.market_making_liquidity_provider_type_code = ProtoField.new("Market Making Liquidity Provider Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.marketmakingliquidityprovidertypecode", ftypes.STRING, nil, nil, nil, "Whether the contract is classified as market making or liquidity provision M: Market making L: Liquidity provider")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.market_making_possibility = ProtoField.new("Market Making Possibility", "koscom.mdcsrealtime.securitiesc.exture.v2.018.marketmakingpossibility", ftypes.STRING, nil, nil, nil, "Market Making Possibility.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.market_operation_product_id = ProtoField.new("Market Operation Product Id", "koscom.mdcsrealtime.securitiesc.exture.v2.018.marketoperationproductid", ftypes.STRING, nil, nil, nil, "The ID refers to a group of products that are traded with the same trading schedule control.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.market_participant_number = ProtoField.new("Market Participant Number", "koscom.mdcsrealtime.securitiesc.exture.v2.018.marketparticipantnumber", ftypes.STRING, nil, nil, nil, "A number given to each market participants. If a participant is a member of more than two exchanges, different numbers to be given by exchanges.")
@@ -447,7 +450,7 @@ omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.retail_bond_type_code =
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.rights_execution_type_code = ProtoField.new("Rights Execution Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.rightsexecutiontypecode", ftypes.STRING, nil, nil, nil, "Rights Execution_Type Code A: American E: European Z: Others.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.rights_type_code = ProtoField.new("Rights Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.rightstypecode", ftypes.STRING, nil, nil, nil, "Rights Type Code (spot) is the same as adjustment code (derivatives) 00: N/A 01: Ex-rights 02: Ex-dividends 03: Ex-distribution 04: Ex-rights and Ex-dividends 05: Interim(quarterly) ex-dividend 06: In.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.sale_date = ProtoField.new("Sale Date", "koscom.mdcsrealtime.securitiesc.exture.v2.018.saledate", ftypes.STRING, nil, nil, nil, "Sale Date.")
-omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.second_filler_11 = ProtoField.new("Second Filler 11", "koscom.mdcsrealtime.securitiesc.exture.v2.018.secondfiller11", ftypes.DOUBLE, nil, nil, nil, "Upper Limit Price on the Single Price Trade in the Off-Hours Session.")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.second_filler_11 = ProtoField.new("Second Filler 11", "koscom.mdcsrealtime.securitiesc.exture.v2.018.secondfiller11", ftypes.BYTES, nil, nil, nil, "Upper Limit Price on the Single Price Trade in the Off-Hours Session.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.section_type_code = ProtoField.new("Section Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.sectiontypecode", ftypes.STRING, nil, nil, nil, "1: KOSDAQ Prime 2: KOSDAQ Venture 3: KOSDAQ Standard 4: KOSDAQ Growth A: Foreign Company(No Section Type) B: Investment Company(No Section Type) C: SPAC(No Section Type) D: ETF(No Section Type) E: Adm.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.security_group_id = ProtoField.new("Security Group Id", "koscom.mdcsrealtime.securitiesc.exture.v2.018.securitygroupid", ftypes.STRING, nil, nil, nil, "Security Group ID (Equities, Investment firms, ETF, ELW, Futures, Options etc.).")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.segment_type_code = ProtoField.new("Segment Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.segmenttypecode", ftypes.STRING, nil, nil, nil, "KOSDAQ Market Segment type code.")
@@ -509,6 +512,8 @@ omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.underlying_asset_type_c
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.underlying_asset_type_code_4 = ProtoField.new("Underlying Asset Type Code 4", "koscom.mdcsrealtime.securitiesc.exture.v2.018.underlyingassettypecode4", ftypes.STRING, nil, nil, nil, "Underlying Asset Type Code 4.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.underlying_asset_type_code_5 = ProtoField.new("Underlying Asset Type Code 5", "koscom.mdcsrealtime.securitiesc.exture.v2.018.underlyingassettypecode5", ftypes.STRING, nil, nil, nil, "Underlying Asset Type Code 5.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.underlying_isin_code = ProtoField.new("Underlying ISIN Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.underlyingisincode", ftypes.STRING, nil, nil, nil, "ISIN Code.")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.underlying_todays_high = ProtoField.new("Underlying Today's High", "koscom.mdcsrealtime.securitiesc.exture.v2.018.underlyingtodayshigh", ftypes.DOUBLE, nil, nil, nil, "The highest price at which an issue traded during the course of the trading day. Also, the record high of a year refers to the highest price of a year.")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.underlying_todays_low = ProtoField.new("Underlying Today's Low", "koscom.mdcsrealtime.securitiesc.exture.v2.018.underlyingtodayslow", ftypes.DOUBLE, nil, nil, nil, "The lowest price or index at which an issue traded during the course of a day, week, month or year.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.unfaithful_disclosure = ProtoField.new("Unfaithful Disclosure", "koscom.mdcsrealtime.securitiesc.exture.v2.018.unfaithfuldisclosure", ftypes.STRING, nil, nil, nil, "Y/N to Unfaithful Disclosure.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.unit_of_volume_in_main_board = ProtoField.new("Unit Of Volume In Main Board", "koscom.mdcsrealtime.securitiesc.exture.v2.018.unitofvolumeinmainboard", ftypes.UINT64, nil, nil, nil, "Unit of Volume in Main Board.")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.upper_limit_of_base_price = ProtoField.new("Upper Limit Of Base Price", "koscom.mdcsrealtime.securitiesc.exture.v2.018.upperlimitofbaseprice", ftypes.DOUBLE, nil, nil, nil, "Upper Price of Base Price.")
@@ -617,10 +622,12 @@ local show = {}
 -- Koscom MdcsRealtime SecuritiesC Exture 2.018 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.padding = false
 
 -- Register Koscom MdcsRealtime SecuritiesC Exture 2.018 Show Options
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 -- Handle changed preferences
 function omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.prefs_changed()
@@ -628,6 +635,9 @@ function omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.prefs.show_application_messages then
     show.application_messages = omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.prefs.show_application_messages
+  end
+  if show.padding ~= omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.prefs.show_padding then
+    show.padding = omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.prefs.show_padding
   end
   if show.structs ~= omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.prefs.show_structs then
     show.structs = omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.prefs.show_structs
@@ -8316,7 +8326,7 @@ end
 koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_securitiesc_exture_v2_018.text_encoding)
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_1, range, value, display)
@@ -8331,30 +8341,15 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_11 = {}
 koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_11.size = 11
 
 -- Display: Filler 11
-koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_11.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_11.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Filler 11: No Value"
-  end
-
-  return "Filler 11: "..text
+koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_11.display = function(value)
+  return "Filler 11: "..value
 end
 
 -- Dissect: Filler 11
 koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_11.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_11.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_11, range, value, "Filler 11: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesc_exture_v2_018.experts.not_a_number, "Filler 11 is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_11.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_11, range, value, display)
@@ -8377,7 +8372,7 @@ end
 koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_securitiesc_exture_v2_018.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_3, range, value, display)
@@ -8400,7 +8395,7 @@ end
 koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_securitiesc_exture_v2_018.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_4, range, value, display)
@@ -8423,7 +8418,7 @@ end
 koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_8.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_8.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_securitiesc_exture_v2_018.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.filler_8, range, value, display)
@@ -8672,6 +8667,37 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.index.dissect = function(buffer, o
   return offset + length, value
 end
 
+-- Index Accumulated Trading Value
+koscom_mdcsrealtime_securitiesc_exture_v2_018.index_accumulated_trading_value = {}
+
+-- Size: Index Accumulated Trading Value
+koscom_mdcsrealtime_securitiesc_exture_v2_018.index_accumulated_trading_value.size = 12
+
+-- Display: Index Accumulated Trading Value
+koscom_mdcsrealtime_securitiesc_exture_v2_018.index_accumulated_trading_value.display = function(value)
+  return "Index Accumulated Trading Value: "..value
+end
+
+-- Dissect: Index Accumulated Trading Value
+koscom_mdcsrealtime_securitiesc_exture_v2_018.index_accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_accumulated_trading_value.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index_accumulated_trading_value, range, value, "Index Accumulated Trading Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesc_exture_v2_018.experts.not_a_number, "Index Accumulated Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_accumulated_trading_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index_accumulated_trading_value, range, value, display)
+
+  return offset + length, value
+end
+
 -- Index Asset Classification Id 1
 koscom_mdcsrealtime_securitiesc_exture_v2_018.index_asset_classification_id_1 = {}
 
@@ -8714,6 +8740,33 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.index_asset_classification_id_2.di
   local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_asset_classification_id_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index_asset_classification_id_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Index Business Date
+koscom_mdcsrealtime_securitiesc_exture_v2_018.index_business_date = {}
+
+-- Size: Index Business Date
+koscom_mdcsrealtime_securitiesc_exture_v2_018.index_business_date.size = 8
+
+-- Display: Index Business Date
+koscom_mdcsrealtime_securitiesc_exture_v2_018.index_business_date.display = function(value)
+  if #value < 8 then
+    return "Index Business Date: "..value
+  end
+
+  return "Index Business Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
+end
+
+-- Dissect: Index Business Date
+koscom_mdcsrealtime_securitiesc_exture_v2_018.index_business_date.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_business_date.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_securitiesc_exture_v2_018.text_encoding))
+  local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_business_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.index_business_date, range, value, display)
 
   return offset + length, value
 end
@@ -11455,6 +11508,29 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.market_id_5_for_underlying_assets_
   return offset + length, value
 end
 
+-- Market Making Liquidity Provider Type Code
+koscom_mdcsrealtime_securitiesc_exture_v2_018.market_making_liquidity_provider_type_code = {}
+
+-- Size: Market Making Liquidity Provider Type Code
+koscom_mdcsrealtime_securitiesc_exture_v2_018.market_making_liquidity_provider_type_code.size = 1
+
+-- Display: Market Making Liquidity Provider Type Code
+koscom_mdcsrealtime_securitiesc_exture_v2_018.market_making_liquidity_provider_type_code.display = function(value)
+  return "Market Making Liquidity Provider Type Code: "..value
+end
+
+-- Dissect: Market Making Liquidity Provider Type Code
+koscom_mdcsrealtime_securitiesc_exture_v2_018.market_making_liquidity_provider_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.market_making_liquidity_provider_type_code.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_securitiesc_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.market_making_liquidity_provider_type_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.market_making_liquidity_provider_type_code, range, value, display)
+
+  return offset + length, value
+end
+
 -- Market Making Possibility
 koscom_mdcsrealtime_securitiesc_exture_v2_018.market_making_possibility = {}
 
@@ -13982,30 +14058,15 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.second_filler_11 = {}
 koscom_mdcsrealtime_securitiesc_exture_v2_018.second_filler_11.size = 11
 
 -- Display: Second Filler 11
-koscom_mdcsrealtime_securitiesc_exture_v2_018.second_filler_11.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesc_exture_v2_018.second_filler_11.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Second Filler 11: No Value"
-  end
-
-  return "Second Filler 11: "..text
+koscom_mdcsrealtime_securitiesc_exture_v2_018.second_filler_11.display = function(value)
+  return "Second Filler 11: "..value
 end
 
 -- Dissect: Second Filler 11
 koscom_mdcsrealtime_securitiesc_exture_v2_018.second_filler_11.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.second_filler_11.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.second_filler_11, range, value, "Second Filler 11: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesc_exture_v2_018.experts.not_a_number, "Second Filler 11 is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.second_filler_11.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.second_filler_11, range, value, display)
@@ -14685,13 +14746,6 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.todays_high.display = function(val
     return "Todays High: No Value"
   end
 
-  local point = text:find(".", 1, true)
-  local places = point and (#text - point) or 0
-
-  if places ~= 3 then
-    return "Todays High: "..text.." (expected 3 places)"
-  end
-
   return "Todays High: "..text
 end
 
@@ -14728,13 +14782,6 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.todays_low.display = function(valu
 
   if text == nil then
     return "Todays Low: No Value"
-  end
-
-  local point = text:find(".", 1, true)
-  local places = point and (#text - point) or 0
-
-  if places ~= 3 then
-    return "Todays Low: "..text.." (expected 3 places)"
   end
 
   return "Todays Low: "..text
@@ -16053,6 +16100,96 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_isin_code.dissect = fun
   local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_isin_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.underlying_isin_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Today's High
+koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_high = {}
+
+-- Size: Underlying Today's High
+koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_high.size = 11
+
+-- Display: Underlying Today's High
+koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_high.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_high.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Underlying Today's High: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Underlying Today's High: "..text.." (expected 3 places)"
+  end
+
+  return "Underlying Today's High: "..text
+end
+
+-- Dissect: Underlying Today's High
+koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_high.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_high.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.underlying_todays_high, range, value, "Underlying Today's High: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesc_exture_v2_018.experts.not_a_number, "Underlying Today's High is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_high.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.underlying_todays_high, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Today's Low
+koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_low = {}
+
+-- Size: Underlying Today's Low
+koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_low.size = 11
+
+-- Display: Underlying Today's Low
+koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_low.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_low.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Underlying Today's Low: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Underlying Today's Low: "..text.." (expected 3 places)"
+  end
+
+  return "Underlying Today's Low: "..text
+end
+
+-- Dissect: Underlying Today's Low
+koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_low.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_low.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.underlying_todays_low, range, value, "Underlying Today's Low: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesc_exture_v2_018.experts.not_a_number, "Underlying Today's Low is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_low.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.underlying_todays_low, range, value, display)
 
   return offset + length, value
 end
@@ -18116,8 +18253,8 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_knock_out_underlying_me
   koscom_mdcsrealtime_securitiesc_exture_v2_018.ampm_type_code.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_isin_code.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.index_id.size + 
-  koscom_mdcsrealtime_securitiesc_exture_v2_018.todays_high.size + 
-  koscom_mdcsrealtime_securitiesc_exture_v2_018.todays_low.size + 
+  koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_high.size + 
+  koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_low.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.size
 
@@ -18154,14 +18291,18 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_knock_out_underlying_me
   -- Index Id: String
   index, index_id = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_id.dissect(buffer, index, packet, parent)
 
-  -- Todays High: Double
-  index, todays_high = koscom_mdcsrealtime_securitiesc_exture_v2_018.todays_high.dissect(buffer, index, packet, parent)
+  -- Underlying Today's High: Double
+  index, underlying_todays_high = koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_high.dissect(buffer, index, packet, parent)
 
-  -- Todays Low: Double
-  index, todays_low = koscom_mdcsrealtime_securitiesc_exture_v2_018.todays_low.dissect(buffer, index, packet, parent)
+  -- Underlying Today's Low: Double
+  index, underlying_todays_low = koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_todays_low.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -18305,7 +18446,11 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_etp_constituents_messag
   index, index_id = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_id.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -18681,7 +18826,11 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_elw_batch_data_message.
   index, elw_lp_holding_quantity = koscom_mdcsrealtime_securitiesc_exture_v2_018.elw_lp_holding_quantity.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -19089,7 +19238,11 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_investor_activities_per
   index, accumulated_bid_trading_value = koscom_mdcsrealtime_securitiesc_exture_v2_018.accumulated_bid_trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_3.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -19145,7 +19298,11 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_dividend_yield_per_indu
   index, dividend_yield = koscom_mdcsrealtime_securitiesc_exture_v2_018.dividend_yield.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_3.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -19267,7 +19424,11 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_equity_index_indicator_
   index, market_capitalization_type_code = koscom_mdcsrealtime_securitiesc_exture_v2_018.market_capitalization_type_code.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_1.size
+  end
 
   -- Index Classification Level 1: String
   index, index_classification_level_1 = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_classification_level_1.dissect(buffer, index, packet, parent)
@@ -19321,7 +19482,11 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_equity_index_indicator_
   index, korea_value_up_index = koscom_mdcsrealtime_securitiesc_exture_v2_018.korea_value_up_index.dissect(buffer, index, packet, parent)
 
   -- Filler 8: String
-  index, filler_8 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_8 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_8.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -19515,6 +19680,8 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_mm_lp_information_messa
   koscom_mdcsrealtime_securitiesc_exture_v2_018.message_sequence_number.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.market_participant_number.size + 
+  koscom_mdcsrealtime_securitiesc_exture_v2_018.board_id.size + 
+  koscom_mdcsrealtime_securitiesc_exture_v2_018.market_making_liquidity_provider_type_code.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.lp_start_date.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.lp_end_date.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.minimum_order_volume.size + 
@@ -19546,6 +19713,12 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_mm_lp_information_messa
 
   -- Market Participant Number: String
   index, market_participant_number = koscom_mdcsrealtime_securitiesc_exture_v2_018.market_participant_number.dissect(buffer, index, packet, parent)
+
+  -- Board Id: String
+  index, board_id = koscom_mdcsrealtime_securitiesc_exture_v2_018.board_id.dissect(buffer, index, packet, parent)
+
+  -- Market Making Liquidity Provider Type Code: String
+  index, market_making_liquidity_provider_type_code = koscom_mdcsrealtime_securitiesc_exture_v2_018.market_making_liquidity_provider_type_code.dissect(buffer, index, packet, parent)
 
   -- Lp Start Date: String
   index, lp_start_date = koscom_mdcsrealtime_securitiesc_exture_v2_018.lp_start_date.dissect(buffer, index, packet, parent)
@@ -20730,10 +20903,18 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_issue_closing_message.f
   index, closing_price_type_code = koscom_mdcsrealtime_securitiesc_exture_v2_018.closing_price_type_code.dissect(buffer, index, packet, parent)
 
   -- Filler 11: Double
-  index, filler_11 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_11.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_11 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_11.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_11.size
+  end
 
   -- Second Filler 11: Double
-  index, second_filler_11 = koscom_mdcsrealtime_securitiesc_exture_v2_018.second_filler_11.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_filler_11 = koscom_mdcsrealtime_securitiesc_exture_v2_018.second_filler_11.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.second_filler_11.size
+  end
 
   -- Closing Price Weighted Stock Price Average: Double
   index, closing_price_weighted_stock_price_average = koscom_mdcsrealtime_securitiesc_exture_v2_018.closing_price_weighted_stock_price_average.dissect(buffer, index, packet, parent)
@@ -22798,7 +22979,7 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.global_index_message = {}
 koscom_mdcsrealtime_securitiesc_exture_v2_018.global_index_message.size =
   koscom_mdcsrealtime_securitiesc_exture_v2_018.index_id.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.isin_code.size + 
-  koscom_mdcsrealtime_securitiesc_exture_v2_018.business_date.size + 
+  koscom_mdcsrealtime_securitiesc_exture_v2_018.index_business_date.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.calculation_time.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.index.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.index_change_sign_against_the_previous_day.size + 
@@ -22822,8 +23003,8 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.global_index_message.fields = func
   -- Isin Code: String
   index, isin_code = koscom_mdcsrealtime_securitiesc_exture_v2_018.isin_code.dissect(buffer, index, packet, parent)
 
-  -- Business Date: String
-  index, business_date = koscom_mdcsrealtime_securitiesc_exture_v2_018.business_date.dissect(buffer, index, packet, parent)
+  -- Index Business Date: String
+  index, index_business_date = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_business_date.dissect(buffer, index, packet, parent)
 
   -- Calculation Time: String
   index, calculation_time = koscom_mdcsrealtime_securitiesc_exture_v2_018.calculation_time.dissect(buffer, index, packet, parent)
@@ -22841,7 +23022,11 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.global_index_message.fields = func
   index, currency_code = koscom_mdcsrealtime_securitiesc_exture_v2_018.currency_code.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -22879,7 +23064,7 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.krx_estimated_index_message.size =
   koscom_mdcsrealtime_securitiesc_exture_v2_018.index_change_sign_against_the_previous_day.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_securitiesc_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_securitiesc_exture_v2_018.index_accumulated_trading_value.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.size
 
@@ -22913,11 +23098,15 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.krx_estimated_index_message.fields
   -- Accumulated Trading Volume: Long
   index, accumulated_trading_volume = koscom_mdcsrealtime_securitiesc_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_securitiesc_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Index Accumulated Trading Value: Long
+  index, index_accumulated_trading_value = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_accumulated_trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -22955,7 +23144,7 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.krx_index_message.size =
   koscom_mdcsrealtime_securitiesc_exture_v2_018.index_change_sign_against_the_previous_day.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_securitiesc_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_securitiesc_exture_v2_018.index_accumulated_trading_value.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.size
 
@@ -22989,11 +23178,15 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.krx_index_message.fields = functio
   -- Accumulated Trading Volume: Long
   index, accumulated_trading_volume = koscom_mdcsrealtime_securitiesc_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_securitiesc_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Index Accumulated Trading Value: Long
+  index, index_accumulated_trading_value = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_accumulated_trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_securitiesc_exture_v2_018.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesc_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)

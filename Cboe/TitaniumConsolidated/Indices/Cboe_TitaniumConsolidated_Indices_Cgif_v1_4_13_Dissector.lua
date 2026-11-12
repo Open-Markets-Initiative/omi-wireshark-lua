@@ -71,6 +71,7 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.index_value_with_statu
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.channels_index = ProtoField.new("Channels Index", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.channelsindex", ftypes.UINT16)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.md_entries_index = ProtoField.new("Md Entries Index", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.mdentriesindex", ftypes.UINT16)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.message_index = ProtoField.new("Message Index", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.messageindex", ftypes.UINT16)
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Cboe TitaniumConsolidated Indices Cgif 1.4.13 Formatting
@@ -98,6 +99,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Cboe TitaniumConsolidated Indices Cgif 1.4.13 Show Options
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
@@ -105,6 +107,7 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_application_messag
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
@@ -126,6 +129,9 @@ function omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs_changed()
   end
   if show.indexes ~= omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_indexes then
     show.indexes = omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_sequences then
+    show.sequences = omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_sequences
   end
   if cboe_titaniumconsolidated_indices_cgif_v1_4_13.timestamp_format ~= omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.timestamp_format then
     cboe_titaniumconsolidated_indices_cgif_v1_4_13.timestamp_format = omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.timestamp_format
@@ -1150,8 +1156,12 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_px.size =
   cboe_titaniumconsolidated_indices_cgif_v1_4_13.mantissa.size
 
 -- Display: Md Entry Px
-cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_px.display = function(packet, parent, length)
-  return ""
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_px.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return tostring(value)
 end
 
 -- Dissect Fields: Md Entry Px
@@ -1164,7 +1174,10 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_px.fields = function(buf
   -- Mantissa: int32
   index, mantissa = cboe_titaniumconsolidated_indices_cgif_v1_4_13.mantissa.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local md_entry_px = mantissa * 10 ^ exponent
+
+  return index, md_entry_px
 end
 
 -- Dissect: Md Entry Px
@@ -1172,10 +1185,10 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_px.dissect = function(bu
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.md_entry_px, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_px.fields(buffer, offset, packet, parent)
+    local index, value = cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_px.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_px.display(packet, parent, length)
+    local display = cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_px.display(packet, parent, value, length)
     parent:append_text(display)
 
     return index, parent
@@ -1660,6 +1673,12 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.message.fields = function(buffer,
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_titaniumconsolidated_indices_cgif_v1_4_13.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.message_sequence_number, UInt64.new(cboe_titaniumconsolidated_indices_cgif_v1_4_13.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 4 fields
   index, message_header = cboe_titaniumconsolidated_indices_cgif_v1_4_13.message_header.dissect(buffer, index, packet, parent)
 
@@ -1727,6 +1746,9 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.packet_header.fields = function(b
 
   -- First Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, first_msg_seq_num = cboe_titaniumconsolidated_indices_cgif_v1_4_13.first_msg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_titaniumconsolidated_indices_cgif_v1_4_13.packet_sequence = first_msg_seq_num
 
   return index
 end

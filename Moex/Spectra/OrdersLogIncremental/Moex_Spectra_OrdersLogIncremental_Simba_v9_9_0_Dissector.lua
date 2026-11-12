@@ -1061,42 +1061,6 @@ moex_spectra_orderslogincremental_simba_v9_9_0.md_flags.display = function(range
   if value:band(0x0000000000000004) ~= UInt64(0) then
     flags[#flags + 1] = "Non Quote"
   end
-  -- Is Unused Md Flags Set 3 flag set?
-  if value:band(0x0000000000000008) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 3"
-  end
-  -- Is Unused Md Flags Set 4 flag set?
-  if value:band(0x0000000000000010) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 4"
-  end
-  -- Is Unused Md Flags Set 5 flag set?
-  if value:band(0x0000000000000020) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 5"
-  end
-  -- Is Unused Md Flags Set 6 flag set?
-  if value:band(0x0000000000000040) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 6"
-  end
-  -- Is Unused Md Flags Set 7 flag set?
-  if value:band(0x0000000000000080) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 7"
-  end
-  -- Is Unused Md Flags Set 8 flag set?
-  if value:band(0x0000000000000100) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 8"
-  end
-  -- Is Unused Md Flags Set 9 flag set?
-  if value:band(0x0000000000000200) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 9"
-  end
-  -- Is Unused Md Flags Set 10 flag set?
-  if value:band(0x0000000000000400) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 10"
-  end
-  -- Is Unused Md Flags Set 11 flag set?
-  if value:band(0x0000000000000800) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 11"
-  end
   -- Is End Of Transaction flag set?
   if value:band(0x0000000000001000) ~= UInt64(0) then
     flags[#flags + 1] = "End Of Transaction"
@@ -1108,22 +1072,6 @@ moex_spectra_orderslogincremental_simba_v9_9_0.md_flags.display = function(range
   -- Is Second Leg flag set?
   if value:band(0x0000000000004000) ~= UInt64(0) then
     flags[#flags + 1] = "Second Leg"
-  end
-  -- Is Unused Md Flags Set 15 flag set?
-  if value:band(0x0000000000008000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 15"
-  end
-  -- Is Unused Md Flags Set 16 flag set?
-  if value:band(0x0000000000010000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 16"
-  end
-  -- Is Unused Md Flags Set 17 flag set?
-  if value:band(0x0000000000020000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 17"
-  end
-  -- Is Unused Md Flags Set 18 flag set?
-  if value:band(0x0000000000040000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 18"
   end
   -- Is Fok flag set?
   if value:band(0x0000000000080000) ~= UInt64(0) then
@@ -1141,18 +1089,6 @@ moex_spectra_orderslogincremental_simba_v9_9_0.md_flags.display = function(range
   if value:band(0x0000000000400000) ~= UInt64(0) then
     flags[#flags + 1] = "Mass Cancel"
   end
-  -- Is Unused Md Flags Set 23 flag set?
-  if value:band(0x0000000000800000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 23"
-  end
-  -- Is Unused Md Flags Set 24 flag set?
-  if value:band(0x0000000001000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 24"
-  end
-  -- Is Unused Md Flags Set 25 flag set?
-  if value:band(0x0000000002000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 25"
-  end
   -- Is Negotiated flag set?
   if value:band(0x0000000004000000) ~= UInt64(0) then
     flags[#flags + 1] = "Negotiated"
@@ -1161,17 +1097,9 @@ moex_spectra_orderslogincremental_simba_v9_9_0.md_flags.display = function(range
   if value:band(0x0000000008000000) ~= UInt64(0) then
     flags[#flags + 1] = "Multi Leg"
   end
-  -- Is Unused Md Flags Set 28 flag set?
-  if value:band(0x0000000010000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 28"
-  end
   -- Is Cross Trade flag set?
   if value:band(0x0000000020000000) ~= UInt64(0) then
     flags[#flags + 1] = "Cross Trade"
-  end
-  -- Is Unused Md Flags Set 30 flag set?
-  if value:band(0x0000000040000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 30"
   end
   -- Is Negotiated Match By Ref flag set?
   if value:band(0x0000000080000000) ~= UInt64(0) then
@@ -1181,38 +1109,6 @@ moex_spectra_orderslogincremental_simba_v9_9_0.md_flags.display = function(range
   if value:band(0x0000000100000000) ~= UInt64(0) then
     flags[#flags + 1] = "Cod"
   end
-  -- Is Unused Md Flags Set 33 flag set?
-  if value:band(0x0000000200000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 33"
-  end
-  -- Is Unused Md Flags Set 34 flag set?
-  if value:band(0x0000000400000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 34"
-  end
-  -- Is Unused Md Flags Set 35 flag set?
-  if value:band(0x0000000800000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 35"
-  end
-  -- Is Unused Md Flags Set 36 flag set?
-  if value:band(0x0000001000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 36"
-  end
-  -- Is Unused Md Flags Set 37 flag set?
-  if value:band(0x0000002000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 37"
-  end
-  -- Is Unused Md Flags Set 38 flag set?
-  if value:band(0x0000004000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 38"
-  end
-  -- Is Unused Md Flags Set 39 flag set?
-  if value:band(0x0000008000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 39"
-  end
-  -- Is Unused Md Flags Set 40 flag set?
-  if value:band(0x0000010000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 40"
-  end
   -- Is Active Side flag set?
   if value:band(0x0000020000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Active Side"
@@ -1220,14 +1116,6 @@ moex_spectra_orderslogincremental_simba_v9_9_0.md_flags.display = function(range
   -- Is Passive Side flag set?
   if value:band(0x0000040000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Passive Side"
-  end
-  -- Is Unused Md Flags Set 43 flag set?
-  if value:band(0x0000080000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 43"
-  end
-  -- Is Unused Md Flags Set 44 flag set?
-  if value:band(0x0000100000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 44"
   end
   -- Is Synthetic flag set?
   if value:band(0x0000200000000000) ~= UInt64(0) then
@@ -1237,73 +1125,17 @@ moex_spectra_orderslogincremental_simba_v9_9_0.md_flags.display = function(range
   if value:band(0x0000400000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Rfs"
   end
-  -- Is Unused Md Flags Set 47 flag set?
-  if value:band(0x0000800000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 47"
-  end
-  -- Is Unused Md Flags Set 48 flag set?
-  if value:band(0x0001000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 48"
-  end
-  -- Is Unused Md Flags Set 49 flag set?
-  if value:band(0x0002000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 49"
-  end
-  -- Is Unused Md Flags Set 50 flag set?
-  if value:band(0x0004000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 50"
-  end
-  -- Is Unused Md Flags Set 51 flag set?
-  if value:band(0x0008000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 51"
-  end
-  -- Is Unused Md Flags Set 52 flag set?
-  if value:band(0x0010000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 52"
-  end
-  -- Is Unused Md Flags Set 53 flag set?
-  if value:band(0x0020000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 53"
-  end
-  -- Is Unused Md Flags Set 54 flag set?
-  if value:band(0x0040000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 54"
-  end
-  -- Is Unused Md Flags Set 55 flag set?
-  if value:band(0x0080000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 55"
-  end
-  -- Is Unused Md Flags Set 56 flag set?
-  if value:band(0x0100000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 56"
-  end
   -- Is Synthetic Passive flag set?
   if value:band(0x0200000000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Synthetic Passive"
-  end
-  -- Is Unused Md Flags Set 58 flag set?
-  if value:band(0x0400000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 58"
-  end
-  -- Is Unused Md Flags Set 59 flag set?
-  if value:band(0x0800000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 59"
   end
   -- Is Boc flag set?
   if value:band(0x1000000000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Boc"
   end
-  -- Is Unused Md Flags Set 61 flag set?
-  if value:band(0x2000000000000000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 61"
-  end
   -- Is During Discrete Auction flag set?
   if value:band(0x4000000000000000) ~= UInt64(0) then
     flags[#flags + 1] = "During Discrete Auction"
-  end
-  -- Is Unused Md Flags Set 63 flag set?
-  if value:band(UInt64(0x00000000, 0x80000000)) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Md Flags Set 63"
   end
 
   return table.concat(flags, "|")

@@ -33,14 +33,17 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.ccass_flag = ProtoField
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.closing_price = ProtoField.new("Closing Price", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.closingprice", ftypes.DOUBLE, nil, nil, nil, "Current Day Closing Price. 3 implied decimal places.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.closing_value = ProtoField.new("Closing Value", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.closingvalue", ftypes.DOUBLE, nil, nil, nil, "Last value for an index. 4 implied decimal places.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.conversion_ratio = ProtoField.new("Conversion Ratio", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.conversionratio", ftypes.DOUBLE, nil, nil, nil, "Conversion ratio for Structured Product. 3 implied decimal places. 0 means Not available.")
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.coolingoffendtime", ftypes.UINT64, nil, nil, nil, "Time when the cooling off period ends. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.coolingoffstarttime", ftypes.UINT64, nil, nil, nil, "Time when the cooling off period starts. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.coolingoffendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period ends. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_end_time_utc = ProtoField.new("Cooling Off End Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.coolingoffendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period ends. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.coolingoffstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period starts. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_start_time_utc = ProtoField.new("Cooling Off Start Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.coolingoffstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period starts. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.coupon_rate = ProtoField.new("Coupon Rate", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.couponrate", ftypes.DOUBLE, nil, nil, nil, "Coupon rate of a bond security. 3 implied decimal places.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.currency_code = ProtoField.new("Currency Code", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.currencycode", ftypes.STRING, nil, nil, nil, "Currency code of Index Turnover. Can be blank if not defined by third party index compilers.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.currency_factor = ProtoField.new("Currency Factor", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.currencyfactor", ftypes.UINT16, nil, nil, nil, "Currency factor conversion. A non-zero value n means all price fields for this security should be interpreted as a value equal to the price multiplied by 10^n.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.currency_rate = ProtoField.new("Currency Rate", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.currencyrate", ftypes.DOUBLE, nil, nil, nil, "Rate, expressed in HKD for one foreign currency unit. 4 decimals implied.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.daily_quota_balance = ProtoField.new("Daily Quota Balance", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.dailyquotabalance", ftypes.INT64, nil, nil, nil, "Northbound Daily Quota Balance (DQB) value for specified Stock Connect Program. DQB in Renminbi (RMB). NULL when DQB is above/equal 30% of the daily quota; actual value when below 30%; 0 when quota is used up.")
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.daily_quota_balance_time = ProtoField.new("Daily Quota Balance Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.dailyquotabalancetime", ftypes.UINT64, nil, nil, nil, "Time of DailyQuotaBalance. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.daily_quota_balance_time = ProtoField.new("Daily Quota Balance Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.dailyquotabalancetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of DailyQuotaBalance. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.daily_quota_balance_time_utc = ProtoField.new("Daily Quota Balance Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.dailyquotabalancetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of DailyQuotaBalance. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.decimals_in_call_price = ProtoField.new("Decimals In Call Price", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.decimalsincallprice", ftypes.UINT8, nil, nil, nil, "Number of decimal places in Call Price. Not applicable if CallPrice = 0.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.decimals_in_entitlement = ProtoField.new("Decimals In Entitlement", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.decimalsinentitlement", ftypes.UINT8, nil, nil, nil, "Number of decimal places in Entitlement. Not applicable if Entitlement = 0.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.decimals_in_face_value = ProtoField.new("Decimals In Face Value", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.decimalsinfacevalue", ftypes.UINT8, nil, nil, nil, "Number of decimal places in Face Value. Not applicable if FaceValue = 0.")
@@ -49,7 +52,8 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.domain_stmt_security_co
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.dummy_security_flag = ProtoField.new("Dummy Security Flag", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.dummysecurityflag", ftypes.STRING, nil, nil, nil, "Dummy Security Flag.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.eas_value = ProtoField.new("Eas Value", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.easvalue", ftypes.DOUBLE, nil, nil, nil, "Estimated Average Settlement Value. 2 implied decimal places.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.efn_flag = ProtoField.new("Efn Flag", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.efnflag", ftypes.STRING, nil, nil, nil, "EFN Indicator (Bonds Specific Data).")
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.end_date_time = ProtoField.new("End Date Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.enddatetime", ftypes.UINT64, nil, nil, nil, "End time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.end_date_time = ProtoField.new("End Date Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.enddatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "End time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.end_date_time_utc = ProtoField.new("End Date Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.enddatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "End time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.entitlement = ProtoField.new("Entitlement", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.entitlement", ftypes.INT32, nil, nil, nil, "Entitlement of the warrant. See DecimalsInEntitlement for the number of decimal places. 0 means Not available.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.exception = ProtoField.new("Exception", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.exception", ftypes.STRING, nil, nil, nil, "Exception indicator.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.face_value = ProtoField.new("Face Value", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.facevalue", ftypes.UINT64, nil, nil, nil, "Face value of a bond security. See DecimalsInFaceValue for the number of decimal places. 0 means Not available.")
@@ -72,7 +76,8 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.high_value = ProtoField
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_code = ProtoField.new("Index Code", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.indexcode", ftypes.STRING, nil, nil, nil, "Upstream source's index code or market information identifier.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_source = ProtoField.new("Index Source", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.indexsource", ftypes.STRING, nil, nil, nil, "Index or market information source.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_status = ProtoField.new("Index Status", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.indexstatus", ftypes.STRING, nil, nil, nil, "Index status. Can be blank if not defined by third party index compilers.")
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_time = ProtoField.new("Index Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.indextime", ftypes.INT64, nil, nil, nil, "Publisher timestamp. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_time = ProtoField.new("Index Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.indextime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publisher timestamp. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_time_utc = ProtoField.new("Index Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.indextime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Publisher timestamp. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_turnover = ProtoField.new("Index Turnover", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.indexturnover", ftypes.DOUBLE, nil, nil, nil, "Current turnover of underlying constituents. 4 implied decimal places.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_value = ProtoField.new("Index Value", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.indexvalue", ftypes.DOUBLE, nil, nil, nil, "Current value of the index. 4 implied decimal places.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_volume = ProtoField.new("Index Volume", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.indexvolume", ftypes.INT64, nil, nil, nil, "Index volume of underlying constituents. Only applicable for CSI and CES.")
@@ -133,7 +138,8 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.price_level = ProtoFiel
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.product_type = ProtoField.new("Product Type", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.producttype", ftypes.UINT8, nil, nil, nil, "Product type of the security.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.quantity = ProtoField.new("Quantity", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.reference_price = ProtoField.new("Reference Price", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.referenceprice", ftypes.DOUBLE, nil, nil, nil, "Reference price of the security for order input in POS and CAS. 3 implied decimal places. 0 if the reference price is not available.")
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.release_time = ProtoField.new("Release Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.releasetime", ftypes.UINT64, nil, nil, nil, "Release time of the news. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.release_time = ProtoField.new("Release Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.releasetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Release time of the news. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.release_time_utc = ProtoField.new("Release Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.releasetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Release time of the news. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.second_filler_1 = ProtoField.new("Second Filler 1", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.secondfiller1", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.second_filler_2 = ProtoField.new("Second Filler 2", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.secondfiller2", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_code = ProtoField.new("Security Code", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.securitycode", ftypes.UINT32, nil, nil, nil, "Uniquely identifies a security available for trading.")
@@ -151,7 +157,8 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.short_sell_turnover = P
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.side = ProtoField.new("Side", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.side", ftypes.UINT16, nil, nil, nil, "Side of the order.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.spread_table_code = ProtoField.new("Spread Table Code", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.spreadtablecode", ftypes.STRING, nil, nil, nil, "Spread table code of the security.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.stamp_duty_flag = ProtoField.new("Stamp Duty Flag", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.stampdutyflag", ftypes.STRING, nil, nil, nil, "Indicator for stamp duty requirement.")
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.start_date_time = ProtoField.new("Start Date Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.startdatetime", ftypes.UINT64, nil, nil, nil, "Start time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.start_date_time = ProtoField.new("Start Date Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.startdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.start_date_time_utc = ProtoField.new("Start Date Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.startdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Start time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.stock_connect_market = ProtoField.new("Stock Connect Market", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.stockconnectmarket", ftypes.STRING, nil, nil, nil, "Markets connected under Stock Connect Program.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.strike_price_1 = ProtoField.new("Strike Price 1", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.strikeprice1", ftypes.DOUBLE, nil, nil, nil, "Strike price of the security if it has only one strike price, or Lower strike price of the security if it has lower and upper strike prices. 3 implied decimal places.")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.strike_price_2 = ProtoField.new("Strike Price 2", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.strikeprice2", ftypes.DOUBLE, nil, nil, nil, "Upper strike price of the security if it has lower and upper strike prices. 3 implied decimal places. Value is 0 if the security has only one strike price.")
@@ -756,19 +763,20 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_end_time = {}
 -- Size: Cooling Off End Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_end_time.size = 8
 
--- Display: Cooling Off End Time
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_end_time.display = function(value)
-  return "Cooling Off End Time: "..value
-end
-
 -- Dissect: Cooling Off End Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_end_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_end_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_end_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_end_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_end_time
+  if hkex_hkexsecurities_combinedrefresh_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_end_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -779,19 +787,20 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_start_time = {}
 -- Size: Cooling Off Start Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_start_time.size = 8
 
--- Display: Cooling Off Start Time
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_start_time.display = function(value)
-  return "Cooling Off Start Time: "..value
-end
-
 -- Dissect: Cooling Off Start Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_start_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.cooling_off_start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_start_time
+  if hkex_hkexsecurities_combinedrefresh_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.cooling_off_start_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -934,19 +943,20 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.daily_quota_balance_time = {}
 -- Size: Daily Quota Balance Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.daily_quota_balance_time.size = 8
 
--- Display: Daily Quota Balance Time
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.daily_quota_balance_time.display = function(value)
-  return "Daily Quota Balance Time: "..value
-end
-
 -- Dissect: Daily Quota Balance Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.daily_quota_balance_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.daily_quota_balance_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.daily_quota_balance_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.daily_quota_balance_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.daily_quota_balance_time
+  if hkex_hkexsecurities_combinedrefresh_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.daily_quota_balance_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1167,19 +1177,20 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.end_date_time = {}
 -- Size: End Date Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.end_date_time.size = 8
 
--- Display: End Date Time
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.end_date_time.display = function(value)
-  return "End Date Time: "..value
-end
-
 -- Dissect: End Date Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.end_date_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.end_date_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.end_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.end_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.end_date_time
+  if hkex_hkexsecurities_combinedrefresh_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.end_date_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1757,24 +1768,27 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.index_time = {}
 -- Size: Index Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.index_time.size = 8
 
--- Display: Index Time
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.index_time.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Index Time: No Value"
-  end
-
-  return "Index Time: "..value
-end
-
 -- Dissect: Index Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.index_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.index_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.index_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_time
+  if hkex_hkexsecurities_combinedrefresh_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_time_utc end
+
+  if value == Int64(0x00000000, 0x80000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Index Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3353,19 +3367,20 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.release_time = {}
 -- Size: Release Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.release_time.size = 8
 
--- Display: Release Time
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.release_time.display = function(value)
-  return "Release Time: "..value
-end
-
 -- Dissect: Release Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.release_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.release_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.release_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.release_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.release_time
+  if hkex_hkexsecurities_combinedrefresh_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.release_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3779,19 +3794,20 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.start_date_time = {}
 -- Size: Start Date Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.start_date_time.size = 8
 
--- Display: Start Date Time
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.start_date_time.display = function(value)
-  return "Start Date Time: "..value
-end
-
 -- Dissect: Start Date Time
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.start_date_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.start_date_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.start_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.start_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.start_date_time
+  if hkex_hkexsecurities_combinedrefresh_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.start_date_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

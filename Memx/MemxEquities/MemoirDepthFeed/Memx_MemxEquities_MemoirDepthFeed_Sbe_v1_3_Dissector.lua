@@ -31,7 +31,7 @@ omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.original_price = ProtoFiel
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.original_quantity = ProtoField.new("Original Quantity", "memx.memxequities.memoirdepthfeed.sbe.v1.3.originalquantity", ftypes.UINT32, nil, nil, nil, "OriginalQuantity")
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.memxequities.memoirdepthfeed.sbe.v1.3.price", ftypes.DOUBLE)
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "memx.memxequities.memoirdepthfeed.sbe.v1.3.quantity", ftypes.UINT32)
-omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "memx.memxequities.memoirdepthfeed.sbe.v1.3.reserved", ftypes.UINT8)
+omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "memx.memxequities.memoirdepthfeed.sbe.v1.3.reserved", ftypes.BYTES)
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "memx.memxequities.memoirdepthfeed.sbe.v1.3.roundlot", ftypes.UINT32, nil, nil, nil, "RoundLot")
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.memxequities.memoirdepthfeed.sbe.v1.3.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid", ftypes.UINT16, nil, nil, nil, "SecurityID")
@@ -104,6 +104,7 @@ local show = {}
 show.application_messages = true
 show.headers = true
 show.structs = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -111,6 +112,7 @@ show.sequences = true
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -125,6 +127,9 @@ function omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs_changed()
   end
   if show.headers ~= omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_headers then
     show.headers = omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_headers
+  end
+  if show.padding ~= omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_padding then
+    show.padding = omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_padding
   end
   if show.structs ~= omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_structs then
     show.structs = omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs.show_structs
@@ -540,7 +545,7 @@ end
 memx_memxequities_memoirdepthfeed_sbe_v1_3.reserved.dissect = function(buffer, offset, packet, parent)
   local length = memx_memxequities_memoirdepthfeed_sbe_v1_3.reserved.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:bytes():tohex(false, " ")
   local display = memx_memxequities_memoirdepthfeed_sbe_v1_3.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.reserved, range, value, display)
@@ -1745,7 +1750,11 @@ memx_memxequities_memoirdepthfeed_sbe_v1_3.instrument_directory_message.fields =
   index, round_lot = memx_memxequities_memoirdepthfeed_sbe_v1_3.round_lot.dissect(buffer, index, packet, parent)
 
   -- Reserved: uint8
-  index, reserved = memx_memxequities_memoirdepthfeed_sbe_v1_3.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = memx_memxequities_memoirdepthfeed_sbe_v1_3.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + memx_memxequities_memoirdepthfeed_sbe_v1_3.reserved.size
+  end
 
   -- Is Test Symbol: BooleanType
   index, is_test_symbol = memx_memxequities_memoirdepthfeed_sbe_v1_3.is_test_symbol.dissect(buffer, index, packet, parent)

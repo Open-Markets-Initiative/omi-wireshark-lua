@@ -15925,10 +15925,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12.trading_session.size = 1
 euronext_optiq_orderentrygateway_sbe_v4_12.trading_session.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused Trading Session Validityset 0 flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Unused Trading Session Validityset 0"
-  end
   -- Is Session 1 flag set?
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Session 1"

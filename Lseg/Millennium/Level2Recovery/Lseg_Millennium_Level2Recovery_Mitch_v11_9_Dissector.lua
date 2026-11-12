@@ -34,7 +34,7 @@ omi_lseg_millennium_level2recovery_mitch_v11_9.fields.new_end_time = ProtoField.
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.order_count = ProtoField.new("Order Count", "lseg.millennium.level2recovery.mitch.v11.9.ordercount", ftypes.UINT32, nil, nil, nil, "This field will always be populated with 0.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.order_id = ProtoField.new("Order Id", "lseg.millennium.level2recovery.mitch.v11.9.orderid", ftypes.UINT64, nil, nil, nil, "Unique identifier of the order.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.password = ProtoField.new("Password", "lseg.millennium.level2recovery.mitch.v11.9.password", ftypes.STRING, nil, nil, nil, "Password assigned to the CompID.")
-omi_lseg_millennium_level2recovery_mitch_v11_9.fields.price = ProtoField.new("Price", "lseg.millennium.level2recovery.mitch.v11.9.price", ftypes.INT64, nil, nil, nil, "Limit price of the order.")
+omi_lseg_millennium_level2recovery_mitch_v11_9.fields.price = ProtoField.new("Price", "lseg.millennium.level2recovery.mitch.v11.9.price", ftypes.DOUBLE, nil, nil, nil, "Limit price of the order.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.private_rfq = ProtoField.new("Private Rfq", "lseg.millennium.level2recovery.mitch.v11.9.privaterfq", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.quantity = ProtoField.new("Quantity", "lseg.millennium.level2recovery.mitch.v11.9.quantity", ftypes.UINT32, nil, nil, nil, "Displayed quantity of the order.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.reason = ProtoField.new("Reason", "lseg.millennium.level2recovery.mitch.v11.9.reason", ftypes.STRING, nil, nil, nil, "Reason for the manual session change or the trading halt.")
@@ -573,11 +573,17 @@ lseg_millennium_level2recovery_mitch_v11_9.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+lseg_millennium_level2recovery_mitch_v11_9.price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Price
 lseg_millennium_level2recovery_mitch_v11_9.price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2recovery_mitch_v11_9.price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = lseg_millennium_level2recovery_mitch_v11_9.price.translate(raw)
   local display = lseg_millennium_level2recovery_mitch_v11_9.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2recovery_mitch_v11_9.fields.price, range, value, display)

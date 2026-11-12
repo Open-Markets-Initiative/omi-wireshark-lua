@@ -3482,7 +3482,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_response_message.fields = functio
   local sesm_packet_length = buffer(offset - 4, 2):le_uint()
 
   -- Runtime Size Of: Application Message
-  local size_of_application_message = sesm_packet_length - 12
+  local size_of_application_message = sesm_packet_length - 10
 
   -- Application Message: Struct of 2 fields
   index, application_message = miax_miaxoptions_orderfeed_mach_v2_5_b.application_message.dissect(buffer, index, packet, parent, size_of_application_message)

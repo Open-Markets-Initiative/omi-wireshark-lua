@@ -156,7 +156,7 @@ omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.expected_time_of_expanding
 omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.expiration_date = ProtoField.new("Expiration Date", "nextrade.nextrade.etpcommon.nxtascii.v2.12.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration Date.")
 omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.expiration_date_for_right = ProtoField.new("Expiration Date For Right", "nextrade.nextrade.etpcommon.nxtascii.v2.12.expirationdateforright", ftypes.STRING, nil, nil, nil, "Expiration Date for Right.")
 omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.extended_market_bid_ask_spread_value = ProtoField.new("Extended Market Bid Ask Spread Value", "nextrade.nextrade.etpcommon.nxtascii.v2.12.extendedmarketbidaskspreadvalue", ftypes.DOUBLE, nil, nil, nil, "The bid-ask spread interval or ratio at which LP/MM quoting obligations apply in extended markets (Pre-Market/After-Market).")
-omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.filler_4 = ProtoField.new("Filler 4", "nextrade.nextrade.etpcommon.nxtascii.v2.12.filler4", ftypes.STRING, nil, nil, nil, "Filler.")
+omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.filler_4 = ProtoField.new("Filler 4", "nextrade.nextrade.etpcommon.nxtascii.v2.12.filler4", ftypes.BYTES, nil, nil, nil, "Filler.")
 omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.final_ask_bid_type_code = ProtoField.new("Final Ask Bid Type Code", "nextrade.nextrade.etpcommon.nxtascii.v2.12.finalaskbidtypecode", ftypes.STRING, nil, nil, nil, "Ask/Bid Type Code space: order filled with single price. 0: N/A 1: ASK 2: BID.")
 omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.first_best_order_permission_type = ProtoField.new("First Best Order Permission Type", "nextrade.nextrade.etpcommon.nxtascii.v2.12.firstbestorderpermissiontype", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill).")
 omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.group_number = ProtoField.new("Group Number", "nextrade.nextrade.etpcommon.nxtascii.v2.12.groupnumber", ftypes.STRING, nil, nil, nil, "Group Number.")
@@ -376,10 +376,12 @@ local show = {}
 -- Nextrade Nextrade EtpCommon NxtAscii 2.12 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.padding = false
 
 -- Register Nextrade Nextrade EtpCommon NxtAscii 2.12 Show Options
 omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 -- Handle changed preferences
 function omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.prefs_changed()
@@ -387,6 +389,9 @@ function omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.prefs.show_application_messages then
     show.application_messages = omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.prefs.show_application_messages
+  end
+  if show.padding ~= omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.prefs.show_padding then
+    show.padding = omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.prefs.show_padding
   end
   if show.structs ~= omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.prefs.show_structs then
     show.structs = omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.prefs.show_structs
@@ -4818,7 +4823,7 @@ end
 nextrade_nextrade_etpcommon_nxtascii_v2_12.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = nextrade_nextrade_etpcommon_nxtascii_v2_12.filler_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(nextrade_nextrade_etpcommon_nxtascii_v2_12.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = nextrade_nextrade_etpcommon_nxtascii_v2_12.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.filler_4, range, value, display)
@@ -10998,7 +11003,11 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.etp_constituents_message.fields = fun
   index, index_id = nextrade_nextrade_etpcommon_nxtascii_v2_12.index_id.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = nextrade_nextrade_etpcommon_nxtascii_v2_12.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = nextrade_nextrade_etpcommon_nxtascii_v2_12.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nextrade_nextrade_etpcommon_nxtascii_v2_12.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = nextrade_nextrade_etpcommon_nxtascii_v2_12.end_keyword.dissect(buffer, index, packet, parent)

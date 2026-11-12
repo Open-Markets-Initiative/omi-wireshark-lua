@@ -80,8 +80,8 @@ omi_siac_cts_input_cta_v2_7_f.fields.previous_participant_reference_number = Pro
 omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.priordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time_utc = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.priordaytradedateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_cts_input_cta_v2_7_f.fields.reserved = ProtoField.new("Reserved", "siac.cts.input.cta.v2.7.f.reserved", ftypes.BYTES, nil, nil, nil, "Reserved for Future Use (TBD), space filled")
-omi_siac_cts_input_cta_v2_7_f.fields.reserved_3 = ProtoField.new("Reserved 3", "siac.cts.input.cta.v2.7.f.reserved3", ftypes.STRING, nil, nil, nil, "Reserved for future use (TBD)")
-omi_siac_cts_input_cta_v2_7_f.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cts.input.cta.v2.7.f.reserved62", ftypes.STRING, nil, nil, nil, "Reserved for future use (TBD)")
+omi_siac_cts_input_cta_v2_7_f.fields.reserved_3 = ProtoField.new("Reserved 3", "siac.cts.input.cta.v2.7.f.reserved3", ftypes.BYTES, nil, nil, nil, "Reserved for future use (TBD)")
+omi_siac_cts_input_cta_v2_7_f.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cts.input.cta.v2.7.f.reserved62", ftypes.BYTES, nil, nil, nil, "Reserved for future use (TBD)")
 omi_siac_cts_input_cta_v2_7_f.fields.sale_condition = ProtoField.new("Sale Condition", "siac.cts.input.cta.v2.7.f.salecondition", ftypes.STRING, nil, nil, nil, "Sale Condition for Long-form messages. Four positional Category levels per Sale Condition table")
 omi_siac_cts_input_cta_v2_7_f.fields.sale_condition_category = ProtoField.new("Sale Condition Category", "siac.cts.input.cta.v2.7.f.saleconditioncategory", ftypes.STRING, nil, nil, nil, "Identifies the Sale Condition Category level associated with a Short Trade")
 omi_siac_cts_input_cta_v2_7_f.fields.sale_condition_short = ProtoField.new("Sale Condition", "siac.cts.input.cta.v2.7.f.saleconditionshort", ftypes.STRING, nil, nil, nil, "Sale Condition for Short-form messages. Must belong to the Sale Condition Category given in the message")
@@ -1774,7 +1774,7 @@ end
 siac_cts_input_cta_v2_7_f.reserved_3.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_input_cta_v2_7_f.reserved_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cts_input_cta_v2_7_f.reserved_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_input_cta_v2_7_f.fields.reserved_3, range, value, display)
@@ -1797,7 +1797,7 @@ end
 siac_cts_input_cta_v2_7_f.reserved_62.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_input_cta_v2_7_f.reserved_62.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cts_input_cta_v2_7_f.reserved_62.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_input_cta_v2_7_f.fields.reserved_62, range, value, display)
@@ -2550,7 +2550,11 @@ siac_cts_input_cta_v2_7_f.fractional_short_trade_message.fields = function(buffe
   index, fractional_trade_volume_short = siac_cts_input_cta_v2_7_f.fractional_trade_volume_short.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Char[]
-  index, reserved_3 = siac_cts_input_cta_v2_7_f.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = siac_cts_input_cta_v2_7_f.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cts_input_cta_v2_7_f.reserved_3.size
+  end
 
   return index
 end
@@ -2610,7 +2614,11 @@ siac_cts_input_cta_v2_7_f.short_trade_message.fields = function(buffer, offset, 
   index, trade_volume_short = siac_cts_input_cta_v2_7_f.trade_volume_short.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Char[]
-  index, reserved_3 = siac_cts_input_cta_v2_7_f.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = siac_cts_input_cta_v2_7_f.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cts_input_cta_v2_7_f.reserved_3.size
+  end
 
   return index
 end
@@ -3074,7 +3082,11 @@ siac_cts_input_cta_v2_7_f.auction_status_message.fields = function(buffer, offse
   index, number_of_extensions = siac_cts_input_cta_v2_7_f.number_of_extensions.dissect(buffer, index, packet, parent)
 
   -- Reserved 62: Char[]
-  index, reserved_62 = siac_cts_input_cta_v2_7_f.reserved_62.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_62 = siac_cts_input_cta_v2_7_f.reserved_62.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cts_input_cta_v2_7_f.reserved_62.size
+  end
 
   return index
 end

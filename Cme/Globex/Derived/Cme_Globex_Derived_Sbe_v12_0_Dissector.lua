@@ -1135,30 +1135,6 @@ cme_globex_derived_sbe_v12_0.match_event_indicator.size = 1
 cme_globex_derived_sbe_v12_0.match_event_indicator.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused Event Indicator 0 flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Unused Event Indicator 0"
-  end
-  -- Is Unused Event Indicator 1 flag set?
-  if bit.band(value, 0x02) ~= 0 then
-    flags[#flags + 1] = "Unused Event Indicator 1"
-  end
-  -- Is Unused Event Indicator 2 flag set?
-  if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Unused Event Indicator 2"
-  end
-  -- Is Unused Event Indicator 3 flag set?
-  if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Unused Event Indicator 3"
-  end
-  -- Is Unused Event Indicator 4 flag set?
-  if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Unused Event Indicator 4"
-  end
-  -- Is Unused Event Indicator 5 flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Unused Event Indicator 5"
-  end
   -- Is Recovery Message flag set?
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "Recovery Message"

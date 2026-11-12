@@ -6401,7 +6401,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_28.execution_report_message.field
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length ~= 100
+  local optional_order_add_on_exists = seq_msg_length == 183
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_amexoptions_binarygateway_pillarstream_v3_28.optional_order_add_on.dissect(buffer, index, packet, parent)
@@ -7061,7 +7061,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_28.order_and_cancel_replace_ackno
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length ~= 100
+  local optional_order_add_on_exists = seq_msg_length == 184
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_amexoptions_binarygateway_pillarstream_v3_28.optional_order_add_on.dissect(buffer, index, packet, parent)
@@ -9510,7 +9510,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_28.new_order_message.fields = fun
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length ~= 100
+  local optional_order_add_on_exists = seq_msg_length == 147
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_amexoptions_binarygateway_pillarstream_v3_28.optional_order_add_on.dissect(buffer, index, packet, parent)

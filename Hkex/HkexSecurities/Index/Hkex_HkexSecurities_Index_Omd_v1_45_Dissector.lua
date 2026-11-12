@@ -27,7 +27,8 @@ omi_hkex_hkexsecurities_index_omd_v1_45.fields.high_value = ProtoField.new("High
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_code = ProtoField.new("Index Code", "hkex.hkexsecurities.index.omd.v1.45.indexcode", ftypes.STRING, nil, nil, nil, "Upstream source's index code or market information identifier.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_source = ProtoField.new("Index Source", "hkex.hkexsecurities.index.omd.v1.45.indexsource", ftypes.STRING, nil, nil, nil, "Index or market information source.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_status = ProtoField.new("Index Status", "hkex.hkexsecurities.index.omd.v1.45.indexstatus", ftypes.STRING, nil, nil, nil, "Index status. Can be blank if not defined by third party index compilers.")
-omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_time = ProtoField.new("Index Time", "hkex.hkexsecurities.index.omd.v1.45.indextime", ftypes.INT64, nil, nil, nil, "Publisher timestamp. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_time = ProtoField.new("Index Time", "hkex.hkexsecurities.index.omd.v1.45.indextime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publisher timestamp. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_time_utc = ProtoField.new("Index Time", "hkex.hkexsecurities.index.omd.v1.45.indextime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Publisher timestamp. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_turnover = ProtoField.new("Index Turnover", "hkex.hkexsecurities.index.omd.v1.45.indexturnover", ftypes.DOUBLE, nil, nil, nil, "Current turnover of underlying constituents. 4 implied decimal places.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_value = ProtoField.new("Index Value", "hkex.hkexsecurities.index.omd.v1.45.indexvalue", ftypes.DOUBLE, nil, nil, nil, "Current value of the index. 4 implied decimal places.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_volume = ProtoField.new("Index Volume", "hkex.hkexsecurities.index.omd.v1.45.indexvolume", ftypes.INT64, nil, nil, nil, "Index volume of underlying constituents. Only applicable for CSI and CES.")
@@ -501,24 +502,27 @@ hkex_hkexsecurities_index_omd_v1_45.index_time = {}
 -- Size: Index Time
 hkex_hkexsecurities_index_omd_v1_45.index_time.size = 8
 
--- Display: Index Time
-hkex_hkexsecurities_index_omd_v1_45.index_time.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Index Time: No Value"
-  end
-
-  return "Index Time: "..value
-end
-
 -- Dissect: Index Time
 hkex_hkexsecurities_index_omd_v1_45.index_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_index_omd_v1_45.index_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = hkex_hkexsecurities_index_omd_v1_45.index_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_time
+  if hkex_hkexsecurities_index_omd_v1_45.timestamp_format == 3 then field = omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_time_utc end
+
+  if value == Int64(0x00000000, 0x80000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Index Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

@@ -553,7 +553,7 @@ end
 cboe_bxeequities_lastsale_asciipitch_v1_5.publication_date_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_lastsale_asciipitch_v1_5.publication_date_time.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = cboe_bxeequities_lastsale_asciipitch_v1_5.publication_date_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_lastsale_asciipitch_v1_5.fields.publication_date_time, range, value, display)
@@ -901,7 +901,7 @@ end
 cboe_bxeequities_lastsale_asciipitch_v1_5.trading_date_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_lastsale_asciipitch_v1_5.trading_date_time.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = cboe_bxeequities_lastsale_asciipitch_v1_5.trading_date_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_lastsale_asciipitch_v1_5.fields.trading_date_time, range, value, display)

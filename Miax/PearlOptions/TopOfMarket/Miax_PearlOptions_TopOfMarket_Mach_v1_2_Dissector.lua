@@ -4052,7 +4052,7 @@ miax_pearloptions_topofmarket_mach_v1_2.refresh_response_message.fields = functi
   local sesm_packet_length = buffer(offset - 4, 2):le_uint()
 
   -- Runtime Size Of: Application Message
-  local size_of_application_message = sesm_packet_length - 12
+  local size_of_application_message = sesm_packet_length - 10
 
   -- Application Message: Struct of 2 fields
   index, application_message = miax_pearloptions_topofmarket_mach_v1_2.application_message.dissect(buffer, index, packet, parent, size_of_application_message)

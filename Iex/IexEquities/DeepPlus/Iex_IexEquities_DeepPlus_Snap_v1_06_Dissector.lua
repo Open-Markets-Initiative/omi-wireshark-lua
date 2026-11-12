@@ -44,7 +44,7 @@ omi_iex_iexequities_deepplus_snap_v1_06.fields.priority = ProtoField.new("Priori
 omi_iex_iexequities_deepplus_snap_v1_06.fields.reason = ProtoField.new("Reason", "iex.iexequities.deepplus.snap.v1.06.reason", ftypes.STRING, nil, nil, nil, "Reason for the trading status change")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "iex.iexequities.deepplus.snap.v1.06.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Reason the Snapshot Request was rejected")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.reserved = ProtoField.new("Reserved", "iex.iexequities.deepplus.snap.v1.06.reserved", ftypes.BYTES, nil, nil, nil, "Reserved byte")
-omi_iex_iexequities_deepplus_snap_v1_06.fields.reserved_1 = ProtoField.new("Reserved 1", "iex.iexequities.deepplus.snap.v1.06.reserved1", ftypes.STRING, nil, nil, nil, "Reserved for future use")
+omi_iex_iexequities_deepplus_snap_v1_06.fields.reserved_1 = ProtoField.new("Reserved 1", "iex.iexequities.deepplus.snap.v1.06.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.retail_liquidity_indicator = ProtoField.new("Retail Liquidity Indicator", "iex.iexequities.deepplus.snap.v1.06.retailliquidityindicator", ftypes.STRING, nil, nil, nil, "Retail Liquidity Indicator identifier")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.round_lot_size = ProtoField.new("Round Lot Size", "iex.iexequities.deepplus.snap.v1.06.roundlotsize", ftypes.UINT32, nil, nil, nil, "Number of shares that represent a round lot")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.iexequities.deepplus.snap.v1.06.saleconditionflags", ftypes.STRING)
@@ -771,7 +771,7 @@ end
 iex_iexequities_deepplus_snap_v1_06.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexequities_deepplus_snap_v1_06.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = iex_iexequities_deepplus_snap_v1_06.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.reserved_1, range, value, display)
@@ -1280,7 +1280,11 @@ iex_iexequities_deepplus_snap_v1_06.clear_book_message.fields = function(buffer,
   local index = offset
 
   -- Reserved 1: Byte
-  index, reserved_1 = iex_iexequities_deepplus_snap_v1_06.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = iex_iexequities_deepplus_snap_v1_06.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + iex_iexequities_deepplus_snap_v1_06.reserved_1.size
+  end
 
   -- Timestamp: Timestamp
   index, timestamp = iex_iexequities_deepplus_snap_v1_06.timestamp.dissect(buffer, index, packet, parent)
@@ -1584,7 +1588,11 @@ iex_iexequities_deepplus_snap_v1_06.order_delete_message.fields = function(buffe
   local index = offset
 
   -- Reserved 1: Byte
-  index, reserved_1 = iex_iexequities_deepplus_snap_v1_06.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = iex_iexequities_deepplus_snap_v1_06.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + iex_iexequities_deepplus_snap_v1_06.reserved_1.size
+  end
 
   -- Timestamp: Timestamp
   index, timestamp = iex_iexequities_deepplus_snap_v1_06.timestamp.dissect(buffer, index, packet, parent)

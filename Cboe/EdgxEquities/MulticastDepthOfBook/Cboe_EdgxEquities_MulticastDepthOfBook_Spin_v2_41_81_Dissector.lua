@@ -51,9 +51,9 @@ omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.quantity_short =
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.reference_price = ProtoField.new("Reference Price", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.referenceprice", ftypes.UINT64, nil, nil, nil, "BBO Collared auction price. Shares matched for Cboe Market Close.")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.regshoaction", ftypes.STRING, nil, nil, nil, "0 = No price test in effect, 1 = Reg SHO price test restriction in effect.")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.remainingquantity", ftypes.UINT32, nil, nil, nil, "Number of shares/contracts remaining after the execution.")
-omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.reserved1", ftypes.STRING, nil, nil, nil, "Reserved.")
+omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved.")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.retailpriceimprovement", ftypes.STRING, nil, nil, nil, "B = Buy Side RPI, S = Sell Side RPI, A = Buy and Sell RPI, N = No RPI.")
-omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.secondreserved1", ftypes.STRING, nil, nil, nil, "Reserved.")
+omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.secondreserved1", ftypes.BYTES, nil, nil, nil, "Reserved.")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.sellshares", ftypes.UINT32, nil, nil, nil, "Number of shares on sell side at the Reference Price. Shares matched for Cboe Market Close.")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.sequence = ProtoField.new("Sequence", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.sequence", ftypes.UINT32, nil, nil, nil, "Spin is available which is current through this sequence number.")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.sessionsubid", ftypes.STRING, nil, nil, nil, "SessionSubId supplied by Cboe.")
@@ -141,12 +141,14 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Cboe EdgxEquities MulticastDepthOfBook Spin 2.41.81 Show Options
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
@@ -160,6 +162,9 @@ function omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs_changed(
   end
   if show.headers ~= omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_headers then
     show.headers = omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_padding then
+    show.padding = omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_padding
   end
   if show.structs ~= omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_structs then
     show.structs = omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_structs
@@ -1079,7 +1084,7 @@ end
 cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.reserved_1, range, value, display)
@@ -1132,7 +1137,7 @@ end
 cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.second_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.second_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.second_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.second_reserved_1, range, value, display)
@@ -1772,10 +1777,18 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.trading_status_message.fiel
   index, reg_sho_action = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.reg_sho_action.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alpha
-  index, reserved_1 = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.reserved_1.size
+  end
 
   -- Second Reserved 1: Alpha
-  index, second_reserved_1 = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.second_reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved_1 = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.second_reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.second_reserved_1.size
+  end
 
   return index
 end

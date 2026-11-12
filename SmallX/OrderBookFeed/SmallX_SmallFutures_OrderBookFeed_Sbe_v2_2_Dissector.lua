@@ -3038,14 +3038,6 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.size = 
 smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused Snapshot Message Instructions 0 flag set?
-  if bit.band(value, 0x0001) ~= 0 then
-    flags[#flags + 1] = "Unused Snapshot Message Instructions 0"
-  end
-  -- Is Unused Snapshot Message Instructions 1 flag set?
-  if bit.band(value, 0x0002) ~= 0 then
-    flags[#flags + 1] = "Unused Snapshot Message Instructions 1"
-  end
   -- Is Instrument Begin flag set?
   if bit.band(value, 0x0004) ~= 0 then
     flags[#flags + 1] = "Instrument Begin"
@@ -3061,10 +3053,6 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.display
   -- Is Book End flag set?
   if bit.band(value, 0x0020) ~= 0 then
     flags[#flags + 1] = "Book End"
-  end
-  -- Is Unused Snapshot Message Instructions 6 flag set?
-  if bit.band(value, 0x0040) ~= 0 then
-    flags[#flags + 1] = "Unused Snapshot Message Instructions 6"
   end
   -- Is Snapshot Begin flag set?
   if bit.band(value, 0x0080) ~= 0 then

@@ -7260,10 +7260,6 @@ coinbase_deribit_ordersapi_sbe_v1_3.flags_replace_order_flags.size = 2
 coinbase_deribit_ordersapi_sbe_v1_3.flags_replace_order_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused Replace Order Flags 0 flag set?
-  if bit.band(value, 0x0001) ~= 0 then
-    flags[#flags + 1] = "Unused Replace Order Flags 0"
-  end
   -- Is Post Only flag set?
   if bit.band(value, 0x0002) ~= 0 then
     flags[#flags + 1] = "Post Only"

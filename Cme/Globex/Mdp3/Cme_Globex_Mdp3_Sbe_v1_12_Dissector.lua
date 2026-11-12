@@ -294,6 +294,7 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.sef_regulated = ProtoField.new("Sef Regulat
 omi_cme_globex_mdp3_sbe_v1_12.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.12.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_globex_mdp3_sbe_v1_12.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.12.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
 omi_cme_globex_mdp3_sbe_v1_12.fields.session = ProtoField.new("Session", "cme.globex.mdp3.sbe.v1.12.session", ftypes.STRING, nil, nil, nil, "Session ID")
+omi_cme_globex_mdp3_sbe_v1_12.fields.session_text = ProtoField.new("Session Text", "cme.globex.mdp3.sbe.v1.12.sessiontext", ftypes.STRING, nil, nil, nil, "Reject reason details")
 omi_cme_globex_mdp3_sbe_v1_12.fields.settl_currency = ProtoField.new("Settl Currency", "cme.globex.mdp3.sbe.v1.12.settlcurrency", ftypes.STRING, nil, nil, nil, "Identifies currency used for settlement, if different from trading currency")
 omi_cme_globex_mdp3_sbe_v1_12.fields.settl_date = ProtoField.new("Settl Date", "cme.globex.mdp3.sbe.v1.12.settldate", ftypes.UINT16, nil, nil, nil, "Settle (Value) Date corresponding to Trade Date")
 omi_cme_globex_mdp3_sbe_v1_12.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.globex.mdp3.sbe.v1.12.settlpricetype", ftypes.STRING, nil, nil, nil, "SettlPriceType bit set")
@@ -325,7 +326,6 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_sending_time_utc = ProtoField.new("Tcp 
 omi_cme_globex_mdp3_sbe_v1_12.fields.template_id = ProtoField.new("Template Id", "cme.globex.mdp3.sbe.v1.12.templateid", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.term_code = ProtoField.new("Term Code", "cme.globex.mdp3.sbe.v1.12.termcode", ftypes.STRING, nil, nil, nil, "Full Repo Term Code")
 omi_cme_globex_mdp3_sbe_v1_12.fields.termination_type = ProtoField.new("Termination Type", "cme.globex.mdp3.sbe.v1.12.terminationtype", ftypes.STRING, nil, nil, nil, "For Repos the timing or method for terminating the agreement. Term code")
-omi_cme_globex_mdp3_sbe_v1_12.fields.text = ProtoField.new("Text", "cme.globex.mdp3.sbe.v1.12.text", ftypes.STRING, nil, nil, nil, "Reject reason details")
 omi_cme_globex_mdp3_sbe_v1_12.fields.tick_rule = ProtoField.new("Tick Rule", "cme.globex.mdp3.sbe.v1.12.tickrule", ftypes.INT8, nil, nil, nil, "VTT code referencing variable tick table")
 omi_cme_globex_mdp3_sbe_v1_12.fields.tot_num_reports = ProtoField.new("Tot Num Reports", "cme.globex.mdp3.sbe.v1.12.totnumreports", ftypes.UINT32, nil, nil, nil, "Total number of messages replayed in the loop")
 omi_cme_globex_mdp3_sbe_v1_12.fields.tot_num_reports_optional = ProtoField.new("Tot Num Reports Optional", "cme.globex.mdp3.sbe.v1.12.totnumreportsoptional", ftypes.UINT32, nil, nil, nil, "Total number of instruments in the Replay loop. Used on Replay Feed only")
@@ -5575,6 +5575,45 @@ cme_globex_mdp3_sbe_v1_12.session.dissect = function(buffer, offset, packet, par
   return offset + length, value
 end
 
+-- Session Text
+cme_globex_mdp3_sbe_v1_12.session_text = {}
+
+-- Size: Session Text
+cme_globex_mdp3_sbe_v1_12.session_text.size = 100
+
+-- Display: Session Text
+cme_globex_mdp3_sbe_v1_12.session_text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session Text: No Value"
+  end
+
+  return "Session Text: "..value
+end
+
+-- Dissect: Session Text
+cme_globex_mdp3_sbe_v1_12.session_text.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_12.session_text.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_globex_mdp3_sbe_v1_12.session_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.session_text, range, value, display)
+
+  return offset + length, value
+end
+
 -- Settl Currency
 cme_globex_mdp3_sbe_v1_12.settl_currency = {}
 
@@ -6143,45 +6182,6 @@ cme_globex_mdp3_sbe_v1_12.termination_type.dissect = function(buffer, offset, pa
   local display = cme_globex_mdp3_sbe_v1_12.termination_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.termination_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-cme_globex_mdp3_sbe_v1_12.text = {}
-
--- Size: Text
-cme_globex_mdp3_sbe_v1_12.text.size = 100
-
--- Display: Text
-cme_globex_mdp3_sbe_v1_12.text.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Text: No Value"
-  end
-
-  return "Text: "..value
-end
-
--- Dissect: Text
-cme_globex_mdp3_sbe_v1_12.text.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_mdp3_sbe_v1_12.text.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_globex_mdp3_sbe_v1_12.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -7201,7 +7201,7 @@ cme_globex_mdp3_sbe_v1_12.request_reject = {}
 cme_globex_mdp3_sbe_v1_12.request_reject.size =
   cme_globex_mdp3_sbe_v1_12.md_req_id_optional.size + 
   cme_globex_mdp3_sbe_v1_12.md_req_rej_reason.size + 
-  cme_globex_mdp3_sbe_v1_12.text.size
+  cme_globex_mdp3_sbe_v1_12.session_text.size
 
 -- Display: Request Reject
 cme_globex_mdp3_sbe_v1_12.request_reject.display = function(packet, parent, length)
@@ -7218,8 +7218,8 @@ cme_globex_mdp3_sbe_v1_12.request_reject.fields = function(buffer, offset, packe
   -- Md Req Rej Reason: MDReqRejReason
   index, md_req_rej_reason = cme_globex_mdp3_sbe_v1_12.md_req_rej_reason.dissect(buffer, index, packet, parent)
 
-  -- Text: String100
-  index, text = cme_globex_mdp3_sbe_v1_12.text.dissect(buffer, index, packet, parent)
+  -- Session Text: String100
+  index, session_text = cme_globex_mdp3_sbe_v1_12.session_text.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10666,14 +10666,6 @@ cme_globex_mdp3_sbe_v1_12.settl_price_type.display = function(range, value, pack
   -- Is Reserved Bits flag set?
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Reserved Bits"
-  end
-  -- Is Unused Settl Price Type 5 flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Unused Settl Price Type 5"
-  end
-  -- Is Unused Settl Price Type 6 flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Unused Settl Price Type 6"
   end
   -- Is Null Value flag set?
   if bit.band(value, 0x80) ~= 0 then

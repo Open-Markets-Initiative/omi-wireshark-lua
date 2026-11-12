@@ -36,7 +36,7 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.finra_best_offer_market_maker_id = ProtoFi
 omi_siac_cqs_snapshot_cta_v2_1.fields.finra_best_offer_price = ProtoField.new("Finra Best Offer Price", "siac.cqs.snapshot.cta.v2.1.finrabestofferprice", ftypes.DOUBLE, nil, nil, nil, "Contains the FINRA ADF provided Best FINRA Offer Price that is the FINRA Best Offer (FBBO)")
 omi_siac_cqs_snapshot_cta_v2_1.fields.finra_best_offer_quote_condition = ProtoField.new("Finra Best Offer Quote Condition", "siac.cqs.snapshot.cta.v2.1.finrabestofferquotecondition", ftypes.STRING, nil, nil, nil, "Contains the FINRA ADF provided FINRA Best Offer Quote Condition associated with the Best FINRA Offer Price that had the FINRA Best Offer (FBBO)")
 omi_siac_cqs_snapshot_cta_v2_1.fields.finra_best_offer_size = ProtoField.new("Finra Best Offer Size", "siac.cqs.snapshot.cta.v2.1.finrabestoffersize", ftypes.UINT32, nil, nil, nil, "Contains the FINRA ADF provided FINRA Best Offer Size associated with the FINRA Best Offer Price that had the FINRA Best Offer (FBBO)")
-omi_siac_cqs_snapshot_cta_v2_1.fields.fourth_reserved = ProtoField.new("Fourth Reserved", "siac.cqs.snapshot.cta.v2.1.fourthreserved", ftypes.STRING, nil, nil, nil, "Space-filled, reserved for future use")
+omi_siac_cqs_snapshot_cta_v2_1.fields.fourth_reserved = ProtoField.new("Fourth Reserved", "siac.cqs.snapshot.cta.v2.1.fourthreserved", ftypes.BYTES, nil, nil, nil, "Space-filled, reserved for future use")
 omi_siac_cqs_snapshot_cta_v2_1.fields.halt_reason = ProtoField.new("Halt Reason", "siac.cqs.snapshot.cta.v2.1.haltreason", ftypes.STRING, nil, nil, nil, "Denotes the reason for the Trading Halt")
 omi_siac_cqs_snapshot_cta_v2_1.fields.high_indication_price = ProtoField.new("High Indication Price", "siac.cqs.snapshot.cta.v2.1.highindicationprice", ftypes.DOUBLE, nil, nil, nil, "Represents an approximation of what the high end Offer price of a security's trading range may be, used for Trading Range Indication or Price Indication following a Trading Halt")
 omi_siac_cqs_snapshot_cta_v2_1.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cqs.snapshot.cta.v2.1.instrumenttype", ftypes.STRING, nil, nil, nil, "Identifies the instrument type relevant to the quote")
@@ -72,10 +72,10 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.primary_listing_market_participant_id = Pr
 omi_siac_cqs_snapshot_cta_v2_1.fields.primary_listing_market_previous_closing_price = ProtoField.new("Primary Listing Market Previous Closing Price", "siac.cqs.snapshot.cta.v2.1.primarylistingmarketpreviousclosingprice", ftypes.DOUBLE)
 omi_siac_cqs_snapshot_cta_v2_1.fields.prior_security_symbol = ProtoField.new("Prior Security Symbol", "siac.cqs.snapshot.cta.v2.1.priorsecuritysymbol", ftypes.STRING, nil, nil, nil, "Contains the prior security symbol, left justified, space filled")
 omi_siac_cqs_snapshot_cta_v2_1.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.snapshot.cta.v2.1.quotecondition", ftypes.STRING, nil, nil, nil, "Denotes a particular condition applicable to the quote, used to determine whether a quote qualifies for the Best Bid and Best Offer calculation")
-omi_siac_cqs_snapshot_cta_v2_1.fields.reserved = ProtoField.new("Reserved", "siac.cqs.snapshot.cta.v2.1.reserved", ftypes.STRING, nil, nil, nil, "Space-filled, reserved for future use")
+omi_siac_cqs_snapshot_cta_v2_1.fields.reserved = ProtoField.new("Reserved", "siac.cqs.snapshot.cta.v2.1.reserved", ftypes.BYTES, nil, nil, nil, "Space-filled, reserved for future use")
 omi_siac_cqs_snapshot_cta_v2_1.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.snapshot.cta.v2.1.retailinterestindicator", ftypes.STRING, nil, nil, nil, "Indicates Retail Price Improvement (RPI) interest priced better than the Protected Best Bid or Offer (PBBO) by a minimum of $0.001")
 omi_siac_cqs_snapshot_cta_v2_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "siac.cqs.snapshot.cta.v2.1.roundlotsize", ftypes.UINT16, nil, nil, nil, "Round-lot size for a symbol can consist of 1, 10, 40 or 100 shares")
-omi_siac_cqs_snapshot_cta_v2_1.fields.second_reserved = ProtoField.new("Second Reserved", "siac.cqs.snapshot.cta.v2.1.secondreserved", ftypes.STRING, nil, nil, nil, "Space-filled, reserved for future use")
+omi_siac_cqs_snapshot_cta_v2_1.fields.second_reserved = ProtoField.new("Second Reserved", "siac.cqs.snapshot.cta.v2.1.secondreserved", ftypes.BYTES, nil, nil, nil, "Space-filled, reserved for future use")
 omi_siac_cqs_snapshot_cta_v2_1.fields.seconds = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v2.1.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
 omi_siac_cqs_snapshot_cta_v2_1.fields.seconds_utc = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v2.1.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
 omi_siac_cqs_snapshot_cta_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cqs.snapshot.cta.v2.1.securitysymbol", ftypes.STRING, nil, nil, nil, "Contains the security symbol, left justified, space filled")
@@ -86,7 +86,7 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp_utc = ProtoField.new("
 omi_siac_cqs_snapshot_cta_v2_1.fields.snapshot_message = ProtoField.new("Snapshot Message", "siac.cqs.snapshot.cta.v2.1.snapshotmessage", ftypes.STRING, nil, nil, nil, "Snapshot Messages")
 omi_siac_cqs_snapshot_cta_v2_1.fields.snapshot_message_type = ProtoField.new("Snapshot Message Type", "siac.cqs.snapshot.cta.v2.1.snapshotmessagetype", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.test = ProtoField.new("Test", "siac.cqs.snapshot.cta.v2.1.test", ftypes.STRING, nil, nil, nil, "Identifies whether the security symbol is a test symbol")
-omi_siac_cqs_snapshot_cta_v2_1.fields.third_reserved = ProtoField.new("Third Reserved", "siac.cqs.snapshot.cta.v2.1.thirdreserved", ftypes.STRING, nil, nil, nil, "Space-filled, reserved for future use")
+omi_siac_cqs_snapshot_cta_v2_1.fields.third_reserved = ProtoField.new("Third Reserved", "siac.cqs.snapshot.cta.v2.1.thirdreserved", ftypes.BYTES, nil, nil, nil, "Space-filled, reserved for future use")
 omi_siac_cqs_snapshot_cta_v2_1.fields.totpubseqrollover = ProtoField.new("Totpubseqrollover", "siac.cqs.snapshot.cta.v2.1.totpubseqrollover", ftypes.UINT8, nil, nil, nil, "Indicates the number of times the sequence number has previously rolled over for the Real-Time Output line on which the symbol resides")
 omi_siac_cqs_snapshot_cta_v2_1.fields.upper_limit_price_band = ProtoField.new("Upper Limit Price Band", "siac.cqs.snapshot.cta.v2.1.upperlimitpriceband", ftypes.DOUBLE, nil, nil, nil, "Represents the upper price band value for a security, set to zero when Price Bands are not in effect")
 omi_siac_cqs_snapshot_cta_v2_1.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v2.1.version", ftypes.UINT8, nil, nil, nil, "Designates The Cqs Binary Version")
@@ -131,12 +131,14 @@ local show = {}
 show.headers = true
 show.application_messages = true
 show.structs = true
+show.padding = false
 show.indexes = true
 
 -- Register Siac Cqs Snapshot Cta 2.1 Show Options
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_siac_cqs_snapshot_cta_v2_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_siac_cqs_snapshot_cta_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
@@ -150,6 +152,9 @@ function omi_siac_cqs_snapshot_cta_v2_1.prefs_changed()
   end
   if show.headers ~= omi_siac_cqs_snapshot_cta_v2_1.prefs.show_headers then
     show.headers = omi_siac_cqs_snapshot_cta_v2_1.prefs.show_headers
+  end
+  if show.padding ~= omi_siac_cqs_snapshot_cta_v2_1.prefs.show_padding then
+    show.padding = omi_siac_cqs_snapshot_cta_v2_1.prefs.show_padding
   end
   if show.structs ~= omi_siac_cqs_snapshot_cta_v2_1.prefs.show_structs then
     show.structs = omi_siac_cqs_snapshot_cta_v2_1.prefs.show_structs
@@ -760,7 +765,7 @@ end
 siac_cqs_snapshot_cta_v2_1.fourth_reserved.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v2_1.fourth_reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_snapshot_cta_v2_1.fourth_reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.fourth_reserved, range, value, display)
@@ -1910,7 +1915,7 @@ end
 siac_cqs_snapshot_cta_v2_1.reserved.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v2_1.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_snapshot_cta_v2_1.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.reserved, range, value, display)
@@ -1992,7 +1997,7 @@ end
 siac_cqs_snapshot_cta_v2_1.second_reserved.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v2_1.second_reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_snapshot_cta_v2_1.second_reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.second_reserved, range, value, display)
@@ -2176,7 +2181,7 @@ end
 siac_cqs_snapshot_cta_v2_1.third_reserved.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v2_1.third_reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_snapshot_cta_v2_1.third_reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.third_reserved, range, value, display)
@@ -2561,7 +2566,11 @@ siac_cqs_snapshot_cta_v2_1.consolidated_snapshot_message.fields = function(buffe
   index, halt_reason = siac_cqs_snapshot_cta_v2_1.halt_reason.dissect(buffer, index, packet, parent)
 
   -- Reserved: Char
-  index, reserved = siac_cqs_snapshot_cta_v2_1.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = siac_cqs_snapshot_cta_v2_1.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cqs_snapshot_cta_v2_1.reserved.size
+  end
 
   return index
 end
@@ -2617,7 +2626,11 @@ siac_cqs_snapshot_cta_v2_1.market_wide_circuit_breaker_decline_level_status_snap
   index, mwcb_level_3 = siac_cqs_snapshot_cta_v2_1.mwcb_level_3.dissect(buffer, index, packet, parent)
 
   -- Reserved: Char
-  index, reserved = siac_cqs_snapshot_cta_v2_1.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = siac_cqs_snapshot_cta_v2_1.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cqs_snapshot_cta_v2_1.reserved.size
+  end
 
   return index
 end
@@ -2696,7 +2709,11 @@ siac_cqs_snapshot_cta_v2_1.symbol_reference_data_message.fields = function(buffe
   index, round_lot_size = siac_cqs_snapshot_cta_v2_1.round_lot_size.dissect(buffer, index, packet, parent)
 
   -- Reserved: Char
-  index, reserved = siac_cqs_snapshot_cta_v2_1.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = siac_cqs_snapshot_cta_v2_1.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cqs_snapshot_cta_v2_1.reserved.size
+  end
 
   -- Luld Tier: Char
   index, luld_tier = siac_cqs_snapshot_cta_v2_1.luld_tier.dissect(buffer, index, packet, parent)
@@ -2723,13 +2740,25 @@ siac_cqs_snapshot_cta_v2_1.symbol_reference_data_message.fields = function(buffe
   index, instrument_type = siac_cqs_snapshot_cta_v2_1.instrument_type.dissect(buffer, index, packet, parent)
 
   -- Second Reserved: Char
-  index, second_reserved = siac_cqs_snapshot_cta_v2_1.second_reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved = siac_cqs_snapshot_cta_v2_1.second_reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cqs_snapshot_cta_v2_1.second_reserved.size
+  end
 
   -- Third Reserved: Char
-  index, third_reserved = siac_cqs_snapshot_cta_v2_1.third_reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, third_reserved = siac_cqs_snapshot_cta_v2_1.third_reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cqs_snapshot_cta_v2_1.third_reserved.size
+  end
 
   -- Fourth Reserved: Char
-  index, fourth_reserved = siac_cqs_snapshot_cta_v2_1.fourth_reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fourth_reserved = siac_cqs_snapshot_cta_v2_1.fourth_reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cqs_snapshot_cta_v2_1.fourth_reserved.size
+  end
 
   return index
 end

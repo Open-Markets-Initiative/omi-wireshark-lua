@@ -57,10 +57,10 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_security_grou
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.sessionmgmt.sbe.v0.2.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.sessionmgmt.sbe.v0.2.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.session = ProtoField.new("Session", "cme.globex.sessionmgmt.sbe.v0.2.session", ftypes.STRING, nil, nil, nil, "Session ID")
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.session_text = ProtoField.new("Session Text", "cme.globex.sessionmgmt.sbe.v0.2.sessiontext", ftypes.STRING, nil, nil, nil, "Reject reason details")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.simple_binary_header = ProtoField.new("Simple Binary Header", "cme.globex.sessionmgmt.sbe.v0.2.simplebinaryheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.subscription_req_type = ProtoField.new("Subscription Req Type", "cme.globex.sessionmgmt.sbe.v0.2.subscriptionreqtype", ftypes.UINT8, nil, nil, nil, "Subscription Request Type indicates to the type of response expected")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.template_id = ProtoField.new("Template Id", "cme.globex.sessionmgmt.sbe.v0.2.templateid", ftypes.UINT16)
-omi_cme_globex_sessionmgmt_sbe_v0_2.fields.text = ProtoField.new("Text", "cme.globex.sessionmgmt.sbe.v0.2.text", ftypes.STRING, nil, nil, nil, "Reject reason details")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.uuid = ProtoField.new("Uuid", "cme.globex.sessionmgmt.sbe.v0.2.uuid", ftypes.UINT64, nil, nil, nil, "Session Identifier defined as type long uInt64, recommended to use timestamp as number of microseconds since Unix epoch")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.version = ProtoField.new("Version", "cme.globex.sessionmgmt.sbe.v0.2.version", ftypes.UINT16)
 
@@ -837,6 +837,45 @@ cme_globex_sessionmgmt_sbe_v0_2.session.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Session Text
+cme_globex_sessionmgmt_sbe_v0_2.session_text = {}
+
+-- Size: Session Text
+cme_globex_sessionmgmt_sbe_v0_2.session_text.size = 100
+
+-- Display: Session Text
+cme_globex_sessionmgmt_sbe_v0_2.session_text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session Text: No Value"
+  end
+
+  return "Session Text: "..value
+end
+
+-- Dissect: Session Text
+cme_globex_sessionmgmt_sbe_v0_2.session_text.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_sessionmgmt_sbe_v0_2.session_text.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_globex_sessionmgmt_sbe_v0_2.session_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.session_text, range, value, display)
+
+  return offset + length, value
+end
+
 -- Subscription Req Type
 cme_globex_sessionmgmt_sbe_v0_2.subscription_req_type = {}
 
@@ -898,45 +937,6 @@ cme_globex_sessionmgmt_sbe_v0_2.template_id.dissect = function(buffer, offset, p
   local display = cme_globex_sessionmgmt_sbe_v0_2.template_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-cme_globex_sessionmgmt_sbe_v0_2.text = {}
-
--- Size: Text
-cme_globex_sessionmgmt_sbe_v0_2.text.size = 100
-
--- Display: Text
-cme_globex_sessionmgmt_sbe_v0_2.text.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Text: No Value"
-  end
-
-  return "Text: "..value
-end
-
--- Dissect: Text
-cme_globex_sessionmgmt_sbe_v0_2.text.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_sessionmgmt_sbe_v0_2.text.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_globex_sessionmgmt_sbe_v0_2.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -1003,7 +1003,7 @@ cme_globex_sessionmgmt_sbe_v0_2.request_reject = {}
 cme_globex_sessionmgmt_sbe_v0_2.request_reject.size =
   cme_globex_sessionmgmt_sbe_v0_2.md_req_id_optional.size + 
   cme_globex_sessionmgmt_sbe_v0_2.md_req_rej_reason.size + 
-  cme_globex_sessionmgmt_sbe_v0_2.text.size
+  cme_globex_sessionmgmt_sbe_v0_2.session_text.size
 
 -- Display: Request Reject
 cme_globex_sessionmgmt_sbe_v0_2.request_reject.display = function(packet, parent, length)
@@ -1020,8 +1020,8 @@ cme_globex_sessionmgmt_sbe_v0_2.request_reject.fields = function(buffer, offset,
   -- Md Req Rej Reason: MDReqRejReason
   index, md_req_rej_reason = cme_globex_sessionmgmt_sbe_v0_2.md_req_rej_reason.dissect(buffer, index, packet, parent)
 
-  -- Text: String100
-  index, text = cme_globex_sessionmgmt_sbe_v0_2.text.dissect(buffer, index, packet, parent)
+  -- Session Text: String100
+  index, session_text = cme_globex_sessionmgmt_sbe_v0_2.session_text.dissect(buffer, index, packet, parent)
 
   return index
 end

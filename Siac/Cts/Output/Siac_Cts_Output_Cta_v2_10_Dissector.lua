@@ -97,7 +97,7 @@ omi_siac_cts_output_cta_v2_10.fields.prior_day_message_type = ProtoField.new("Pr
 omi_siac_cts_output_cta_v2_10.fields.prior_day_original_trade = ProtoField.new("Prior Day Original Trade", "siac.cts.output.cta.v2.10.priordayoriginaltrade", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.output.cta.v2.10.priordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_cts_output_cta_v2_10.fields.prior_day_trade_date_and_time_utc = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.output.cta.v2.10.priordaytradedateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_siac_cts_output_cta_v2_10.fields.reserved = ProtoField.new("Reserved", "siac.cts.output.cta.v2.10.reserved", ftypes.UINT8, nil, nil, nil, "Field is reserved for future use.")
+omi_siac_cts_output_cta_v2_10.fields.reserved = ProtoField.new("Reserved", "siac.cts.output.cta.v2.10.reserved", ftypes.BYTES, nil, nil, nil, "Field is reserved for future use.")
 omi_siac_cts_output_cta_v2_10.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cts.output.cta.v2.10.retransmissionindicator", ftypes.STRING, nil, nil, nil, "Indicates an original message or a retransmitted block")
 omi_siac_cts_output_cta_v2_10.fields.sale_condition = ProtoField.new("Sale Condition", "siac.cts.output.cta.v2.10.salecondition", ftypes.STRING, nil, nil, nil, "Denotes the sale condition associated with a trade")
 omi_siac_cts_output_cta_v2_10.fields.sale_condition_category = ProtoField.new("Sale Condition Category", "siac.cts.output.cta.v2.10.saleconditioncategory", ftypes.STRING, nil, nil, nil, "Identifies the Sale Condition Category level associated with a trade")
@@ -215,6 +215,7 @@ show.structs = true
 show.application_messages = true
 show.headers = true
 show.repeating_groups = true
+show.padding = false
 show.indexes = true
 
 -- Register Siac Cts Output Cta 2.10 Show Options
@@ -222,6 +223,7 @@ omi_siac_cts_output_cta_v2_10.prefs.show_structs = Pref.bool("Show Structs", sho
 omi_siac_cts_output_cta_v2_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_siac_cts_output_cta_v2_10.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
@@ -235,6 +237,9 @@ function omi_siac_cts_output_cta_v2_10.prefs_changed()
   end
   if show.headers ~= omi_siac_cts_output_cta_v2_10.prefs.show_headers then
     show.headers = omi_siac_cts_output_cta_v2_10.prefs.show_headers
+  end
+  if show.padding ~= omi_siac_cts_output_cta_v2_10.prefs.show_padding then
+    show.padding = omi_siac_cts_output_cta_v2_10.prefs.show_padding
   end
   if show.repeating_groups ~= omi_siac_cts_output_cta_v2_10.prefs.show_repeating_groups then
     show.repeating_groups = omi_siac_cts_output_cta_v2_10.prefs.show_repeating_groups
@@ -2140,7 +2145,7 @@ end
 siac_cts_output_cta_v2_10.reserved.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_10.reserved.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cts_output_cta_v2_10.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_10.fields.reserved, range, value, display)
@@ -7035,7 +7040,11 @@ siac_cts_output_cta_v2_10.market_wide_circuit_breaker_status_message.fields = fu
   index, market_wide_circuit_breaker_level_indicator = siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved: Byte
-  index, reserved = siac_cts_output_cta_v2_10.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = siac_cts_output_cta_v2_10.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cts_output_cta_v2_10.reserved.size
+  end
 
   return index
 end
@@ -7107,7 +7116,11 @@ siac_cts_output_cta_v2_10.market_wide_circuit_breaker_decline_level_status_messa
   index, mwcb_level_3 = siac_cts_output_cta_v2_10.mwcb_level_3.dissect(buffer, index, packet, parent)
 
   -- Reserved: Byte
-  index, reserved = siac_cts_output_cta_v2_10.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = siac_cts_output_cta_v2_10.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cts_output_cta_v2_10.reserved.size
+  end
 
   return index
 end

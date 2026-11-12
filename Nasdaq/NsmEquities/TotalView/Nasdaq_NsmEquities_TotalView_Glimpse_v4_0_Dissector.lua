@@ -33,7 +33,7 @@ omi_nasdaq_nsmequities_totalview_glimpse_v4_0.fields.reason = ProtoField.new("Re
 omi_nasdaq_nsmequities_totalview_glimpse_v4_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.glimpse.v4.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.glimpse.v4.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.totalview.glimpse.v4.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
-omi_nasdaq_nsmequities_totalview_glimpse_v4_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.nsmequities.totalview.glimpse.v4.0.reserved", ftypes.STRING, nil, nil, nil, "Reserved.")
+omi_nasdaq_nsmequities_totalview_glimpse_v4_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.nsmequities.totalview.glimpse.v4.0.reserved", ftypes.BYTES, nil, nil, nil, "Reserved.")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.totalview.glimpse.v4.0.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue.")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_0.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.totalview.glimpse.v4.0.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if NASDAQ system limits order entry for issue.")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_0.fields.second = ProtoField.new("Second", "nasdaq.nsmequities.totalview.glimpse.v4.0.second", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight.")
@@ -107,6 +107,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.padding = false
 show.sequences = true
 
 -- Register Nasdaq NsmEquities TotalView Glimpse 4.0 Show Options
@@ -117,6 +118,7 @@ omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_application_messages = 
 omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
@@ -128,6 +130,9 @@ function omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_headers then
     show.headers = omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_padding then
+    show.padding = omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_padding
   end
   if show.session_messages ~= omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_nsmequities_totalview_glimpse_v4_0.prefs.show_session_messages
@@ -723,7 +728,7 @@ end
 nasdaq_nsmequities_totalview_glimpse_v4_0.reserved.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_glimpse_v4_0.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nsmequities_totalview_glimpse_v4_0.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v4_0.fields.reserved, range, value, display)
@@ -1134,7 +1139,11 @@ nasdaq_nsmequities_totalview_glimpse_v4_0.stock_trading_action_message.fields = 
   index, trading_state = nasdaq_nsmequities_totalview_glimpse_v4_0.trading_state.dissect(buffer, index, packet, parent)
 
   -- Reserved: Alpha
-  index, reserved = nasdaq_nsmequities_totalview_glimpse_v4_0.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = nasdaq_nsmequities_totalview_glimpse_v4_0.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_nsmequities_totalview_glimpse_v4_0.reserved.size
+  end
 
   -- Reason: Alpha
   index, reason = nasdaq_nsmequities_totalview_glimpse_v4_0.reason.dissect(buffer, index, packet, parent)

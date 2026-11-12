@@ -169,7 +169,7 @@ omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.exercising_period = Prot
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.expected_time_of_expanding_price_limit_range = ProtoField.new("Expected Time Of Expanding Price Limit Range", "nextrade.nextrade.stockcommon.nxtascii.v2.12.expectedtimeofexpandingpricelimitrange", ftypes.STRING, nil, nil, nil, "Expected Time of Expanding Price Limit Range.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.expiration_date = ProtoField.new("Expiration Date", "nextrade.nextrade.stockcommon.nxtascii.v2.12.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration Date.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.expiration_date_for_right = ProtoField.new("Expiration Date For Right", "nextrade.nextrade.stockcommon.nxtascii.v2.12.expirationdateforright", ftypes.STRING, nil, nil, nil, "Expiration Date for Right.")
-omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.filler_3 = ProtoField.new("Filler 3", "nextrade.nextrade.stockcommon.nxtascii.v2.12.filler3", ftypes.STRING, nil, nil, nil, "Filler Value.")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.filler_3 = ProtoField.new("Filler 3", "nextrade.nextrade.stockcommon.nxtascii.v2.12.filler3", ftypes.BYTES, nil, nil, nil, "Filler Value.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.final_ask_bid_type_code = ProtoField.new("Final Ask Bid Type Code", "nextrade.nextrade.stockcommon.nxtascii.v2.12.finalaskbidtypecode", ftypes.STRING, nil, nil, nil, "Ask/Bid Type Code space: order filled with single price. 0: N/A 1: ASK 2: BID.")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.first_best_order_permission_type = ProtoField.new("First Best Order Permission Type", "nextrade.nextrade.stockcommon.nxtascii.v2.12.firstbestorderpermissiontype", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill).")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.group_number = ProtoField.new("Group Number", "nextrade.nextrade.stockcommon.nxtascii.v2.12.groupnumber", ftypes.STRING, nil, nil, nil, "Group Number.")
@@ -382,10 +382,12 @@ local show = {}
 -- Nextrade Nextrade StockCommon NxtAscii 2.12 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.padding = false
 
 -- Register Nextrade Nextrade StockCommon NxtAscii 2.12 Show Options
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 -- Handle changed preferences
 function omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.prefs_changed()
@@ -393,6 +395,9 @@ function omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.prefs.show_application_messages then
     show.application_messages = omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.prefs.show_application_messages
+  end
+  if show.padding ~= omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.prefs.show_padding then
+    show.padding = omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.prefs.show_padding
   end
   if show.structs ~= omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.prefs.show_structs then
     show.structs = omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.prefs.show_structs
@@ -5305,7 +5310,7 @@ end
 nextrade_nextrade_stockcommon_nxtascii_v2_12.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = nextrade_nextrade_stockcommon_nxtascii_v2_12.filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(nextrade_nextrade_stockcommon_nxtascii_v2_12.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = nextrade_nextrade_stockcommon_nxtascii_v2_12.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nextrade_nextrade_stockcommon_nxtascii_v2_12.fields.filler_3, range, value, display)
@@ -11619,7 +11624,11 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.investor_activities_per_an_industry
   index, accumulated_bid_trading_value = nextrade_nextrade_stockcommon_nxtascii_v2_12.accumulated_bid_trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
-  index, filler_3 = nextrade_nextrade_stockcommon_nxtascii_v2_12.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = nextrade_nextrade_stockcommon_nxtascii_v2_12.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + nextrade_nextrade_stockcommon_nxtascii_v2_12.filler_3.size
+  end
 
   -- End Keyword: String
   index, end_keyword = nextrade_nextrade_stockcommon_nxtascii_v2_12.end_keyword.dissect(buffer, index, packet, parent)

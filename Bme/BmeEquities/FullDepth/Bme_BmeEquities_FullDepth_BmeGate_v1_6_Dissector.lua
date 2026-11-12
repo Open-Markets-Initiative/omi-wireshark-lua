@@ -5244,23 +5244,23 @@ bme_bmeequities_fulldepth_bmegate_v1_6.trading_scope.display = function(value)
   if value == 9 then
     return "Trading Scope: Valencia And Madrid (9)"
   end
-  if value == A then
-    return "Trading Scope: Bilbao And Madrid (A)"
+  if value == 0xA then
+    return "Trading Scope: Bilbao And Madrid (0xA)"
   end
-  if value == B then
-    return "Trading Scope: Valencia Bilbao And Madrid (B)"
+  if value == 0xB then
+    return "Trading Scope: Valencia Bilbao And Madrid (0xB)"
   end
-  if value == C then
-    return "Trading Scope: Barcelona And Madrid (C)"
+  if value == 0xC then
+    return "Trading Scope: Barcelona And Madrid (0xC)"
   end
-  if value == D then
-    return "Trading Scope: Valencia Barcelona And Madrid (D)"
+  if value == 0xD then
+    return "Trading Scope: Valencia Barcelona And Madrid (0xD)"
   end
-  if value == E then
-    return "Trading Scope: Bilbao Barcelona And Madrid (E)"
+  if value == 0xE then
+    return "Trading Scope: Bilbao Barcelona And Madrid (0xE)"
   end
-  if value == F then
-    return "Trading Scope: Valencia Bilbao Barcelona And Madrid (F)"
+  if value == 0xF then
+    return "Trading Scope: Valencia Bilbao Barcelona And Madrid (0xF)"
   end
 
   return "Trading Scope: Unknown("..value..")"

@@ -129,15 +129,15 @@ omi_siac_cts_output_cta_v2_11_b.fields.prior_day_message_type = ProtoField.new("
 omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.priordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The date and time the prior day trade was executed")
 omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time_utc = ProtoField.new("Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.priordaytradedateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The date and time the prior day trade was executed")
 omi_siac_cts_output_cta_v2_11_b.fields.prior_security_symbol = ProtoField.new("Prior Security Symbol", "siac.cts.output.cta.v2.11.b.priorsecuritysymbol", ftypes.STRING, nil, nil, nil, "Contains the prior Security Symbol")
-omi_siac_cts_output_cta_v2_11_b.fields.reserved = ProtoField.new("Reserved", "siac.cts.output.cta.v2.11.b.reserved", ftypes.STRING, nil, nil, nil, "Space-filled. Field is reserved for future use")
-omi_siac_cts_output_cta_v2_11_b.fields.reserved_128 = ProtoField.new("Reserved 128", "siac.cts.output.cta.v2.11.b.reserved128", ftypes.STRING, nil, nil, nil, "Space-filled. Field is reserved for future use")
-omi_siac_cts_output_cta_v2_11_b.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cts.output.cta.v2.11.b.reserved62", ftypes.STRING, nil, nil, nil, "Space-filled. Field is reserved for future use")
+omi_siac_cts_output_cta_v2_11_b.fields.reserved = ProtoField.new("Reserved", "siac.cts.output.cta.v2.11.b.reserved", ftypes.BYTES, nil, nil, nil, "Space-filled. Field is reserved for future use")
+omi_siac_cts_output_cta_v2_11_b.fields.reserved_128 = ProtoField.new("Reserved 128", "siac.cts.output.cta.v2.11.b.reserved128", ftypes.BYTES, nil, nil, nil, "Space-filled. Field is reserved for future use")
+omi_siac_cts_output_cta_v2_11_b.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cts.output.cta.v2.11.b.reserved62", ftypes.BYTES, nil, nil, nil, "Space-filled. Field is reserved for future use")
 omi_siac_cts_output_cta_v2_11_b.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cts.output.cta.v2.11.b.retransmissionindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.round_lot_size = ProtoField.new("Round Lot Size", "siac.cts.output.cta.v2.11.b.roundlotsize", ftypes.UINT16, nil, nil, nil, "Round-lot size for a symbol can consist of 1, 10, 40 or 100 shares")
 omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_1 = ProtoField.new("Sale Condition 1", "siac.cts.output.cta.v2.11.b.salecondition1", ftypes.STRING, nil, nil, nil, "Denotes the sale condition associated with a trade")
 omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_4 = ProtoField.new("Sale Condition 4", "siac.cts.output.cta.v2.11.b.salecondition4", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_category = ProtoField.new("Sale Condition Category", "siac.cts.output.cta.v2.11.b.saleconditioncategory", ftypes.STRING, nil, nil, nil, "In the Short Trade format, identifies the Sale Condition Category level associated with a trade")
-omi_siac_cts_output_cta_v2_11_b.fields.second_reserved = ProtoField.new("Second Reserved", "siac.cts.output.cta.v2.11.b.secondreserved", ftypes.STRING, nil, nil, nil, "Space-filled. Field is reserved for future use")
+omi_siac_cts_output_cta_v2_11_b.fields.second_reserved = ProtoField.new("Second Reserved", "siac.cts.output.cta.v2.11.b.secondreserved", ftypes.BYTES, nil, nil, nil, "Space-filled. Field is reserved for future use")
 omi_siac_cts_output_cta_v2_11_b.fields.seconds = ProtoField.new("Seconds", "siac.cts.output.cta.v2.11.b.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
 omi_siac_cts_output_cta_v2_11_b.fields.seconds_utc = ProtoField.new("Seconds", "siac.cts.output.cta.v2.11.b.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
 omi_siac_cts_output_cta_v2_11_b.fields.security_status = ProtoField.new("Security Status", "siac.cts.output.cta.v2.11.b.securitystatus", ftypes.STRING, nil, nil, nil, "Identifies the trading status applicable to the transaction")
@@ -223,6 +223,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.trading_status_message = ProtoField.new("
 omi_siac_cts_output_cta_v2_11_b.fields.approximate_volume_participant_index = ProtoField.new("Approximate Volume Participant Index", "siac.cts.output.cta.v2.11.b.approximatevolumeparticipantindex", ftypes.UINT16)
 omi_siac_cts_output_cta_v2_11_b.fields.message_index = ProtoField.new("Message Index", "siac.cts.output.cta.v2.11.b.messageindex", ftypes.UINT16)
 omi_siac_cts_output_cta_v2_11_b.fields.participant_index = ProtoField.new("Participant Index", "siac.cts.output.cta.v2.11.b.participantindex", ftypes.UINT16)
+omi_siac_cts_output_cta_v2_11_b.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "siac.cts.output.cta.v2.11.b.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Siac Cts Output Cta 2.11.b Formatting
@@ -249,14 +250,18 @@ show.structs = true
 show.application_messages = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
+show.sequences = true
 
 -- Register Siac Cts Output Cta 2.11.b Show Options
 omi_siac_cts_output_cta_v2_11_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_siac_cts_output_cta_v2_11_b.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_siac_cts_output_cta_v2_11_b.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_siac_cts_output_cta_v2_11_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
@@ -270,6 +275,9 @@ function omi_siac_cts_output_cta_v2_11_b.prefs_changed()
   if show.headers ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_headers then
     show.headers = omi_siac_cts_output_cta_v2_11_b.prefs.show_headers
   end
+  if show.padding ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_padding then
+    show.padding = omi_siac_cts_output_cta_v2_11_b.prefs.show_padding
+  end
   if show.repeating_groups ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_repeating_groups then
     show.repeating_groups = omi_siac_cts_output_cta_v2_11_b.prefs.show_repeating_groups
   end
@@ -278,6 +286,9 @@ function omi_siac_cts_output_cta_v2_11_b.prefs_changed()
   end
   if show.indexes ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_indexes then
     show.indexes = omi_siac_cts_output_cta_v2_11_b.prefs.show_indexes
+  end
+  if show.sequences ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_sequences then
+    show.sequences = omi_siac_cts_output_cta_v2_11_b.prefs.show_sequences
   end
   if siac_cts_output_cta_v2_11_b.timestamp_format ~= omi_siac_cts_output_cta_v2_11_b.prefs.timestamp_format then
     siac_cts_output_cta_v2_11_b.timestamp_format = omi_siac_cts_output_cta_v2_11_b.prefs.timestamp_format
@@ -645,6 +656,9 @@ siac_cts_output_cta_v2_11_b.category_2.display = function(value)
   if value == "F" then
     return "Category 2: Inter Market Sweep Order (F)"
   end
+  if value == "O" then
+    return "Category 2: Market Center Opening Trade (O)"
+  end
   if value == "4" then
     return "Category 2: Derivatively Priced (4)"
   end
@@ -692,9 +706,6 @@ siac_cts_output_cta_v2_11_b.category_3.display = function(value)
   end
   if value == "L" then
     return "Category 3: Sold Last Late Reporting (L)"
-  end
-  if value == "O" then
-    return "Category 3: Market Center Opening Trade (O)"
   end
   if value == "T" then
     return "Category 3: Extended Hours Trade (T)"
@@ -3288,7 +3299,7 @@ end
 siac_cts_output_cta_v2_11_b.reserved.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cts_output_cta_v2_11_b.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.reserved, range, value, display)
@@ -3311,7 +3322,7 @@ end
 siac_cts_output_cta_v2_11_b.reserved_128.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.reserved_128.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cts_output_cta_v2_11_b.reserved_128.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.reserved_128, range, value, display)
@@ -3334,7 +3345,7 @@ end
 siac_cts_output_cta_v2_11_b.reserved_62.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.reserved_62.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cts_output_cta_v2_11_b.reserved_62.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.reserved_62, range, value, display)
@@ -3544,7 +3555,7 @@ end
 siac_cts_output_cta_v2_11_b.second_reserved.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.second_reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cts_output_cta_v2_11_b.second_reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.second_reserved, range, value, display)
@@ -5807,7 +5818,11 @@ siac_cts_output_cta_v2_11_b.auction_status_message.fields = function(buffer, off
   index, financial_status_indicator = siac_cts_output_cta_v2_11_b.financial_status_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 62: Char[]
-  index, reserved_62 = siac_cts_output_cta_v2_11_b.reserved_62.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_62 = siac_cts_output_cta_v2_11_b.reserved_62.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cts_output_cta_v2_11_b.reserved_62.size
+  end
 
   return index
 end
@@ -7887,7 +7902,11 @@ siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_status_message.fields = 
   index, market_wide_circuit_breaker_level_indicator = siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_level_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved: Char
-  index, reserved = siac_cts_output_cta_v2_11_b.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = siac_cts_output_cta_v2_11_b.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cts_output_cta_v2_11_b.reserved.size
+  end
 
   return index
 end
@@ -7959,7 +7978,11 @@ siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_decline_level_status_mes
   index, mwcb_level_3 = siac_cts_output_cta_v2_11_b.mwcb_level_3.dissect(buffer, index, packet, parent)
 
   -- Reserved: Char
-  index, reserved = siac_cts_output_cta_v2_11_b.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = siac_cts_output_cta_v2_11_b.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cts_output_cta_v2_11_b.reserved.size
+  end
 
   return index
 end
@@ -8716,13 +8739,25 @@ siac_cts_output_cta_v2_11_b.symbol_reference_data_message.fields = function(buff
   index, instrument_type = siac_cts_output_cta_v2_11_b.instrument_type.dissect(buffer, index, packet, parent)
 
   -- Reserved: Char
-  index, reserved = siac_cts_output_cta_v2_11_b.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = siac_cts_output_cta_v2_11_b.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cts_output_cta_v2_11_b.reserved.size
+  end
 
   -- Second Reserved: Char
-  index, second_reserved = siac_cts_output_cta_v2_11_b.second_reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, second_reserved = siac_cts_output_cta_v2_11_b.second_reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cts_output_cta_v2_11_b.second_reserved.size
+  end
 
   -- Reserved 128: Char[]
-  index, reserved_128 = siac_cts_output_cta_v2_11_b.reserved_128.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_128 = siac_cts_output_cta_v2_11_b.reserved_128.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cts_output_cta_v2_11_b.reserved_128.size
+  end
 
   return index
 end
@@ -9086,6 +9121,12 @@ siac_cts_output_cta_v2_11_b.message.fields = function(buffer, offset, packet, pa
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and siac_cts_output_cta_v2_11_b.packet_sequence ~= nil then
+    local sequence = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.message_sequence_number, UInt64.new(siac_cts_output_cta_v2_11_b.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = siac_cts_output_cta_v2_11_b.message_length.dissect(buffer, index, packet, parent)
 
@@ -9227,6 +9268,9 @@ siac_cts_output_cta_v2_11_b.block_header.fields = function(buffer, offset, packe
 
   -- Block Checksum: unsigned integer
   index, block_checksum = siac_cts_output_cta_v2_11_b.block_checksum.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  siac_cts_output_cta_v2_11_b.packet_sequence = block_sequence_number
 
   return index
 end

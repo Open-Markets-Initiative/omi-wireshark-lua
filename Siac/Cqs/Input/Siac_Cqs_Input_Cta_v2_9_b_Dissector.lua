@@ -86,9 +86,9 @@ omi_siac_cqs_input_cta_v2_9_b.fields.previous_block_sequence_number = ProtoField
 omi_siac_cqs_input_cta_v2_9_b.fields.previous_participant_reference_number = ProtoField.new("Previous Participant Reference Number", "siac.cqs.input.cta.v2.9.b.previousparticipantreferencenumber", ftypes.INT64, nil, nil, nil, "Participant Reference Number prior to the gap that triggered the Warning")
 omi_siac_cqs_input_cta_v2_9_b.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.input.cta.v2.9.b.quotecondition", ftypes.STRING, nil, nil, nil, "Denotes a particular condition applicable to the quote. Used to determine whether a quote qualifies for the Best Bid and Best Offer calculation")
 omi_siac_cqs_input_cta_v2_9_b.fields.reserved = ProtoField.new("Reserved", "siac.cqs.input.cta.v2.9.b.reserved", ftypes.BYTES, nil, nil, nil, "Reserved for Future Use (TBD), space filled")
-omi_siac_cqs_input_cta_v2_9_b.fields.reserved_2 = ProtoField.new("Reserved 2", "siac.cqs.input.cta.v2.9.b.reserved2", ftypes.STRING, nil, nil, nil, "Reserved for future use (TBD)")
-omi_siac_cqs_input_cta_v2_9_b.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cqs.input.cta.v2.9.b.reserved62", ftypes.STRING, nil, nil, nil, "Reserved for future use (TBD)")
-omi_siac_cqs_input_cta_v2_9_b.fields.reserved_8 = ProtoField.new("Reserved 8", "siac.cqs.input.cta.v2.9.b.reserved8", ftypes.STRING, nil, nil, nil, "Reserved for future use (TBD)")
+omi_siac_cqs_input_cta_v2_9_b.fields.reserved_2 = ProtoField.new("Reserved 2", "siac.cqs.input.cta.v2.9.b.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved for future use (TBD)")
+omi_siac_cqs_input_cta_v2_9_b.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cqs.input.cta.v2.9.b.reserved62", ftypes.BYTES, nil, nil, nil, "Reserved for future use (TBD)")
+omi_siac_cqs_input_cta_v2_9_b.fields.reserved_8 = ProtoField.new("Reserved 8", "siac.cqs.input.cta.v2.9.b.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use (TBD)")
 omi_siac_cqs_input_cta_v2_9_b.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.input.cta.v2.9.b.retailinterestindicator", ftypes.STRING, nil, nil, nil, "Identifies Retail Price Improvement (RPI) interest priced better than the Protected BBO")
 omi_siac_cqs_input_cta_v2_9_b.fields.round_lot_bid_price = ProtoField.new("Round Lot Bid Price", "siac.cqs.input.cta.v2.9.b.roundlotbidprice", ftypes.DOUBLE, nil, nil, nil, "Round Lot bid price. Implied 6 decimal places")
 omi_siac_cqs_input_cta_v2_9_b.fields.round_lot_bid_price_short = ProtoField.new("Round Lot Bid Price", "siac.cqs.input.cta.v2.9.b.roundlotbidpriceshort", ftypes.DOUBLE, nil, nil, nil, "Round Lot bid price (Short form). Implied 2 decimal places")
@@ -1825,7 +1825,7 @@ end
 siac_cqs_input_cta_v2_9_b.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_input_cta_v2_9_b.reserved_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_input_cta_v2_9_b.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved_2, range, value, display)
@@ -1848,7 +1848,7 @@ end
 siac_cqs_input_cta_v2_9_b.reserved_62.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_input_cta_v2_9_b.reserved_62.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_input_cta_v2_9_b.reserved_62.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved_62, range, value, display)
@@ -1871,7 +1871,7 @@ end
 siac_cqs_input_cta_v2_9_b.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_input_cta_v2_9_b.reserved_8.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_input_cta_v2_9_b.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved_8, range, value, display)
@@ -3814,7 +3814,11 @@ siac_cqs_input_cta_v2_9_b.short_quote_message.fields = function(buffer, offset, 
   index, offer_size_short = siac_cqs_input_cta_v2_9_b.offer_size_short.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Char[]
-  index, reserved_2 = siac_cqs_input_cta_v2_9_b.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = siac_cqs_input_cta_v2_9_b.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cqs_input_cta_v2_9_b.reserved_2.size
+  end
 
   return index
 end
@@ -3878,7 +3882,11 @@ siac_cqs_input_cta_v2_9_b.auction_status_message.fields = function(buffer, offse
   index, number_of_extensions = siac_cqs_input_cta_v2_9_b.number_of_extensions.dissect(buffer, index, packet, parent)
 
   -- Reserved 62: Char[]
-  index, reserved_62 = siac_cqs_input_cta_v2_9_b.reserved_62.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_62 = siac_cqs_input_cta_v2_9_b.reserved_62.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cqs_input_cta_v2_9_b.reserved_62.size
+  end
 
   return index
 end
@@ -4000,7 +4008,11 @@ siac_cqs_input_cta_v2_9_b.odd_lot_refresh_request_message.fields = function(buff
   index, security_symbol_end_range = siac_cqs_input_cta_v2_9_b.security_symbol_end_range.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Char[]
-  index, reserved_8 = siac_cqs_input_cta_v2_9_b.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = siac_cqs_input_cta_v2_9_b.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cqs_input_cta_v2_9_b.reserved_8.size
+  end
 
   return index
 end

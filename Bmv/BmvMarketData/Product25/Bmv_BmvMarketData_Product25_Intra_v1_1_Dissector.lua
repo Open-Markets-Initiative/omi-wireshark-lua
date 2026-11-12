@@ -1287,7 +1287,59 @@ bmv_bmvmarketdata_product25_intra_v1_1.message_type.size = 1
 
 -- Display: Message Type
 bmv_bmvmarketdata_product25_intra_v1_1.message_type.display = function(value)
-  return "Message Type: "..value
+  if value == 0x28 then
+    return "Message Type: Mutual Funds Trades Message (0x28)"
+  end
+  if value == 0x29 then
+    return "Message Type: Opening Of Continuous Auctions Message (0x29)"
+  end
+  if value == 0x2C then
+    return "Message Type: Existence Of Bids At Mid Price Message (0x2C)"
+  end
+  if value == 0x2E then
+    return "Message Type: Catalogue Of Debt And Metals Instruments Message (0x2E)"
+  end
+  if value == 0x30 then
+    return "Message Type: Catalog Sent For Instruments Belonging To Mutual Funds Message (0x30)"
+  end
+  if value == 0x36 then
+    return "Message Type: Weighted Average Price Message (0x36)"
+  end
+  if value == 0x37 then
+    return "Message Type: System Events Message (0x37)"
+  end
+  if value == 0x38 then
+    return "Message Type: Reference Price Message (0x38)"
+  end
+  if value == 0x39 then
+    return "Message Type: Changes In Status Message (0x39)"
+  end
+  if value == 0x54 then
+    return "Message Type: Catalog For Instruments Belonging To The Capital Warrants Market Message (0x54)"
+  end
+  if value == 0x5B then
+    return "Message Type: Catalog Sent For Instruments Belonging To Capital Tracs Message (0x5B)"
+  end
+  if value == 0x5D then
+    return "Message Type: Consolidated Inav Message (0x5D)"
+  end
+  if value == 0x68 then
+    return "Message Type: Catalog For Instruments Belonging To The Local And Global Stock Market Message (0x68)"
+  end
+  if value == 0x69 then
+    return "Message Type: Probable Price Of Allocation Message (0x69)"
+  end
+  if value == 0x6A then
+    return "Message Type: Relation Between Bmvbiva Instruments Message (0x6A)"
+  end
+  if value == 0x70 then
+    return "Message Type: Equities Market Trades Message (0x70)"
+  end
+  if value == 0x71 then
+    return "Message Type: Consolidated Trade Cancellation Message (0x71)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

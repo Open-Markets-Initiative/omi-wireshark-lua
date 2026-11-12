@@ -2217,10 +2217,6 @@ cme_globex_settlements_sbe_v7_0.settl_price_type.display = function(range, value
   if bit.band(value, 0x20) ~= 0 then
     flags[#flags + 1] = "Reserved Bits"
   end
-  -- Is Unused Settl Price Type 6 flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Unused Settl Price Type 6"
-  end
   -- Is Null Value flag set?
   if bit.band(value, 0x80) ~= 0 then
     flags[#flags + 1] = "Null Value"

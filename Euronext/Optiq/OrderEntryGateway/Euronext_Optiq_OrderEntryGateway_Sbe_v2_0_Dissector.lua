@@ -14136,10 +14136,6 @@ euronext_optiq_orderentrygateway_sbe_v2_0.execution_instruction_optional.display
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "Conditional Order"
   end
-  -- Is Unused Execution Instructionset 7 flag set?
-  if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Unused Execution Instructionset 7"
-  end
 
   return table.concat(flags, "|")
 end
@@ -14775,10 +14771,6 @@ euronext_optiq_orderentrygateway_sbe_v2_0.trading_session.size = 1
 euronext_optiq_orderentrygateway_sbe_v2_0.trading_session.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused Trading Session Validityset 0 flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Unused Trading Session Validityset 0"
-  end
   -- Is Session 1 flag set?
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Session 1"
@@ -15001,10 +14993,6 @@ euronext_optiq_orderentrygateway_sbe_v2_0.execution_instruction.display = functi
   -- Is Conditional Order flag set?
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "Conditional Order"
-  end
-  -- Is Unused Execution Instructionset 7 flag set?
-  if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Unused Execution Instructionset 7"
   end
 
   return table.concat(flags, "|")

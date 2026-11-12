@@ -26,9 +26,9 @@ omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_type = ProtoField
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.odd_lot = ProtoField.new("Odd Lot", "cboe.matchnow.multicasttrades.pitch.v1.0.14.oddlot", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "0 = Regular Trade, 1 = Odd Lot Trade.")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.price = ProtoField.new("Price", "cboe.matchnow.multicasttrades.pitch.v1.0.14.price", ftypes.DOUBLE, nil, nil, nil, "The price of the trade.")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.quantity = ProtoField.new("Quantity", "cboe.matchnow.multicasttrades.pitch.v1.0.14.quantity", ftypes.UINT32, nil, nil, nil, "Incremental number of shares executed or reported (see Trade Condition).")
-omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.matchnow.multicasttrades.pitch.v1.0.14.reserved2", ftypes.UINT16, nil, nil, nil, "Reserved (undefined).")
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.matchnow.multicasttrades.pitch.v1.0.14.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved (undefined).")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.matchnow.multicasttrades.pitch.v1.0.14.reserved3", ftypes.BYTES, nil, nil, nil, "Reserved (undefined).")
-omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.matchnow.multicasttrades.pitch.v1.0.14.reserved4", ftypes.UINT32, nil, nil, nil, "Reserved (undefined).")
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.matchnow.multicasttrades.pitch.v1.0.14.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved (undefined).")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.sell_broker_number = ProtoField.new("Sell Broker Number", "cboe.matchnow.multicasttrades.pitch.v1.0.14.sellbrokernumber", ftypes.UINT16, nil, nil, nil, "Broker number of the seller of the trade (or 1 for anonymous).")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.sequence = ProtoField.new("Sequence", "cboe.matchnow.multicasttrades.pitch.v1.0.14.sequence", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.symbol = ProtoField.new("Symbol", "cboe.matchnow.multicasttrades.pitch.v1.0.14.symbol", ftypes.STRING, nil, nil, nil, "Symbol (right padded with spaces).")
@@ -81,6 +81,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -88,6 +89,7 @@ show.sequences = true
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -102,6 +104,9 @@ function omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs_changed()
   end
   if show.headers ~= omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_headers then
     show.headers = omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_padding then
+    show.padding = omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_padding
   end
   if show.structs ~= omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_structs then
     show.structs = omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_structs
@@ -386,7 +391,7 @@ end
 cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_2, range, value, display)
@@ -432,7 +437,7 @@ end
 cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_4, range, value, display)
@@ -661,7 +666,11 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.end_of_session_message.fields = func
   local index = offset
 
   -- Reserved 4: Binary
-  index, reserved_4 = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_4.size
+  end
 
   return index
 end
@@ -791,7 +800,11 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.trade_message.fields = function(buff
   index, trade_flags = cboe_matchnow_multicasttrades_pitch_v1_0_14.trade_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Binary
-  index, reserved_2 = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_2.size
+  end
 
   return index
 end
@@ -847,7 +860,11 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.trading_status_message.fields = func
   index, trading_status = cboe_matchnow_multicasttrades_pitch_v1_0_14.trading_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Binary
-  index, reserved_3 = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_3.size
+  end
 
   return index
 end
@@ -887,7 +904,11 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.unit_clear_message.fields = function
   local index = offset
 
   -- Reserved 4: Binary
-  index, reserved_4 = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_4.size
+  end
 
   return index
 end

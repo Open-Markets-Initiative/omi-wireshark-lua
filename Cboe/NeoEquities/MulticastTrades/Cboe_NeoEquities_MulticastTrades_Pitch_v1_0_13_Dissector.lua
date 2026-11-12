@@ -49,8 +49,8 @@ omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.original_settlement_ty
 omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.previous_close = ProtoField.new("Previous Close", "cboe.neoequities.multicasttrades.pitch.v1.0.13.previousclose", ftypes.DOUBLE, nil, nil, nil, "The previous day's closing price.")
 omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.price = ProtoField.new("Price", "cboe.neoequities.multicasttrades.pitch.v1.0.13.price", ftypes.DOUBLE, nil, nil, nil, "The price of the trade.")
 omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.quantity = ProtoField.new("Quantity", "cboe.neoequities.multicasttrades.pitch.v1.0.13.quantity", ftypes.UINT32, nil, nil, nil, "Incremental number of shares executed or reported.")
-omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.neoequities.multicasttrades.pitch.v1.0.13.reserved1", ftypes.UINT8, nil, nil, nil, "Reserved (undefined).")
-omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.neoequities.multicasttrades.pitch.v1.0.13.reserved4", ftypes.UINT32, nil, nil, nil, "Reserved (undefined).")
+omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.neoequities.multicasttrades.pitch.v1.0.13.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved (undefined).")
+omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.neoequities.multicasttrades.pitch.v1.0.13.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved (undefined).")
 omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.security_type = ProtoField.new("Security Type", "cboe.neoequities.multicasttrades.pitch.v1.0.13.securitytype", ftypes.UINT8, nil, nil, nil, "The security type of the instrument.")
 omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.segment = ProtoField.new("Segment", "cboe.neoequities.multicasttrades.pitch.v1.0.13.segment", ftypes.STRING, nil, nil, nil, "Segment the symbol is assigned to (right padded with spaces).")
 omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.sell_broker_id = ProtoField.new("Sell Broker Id", "cboe.neoequities.multicasttrades.pitch.v1.0.13.sellbrokerid", ftypes.UINT16, nil, nil, nil, "Trading participant identity of the seller of the trade (or 1 for anonymous).")
@@ -111,6 +111,7 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -118,6 +119,7 @@ show.sequences = true
 omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -132,6 +134,9 @@ function omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs_changed()
   end
   if show.headers ~= omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_headers then
     show.headers = omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_padding then
+    show.padding = omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_padding
   end
   if show.structs ~= omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_structs then
     show.structs = omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.prefs.show_structs
@@ -821,7 +826,7 @@ end
 cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.reserved_1, range, value, display)
@@ -844,7 +849,7 @@ end
 cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicasttrades_pitch_v1_0_13.fields.reserved_4, range, value, display)
@@ -1188,7 +1193,11 @@ cboe_neoequities_multicasttrades_pitch_v1_0_13.end_of_session_message.fields = f
   local index = offset
 
   -- Reserved 4: Binary
-  index, reserved_4 = cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_4.size
+  end
 
   return index
 end
@@ -1470,7 +1479,11 @@ cboe_neoequities_multicasttrades_pitch_v1_0_13.trade_message.fields = function(b
   index, settlement_date = cboe_neoequities_multicasttrades_pitch_v1_0_13.settlement_date.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Binary
-  index, reserved_1 = cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_1.size
+  end
 
   return index
 end
@@ -1771,7 +1784,11 @@ cboe_neoequities_multicasttrades_pitch_v1_0_13.unit_clear_message.fields = funct
   local index = offset
 
   -- Reserved 4: Binary
-  index, reserved_4 = cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_neoequities_multicasttrades_pitch_v1_0_13.reserved_4.size
+  end
 
   return index
 end

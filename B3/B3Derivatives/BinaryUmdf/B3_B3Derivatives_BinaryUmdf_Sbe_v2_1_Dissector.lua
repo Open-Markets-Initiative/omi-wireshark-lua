@@ -5220,22 +5220,6 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.match_event_indicator.size = 1
 b3_b3derivatives_binaryumdf_sbe_v2_1.match_event_indicator.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused Match Event Indicator 0 flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Unused Match Event Indicator 0"
-  end
-  -- Is Unused Match Event Indicator 1 flag set?
-  if bit.band(value, 0x02) ~= 0 then
-    flags[#flags + 1] = "Unused Match Event Indicator 1"
-  end
-  -- Is Unused Match Event Indicator 2 flag set?
-  if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Unused Match Event Indicator 2"
-  end
-  -- Is Unused Match Event Indicator 3 flag set?
-  if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Unused Match Event Indicator 3"
-  end
   -- Is Implied flag set?
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Implied"
@@ -5243,10 +5227,6 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.match_event_indicator.display = function(ra
   -- Is Recovery Msg flag set?
   if bit.band(value, 0x20) ~= 0 then
     flags[#flags + 1] = "Recovery Msg"
-  end
-  -- Is Unused Match Event Indicator 6 flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Unused Match Event Indicator 6"
   end
   -- Is End Of Event flag set?
   if bit.band(value, 0x80) ~= 0 then
@@ -5802,41 +5782,9 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.trade_condition.display = function(range, v
   if bit.band(value, 0x0008) ~= 0 then
     flags[#flags + 1] = "Out Of Sequence"
   end
-  -- Is Unused Trade Condition 4 flag set?
-  if bit.band(value, 0x0010) ~= 0 then
-    flags[#flags + 1] = "Unused Trade Condition 4"
-  end
-  -- Is Unused Trade Condition 5 flag set?
-  if bit.band(value, 0x0020) ~= 0 then
-    flags[#flags + 1] = "Unused Trade Condition 5"
-  end
   -- Is Trade On Behalf flag set?
   if bit.band(value, 0x0040) ~= 0 then
     flags[#flags + 1] = "Trade On Behalf"
-  end
-  -- Is Unused Trade Condition 7 flag set?
-  if bit.band(value, 0x0080) ~= 0 then
-    flags[#flags + 1] = "Unused Trade Condition 7"
-  end
-  -- Is Unused Trade Condition 8 flag set?
-  if bit.band(value, 0x0100) ~= 0 then
-    flags[#flags + 1] = "Unused Trade Condition 8"
-  end
-  -- Is Unused Trade Condition 9 flag set?
-  if bit.band(value, 0x0200) ~= 0 then
-    flags[#flags + 1] = "Unused Trade Condition 9"
-  end
-  -- Is Unused Trade Condition 10 flag set?
-  if bit.band(value, 0x0400) ~= 0 then
-    flags[#flags + 1] = "Unused Trade Condition 10"
-  end
-  -- Is Unused Trade Condition 11 flag set?
-  if bit.band(value, 0x0800) ~= 0 then
-    flags[#flags + 1] = "Unused Trade Condition 11"
-  end
-  -- Is Unused Trade Condition 12 flag set?
-  if bit.band(value, 0x1000) ~= 0 then
-    flags[#flags + 1] = "Unused Trade Condition 12"
   end
   -- Is Regular Trade flag set?
   if bit.band(value, 0x2000) ~= 0 then
@@ -5845,10 +5793,6 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.trade_condition.display = function(range, v
   -- Is Block Trade flag set?
   if bit.band(value, 0x4000) ~= 0 then
     flags[#flags + 1] = "Block Trade"
-  end
-  -- Is Unused Trade Condition 15 flag set?
-  if bit.band(value, 0x8000) ~= 0 then
-    flags[#flags + 1] = "Unused Trade Condition 15"
   end
 
   return table.concat(flags, "|")
@@ -6991,38 +6935,6 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.imbalance_condition.size = 2
 b3_b3derivatives_binaryumdf_sbe_v2_1.imbalance_condition.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused Imbalance Condition 0 flag set?
-  if bit.band(value, 0x0001) ~= 0 then
-    flags[#flags + 1] = "Unused Imbalance Condition 0"
-  end
-  -- Is Unused Imbalance Condition 1 flag set?
-  if bit.band(value, 0x0002) ~= 0 then
-    flags[#flags + 1] = "Unused Imbalance Condition 1"
-  end
-  -- Is Unused Imbalance Condition 2 flag set?
-  if bit.band(value, 0x0004) ~= 0 then
-    flags[#flags + 1] = "Unused Imbalance Condition 2"
-  end
-  -- Is Unused Imbalance Condition 3 flag set?
-  if bit.band(value, 0x0008) ~= 0 then
-    flags[#flags + 1] = "Unused Imbalance Condition 3"
-  end
-  -- Is Unused Imbalance Condition 4 flag set?
-  if bit.band(value, 0x0010) ~= 0 then
-    flags[#flags + 1] = "Unused Imbalance Condition 4"
-  end
-  -- Is Unused Imbalance Condition 5 flag set?
-  if bit.band(value, 0x0020) ~= 0 then
-    flags[#flags + 1] = "Unused Imbalance Condition 5"
-  end
-  -- Is Unused Imbalance Condition 6 flag set?
-  if bit.band(value, 0x0040) ~= 0 then
-    flags[#flags + 1] = "Unused Imbalance Condition 6"
-  end
-  -- Is Unused Imbalance Condition 7 flag set?
-  if bit.band(value, 0x0080) ~= 0 then
-    flags[#flags + 1] = "Unused Imbalance Condition 7"
-  end
   -- Is Imbalance More Buyers flag set?
   if bit.band(value, 0x0100) ~= 0 then
     flags[#flags + 1] = "Imbalance More Buyers"

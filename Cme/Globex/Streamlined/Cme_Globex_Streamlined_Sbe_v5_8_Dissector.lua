@@ -2719,6 +2719,13 @@ cme_globex_streamlined_sbe_v5_8.orig_time.dissect = function(buffer, offset, pac
   local field = omi_cme_globex_streamlined_sbe_v5_8.fields.orig_time
   if cme_globex_streamlined_sbe_v5_8.timestamp_format == 3 then field = omi_cme_globex_streamlined_sbe_v5_8.fields.orig_time_utc end
 
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Orig Time: No Value")
+    return offset + length, value
+  end
+
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
   parent:add(field, range, NSTime.new(seconds, nanos))
@@ -4537,6 +4544,13 @@ cme_globex_streamlined_sbe_v5_8.transact_time_optional.dissect = function(buffer
   -- protocol declares one per base and the preference picks between them
   local field = omi_cme_globex_streamlined_sbe_v5_8.fields.transact_time_optional
   if cme_globex_streamlined_sbe_v5_8.timestamp_format == 3 then field = omi_cme_globex_streamlined_sbe_v5_8.fields.transact_time_optional_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Transact Time Optional: No Value")
+    return offset + length, value
+  end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -11020,18 +11034,6 @@ cme_globex_streamlined_sbe_v5_8.settl_price_type.display = function(range, value
   -- Is Reserved Bits flag set?
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Reserved Bits"
-  end
-  -- Is Unused Settl Price Type 4 flag set?
-  if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Unused Settl Price Type 4"
-  end
-  -- Is Unused Settl Price Type 5 flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Unused Settl Price Type 5"
-  end
-  -- Is Unused Settl Price Type 6 flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Unused Settl Price Type 6"
   end
   -- Is Null Value flag set?
   if bit.band(value, 0x80) ~= 0 then

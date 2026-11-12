@@ -246,7 +246,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.event_type_code = ProtoField.
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.exercise_ratio = ProtoField.new("Exercise Ratio", "koscom.mdcsrealtime.bonda.exture.v2.018.exerciseratio", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.expected_time_of_expanding_price_limit_range = ProtoField.new("Expected Time Of Expanding Price Limit Range", "koscom.mdcsrealtime.bonda.exture.v2.018.expectedtimeofexpandingpricelimitrange", ftypes.STRING, nil, nil, nil, "Expected Time of Expanding Price Limit Range.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.facility_fund = ProtoField.new("Facility Fund", "koscom.mdcsrealtime.bonda.exture.v2.018.facilityfund", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.bonda.exture.v2.018.filler4", ftypes.STRING, nil, nil, nil, "Reserved filler. Always 4 ASCII space characters.")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.bonda.exture.v2.018.filler4", ftypes.BYTES, nil, nil, nil, "Reserved filler. Always 4 ASCII space characters.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_call_exercise_end_date = ProtoField.new("First Call Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.firstcallexerciseenddate", ftypes.STRING, nil, nil, nil, "1st Call Exercise_End Date")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_call_exercise_start_date = ProtoField.new("First Call Exercise Start Date", "koscom.mdcsrealtime.bonda.exture.v2.018.firstcallexercisestartdate", ftypes.STRING, nil, nil, nil, "1st Call Exercise_Start Date")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_put_exercise_end_date = ProtoField.new("First Put Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.firstputexerciseenddate", ftypes.STRING, nil, nil, nil, "1st Put Exercise_End Date")
@@ -492,10 +492,12 @@ local show = {}
 -- Koscom MdcsRealtime BondA Exture 2.018 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.padding = false
 
 -- Register Koscom MdcsRealtime BondA Exture 2.018 Show Options
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 -- Handle changed preferences
 function omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs_changed()
@@ -503,6 +505,9 @@ function omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_application_messages then
     show.application_messages = omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_application_messages
+  end
+  if show.padding ~= omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_padding then
+    show.padding = omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_padding
   end
   if show.structs ~= omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_structs then
     show.structs = omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_structs
@@ -8467,7 +8472,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.filler_4, range, value, display)
@@ -19235,7 +19240,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.global_index_message.fields = function(b
   index, currency_code = koscom_mdcsrealtime_bonda_exture_v2_018.currency_code.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -19311,7 +19320,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_estimated_index_message.fields = fun
   index, accumulated_trading_value = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -19387,7 +19400,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_index_message.fields = function(buff
   index, accumulated_trading_value = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)

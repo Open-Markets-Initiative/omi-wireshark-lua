@@ -34,8 +34,10 @@ omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.contract_size = ProtoField.ne
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.contract_size_extended = ProtoField.new("Contract Size Extended", "hkex.hkexderivatives.fulltick.omd.v1.49.contractsizeextended", ftypes.INT64, nil, nil, nil, "Number of Underlying entities per contract")
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.convert_to_aggressive = ProtoField.new("Convert To Aggressive", "hkex.hkexderivatives.fulltick.omd.v1.49.converttoaggressive", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x1000)
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.country = ProtoField.new("Country", "hkex.hkexderivatives.fulltick.omd.v1.49.country", ftypes.UINT8, nil, nil, nil, "Country Identifier")
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_first_trading = ProtoField.new("Date Time First Trading", "hkex.hkexderivatives.fulltick.omd.v1.49.datetimefirsttrading", ftypes.INT64, nil, nil, nil, "The first trading date/time of the")
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_last_trading = ProtoField.new("Date Time Last Trading", "hkex.hkexderivatives.fulltick.omd.v1.49.datetimelasttrading", ftypes.INT64, nil, nil, nil, "The last trading date/time of the")
+omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_first_trading = ProtoField.new("Date Time First Trading", "hkex.hkexderivatives.fulltick.omd.v1.49.datetimefirsttrading", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The first trading date/time of the Series in UTC timestamp (nanoseconds since 1970), precision to the nearest second. 0 = Not Applicable.")
+omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_first_trading_utc = ProtoField.new("Date Time First Trading", "hkex.hkexderivatives.fulltick.omd.v1.49.datetimefirsttrading.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The first trading date/time of the Series in UTC timestamp (nanoseconds since 1970), precision to the nearest second. 0 = Not Applicable.")
+omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_last_trading = ProtoField.new("Date Time Last Trading", "hkex.hkexderivatives.fulltick.omd.v1.49.datetimelasttrading", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The last trading date/time of the Series in UTC timestamp (nanoseconds since 1970), precision to the nearest second. 0 = Not Applicable.")
+omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_last_trading_utc = ProtoField.new("Date Time Last Trading", "hkex.hkexderivatives.fulltick.omd.v1.49.datetimelasttrading.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The last trading date/time of the Series in UTC timestamp (nanoseconds since 1970), precision to the nearest second. 0 = Not Applicable.")
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.deal_info = ProtoField.new("Deal Info", "hkex.hkexderivatives.fulltick.omd.v1.49.dealinfo", ftypes.STRING, nil, nil, nil, "Trade condition bitmap")
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.deal_type = ProtoField.new("Deal Type", "hkex.hkexderivatives.fulltick.omd.v1.49.dealtype", ftypes.STRING, nil, nil, nil, "Deal type bitmap")
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.decimal_in_contract_size = ProtoField.new("Decimal In Contract Size", "hkex.hkexderivatives.fulltick.omd.v1.49.decimalincontractsize", ftypes.UINT16, nil, nil, nil, "in the Contract Size and the")
@@ -128,7 +130,8 @@ omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_condition = ProtoField.
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_id = ProtoField.new("Trade Id", "hkex.hkexderivatives.fulltick.omd.v1.49.tradeid", ftypes.UINT64, nil, nil, nil, "Unique trade identification")
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_side = ProtoField.new("Trade Side", "hkex.hkexderivatives.fulltick.omd.v1.49.tradeside", ftypes.UINT8, nil, nil, nil, "Side of Orderbook ID")
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_state = ProtoField.new("Trade State", "hkex.hkexderivatives.fulltick.omd.v1.49.tradestate", ftypes.UINT8)
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_time = ProtoField.new("Trade Time", "hkex.hkexderivatives.fulltick.omd.v1.49.tradetime", ftypes.UINT64, nil, nil, nil, "Date and time of the last")
+omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_time = ProtoField.new("Trade Time", "hkex.hkexderivatives.fulltick.omd.v1.49.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time of the last")
+omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_time_utc = ProtoField.new("Trade Time", "hkex.hkexderivatives.fulltick.omd.v1.49.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time of the last")
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.underlying_code = ProtoField.new("Underlying Code", "hkex.hkexderivatives.fulltick.omd.v1.49.underlyingcode", ftypes.STRING, nil, nil, nil, "Underlying Code of the Commodity")
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.underlying_price_unit = ProtoField.new("Underlying Price Unit", "hkex.hkexderivatives.fulltick.omd.v1.49.underlyingpriceunit", ftypes.UINT8, nil, nil, nil, "The price unit for the underlying")
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.underlying_type = ProtoField.new("Underlying Type", "hkex.hkexderivatives.fulltick.omd.v1.49.underlyingtype", ftypes.UINT8, nil, nil, nil, "Type of the underlying")
@@ -175,6 +178,7 @@ omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_message = ProtoField.ne
 -- Hkex HkexDerivatives FullTick Omd 1.49 Generated Fields
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.content_index = ProtoField.new("Content Index", "hkex.hkexderivatives.fulltick.omd.v1.49.contentindex", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.message_index = ProtoField.new("Message Index", "hkex.hkexderivatives.fulltick.omd.v1.49.messageindex", ftypes.UINT16)
+omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "hkex.hkexderivatives.fulltick.omd.v1.49.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Hkex HkexDerivatives FullTick Omd 1.49 Formatting
@@ -202,6 +206,7 @@ show.structs = true
 show.headers = true
 show.padding = false
 show.indexes = true
+show.sequences = true
 
 -- Register Hkex HkexDerivatives FullTick Omd 1.49 Show Options
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -209,6 +214,7 @@ omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_structs = Pref.bool("Show
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
@@ -230,6 +236,9 @@ function omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs_changed()
   end
   if show.indexes ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_indexes then
     show.indexes = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_indexes
+  end
+  if show.sequences ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_sequences then
+    show.sequences = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_sequences
   end
   if hkex_hkexderivatives_fulltick_omd_v1_49.timestamp_format ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.timestamp_format then
     hkex_hkexderivatives_fulltick_omd_v1_49.timestamp_format = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.timestamp_format
@@ -657,19 +666,20 @@ hkex_hkexderivatives_fulltick_omd_v1_49.date_time_first_trading = {}
 -- Size: Date Time First Trading
 hkex_hkexderivatives_fulltick_omd_v1_49.date_time_first_trading.size = 8
 
--- Display: Date Time First Trading
-hkex_hkexderivatives_fulltick_omd_v1_49.date_time_first_trading.display = function(value)
-  return "Date Time First Trading: "..value
-end
-
 -- Dissect: Date Time First Trading
 hkex_hkexderivatives_fulltick_omd_v1_49.date_time_first_trading.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v1_49.date_time_first_trading.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = hkex_hkexderivatives_fulltick_omd_v1_49.date_time_first_trading.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_first_trading, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_first_trading
+  if hkex_hkexderivatives_fulltick_omd_v1_49.timestamp_format == 3 then field = omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_first_trading_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -680,19 +690,20 @@ hkex_hkexderivatives_fulltick_omd_v1_49.date_time_last_trading = {}
 -- Size: Date Time Last Trading
 hkex_hkexderivatives_fulltick_omd_v1_49.date_time_last_trading.size = 8
 
--- Display: Date Time Last Trading
-hkex_hkexderivatives_fulltick_omd_v1_49.date_time_last_trading.display = function(value)
-  return "Date Time Last Trading: "..value
-end
-
 -- Dissect: Date Time Last Trading
 hkex_hkexderivatives_fulltick_omd_v1_49.date_time_last_trading.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v1_49.date_time_last_trading.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = hkex_hkexderivatives_fulltick_omd_v1_49.date_time_last_trading.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_last_trading, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_last_trading
+  if hkex_hkexderivatives_fulltick_omd_v1_49.timestamp_format == 3 then field = omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.date_time_last_trading_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -876,7 +887,11 @@ hkex_hkexderivatives_fulltick_omd_v1_49.expiration_date.size = 8
 
 -- Display: Expiration Date
 hkex_hkexderivatives_fulltick_omd_v1_49.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date
@@ -2730,19 +2745,20 @@ hkex_hkexderivatives_fulltick_omd_v1_49.trade_time = {}
 -- Size: Trade Time
 hkex_hkexderivatives_fulltick_omd_v1_49.trade_time.size = 8
 
--- Display: Trade Time
-hkex_hkexderivatives_fulltick_omd_v1_49.trade_time.display = function(value)
-  return "Trade Time: "..value
-end
-
 -- Dissect: Trade Time
 hkex_hkexderivatives_fulltick_omd_v1_49.trade_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v1_49.trade_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_fulltick_omd_v1_49.trade_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_time
+  if hkex_hkexderivatives_fulltick_omd_v1_49.timestamp_format == 3 then field = omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4632,6 +4648,12 @@ hkex_hkexderivatives_fulltick_omd_v1_49.message.fields = function(buffer, offset
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and hkex_hkexderivatives_fulltick_omd_v1_49.packet_sequence ~= nil then
+    local sequence = parent:add(omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.message_sequence_number, UInt64.new(hkex_hkexderivatives_fulltick_omd_v1_49.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Msg Header: Struct of 2 fields
   index, msg_header = hkex_hkexderivatives_fulltick_omd_v1_49.msg_header.dissect(buffer, index, packet, parent)
 
@@ -4755,6 +4777,9 @@ hkex_hkexderivatives_fulltick_omd_v1_49.packet_header.fields = function(buffer, 
 
   -- Send Time: 8 Byte Unsigned Fixed Width Integer
   index, send_time = hkex_hkexderivatives_fulltick_omd_v1_49.send_time.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  hkex_hkexderivatives_fulltick_omd_v1_49.packet_sequence = seq_num
 
   return index
 end

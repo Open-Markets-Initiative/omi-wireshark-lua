@@ -40,8 +40,8 @@ omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.price_short = ProtoField.n
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.edgaequities.summarydepth.csdp.v1.0.4.quantitylong", ftypes.UINT64, nil, nil, nil, "Quantity of shares at this price level in the ADAP book")
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.edgaequities.summarydepth.csdp.v1.0.4.quantityshort", ftypes.UINT32, nil, nil, nil, "Quantity of shares at this price level in the ADAP book")
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.edgaequities.summarydepth.csdp.v1.0.4.regshoaction", ftypes.STRING)
-omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgaequities.summarydepth.csdp.v1.0.4.reserved1", ftypes.STRING, nil, nil, nil, "Reserved")
-omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.reserved_8 = ProtoField.new("Reserved 8", "cboe.edgaequities.summarydepth.csdp.v1.0.4.reserved8", ftypes.UINT64, nil, nil, nil, "Reserved")
+omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgaequities.summarydepth.csdp.v1.0.4.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved")
+omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.reserved_8 = ProtoField.new("Reserved 8", "cboe.edgaequities.summarydepth.csdp.v1.0.4.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.edgaequities.summarydepth.csdp.v1.0.4.retailpriceimprovement", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.sequence = ProtoField.new("Sequence", "cboe.edgaequities.summarydepth.csdp.v1.0.4.sequence", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.session_indicator = ProtoField.new("Session Indicator", "cboe.edgaequities.summarydepth.csdp.v1.0.4.sessionindicator", ftypes.STRING)
@@ -104,6 +104,7 @@ show.repeating_groups = true
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -112,6 +113,7 @@ omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_repeating_groups = Pre
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -126,6 +128,9 @@ function omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs_changed()
   end
   if show.headers ~= omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_headers then
     show.headers = omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_padding then
+    show.padding = omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_padding
   end
   if show.repeating_groups ~= omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.prefs.show_repeating_groups
@@ -671,7 +676,7 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.reserved_1, range, value, display)
@@ -694,7 +699,7 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.reserved_8, range, value, display)
@@ -1005,7 +1010,11 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.trading_status_message.fields = funct
   index, symbol = cboe_edgaequities_summarydepth_csdp_v1_0_4.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.size
+  end
 
   -- Halt Status: Alphanumeric
   index, halt_status = cboe_edgaequities_summarydepth_csdp_v1_0_4.halt_status.dissect(buffer, index, packet, parent)
@@ -1063,7 +1072,11 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_break_message.fields = function
   index, symbol = cboe_edgaequities_summarydepth_csdp_v1_0_4.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.size
+  end
 
   -- Execution Id: Binary
   index, execution_id = cboe_edgaequities_summarydepth_csdp_v1_0_4.execution_id.dissect(buffer, index, packet, parent)
@@ -1072,7 +1085,11 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_break_message.fields = function
   index, cboe_cumulative_executed_volume = cboe_edgaequities_summarydepth_csdp_v1_0_4.cboe_cumulative_executed_volume.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Binary
-  index, reserved_8 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_8.size
+  end
 
   -- Trade Break Flags: Binary
   index, trade_break_flags = cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_break_flags.dissect(buffer, index, packet, parent)
@@ -1175,7 +1192,11 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_message.fields = function(buffe
   index, symbol = cboe_edgaequities_summarydepth_csdp_v1_0_4.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.size
+  end
 
   -- Execution Id: Binary
   index, execution_id = cboe_edgaequities_summarydepth_csdp_v1_0_4.execution_id.dissect(buffer, index, packet, parent)
@@ -1190,7 +1211,11 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_message.fields = function(buffe
   index, cboe_cumulative_executed_volume = cboe_edgaequities_summarydepth_csdp_v1_0_4.cboe_cumulative_executed_volume.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: Binary
-  index, reserved_8 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_8 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_8.size
+  end
 
   -- Trade Flags: Struct of 3 fields
   index, trade_flags = cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_flags.dissect(buffer, index, packet, parent)
@@ -1242,7 +1267,11 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.rpi_message.fields = function(buffer,
   index, symbol = cboe_edgaequities_summarydepth_csdp_v1_0_4.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.size
+  end
 
   -- Retail Price Improvement: Alphanumeric
   index, retail_price_improvement = cboe_edgaequities_summarydepth_csdp_v1_0_4.retail_price_improvement.dissect(buffer, index, packet, parent)
@@ -1543,7 +1572,11 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_message.fields = function(buffer
   index, adap_flags = cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.size
+  end
 
   -- Adap Blocks: Binary
   index, adap_blocks = cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_blocks.dissect(buffer, index, packet, parent)
@@ -1597,7 +1630,11 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.cboe_market_status_message.fields = f
   index, timestamp = cboe_edgaequities_summarydepth_csdp_v1_0_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.size
+  end
 
   -- Market Status: Alphanumeric
   index, market_status = cboe_edgaequities_summarydepth_csdp_v1_0_4.market_status.dissect(buffer, index, packet, parent)
@@ -1651,7 +1688,11 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.clear_quote_message.fields = function
   index, symbol = cboe_edgaequities_summarydepth_csdp_v1_0_4.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alphanumeric
-  index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_1 = cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.reserved_1.size
+  end
 
   return index
 end

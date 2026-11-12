@@ -66,7 +66,7 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.offer_size = ProtoField.new("Offer Size", 
 omi_siac_cqs_snapshot_cta_v1_0.fields.participant_id = ProtoField.new("Participant Id", "siac.cqs.snapshot.cta.v1.0.participantid", ftypes.STRING, nil, nil, nil, "Participant or Processor that generated the message")
 omi_siac_cqs_snapshot_cta_v1_0.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cqs.snapshot.cta.v1.0.primarylistingmarketparticipantid", ftypes.STRING, nil, nil, nil, "Identifies the Primary Listing Market for a security")
 omi_siac_cqs_snapshot_cta_v1_0.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.snapshot.cta.v1.0.quotecondition", ftypes.STRING, nil, nil, nil, "Denotes a particular condition applicable to the quote.")
-omi_siac_cqs_snapshot_cta_v1_0.fields.reserved = ProtoField.new("Reserved", "siac.cqs.snapshot.cta.v1.0.reserved", ftypes.UINT8, nil, nil, nil, "Field is reserved for future use.")
+omi_siac_cqs_snapshot_cta_v1_0.fields.reserved = ProtoField.new("Reserved", "siac.cqs.snapshot.cta.v1.0.reserved", ftypes.BYTES, nil, nil, nil, "Field is reserved for future use.")
 omi_siac_cqs_snapshot_cta_v1_0.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.snapshot.cta.v1.0.retailinterestindicator", ftypes.STRING, nil, nil, nil, "When Retail Price Improvement (RPI) interest is priced better than the Protected Best Bid or Offer (PBBO) by a minimum of $0.001, an indication of interest on the Bid, Offer, or both the Bid and Offer will identify that interest will be eligible to interact with incoming Retail Order interest.")
 omi_siac_cqs_snapshot_cta_v1_0.fields.seconds = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v1.0.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
 omi_siac_cqs_snapshot_cta_v1_0.fields.seconds_utc = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v1.0.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
@@ -120,12 +120,14 @@ local show = {}
 show.headers = true
 show.application_messages = true
 show.structs = true
+show.padding = false
 show.indexes = true
 
 -- Register Siac Cqs Snapshot Cta 1.0 Show Options
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_siac_cqs_snapshot_cta_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
@@ -139,6 +141,9 @@ function omi_siac_cqs_snapshot_cta_v1_0.prefs_changed()
   end
   if show.headers ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_headers then
     show.headers = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_headers
+  end
+  if show.padding ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_padding then
+    show.padding = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_padding
   end
   if show.structs ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_structs then
     show.structs = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_structs
@@ -1946,7 +1951,7 @@ end
 siac_cqs_snapshot_cta_v1_0.reserved.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v1_0.reserved.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_snapshot_cta_v1_0.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.reserved, range, value, display)
@@ -2573,7 +2578,11 @@ siac_cqs_snapshot_cta_v1_0.market_wide_circuit_breaker_decline_level_status_snap
   index, mwcb_level_3 = siac_cqs_snapshot_cta_v1_0.mwcb_level_3.dissect(buffer, index, packet, parent)
 
   -- Reserved: Byte
-  index, reserved = siac_cqs_snapshot_cta_v1_0.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = siac_cqs_snapshot_cta_v1_0.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + siac_cqs_snapshot_cta_v1_0.reserved.size
+  end
 
   return index
 end

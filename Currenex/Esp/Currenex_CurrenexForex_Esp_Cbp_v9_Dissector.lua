@@ -21,14 +21,14 @@ omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_index = ProtoField.new("
 omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_type = ProtoField.new("Instrument Type", "currenex.currenexforex.esp.cbp.v9.instrumenttype", ftypes.STRING, nil, nil, nil, "InstrumentType")
 omi_currenex_currenexforex_esp_cbp_v9.fields.itch_message_end = ProtoField.new("Itch Message End", "currenex.currenexforex.esp.cbp.v9.itchmessageend", ftypes.INT8, nil, nil, nil, "End of Currenex Itch message")
 omi_currenex_currenexforex_esp_cbp_v9.fields.itch_message_start = ProtoField.new("Itch Message Start", "currenex.currenexforex.esp.cbp.v9.itchmessagestart", ftypes.INT8, nil, nil, nil, "Start of Currenex Itch message")
-omi_currenex_currenexforex_esp_cbp_v9.fields.max_amount = ProtoField.new("Max Amount", "currenex.currenexforex.esp.cbp.v9.maxamount", ftypes.INT64, nil, nil, nil, "The maximum amount being offered at this Price")
+omi_currenex_currenexforex_esp_cbp_v9.fields.max_amount = ProtoField.new("Max Amount", "currenex.currenexforex.esp.cbp.v9.maxamount", ftypes.DOUBLE, nil, nil, nil, "The maximum amount being offered at this Price")
 omi_currenex_currenexforex_esp_cbp_v9.fields.message_type = ProtoField.new("Message Type", "currenex.currenexforex.esp.cbp.v9.messagetype", ftypes.STRING, nil, nil, nil, "The type of message being sent")
-omi_currenex_currenexforex_esp_cbp_v9.fields.min_amount = ProtoField.new("Min Amount", "currenex.currenexforex.esp.cbp.v9.minamount", ftypes.INT64, nil, nil, nil, "The minimum amount being offered at this Price")
+omi_currenex_currenexforex_esp_cbp_v9.fields.min_amount = ProtoField.new("Min Amount", "currenex.currenexforex.esp.cbp.v9.minamount", ftypes.DOUBLE, nil, nil, nil, "The minimum amount being offered at this Price")
 omi_currenex_currenexforex_esp_cbp_v9.fields.password = ProtoField.new("Password", "currenex.currenexforex.esp.cbp.v9.password", ftypes.STRING, nil, nil, nil, "User password")
-omi_currenex_currenexforex_esp_cbp_v9.fields.price = ProtoField.new("Price", "currenex.currenexforex.esp.cbp.v9.price", ftypes.INT32, nil, nil, nil, "Price rate")
+omi_currenex_currenexforex_esp_cbp_v9.fields.price = ProtoField.new("Price", "currenex.currenexforex.esp.cbp.v9.price", ftypes.DOUBLE, nil, nil, nil, "Price rate")
 omi_currenex_currenexforex_esp_cbp_v9.fields.price_id = ProtoField.new("Price Id", "currenex.currenexforex.esp.cbp.v9.priceid", ftypes.INT8, nil, nil, nil, "Id assigned to the price, unique across all currency pairs for the scope of the session")
 omi_currenex_currenexforex_esp_cbp_v9.fields.price_provider = ProtoField.new("Price Provider", "currenex.currenexforex.esp.cbp.v9.priceprovider", ftypes.STRING, nil, nil, nil, "Market maker id")
-omi_currenex_currenexforex_esp_cbp_v9.fields.rate = ProtoField.new("Rate", "currenex.currenexforex.esp.cbp.v9.rate", ftypes.INT32, nil, nil, nil, "Trade execution rate")
+omi_currenex_currenexforex_esp_cbp_v9.fields.rate = ProtoField.new("Rate", "currenex.currenexforex.esp.cbp.v9.rate", ftypes.DOUBLE, nil, nil, nil, "Trade execution rate")
 omi_currenex_currenexforex_esp_cbp_v9.fields.reason = ProtoField.new("Reason", "currenex.currenexforex.esp.cbp.v9.reason", ftypes.STRING, nil, nil, nil, "Optional text")
 omi_currenex_currenexforex_esp_cbp_v9.fields.reject_msg_type = ProtoField.new("Reject Msg Type", "currenex.currenexforex.esp.cbp.v9.rejectmsgtype", ftypes.STRING, nil, nil, nil, "Rejected message type")
 omi_currenex_currenexforex_esp_cbp_v9.fields.reject_reason = ProtoField.new("Reject Reason", "currenex.currenexforex.esp.cbp.v9.rejectreason", ftypes.STRING, nil, nil, nil, "Free form reject reason text")
@@ -312,11 +312,17 @@ currenex_currenexforex_esp_cbp_v9.max_amount.display = function(value)
   return "Max Amount: "..value
 end
 
+-- Translate: Max Amount
+currenex_currenexforex_esp_cbp_v9.max_amount.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Max Amount
 currenex_currenexforex_esp_cbp_v9.max_amount.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_esp_cbp_v9.max_amount.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = currenex_currenexforex_esp_cbp_v9.max_amount.translate(raw)
   local display = currenex_currenexforex_esp_cbp_v9.max_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.max_amount, range, value, display)
@@ -372,11 +378,17 @@ currenex_currenexforex_esp_cbp_v9.min_amount.display = function(value)
   return "Min Amount: "..value
 end
 
+-- Translate: Min Amount
+currenex_currenexforex_esp_cbp_v9.min_amount.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Min Amount
 currenex_currenexforex_esp_cbp_v9.min_amount.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_esp_cbp_v9.min_amount.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = currenex_currenexforex_esp_cbp_v9.min_amount.translate(raw)
   local display = currenex_currenexforex_esp_cbp_v9.min_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.min_amount, range, value, display)
@@ -418,11 +430,17 @@ currenex_currenexforex_esp_cbp_v9.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+currenex_currenexforex_esp_cbp_v9.price.translate = function(raw)
+  return raw/100000
+end
+
 -- Dissect: Price
 currenex_currenexforex_esp_cbp_v9.price.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_esp_cbp_v9.price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = currenex_currenexforex_esp_cbp_v9.price.translate(raw)
   local display = currenex_currenexforex_esp_cbp_v9.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.price, range, value, display)
@@ -487,11 +505,17 @@ currenex_currenexforex_esp_cbp_v9.rate.display = function(value)
   return "Rate: "..value
 end
 
+-- Translate: Rate
+currenex_currenexforex_esp_cbp_v9.rate.translate = function(raw)
+  return raw/100000
+end
+
 -- Dissect: Rate
 currenex_currenexforex_esp_cbp_v9.rate.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_esp_cbp_v9.rate.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = currenex_currenexforex_esp_cbp_v9.rate.translate(raw)
   local display = currenex_currenexforex_esp_cbp_v9.rate.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.rate, range, value, display)

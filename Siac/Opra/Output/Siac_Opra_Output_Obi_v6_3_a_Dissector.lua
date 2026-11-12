@@ -124,6 +124,7 @@ omi_siac_opra_output_obi_v6_3_a.fields.underlying_value_last_sale_message = Prot
 
 -- Siac Opra Output Obi 6.3.a Generated Fields
 omi_siac_opra_output_obi_v6_3_a.fields.message_index = ProtoField.new("Message Index", "siac.opra.output.obi.v6.3.a.messageindex", ftypes.UINT16)
+omi_siac_opra_output_obi_v6_3_a.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "siac.opra.output.obi.v6.3.a.messagesequencenumber", ftypes.UINT64)
 omi_siac_opra_output_obi_v6_3_a.fields.scaled_best_bid_price = ProtoField.new("Scaled Best Bid Price", "siac.opra.output.obi.v6.3.a.scaledbestbidprice", ftypes.DOUBLE)
 omi_siac_opra_output_obi_v6_3_a.fields.scaled_best_offer_price = ProtoField.new("Scaled Best Offer Price", "siac.opra.output.obi.v6.3.a.scaledbestofferprice", ftypes.DOUBLE)
 omi_siac_opra_output_obi_v6_3_a.fields.scaled_index_value = ProtoField.new("Scaled Index Value", "siac.opra.output.obi.v6.3.a.scaledindexvalue", ftypes.DOUBLE)
@@ -160,6 +161,7 @@ show.application_messages = true
 show.headers = true
 show.padding = false
 show.indexes = true
+show.sequences = true
 
 -- Register Siac Opra Output Obi 6.3.a Show Options
 omi_siac_opra_output_obi_v6_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
@@ -167,6 +169,7 @@ omi_siac_opra_output_obi_v6_3_a.prefs.show_application_messages = Pref.bool("Sho
 omi_siac_opra_output_obi_v6_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_opra_output_obi_v6_3_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_siac_opra_output_obi_v6_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_siac_opra_output_obi_v6_3_a.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_siac_opra_output_obi_v6_3_a.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 omi_siac_opra_output_obi_v6_3_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
@@ -189,6 +192,9 @@ function omi_siac_opra_output_obi_v6_3_a.prefs_changed()
   end
   if show.indexes ~= omi_siac_opra_output_obi_v6_3_a.prefs.show_indexes then
     show.indexes = omi_siac_opra_output_obi_v6_3_a.prefs.show_indexes
+  end
+  if show.sequences ~= omi_siac_opra_output_obi_v6_3_a.prefs.show_sequences then
+    show.sequences = omi_siac_opra_output_obi_v6_3_a.prefs.show_sequences
   end
   if siac_opra_output_obi_v6_3_a.format_decimals ~= omi_siac_opra_output_obi_v6_3_a.prefs.format_decimals then
     siac_opra_output_obi_v6_3_a.format_decimals = omi_siac_opra_output_obi_v6_3_a.prefs.format_decimals
@@ -4536,6 +4542,12 @@ siac_opra_output_obi_v6_3_a.message.fields = function(buffer, offset, packet, pa
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and siac_opra_output_obi_v6_3_a.packet_sequence ~= nil then
+    local sequence = parent:add(omi_siac_opra_output_obi_v6_3_a.fields.message_sequence_number, UInt64.new(siac_opra_output_obi_v6_3_a.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = siac_opra_output_obi_v6_3_a.message_header.dissect(buffer, index, packet, parent)
 
@@ -4678,6 +4690,9 @@ siac_opra_output_obi_v6_3_a.block_header.fields = function(buffer, offset, packe
 
   -- Block Checksum: unsigned integer
   index, block_checksum = siac_opra_output_obi_v6_3_a.block_checksum.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  siac_opra_output_obi_v6_3_a.packet_sequence = block_sequence_number
 
   return index
 end

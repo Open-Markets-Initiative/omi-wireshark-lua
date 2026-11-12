@@ -90,7 +90,7 @@ omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.quantity = Prot
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.quantityshort", ftypes.UINT16, nil, nil, nil, "Instrument quantity being added to the complex book (may be less than the number entered).")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.reference_price = ProtoField.new("Reference Price", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.referenceprice", ftypes.DOUBLE, nil, nil, nil, "Collared VMIM price")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.remainingquantity", ftypes.UINT32, nil, nil, nil, "Number of shares/contracts remaining after the execution")
-omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.reserved3", ftypes.STRING, nil, nil, nil, "Reserved")
+omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.reserved3", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.second_unused_1 = ProtoField.new("Second Unused 1", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.secondunused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Reserved")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.sellcontracts", ftypes.UINT32, nil, nil, nil, "Cumulative sell contracts at the Reference Price and below")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.sequence = ProtoField.new("Sequence", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.sequence", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
@@ -194,6 +194,7 @@ show.application_messages = true
 show.structs = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -202,6 +203,7 @@ omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_application
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -216,6 +218,9 @@ function omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs_changed
   end
   if show.headers ~= omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_headers then
     show.headers = omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_padding then
+    show.padding = omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_padding
   end
   if show.repeating_groups ~= omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.prefs.show_repeating_groups
@@ -2183,7 +2188,7 @@ end
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reserved_3.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reserved_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reserved_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.reserved_3, range, value, display)
@@ -4015,7 +4020,11 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trading_status_message.fie
   index, status = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.status.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
-  index, reserved_3 = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reserved_3.size
+  end
 
   return index
 end

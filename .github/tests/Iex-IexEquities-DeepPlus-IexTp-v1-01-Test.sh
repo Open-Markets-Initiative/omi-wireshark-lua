@@ -33,7 +33,6 @@ runuser -u tester -- tshark \
   > Iex.IexEquities.DeepPlus.IexTp.v1.01.OrderDeleteMessage.json 2> Iex.IexEquities.DeepPlus.IexTp.v1.01.OrderDeleteMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderDeleteMessage) ---"; cat Iex.IexEquities.DeepPlus.IexTp.v1.01.OrderDeleteMessage.json.stderr; exit 1; }
 
-grep "iex.iexequities.deepplus.iextp.v1.01.reserved1" Iex.IexEquities.DeepPlus.IexTp.v1.01.OrderDeleteMessage.json
 grep "iex.iexequities.deepplus.iextp.v1.01.timestamp" Iex.IexEquities.DeepPlus.IexTp.v1.01.OrderDeleteMessage.json
 grep "iex.iexequities.deepplus.iextp.v1.01.symbol" Iex.IexEquities.DeepPlus.IexTp.v1.01.OrderDeleteMessage.json
 grep "iex.iexequities.deepplus.iextp.v1.01.orderidreference" Iex.IexEquities.DeepPlus.IexTp.v1.01.OrderDeleteMessage.json

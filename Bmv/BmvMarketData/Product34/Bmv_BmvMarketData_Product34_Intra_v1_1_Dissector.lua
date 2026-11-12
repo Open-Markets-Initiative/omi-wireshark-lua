@@ -462,7 +462,20 @@ bmv_bmvmarketdata_product34_intra_v1_1.message_type.size = 1
 
 -- Display: Message Type
 bmv_bmvmarketdata_product34_intra_v1_1.message_type.display = function(value)
-  return "Message Type: "..value
+  if value == 0x27 then
+    return "Message Type: Big Picture Message (0x27)"
+  end
+  if value == 0x3A then
+    return "Message Type: Benchmark Trade Message (0x3A)"
+  end
+  if value == 0x2F then
+    return "Message Type: Hour Tracker Message (0x2F)"
+  end
+  if value == 0x7D then
+    return "Message Type: Message Ratio Message (0x7D)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

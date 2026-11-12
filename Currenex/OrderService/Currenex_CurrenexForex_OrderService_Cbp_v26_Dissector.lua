@@ -25,30 +25,30 @@ omi_currenex_currenexforex_orderservice_cbp_v26.fields.exec_broker = ProtoField.
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.exec_type = ProtoField.new("Exec Type", "currenex.currenexforex.orderservice.cbp.v26.exectype", ftypes.STRING, nil, nil, nil, "Execution Type")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.execution_id = ProtoField.new("Execution Id", "currenex.currenexforex.orderservice.cbp.v26.executionid", ftypes.STRING, nil, nil, nil, "Trade identifier")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.expire_type = ProtoField.new("Expire Type", "currenex.currenexforex.orderservice.cbp.v26.expiretype", ftypes.STRING)
-omi_currenex_currenexforex_orderservice_cbp_v26.fields.fill_amt = ProtoField.new("Fill Amt", "currenex.currenexforex.orderservice.cbp.v26.fillamt", ftypes.INT64, nil, nil, nil, "Filled amount")
-omi_currenex_currenexforex_orderservice_cbp_v26.fields.fill_rate = ProtoField.new("Fill Rate", "currenex.currenexforex.orderservice.cbp.v26.fillrate", ftypes.INT32, nil, nil, nil, "Filled rate")
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.fill_amt = ProtoField.new("Fill Amt", "currenex.currenexforex.orderservice.cbp.v26.fillamt", ftypes.DOUBLE, nil, nil, nil, "Filled amount")
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.fill_rate = ProtoField.new("Fill Rate", "currenex.currenexforex.orderservice.cbp.v26.fillrate", ftypes.DOUBLE, nil, nil, nil, "Filled rate")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.instrument_id = ProtoField.new("Instrument Id", "currenex.currenexforex.orderservice.cbp.v26.instrumentid", ftypes.STRING, nil, nil, nil, "Instrument code string")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.instrument_index = ProtoField.new("Instrument Index", "currenex.currenexforex.orderservice.cbp.v26.instrumentindex", ftypes.INT16, nil, nil, nil, "Numeric instrument identifier")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.instrument_type = ProtoField.new("Instrument Type", "currenex.currenexforex.orderservice.cbp.v26.instrumenttype", ftypes.STRING)
-omi_currenex_currenexforex_orderservice_cbp_v26.fields.leaves_amt = ProtoField.new("Leaves Amt", "currenex.currenexforex.orderservice.cbp.v26.leavesamt", ftypes.INT64, nil, nil, nil, "Remaining amount")
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.leaves_amt = ProtoField.new("Leaves Amt", "currenex.currenexforex.orderservice.cbp.v26.leavesamt", ftypes.DOUBLE, nil, nil, nil, "Remaining amount")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.message_type = ProtoField.new("Message Type", "currenex.currenexforex.orderservice.cbp.v26.messagetype", ftypes.STRING, nil, nil, nil, "The type of message being sent")
-omi_currenex_currenexforex_orderservice_cbp_v26.fields.min_amt = ProtoField.new("Min Amt", "currenex.currenexforex.orderservice.cbp.v26.minamt", ftypes.INT64, nil, nil, nil, "Minimum fill amount")
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.min_amt = ProtoField.new("Min Amt", "currenex.currenexforex.orderservice.cbp.v26.minamt", ftypes.DOUBLE, nil, nil, nil, "Minimum fill amount")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.new_cl_order_id = ProtoField.new("New Cl Order Id", "currenex.currenexforex.orderservice.cbp.v26.newclorderid", ftypes.INT32, nil, nil, nil, "Cancel request client order ID")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.new_seq_no = ProtoField.new("New Seq No", "currenex.currenexforex.orderservice.cbp.v26.newseqno", ftypes.INT32, nil, nil, nil, "Next expected message sequence number")
-omi_currenex_currenexforex_orderservice_cbp_v26.fields.order_amt = ProtoField.new("Order Amt", "currenex.currenexforex.orderservice.cbp.v26.orderamt", ftypes.INT64, nil, nil, nil, "Order amount (scaled)")
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.order_amt = ProtoField.new("Order Amt", "currenex.currenexforex.orderservice.cbp.v26.orderamt", ftypes.DOUBLE, nil, nil, nil, "Order amount (scaled)")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.order_id = ProtoField.new("Order Id", "currenex.currenexforex.orderservice.cbp.v26.orderid", ftypes.INT64, nil, nil, nil, "Assigned server order ID")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.order_type = ProtoField.new("Order Type", "currenex.currenexforex.orderservice.cbp.v26.ordertype", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.orig_cl_order_id = ProtoField.new("Orig Cl Order Id", "currenex.currenexforex.orderservice.cbp.v26.origclorderid", ftypes.INT32, nil, nil, nil, "Original client order ID")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.password = ProtoField.new("Password", "currenex.currenexforex.orderservice.cbp.v26.password", ftypes.STRING, nil, nil, nil, "User password")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.prev_cl_order_id = ProtoField.new("Prev Cl Order Id", "currenex.currenexforex.orderservice.cbp.v26.prevclorderid", ftypes.INT32, nil, nil, nil, "Original client order ID")
-omi_currenex_currenexforex_orderservice_cbp_v26.fields.price = ProtoField.new("Price", "currenex.currenexforex.orderservice.cbp.v26.price", ftypes.INT32, nil, nil, nil, "Limit price (scaled)")
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.price = ProtoField.new("Price", "currenex.currenexforex.orderservice.cbp.v26.price", ftypes.DOUBLE, nil, nil, nil, "Limit price (scaled)")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.reason = ProtoField.new("Reason", "currenex.currenexforex.orderservice.cbp.v26.reason", ftypes.STRING, nil, nil, nil, "Logout reason code")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.reason_code = ProtoField.new("Reason Code", "currenex.currenexforex.orderservice.cbp.v26.reasoncode", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.sequence_number = ProtoField.new("Sequence Number", "currenex.currenexforex.orderservice.cbp.v26.sequencenumber", ftypes.UINT32, nil, nil, nil, "Directional session based sequence number")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.session_id = ProtoField.new("Session Id", "currenex.currenexforex.orderservice.cbp.v26.sessionid", ftypes.INT32, nil, nil, nil, "Unique session ID assigned by server")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.settle_date = ProtoField.new("Settle Date", "currenex.currenexforex.orderservice.cbp.v26.settledate", ftypes.INT64, nil, nil, nil, "Settlement timestamp ms")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.settlement_date = ProtoField.new("Settlement Date", "currenex.currenexforex.orderservice.cbp.v26.settlementdate", ftypes.INT64, nil, nil, nil, "Epoch ms settlement date")
-omi_currenex_currenexforex_orderservice_cbp_v26.fields.show_amt = ProtoField.new("Show Amt", "currenex.currenexforex.orderservice.cbp.v26.showamt", ftypes.INT64, nil, nil, nil, "Displayed iceberg amount")
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.show_amt = ProtoField.new("Show Amt", "currenex.currenexforex.orderservice.cbp.v26.showamt", ftypes.DOUBLE, nil, nil, nil, "Displayed iceberg amount")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.side = ProtoField.new("Side", "currenex.currenexforex.orderservice.cbp.v26.side", ftypes.STRING, nil, nil, nil, "B=Buy,S=Sell")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.soh = ProtoField.new("Soh", "currenex.currenexforex.orderservice.cbp.v26.soh", ftypes.INT8, nil, nil, nil, "Start of Currenex message")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.status = ProtoField.new("Status", "currenex.currenexforex.orderservice.cbp.v26.status", ftypes.STRING, nil, nil, nil, "P=Replaced,C=Cancelled,R=Rejected")
@@ -454,11 +454,17 @@ currenex_currenexforex_orderservice_cbp_v26.fill_amt.display = function(value)
   return "Fill Amt: "..value
 end
 
+-- Translate: Fill Amt
+currenex_currenexforex_orderservice_cbp_v26.fill_amt.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Fill Amt
 currenex_currenexforex_orderservice_cbp_v26.fill_amt.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_orderservice_cbp_v26.fill_amt.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = currenex_currenexforex_orderservice_cbp_v26.fill_amt.translate(raw)
   local display = currenex_currenexforex_orderservice_cbp_v26.fill_amt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_orderservice_cbp_v26.fields.fill_amt, range, value, display)
@@ -477,11 +483,17 @@ currenex_currenexforex_orderservice_cbp_v26.fill_rate.display = function(value)
   return "Fill Rate: "..value
 end
 
+-- Translate: Fill Rate
+currenex_currenexforex_orderservice_cbp_v26.fill_rate.translate = function(raw)
+  return raw/100000
+end
+
 -- Dissect: Fill Rate
 currenex_currenexforex_orderservice_cbp_v26.fill_rate.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_orderservice_cbp_v26.fill_rate.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = currenex_currenexforex_orderservice_cbp_v26.fill_rate.translate(raw)
   local display = currenex_currenexforex_orderservice_cbp_v26.fill_rate.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_orderservice_cbp_v26.fields.fill_rate, range, value, display)
@@ -589,11 +601,17 @@ currenex_currenexforex_orderservice_cbp_v26.leaves_amt.display = function(value)
   return "Leaves Amt: "..value
 end
 
+-- Translate: Leaves Amt
+currenex_currenexforex_orderservice_cbp_v26.leaves_amt.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Leaves Amt
 currenex_currenexforex_orderservice_cbp_v26.leaves_amt.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_orderservice_cbp_v26.leaves_amt.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = currenex_currenexforex_orderservice_cbp_v26.leaves_amt.translate(raw)
   local display = currenex_currenexforex_orderservice_cbp_v26.leaves_amt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_orderservice_cbp_v26.fields.leaves_amt, range, value, display)
@@ -656,11 +674,17 @@ currenex_currenexforex_orderservice_cbp_v26.min_amt.display = function(value)
   return "Min Amt: "..value
 end
 
+-- Translate: Min Amt
+currenex_currenexforex_orderservice_cbp_v26.min_amt.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Min Amt
 currenex_currenexforex_orderservice_cbp_v26.min_amt.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_orderservice_cbp_v26.min_amt.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = currenex_currenexforex_orderservice_cbp_v26.min_amt.translate(raw)
   local display = currenex_currenexforex_orderservice_cbp_v26.min_amt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_orderservice_cbp_v26.fields.min_amt, range, value, display)
@@ -725,11 +749,17 @@ currenex_currenexforex_orderservice_cbp_v26.order_amt.display = function(value)
   return "Order Amt: "..value
 end
 
+-- Translate: Order Amt
+currenex_currenexforex_orderservice_cbp_v26.order_amt.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Order Amt
 currenex_currenexforex_orderservice_cbp_v26.order_amt.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_orderservice_cbp_v26.order_amt.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = currenex_currenexforex_orderservice_cbp_v26.order_amt.translate(raw)
   local display = currenex_currenexforex_orderservice_cbp_v26.order_amt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_orderservice_cbp_v26.fields.order_amt, range, value, display)
@@ -883,11 +913,17 @@ currenex_currenexforex_orderservice_cbp_v26.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+currenex_currenexforex_orderservice_cbp_v26.price.translate = function(raw)
+  return raw/100000
+end
+
 -- Dissect: Price
 currenex_currenexforex_orderservice_cbp_v26.price.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_orderservice_cbp_v26.price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = currenex_currenexforex_orderservice_cbp_v26.price.translate(raw)
   local display = currenex_currenexforex_orderservice_cbp_v26.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_orderservice_cbp_v26.fields.price, range, value, display)
@@ -1064,11 +1100,17 @@ currenex_currenexforex_orderservice_cbp_v26.show_amt.display = function(value)
   return "Show Amt: "..value
 end
 
+-- Translate: Show Amt
+currenex_currenexforex_orderservice_cbp_v26.show_amt.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Show Amt
 currenex_currenexforex_orderservice_cbp_v26.show_amt.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_orderservice_cbp_v26.show_amt.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = currenex_currenexforex_orderservice_cbp_v26.show_amt.translate(raw)
   local display = currenex_currenexforex_orderservice_cbp_v26.show_amt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_orderservice_cbp_v26.fields.show_amt, range, value, display)

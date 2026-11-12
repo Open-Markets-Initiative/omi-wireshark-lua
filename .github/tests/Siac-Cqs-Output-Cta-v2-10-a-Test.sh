@@ -106,7 +106,6 @@ grep "siac.cqs.output.cta.v2.10.a.participantreferencenumber" Siac.Cqs.Output.Ct
 grep "siac.cqs.output.cta.v2.10.a.mwcblevel1" Siac.Cqs.Output.Cta.v2.10.a.MarketWideCircuitBreakerDeclineLevelStatusMessage.json
 grep "siac.cqs.output.cta.v2.10.a.mwcblevel2" Siac.Cqs.Output.Cta.v2.10.a.MarketWideCircuitBreakerDeclineLevelStatusMessage.json
 grep "siac.cqs.output.cta.v2.10.a.mwcblevel3" Siac.Cqs.Output.Cta.v2.10.a.MarketWideCircuitBreakerDeclineLevelStatusMessage.json
-grep "siac.cqs.output.cta.v2.10.a.reserved" Siac.Cqs.Output.Cta.v2.10.a.MarketWideCircuitBreakerDeclineLevelStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cqs.Output.Cta.v2.10.a/StartOfDayMessage.pcap" \
   -X "lua_script:Siac/Cqs/Output/Siac_Cqs_Output_Cta_v2_10_a_Dissector.lua" \
@@ -139,7 +138,6 @@ grep "siac.cqs.output.cta.v2.10.a.primarylistingmarketparticipantid" Siac.Cqs.Ou
 grep "siac.cqs.output.cta.v2.10.a.primarylistingmarketpreviousclosingprice" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
 grep "siac.cqs.output.cta.v2.10.a.consolidatedclosingprice" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
 grep "siac.cqs.output.cta.v2.10.a.roundlotsize" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
-grep "siac.cqs.output.cta.v2.10.a.reserved" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
 grep "siac.cqs.output.cta.v2.10.a.luldtier" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
 grep "siac.cqs.output.cta.v2.10.a.luldleverageratio" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
 grep "siac.cqs.output.cta.v2.10.a.test" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
@@ -148,6 +146,3 @@ grep "siac.cqs.output.cta.v2.10.a.financialstatusindicator" Siac.Cqs.Output.Cta.
 grep "siac.cqs.output.cta.v2.10.a.shortsalerestrictionindicator" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
 grep "siac.cqs.output.cta.v2.10.a.haltreason" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
 grep "siac.cqs.output.cta.v2.10.a.instrumenttype" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
-grep "siac.cqs.output.cta.v2.10.a.secondreserved" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
-grep "siac.cqs.output.cta.v2.10.a.thirdreserved" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json
-grep "siac.cqs.output.cta.v2.10.a.reserved128" Siac.Cqs.Output.Cta.v2.10.a.SymbolReferenceDataMessage.json

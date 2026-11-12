@@ -30,4 +30,3 @@ grep "iex.iexequities.tops.iextp.v1.56.symbol" Iex.IexEquities.Tops.IexTp.v1.56.
 grep "iex.iexequities.tops.iextp.v1.56.size" Iex.IexEquities.Tops.IexTp.v1.56.TradeReportMessage.json
 grep "iex.iexequities.tops.iextp.v1.56.price" Iex.IexEquities.Tops.IexTp.v1.56.TradeReportMessage.json
 grep "iex.iexequities.tops.iextp.v1.56.tradeid" Iex.IexEquities.Tops.IexTp.v1.56.TradeReportMessage.json
-grep "iex.iexequities.tops.iextp.v1.56.reserved4" Iex.IexEquities.Tops.IexTp.v1.56.TradeReportMessage.json

@@ -87,7 +87,7 @@ omi_nasdaq_nsmequities_totalview_itch_v5_2.fields.reg_sho_action = ProtoField.ne
 omi_nasdaq_nsmequities_totalview_itch_v5_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.itch.v5.2.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_nasdaq_nsmequities_totalview_itch_v5_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.itch.v5.2.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nsmequities_totalview_itch_v5_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.totalview.itch.v5.2.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
-omi_nasdaq_nsmequities_totalview_itch_v5_2.fields.reserved = ProtoField.new("Reserved", "nasdaq.nsmequities.totalview.itch.v5.2.reserved", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v5_2.fields.reserved = ProtoField.new("Reserved", "nasdaq.nsmequities.totalview.itch.v5.2.reserved", ftypes.BYTES)
 omi_nasdaq_nsmequities_totalview_itch_v5_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.totalview.itch.v5.2.roundlotsize", ftypes.UINT32, nil, nil, nil, "Denotes the number of shares that represent a round lot for the issue")
 omi_nasdaq_nsmequities_totalview_itch_v5_2.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.totalview.itch.v5.2.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if Nasdaq system limits order entry for issue")
 omi_nasdaq_nsmequities_totalview_itch_v5_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.totalview.itch.v5.2.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
@@ -203,6 +203,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -215,6 +216,7 @@ omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_application_messages = Pre
 omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -232,6 +234,9 @@ function omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_headers then
     show.headers = omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_padding then
+    show.padding = omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_padding
   end
   if show.session_messages ~= omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_nsmequities_totalview_itch_v5_2.prefs.show_session_messages
@@ -2699,7 +2704,7 @@ end
 nasdaq_nsmequities_totalview_itch_v5_2.reserved.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_itch_v5_2.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nsmequities_totalview_itch_v5_2.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_2.fields.reserved, range, value, display)
@@ -4659,7 +4664,11 @@ nasdaq_nsmequities_totalview_itch_v5_2.stock_trading_action_message.fields = fun
   index, trading_state = nasdaq_nsmequities_totalview_itch_v5_2.trading_state.dissect(buffer, index, packet, parent)
 
   -- Reserved: Alpha
-  index, reserved = nasdaq_nsmequities_totalview_itch_v5_2.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = nasdaq_nsmequities_totalview_itch_v5_2.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_nsmequities_totalview_itch_v5_2.reserved.size
+  end
 
   -- Reason Code: Alpha
   index, reason_code = nasdaq_nsmequities_totalview_itch_v5_2.reason_code.dissect(buffer, index, packet, parent)

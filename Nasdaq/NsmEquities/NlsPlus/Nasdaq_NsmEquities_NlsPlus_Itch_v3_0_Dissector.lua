@@ -88,7 +88,7 @@ omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.reason = ProtoField.new("Reason"
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.reference_for_net_change = ProtoField.new("Reference For Net Change", "nasdaq.nsmequities.nlsplus.itch.v3.0.referencefornetchange", ftypes.STRING, nil, nil, nil, "Indicates the basis of the reference price for net change calculations")
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.reference_price = ProtoField.new("Reference Price", "nasdaq.nsmequities.nlsplus.itch.v3.0.referenceprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the reference price to be used for intraday net change calculations")
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.nlsplus.itch.v3.0.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg Sho short sale price test restriction status for the issue")
-omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.nsmequities.nlsplus.itch.v3.0.reserved", ftypes.STRING, nil, nil, nil, "Reserved for future use; space filled in the initial release")
+omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.nsmequities.nlsplus.itch.v3.0.reserved", ftypes.BYTES, nil, nil, nil, "Reserved for future use; space filled in the initial release")
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.nlsplus.itch.v3.0.roundlotsize", ftypes.UINT32, nil, nil, nil, "Denotes the number of shares that represent a round lot for the issue")
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.nlsplus.itch.v3.0.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if Nasdaq system limits order entry for the issue")
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.sale_condition_modifier = ProtoField.new("Sale Condition Modifier", "nasdaq.nsmequities.nlsplus.itch.v3.0.saleconditionmodifier", ftypes.STRING, nil, nil, nil, "Sale condition modifier, consisting of four levels")
@@ -172,6 +172,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -179,6 +180,7 @@ show.sequences = true
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -193,6 +195,9 @@ function omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_headers then
     show.headers = omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_padding then
+    show.padding = omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_padding
   end
   if show.structs ~= omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_structs then
     show.structs = omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_structs
@@ -2498,7 +2503,7 @@ end
 nasdaq_nsmequities_nlsplus_itch_v3_0.reserved.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nlsplus_itch_v3_0.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nsmequities_nlsplus_itch_v3_0.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.reserved, range, value, display)
@@ -3735,7 +3740,11 @@ nasdaq_nsmequities_nlsplus_itch_v3_0.stock_trading_action_message.fields = funct
   local index = offset
 
   -- Reserved: Alphanumeric
-  index, reserved = nasdaq_nsmequities_nlsplus_itch_v3_0.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = nasdaq_nsmequities_nlsplus_itch_v3_0.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_nsmequities_nlsplus_itch_v3_0.reserved.size
+  end
 
   -- Issue Symbol: Alphanumeric
   index, issue_symbol = nasdaq_nsmequities_nlsplus_itch_v3_0.issue_symbol.dissect(buffer, index, packet, parent)

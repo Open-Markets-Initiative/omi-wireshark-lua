@@ -24,13 +24,13 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.auction_type = ProtoField.new("Auctio
 omi_jse_itac_marketdata_mitch_v4_07.fields.book_level = ProtoField.new("Book Level", "jse.itac.marketdata.mitch.v4.07.booklevel", ftypes.STRING, nil, nil, nil, "Whether the book being cleared is order by order or top of book.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.book_type = ProtoField.new("Book Type", "jse.itac.marketdata.mitch.v4.07.booktype", ftypes.UINT8, nil, nil, nil, "Order book the status applies to.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.bulletin_board = ProtoField.new("Bulletin Board", "jse.itac.marketdata.mitch.v4.07.bulletinboard", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
-omi_jse_itac_marketdata_mitch_v4_07.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "jse.itac.marketdata.mitch.v4.07.contractmultiplier", ftypes.INT64, nil, nil, nil, "Multiplier of the instrument. Zero if the instrument has no contract multiplier. Derivative market data groups only.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "jse.itac.marketdata.mitch.v4.07.contractmultiplier", ftypes.DOUBLE, nil, nil, nil, "Multiplier of the instrument. Zero if the instrument has no contract multiplier. Derivative market data groups only.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.corporate_action = ProtoField.new("Corporate Action", "jse.itac.marketdata.mitch.v4.07.corporateaction", ftypes.STRING, nil, nil, nil, "Ex marker and annotation information associated with the instrument, if any.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.count = ProtoField.new("Count", "jse.itac.marketdata.mitch.v4.07.count", ftypes.UINT16, nil, nil, nil, "Number of messages to be resent.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.coupon = ProtoField.new("Coupon", "jse.itac.marketdata.mitch.v4.07.coupon", ftypes.INT64, nil, nil, nil, "Rate of interest applied to the face value, as a percentage where 0.05 represents five percent. Zero if the instrument is not a fixed income instrument.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.coupon = ProtoField.new("Coupon", "jse.itac.marketdata.mitch.v4.07.coupon", ftypes.DOUBLE, nil, nil, nil, "Rate of interest applied to the face value, as a percentage where 0.05 represents five percent. Zero if the instrument is not a fixed income instrument.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.crossed_order = ProtoField.new("Crossed Order", "jse.itac.marketdata.mitch.v4.07.crossedorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_jse_itac_marketdata_mitch_v4_07.fields.crossed_order_trade = ProtoField.new("Crossed Order Trade", "jse.itac.marketdata.mitch.v4.07.crossedordertrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_jse_itac_marketdata_mitch_v4_07.fields.delta = ProtoField.new("Delta", "jse.itac.marketdata.mitch.v4.07.delta", ftypes.INT64, nil, nil, nil, "Delta value of the options trade.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.delta = ProtoField.new("Delta", "jse.itac.marketdata.mitch.v4.07.delta", ftypes.DOUBLE, nil, nil, nil, "Delta value of the options trade.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.display_quantity = ProtoField.new("Display Quantity", "jse.itac.marketdata.mitch.v4.07.displayquantity", ftypes.UINT32, nil, nil, nil, "Displayed quantity of the order after the execution.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.event_code = ProtoField.new("Event Code", "jse.itac.marketdata.mitch.v4.07.eventcode", ftypes.STRING, nil, nil, nil, "The system event being signalled.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.executed_quantity = ProtoField.new("Executed Quantity", "jse.itac.marketdata.mitch.v4.07.executedquantity", ftypes.UINT32, nil, nil, nil, "Quantity executed.")
@@ -39,12 +39,12 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.expiration_date = ProtoField.new("Exp
 omi_jse_itac_marketdata_mitch_v4_07.fields.first_message = ProtoField.new("First Message", "jse.itac.marketdata.mitch.v4.07.firstmessage", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the range to be retransmitted.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.fx_auction = ProtoField.new("Fx Auction", "jse.itac.marketdata.mitch.v4.07.fxauction", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_jse_itac_marketdata_mitch_v4_07.fields.fx_auction_trade = ProtoField.new("Fx Auction Trade", "jse.itac.marketdata.mitch.v4.07.fxauctiontrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
-omi_jse_itac_marketdata_mitch_v4_07.fields.gamma = ProtoField.new("Gamma", "jse.itac.marketdata.mitch.v4.07.gamma", ftypes.INT64, nil, nil, nil, "Gamma value of the options trade.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.gamma = ProtoField.new("Gamma", "jse.itac.marketdata.mitch.v4.07.gamma", ftypes.DOUBLE, nil, nil, nil, "Gamma value of the options trade.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.headline = ProtoField.new("Headline", "jse.itac.marketdata.mitch.v4.07.headline", ftypes.STRING, nil, nil, nil, "Headline or subject of the announcement.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.high_price = ProtoField.new("High Price", "jse.itac.marketdata.mitch.v4.07.highprice", ftypes.INT64, nil, nil, nil, "High price of the instrument.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.high_price = ProtoField.new("High Price", "jse.itac.marketdata.mitch.v4.07.highprice", ftypes.DOUBLE, nil, nil, nil, "High price of the instrument.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "jse.itac.marketdata.mitch.v4.07.imbalancedirection", ftypes.STRING, nil, nil, nil, "Direction of the imbalance, or that there are insufficient orders for the auction.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.indicative_bid_price = ProtoField.new("Indicative Bid Price", "jse.itac.marketdata.mitch.v4.07.indicativebidprice", ftypes.INT64, nil, nil, nil, "Indicative price of the quotes on the buy side for the request for quote.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.indicative_offer_price = ProtoField.new("Indicative Offer Price", "jse.itac.marketdata.mitch.v4.07.indicativeofferprice", ftypes.INT64, nil, nil, nil, "Indicative price of the quotes on the sell side for the request for quote.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.indicative_bid_price = ProtoField.new("Indicative Bid Price", "jse.itac.marketdata.mitch.v4.07.indicativebidprice", ftypes.DOUBLE, nil, nil, nil, "Indicative price of the quotes on the buy side for the request for quote.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.indicative_offer_price = ProtoField.new("Indicative Offer Price", "jse.itac.marketdata.mitch.v4.07.indicativeofferprice", ftypes.DOUBLE, nil, nil, nil, "Indicative price of the quotes on the sell side for the request for quote.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.instrument_id = ProtoField.new("Instrument Id", "jse.itac.marketdata.mitch.v4.07.instrumentid", ftypes.UINT32, nil, nil, nil, "Instrument the request relates to. Contains only spaces if it does not relate to an instrument and the Segment field is populated.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.instrument_sub_category = ProtoField.new("Instrument Sub Category", "jse.itac.marketdata.mitch.v4.07.instrumentsubcategory", ftypes.STRING, nil, nil, nil, "Instrument sub category the instrument belongs to. Derivative market data groups only.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.instruments = ProtoField.new("Instruments", "jse.itac.marketdata.mitch.v4.07.instruments", ftypes.STRING, nil, nil, nil, "Pipe separated list of the instruments the announcement was sent for.")
@@ -52,11 +52,11 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.inverse_order_book = ProtoField.new("
 omi_jse_itac_marketdata_mitch_v4_07.fields.isin = ProtoField.new("Isin", "jse.itac.marketdata.mitch.v4.07.isin", ftypes.STRING, nil, nil, nil, "International Securities Identifying Number.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.issue_date = ProtoField.new("Issue Date", "jse.itac.marketdata.mitch.v4.07.issuedate", ftypes.STRING, nil, nil, nil, "Date the instrument was issued. Contains all spaces if the instrument is not a fixed income instrument.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.issuer = ProtoField.new("Issuer", "jse.itac.marketdata.mitch.v4.07.issuer", ftypes.STRING, nil, nil, nil, "Issuer of the instrument. Contains all spaces if the instrument is not a fixed income instrument.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.last_opt_px = ProtoField.new("Last Opt Px", "jse.itac.marketdata.mitch.v4.07.lastoptpx", ftypes.INT64, nil, nil, nil, "Converted price of the executed volatility of the options instrument. Blank for equity instruments.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.last_opt_px = ProtoField.new("Last Opt Px", "jse.itac.marketdata.mitch.v4.07.lastoptpx", ftypes.DOUBLE, nil, nil, nil, "Converted price of the executed volatility of the options instrument. Blank for equity instruments.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.leg_1_symbol = ProtoField.new("Leg 1 Symbol", "jse.itac.marketdata.mitch.v4.07.leg1symbol", ftypes.STRING, nil, nil, nil, "Symbol of the leg 1 instrument. Contains only spaces if the instrument is not multi legged. Derivative market data groups only.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.leg_2_symbol = ProtoField.new("Leg 2 Symbol", "jse.itac.marketdata.mitch.v4.07.leg2symbol", ftypes.STRING, nil, nil, nil, "Symbol of the leg 2 instrument. Contains only spaces if the instrument is not multi legged. Derivative market data groups only.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.length = ProtoField.new("Length", "jse.itac.marketdata.mitch.v4.07.length", ftypes.UINT16, nil, nil, nil, "Length of the message block including the header and all payload messages")
-omi_jse_itac_marketdata_mitch_v4_07.fields.low_price = ProtoField.new("Low Price", "jse.itac.marketdata.mitch.v4.07.lowprice", ftypes.INT64, nil, nil, nil, "Low price of the instrument.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.low_price = ProtoField.new("Low Price", "jse.itac.marketdata.mitch.v4.07.lowprice", ftypes.DOUBLE, nil, nil, nil, "Low price of the instrument.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.market_data_group = ProtoField.new("Market Data Group", "jse.itac.marketdata.mitch.v4.07.marketdatagroup", ftypes.STRING, nil, nil, nil, "Identity of the market data group the replay request relates to.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.market_order = ProtoField.new("Market Order", "jse.itac.marketdata.mitch.v4.07.marketorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_jse_itac_marketdata_mitch_v4_07.fields.market_order_quantity = ProtoField.new("Market Order Quantity", "jse.itac.marketdata.mitch.v4.07.marketorderquantity", ftypes.UINT32, nil, nil, nil, "Cumulative visible size of market orders.")
@@ -66,7 +66,7 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.message_type = ProtoField.new("Messag
 omi_jse_itac_marketdata_mitch_v4_07.fields.nanosecond = ProtoField.new("Nanosecond", "jse.itac.marketdata.mitch.v4.07.nanosecond", ftypes.UINT32, nil, nil, nil, "Nanoseconds since the last Time message.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.negotiated_trades = ProtoField.new("Negotiated Trades", "jse.itac.marketdata.mitch.v4.07.negotiatedtrades", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_jse_itac_marketdata_mitch_v4_07.fields.new_end_time = ProtoField.new("New End Time", "jse.itac.marketdata.mitch.v4.07.newendtime", ftypes.STRING, nil, nil, nil, "New session end time in local server time, formatted HH:MM:SS:sss. Contains only spaces when Session Change Reason is scheduled transition or unavailable.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.new_price = ProtoField.new("New Price", "jse.itac.marketdata.mitch.v4.07.newprice", ftypes.INT64, nil, nil, nil, "New limit price of the order.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.new_price = ProtoField.new("New Price", "jse.itac.marketdata.mitch.v4.07.newprice", ftypes.DOUBLE, nil, nil, nil, "New limit price of the order.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.new_quantity = ProtoField.new("New Quantity", "jse.itac.marketdata.mitch.v4.07.newquantity", ftypes.UINT32, nil, nil, nil, "New displayed quantity of the order.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.notional_delta_exposure = ProtoField.new("Notional Delta Exposure", "jse.itac.marketdata.mitch.v4.07.notionaldeltaexposure", ftypes.DOUBLE, nil, nil, nil, "Notional exposure updated by the delta of the option based on trade executions, carrying four implied decimal places rather than eight.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.notional_exposure = ProtoField.new("Notional Exposure", "jse.itac.marketdata.mitch.v4.07.notionalexposure", ftypes.DOUBLE, nil, nil, nil, "Notional exposure, carrying four implied decimal places rather than eight.")
@@ -75,15 +75,15 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.off_book = ProtoField.new("Off Book",
 omi_jse_itac_marketdata_mitch_v4_07.fields.off_book_rfq_trade_type = ProtoField.new("Off Book Rfq Trade Type", "jse.itac.marketdata.mitch.v4.07.offbookrfqtradetype", ftypes.STRING, nil, nil, nil, "Type of off book or request for quote trade. Contains only spaces for on book trades.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.off_book_trade_type = ProtoField.new("Off Book Trade Type", "jse.itac.marketdata.mitch.v4.07.offbooktradetype", ftypes.STRING, nil, nil, nil, "Type of off book trade.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.open_close_indicator = ProtoField.new("Open Close Indicator", "jse.itac.marketdata.mitch.v4.07.opencloseindicator", ftypes.STRING, nil, nil, nil, "How the opening or closing price was derived.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.open_interest = ProtoField.new("Open Interest", "jse.itac.marketdata.mitch.v4.07.openinterest", ftypes.INT64, nil, nil, nil, "Open interest of the specified instrument.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.open_interest = ProtoField.new("Open Interest", "jse.itac.marketdata.mitch.v4.07.openinterest", ftypes.DOUBLE, nil, nil, nil, "Open interest of the specified instrument.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.option_type = ProtoField.new("Option Type", "jse.itac.marketdata.mitch.v4.07.optiontype", ftypes.STRING, nil, nil, nil, "Whether the instrument is a call or a put. Contains a space if the instrument is not an option.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.order_count = ProtoField.new("Order Count", "jse.itac.marketdata.mitch.v4.07.ordercount", ftypes.UINT32, nil, nil, nil, "Number of orders that will be transmitted. Zero if Status is not A, and ignored if Snapshot Type is not Order Book.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.order_id = ProtoField.new("Order Id", "jse.itac.marketdata.mitch.v4.07.orderid", ftypes.UINT64, nil, nil, nil, "Unique identifier of the order.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.order_modified_flags = ProtoField.new("Order Modified Flags", "jse.itac.marketdata.mitch.v4.07.ordermodifiedflags", ftypes.STRING, nil, nil, nil, "Whether the modified order retained its priority.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.paired_quantity = ProtoField.new("Paired Quantity", "jse.itac.marketdata.mitch.v4.07.pairedquantity", ftypes.UINT32, nil, nil, nil, "Quantity that will be matched at the indicative price.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.password = ProtoField.new("Password", "jse.itac.marketdata.mitch.v4.07.password", ftypes.STRING, nil, nil, nil, "Password assigned to the CompID.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.previous_close_price = ProtoField.new("Previous Close Price", "jse.itac.marketdata.mitch.v4.07.previouscloseprice", ftypes.INT64, nil, nil, nil, "Previous close price of the instrument.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.price = ProtoField.new("Price", "jse.itac.marketdata.mitch.v4.07.price", ftypes.INT64, nil, nil, nil, "Limit price of the order.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.previous_close_price = ProtoField.new("Previous Close Price", "jse.itac.marketdata.mitch.v4.07.previouscloseprice", ftypes.DOUBLE, nil, nil, nil, "Previous close price of the instrument.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.price = ProtoField.new("Price", "jse.itac.marketdata.mitch.v4.07.price", ftypes.DOUBLE, nil, nil, nil, "Limit price of the order.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.printable = ProtoField.new("Printable", "jse.itac.marketdata.mitch.v4.07.printable", ftypes.STRING, nil, nil, nil, "Whether the execution should be included in trade statistics.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.priority_flag = ProtoField.new("Priority Flag", "jse.itac.marketdata.mitch.v4.07.priorityflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_jse_itac_marketdata_mitch_v4_07.fields.pt_amendment_flag = ProtoField.new("Pt Amendment Flag", "jse.itac.marketdata.mitch.v4.07.ptamendmentflag", ftypes.STRING, nil, nil, nil, "Indicates the trade represented by the message has been amended. Carries AMND when set.")
@@ -101,7 +101,7 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_8 = ProtoField.new("Reserved
 omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_a = ProtoField.new("Reserved A", "jse.itac.marketdata.mitch.v4.07.reserveda", ftypes.BYTES, nil, nil, nil, "Reserved field.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_b = ProtoField.new("Reserved B", "jse.itac.marketdata.mitch.v4.07.reservedb", ftypes.BYTES, nil, nil, nil, "Reserved field.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.rfq_id = ProtoField.new("Rfq Id", "jse.itac.marketdata.mitch.v4.07.rfqid", ftypes.STRING, nil, nil, nil, "Unique identifier assigned to each request for quote in the system.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.rho = ProtoField.new("Rho", "jse.itac.marketdata.mitch.v4.07.rho", ftypes.INT64, nil, nil, nil, "Rho value of the options trade.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.rho = ProtoField.new("Rho", "jse.itac.marketdata.mitch.v4.07.rho", ftypes.DOUBLE, nil, nil, nil, "Rho value of the options trade.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.seconds = ProtoField.new("Seconds", "jse.itac.marketdata.mitch.v4.07.seconds", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight, in local server time rather than Utc.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.segment = ProtoField.new("Segment", "jse.itac.marketdata.mitch.v4.07.segment", ftypes.STRING, nil, nil, nil, "Segment the request relates to. Contains only spaces if it does not relate to a segment.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.sequence_number = ProtoField.new("Sequence Number", "jse.itac.marketdata.mitch.v4.07.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number the snapshot should be synchronised with.")
@@ -112,7 +112,7 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.snapshot_type = ProtoField.new("Snaps
 omi_jse_itac_marketdata_mitch_v4_07.fields.splits = ProtoField.new("Splits", "jse.itac.marketdata.mitch.v4.07.splits", ftypes.UINT32, nil, nil, nil, "Cumulative visible orders at the best price, including all market orders during auctions. Zero on a delete action.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.statistic_type = ProtoField.new("Statistic Type", "jse.itac.marketdata.mitch.v4.07.statistictype", ftypes.STRING, nil, nil, nil, "Whether the price is an opening or a closing price.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.status = ProtoField.new("Status", "jse.itac.marketdata.mitch.v4.07.status", ftypes.STRING, nil, nil, nil, "Status of the login request.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.strike_price = ProtoField.new("Strike Price", "jse.itac.marketdata.mitch.v4.07.strikeprice", ftypes.INT64, nil, nil, nil, "Strike price of an option. Zero if the instrument is not an option.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.strike_price = ProtoField.new("Strike Price", "jse.itac.marketdata.mitch.v4.07.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Strike price of an option. Zero if the instrument is not an option.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.sub_book = ProtoField.new("Sub Book", "jse.itac.marketdata.mitch.v4.07.subbook", ftypes.UINT8, nil, nil, nil, "Order book to be cleared.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.sub_book_flags = ProtoField.new("Sub Book Flags", "jse.itac.marketdata.mitch.v4.07.subbookflags", ftypes.STRING, nil, nil, nil, "Order books a message relates to, as a bitmask. The document labels this field Sub Book, the same label it gives the single valued order book code on the trade and statistics messages; the two are different encodings. Bit 0 is the rightmost bit of the byte.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.symbol = ProtoField.new("Symbol", "jse.itac.marketdata.mitch.v4.07.symbol", ftypes.STRING, nil, nil, nil, "Symbol of the instrument.")
@@ -120,8 +120,8 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.symbol_directory_flags = ProtoField.n
 omi_jse_itac_marketdata_mitch_v4_07.fields.symbol_status = ProtoField.new("Symbol Status", "jse.itac.marketdata.mitch.v4.07.symbolstatus", ftypes.STRING, nil, nil, nil, "Status of the instrument. Contains a space when the instrument is active.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.symbol_status_flags = ProtoField.new("Symbol Status Flags", "jse.itac.marketdata.mitch.v4.07.symbolstatusflags", ftypes.STRING, nil, nil, nil, "Reserved for future use.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.text = ProtoField.new("Text", "jse.itac.marketdata.mitch.v4.07.text", ftypes.STRING, nil, nil, nil, "Text of the announcement.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.theoretical_price = ProtoField.new("Theoretical Price", "jse.itac.marketdata.mitch.v4.07.theoreticalprice", ftypes.INT64, nil, nil, nil, "Theoretical price of the options trade.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.theta = ProtoField.new("Theta", "jse.itac.marketdata.mitch.v4.07.theta", ftypes.INT64, nil, nil, nil, "Theta value of the options trade.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.theoretical_price = ProtoField.new("Theoretical Price", "jse.itac.marketdata.mitch.v4.07.theoreticalprice", ftypes.DOUBLE, nil, nil, nil, "Theoretical price of the options trade.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.theta = ProtoField.new("Theta", "jse.itac.marketdata.mitch.v4.07.theta", ftypes.DOUBLE, nil, nil, nil, "Theta value of the options trade.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.tidm = ProtoField.new("Tidm", "jse.itac.marketdata.mitch.v4.07.tidm", ftypes.STRING, nil, nil, nil, "Tradable Instrument Display Mnemonic. The revision history records that this field is reclassified as reserved at release 7.8.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.time = ProtoField.new("Time", "jse.itac.marketdata.mitch.v4.07.time", ftypes.STRING, nil, nil, nil, "Time the announcement was published, in local server time rather than Utc.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.trade_condition_flag = ProtoField.new("Trade Condition Flag", "jse.itac.marketdata.mitch.v4.07.tradeconditionflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -133,7 +133,7 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.trade_time = ProtoField.new("Trade Ti
 omi_jse_itac_marketdata_mitch_v4_07.fields.trading_status = ProtoField.new("Trading Status", "jse.itac.marketdata.mitch.v4.07.tradingstatus", ftypes.STRING, nil, nil, nil, "Indicated only when the message is sent as a book level complete and the Snapshot Type is Order Book or Statistics.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.turnover = ProtoField.new("Turnover", "jse.itac.marketdata.mitch.v4.07.turnover", ftypes.DOUBLE, nil, nil, nil, "Turnover of the instrument, carrying four implied decimal places rather than eight.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.underlying = ProtoField.new("Underlying", "jse.itac.marketdata.mitch.v4.07.underlying", ftypes.STRING, nil, nil, nil, "Symbol of the underlying instrument. Contains only spaces if the instrument is not a derivative.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.underlying_reference_price = ProtoField.new("Underlying Reference Price", "jse.itac.marketdata.mitch.v4.07.underlyingreferenceprice", ftypes.INT64, nil, nil, nil, "Underlying reference price related to the converted value calculated upon an options instrument trade execution. Blank for equity instruments.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.underlying_reference_price = ProtoField.new("Underlying Reference Price", "jse.itac.marketdata.mitch.v4.07.underlyingreferenceprice", ftypes.DOUBLE, nil, nil, nil, "Underlying reference price related to the converted value calculated upon an options instrument trade execution. Blank for equity instruments.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.underlyings = ProtoField.new("Underlyings", "jse.itac.marketdata.mitch.v4.07.underlyings", ftypes.STRING, nil, nil, nil, "Pipe separated list of the symbols of the underlyings the announcement relates to.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.unused_2 = ProtoField.new("Unused 2", "jse.itac.marketdata.mitch.v4.07.unused2", ftypes.UINT8, nil, base.DEC, 0xC0, "Unused")
 omi_jse_itac_marketdata_mitch_v4_07.fields.unused_3 = ProtoField.new("Unused 3", "jse.itac.marketdata.mitch.v4.07.unused3", ftypes.UINT8, nil, base.DEC, 0x1C, "Unused")
@@ -144,11 +144,11 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.unused_7 = ProtoField.new("Unused 7",
 omi_jse_itac_marketdata_mitch_v4_07.fields.unused_8 = ProtoField.new("Unused 8", "jse.itac.marketdata.mitch.v4.07.unused8", ftypes.UINT8, nil, base.DEC, 0xFF, "Unused")
 omi_jse_itac_marketdata_mitch_v4_07.fields.urgency = ProtoField.new("Urgency", "jse.itac.marketdata.mitch.v4.07.urgency", ftypes.STRING, nil, nil, nil, "Priority of the announcement.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.username = ProtoField.new("Username", "jse.itac.marketdata.mitch.v4.07.username", ftypes.STRING, nil, nil, nil, "CompID assigned to the client.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.vega = ProtoField.new("Vega", "jse.itac.marketdata.mitch.v4.07.vega", ftypes.INT64, nil, nil, nil, "Vega value of the options trade.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.vega = ProtoField.new("Vega", "jse.itac.marketdata.mitch.v4.07.vega", ftypes.DOUBLE, nil, nil, nil, "Vega value of the options trade.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "jse.itac.marketdata.mitch.v4.07.venueofexecution", ftypes.STRING, nil, nil, nil, "Identification of the venue where the trade was executed, derived from the instrument level parameter Security Exchange.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.volatility = ProtoField.new("Volatility", "jse.itac.marketdata.mitch.v4.07.volatility", ftypes.INT64, nil, nil, nil, "Converted volatility of the executed price of the options instrument. Blank for equity instruments.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.volatility = ProtoField.new("Volatility", "jse.itac.marketdata.mitch.v4.07.volatility", ftypes.DOUBLE, nil, nil, nil, "Converted volatility of the executed price of the options instrument. Blank for equity instruments.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.volume = ProtoField.new("Volume", "jse.itac.marketdata.mitch.v4.07.volume", ftypes.UINT32, nil, nil, nil, "Volume of the instrument.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.vwap = ProtoField.new("Vwap", "jse.itac.marketdata.mitch.v4.07.vwap", ftypes.INT64, nil, nil, nil, "Volume weighted average price of the instrument.")
+omi_jse_itac_marketdata_mitch_v4_07.fields.vwap = ProtoField.new("Vwap", "jse.itac.marketdata.mitch.v4.07.vwap", ftypes.DOUBLE, nil, nil, nil, "Volume weighted average price of the instrument.")
 
 -- Jse Itac MarketData Mitch 4.07 Framing
 omi_jse_itac_marketdata_mitch_v4_07.fields.message = ProtoField.new("Message", "jse.itac.marketdata.mitch.v4.07.message", ftypes.STRING, nil, nil, nil, "Jse Mitch Udp Message")
@@ -486,11 +486,17 @@ jse_itac_marketdata_mitch_v4_07.contract_multiplier.display = function(value)
   return "Contract Multiplier: "..value
 end
 
+-- Translate: Contract Multiplier
+jse_itac_marketdata_mitch_v4_07.contract_multiplier.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Contract Multiplier
 jse_itac_marketdata_mitch_v4_07.contract_multiplier.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.contract_multiplier.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.contract_multiplier.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.contract_multiplier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.contract_multiplier, range, value, display)
@@ -555,11 +561,17 @@ jse_itac_marketdata_mitch_v4_07.coupon.display = function(value)
   return "Coupon: "..value
 end
 
+-- Translate: Coupon
+jse_itac_marketdata_mitch_v4_07.coupon.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Coupon
 jse_itac_marketdata_mitch_v4_07.coupon.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.coupon.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.coupon.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.coupon.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.coupon, range, value, display)
@@ -578,11 +590,17 @@ jse_itac_marketdata_mitch_v4_07.delta.display = function(value)
   return "Delta: "..value
 end
 
+-- Translate: Delta
+jse_itac_marketdata_mitch_v4_07.delta.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Delta
 jse_itac_marketdata_mitch_v4_07.delta.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.delta.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.delta.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.delta, range, value, display)
@@ -763,11 +781,17 @@ jse_itac_marketdata_mitch_v4_07.gamma.display = function(value)
   return "Gamma: "..value
 end
 
+-- Translate: Gamma
+jse_itac_marketdata_mitch_v4_07.gamma.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Gamma
 jse_itac_marketdata_mitch_v4_07.gamma.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.gamma.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.gamma.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.gamma.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.gamma, range, value, display)
@@ -809,11 +833,17 @@ jse_itac_marketdata_mitch_v4_07.high_price.display = function(value)
   return "High Price: "..value
 end
 
+-- Translate: High Price
+jse_itac_marketdata_mitch_v4_07.high_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: High Price
 jse_itac_marketdata_mitch_v4_07.high_price.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.high_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.high_price.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.high_price, range, value, display)
@@ -859,11 +889,17 @@ jse_itac_marketdata_mitch_v4_07.indicative_bid_price.display = function(value)
   return "Indicative Bid Price: "..value
 end
 
+-- Translate: Indicative Bid Price
+jse_itac_marketdata_mitch_v4_07.indicative_bid_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Indicative Bid Price
 jse_itac_marketdata_mitch_v4_07.indicative_bid_price.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.indicative_bid_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.indicative_bid_price.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.indicative_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.indicative_bid_price, range, value, display)
@@ -882,11 +918,17 @@ jse_itac_marketdata_mitch_v4_07.indicative_offer_price.display = function(value)
   return "Indicative Offer Price: "..value
 end
 
+-- Translate: Indicative Offer Price
+jse_itac_marketdata_mitch_v4_07.indicative_offer_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Indicative Offer Price
 jse_itac_marketdata_mitch_v4_07.indicative_offer_price.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.indicative_offer_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.indicative_offer_price.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.indicative_offer_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.indicative_offer_price, range, value, display)
@@ -1052,11 +1094,17 @@ jse_itac_marketdata_mitch_v4_07.last_opt_px.display = function(value)
   return "Last Opt Px: "..value
 end
 
+-- Translate: Last Opt Px
+jse_itac_marketdata_mitch_v4_07.last_opt_px.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Last Opt Px
 jse_itac_marketdata_mitch_v4_07.last_opt_px.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.last_opt_px.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.last_opt_px.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.last_opt_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.last_opt_px, range, value, display)
@@ -1144,11 +1192,17 @@ jse_itac_marketdata_mitch_v4_07.low_price.display = function(value)
   return "Low Price: "..value
 end
 
+-- Translate: Low Price
+jse_itac_marketdata_mitch_v4_07.low_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Low Price
 jse_itac_marketdata_mitch_v4_07.low_price.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.low_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.low_price.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.low_price, range, value, display)
@@ -1416,11 +1470,17 @@ jse_itac_marketdata_mitch_v4_07.new_price.display = function(value)
   return "New Price: "..value
 end
 
+-- Translate: New Price
+jse_itac_marketdata_mitch_v4_07.new_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: New Price
 jse_itac_marketdata_mitch_v4_07.new_price.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.new_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.new_price.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.new_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.new_price, range, value, display)
@@ -1652,11 +1712,17 @@ jse_itac_marketdata_mitch_v4_07.open_interest.display = function(value)
   return "Open Interest: "..value
 end
 
+-- Translate: Open Interest
+jse_itac_marketdata_mitch_v4_07.open_interest.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Open Interest
 jse_itac_marketdata_mitch_v4_07.open_interest.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.open_interest.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.open_interest.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.open_interest.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.open_interest, range, value, display)
@@ -1800,11 +1866,17 @@ jse_itac_marketdata_mitch_v4_07.previous_close_price.display = function(value)
   return "Previous Close Price: "..value
 end
 
+-- Translate: Previous Close Price
+jse_itac_marketdata_mitch_v4_07.previous_close_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Previous Close Price
 jse_itac_marketdata_mitch_v4_07.previous_close_price.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.previous_close_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.previous_close_price.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.previous_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.previous_close_price, range, value, display)
@@ -1823,11 +1895,17 @@ jse_itac_marketdata_mitch_v4_07.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+jse_itac_marketdata_mitch_v4_07.price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Price
 jse_itac_marketdata_mitch_v4_07.price.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.price.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.price, range, value, display)
@@ -2173,11 +2251,17 @@ jse_itac_marketdata_mitch_v4_07.rho.display = function(value)
   return "Rho: "..value
 end
 
+-- Translate: Rho
+jse_itac_marketdata_mitch_v4_07.rho.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Rho
 jse_itac_marketdata_mitch_v4_07.rho.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.rho.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.rho.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.rho.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.rho, range, value, display)
@@ -2476,11 +2560,17 @@ jse_itac_marketdata_mitch_v4_07.strike_price.display = function(value)
   return "Strike Price: "..value
 end
 
+-- Translate: Strike Price
+jse_itac_marketdata_mitch_v4_07.strike_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Strike Price
 jse_itac_marketdata_mitch_v4_07.strike_price.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.strike_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.strike_price.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.strike_price, range, value, display)
@@ -2612,11 +2702,17 @@ jse_itac_marketdata_mitch_v4_07.theoretical_price.display = function(value)
   return "Theoretical Price: "..value
 end
 
+-- Translate: Theoretical Price
+jse_itac_marketdata_mitch_v4_07.theoretical_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Theoretical Price
 jse_itac_marketdata_mitch_v4_07.theoretical_price.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.theoretical_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.theoretical_price.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.theoretical_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.theoretical_price, range, value, display)
@@ -2635,11 +2731,17 @@ jse_itac_marketdata_mitch_v4_07.theta.display = function(value)
   return "Theta: "..value
 end
 
+-- Translate: Theta
+jse_itac_marketdata_mitch_v4_07.theta.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Theta
 jse_itac_marketdata_mitch_v4_07.theta.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.theta.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.theta.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.theta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.theta, range, value, display)
@@ -2909,11 +3011,17 @@ jse_itac_marketdata_mitch_v4_07.underlying_reference_price.display = function(va
   return "Underlying Reference Price: "..value
 end
 
+-- Translate: Underlying Reference Price
+jse_itac_marketdata_mitch_v4_07.underlying_reference_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Underlying Reference Price
 jse_itac_marketdata_mitch_v4_07.underlying_reference_price.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.underlying_reference_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.underlying_reference_price.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.underlying_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.underlying_reference_price, range, value, display)
@@ -3007,11 +3115,17 @@ jse_itac_marketdata_mitch_v4_07.vega.display = function(value)
   return "Vega: "..value
 end
 
+-- Translate: Vega
+jse_itac_marketdata_mitch_v4_07.vega.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Vega
 jse_itac_marketdata_mitch_v4_07.vega.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.vega.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.vega.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.vega.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.vega, range, value, display)
@@ -3053,11 +3167,17 @@ jse_itac_marketdata_mitch_v4_07.volatility.display = function(value)
   return "Volatility: "..value
 end
 
+-- Translate: Volatility
+jse_itac_marketdata_mitch_v4_07.volatility.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Volatility
 jse_itac_marketdata_mitch_v4_07.volatility.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.volatility.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.volatility.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.volatility.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.volatility, range, value, display)
@@ -3099,11 +3219,17 @@ jse_itac_marketdata_mitch_v4_07.vwap.display = function(value)
   return "Vwap: "..value
 end
 
+-- Translate: Vwap
+jse_itac_marketdata_mitch_v4_07.vwap.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Vwap
 jse_itac_marketdata_mitch_v4_07.vwap.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.vwap.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.vwap.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.vwap.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.vwap, range, value, display)

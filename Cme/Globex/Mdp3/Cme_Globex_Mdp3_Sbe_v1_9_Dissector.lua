@@ -234,6 +234,7 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.security_update_action = ProtoField.new("Sec
 omi_cme_globex_mdp3_sbe_v1_9.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.9.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_globex_mdp3_sbe_v1_9.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.9.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
 omi_cme_globex_mdp3_sbe_v1_9.fields.session = ProtoField.new("Session", "cme.globex.mdp3.sbe.v1.9.session", ftypes.STRING, nil, nil, nil, "Session ID")
+omi_cme_globex_mdp3_sbe_v1_9.fields.session_text = ProtoField.new("Session Text", "cme.globex.mdp3.sbe.v1.9.sessiontext", ftypes.STRING, nil, nil, nil, "Reject reason details")
 omi_cme_globex_mdp3_sbe_v1_9.fields.settl_currency = ProtoField.new("Settl Currency", "cme.globex.mdp3.sbe.v1.9.settlcurrency", ftypes.STRING, nil, nil, nil, "Identifies currency used for settlement, if different from trading currency")
 omi_cme_globex_mdp3_sbe_v1_9.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.globex.mdp3.sbe.v1.9.settlpricetype", ftypes.STRING, nil, nil, nil, "SettlPriceType bit set")
 omi_cme_globex_mdp3_sbe_v1_9.fields.side = ProtoField.new("Side", "cme.globex.mdp3.sbe.v1.9.side", ftypes.INT8, nil, nil, nil, "Side requested")
@@ -251,7 +252,7 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.symbol = ProtoField.new("Symbol", "cme.globe
 omi_cme_globex_mdp3_sbe_v1_9.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.9.tcpsendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_9.fields.tcp_sending_time_utc = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.9.tcpsendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_9.fields.template_id = ProtoField.new("Template Id", "cme.globex.mdp3.sbe.v1.9.templateid", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_9.fields.text = ProtoField.new("Text", "cme.globex.mdp3.sbe.v1.9.text", ftypes.STRING, nil, nil, nil, "Reject reason details")
+omi_cme_globex_mdp3_sbe_v1_9.fields.text = ProtoField.new("Text", "cme.globex.mdp3.sbe.v1.9.text", ftypes.STRING, nil, nil, nil, "Free format text string. May include logout confirmation or reason for logout")
 omi_cme_globex_mdp3_sbe_v1_9.fields.tick_rule = ProtoField.new("Tick Rule", "cme.globex.mdp3.sbe.v1.9.tickrule", ftypes.INT8)
 omi_cme_globex_mdp3_sbe_v1_9.fields.tot_num_reports = ProtoField.new("Tot Num Reports", "cme.globex.mdp3.sbe.v1.9.totnumreports", ftypes.UINT32, nil, nil, nil, "Total number of messages replayed in the loop")
 omi_cme_globex_mdp3_sbe_v1_9.fields.tot_num_reports_optional = ProtoField.new("Tot Num Reports Optional", "cme.globex.mdp3.sbe.v1.9.totnumreportsoptional", ftypes.UINT32, nil, nil, nil, "Total number of instruments in the Replay loop. Used on Replay Feed only")
@@ -870,7 +871,7 @@ cme_globex_mdp3_sbe_v1_9.decay_start_date.display = function(value)
     return "Decay Start Date: No Value"
   end
 
-  return "Decay Start Date: "..value
+  return string.format("Decay Start Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Decay Start Date
@@ -4364,6 +4365,45 @@ cme_globex_mdp3_sbe_v1_9.session.dissect = function(buffer, offset, packet, pare
   return offset + length, value
 end
 
+-- Session Text
+cme_globex_mdp3_sbe_v1_9.session_text = {}
+
+-- Size: Session Text
+cme_globex_mdp3_sbe_v1_9.session_text.size = 100
+
+-- Display: Session Text
+cme_globex_mdp3_sbe_v1_9.session_text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session Text: No Value"
+  end
+
+  return "Session Text: "..value
+end
+
+-- Dissect: Session Text
+cme_globex_mdp3_sbe_v1_9.session_text.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_9.session_text.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_globex_mdp3_sbe_v1_9.session_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.session_text, range, value, display)
+
+  return offset + length, value
+end
+
 -- Settl Currency
 cme_globex_mdp3_sbe_v1_9.settl_currency = {}
 
@@ -4737,7 +4777,7 @@ end
 cme_globex_mdp3_sbe_v1_9.text = {}
 
 -- Size: Text
-cme_globex_mdp3_sbe_v1_9.text.size = 100
+cme_globex_mdp3_sbe_v1_9.text.size = 180
 
 -- Display: Text
 cme_globex_mdp3_sbe_v1_9.text.display = function(value)
@@ -4864,7 +4904,7 @@ cme_globex_mdp3_sbe_v1_9.trade_date.display = function(value)
     return "Trade Date: No Value"
   end
 
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date
@@ -4892,7 +4932,7 @@ cme_globex_mdp3_sbe_v1_9.trading_reference_date.display = function(value)
     return "Trading Reference Date: No Value"
   end
 
-  return "Trading Reference Date: "..value
+  return string.format("Trading Reference Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trading Reference Date
@@ -5393,7 +5433,7 @@ cme_globex_mdp3_sbe_v1_9.request_reject = {}
 cme_globex_mdp3_sbe_v1_9.request_reject.size =
   cme_globex_mdp3_sbe_v1_9.md_req_id_optional.size + 
   cme_globex_mdp3_sbe_v1_9.md_req_rej_reason.size + 
-  cme_globex_mdp3_sbe_v1_9.text.size
+  cme_globex_mdp3_sbe_v1_9.session_text.size
 
 -- Display: Request Reject
 cme_globex_mdp3_sbe_v1_9.request_reject.display = function(packet, parent, length)
@@ -5410,8 +5450,8 @@ cme_globex_mdp3_sbe_v1_9.request_reject.fields = function(buffer, offset, packet
   -- Md Req Rej Reason: MDReqRejReason
   index, md_req_rej_reason = cme_globex_mdp3_sbe_v1_9.md_req_rej_reason.dissect(buffer, index, packet, parent)
 
-  -- Text: String100
-  index, text = cme_globex_mdp3_sbe_v1_9.text.dissect(buffer, index, packet, parent)
+  -- Session Text: String100
+  index, session_text = cme_globex_mdp3_sbe_v1_9.session_text.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6684,18 +6724,6 @@ cme_globex_mdp3_sbe_v1_9.settl_price_type.display = function(range, value, packe
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Intraday"
   end
-  -- Is Reserved Bits flag set?
-  if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Reserved Bits"
-  end
-  -- Is Unused Settl Price Type 5 flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Unused Settl Price Type 5"
-  end
-  -- Is Unused Settl Price Type 6 flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Unused Settl Price Type 6"
-  end
   -- Is Null Value flag set?
   if bit.band(value, 0x80) ~= 0 then
     flags[#flags + 1] = "Null Value"
@@ -6832,10 +6860,6 @@ cme_globex_mdp3_sbe_v1_9.match_event_indicator.display = function(range, value, 
   -- Is Recovery Msg flag set?
   if bit.band(value, 0x20) ~= 0 then
     flags[#flags + 1] = "Recovery Msg"
-  end
-  -- Is Reserved flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Reserved"
   end
   -- Is End Of Event flag set?
   if bit.band(value, 0x80) ~= 0 then
@@ -11810,7 +11834,7 @@ end
 cme_globex_mdp3_sbe_v1_9.admin_logout.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: String100
+  -- Text: Text
   index, text = cme_globex_mdp3_sbe_v1_9.text.dissect(buffer, index, packet, parent)
 
   return index

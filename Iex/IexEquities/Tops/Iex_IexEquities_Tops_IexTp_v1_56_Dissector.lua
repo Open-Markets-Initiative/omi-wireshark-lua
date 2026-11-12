@@ -33,7 +33,7 @@ omi_iex_iexequities_tops_iextp_v1_56.fields.payload_length = ProtoField.new("Pay
 omi_iex_iexequities_tops_iextp_v1_56.fields.price = ProtoField.new("Price", "iex.iexequities.tops.iextp.v1.56.price", ftypes.DOUBLE, nil, nil, nil, "Trade price")
 omi_iex_iexequities_tops_iextp_v1_56.fields.quote_update_flags = ProtoField.new("Quote Update Flags", "iex.iexequities.tops.iextp.v1.56.quoteupdateflags", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_56.fields.reserved = ProtoField.new("Reserved", "iex.iexequities.tops.iextp.v1.56.reserved", ftypes.BYTES, nil, nil, nil, "Reserved byte")
-omi_iex_iexequities_tops_iextp_v1_56.fields.reserved_4 = ProtoField.new("Reserved 4", "iex.iexequities.tops.iextp.v1.56.reserved4", ftypes.UINT32, nil, nil, nil, "Reserved bytes")
+omi_iex_iexequities_tops_iextp_v1_56.fields.reserved_4 = ProtoField.new("Reserved 4", "iex.iexequities.tops.iextp.v1.56.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved bytes")
 omi_iex_iexequities_tops_iextp_v1_56.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.iexequities.tops.iextp.v1.56.saleconditionflags", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_56.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.tops.iextp.v1.56.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
 omi_iex_iexequities_tops_iextp_v1_56.fields.send_time_utc = ProtoField.new("Send Time", "iex.iexequities.tops.iextp.v1.56.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of segment")
@@ -493,7 +493,7 @@ end
 iex_iexequities_tops_iextp_v1_56.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexequities_tops_iextp_v1_56.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = iex_iexequities_tops_iextp_v1_56.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexequities_tops_iextp_v1_56.fields.reserved_4, range, value, display)
@@ -801,7 +801,11 @@ iex_iexequities_tops_iextp_v1_56.trade_break_message.fields = function(buffer, o
   index, trade_id = iex_iexequities_tops_iextp_v1_56.trade_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Integer
-  index, reserved_4 = iex_iexequities_tops_iextp_v1_56.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = iex_iexequities_tops_iextp_v1_56.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + iex_iexequities_tops_iextp_v1_56.reserved_4.size
+  end
 
   return index
 end
@@ -865,7 +869,11 @@ iex_iexequities_tops_iextp_v1_56.trade_report_message.fields = function(buffer, 
   index, trade_id = iex_iexequities_tops_iextp_v1_56.trade_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Integer
-  index, reserved_4 = iex_iexequities_tops_iextp_v1_56.reserved_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_4 = iex_iexequities_tops_iextp_v1_56.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + iex_iexequities_tops_iextp_v1_56.reserved_4.size
+  end
 
   return index
 end

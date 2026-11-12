@@ -16,7 +16,7 @@ local currenex_currenexforex_now_cbp_v10 = {}
 
 -- Currenex CurrenexForex Now Cbp 10 Fields
 omi_currenex_currenexforex_now_cbp_v10.fields.activity_indicator = ProtoField.new("Activity Indicator", "currenex.currenexforex.now.cbp.v10.activityindicator", ftypes.STRING, nil, nil, nil, "45s")
-omi_currenex_currenexforex_now_cbp_v10.fields.amount = ProtoField.new("Amount", "currenex.currenexforex.now.cbp.v10.amount", ftypes.INT64, nil, nil, nil, "Aggregated amount at this level")
+omi_currenex_currenexforex_now_cbp_v10.fields.amount = ProtoField.new("Amount", "currenex.currenexforex.now.cbp.v10.amount", ftypes.DOUBLE, nil, nil, nil, "Aggregated amount at this level")
 omi_currenex_currenexforex_now_cbp_v10.fields.bid = ProtoField.new("Bid", "currenex.currenexforex.now.cbp.v10.bid", ftypes.STRING, nil, nil, nil, "Market level bid")
 omi_currenex_currenexforex_now_cbp_v10.fields.bid_price = ProtoField.new("Bid Price", "currenex.currenexforex.now.cbp.v10.bidprice", ftypes.DOUBLE)
 omi_currenex_currenexforex_now_cbp_v10.fields.conf_factor_25 = ProtoField.new("Conf Factor 25", "currenex.currenexforex.now.cbp.v10.conffactor25", ftypes.STRING, nil, nil, nil, "25th percentile confidence factor")
@@ -185,11 +185,17 @@ currenex_currenexforex_now_cbp_v10.amount.display = function(value)
   return "Amount: "..value
 end
 
+-- Translate: Amount
+currenex_currenexforex_now_cbp_v10.amount.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Amount
 currenex_currenexforex_now_cbp_v10.amount.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_now_cbp_v10.amount.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = currenex_currenexforex_now_cbp_v10.amount.translate(raw)
   local display = currenex_currenexforex_now_cbp_v10.amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_now_cbp_v10.fields.amount, range, value, display)

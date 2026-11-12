@@ -66,7 +66,7 @@ omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.primary_market_maker = Pr
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.printable = ProtoField.new("Printable", "nasdaq.psxequities.totalview.itch.v5.0.2018.printable", ftypes.STRING, nil, nil, nil, "Indicates if the execution should be reflected on time and sale displays and volume calculations.")
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.reason = ProtoField.new("Reason", "nasdaq.psxequities.totalview.itch.v5.0.2018.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason")
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psxequities.totalview.itch.v5.0.2018.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination")
-omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.reserved = ProtoField.new("Reserved", "nasdaq.psxequities.totalview.itch.v5.0.2018.reserved", ftypes.STRING)
+omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.reserved = ProtoField.new("Reserved", "nasdaq.psxequities.totalview.itch.v5.0.2018.reserved", ftypes.BYTES)
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.totalview.itch.v5.0.2018.roundlotsize", ftypes.UINT32, nil, nil, nil, "Denotes the number of shares that represent a round lot for the issue")
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.psxequities.totalview.itch.v5.0.2018.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if NASDAQ system limits order entry for issue")
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.totalview.itch.v5.0.2018.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
@@ -142,6 +142,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -149,6 +150,7 @@ show.sequences = true
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -163,6 +165,9 @@ function omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_headers then
     show.headers = omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_headers
+  end
+  if show.padding ~= omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_padding then
+    show.padding = omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_padding
   end
   if show.structs ~= omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_structs then
     show.structs = omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_structs
@@ -1698,7 +1703,7 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.reserved.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_totalview_itch_v5_0_2018.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_psxequities_totalview_itch_v5_0_2018.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.reserved, range, value, display)
@@ -3175,7 +3180,11 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.stock_trading_action_message.fields 
   index, trading_state = nasdaq_psxequities_totalview_itch_v5_0_2018.trading_state.dissect(buffer, index, packet, parent)
 
   -- Reserved: Alpha
-  index, reserved = nasdaq_psxequities_totalview_itch_v5_0_2018.reserved.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved = nasdaq_psxequities_totalview_itch_v5_0_2018.reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + nasdaq_psxequities_totalview_itch_v5_0_2018.reserved.size
+  end
 
   -- Reason: Alpha
   index, reason = nasdaq_psxequities_totalview_itch_v5_0_2018.reason.dissect(buffer, index, packet, parent)

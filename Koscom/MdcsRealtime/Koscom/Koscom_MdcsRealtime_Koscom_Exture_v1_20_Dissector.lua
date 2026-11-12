@@ -89,23 +89,23 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.etf_foreign_flow_net_asset_to
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.etf_foreign_net_asset_total = ProtoField.new("Etf Foreign Net Asset Total", "koscom.mdcsrealtime.koscom.exture.v1.20.etfforeignnetassettotal", ftypes.STRING, nil, nil, nil, "ETF Foreign Net Asset Total.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.etf_foreign_net_asset_value_amount = ProtoField.new("Etf Foreign Net Asset Value Amount", "koscom.mdcsrealtime.koscom.exture.v1.20.etfforeignnetassetvalueamount", ftypes.UINT64, nil, nil, nil, "Unit: KRW.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.etf_net_asset_value_amount = ProtoField.new("Etf Net Asset Value Amount", "koscom.mdcsrealtime.koscom.exture.v1.20.etfnetassetvalueamount", ftypes.DOUBLE, nil, nil, nil, "9(7)V9(2) Information Category 03S: Final NAV of the previous business day, Fund unit Information Category 05S: TU unit Information Category 01Q: Final NAV of the previous business day, Fund unit.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_1 = ProtoField.new("Filler 1", "koscom.mdcsrealtime.koscom.exture.v1.20.filler1", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII space.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_10 = ProtoField.new("Filler 10", "koscom.mdcsrealtime.koscom.exture.v1.20.filler10", ftypes.UINT64, nil, nil, nil, "SPACE 2026.08.10 changed.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_11 = ProtoField.new("Filler 11", "koscom.mdcsrealtime.koscom.exture.v1.20.filler11", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_19 = ProtoField.new("Filler 19", "koscom.mdcsrealtime.koscom.exture.v1.20.filler19", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_2 = ProtoField.new("Filler 2", "koscom.mdcsrealtime.koscom.exture.v1.20.filler2", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_28 = ProtoField.new("Filler 28", "koscom.mdcsrealtime.koscom.exture.v1.20.filler28", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_33 = ProtoField.new("Filler 33", "koscom.mdcsrealtime.koscom.exture.v1.20.filler33", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_38 = ProtoField.new("Filler 38", "koscom.mdcsrealtime.koscom.exture.v1.20.filler38", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.koscom.exture.v1.20.filler4", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_40 = ProtoField.new("Filler 40", "koscom.mdcsrealtime.koscom.exture.v1.20.filler40", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_46 = ProtoField.new("Filler 46", "koscom.mdcsrealtime.koscom.exture.v1.20.filler46", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_5 = ProtoField.new("Filler 5", "koscom.mdcsrealtime.koscom.exture.v1.20.filler5", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_56 = ProtoField.new("Filler 56", "koscom.mdcsrealtime.koscom.exture.v1.20.filler56", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_6 = ProtoField.new("Filler 6", "koscom.mdcsrealtime.koscom.exture.v1.20.filler6", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_60 = ProtoField.new("Filler 60", "koscom.mdcsrealtime.koscom.exture.v1.20.filler60", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_7 = ProtoField.new("Filler 7", "koscom.mdcsrealtime.koscom.exture.v1.20.filler7", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_8 = ProtoField.new("Filler 8", "koscom.mdcsrealtime.koscom.exture.v1.20.filler8", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_1 = ProtoField.new("Filler 1", "koscom.mdcsrealtime.koscom.exture.v1.20.filler1", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII space.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_10 = ProtoField.new("Filler 10", "koscom.mdcsrealtime.koscom.exture.v1.20.filler10", ftypes.BYTES, nil, nil, nil, "SPACE 2026.08.10 changed.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_11 = ProtoField.new("Filler 11", "koscom.mdcsrealtime.koscom.exture.v1.20.filler11", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_19 = ProtoField.new("Filler 19", "koscom.mdcsrealtime.koscom.exture.v1.20.filler19", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_2 = ProtoField.new("Filler 2", "koscom.mdcsrealtime.koscom.exture.v1.20.filler2", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_28 = ProtoField.new("Filler 28", "koscom.mdcsrealtime.koscom.exture.v1.20.filler28", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_33 = ProtoField.new("Filler 33", "koscom.mdcsrealtime.koscom.exture.v1.20.filler33", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_38 = ProtoField.new("Filler 38", "koscom.mdcsrealtime.koscom.exture.v1.20.filler38", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.koscom.exture.v1.20.filler4", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_40 = ProtoField.new("Filler 40", "koscom.mdcsrealtime.koscom.exture.v1.20.filler40", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_46 = ProtoField.new("Filler 46", "koscom.mdcsrealtime.koscom.exture.v1.20.filler46", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_5 = ProtoField.new("Filler 5", "koscom.mdcsrealtime.koscom.exture.v1.20.filler5", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_56 = ProtoField.new("Filler 56", "koscom.mdcsrealtime.koscom.exture.v1.20.filler56", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_6 = ProtoField.new("Filler 6", "koscom.mdcsrealtime.koscom.exture.v1.20.filler6", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_60 = ProtoField.new("Filler 60", "koscom.mdcsrealtime.koscom.exture.v1.20.filler60", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_7 = ProtoField.new("Filler 7", "koscom.mdcsrealtime.koscom.exture.v1.20.filler7", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_8 = ProtoField.new("Filler 8", "koscom.mdcsrealtime.koscom.exture.v1.20.filler8", ftypes.BYTES, nil, nil, nil, "Reserved filler. ASCII spaces.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.futures_basis_price = ProtoField.new("Futures Basis Price", "koscom.mdcsrealtime.koscom.exture.v1.20.futuresbasisprice", ftypes.DOUBLE, nil, nil, nil, "Futures basis price (9 ASCII digits with 2 implied decimal places).")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.futures_basis_price_nullable = ProtoField.new("Futures Basis Price Nullable", "koscom.mdcsrealtime.koscom.exture.v1.20.futuresbasispricenullable", ftypes.DOUBLE, nil, nil, nil, "Futures basis price. Not calculated; set to '0'.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.fx_category = ProtoField.new("Fx Category", "koscom.mdcsrealtime.koscom.exture.v1.20.fxcategory", ftypes.STRING, nil, nil, nil, "1:KRW 2:USD 3:YEN 4:EURO 5:CNY 6:GBP 7:HKD 8:AUD 9:SGD 0:miscellaneous.")
@@ -282,10 +282,12 @@ local show = {}
 -- Koscom MdcsRealtime Koscom Exture 1.20 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.padding = false
 
 -- Register Koscom MdcsRealtime Koscom Exture 1.20 Show Options
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 -- Handle changed preferences
 function omi_koscom_mdcsrealtime_koscom_exture_v1_20.prefs_changed()
@@ -293,6 +295,9 @@ function omi_koscom_mdcsrealtime_koscom_exture_v1_20.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_koscom_mdcsrealtime_koscom_exture_v1_20.prefs.show_application_messages then
     show.application_messages = omi_koscom_mdcsrealtime_koscom_exture_v1_20.prefs.show_application_messages
+  end
+  if show.padding ~= omi_koscom_mdcsrealtime_koscom_exture_v1_20.prefs.show_padding then
+    show.padding = omi_koscom_mdcsrealtime_koscom_exture_v1_20.prefs.show_padding
   end
   if show.structs ~= omi_koscom_mdcsrealtime_koscom_exture_v1_20.prefs.show_structs then
     show.structs = omi_koscom_mdcsrealtime_koscom_exture_v1_20.prefs.show_structs
@@ -2750,7 +2755,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_1, range, value, display)
@@ -2773,15 +2778,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.size
   local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_10, range, value, "Filler 10: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Filler 10 is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_10, range, value, display)
@@ -2804,7 +2801,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_11, range, value, display)
@@ -2827,7 +2824,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_19.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_19.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_19.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_19, range, value, display)
@@ -2850,7 +2847,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_2, range, value, display)
@@ -2873,7 +2870,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_28, range, value, display)
@@ -2896,7 +2893,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_33.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_33.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_33.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_33, range, value, display)
@@ -2919,7 +2916,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_38.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_38.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_38.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_38, range, value, display)
@@ -2942,7 +2939,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_4, range, value, display)
@@ -2965,7 +2962,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_40.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_40.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_40.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_40, range, value, display)
@@ -2988,7 +2985,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_46, range, value, display)
@@ -3011,7 +3008,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_5.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_5.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_5, range, value, display)
@@ -3034,7 +3031,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_56.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_56.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_56.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_56, range, value, display)
@@ -3057,7 +3054,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_6.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_6.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_6, range, value, display)
@@ -3080,7 +3077,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_60.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_60.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_60.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_60, range, value, display)
@@ -3103,7 +3100,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_7, range, value, display)
@@ -3126,7 +3123,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_8.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_8.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_8, range, value, display)
@@ -6747,7 +6744,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.loan_transaction_available_quantity_mess
   index, available_lending_quantity = koscom_mdcsrealtime_koscom_exture_v1_20.available_lending_quantity.dissect(buffer, index, packet, parent)
 
   -- Filler 19: String
-  index, filler_19 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_19.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_19 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_19.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_19.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -6811,7 +6812,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etn_disparate_ratio_message.fields = fun
   index, disparate_ratio = koscom_mdcsrealtime_koscom_exture_v1_20.disparate_ratio.dissect(buffer, index, packet, parent)
 
   -- Filler 56: String
-  index, filler_56 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_56.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_56 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_56.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_56.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -6871,7 +6876,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etn_iiv_message.fields = function(buffer
   index, during_market_hours_final_iv = koscom_mdcsrealtime_koscom_exture_v1_20.during_market_hours_final_iv.dissect(buffer, index, packet, parent)
 
   -- Filler 28: String
-  index, filler_28 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_28 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -6975,7 +6984,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.elw_investment_indicator_sensitivity_mes
   index, prerequisite_cost = koscom_mdcsrealtime_koscom_exture_v1_20.prerequisite_cost.dissect(buffer, index, packet, parent)
 
   -- Filler 6: String
-  index, filler_6 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_6.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_6 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_6.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7051,7 +7064,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.synthetic_etf_constituents_message.field
   index, composition_ratio = koscom_mdcsrealtime_koscom_exture_v1_20.composition_ratio.dissect(buffer, index, packet, parent)
 
   -- Filler 60: String
-  index, filler_60 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_60.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_60 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_60.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_60.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7143,7 +7160,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etf_risk_appraisement_message.fields = f
   index, risk_appraisal_amount_rate = koscom_mdcsrealtime_koscom_exture_v1_20.risk_appraisal_amount_rate.dissect(buffer, index, packet, parent)
 
   -- Filler 38: String
-  index, filler_38 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_38.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_38 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_38.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_38.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7211,7 +7232,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etp_transfer_agent_batch_message.fields 
   index, data_seq_number = koscom_mdcsrealtime_koscom_exture_v1_20.data_seq_number.dissect(buffer, index, packet, parent)
 
   -- Filler 10: Long
-  index, filler_10 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_10 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.size
+  end
 
   -- Etf Flow Net Asset Total Amount: Long
   index, etf_flow_net_asset_total_amount = koscom_mdcsrealtime_koscom_exture_v1_20.etf_flow_net_asset_total_amount.dissect(buffer, index, packet, parent)
@@ -7259,7 +7284,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etp_transfer_agent_batch_message.fields 
   index, number_of_free_floating_etf_shares = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_free_floating_etf_shares.dissect(buffer, index, packet, parent)
 
   -- Filler 46: String
-  index, filler_46 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_46 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7327,7 +7356,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etp_operator_information_message.fields 
   index, operator_abbreviated_name_english = koscom_mdcsrealtime_koscom_exture_v1_20.operator_abbreviated_name_english.dissect(buffer, index, packet, parent)
 
   -- Filler 5: String
-  index, filler_5 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_5.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_5 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_5.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7419,7 +7452,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etp_pdf_message.fields = function(buffer
   index, appraised_value = koscom_mdcsrealtime_koscom_exture_v1_20.appraised_value.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7487,7 +7524,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.global_etf_tracking_error_message.fields
   index, disparate_ratio = koscom_mdcsrealtime_koscom_exture_v1_20.disparate_ratio.dissect(buffer, index, packet, parent)
 
   -- Filler 7: String
-  index, filler_7 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_7 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7555,7 +7596,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etf_tracking_error_message.fields = func
   index, disparate_ratio = koscom_mdcsrealtime_koscom_exture_v1_20.disparate_ratio.dissect(buffer, index, packet, parent)
 
   -- Filler 7: String
-  index, filler_7 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_7 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7615,7 +7660,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.global_etf_inav_message.fields = functio
   index, during_marketfinal_nav = koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_nav.dissect(buffer, index, packet, parent)
 
   -- Filler 28: String
-  index, filler_28 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_28 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7675,7 +7724,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.domestic_etf_estimated_inav_message.fiel
   index, during_marketfinal_market_nav = koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_market_nav.dissect(buffer, index, packet, parent)
 
   -- Filler 8: String
-  index, filler_8 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_8.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_8 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_8.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7735,7 +7788,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.domestic_etf_inav_message.fields = funct
   index, during_marketfinal_nav = koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_nav.dissect(buffer, index, packet, parent)
 
   -- Filler 28: String
-  index, filler_28 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_28 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7793,7 +7850,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.nicepni_bond_index_message.fields = func
   local index = offset
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
+  end
 
   -- Index Id: String
   index, index_id = koscom_mdcsrealtime_koscom_exture_v1_20.index_id.dissect(buffer, index, packet, parent)
@@ -7835,7 +7896,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.nicepni_bond_index_message.fields = func
   index, average_forward_ytm = koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7893,7 +7958,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kabi_bond_index_message.fields = functio
   local index = offset
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
+  end
 
   -- Index Id: String
   index, index_id = koscom_mdcsrealtime_koscom_exture_v1_20.index_id.dissect(buffer, index, packet, parent)
@@ -7935,7 +8004,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kabi_bond_index_message.fields = functio
   index, average_forward_ytm_nullable = koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm_nullable.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -7993,7 +8066,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kebi_bond_index_message.fields = functio
   local index = offset
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
+  end
 
   -- Index Id: String
   index, index_id = koscom_mdcsrealtime_koscom_exture_v1_20.index_id.dissect(buffer, index, packet, parent)
@@ -8035,7 +8112,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kebi_bond_index_message.fields = functio
   index, average_forward_ytm = koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -8093,7 +8174,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kis_bond_index_message.fields = function
   local index = offset
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
+  end
 
   -- Index Id: String
   index, index_id = koscom_mdcsrealtime_koscom_exture_v1_20.index_id.dissect(buffer, index, packet, parent)
@@ -8135,7 +8220,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kis_bond_index_message.fields = function
   index, average_forward_ytm = koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -8193,7 +8282,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.mkf_bond_index_message.fields = function
   local index = offset
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
+  end
 
   -- Index Id: String
   index, index_id = koscom_mdcsrealtime_koscom_exture_v1_20.index_id.dissect(buffer, index, packet, parent)
@@ -8235,7 +8328,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.mkf_bond_index_message.fields = function
   index, average_forward_ytm = koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -8311,7 +8408,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kis_index_message.fields = function(buff
   index, trading_value = koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -8387,7 +8488,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.wisefn_index_message.fields = function(b
   index, trading_value = koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -8463,7 +8568,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.mkf_index_jpy_message.fields = function(
   index, trading_value = koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -8539,7 +8648,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.mkf_index_message.fields = function(buff
   index, trading_value = koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -8655,7 +8768,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.k_bond_message.fields = function(buffer,
   index, settlement_date_k_bond = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond.dissect(buffer, index, packet, parent)
 
   -- Filler 11: String
-  index, filler_11 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_11 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -8739,7 +8856,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.otc_bond_types_per_investor_message.fiel
   index, bid_trading_value_investor = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_investor.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
-  index, filler_2 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -8823,7 +8944,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.otc_bond_trades_per_institution_message.
   index, bid_trading_value_institution = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_institution.dissect(buffer, index, packet, parent)
 
   -- Filler 11: String
-  index, filler_11 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_11 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -9063,7 +9188,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_order_filled_message.fields = func
   index, trading_price_compare_remaining_quantity_of_bid = koscom_mdcsrealtime_koscom_exture_v1_20.trading_price_compare_remaining_quantity_of_bid.dissect(buffer, index, packet, parent)
 
   -- Filler 40: String
-  index, filler_40 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_40.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_40 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_40.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_40.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -9187,7 +9316,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_quote_message.fields = function(bu
   index, branch_name = koscom_mdcsrealtime_koscom_exture_v1_20.branch_name.dissect(buffer, index, packet, parent)
 
   -- Filler 33: String
-  index, filler_33 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_33.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_33 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_33.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_33.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -9271,7 +9404,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_market_action_message.fields = fun
   index, lower_limit_price_after_action = koscom_mdcsrealtime_koscom_exture_v1_20.lower_limit_price_after_action.dissect(buffer, index, packet, parent)
 
   -- Filler 10: Long
-  index, filler_10 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_10 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -9331,7 +9468,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_market_operation_message.fields = 
   index, reason = koscom_mdcsrealtime_koscom_exture_v1_20.reason.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
-  index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)
@@ -9391,7 +9532,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_issue_closing_message.fields = fun
   index, quotation_category = koscom_mdcsrealtime_koscom_exture_v1_20.quotation_category.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
-  index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
+  end
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.dissect(buffer, index, packet, parent)

@@ -21,7 +21,7 @@ omi_lseg_millennium_level2replay_mitch_v11_9.fields.amnd = ProtoField.new("Amnd"
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.attribution = ProtoField.new("Attribution", "lseg.millennium.level2replay.mitch.v11.9.attribution", ftypes.STRING, nil, nil, nil, "Identity of firm that submitted the order.")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.auction_type = ProtoField.new("Auction Type", "lseg.millennium.level2replay.mitch.v11.9.auctiontype", ftypes.STRING)
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.book_type = ProtoField.new("Book Type", "lseg.millennium.level2replay.mitch.v11.9.booktype", ftypes.UINT8)
-omi_lseg_millennium_level2replay_mitch_v11_9.fields.buy_limit_price = ProtoField.new("Buy Limit Price", "lseg.millennium.level2replay.mitch.v11.9.buylimitprice", ftypes.INT64, nil, nil, nil, "Best bid price. Will contain zero if there are no visible limit orders on the buy side")
+omi_lseg_millennium_level2replay_mitch_v11_9.fields.buy_limit_price = ProtoField.new("Buy Limit Price", "lseg.millennium.level2replay.mitch.v11.9.buylimitprice", ftypes.DOUBLE, nil, nil, nil, "Best bid price. Will contain zero if there are no visible limit orders on the buy side")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.buy_limit_size = ProtoField.new("Buy Limit Size", "lseg.millennium.level2replay.mitch.v11.9.buylimitsize", ftypes.UINT32, nil, nil, nil, "Cumulative visible size at best bid price. Will contain zero if there are no visible limit orders on the buy side")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.canc = ProtoField.new("Canc", "lseg.millennium.level2replay.mitch.v11.9.canc", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Cancel")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.count = ProtoField.new("Count", "lseg.millennium.level2replay.mitch.v11.9.count", ftypes.UINT16, nil, nil, nil, "Number of messages to be resent.")
@@ -44,7 +44,7 @@ omi_lseg_millennium_level2replay_mitch_v11_9.fields.message_type = ProtoField.ne
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.named_market_order = ProtoField.new("Named Market Order", "lseg.millennium.level2replay.mitch.v11.9.namedmarketorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.nanosecond = ProtoField.new("Nanosecond", "lseg.millennium.level2replay.mitch.v11.9.nanosecond", ftypes.UINT32, nil, nil, nil, "Nanoseconds since last message, accurate to the nearest microsecond.")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.new_end_time = ProtoField.new("New End Time", "lseg.millennium.level2replay.mitch.v11.9.newendtime", ftypes.STRING, nil, nil, nil, "New time the session will end. Will only be stamped if the session change was not in the original schedule e.g. AESP auction call or unscheduled session.")
-omi_lseg_millennium_level2replay_mitch_v11_9.fields.new_price = ProtoField.new("New Price", "lseg.millennium.level2replay.mitch.v11.9.newprice", ftypes.INT64, nil, nil, nil, "New limit price of the order.")
+omi_lseg_millennium_level2replay_mitch_v11_9.fields.new_price = ProtoField.new("New Price", "lseg.millennium.level2replay.mitch.v11.9.newprice", ftypes.DOUBLE, nil, nil, nil, "New limit price of the order.")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.new_quantity = ProtoField.new("New Quantity", "lseg.millennium.level2replay.mitch.v11.9.newquantity", ftypes.UINT32, nil, nil, nil, "New displayed quantity of the order.")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.open_close_price_indicator = ProtoField.new("Open Close Price Indicator", "lseg.millennium.level2replay.mitch.v11.9.openclosepriceindicator", ftypes.STRING)
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.order_book_clear_flags = ProtoField.new("Order Book Clear Flags", "lseg.millennium.level2replay.mitch.v11.9.orderbookclearflags", ftypes.STRING)
@@ -53,8 +53,8 @@ omi_lseg_millennium_level2replay_mitch_v11_9.fields.order_id = ProtoField.new("O
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.order_modified_flags = ProtoField.new("Order Modified Flags", "lseg.millennium.level2replay.mitch.v11.9.ordermodifiedflags", ftypes.STRING)
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.paired_quantity = ProtoField.new("Paired Quantity", "lseg.millennium.level2replay.mitch.v11.9.pairedquantity", ftypes.UINT32, nil, nil, nil, "Quantity that will be matched at the indicative price.")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.password = ProtoField.new("Password", "lseg.millennium.level2replay.mitch.v11.9.password", ftypes.STRING, nil, nil, nil, "Password assigned to the CompID.")
-omi_lseg_millennium_level2replay_mitch_v11_9.fields.previous_close_price = ProtoField.new("Previous Close Price", "lseg.millennium.level2replay.mitch.v11.9.previouscloseprice", ftypes.INT64, nil, nil, nil, "Previous Close Price of instrument")
-omi_lseg_millennium_level2replay_mitch_v11_9.fields.price = ProtoField.new("Price", "lseg.millennium.level2replay.mitch.v11.9.price", ftypes.INT64, nil, nil, nil, "Limit price of the order.")
+omi_lseg_millennium_level2replay_mitch_v11_9.fields.previous_close_price = ProtoField.new("Previous Close Price", "lseg.millennium.level2replay.mitch.v11.9.previouscloseprice", ftypes.DOUBLE, nil, nil, nil, "Previous Close Price of instrument")
+omi_lseg_millennium_level2replay_mitch_v11_9.fields.price = ProtoField.new("Price", "lseg.millennium.level2replay.mitch.v11.9.price", ftypes.DOUBLE, nil, nil, nil, "Limit price of the order.")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.printable = ProtoField.new("Printable", "lseg.millennium.level2replay.mitch.v11.9.printable", ftypes.STRING)
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.priority_flag = ProtoField.new("Priority Flag", "lseg.millennium.level2replay.mitch.v11.9.priorityflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.private_rfq = ProtoField.new("Private Rfq", "lseg.millennium.level2replay.mitch.v11.9.privaterfq", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
@@ -72,7 +72,7 @@ omi_lseg_millennium_level2replay_mitch_v11_9.fields.second_unused_1 = ProtoField
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.seconds = ProtoField.new("Seconds", "lseg.millennium.level2replay.mitch.v11.9.seconds", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight. Midnight will be in terms of the local time for the server (i.e. not UTC).")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.sedol = ProtoField.new("Sedol", "lseg.millennium.level2replay.mitch.v11.9.sedol", ftypes.STRING, nil, nil, nil, "Instrument identification number")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.segment = ProtoField.new("Segment", "lseg.millennium.level2replay.mitch.v11.9.segment", ftypes.STRING, nil, nil, nil, "Segment the instrument is assigned to.")
-omi_lseg_millennium_level2replay_mitch_v11_9.fields.sell_limit_price = ProtoField.new("Sell Limit Price", "lseg.millennium.level2replay.mitch.v11.9.selllimitprice", ftypes.INT64, nil, nil, nil, "Best offer price. Will contain zero if there are no visible limit orders on the sell side")
+omi_lseg_millennium_level2replay_mitch_v11_9.fields.sell_limit_price = ProtoField.new("Sell Limit Price", "lseg.millennium.level2replay.mitch.v11.9.selllimitprice", ftypes.DOUBLE, nil, nil, nil, "Best offer price. Will contain zero if there are no visible limit orders on the sell side")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.sell_limit_size = ProtoField.new("Sell Limit Size", "lseg.millennium.level2replay.mitch.v11.9.selllimitsize", ftypes.UINT32, nil, nil, nil, "Cumulative visible size at best offer price. Will contain zero if there are no visible limit orders on the sell side")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.millennium.level2replay.mitch.v11.9.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the first payload message")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.millennium.level2replay.mitch.v11.9.sessionchangereason", ftypes.UINT8)
@@ -336,11 +336,17 @@ lseg_millennium_level2replay_mitch_v11_9.buy_limit_price.display = function(valu
   return "Buy Limit Price: "..value
 end
 
+-- Translate: Buy Limit Price
+lseg_millennium_level2replay_mitch_v11_9.buy_limit_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Buy Limit Price
 lseg_millennium_level2replay_mitch_v11_9.buy_limit_price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2replay_mitch_v11_9.buy_limit_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = lseg_millennium_level2replay_mitch_v11_9.buy_limit_price.translate(raw)
   local display = lseg_millennium_level2replay_mitch_v11_9.buy_limit_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.buy_limit_price, range, value, display)
@@ -867,11 +873,17 @@ lseg_millennium_level2replay_mitch_v11_9.new_price.display = function(value)
   return "New Price: "..value
 end
 
+-- Translate: New Price
+lseg_millennium_level2replay_mitch_v11_9.new_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: New Price
 lseg_millennium_level2replay_mitch_v11_9.new_price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2replay_mitch_v11_9.new_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = lseg_millennium_level2replay_mitch_v11_9.new_price.translate(raw)
   local display = lseg_millennium_level2replay_mitch_v11_9.new_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.new_price, range, value, display)
@@ -1015,11 +1027,17 @@ lseg_millennium_level2replay_mitch_v11_9.previous_close_price.display = function
   return "Previous Close Price: "..value
 end
 
+-- Translate: Previous Close Price
+lseg_millennium_level2replay_mitch_v11_9.previous_close_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Previous Close Price
 lseg_millennium_level2replay_mitch_v11_9.previous_close_price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2replay_mitch_v11_9.previous_close_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = lseg_millennium_level2replay_mitch_v11_9.previous_close_price.translate(raw)
   local display = lseg_millennium_level2replay_mitch_v11_9.previous_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.previous_close_price, range, value, display)
@@ -1038,11 +1056,17 @@ lseg_millennium_level2replay_mitch_v11_9.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+lseg_millennium_level2replay_mitch_v11_9.price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Price
 lseg_millennium_level2replay_mitch_v11_9.price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2replay_mitch_v11_9.price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = lseg_millennium_level2replay_mitch_v11_9.price.translate(raw)
   local display = lseg_millennium_level2replay_mitch_v11_9.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.price, range, value, display)
@@ -1386,11 +1410,17 @@ lseg_millennium_level2replay_mitch_v11_9.sell_limit_price.display = function(val
   return "Sell Limit Price: "..value
 end
 
+-- Translate: Sell Limit Price
+lseg_millennium_level2replay_mitch_v11_9.sell_limit_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Sell Limit Price
 lseg_millennium_level2replay_mitch_v11_9.sell_limit_price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2replay_mitch_v11_9.sell_limit_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = lseg_millennium_level2replay_mitch_v11_9.sell_limit_price.translate(raw)
   local display = lseg_millennium_level2replay_mitch_v11_9.sell_limit_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.sell_limit_price, range, value, display)

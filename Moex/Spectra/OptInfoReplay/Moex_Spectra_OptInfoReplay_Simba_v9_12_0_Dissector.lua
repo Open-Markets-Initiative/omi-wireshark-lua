@@ -4094,22 +4094,6 @@ moex_spectra_optinforeplay_simba_v9_12_0.flags.size = 8
 moex_spectra_optinforeplay_simba_v9_12_0.flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused Flags Set 0 flag set?
-  if value:band(0x0000000000000001) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 0"
-  end
-  -- Is Unused Flags Set 1 flag set?
-  if value:band(0x0000000000000002) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 1"
-  end
-  -- Is Unused Flags Set 2 flag set?
-  if value:band(0x0000000000000004) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 2"
-  end
-  -- Is Unused Flags Set 3 flag set?
-  if value:band(0x0000000000000008) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 3"
-  end
   -- Is Anonymous Trading flag set?
   if value:band(0x0000000000000010) ~= UInt64(0) then
     flags[#flags + 1] = "Anonymous Trading"
@@ -4118,53 +4102,9 @@ moex_spectra_optinforeplay_simba_v9_12_0.flags.display = function(range, value, 
   if value:band(0x0000000000000020) ~= UInt64(0) then
     flags[#flags + 1] = "Private Trading"
   end
-  -- Is Unused Flags Set 6 flag set?
-  if value:band(0x0000000000000040) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 6"
-  end
-  -- Is Unused Flags Set 7 flag set?
-  if value:band(0x0000000000000080) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 7"
-  end
   -- Is Multi Leg flag set?
   if value:band(0x0000000000000100) ~= UInt64(0) then
     flags[#flags + 1] = "Multi Leg"
-  end
-  -- Is Unused Flags Set 9 flag set?
-  if value:band(0x0000000000000200) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 9"
-  end
-  -- Is Unused Flags Set 10 flag set?
-  if value:band(0x0000000000000400) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 10"
-  end
-  -- Is Unused Flags Set 11 flag set?
-  if value:band(0x0000000000000800) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 11"
-  end
-  -- Is Unused Flags Set 12 flag set?
-  if value:band(0x0000000000001000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 12"
-  end
-  -- Is Unused Flags Set 13 flag set?
-  if value:band(0x0000000000002000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 13"
-  end
-  -- Is Unused Flags Set 14 flag set?
-  if value:band(0x0000000000004000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 14"
-  end
-  -- Is Unused Flags Set 15 flag set?
-  if value:band(0x0000000000008000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 15"
-  end
-  -- Is Unused Flags Set 16 flag set?
-  if value:band(0x0000000000010000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 16"
-  end
-  -- Is Unused Flags Set 17 flag set?
-  if value:band(0x0000000000020000) ~= UInt64(0) then
-    flags[#flags + 1] = "Unused Flags Set 17"
   end
   -- Is Collateral flag set?
   if value:band(0x0000000000040000) ~= UInt64(0) then

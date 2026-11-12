@@ -51,7 +51,7 @@ omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.fields.quantity_long = Prot
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.cxeequities.multicastdepthofbook.pitch.v6.7.quantityshort", ftypes.UINT16, nil, nil, nil, "Number of shares being added to the book (may be less than the number entered)")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.fields.reference_price = ProtoField.new("Reference Price", "cboe.cxeequities.multicastdepthofbook.pitch.v6.7.referenceprice", ftypes.DOUBLE, nil, nil, nil, "Reference price used in tie-breaker situations")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.fields.remaining_shares = ProtoField.new("Remaining Shares", "cboe.cxeequities.multicastdepthofbook.pitch.v6.7.remainingshares", ftypes.UINT32, nil, nil, nil, "Number of shares remaining after the execution")
-omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cxeequities.multicastdepthofbook.pitch.v6.7.reserved3", ftypes.STRING, nil, nil, nil, "Reserved")
+omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cxeequities.multicastdepthofbook.pitch.v6.7.reserved3", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.fields.sequence = ProtoField.new("Sequence", "cboe.cxeequities.multicastdepthofbook.pitch.v6.7.sequence", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.fields.shares_extended = ProtoField.new("Shares Extended", "cboe.cxeequities.multicastdepthofbook.pitch.v6.7.sharesextended", ftypes.UINT64, nil, nil, nil, "Number of shares executed")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.fields.shares_long = ProtoField.new("Shares Long", "cboe.cxeequities.multicastdepthofbook.pitch.v6.7.shareslong", ftypes.UINT32, nil, nil, nil, "Number of shares associated with this order after this modify (may be less than the number of shares entered)")
@@ -133,6 +133,7 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -140,6 +141,7 @@ show.sequences = true
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -154,6 +156,9 @@ function omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs_changed()
   end
   if show.headers ~= omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_headers then
     show.headers = omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_padding then
+    show.padding = omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_padding
   end
   if show.structs ~= omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_structs then
     show.structs = omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.prefs.show_structs
@@ -1158,7 +1163,7 @@ end
 cboe_cxeequities_multicastdepthofbook_pitch_v6_7.reserved_3.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_multicastdepthofbook_pitch_v6_7.reserved_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_cxeequities_multicastdepthofbook_pitch_v6_7.reserved_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_7.fields.reserved_3, range, value, display)
@@ -1876,7 +1881,11 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_7.trading_status_message.fields =
   index, status = cboe_cxeequities_multicastdepthofbook_pitch_v6_7.status.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
-  index, reserved_3 = cboe_cxeequities_multicastdepthofbook_pitch_v6_7.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = cboe_cxeequities_multicastdepthofbook_pitch_v6_7.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cxeequities_multicastdepthofbook_pitch_v6_7.reserved_3.size
+  end
 
   return index
 end

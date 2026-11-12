@@ -123,7 +123,6 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.trackingnumber" Nasdaq.PsxEquities.
 grep "nasdaq.psxequities.totalview.itch.v5.0.timestamp" Nasdaq.PsxEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.stock" Nasdaq.PsxEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.tradingstate" Nasdaq.PsxEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json
-grep "nasdaq.psxequities.totalview.itch.v5.0.reserved" Nasdaq.PsxEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.reason" Nasdaq.PsxEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0/SystemEventMessage.pcap" \

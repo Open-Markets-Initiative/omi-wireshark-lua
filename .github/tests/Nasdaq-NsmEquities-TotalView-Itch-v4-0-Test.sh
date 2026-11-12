@@ -148,7 +148,6 @@ runuser -u tester -- tshark \
 grep "nasdaq.nsmequities.totalview.itch.v4.0.nanoseconds" Nasdaq.NsmEquities.TotalView.Itch.v4.0.StockTradingActionMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v4.0.stock" Nasdaq.NsmEquities.TotalView.Itch.v4.0.StockTradingActionMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v4.0.tradingstate" Nasdaq.NsmEquities.TotalView.Itch.v4.0.StockTradingActionMessage.json
-grep "nasdaq.nsmequities.totalview.itch.v4.0.reserved" Nasdaq.NsmEquities.TotalView.Itch.v4.0.StockTradingActionMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v4.0.reason" Nasdaq.NsmEquities.TotalView.Itch.v4.0.StockTradingActionMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/NsmEquities.TotalView.Itch.v4.0/SystemEventMessage.pcap" \

@@ -291,7 +291,6 @@ grep "siac.cts.output.cta.v2.11.b.participantreferencenumber" Siac.Cts.Output.Ct
 grep "siac.cts.output.cta.v2.11.b.mwcblevel1" Siac.Cts.Output.Cta.v2.11.b.MarketWideCircuitBreakerDeclineLevelStatusMessage.json
 grep "siac.cts.output.cta.v2.11.b.mwcblevel2" Siac.Cts.Output.Cta.v2.11.b.MarketWideCircuitBreakerDeclineLevelStatusMessage.json
 grep "siac.cts.output.cta.v2.11.b.mwcblevel3" Siac.Cts.Output.Cta.v2.11.b.MarketWideCircuitBreakerDeclineLevelStatusMessage.json
-grep "siac.cts.output.cta.v2.11.b.reserved" Siac.Cts.Output.Cta.v2.11.b.MarketWideCircuitBreakerDeclineLevelStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Output.Cta.v2.11.b/ParticipantStartOfDaySummaryMessage.pcap" \
   -X "lua_script:Siac/Cts/Output/Siac_Cts_Output_Cta_v2_11_b_Dissector.lua" \
@@ -377,9 +376,6 @@ grep "siac.cts.output.cta.v2.11.b.financialstatusindicator" Siac.Cts.Output.Cta.
 grep "siac.cts.output.cta.v2.11.b.shortsalerestrictionindicator" Siac.Cts.Output.Cta.v2.11.b.SymbolReferenceDataMessage.json
 grep "siac.cts.output.cta.v2.11.b.haltreason" Siac.Cts.Output.Cta.v2.11.b.SymbolReferenceDataMessage.json
 grep "siac.cts.output.cta.v2.11.b.instrumenttype" Siac.Cts.Output.Cta.v2.11.b.SymbolReferenceDataMessage.json
-grep "siac.cts.output.cta.v2.11.b.reserved" Siac.Cts.Output.Cta.v2.11.b.SymbolReferenceDataMessage.json
-grep "siac.cts.output.cta.v2.11.b.secondreserved" Siac.Cts.Output.Cta.v2.11.b.SymbolReferenceDataMessage.json
-grep "siac.cts.output.cta.v2.11.b.reserved128" Siac.Cts.Output.Cta.v2.11.b.SymbolReferenceDataMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Output.Cta.v2.11.b/TradingStatusMessage.pcap" \
   -X "lua_script:Siac/Cts/Output/Siac_Cts_Output_Cta_v2_11_b_Dissector.lua" \

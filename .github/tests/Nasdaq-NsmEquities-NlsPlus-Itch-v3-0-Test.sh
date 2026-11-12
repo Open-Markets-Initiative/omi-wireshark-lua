@@ -37,7 +37,6 @@ runuser -u tester -- tshark \
   > Nasdaq.NsmEquities.NlsPlus.Itch.v3.0.StockTradingActionMessage.json 2> Nasdaq.NsmEquities.NlsPlus.Itch.v3.0.StockTradingActionMessage.json.stderr \
   || { echo "--- tshark FAILED (StockTradingActionMessage) ---"; cat Nasdaq.NsmEquities.NlsPlus.Itch.v3.0.StockTradingActionMessage.json.stderr; exit 1; }
 
-grep "nasdaq.nsmequities.nlsplus.itch.v3.0.reserved" Nasdaq.NsmEquities.NlsPlus.Itch.v3.0.StockTradingActionMessage.json
 grep "nasdaq.nsmequities.nlsplus.itch.v3.0.issuesymbol" Nasdaq.NsmEquities.NlsPlus.Itch.v3.0.StockTradingActionMessage.json
 grep "nasdaq.nsmequities.nlsplus.itch.v3.0.securityclass" Nasdaq.NsmEquities.NlsPlus.Itch.v3.0.StockTradingActionMessage.json
 grep "nasdaq.nsmequities.nlsplus.itch.v3.0.currenttradingstate" Nasdaq.NsmEquities.NlsPlus.Itch.v3.0.StockTradingActionMessage.json

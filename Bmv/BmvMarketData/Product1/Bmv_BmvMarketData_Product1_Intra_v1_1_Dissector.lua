@@ -1102,7 +1102,53 @@ bmv_bmvmarketdata_product1_intra_v1_1.message_type.size = 1
 
 -- Display: Message Type
 bmv_bmvmarketdata_product1_intra_v1_1.message_type.display = function(value)
-  return "Message Type: "..value
+  if value == 0x53 then
+    return "Message Type: Events System Message (0x53)"
+  end
+  if value == 0x48 then
+    return "Message Type: Trade Cancellation Message (0x48)"
+  end
+  if value == 0x34 then
+    return "Message Type: Status Changes Message (0x34)"
+  end
+  if value == 0x4D then
+    return "Message Type: Weighted Average Price Settlement Prices Message (0x4D)"
+  end
+  if value == 0x50 then
+    return "Message Type: Capital Trades Message (0x50)"
+  end
+  if value == 0x32 then
+    return "Message Type: Probable Allocation Price Message (0x32)"
+  end
+  if value == 0x33 then
+    return "Message Type: Continuous Auctions Beginning Message (0x33)"
+  end
+  if value == 0x35 then
+    return "Message Type: Middle Price Existing Quotes Message (0x35)"
+  end
+  if value == 0x59 then
+    return "Message Type: Mutual Fund Trades Message (0x59)"
+  end
+  if value == 0x45 then
+    return "Message Type: Tradability Message (0x45)"
+  end
+  if value == 0x56 then
+    return "Message Type: Virtual Trades Message (0x56)"
+  end
+  if value == 0x41 then
+    return "Message Type: Order Addition Message (0x41)"
+  end
+  if value == 0x43 then
+    return "Message Type: Execution Of Orders Message (0x43)"
+  end
+  if value == 0x44 then
+    return "Message Type: Order Cancellation Message (0x44)"
+  end
+  if value == 0x46 then
+    return "Message Type: Order Change Message (0x46)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

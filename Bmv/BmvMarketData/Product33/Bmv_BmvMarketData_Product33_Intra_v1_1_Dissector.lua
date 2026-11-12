@@ -587,7 +587,20 @@ bmv_bmvmarketdata_product33_intra_v1_1.message_type.size = 1
 
 -- Display: Message Type
 bmv_bmvmarketdata_product33_intra_v1_1.message_type.display = function(value)
-  return "Message Type: "..value
+  if value == 0x27 then
+    return "Message Type: Big Picture Message (0x27)"
+  end
+  if value == 0x3D then
+    return "Message Type: Effective Spread Message (0x3D)"
+  end
+  if value == 0x7B then
+    return "Message Type: Spread Quality Message (0x7B)"
+  end
+  if value == 0x3B then
+    return "Message Type: Spread Message (0x3B)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

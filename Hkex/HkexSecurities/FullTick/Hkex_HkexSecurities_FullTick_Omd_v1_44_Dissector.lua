@@ -23,8 +23,10 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.call_put_flag = ProtoField.new
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cas_flag = ProtoField.new("Cas Flag", "hkex.hkexsecurities.fulltick.omd.v1.44.casflag", ftypes.STRING, nil, nil, nil, "Indicates whether Closing Auction Session (CAS) is applicable to the security.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.ccass_flag = ProtoField.new("Ccass Flag", "hkex.hkexsecurities.fulltick.omd.v1.44.ccassflag", ftypes.STRING, nil, nil, nil, "Indicates whether or not the security is a CCASS security.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.conversion_ratio = ProtoField.new("Conversion Ratio", "hkex.hkexsecurities.fulltick.omd.v1.44.conversionratio", ftypes.DOUBLE, nil, nil, nil, "Conversion ratio for Structured Product. 3 implied decimal places. 0 means Not available.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexsecurities.fulltick.omd.v1.44.coolingoffendtime", ftypes.UINT64, nil, nil, nil, "Time when the cooling off period ends. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexsecurities.fulltick.omd.v1.44.coolingoffstarttime", ftypes.UINT64, nil, nil, nil, "Time when the cooling off period starts. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexsecurities.fulltick.omd.v1.44.coolingoffendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period ends. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_end_time_utc = ProtoField.new("Cooling Off End Time", "hkex.hkexsecurities.fulltick.omd.v1.44.coolingoffendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period ends. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexsecurities.fulltick.omd.v1.44.coolingoffstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period starts. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_start_time_utc = ProtoField.new("Cooling Off Start Time", "hkex.hkexsecurities.fulltick.omd.v1.44.coolingoffstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period starts. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.coupon_rate = ProtoField.new("Coupon Rate", "hkex.hkexsecurities.fulltick.omd.v1.44.couponrate", ftypes.DOUBLE, nil, nil, nil, "Coupon rate of a bond security. 3 implied decimal places.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.currency_code = ProtoField.new("Currency Code", "hkex.hkexsecurities.fulltick.omd.v1.44.currencycode", ftypes.STRING, nil, nil, nil, "Base currency code of the market segment.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.currency_factor = ProtoField.new("Currency Factor", "hkex.hkexsecurities.fulltick.omd.v1.44.currencyfactor", ftypes.UINT16, nil, nil, nil, "Currency factor conversion. A non-zero value n means all price fields for this security should be interpreted as a value equal to the price multiplied by 10^n.")
@@ -37,7 +39,8 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.domain_stmt_security_code = Pr
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.dr_status = ProtoField.new("Dr Status", "hkex.hkexsecurities.fulltick.omd.v1.44.drstatus", ftypes.UINT32, nil, nil, nil, "Status during site failover.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.dummy_security_flag = ProtoField.new("Dummy Security Flag", "hkex.hkexsecurities.fulltick.omd.v1.44.dummysecurityflag", ftypes.STRING, nil, nil, nil, "Dummy Security Flag.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.efn_flag = ProtoField.new("Efn Flag", "hkex.hkexsecurities.fulltick.omd.v1.44.efnflag", ftypes.STRING, nil, nil, nil, "EFN Indicator (Bonds Specific Data).")
-omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.end_date_time = ProtoField.new("End Date Time", "hkex.hkexsecurities.fulltick.omd.v1.44.enddatetime", ftypes.UINT64, nil, nil, nil, "End time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.end_date_time = ProtoField.new("End Date Time", "hkex.hkexsecurities.fulltick.omd.v1.44.enddatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "End time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.end_date_time_utc = ProtoField.new("End Date Time", "hkex.hkexsecurities.fulltick.omd.v1.44.enddatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "End time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.entitlement = ProtoField.new("Entitlement", "hkex.hkexsecurities.fulltick.omd.v1.44.entitlement", ftypes.INT32, nil, nil, nil, "Entitlement of the warrant. See DecimalsInEntitlement for the number of decimal places. 0 means Not available.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.face_value = ProtoField.new("Face Value", "hkex.hkexsecurities.fulltick.omd.v1.44.facevalue", ftypes.UINT64, nil, nil, nil, "Face value of a bond security. See DecimalsInFaceValue for the number of decimal places. 0 means Not available.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.face_value_currency = ProtoField.new("Face Value Currency", "hkex.hkexsecurities.fulltick.omd.v1.44.facevaluecurrency", ftypes.STRING, nil, nil, nil, "Currency code of Face Value.")
@@ -96,14 +99,16 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.short_sell_flag = ProtoField.n
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.side = ProtoField.new("Side", "hkex.hkexsecurities.fulltick.omd.v1.44.side", ftypes.UINT16, nil, nil, nil, "Side of the order.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.spread_table_code = ProtoField.new("Spread Table Code", "hkex.hkexsecurities.fulltick.omd.v1.44.spreadtablecode", ftypes.STRING, nil, nil, nil, "Spread table code of the security.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.stamp_duty_flag = ProtoField.new("Stamp Duty Flag", "hkex.hkexsecurities.fulltick.omd.v1.44.stampdutyflag", ftypes.STRING, nil, nil, nil, "Indicator for stamp duty requirement.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.start_date_time = ProtoField.new("Start Date Time", "hkex.hkexsecurities.fulltick.omd.v1.44.startdatetime", ftypes.UINT64, nil, nil, nil, "Start time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.start_date_time = ProtoField.new("Start Date Time", "hkex.hkexsecurities.fulltick.omd.v1.44.startdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.start_date_time_utc = ProtoField.new("Start Date Time", "hkex.hkexsecurities.fulltick.omd.v1.44.startdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Start time of the trading status. Nanoseconds since Unix epoch UTC, precision to the nearest second. 0 if no time is available.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.strike_price_1 = ProtoField.new("Strike Price 1", "hkex.hkexsecurities.fulltick.omd.v1.44.strikeprice1", ftypes.DOUBLE, nil, nil, nil, "Strike price of the security if it has only one strike price, or Lower strike price of the security if it has lower and upper strike prices. 3 implied decimal places.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.strike_price_2 = ProtoField.new("Strike Price 2", "hkex.hkexsecurities.fulltick.omd.v1.44.strikeprice2", ftypes.DOUBLE, nil, nil, nil, "Upper strike price of the security if it has lower and upper strike prices. 3 implied decimal places. Value is 0 if the security has only one strike price.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.style = ProtoField.new("Style", "hkex.hkexsecurities.fulltick.omd.v1.44.style", ftypes.STRING, nil, nil, nil, "Style of the warrant.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.suspension_indicator = ProtoField.new("Suspension Indicator", "hkex.hkexsecurities.fulltick.omd.v1.44.suspensionindicator", ftypes.UINT8, nil, nil, nil, "Indicate whether the security is currently halted/suspended for trading. 'Resume' means the security is now available for trading.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.third_filler_1 = ProtoField.new("Third Filler 1", "hkex.hkexsecurities.fulltick.omd.v1.44.thirdfiller1", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.trade_id = ProtoField.new("Trade Id", "hkex.hkexsecurities.fulltick.omd.v1.44.tradeid", ftypes.UINT32, nil, nil, nil, "Unique identifier per security for each trade performed within the trading system. Starting from 1, incrementing by 1. Reset for each trading day.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.trade_time = ProtoField.new("Trade Time", "hkex.hkexsecurities.fulltick.omd.v1.44.tradetime", ftypes.UINT64, nil, nil, nil, "Time of trade. Nanoseconds since Unix epoch UTC. Precision to microsecond.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.trade_time = ProtoField.new("Trade Time", "hkex.hkexsecurities.fulltick.omd.v1.44.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of trade. Nanoseconds since Unix epoch UTC. Precision to microsecond.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.trade_time_utc = ProtoField.new("Trade Time", "hkex.hkexsecurities.fulltick.omd.v1.44.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of trade. Nanoseconds since Unix epoch UTC. Precision to microsecond.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.trading_ses_control_flag = ProtoField.new("Trading Ses Control Flag", "hkex.hkexsecurities.fulltick.omd.v1.44.tradingsescontrolflag", ftypes.STRING, nil, nil, nil, "Indicates how control of trading session and sub-session transitions are performed.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.trading_ses_status = ProtoField.new("Trading Ses Status", "hkex.hkexsecurities.fulltick.omd.v1.44.tradingsesstatus", ftypes.UINT8, nil, nil, nil, "Status of the current trading session.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "hkex.hkexsecurities.fulltick.omd.v1.44.tradingsessionsubid", ftypes.UINT8, nil, nil, nil, "Trading session sub-identifier.")
@@ -452,19 +457,20 @@ hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_end_time = {}
 -- Size: Cooling Off End Time
 hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_end_time.size = 8
 
--- Display: Cooling Off End Time
-hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_end_time.display = function(value)
-  return "Cooling Off End Time: "..value
-end
-
 -- Dissect: Cooling Off End Time
 hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_end_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_end_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_end_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_end_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_end_time
+  if hkex_hkexsecurities_fulltick_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_end_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -475,19 +481,20 @@ hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_start_time = {}
 -- Size: Cooling Off Start Time
 hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_start_time.size = 8
 
--- Display: Cooling Off Start Time
-hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_start_time.display = function(value)
-  return "Cooling Off Start Time: "..value
-end
-
 -- Dissect: Cooling Off Start Time
 hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_start_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_fulltick_omd_v1_44.cooling_off_start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_start_time
+  if hkex_hkexsecurities_fulltick_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.cooling_off_start_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -801,19 +808,20 @@ hkex_hkexsecurities_fulltick_omd_v1_44.end_date_time = {}
 -- Size: End Date Time
 hkex_hkexsecurities_fulltick_omd_v1_44.end_date_time.size = 8
 
--- Display: End Date Time
-hkex_hkexsecurities_fulltick_omd_v1_44.end_date_time.display = function(value)
-  return "End Date Time: "..value
-end
-
 -- Dissect: End Date Time
 hkex_hkexsecurities_fulltick_omd_v1_44.end_date_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.end_date_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_fulltick_omd_v1_44.end_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.end_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.end_date_time
+  if hkex_hkexsecurities_fulltick_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.end_date_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2257,19 +2265,20 @@ hkex_hkexsecurities_fulltick_omd_v1_44.start_date_time = {}
 -- Size: Start Date Time
 hkex_hkexsecurities_fulltick_omd_v1_44.start_date_time.size = 8
 
--- Display: Start Date Time
-hkex_hkexsecurities_fulltick_omd_v1_44.start_date_time.display = function(value)
-  return "Start Date Time: "..value
-end
-
 -- Dissect: Start Date Time
 hkex_hkexsecurities_fulltick_omd_v1_44.start_date_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.start_date_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_fulltick_omd_v1_44.start_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.start_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.start_date_time
+  if hkex_hkexsecurities_fulltick_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.start_date_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2445,19 +2454,20 @@ hkex_hkexsecurities_fulltick_omd_v1_44.trade_time = {}
 -- Size: Trade Time
 hkex_hkexsecurities_fulltick_omd_v1_44.trade_time.size = 8
 
--- Display: Trade Time
-hkex_hkexsecurities_fulltick_omd_v1_44.trade_time.display = function(value)
-  return "Trade Time: "..value
-end
-
 -- Dissect: Trade Time
 hkex_hkexsecurities_fulltick_omd_v1_44.trade_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.trade_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_fulltick_omd_v1_44.trade_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.trade_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.trade_time
+  if hkex_hkexsecurities_fulltick_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.trade_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

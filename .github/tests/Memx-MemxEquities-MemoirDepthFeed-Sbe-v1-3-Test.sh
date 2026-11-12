@@ -22,7 +22,6 @@ grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid" Memx.MemxEquities.M
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.symbol" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.symbolsfx" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.roundlot" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
-grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.reserved" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.istestsymbol" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.mpv" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
 runuser -u tester -- tshark \

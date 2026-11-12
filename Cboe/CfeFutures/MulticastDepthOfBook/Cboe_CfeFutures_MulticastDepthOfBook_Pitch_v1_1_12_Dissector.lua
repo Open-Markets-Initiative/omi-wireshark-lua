@@ -62,8 +62,8 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.previous_settlemen
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.price_increment = ProtoField.new("Price Increment", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.priceincrement", ftypes.DOUBLE, nil, nil, nil, "Minimum Price Increment")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.realized_variance = ProtoField.new("Realized Variance", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.realizedvariance", ftypes.DOUBLE, nil, nil, nil, "Realized Variance to date (signed 64-bit decimal with 8 implied decimal places)")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.report_symbol = ProtoField.new("Report Symbol", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reportsymbol", ftypes.STRING, nil, nil, nil, "Symbol for product or underlying security.")
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reserved2", ftypes.STRING, nil, nil, nil, "Reserved")
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reserved3", ftypes.STRING, nil, nil, nil, "Reserved")
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved")
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reserved3", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.sequence = ProtoField.new("Sequence", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.sequence", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.settlementprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.short_price = ProtoField.new("Short Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.shortprice", ftypes.DOUBLE, nil, nil, nil, "The limit order price")
@@ -145,6 +145,7 @@ show.application_messages = true
 show.repeating_groups = true
 show.structs = true
 show.headers = true
+show.padding = false
 show.indexes = true
 show.sequences = true
 
@@ -153,6 +154,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_application_me
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -167,6 +169,9 @@ function omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs_changed()
   end
   if show.headers ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_headers then
     show.headers = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_padding then
+    show.padding = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_padding
   end
   if show.repeating_groups ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_repeating_groups
@@ -1338,7 +1343,7 @@ end
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.reserved_2, range, value, display)
@@ -1361,7 +1366,7 @@ end
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_3.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.reserved_3, range, value, display)
@@ -1883,13 +1888,21 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.trading_status_message.fields
   index, symbol = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Alpha
-  index, reserved_2 = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_2 = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_2.size
+  end
 
   -- Trading Status: Alpha
   index, trading_status = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.trading_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alphanumeric
-  index, reserved_3 = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, reserved_3 = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.reserved_3.size
+  end
 
   return index
 end

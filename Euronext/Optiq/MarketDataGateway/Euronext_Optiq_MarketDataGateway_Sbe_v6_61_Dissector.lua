@@ -16384,10 +16384,6 @@ euronext_optiq_marketdatagateway_sbe_v6_61.phase_qualifier.display = function(ra
   if bit.band(value, 0x0080) ~= 0 then
     flags[#flags + 1] = "Exceptional Market Conditions"
   end
-  -- Is Unused Phase Qualifierset 8 flag set?
-  if bit.band(value, 0x0100) ~= 0 then
-    flags[#flags + 1] = "Unused Phase Qualifierset 8"
-  end
   -- Is Quoting Period flag set?
   if bit.band(value, 0x0200) ~= 0 then
     flags[#flags + 1] = "Quoting Period"

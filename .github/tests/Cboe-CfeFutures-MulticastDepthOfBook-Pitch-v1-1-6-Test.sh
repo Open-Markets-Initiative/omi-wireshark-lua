@@ -80,6 +80,4 @@ runuser -u tester -- tshark \
 
 grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.timeoffset" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.TradingStatusMessage.json
 grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.symbol" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.TradingStatusMessage.json
-grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.reserved2" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.TradingStatusMessage.json
 grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.tradingstatus" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.TradingStatusMessage.json
-grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.reserved3" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.TradingStatusMessage.json
