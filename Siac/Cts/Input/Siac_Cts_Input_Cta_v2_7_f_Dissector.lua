@@ -2416,7 +2416,7 @@ siac_cts_input_cta_v2_7_f.timestamp_2.fields = function(buffer, offset, packet, 
   index, nanoseconds = siac_cts_input_cta_v2_7_f.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local timestamp_2 = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local timestamp_2 = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, timestamp_2
 end
@@ -3132,7 +3132,7 @@ siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.fields = function(buffer
   index, nanoseconds = siac_cts_input_cta_v2_7_f.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local prior_day_trade_date_and_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local prior_day_trade_date_and_time = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, prior_day_trade_date_and_time
 end
@@ -3522,7 +3522,7 @@ siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.fields = functi
   index, nanoseconds = siac_cts_input_cta_v2_7_f.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local original_prior_day_trade_date_and_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local original_prior_day_trade_date_and_time = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, original_prior_day_trade_date_and_time
 end
@@ -3584,7 +3584,7 @@ siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.fields = funct
   index, nanoseconds = siac_cts_input_cta_v2_7_f.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local corrected_prior_day_trade_date_and_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local corrected_prior_day_trade_date_and_time = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, corrected_prior_day_trade_date_and_time
 end
@@ -4423,7 +4423,7 @@ siac_cts_input_cta_v2_7_f.timestamp_1.fields = function(buffer, offset, packet, 
   index, nanoseconds = siac_cts_input_cta_v2_7_f.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local timestamp_1 = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local timestamp_1 = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, timestamp_1
 end

@@ -2880,7 +2880,7 @@ siac_cqs_output_cta_v1_91.adf_timestamp.fields = function(buffer, offset, packet
   index, nanoseconds = siac_cqs_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local adf_timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local adf_timestamp = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, adf_timestamp
 end
@@ -2942,7 +2942,7 @@ siac_cqs_output_cta_v1_91.participant_timestamp.fields = function(buffer, offset
   index, nanoseconds = siac_cqs_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local participant_timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local participant_timestamp = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, participant_timestamp
 end
@@ -4841,7 +4841,7 @@ siac_cqs_output_cta_v1_91.sip_block_timestamp.fields = function(buffer, offset, 
   index, nanoseconds = siac_cqs_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local sip_block_timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local sip_block_timestamp = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, sip_block_timestamp
 end

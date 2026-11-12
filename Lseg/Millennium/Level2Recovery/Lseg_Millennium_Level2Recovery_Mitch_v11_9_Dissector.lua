@@ -43,6 +43,7 @@ omi_lseg_millennium_level2recovery_mitch_v11_9.fields.reserved_a = ProtoField.ne
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.reserved_b = ProtoField.new("Reserved B", "lseg.millennium.level2recovery.mitch.v11.9.reservedb", ftypes.BYTES, nil, nil, nil, "Reserved field")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.rfq_quote = ProtoField.new("Rfq Quote", "lseg.millennium.level2recovery.mitch.v11.9.rfqquote", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.second_unused_1 = ProtoField.new("Second Unused 1", "lseg.millennium.level2recovery.mitch.v11.9.secondunused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Unused")
+omi_lseg_millennium_level2recovery_mitch_v11_9.fields.seconds = ProtoField.new("Seconds", "lseg.millennium.level2recovery.mitch.v11.9.seconds", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight. Midnight will be in terms of the local time for the server (i.e. not UTC).")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.segment = ProtoField.new("Segment", "lseg.millennium.level2recovery.mitch.v11.9.segment", ftypes.STRING, nil, nil, nil, "Segment the request relates to. The field should contain only spaces if the Instrument ID field is populated.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.millennium.level2recovery.mitch.v11.9.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number from which client can build the order book, only required for instrument level requests.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.millennium.level2recovery.mitch.v11.9.sessionchangereason", ftypes.UINT8)
@@ -74,9 +75,27 @@ omi_lseg_millennium_level2recovery_mitch_v11_9.fields.snapshot_complete_message 
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.snapshot_request_message = ProtoField.new("Snapshot Request Message", "lseg.millennium.level2recovery.mitch.v11.9.snapshotrequestmessage", ftypes.STRING, nil, nil, nil, "Used by the client to request a snapshot of the order book for a segment or an instrument.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.snapshot_response_message = ProtoField.new("Snapshot Response Message", "lseg.millennium.level2recovery.mitch.v11.9.snapshotresponsemessage", ftypes.STRING, nil, nil, nil, "Used by the server to accept or reject a snapshot request.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "lseg.millennium.level2recovery.mitch.v11.9.symbolstatusmessage", ftypes.STRING, nil, nil, nil, "Indicates the trading session (pre-opening, regular trading, etc.) that currently applies to an instrument.")
+omi_lseg_millennium_level2recovery_mitch_v11_9.fields.time_message = ProtoField.new("Time Message", "lseg.millennium.level2recovery.mitch.v11.9.timemessage", ftypes.STRING, nil, nil, nil, "Sent by the server for every second for which at least one application message is generated.")
 
 -- Lseg Millennium Level2Recovery Mitch 11.9 Generated Fields
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.level2recovery.mitch.v11.9.messageindex", ftypes.UINT16)
+omi_lseg_millennium_level2recovery_mitch_v11_9.fields.timestamp = ProtoField.new("Timestamp", "lseg.millennium.level2recovery.mitch.v11.9.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Lseg Millennium Level2Recovery Mitch 11.9 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+lseg_millennium_level2recovery_mitch_v11_9.timestamp_format = 2
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -98,6 +117,8 @@ omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_headers = Pref.bool("S
 omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_lseg_millennium_level2recovery_mitch_v11_9.prefs_changed()
 
@@ -117,7 +138,40 @@ function omi_lseg_millennium_level2recovery_mitch_v11_9.prefs_changed()
   if show.indexes ~= omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_indexes then
     show.indexes = omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.show_indexes
   end
+  if lseg_millennium_level2recovery_mitch_v11_9.timestamp_format ~= omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.timestamp_format then
+    lseg_millennium_level2recovery_mitch_v11_9.timestamp_format = omi_lseg_millennium_level2recovery_mitch_v11_9.prefs.timestamp_format
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+lseg_millennium_level2recovery_mitch_v11_9.conversation = {}
+lseg_millennium_level2recovery_mitch_v11_9.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+lseg_millennium_level2recovery_mitch_v11_9.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+lseg_millennium_level2recovery_mitch_v11_9.conversation.data = function(packet)
+  local key = lseg_millennium_level2recovery_mitch_v11_9.conversation.key(packet)
+  local data = lseg_millennium_level2recovery_mitch_v11_9.conversation.flows[key]
+  if data == nil then
+    data = { seconds = { last = nil, frames = {} } }
+    lseg_millennium_level2recovery_mitch_v11_9.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+lseg_millennium_level2recovery_mitch_v11_9.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -364,6 +418,9 @@ lseg_millennium_level2recovery_mitch_v11_9.message_type.display = function(value
   end
   if value == 0x05 then
     return "Message Type: Logout Request Message (0x05)"
+  end
+  if value == 0x54 then
+    return "Message Type: Time Message (0x54)"
   end
   if value == 0x48 then
     return "Message Type: Symbol Status Message (0x48)"
@@ -643,6 +700,39 @@ lseg_millennium_level2recovery_mitch_v11_9.reserved_b.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Seconds
+lseg_millennium_level2recovery_mitch_v11_9.seconds = {}
+
+-- Size: Seconds
+lseg_millennium_level2recovery_mitch_v11_9.seconds.size = 4
+
+-- Store: Seconds
+lseg_millennium_level2recovery_mitch_v11_9.seconds.current = nil
+
+-- Generated: Seconds
+lseg_millennium_level2recovery_mitch_v11_9.seconds.generated = function(value, range, packet, parent)
+  local display = lseg_millennium_level2recovery_mitch_v11_9.seconds.display(value)
+  local seconds = parent:add(omi_lseg_millennium_level2recovery_mitch_v11_9.fields.seconds, range, value, display)
+  seconds:set_generated()
+end
+
+-- Display: Seconds
+lseg_millennium_level2recovery_mitch_v11_9.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+lseg_millennium_level2recovery_mitch_v11_9.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_millennium_level2recovery_mitch_v11_9.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_millennium_level2recovery_mitch_v11_9.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_millennium_level2recovery_mitch_v11_9.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
 -- Segment
 lseg_millennium_level2recovery_mitch_v11_9.segment = {}
 
@@ -890,6 +980,75 @@ lseg_millennium_level2recovery_mitch_v11_9.username.dissect = function(buffer, o
   return offset + length, value
 end
 
+-- Timestamp
+lseg_millennium_level2recovery_mitch_v11_9.timestamp = {}
+
+-- Translate: Timestamp
+lseg_millennium_level2recovery_mitch_v11_9.timestamp.translate = function(nanosecond, stored_seconds)
+  return UInt64.new(stored_seconds) * 1000000000 + nanosecond
+end
+
+-- Display: Timestamp
+lseg_millennium_level2recovery_mitch_v11_9.timestamp.display = function(nanosecond, stored_seconds, packet)
+  -- Raw display mode
+  if lseg_millennium_level2recovery_mitch_v11_9.timestamp_format == 0 then
+    return "Timestamp: "..(stored_seconds * 1000000000 + nanosecond)
+  end
+
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_seconds + math.floor(nanosecond / 1000000000)
+  local fraction = nanosecond % 1000000000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if lseg_millennium_level2recovery_mitch_v11_9.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = lseg_millennium_level2recovery_mitch_v11_9.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+    end
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+lseg_millennium_level2recovery_mitch_v11_9.timestamp.composite = function(buffer, offset, stored_seconds, packet, parent)
+  local length = lseg_millennium_level2recovery_mitch_v11_9.nanosecond.size
+  local range = buffer(offset, length)
+  local nanosecond = range:le_uint()
+  local value = lseg_millennium_level2recovery_mitch_v11_9.timestamp.translate(nanosecond, stored_seconds)
+  local display = lseg_millennium_level2recovery_mitch_v11_9.timestamp.display(nanosecond, stored_seconds, packet)
+  parent = parent:add(omi_lseg_millennium_level2recovery_mitch_v11_9.fields.timestamp, range, value, display)
+
+  lseg_millennium_level2recovery_mitch_v11_9.seconds.generated(stored_seconds, range, packet, parent)
+
+  display = lseg_millennium_level2recovery_mitch_v11_9.nanosecond.display(nanosecond)
+  parent:add(omi_lseg_millennium_level2recovery_mitch_v11_9.fields.nanosecond, range, nanosecond, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+lseg_millennium_level2recovery_mitch_v11_9.timestamp.dissect = function(buffer, offset, packet, parent)
+  if lseg_millennium_level2recovery_mitch_v11_9.timestamp_format ~= 0 then
+    local stored_seconds = lseg_millennium_level2recovery_mitch_v11_9.seconds.current
+
+    if stored_seconds ~= nil then
+      return lseg_millennium_level2recovery_mitch_v11_9.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    end
+  end
+
+  return lseg_millennium_level2recovery_mitch_v11_9.nanosecond.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Lseg Millennium Level2Recovery Mitch 11.9
@@ -974,7 +1133,7 @@ lseg_millennium_level2recovery_mitch_v11_9.add_attributed_order_message.fields =
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2recovery_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2recovery_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = lseg_millennium_level2recovery_mitch_v11_9.order_id.dissect(buffer, index, packet, parent)
@@ -1122,7 +1281,7 @@ lseg_millennium_level2recovery_mitch_v11_9.add_order_message.fields = function(b
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2recovery_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2recovery_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = lseg_millennium_level2recovery_mitch_v11_9.order_id.dissect(buffer, index, packet, parent)
@@ -1256,7 +1415,7 @@ lseg_millennium_level2recovery_mitch_v11_9.symbol_status_message.fields = functi
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = lseg_millennium_level2recovery_mitch_v11_9.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = lseg_millennium_level2recovery_mitch_v11_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2recovery_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
@@ -1311,6 +1470,53 @@ lseg_millennium_level2recovery_mitch_v11_9.symbol_status_message.dissect = funct
   else
     -- Skip element, add fields directly
     return lseg_millennium_level2recovery_mitch_v11_9.symbol_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Time Message
+lseg_millennium_level2recovery_mitch_v11_9.time_message = {}
+
+-- Size: Time Message
+lseg_millennium_level2recovery_mitch_v11_9.time_message.size =
+  lseg_millennium_level2recovery_mitch_v11_9.seconds.size
+
+-- Display: Time Message
+lseg_millennium_level2recovery_mitch_v11_9.time_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Time Message
+lseg_millennium_level2recovery_mitch_v11_9.time_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: UInt32
+  index, seconds = lseg_millennium_level2recovery_mitch_v11_9.seconds.dissect(buffer, index, packet, parent)
+
+  -- Store Seconds Value
+  lseg_millennium_level2recovery_mitch_v11_9.seconds.current = seconds
+
+  if not packet.visited then
+    lseg_millennium_level2recovery_mitch_v11_9.conversation.current.seconds.last = seconds
+  end
+
+  return index
+end
+
+-- Dissect: Time Message
+lseg_millennium_level2recovery_mitch_v11_9.time_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_millennium_level2recovery_mitch_v11_9.fields.time_message, buffer(offset, 0))
+    local index = lseg_millennium_level2recovery_mitch_v11_9.time_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_millennium_level2recovery_mitch_v11_9.time_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_millennium_level2recovery_mitch_v11_9.time_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1649,6 +1855,10 @@ lseg_millennium_level2recovery_mitch_v11_9.payload.dissect = function(buffer, of
   if message_type == 0x05 then
     return lseg_millennium_level2recovery_mitch_v11_9.logout_request_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Time Message
+  if message_type == 0x54 then
+    return lseg_millennium_level2recovery_mitch_v11_9.time_message.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Symbol Status Message
   if message_type == 0x48 then
     return lseg_millennium_level2recovery_mitch_v11_9.symbol_status_message.dissect(buffer, offset, packet, parent)
@@ -1685,7 +1895,7 @@ lseg_millennium_level2recovery_mitch_v11_9.message_header.fields = function(buff
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
   index, message_length = lseg_millennium_level2recovery_mitch_v11_9.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, message_type = lseg_millennium_level2recovery_mitch_v11_9.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1733,7 +1943,7 @@ lseg_millennium_level2recovery_mitch_v11_9.message.fields = function(buffer, off
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):uint()
 
-  -- Payload: Runtime Type with 9 branches
+  -- Payload: Runtime Type with 10 branches
   index = lseg_millennium_level2recovery_mitch_v11_9.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -1897,6 +2107,14 @@ end
 
 -- Dissect Packet
 lseg_millennium_level2recovery_mitch_v11_9.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = lseg_millennium_level2recovery_mitch_v11_9.conversation.data(packet)
+  if not packet.visited then
+    data.seconds.frames[packet.number] = data.seconds.last
+  end
+  lseg_millennium_level2recovery_mitch_v11_9.seconds.current = data.seconds.frames[packet.number]
+  lseg_millennium_level2recovery_mitch_v11_9.conversation.current = data
+
   local index = 0
 
   -- Dependency for Tcp Unit
@@ -1932,6 +2150,9 @@ end
 
 -- Initialize Dissector
 function omi_lseg_millennium_level2recovery_mitch_v11_9.init()
+  lseg_millennium_level2recovery_mitch_v11_9.seconds.current = nil
+  lseg_millennium_level2recovery_mitch_v11_9.conversation.current = nil
+  lseg_millennium_level2recovery_mitch_v11_9.conversation.flows = {}
 end
 
 -- Dissector for Lseg Millennium Level2Recovery Mitch 11.9
@@ -1984,6 +2205,11 @@ lseg_millennium_level2recovery_mitch_v11_9.packet.fingerprint = function(buffer)
 
   -- Logout Request Message
   if message_type == 0x05 then
+    return true
+  end
+
+  -- Time Message
+  if message_type == 0x54 then
     return true
   end
 

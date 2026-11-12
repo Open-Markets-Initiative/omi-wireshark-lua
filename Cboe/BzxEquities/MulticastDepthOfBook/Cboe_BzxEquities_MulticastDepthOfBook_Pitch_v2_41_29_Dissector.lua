@@ -27,7 +27,6 @@ omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.display = ProtoF
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.executedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares/contracts executed")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.execution_id = ProtoField.new("Execution Id", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.executionid", ftypes.UINT64, nil, nil, nil, "Cboe generated day-unique execution identifier of this execution. Execution Id is also referenced in the Trade Break message")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.indicativeprice", ftypes.UINT64, nil, nil, nil, "N/A. Populated with zero")
-omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.last_timestamp = ProtoField.new("Last Timestamp", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.lasttimestamp", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.length = ProtoField.new("Length", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.message_count = ProtoField.new("Message Count", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.message_length = ProtoField.new("Message Length", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
@@ -444,29 +443,6 @@ cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.indicative_price.dissect = 
   local display = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.indicative_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.indicative_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Timestamp
-cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.last_timestamp = {}
-
--- Size: Last Timestamp
-cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.last_timestamp.size = 4
-
--- Display: Last Timestamp
-cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.last_timestamp.display = function(value)
-  return "Last Timestamp: "..value
-end
-
--- Dissect: Last Timestamp
-cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.last_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.last_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.last_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.last_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1387,7 +1363,7 @@ cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.end_of_session = {}
 
 -- Size: End Of Session
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.end_of_session.size =
-  cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.last_timestamp.size
+  cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.time_offset.size
 
 -- Display: End Of Session
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.end_of_session.display = function(packet, parent, length)
@@ -1398,8 +1374,8 @@ end
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.end_of_session.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Last Timestamp: Binary
-  index, last_timestamp = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.last_timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end

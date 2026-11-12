@@ -71,7 +71,7 @@
 
 | Division | [Protocol][Omi.Lseg.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Lseg.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Millennium][Millennium.Platform] | [Level2Recovery][Lseg.Millennium.Level2Recovery] | [Mitch][Omi.Encoding.Mitch] | [11.9][Lseg.Millennium.Level2Recovery.Mitch.v11.9.Dissector] | 8/28/2018 | 2064 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Lseg.Millennium.Level2Recovery.Mitch.v11.9.Pdf] |
+| [Millennium][Millennium.Platform] | [Level2Recovery][Lseg.Millennium.Level2Recovery] | [Mitch][Omi.Encoding.Mitch] | [11.9][Lseg.Millennium.Level2Recovery.Mitch.v11.9.Dissector] | 8/28/2018 | 2290 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Lseg.Millennium.Level2Recovery.Mitch.v11.9.Pdf] |
 | [Millennium][Millennium.Platform] | [Level2Replay][Lseg.Millennium.Level2Replay] | [Mitch][Omi.Encoding.Mitch] | [11.9][Lseg.Millennium.Level2Replay.Mitch.v11.9.Dissector] | 8/28/2018 | 4121 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Lseg.Millennium.Level2Replay.Mitch.v11.9.Pdf] |
 
 

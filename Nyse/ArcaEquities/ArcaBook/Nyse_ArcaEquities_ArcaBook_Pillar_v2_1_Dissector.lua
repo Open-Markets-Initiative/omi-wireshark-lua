@@ -1777,7 +1777,7 @@ nyse_arcaequities_arcabook_pillar_v2_1.send_time.fields = function(buffer, offse
   index, nanoseconds = nyse_arcaequities_arcabook_pillar_v2_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local send_time = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, send_time
 end

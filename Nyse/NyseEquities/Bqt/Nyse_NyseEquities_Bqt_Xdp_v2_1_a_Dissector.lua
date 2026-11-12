@@ -4585,7 +4585,7 @@ nyse_nyseequities_bqt_xdp_v2_1_a.send_time.fields = function(buffer, offset, pac
   index, nanoseconds = nyse_nyseequities_bqt_xdp_v2_1_a.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local send_time = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, send_time
 end

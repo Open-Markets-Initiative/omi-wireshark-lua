@@ -2815,7 +2815,7 @@ siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.fields = function(buffer, offset,
   index, nanoseconds = siac_cqs_snapshot_cta_v1_0.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local sip_block_timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local sip_block_timestamp = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, sip_block_timestamp
 end

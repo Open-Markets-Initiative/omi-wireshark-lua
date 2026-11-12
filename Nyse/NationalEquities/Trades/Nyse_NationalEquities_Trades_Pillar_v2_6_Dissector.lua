@@ -4375,7 +4375,7 @@ nyse_nationalequities_trades_pillar_v2_6.send_time.fields = function(buffer, off
   index, nanoseconds = nyse_nationalequities_trades_pillar_v2_6.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local send_time = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, send_time
 end

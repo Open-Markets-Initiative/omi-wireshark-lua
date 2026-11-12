@@ -3218,7 +3218,7 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.transact_time.fields = f
   index, nanoseconds = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local transact_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local transact_time = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, transact_time
 end

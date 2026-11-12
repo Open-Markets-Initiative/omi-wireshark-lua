@@ -1680,7 +1680,7 @@ finra_finraotc_bbds_dfi_v2018_1a.datetime.fields = function(buffer, offset, pack
   index, second = finra_finraotc_bbds_dfi_v2018_1a.second.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local datetime = UInt64.new(year * 10000000000 + month * 100000000 + day * 1000000 + hour * 10000 + minute * 100 + second - 4848484848)
+  local datetime = UInt64.new(year) * 10000000000 + month * 100000000 + day * 1000000 + hour * 10000 + minute * 100 + second - 4848484848
 
   return index, datetime
 end
@@ -2255,7 +2255,7 @@ finra_finraotc_bbds_dfi_v2018_1a.action_datetime.fields = function(buffer, offse
   index, second = finra_finraotc_bbds_dfi_v2018_1a.second.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local action_datetime = UInt64.new(year * 10000000000 + month * 100000000 + day * 1000000 + hour * 10000 + minute * 100 + second - 4848484848)
+  local action_datetime = UInt64.new(year) * 10000000000 + month * 100000000 + day * 1000000 + hour * 10000 + minute * 100 + second - 4848484848
 
   -- Null check (composite is null when its bytes are all fill)
   if buffer(offset, index - offset):string() == string.rep(" ", index - offset) then action_datetime = nil end

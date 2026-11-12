@@ -5022,7 +5022,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.send_time.fields = function(buffer, o
   index, nanoseconds = nyse_amexoptions_complexfeed_pillar_v1_0_h.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local send_time = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, send_time
 end

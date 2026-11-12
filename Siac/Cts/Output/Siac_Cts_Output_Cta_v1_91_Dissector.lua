@@ -3186,7 +3186,7 @@ siac_cts_output_cta_v1_91.timestamp_2.fields = function(buffer, offset, packet, 
   index, nanoseconds = siac_cts_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local timestamp_2 = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local timestamp_2 = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, timestamp_2
 end
@@ -3306,7 +3306,7 @@ siac_cts_output_cta_v1_91.timestamp_1.fields = function(buffer, offset, packet, 
   index, nanoseconds = siac_cts_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local timestamp_1 = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local timestamp_1 = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, timestamp_1
 end
@@ -3814,7 +3814,7 @@ siac_cts_output_cta_v1_91.prior_day_trade_date_and_time.fields = function(buffer
   index, nanoseconds = siac_cts_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local prior_day_trade_date_and_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local prior_day_trade_date_and_time = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, prior_day_trade_date_and_time
 end
@@ -6658,7 +6658,7 @@ siac_cts_output_cta_v1_91.sip_block_timestamp.fields = function(buffer, offset, 
   index, nanoseconds = siac_cts_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local sip_block_timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local sip_block_timestamp = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, sip_block_timestamp
 end

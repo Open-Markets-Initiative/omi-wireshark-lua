@@ -37,7 +37,8 @@ omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.session_sub_id = Pro
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.side = ProtoField.new("Side", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.side", ftypes.STRING, nil, nil, nil, "Side of the update.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.spin_response_status = ProtoField.new("Spin Response Status", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.spinresponsestatus", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.symbol = ProtoField.new("Symbol", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.symbol", ftypes.STRING, nil, nil, nil, "Symbol (right padded with spaces).")
-omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.timestamp", ftypes.UINT64, nil, nil, nil, "Nanoseconds since epoch.")
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since epoch.")
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds since epoch.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.trading_status = ProtoField.new("Trading Status", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading status of the session for the symbol.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.unit = ProtoField.new("Unit", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.username = ProtoField.new("Username", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.username", ftypes.STRING, nil, nil, nil, "Username supplied by CXA.")
@@ -67,6 +68,20 @@ omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.two_side_update_mess
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message_index = ProtoField.new("Message Index", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Cboe CxaEquities MulticastTopOfBook Spin 1.0.10 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -84,6 +99,8 @@ omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_structs = Pref.b
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs_changed()
 
@@ -99,6 +116,9 @@ function omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs_changed()
   end
   if show.indexes ~= omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_indexes then
     show.indexes = omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_indexes
+  end
+  if cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp_format ~= omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.timestamp_format then
+    cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp_format = omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.timestamp_format
   end
 end
 
@@ -710,19 +730,20 @@ cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp = {}
 -- Size: Timestamp
 cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp.size = 8
 
--- Display: Timestamp
-cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
 -- Dissect: Timestamp
 cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.timestamp
+  if cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp_format == 3 then field = omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

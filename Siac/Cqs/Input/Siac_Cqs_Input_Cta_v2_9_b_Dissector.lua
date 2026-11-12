@@ -3125,7 +3125,7 @@ siac_cqs_input_cta_v2_9_b.timestamp_2.fields = function(buffer, offset, packet, 
   index, nanoseconds = siac_cqs_input_cta_v2_9_b.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local timestamp_2 = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local timestamp_2 = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, timestamp_2
 end
@@ -4886,7 +4886,7 @@ siac_cqs_input_cta_v2_9_b.timestamp_1.fields = function(buffer, offset, packet, 
   index, nanoseconds = siac_cqs_input_cta_v2_9_b.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local timestamp_1 = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local timestamp_1 = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, timestamp_1
 end

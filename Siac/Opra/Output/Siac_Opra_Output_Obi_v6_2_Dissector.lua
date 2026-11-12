@@ -4354,7 +4354,7 @@ siac_opra_output_obi_v6_2.block_timestamp.fields = function(buffer, offset, pack
   index, nanoseconds = siac_opra_output_obi_v6_2.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local block_timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local block_timestamp = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, block_timestamp
 end

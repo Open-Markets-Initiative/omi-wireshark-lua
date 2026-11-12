@@ -5528,7 +5528,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.send_time.fields = function(buffer, offs
   index, nanoseconds = nyse_arcaoptions_deepfeed_pillar_v1_2_f.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local send_time = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, send_time
 end

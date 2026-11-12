@@ -189,6 +189,23 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.trade_message = ProtoField.new("Trade
 
 -- Jse Itac MarketData Mitch 4.07 Generated Fields
 omi_jse_itac_marketdata_mitch_v4_07.fields.message_index = ProtoField.new("Message Index", "jse.itac.marketdata.mitch.v4.07.messageindex", ftypes.UINT16)
+omi_jse_itac_marketdata_mitch_v4_07.fields.timestamp = ProtoField.new("Timestamp", "jse.itac.marketdata.mitch.v4.07.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Jse Itac MarketData Mitch 4.07 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+jse_itac_marketdata_mitch_v4_07.timestamp_format = 2
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -210,6 +227,8 @@ omi_jse_itac_marketdata_mitch_v4_07.prefs.show_headers = Pref.bool("Show Headers
 omi_jse_itac_marketdata_mitch_v4_07.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_jse_itac_marketdata_mitch_v4_07.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_jse_itac_marketdata_mitch_v4_07.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_jse_itac_marketdata_mitch_v4_07.prefs_changed()
 
@@ -229,7 +248,40 @@ function omi_jse_itac_marketdata_mitch_v4_07.prefs_changed()
   if show.indexes ~= omi_jse_itac_marketdata_mitch_v4_07.prefs.show_indexes then
     show.indexes = omi_jse_itac_marketdata_mitch_v4_07.prefs.show_indexes
   end
+  if jse_itac_marketdata_mitch_v4_07.timestamp_format ~= omi_jse_itac_marketdata_mitch_v4_07.prefs.timestamp_format then
+    jse_itac_marketdata_mitch_v4_07.timestamp_format = omi_jse_itac_marketdata_mitch_v4_07.prefs.timestamp_format
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+jse_itac_marketdata_mitch_v4_07.conversation = {}
+jse_itac_marketdata_mitch_v4_07.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+jse_itac_marketdata_mitch_v4_07.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+jse_itac_marketdata_mitch_v4_07.conversation.data = function(packet)
+  local key = jse_itac_marketdata_mitch_v4_07.conversation.key(packet)
+  local data = jse_itac_marketdata_mitch_v4_07.conversation.flows[key]
+  if data == nil then
+    data = { seconds = { last = nil, frames = {} } }
+    jse_itac_marketdata_mitch_v4_07.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+jse_itac_marketdata_mitch_v4_07.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -653,14 +705,23 @@ jse_itac_marketdata_mitch_v4_07.expiration_date.size = 8
 
 -- Display: Expiration Date
 jse_itac_marketdata_mitch_v4_07.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Expiration Date: No Value"
+  end
+
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date
 jse_itac_marketdata_mitch_v4_07.expiration_date.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.expiration_date.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.expiration_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.expiration_date, range, value, display)
@@ -933,14 +994,23 @@ jse_itac_marketdata_mitch_v4_07.issue_date.size = 8
 
 -- Display: Issue Date
 jse_itac_marketdata_mitch_v4_07.issue_date.display = function(value)
-  return "Issue Date: "..value
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Issue Date: No Value"
+  end
+
+  if #value < 8 then
+    return "Issue Date: "..value
+  end
+
+  return "Issue Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Issue Date
 jse_itac_marketdata_mitch_v4_07.issue_date.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.issue_date.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.issue_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.issue_date, range, value, display)
@@ -2121,6 +2191,16 @@ jse_itac_marketdata_mitch_v4_07.seconds = {}
 -- Size: Seconds
 jse_itac_marketdata_mitch_v4_07.seconds.size = 4
 
+-- Store: Seconds
+jse_itac_marketdata_mitch_v4_07.seconds.current = nil
+
+-- Generated: Seconds
+jse_itac_marketdata_mitch_v4_07.seconds.generated = function(value, range, packet, parent)
+  local display = jse_itac_marketdata_mitch_v4_07.seconds.display(value)
+  local seconds = parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.seconds, range, value, display)
+  seconds:set_generated()
+end
+
 -- Display: Seconds
 jse_itac_marketdata_mitch_v4_07.seconds.display = function(value)
   return "Seconds: "..value
@@ -2621,14 +2701,23 @@ jse_itac_marketdata_mitch_v4_07.trade_date.size = 8
 
 -- Display: Trade Date
 jse_itac_marketdata_mitch_v4_07.trade_date.display = function(value)
-  return "Trade Date: "..value
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trade Date: No Value"
+  end
+
+  if #value < 8 then
+    return "Trade Date: "..value
+  end
+
+  return "Trade Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Trade Date
 jse_itac_marketdata_mitch_v4_07.trade_date.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.trade_date.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.trade_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.trade_date, range, value, display)
@@ -3022,6 +3111,75 @@ jse_itac_marketdata_mitch_v4_07.vwap.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
+-- Timestamp
+jse_itac_marketdata_mitch_v4_07.timestamp = {}
+
+-- Translate: Timestamp
+jse_itac_marketdata_mitch_v4_07.timestamp.translate = function(nanosecond, stored_seconds)
+  return UInt64.new(stored_seconds) * 1000000000 + nanosecond
+end
+
+-- Display: Timestamp
+jse_itac_marketdata_mitch_v4_07.timestamp.display = function(nanosecond, stored_seconds, packet)
+  -- Raw display mode
+  if jse_itac_marketdata_mitch_v4_07.timestamp_format == 0 then
+    return "Timestamp: "..(stored_seconds * 1000000000 + nanosecond)
+  end
+
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_seconds + math.floor(nanosecond / 1000000000)
+  local fraction = nanosecond % 1000000000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if jse_itac_marketdata_mitch_v4_07.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = jse_itac_marketdata_mitch_v4_07.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+    end
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+jse_itac_marketdata_mitch_v4_07.timestamp.composite = function(buffer, offset, stored_seconds, packet, parent)
+  local length = jse_itac_marketdata_mitch_v4_07.nanosecond.size
+  local range = buffer(offset, length)
+  local nanosecond = range:le_uint()
+  local value = jse_itac_marketdata_mitch_v4_07.timestamp.translate(nanosecond, stored_seconds)
+  local display = jse_itac_marketdata_mitch_v4_07.timestamp.display(nanosecond, stored_seconds, packet)
+  parent = parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.timestamp, range, value, display)
+
+  jse_itac_marketdata_mitch_v4_07.seconds.generated(stored_seconds, range, packet, parent)
+
+  display = jse_itac_marketdata_mitch_v4_07.nanosecond.display(nanosecond)
+  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.nanosecond, range, nanosecond, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+jse_itac_marketdata_mitch_v4_07.timestamp.dissect = function(buffer, offset, packet, parent)
+  if jse_itac_marketdata_mitch_v4_07.timestamp_format ~= 0 then
+    local stored_seconds = jse_itac_marketdata_mitch_v4_07.seconds.current
+
+    if stored_seconds ~= nil then
+      return jse_itac_marketdata_mitch_v4_07.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    end
+  end
+
+  return jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Jse Itac MarketData Mitch 4.07
@@ -3048,7 +3206,7 @@ jse_itac_marketdata_mitch_v4_07.indicative_quote_info_message.fields = function(
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
@@ -3181,7 +3339,7 @@ jse_itac_marketdata_mitch_v4_07.top_of_book_message.fields = function(buffer, of
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
@@ -3261,7 +3419,7 @@ jse_itac_marketdata_mitch_v4_07.news_message.fields = function(buffer, offset, p
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Time: Time
   index, time = jse_itac_marketdata_mitch_v4_07.time.dissect(buffer, index, packet, parent)
@@ -3338,7 +3496,7 @@ jse_itac_marketdata_mitch_v4_07.extended_statistics_message.fields = function(bu
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
@@ -3446,7 +3604,7 @@ jse_itac_marketdata_mitch_v4_07.statistics_message.fields = function(buffer, off
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
@@ -3523,7 +3681,7 @@ jse_itac_marketdata_mitch_v4_07.auction_info_message.fields = function(buffer, o
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Paired Quantity: UInt32
   index, paired_quantity = jse_itac_marketdata_mitch_v4_07.paired_quantity.dissect(buffer, index, packet, parent)
@@ -3668,7 +3826,7 @@ jse_itac_marketdata_mitch_v4_07.recovery_trade_message.fields = function(buffer,
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Executed Quantity: UInt32
   index, executed_quantity = jse_itac_marketdata_mitch_v4_07.executed_quantity.dissect(buffer, index, packet, parent)
@@ -3786,7 +3944,7 @@ jse_itac_marketdata_mitch_v4_07.off_book_trade_message.fields = function(buffer,
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Executed Quantity: UInt32
   index, executed_quantity = jse_itac_marketdata_mitch_v4_07.executed_quantity.dissect(buffer, index, packet, parent)
@@ -3886,7 +4044,7 @@ jse_itac_marketdata_mitch_v4_07.auction_trade_message.fields = function(buffer, 
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Quantity: UInt32
   index, quantity = jse_itac_marketdata_mitch_v4_07.quantity.dissect(buffer, index, packet, parent)
@@ -4045,7 +4203,7 @@ jse_itac_marketdata_mitch_v4_07.trade_message.fields = function(buffer, offset, 
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Executed Quantity: UInt32
   index, executed_quantity = jse_itac_marketdata_mitch_v4_07.executed_quantity.dissect(buffer, index, packet, parent)
@@ -4148,7 +4306,7 @@ jse_itac_marketdata_mitch_v4_07.order_executed_with_price_size_message.fields = 
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = jse_itac_marketdata_mitch_v4_07.order_id.dissect(buffer, index, packet, parent)
@@ -4225,7 +4383,7 @@ jse_itac_marketdata_mitch_v4_07.order_executed_message.fields = function(buffer,
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = jse_itac_marketdata_mitch_v4_07.order_id.dissect(buffer, index, packet, parent)
@@ -4289,7 +4447,7 @@ jse_itac_marketdata_mitch_v4_07.order_book_clear_message.fields = function(buffe
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
@@ -4385,7 +4543,7 @@ jse_itac_marketdata_mitch_v4_07.order_modified_message.fields = function(buffer,
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = jse_itac_marketdata_mitch_v4_07.order_id.dissect(buffer, index, packet, parent)
@@ -4438,7 +4596,7 @@ jse_itac_marketdata_mitch_v4_07.order_deleted_message.fields = function(buffer, 
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = jse_itac_marketdata_mitch_v4_07.order_id.dissect(buffer, index, packet, parent)
@@ -4541,7 +4699,7 @@ jse_itac_marketdata_mitch_v4_07.add_attributed_order_message.fields = function(b
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = jse_itac_marketdata_mitch_v4_07.order_id.dissect(buffer, index, packet, parent)
@@ -4664,7 +4822,7 @@ jse_itac_marketdata_mitch_v4_07.add_order_message.fields = function(buffer, offs
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: UInt64
   index, order_id = jse_itac_marketdata_mitch_v4_07.order_id.dissect(buffer, index, packet, parent)
@@ -4786,7 +4944,7 @@ jse_itac_marketdata_mitch_v4_07.symbol_status_message.fields = function(buffer, 
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
@@ -4989,7 +5147,7 @@ jse_itac_marketdata_mitch_v4_07.symbol_directory_message.fields = function(buffe
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: UInt32
   index, instrument_id = jse_itac_marketdata_mitch_v4_07.instrument_id.dissect(buffer, index, packet, parent)
@@ -5152,7 +5310,7 @@ jse_itac_marketdata_mitch_v4_07.system_event_message.fields = function(buffer, o
   local index = offset
 
   -- Nanosecond: UInt32
-  index, nanosecond = jse_itac_marketdata_mitch_v4_07.nanosecond.dissect(buffer, index, packet, parent)
+  index, nanosecond = jse_itac_marketdata_mitch_v4_07.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event Code: Byte
   index, event_code = jse_itac_marketdata_mitch_v4_07.event_code.dissect(buffer, index, packet, parent)
@@ -5196,6 +5354,13 @@ jse_itac_marketdata_mitch_v4_07.time_message.fields = function(buffer, offset, p
 
   -- Seconds: UInt32
   index, seconds = jse_itac_marketdata_mitch_v4_07.seconds.dissect(buffer, index, packet, parent)
+
+  -- Store Seconds Value
+  jse_itac_marketdata_mitch_v4_07.seconds.current = seconds
+
+  if not packet.visited then
+    jse_itac_marketdata_mitch_v4_07.conversation.current.seconds.last = seconds
+  end
 
   return index
 end
@@ -5909,6 +6074,14 @@ end
 
 -- Dissect Packet
 jse_itac_marketdata_mitch_v4_07.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = jse_itac_marketdata_mitch_v4_07.conversation.data(packet)
+  if not packet.visited then
+    data.seconds.frames[packet.number] = data.seconds.last
+  end
+  jse_itac_marketdata_mitch_v4_07.seconds.current = data.seconds.frames[packet.number]
+  jse_itac_marketdata_mitch_v4_07.conversation.current = data
+
   local index = 0
 
   -- Unit Header: Struct of 4 fields
@@ -5939,6 +6112,9 @@ end
 
 -- Initialize Dissector
 function omi_jse_itac_marketdata_mitch_v4_07.init()
+  jse_itac_marketdata_mitch_v4_07.seconds.current = nil
+  jse_itac_marketdata_mitch_v4_07.conversation.current = nil
+  jse_itac_marketdata_mitch_v4_07.conversation.flows = {}
 end
 
 -- Dissector for Jse Itac MarketData Mitch 4.07

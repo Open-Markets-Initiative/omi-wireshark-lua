@@ -135,6 +135,24 @@ omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.fields.width_update_messag
 
 -- Cboe C2Options MulticastDepthOfBook Spin 2.41.66 Generated Fields
 omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.fields.message_index = ProtoField.new("Message Index", "cboe.c2options.multicastdepthofbook.spin.v2.41.66.messageindex", ftypes.UINT16)
+omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.fields.auction_end_time = ProtoField.new("Auction End Time", "cboe.c2options.multicastdepthofbook.spin.v2.41.66.auctionendtime", ftypes.UINT64)
+omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.fields.timestamp = ProtoField.new("Timestamp", "cboe.c2options.multicastdepthofbook.spin.v2.41.66.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Cboe C2Options MulticastDepthOfBook Spin 2.41.66 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp_format = 2
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -156,6 +174,8 @@ omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.prefs.show_headers = Pref.
 omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.prefs_changed()
 
@@ -175,7 +195,40 @@ function omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.prefs_changed()
   if show.indexes ~= omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.prefs.show_indexes then
     show.indexes = omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.prefs.show_indexes
   end
+  if cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp_format ~= omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.prefs.timestamp_format then
+    cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp_format = omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.prefs.timestamp_format
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation = {}
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.data = function(packet)
+  local key = cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.key(packet)
+  local data = cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.flows[key]
+  if data == nil then
+    data = { time = { last = nil, frames = {} } }
+    cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -1684,6 +1737,16 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.time = {}
 -- Size: Time
 cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.size = 4
 
+-- Store: Time
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.current = nil
+
+-- Generated: Time
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.generated = function(value, range, packet, parent)
+  local display = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.display(value)
+  local time = parent:add(omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.fields.time, range, value, display)
+  time:set_generated()
+end
+
 -- Display: Time
 cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.display = function(value)
   return "Time: "..value
@@ -1928,6 +1991,144 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.width_type.dissect = function(
   return offset + length, value
 end
 
+-- Auction End Time
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_time = {}
+
+-- Translate: Auction End Time
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_time.translate = function(auction_end_offset, stored_time)
+  return UInt64.new(stored_time) * 1000000000 + auction_end_offset
+end
+
+-- Display: Auction End Time
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_time.display = function(auction_end_offset, stored_time, packet)
+  -- Raw display mode
+  if cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp_format == 0 then
+    return "Auction End Time: "..(stored_time * 1000000000 + auction_end_offset)
+  end
+
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_time + math.floor(auction_end_offset / 1000000000)
+  local fraction = auction_end_offset % 1000000000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Auction End Time: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+    end
+  end
+
+  -- Time of day mode
+  return "Auction End Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Auction End Time
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_time.composite = function(buffer, offset, stored_time, packet, parent)
+  local length = cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_offset.size
+  local range = buffer(offset, length)
+  local auction_end_offset = range:le_uint()
+  local value = cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_time.translate(auction_end_offset, stored_time)
+  local display = cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_time.display(auction_end_offset, stored_time, packet)
+  parent = parent:add(omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.fields.auction_end_time, range, value, display)
+
+  cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.generated(stored_time, range, packet, parent)
+
+  display = cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_offset.display(auction_end_offset)
+  parent:add(omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.fields.auction_end_offset, range, auction_end_offset, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Auction End Time
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_time.dissect = function(buffer, offset, packet, parent)
+  if cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp_format ~= 0 then
+    local stored_time = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.current
+
+    if stored_time ~= nil then
+      return cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_time.composite(buffer, offset, stored_time, packet, parent)
+    end
+  end
+
+  return cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_offset.dissect(buffer, offset, packet, parent)
+end
+
+-- Timestamp
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp = {}
+
+-- Translate: Timestamp
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.translate = function(time_offset, stored_time)
+  return UInt64.new(stored_time) * 1000000000 + time_offset
+end
+
+-- Display: Timestamp
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.display = function(time_offset, stored_time, packet)
+  -- Raw display mode
+  if cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp_format == 0 then
+    return "Timestamp: "..(stored_time * 1000000000 + time_offset)
+  end
+
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_time + math.floor(time_offset / 1000000000)
+  local fraction = time_offset % 1000000000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+    end
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.composite = function(buffer, offset, stored_time, packet, parent)
+  local length = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.size
+  local range = buffer(offset, length)
+  local time_offset = range:le_uint()
+  local value = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.translate(time_offset, stored_time)
+  local display = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.display(time_offset, stored_time, packet)
+  parent = parent:add(omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.fields.timestamp, range, value, display)
+
+  cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.generated(stored_time, range, packet, parent)
+
+  display = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.display(time_offset)
+  parent:add(omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.fields.time_offset, range, time_offset, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect = function(buffer, offset, packet, parent)
+  if cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp_format ~= 0 then
+    local stored_time = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.current
+
+    if stored_time ~= nil then
+      return cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.composite(buffer, offset, stored_time, packet, parent)
+    end
+  end
+
+  return cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Cboe C2Options MulticastDepthOfBook Spin 2.41.66
@@ -2009,7 +2210,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.soq_strike_range_update_messag
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Soq Identifier: Printable ASCII
   index, soq_identifier = cboe_c2options_multicastdepthofbook_spin_v2_41_66.soq_identifier.dissect(buffer, index, packet, parent)
@@ -2062,7 +2263,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_trade_message.fields =
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: Binary
   index, auction_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_id.dissect(buffer, index, packet, parent)
@@ -2115,7 +2316,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_cancel_message.fields 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: Binary
   index, auction_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_id.dissect(buffer, index, packet, parent)
@@ -2168,7 +2369,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_notification_message.f
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_c2options_multicastdepthofbook_spin_v2_41_66.symbol.dissect(buffer, index, packet, parent)
@@ -2195,7 +2396,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_notification_message.f
   index, participant_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.participant_id.dissect(buffer, index, packet, parent)
 
   -- Auction End Offset: Binary
-  index, auction_end_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_offset.dissect(buffer, index, packet, parent)
+  index, auction_end_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_end_time.dissect(buffer, index, packet, parent)
 
   -- Client Id: Alphanumeric
   index, client_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.client_id.dissect(buffer, index, packet, parent)
@@ -2242,7 +2443,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.auction_summary_message.fields
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock Symbol: Printable ASCII
   index, stock_symbol = cboe_c2options_multicastdepthofbook_spin_v2_41_66.stock_symbol.dissect(buffer, index, packet, parent)
@@ -2304,7 +2505,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.options_auction_update_message
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Expanded Symbol: Printable ASCII
   index, expanded_symbol = cboe_c2options_multicastdepthofbook_spin_v2_41_66.expanded_symbol.dissect(buffer, index, packet, parent)
@@ -2377,7 +2578,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.width_update_message.fields = 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Underlying: Alphanumeric
   index, underlying = cboe_c2options_multicastdepthofbook_spin_v2_41_66.underlying.dissect(buffer, index, packet, parent)
@@ -2432,7 +2633,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.trading_status_message.fields 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_c2options_multicastdepthofbook_spin_v2_41_66.symbol.dissect(buffer, index, packet, parent)
@@ -2554,7 +2755,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.end_of_session_message.fields 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2595,7 +2796,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.trade_break_message.fields = f
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Binary
   index, execution_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.execution_id.dissect(buffer, index, packet, parent)
@@ -2645,7 +2846,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.trade_expanded_message.fields 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -2713,7 +2914,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.trade_short_message.fields = f
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -2781,7 +2982,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.trade_long_message.fields = fu
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -2843,7 +3044,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.delete_order_message.fields = 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -2940,7 +3141,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.modify_order_short_message.fie
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -2996,7 +3197,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.modify_order_long_message.fiel
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -3050,7 +3251,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.reduce_size_short_message.fiel
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -3098,7 +3299,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.reduce_size_long_message.field
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -3150,7 +3351,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_executed_at_price_size_m
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -3212,7 +3413,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_executed_message.fields 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -3320,7 +3521,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.add_order_expanded_message.fie
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -3400,7 +3601,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.add_order_short_message.fields
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -3464,7 +3665,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.add_order_long_message.fields 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c2options_multicastdepthofbook_spin_v2_41_66.order_id.dissect(buffer, index, packet, parent)
@@ -3522,7 +3723,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.transaction_end_message.fields
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3562,7 +3763,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.transaction_begin_message.fiel
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3602,7 +3803,7 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.unit_clear_message.fields = fu
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicastdepthofbook_spin_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3643,6 +3844,13 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.time_message.fields = function
 
   -- Time: Binary
   index, time = cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.dissect(buffer, index, packet, parent)
+
+  -- Store Time Value
+  cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.current = time
+
+  if not packet.visited then
+    cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.current.time.last = time
+  end
 
   return index
 end
@@ -4402,6 +4610,14 @@ end
 
 -- Dissect Packet
 cboe_c2options_multicastdepthofbook_spin_v2_41_66.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.data(packet)
+  if not packet.visited then
+    data.time.frames[packet.number] = data.time.last
+  end
+  cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.current = data.time.frames[packet.number]
+  cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 4 fields
@@ -4423,6 +4639,9 @@ end
 
 -- Initialize Dissector
 function omi_cboe_c2options_multicastdepthofbook_spin_v2_41_66.init()
+  cboe_c2options_multicastdepthofbook_spin_v2_41_66.time.current = nil
+  cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.current = nil
+  cboe_c2options_multicastdepthofbook_spin_v2_41_66.conversation.flows = {}
 end
 
 -- Dissector for Cboe C2Options MulticastDepthOfBook Spin 2.41.66

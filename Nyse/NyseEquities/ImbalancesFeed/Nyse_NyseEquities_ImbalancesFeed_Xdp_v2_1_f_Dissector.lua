@@ -3007,7 +3007,7 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.send_time.fields = function(buffer, 
   index, nanoseconds = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local send_time = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, send_time
 end

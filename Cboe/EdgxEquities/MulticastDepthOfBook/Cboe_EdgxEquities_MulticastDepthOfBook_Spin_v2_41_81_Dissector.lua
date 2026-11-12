@@ -37,7 +37,8 @@ omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.maintain_priorit
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.message_count = ProtoField.new("Message Count", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.message_length = ProtoField.new("Message Length", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.message_type = ProtoField.new("Message Type", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.midnightreference", ftypes.UINT32, nil, nil, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.midnight_reference_utc = ProtoField.new("Midnight Reference", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.midnightreference.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.modify_flags = ProtoField.new("Modify Flags", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.modifyflags", ftypes.STRING, nil, nil, nil, "Modify Flags bit field used in Modify Order messages.")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.order_count = ProtoField.new("Order Count", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.ordercount", ftypes.UINT32, nil, nil, nil, "Number of Add Order messages which will be contained in this spin.")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.order_id = ProtoField.new("Order Id", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.orderid", ftypes.UINT64, nil, nil, nil, "Day-specific identifier assigned to this order.")
@@ -113,6 +114,22 @@ omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.unit_clear_messa
 
 -- Cboe EdgxEquities MulticastDepthOfBook Spin 2.41.81 Generated Fields
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.message_index = ProtoField.new("Message Index", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.messageindex", ftypes.UINT16)
+omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxequities.multicastdepthofbook.spin.v2.41.81.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Cboe EdgxEquities MulticastDepthOfBook Spin 2.41.81 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp_format = 2
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -132,6 +149,8 @@ omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_application_
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs_changed()
 
@@ -148,7 +167,40 @@ function omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs_changed(
   if show.indexes ~= omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_indexes then
     show.indexes = omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.show_indexes
   end
+  if cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp_format ~= omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.timestamp_format then
+    cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp_format = omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.prefs.timestamp_format
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation = {}
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.data = function(packet)
+  local key = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.key(packet)
+  local data = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.flows[key]
+  if data == nil then
+    data = { midnight_reference = { last = nil, frames = {} }, time = { last = nil, frames = {} } }
+    cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -711,9 +763,17 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference = {}
 -- Size: Midnight Reference
 cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.size = 4
 
--- Display: Midnight Reference
-cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.display = function(value)
-  return "Midnight Reference: "..value
+-- Store: Midnight Reference
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.current = nil
+
+-- Generated: Midnight Reference
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.generated = function(value, range, packet, parent)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.midnight_reference
+  if cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp_format == 3 then field = omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.midnight_reference_utc end
+  local midnight_reference = parent:add(field, range, NSTime.new(value, 0))
+  midnight_reference:set_generated()
 end
 
 -- Dissect: Midnight Reference
@@ -721,9 +781,15 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.dissect 
   local length = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.midnight_reference, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.midnight_reference
+  if cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp_format == 3 then field = omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.midnight_reference_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1298,6 +1364,16 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time = {}
 -- Size: Time
 cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.size = 4
 
+-- Store: Time
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.current = nil
+
+-- Generated: Time
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.generated = function(value, range, packet, parent)
+  local display = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.display(value)
+  local time = parent:add(omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.time, range, value, display)
+  time:set_generated()
+end
+
 -- Display: Time
 cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.display = function(value)
   return "Time: "..value
@@ -1438,6 +1514,53 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.username.dissect = function
   return offset + length, value
 end
 
+-- Timestamp
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp = {}
+
+-- Translate: Timestamp
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time)
+  return (UInt64.new(stored_midnight_reference) + stored_time) * 1000000000 + time_offset
+end
+
+-- Display: Timestamp
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.display = function(time_offset, stored_midnight_reference, stored_time)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_midnight_reference + stored_time + math.floor(time_offset / 1000000000)
+  local fraction = time_offset % 1000000000
+
+  local format = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.composite = function(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
+  local length = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.size
+  local range = buffer(offset, length)
+  local time_offset = range:le_uint()
+  local value = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.translate(time_offset, stored_midnight_reference, stored_time)
+  local display = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.display(time_offset, stored_midnight_reference, stored_time)
+  parent = parent:add(omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.timestamp, range, value, display)
+
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.generated(stored_time, range, packet, parent)
+
+  display = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.display(time_offset)
+  parent:add(omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.time_offset, range, time_offset, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_midnight_reference = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.current
+  local stored_time = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.current
+
+  if stored_midnight_reference ~= nil and stored_time ~= nil then
+    return cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.composite(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
+  end
+
+  return cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Cboe EdgxEquities MulticastDepthOfBook Spin 2.41.81
@@ -1462,7 +1585,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.retail_price_improvement_me
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Long: Printable ASCII
   index, symbol_long = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.symbol_long.dissect(buffer, index, packet, parent)
@@ -1512,7 +1635,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.auction_summary_message.fie
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock Symbol: Printable ASCII
   index, stock_symbol = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.stock_symbol.dissect(buffer, index, packet, parent)
@@ -1571,7 +1694,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.auction_update_message.fiel
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock Symbol: Printable ASCII
   index, stock_symbol = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.stock_symbol.dissect(buffer, index, packet, parent)
@@ -1637,7 +1760,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.trading_status_message.fiel
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Long: Printable ASCII
   index, symbol_long = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.symbol_long.dissect(buffer, index, packet, parent)
@@ -1692,7 +1815,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.end_of_session_message.fiel
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1733,7 +1856,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.trade_break_message.fields 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Binary
   index, execution_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.execution_id.dissect(buffer, index, packet, parent)
@@ -1782,7 +1905,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.trade_expanded_message.fiel
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -1846,7 +1969,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.trade_short_message.fields 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -1910,7 +2033,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.trade_long_message.fields =
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -1969,7 +2092,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.delete_order_message.fields
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -2066,7 +2189,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.modify_order_short_message.
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -2122,7 +2245,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.modify_order_long_message.f
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -2176,7 +2299,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.reduce_size_short_message.f
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -2224,7 +2347,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.reduce_size_long_message.fi
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -2275,7 +2398,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_executed_at_price_siz
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -2333,7 +2456,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_executed_message.fiel
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -2436,7 +2559,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.add_order_expanded_message.
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -2506,7 +2629,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.add_order_short_message.fie
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -2570,7 +2693,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.add_order_long_message.fiel
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.order_id.dissect(buffer, index, packet, parent)
@@ -2628,7 +2751,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.unit_clear_message.fields =
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2670,6 +2793,13 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_message.fields = funct
 
   -- Time: Binary
   index, time = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.dissect(buffer, index, packet, parent)
+
+  -- Store Time Value
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.current = time
+
+  if not packet.visited then
+    cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.current.time.last = time
+  end
 
   -- Epoch Time: Binary
   index, epoch_time = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.epoch_time.dissect(buffer, index, packet, parent)
@@ -2717,11 +2847,25 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_reference_message.fiel
   -- Midnight Reference: Binary
   index, midnight_reference = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.dissect(buffer, index, packet, parent)
 
+  -- Store Midnight Reference Value
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.current = midnight_reference
+
+  if not packet.visited then
+    cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.current.midnight_reference.last = midnight_reference
+  end
+
   -- Time: Binary
   index, time = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.dissect(buffer, index, packet, parent)
 
+  -- Store Time Value
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.current = time
+
+  if not packet.visited then
+    cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.current.time.last = time
+  end
+
   -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Binary Date
   index, trade_date = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.trade_date.dissect(buffer, index, packet, parent)
@@ -3456,6 +3600,18 @@ end
 
 -- Dissect Packet
 cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.data(packet)
+  if not packet.visited then
+    data.midnight_reference.frames[packet.number] = data.midnight_reference.last
+    data.time.frames[packet.number] = data.time.last
+    data.time.frames[packet.number] = data.time.last
+  end
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.current = data.midnight_reference.frames[packet.number]
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.current = data.time.frames[packet.number]
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.current = data.time.frames[packet.number]
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 4 fields
@@ -3477,6 +3633,10 @@ end
 
 -- Initialize Dissector
 function omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.init()
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.midnight_reference.current = nil
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.time.current = nil
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.current = nil
+  cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.conversation.flows = {}
 end
 
 -- Dissector for Cboe EdgxEquities MulticastDepthOfBook Spin 2.41.81

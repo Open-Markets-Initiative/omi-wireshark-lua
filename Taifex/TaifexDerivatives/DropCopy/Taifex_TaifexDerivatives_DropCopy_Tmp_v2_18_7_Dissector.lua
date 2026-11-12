@@ -2819,7 +2819,7 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.transact_time_msg_time_x.fields = 
   index, nanosecond = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.nanosecond.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local transact_time_msg_time_x = UInt64.new(epoch_s_uint_324 * 1000000000 + nanosecond)
+  local transact_time_msg_time_x = UInt64.new(epoch_s_uint_324) * 1000000000 + nanosecond
 
   return index, transact_time_msg_time_x
 end
@@ -2881,7 +2881,7 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.org_trans_time_msg_time_x.fields =
   index, nanosecond = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.nanosecond.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local org_trans_time_msg_time_x = UInt64.new(epoch_s_uint_324 * 1000000000 + nanosecond)
+  local org_trans_time_msg_time_x = UInt64.new(epoch_s_uint_324) * 1000000000 + nanosecond
 
   return index, org_trans_time_msg_time_x
 end

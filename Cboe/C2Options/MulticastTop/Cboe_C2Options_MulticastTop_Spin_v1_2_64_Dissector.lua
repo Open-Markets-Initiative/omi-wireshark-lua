@@ -97,6 +97,23 @@ omi_cboe_c2options_multicasttop_spin_v1_2_64.fields.two_side_update_expanded_sho
 
 -- Cboe C2Options MulticastTop Spin 1.2.64 Generated Fields
 omi_cboe_c2options_multicasttop_spin_v1_2_64.fields.message_index = ProtoField.new("Message Index", "cboe.c2options.multicasttop.spin.v1.2.64.messageindex", ftypes.UINT16)
+omi_cboe_c2options_multicasttop_spin_v1_2_64.fields.timestamp = ProtoField.new("Timestamp", "cboe.c2options.multicasttop.spin.v1.2.64.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Cboe C2Options MulticastTop Spin 1.2.64 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_c2options_multicasttop_spin_v1_2_64.timestamp_format = 2
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -118,6 +135,8 @@ omi_cboe_c2options_multicasttop_spin_v1_2_64.prefs.show_headers = Pref.bool("Sho
 omi_cboe_c2options_multicasttop_spin_v1_2_64.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_c2options_multicasttop_spin_v1_2_64.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cboe_c2options_multicasttop_spin_v1_2_64.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_c2options_multicasttop_spin_v1_2_64.prefs_changed()
 
@@ -137,7 +156,40 @@ function omi_cboe_c2options_multicasttop_spin_v1_2_64.prefs_changed()
   if show.indexes ~= omi_cboe_c2options_multicasttop_spin_v1_2_64.prefs.show_indexes then
     show.indexes = omi_cboe_c2options_multicasttop_spin_v1_2_64.prefs.show_indexes
   end
+  if cboe_c2options_multicasttop_spin_v1_2_64.timestamp_format ~= omi_cboe_c2options_multicasttop_spin_v1_2_64.prefs.timestamp_format then
+    cboe_c2options_multicasttop_spin_v1_2_64.timestamp_format = omi_cboe_c2options_multicasttop_spin_v1_2_64.prefs.timestamp_format
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+cboe_c2options_multicasttop_spin_v1_2_64.conversation = {}
+cboe_c2options_multicasttop_spin_v1_2_64.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+cboe_c2options_multicasttop_spin_v1_2_64.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+cboe_c2options_multicasttop_spin_v1_2_64.conversation.data = function(packet)
+  local key = cboe_c2options_multicasttop_spin_v1_2_64.conversation.key(packet)
+  local data = cboe_c2options_multicasttop_spin_v1_2_64.conversation.flows[key]
+  if data == nil then
+    data = { time = { last = nil, frames = {} } }
+    cboe_c2options_multicasttop_spin_v1_2_64.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+cboe_c2options_multicasttop_spin_v1_2_64.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -1233,6 +1285,16 @@ cboe_c2options_multicasttop_spin_v1_2_64.time = {}
 -- Size: Time
 cboe_c2options_multicasttop_spin_v1_2_64.time.size = 4
 
+-- Store: Time
+cboe_c2options_multicasttop_spin_v1_2_64.time.current = nil
+
+-- Generated: Time
+cboe_c2options_multicasttop_spin_v1_2_64.time.generated = function(value, range, packet, parent)
+  local display = cboe_c2options_multicasttop_spin_v1_2_64.time.display(value)
+  local time = parent:add(omi_cboe_c2options_multicasttop_spin_v1_2_64.fields.time, range, value, display)
+  time:set_generated()
+end
+
 -- Display: Time
 cboe_c2options_multicasttop_spin_v1_2_64.time.display = function(value)
   return "Time: "..value
@@ -1448,6 +1510,75 @@ cboe_c2options_multicasttop_spin_v1_2_64.username.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Timestamp
+cboe_c2options_multicasttop_spin_v1_2_64.timestamp = {}
+
+-- Translate: Timestamp
+cboe_c2options_multicasttop_spin_v1_2_64.timestamp.translate = function(time_offset, stored_time)
+  return UInt64.new(stored_time) * 1000000000 + time_offset
+end
+
+-- Display: Timestamp
+cboe_c2options_multicasttop_spin_v1_2_64.timestamp.display = function(time_offset, stored_time, packet)
+  -- Raw display mode
+  if cboe_c2options_multicasttop_spin_v1_2_64.timestamp_format == 0 then
+    return "Timestamp: "..(stored_time * 1000000000 + time_offset)
+  end
+
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_time + math.floor(time_offset / 1000000000)
+  local fraction = time_offset % 1000000000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_c2options_multicasttop_spin_v1_2_64.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_c2options_multicasttop_spin_v1_2_64.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+    end
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+cboe_c2options_multicasttop_spin_v1_2_64.timestamp.composite = function(buffer, offset, stored_time, packet, parent)
+  local length = cboe_c2options_multicasttop_spin_v1_2_64.time_offset.size
+  local range = buffer(offset, length)
+  local time_offset = range:le_uint()
+  local value = cboe_c2options_multicasttop_spin_v1_2_64.timestamp.translate(time_offset, stored_time)
+  local display = cboe_c2options_multicasttop_spin_v1_2_64.timestamp.display(time_offset, stored_time, packet)
+  parent = parent:add(omi_cboe_c2options_multicasttop_spin_v1_2_64.fields.timestamp, range, value, display)
+
+  cboe_c2options_multicasttop_spin_v1_2_64.time.generated(stored_time, range, packet, parent)
+
+  display = cboe_c2options_multicasttop_spin_v1_2_64.time_offset.display(time_offset)
+  parent:add(omi_cboe_c2options_multicasttop_spin_v1_2_64.fields.time_offset, range, time_offset, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+cboe_c2options_multicasttop_spin_v1_2_64.timestamp.dissect = function(buffer, offset, packet, parent)
+  if cboe_c2options_multicasttop_spin_v1_2_64.timestamp_format ~= 0 then
+    local stored_time = cboe_c2options_multicasttop_spin_v1_2_64.time.current
+
+    if stored_time ~= nil then
+      return cboe_c2options_multicasttop_spin_v1_2_64.timestamp.composite(buffer, offset, stored_time, packet, parent)
+    end
+  end
+
+  return cboe_c2options_multicasttop_spin_v1_2_64.time_offset.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Cboe C2Options MulticastTop Spin 1.2.64
@@ -1476,7 +1607,7 @@ cboe_c2options_multicasttop_spin_v1_2_64.trading_status_message.fields = functio
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_c2options_multicasttop_spin_v1_2_64.symbol.dissect(buffer, index, packet, parent)
@@ -1552,7 +1683,7 @@ cboe_c2options_multicasttop_spin_v1_2_64.top_trade_message.fields = function(buf
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_c2options_multicasttop_spin_v1_2_64.symbol.dissect(buffer, index, packet, parent)
@@ -1671,7 +1802,7 @@ cboe_c2options_multicasttop_spin_v1_2_64.two_side_update_expanded_long_message.f
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_c2options_multicasttop_spin_v1_2_64.symbol.dissect(buffer, index, packet, parent)
@@ -1743,7 +1874,7 @@ cboe_c2options_multicasttop_spin_v1_2_64.two_side_update_expanded_short_message.
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_c2options_multicasttop_spin_v1_2_64.symbol.dissect(buffer, index, packet, parent)
@@ -1813,7 +1944,7 @@ cboe_c2options_multicasttop_spin_v1_2_64.single_side_update_expanded_long_messag
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_c2options_multicasttop_spin_v1_2_64.symbol.dissect(buffer, index, packet, parent)
@@ -1877,7 +2008,7 @@ cboe_c2options_multicasttop_spin_v1_2_64.single_side_update_expanded_short_messa
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c2options_multicasttop_spin_v1_2_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_c2options_multicasttop_spin_v1_2_64.symbol.dissect(buffer, index, packet, parent)
@@ -1988,6 +2119,13 @@ cboe_c2options_multicasttop_spin_v1_2_64.time_message.fields = function(buffer, 
 
   -- Time: Binary
   index, time = cboe_c2options_multicasttop_spin_v1_2_64.time.dissect(buffer, index, packet, parent)
+
+  -- Store Time Value
+  cboe_c2options_multicasttop_spin_v1_2_64.time.current = time
+
+  if not packet.visited then
+    cboe_c2options_multicasttop_spin_v1_2_64.conversation.current.time.last = time
+  end
 
   return index
 end
@@ -2663,6 +2801,14 @@ end
 
 -- Dissect Packet
 cboe_c2options_multicasttop_spin_v1_2_64.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = cboe_c2options_multicasttop_spin_v1_2_64.conversation.data(packet)
+  if not packet.visited then
+    data.time.frames[packet.number] = data.time.last
+  end
+  cboe_c2options_multicasttop_spin_v1_2_64.time.current = data.time.frames[packet.number]
+  cboe_c2options_multicasttop_spin_v1_2_64.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 4 fields
@@ -2684,6 +2830,9 @@ end
 
 -- Initialize Dissector
 function omi_cboe_c2options_multicasttop_spin_v1_2_64.init()
+  cboe_c2options_multicasttop_spin_v1_2_64.time.current = nil
+  cboe_c2options_multicasttop_spin_v1_2_64.conversation.current = nil
+  cboe_c2options_multicasttop_spin_v1_2_64.conversation.flows = {}
 end
 
 -- Dissector for Cboe C2Options MulticastTop Spin 1.2.64

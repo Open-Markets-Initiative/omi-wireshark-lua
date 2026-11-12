@@ -33,7 +33,8 @@ omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.short_sell_price_ch
 omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.cxjequities.multicastdepthofbook.spin.v1.0.6.sideindicator", ftypes.STRING, nil, nil, nil, "Side of the order.")
 omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.spin_response_status = ProtoField.new("Spin Response Status", "cboe.cxjequities.multicastdepthofbook.spin.v1.0.6.spinresponsestatus", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject.")
 omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.symbol = ProtoField.new("Symbol", "cboe.cxjequities.multicastdepthofbook.spin.v1.0.6.symbol", ftypes.STRING, nil, nil, nil, "Symbol (right padded with spaces).")
-omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxjequities.multicastdepthofbook.spin.v1.0.6.timestamp", ftypes.UINT64, nil, nil, nil, "Nanoseconds since epoch.")
+omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxjequities.multicastdepthofbook.spin.v1.0.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since epoch.")
+omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.cxjequities.multicastdepthofbook.spin.v1.0.6.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds since epoch.")
 omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.trading_status = ProtoField.new("Trading Status", "cboe.cxjequities.multicastdepthofbook.spin.v1.0.6.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading status of the session for the symbol.")
 omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.trading_status_flags = ProtoField.new("Trading Status Flags", "cboe.cxjequities.multicastdepthofbook.spin.v1.0.6.tradingstatusflags", ftypes.STRING, nil, nil, nil, "Trading status flags.")
 omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.unit = ProtoField.new("Unit", "cboe.cxjequities.multicastdepthofbook.spin.v1.0.6.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
@@ -60,6 +61,20 @@ omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.trading_status_mess
 omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.message_index = ProtoField.new("Message Index", "cboe.cxjequities.multicastdepthofbook.spin.v1.0.6.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Cboe CxjEquities MulticastDepthOfBook Spin 1.0.6 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -77,6 +92,8 @@ omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.prefs.show_structs = Pref.
 omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.prefs_changed()
 
@@ -92,6 +109,9 @@ function omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.prefs_changed()
   end
   if show.indexes ~= omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.prefs.show_indexes then
     show.indexes = omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.prefs.show_indexes
+  end
+  if cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.timestamp_format ~= omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.prefs.timestamp_format then
+    cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.timestamp_format = omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.prefs.timestamp_format
   end
 end
 
@@ -562,19 +582,20 @@ cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.timestamp = {}
 -- Size: Timestamp
 cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.timestamp.size = 8
 
--- Display: Timestamp
-cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
 -- Dissect: Timestamp
 cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.timestamp
+  if cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.timestamp_format == 3 then field = omi_cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

@@ -75,7 +75,6 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_80.fields.symbol = ProtoFiel
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_80.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.c1options.multicastdepthofbook.pitch.v2.41.80.symbolcondition", ftypes.STRING, nil, nil, nil, "N = Normal, C = Closing Only.")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_80.fields.time = ProtoField.new("Time", "cboe.c1options.multicastdepthofbook.pitch.v2.41.80.time", ftypes.UINT32, nil, nil, nil, "Number of whole seconds elapsed since the start of the current Eastern Time calendar day, derived by converting the current Eastern wall clock time (HH:MM:SS) to seconds. On Daylight Saving Time transition days, Time reflects wall clock seconds and does not adjust for the UTC offset change. On a DST spring-forward day, the maximum value will be 82,799 (23 hours). On a DST fall-back day, values between 3,600 and 7,199 will appear twice. Recipients requiring unambiguous absolute timestamps should use Epoch Time (where available) or Midnight Reference in the Time Reference message.")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_80.fields.time_offset = ProtoField.new("Time Offset", "cboe.c1options.multicastdepthofbook.pitch.v2.41.80.timeoffset", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp.")
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_80.fields.time_reference = ProtoField.new("Time Reference", "cboe.c1options.multicastdepthofbook.pitch.v2.41.80.timereference", ftypes.UINT32, nil, nil, nil, "Number of whole seconds from midnight Eastern time.")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_80.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.c1options.multicastdepthofbook.pitch.v2.41.80.tradecondition", ftypes.STRING, nil, nil, nil, "Options Only (byte not sent in Equities). See Options Trade Condition Codes on page 180 section for details about new codes.")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_80.fields.trade_date = ProtoField.new("Trade Date", "cboe.c1options.multicastdepthofbook.pitch.v2.41.80.tradedate", ftypes.UINT32, nil, nil, nil, "Current Trade Date")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_80.fields.trading_status = ProtoField.new("Trading Status", "cboe.c1options.multicastdepthofbook.pitch.v2.41.80.tradingstatus", ftypes.STRING, nil, nil, nil, "H = Halted, L = Curb Trading (C1 Only), Q = Quote-Only, R = Opening Rotation, T = RTH Trading.")
@@ -1630,29 +1629,6 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_offset.dissect = functio
   local display = cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_offset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_80.fields.time_offset, range, value, display)
-
-  return offset + length, value
-end
-
--- Time Reference
-cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_reference = {}
-
--- Size: Time Reference
-cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_reference.size = 4
-
--- Display: Time Reference
-cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_reference.display = function(value)
-  return "Time Reference: "..value
-end
-
--- Dissect: Time Reference
-cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_reference.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_reference.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_reference.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_80.fields.time_reference, range, value, display)
 
   return offset + length, value
 end
@@ -3713,7 +3689,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_reference_message = {}
 -- Size: Time Reference Message
 cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_reference_message.size =
   cboe_c1options_multicastdepthofbook_pitch_v2_41_80.midnight_reference.size + 
-  cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_reference.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_offset.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_41_80.trade_date.size
 
@@ -3736,8 +3712,15 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_reference_message.fields
     cboe_c1options_multicastdepthofbook_pitch_v2_41_80.conversation.current.midnight_reference.last = midnight_reference
   end
 
-  -- Time Reference: Binary
-  index, time_reference = cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time_reference.dissect(buffer, index, packet, parent)
+  -- Time: Binary
+  index, time = cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time.dissect(buffer, index, packet, parent)
+
+  -- Store Time Value
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time.current = time
+
+  if not packet.visited then
+    cboe_c1options_multicastdepthofbook_pitch_v2_41_80.conversation.current.time.last = time
+  end
 
   -- Time Offset: Time Offset
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_80.timestamp.dissect(buffer, index, packet, parent)
@@ -4120,8 +4103,10 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_80.packet.dissect = function(buf
   if not packet.visited then
     data.midnight_reference.frames[packet.number] = data.midnight_reference.last
     data.time.frames[packet.number] = data.time.last
+    data.time.frames[packet.number] = data.time.last
   end
   cboe_c1options_multicastdepthofbook_pitch_v2_41_80.midnight_reference.current = data.midnight_reference.frames[packet.number]
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time.current = data.time.frames[packet.number]
   cboe_c1options_multicastdepthofbook_pitch_v2_41_80.time.current = data.time.frames[packet.number]
   cboe_c1options_multicastdepthofbook_pitch_v2_41_80.conversation.current = data
 
