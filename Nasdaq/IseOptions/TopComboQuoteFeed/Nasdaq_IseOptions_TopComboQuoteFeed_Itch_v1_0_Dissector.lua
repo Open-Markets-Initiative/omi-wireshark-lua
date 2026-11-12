@@ -39,13 +39,13 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.expiration_day = ProtoF
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.expirationmonth", ftypes.UINT8, nil, nil, nil, "Expiration Month of the option (1-12)")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.expirationyear", ftypes.UINT8, nil, nil, nil, "Last two digits of the year of the option expiration")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.explicitstrikeprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the explicit strike price of the option. Refer to Data Types for field processing notes.")
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.first = ProtoField.new("First", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.first", ftypes.UINT64, nil, nil, nil, "Opening price for the day")
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.high = ProtoField.new("High", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.high", ftypes.UINT64, nil, nil, nil, "High price for the day.")
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.first = ProtoField.new("First", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.first", ftypes.DOUBLE, nil, nil, nil, "Opening price for the day")
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.high = ProtoField.new("High", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.high", ftypes.DOUBLE, nil, nil, nil, "High price for the day.")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.last_price = ProtoField.new("Last Price", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lastprice", ftypes.DOUBLE, nil, nil, nil, "Most recent price.")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.leg_id = ProtoField.new("Leg Id", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.legid", ftypes.UINT8, nil, nil, nil, "Leg identifier within this strategy. This is an exchange-assigned 0-based index. E.g. Nth leg has LegId=N-1.")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.leg_information = ProtoField.new("Leg Information", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.leginformation", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.legratio", ftypes.UINT32)
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.low = ProtoField.new("Low", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.low", ftypes.UINT64, nil, nil, nil, "Low price for the day.")
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.low = ProtoField.new("Low", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.low", ftypes.DOUBLE, nil, nil, nil, "Low price for the day.")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.market_size = ProtoField.new("Market Size", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.marketsize", ftypes.UINT32, nil, nil, nil, "The aggregate market size.")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.messagelength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
@@ -784,11 +784,17 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.first.display = function(value)
   return "First: "..value
 end
 
+-- Translate: First
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.first.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: First
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.first.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.first.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:int64()
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.first.translate(raw)
   local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.first.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.first, range, value, display)
@@ -807,11 +813,17 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high.display = function(value)
   return "High: "..value
 end
 
+-- Translate: High
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: High
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:int64()
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high.translate(raw)
   local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.high, range, value, display)
@@ -905,11 +917,17 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.display = function(value)
   return "Low: "..value
 end
 
+-- Translate: Low
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Low
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:int64()
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.translate(raw)
   local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.low, range, value, display)

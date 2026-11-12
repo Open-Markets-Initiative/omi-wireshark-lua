@@ -3238,7 +3238,9 @@ udp_table:add_for_decode_as(omi_nasdaq_psxequities_lastsale_itch_v2_1_2026)
 -- Protocol:
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1.2026
+--   Since: 2.1.2022
 --   Date: Friday, February 13, 2026
+--   Specification: PLSSpecification2.1.pdf
 --   Specification: PLSSpecification2.1.pdf
 --
 -- Script:

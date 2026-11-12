@@ -15,14 +15,14 @@ local nasdaq_phlxoptions_depthofmarket_itch_v1_5 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq PhlxOptions DepthOfMarket Itch 1.5 Fields
-omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.ask = ProtoField.new("Ask", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.ask", ftypes.UINT32, nil, nil, nil, "NOTE: When converted to a decimal format, this price is in fixed point format with 6 whole number places followed by 4 decimal digits. The display ask price of the new quote.")
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.ask = ProtoField.new("Ask", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.ask", ftypes.DOUBLE, nil, nil, nil, "NOTE: When converted to a decimal format, this price is in fixed point format with 6 whole number places followed by 4 decimal digits. The display ask price of the new quote.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.askprice", ftypes.DOUBLE, nil, nil, nil, "The display ask price of the new quote.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.ask_reference_number_delta = ProtoField.new("Ask Reference Number Delta", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.askreferencenumberdelta", ftypes.UINT32, nil, nil, nil, "The ask reference number delta associated with the new quote")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.asksize", ftypes.UINT32, nil, nil, nil, "The ask contracts of the new quote.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.auctionid", ftypes.UINT32, nil, nil, nil, "Uniquely identifies the Auction for the trading day.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.auctiontype", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.base_reference_number = ProtoField.new("Base Reference Number", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.basereferencenumber", ftypes.UINT64, nil, nil, nil, "The base reference number")
-omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.bid = ProtoField.new("Bid", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.bid", ftypes.UINT32, nil, nil, nil, "The display bid price of the new quote. NOTE: When converted to a decimal format, this price is in fixed point format with 6 whole number places followed by 4 decimal digits.")
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.bid = ProtoField.new("Bid", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.bid", ftypes.DOUBLE, nil, nil, nil, "The display bid price of the new quote. NOTE: When converted to a decimal format, this price is in fixed point format with 6 whole number places followed by 4 decimal digits.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.bidprice", ftypes.DOUBLE, nil, nil, nil, "NOTE: When converted to a decimal format, this price is in fixed point format with 3 whole number places followed by 2 decimal digits. The display bid price of the new quote.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.bid_reference_number_delta = ProtoField.new("Bid Reference Number Delta", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.bidreferencenumberdelta", ftypes.UINT32, nil, nil, nil, "The bid reference number delta associated with the new quote.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.bidsize", ftypes.UINT32, nil, nil, nil, "The bid contracts of the new quote.")
@@ -248,11 +248,17 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask.display = function(value)
   return "Ask: "..value
 end
 
+-- Translate: Ask
+nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Ask
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask.translate(raw)
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.ask, range, value, display)
@@ -421,11 +427,17 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid.display = function(value)
   return "Bid: "..value
 end
 
+-- Translate: Bid
+nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Bid
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid.translate(raw)
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.bid, range, value, display)

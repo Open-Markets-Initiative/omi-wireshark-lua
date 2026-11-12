@@ -1955,7 +1955,7 @@ nasdaq_phlxoptions_orders_itch_v1_92.timestamp.fields = function(buffer, offset,
   index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_92.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+  local timestamp = UInt64.new(seconds) * 1000000000 + nanoseconds
 
   return index, timestamp
 end

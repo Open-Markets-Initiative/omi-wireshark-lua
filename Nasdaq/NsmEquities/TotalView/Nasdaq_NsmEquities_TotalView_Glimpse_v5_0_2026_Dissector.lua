@@ -3155,6 +3155,7 @@ tcp_table:add_for_decode_as(omi_nasdaq_nsmequities_totalview_glimpse_v5_0_2026)
 -- Protocol:
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 5.0.2026
+--   Since: 5.0.2024
 --   Date: Thursday, June 11, 2026
 --   Specification: 9-14-26 NQGlimpseSpecification.pdf
 --   Specification: Nasdaq Glimpse (5.0 - 2024).pdf

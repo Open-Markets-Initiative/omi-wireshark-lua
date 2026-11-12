@@ -4992,7 +4992,9 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_nlsplus_itch_v3_0)
 -- Protocol:
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.0
+--   Since: 3.0.2023.06.09
 --   Date: Tuesday, May 6, 2025
+--   Specification: NLSPlusSpecification3.0.pdf
 --   Specification: NLSPlusSpecification3.0.pdf
 --
 -- Script:

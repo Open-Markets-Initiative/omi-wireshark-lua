@@ -3144,6 +3144,7 @@ udp_table:add_for_decode_as(omi_nasdaq_psxequities_lastsale_itch_v2_1_2018)
 --   Version: 2.1.2018
 --   Date: Thursday, May 3, 2018
 --   Specification: PLSSpecification2.1.pdf
+--   Specification: PLSSpecification2.1.pdf
 --
 -- Script:
 --   Compiler: 2.0

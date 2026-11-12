@@ -17,7 +17,7 @@ local nasdaq_nomoptions_itto_itch_v4_0_2025 = {}
 -- Nasdaq NomOptions Itto Itch 4.0.2025 Fields
 omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.2025.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nomoptions.itto.itch.v4.0.2025.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
-omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.ask = ProtoField.new("Ask", "nasdaq.nomoptions.itto.itch.v4.0.2025.ask", ftypes.UINT32, nil, nil, nil, "The display ask price of the new quote.")
+omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.ask = ProtoField.new("Ask", "nasdaq.nomoptions.itto.itch.v4.0.2025.ask", ftypes.DOUBLE, nil, nil, nil, "The display ask price of the new quote.")
 omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.nomoptions.itto.itch.v4.0.2025.askpricelong", ftypes.DOUBLE, nil, nil, nil, "The display ask price of the replaced quote.")
 omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.ask_price_short = ProtoField.new("Ask Price Short", "nasdaq.nomoptions.itto.itch.v4.0.2025.askpriceshort", ftypes.DOUBLE, nil, nil, nil, "The display ask price of the new quote. NOTE: When converted to a decimal format, this price is in fixed point format with 3 whole number places followed by 2 decimal digits.")
 omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.ask_reference_number = ProtoField.new("Ask Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.2025.askreferencenumber", ftypes.UINT64, nil, nil, nil, "The ask reference number associated with the new quote")
@@ -25,7 +25,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.ask_size_long = ProtoField.new(
 omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.ask_size_short = ProtoField.new("Ask Size Short", "nasdaq.nomoptions.itto.itch.v4.0.2025.asksizeshort", ftypes.UINT16, nil, nil, nil, "The ask contracts of the new quote.")
 omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.nomoptions.itto.itch.v4.0.2025.auctionid", ftypes.UINT32, nil, nil, nil, "Uniquely identifies the Auction for the trading day.")
 omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.nomoptions.itto.itch.v4.0.2025.auctiontype", ftypes.STRING, nil, nil, nil, "Type of Auction:")
-omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.bid = ProtoField.new("Bid", "nasdaq.nomoptions.itto.itch.v4.0.2025.bid", ftypes.UINT32, nil, nil, nil, "The display bid price of the new quote.")
+omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.bid = ProtoField.new("Bid", "nasdaq.nomoptions.itto.itch.v4.0.2025.bid", ftypes.DOUBLE, nil, nil, nil, "The display bid price of the new quote.")
 omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.nomoptions.itto.itch.v4.0.2025.bidpricelong", ftypes.DOUBLE, nil, nil, nil, "The display bid price of the replaced quote.")
 omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.bid_price_short = ProtoField.new("Bid Price Short", "nasdaq.nomoptions.itto.itch.v4.0.2025.bidpriceshort", ftypes.DOUBLE, nil, nil, nil, "The display bid price of the new quote. NOTE: When converted to a decimal format, this price is in fixed point format with 3 whole number places followed by 2 decimal digits.")
 omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.bid_reference_number = ProtoField.new("Bid Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.2025.bidreferencenumber", ftypes.UINT64, nil, nil, nil, "The bid reference number associated with the new quote.")
@@ -386,11 +386,17 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.ask.display = function(value)
   return "Ask: "..value
 end
 
+-- Translate: Ask
+nasdaq_nomoptions_itto_itch_v4_0_2025.ask.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Ask
 nasdaq_nomoptions_itto_itch_v4_0_2025.ask.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0_2025.ask.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_nomoptions_itto_itch_v4_0_2025.ask.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0_2025.ask.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.ask, range, value, display)
@@ -589,11 +595,17 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.bid.display = function(value)
   return "Bid: "..value
 end
 
+-- Translate: Bid
+nasdaq_nomoptions_itto_itch_v4_0_2025.bid.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Bid
 nasdaq_nomoptions_itto_itch_v4_0_2025.bid.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0_2025.bid.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_nomoptions_itto_itch_v4_0_2025.bid.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0_2025.bid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0_2025.fields.bid, range, value, display)

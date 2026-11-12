@@ -3510,6 +3510,7 @@ tcp_table:add_for_decode_as(omi_nasdaq_ntxequities_orders_ouch_v4_2)
 -- Protocol:
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 4.2
+--   Since: 4.2.2018
 --   Date: Monday, July 8, 2019
 --   Specification: NTXOUCH42.pdf
 --   Specification: Nasdaq BX OUCH.pdf

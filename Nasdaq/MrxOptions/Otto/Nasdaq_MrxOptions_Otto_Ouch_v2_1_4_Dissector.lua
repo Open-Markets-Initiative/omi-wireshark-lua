@@ -1,0 +1,7754 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Nasdaq MrxOptions Otto Ouch 2.1.4 Protocol
+local omi_nasdaq_mrxoptions_otto_ouch_v2_1_4 = Proto("Omi.Nasdaq.MrxOptions.Otto.Ouch.v2.1.4", "Nasdaq MrxOptions Otto Ouch 2.1.4")
+
+-- Protocol table
+local nasdaq_mrxoptions_otto_ouch_v2_1_4 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Nasdaq MrxOptions Otto Ouch 2.1.4 Fields
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.mrxoptions.otto.ouch.v2.1.4.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.mrxoptions.otto.ouch.v2.1.4.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.alloc_qty = ProtoField.new("Alloc Qty", "nasdaq.mrxoptions.otto.ouch.v2.1.4.allocqty", ftypes.UINT32, nil, nil, nil, "Quantity being allocated to the specified clearing configuration")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.alo_inst = ProtoField.new("Alo Inst", "nasdaq.mrxoptions.otto.ouch.v2.1.4.aloinst", ftypes.STRING, nil, nil, nil, "N=Not ALO, R=Re-price, C=Cancel")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.auction_alloc_pct = ProtoField.new("Auction Alloc Pct", "nasdaq.mrxoptions.otto.ouch.v2.1.4.auctionallocpct", ftypes.UINT8, nil, nil, nil, "Order Allocation percentage 0 <= n <= 40. 0 for Simple and Complex Solicitation.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.auction_event = ProtoField.new("Auction Event", "nasdaq.mrxoptions.otto.ouch.v2.1.4.auctionevent", ftypes.STRING, nil, nil, nil, "U-Auction Update")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.auctionid", ftypes.UINT32, nil, nil, nil, "Identifies the Auction being responded. 0 if this order is not an auction response.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.auctiontype", ftypes.STRING, nil, nil, nil, "See Auction Type Field")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.best_response_price = ProtoField.new("Best Response Price", "nasdaq.mrxoptions.otto.ouch.v2.1.4.bestresponseprice", ftypes.DOUBLE, nil, nil, nil, "Best response price; 0 if not disclosed. Note, BestResponsePrice of 0 is valid for Exposure auctions if BestResponseSize is not 0")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.best_response_size = ProtoField.new("Best Response Size", "nasdaq.mrxoptions.otto.ouch.v2.1.4.bestresponsesize", ftypes.UINT32, nil, nil, nil, "Aggregated quantity at Best response price; 0 if not disclosed")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cancel_reason = ProtoField.new("Cancel Reason", "nasdaq.mrxoptions.otto.ouch.v2.1.4.cancelreason", ftypes.STRING, nil, nil, nil, "See Cancel Reason")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.capacity = ProtoField.new("Capacity", "nasdaq.mrxoptions.otto.ouch.v2.1.4.capacity", ftypes.STRING, nil, nil, nil, "See Order Capacity Field")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.clordid", ftypes.STRING, nil, nil, nil, "See Client Order Id")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cl_request_id = ProtoField.new("Cl Request Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.clrequestid", ftypes.STRING, nil, nil, nil, "Client's identifier of the request. It is echoed back with either Mass Cancel Response or Reject")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.clearing_account = ProtoField.new("Clearing Account", "nasdaq.mrxoptions.otto.ouch.v2.1.4.clearingaccount", ftypes.STRING, nil, nil, nil, "Sub-account/MM Identifier at the registered exchange")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the client")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.closing_only = ProtoField.new("Closing Only", "nasdaq.mrxoptions.otto.ouch.v2.1.4.closingonly", ftypes.STRING, nil, nil, nil, "orders can have open position in the series")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.closing_type = ProtoField.new("Closing Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.closingtype", ftypes.STRING, nil, nil, nil, "N=Normal Hours, L=Late Hours, W=WCO Early Closing at 12:00 Noon")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cmta = ProtoField.new("Cmta", "nasdaq.mrxoptions.otto.ouch.v2.1.4.cmta", ftypes.UINT32)
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.complex_directory_legs = ProtoField.new("Complex Directory Legs", "nasdaq.mrxoptions.otto.ouch.v2.1.4.complexdirectorylegs", ftypes.STRING, nil, nil, nil, "Leg Definitions (2-10)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.complex_instrument_legs = ProtoField.new("Complex Instrument Legs", "nasdaq.mrxoptions.otto.ouch.v2.1.4.complexinstrumentlegs", ftypes.STRING, nil, nil, nil, "Leg Definitions (2-10)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_capacity = ProtoField.new("Contra Capacity", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contracapacity", ftypes.STRING, nil, nil, nil, "See Order Capacity Field")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_cl_ord_id = ProtoField.new("Contra Cl Ord Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contraclordid", ftypes.STRING, nil, nil, nil, "See Client Order Id")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_clearing_account = ProtoField.new("Contra Clearing Account", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contraclearingaccount", ftypes.STRING, nil, nil, nil, "Sub-account/MM Identifier at the registered")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_cmta = ProtoField.new("Contra Cmta", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contracmta", ftypes.UINT32, nil, nil, nil, "CMTA")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_cust_acct = ProtoField.new("Contra Cust Acct", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contracustacct", ftypes.STRING, nil, nil, nil, "Account on the customer system (pass-through)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_occ_account = ProtoField.new("Contra Occ Account", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contraoccaccount", ftypes.UINT32, nil, nil, nil, "OCC # to use for clearing (give up)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_order_id = ProtoField.new("Contra Order Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contraorderid", ftypes.UINT64, nil, nil, nil, "Day-unique Order identifier assigned by exchange")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_order_type = ProtoField.new("Contra Order Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contraordertype", ftypes.STRING, nil, nil, nil, "L=Limit")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_position_effect_mask = ProtoField.new("Contra Position Effect Mask", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contrapositioneffectmask", ftypes.UINT16, nil, nil, nil, "See Position Effect Mask Field")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_price = ProtoField.new("Contra Price", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contraprice", ftypes.DOUBLE, nil, nil, nil, "Limit price. Should be set to 0 if Order Type = M.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_quantity = ProtoField.new("Contra Quantity", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contraquantity", ftypes.UINT32, nil, nil, nil, "Number of contracts")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_stock_leg_mpid = ProtoField.new("Contra Stock Leg Mpid", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contrastocklegmpid", ftypes.STRING, nil, nil, nil, "Give-up for the stock leg")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_stock_leg_short_sale = ProtoField.new("Contra Stock Leg Short Sale", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contrastocklegshortsale", ftypes.STRING, nil, nil, nil, "N=Not Applicable")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contract_size = ProtoField.new("Contract Size", "nasdaq.mrxoptions.otto.ouch.v2.1.4.contractsize", ftypes.UINT16, nil, nil, nil, "Underlying Deliverable size")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cross_id = ProtoField.new("Cross Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.crossid", ftypes.UINT32, nil, nil, nil, "CrossId of the trade being modified")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.crosstype", ftypes.STRING, nil, nil, nil, "A=Auction, Q=QCC, C=CCC")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cust_acct = ProtoField.new("Cust Acct", "nasdaq.mrxoptions.otto.ouch.v2.1.4.custacct", ftypes.STRING, nil, nil, nil, "Account on the customer system (pass-through)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.mrxoptions.otto.ouch.v2.1.4.debugtext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.disclosure_mask = ProtoField.new("Disclosure Mask", "nasdaq.mrxoptions.otto.ouch.v2.1.4.disclosuremask", ftypes.UINT8, nil, nil, nil, "See Disclosure Mask Field")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.display_high_qty = ProtoField.new("Display High Qty", "nasdaq.mrxoptions.otto.ouch.v2.1.4.displayhighqty", ftypes.UINT16, nil, nil, nil, "If DisplayMethod = Random")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.display_low_qty = ProtoField.new("Display Low Qty", "nasdaq.mrxoptions.otto.ouch.v2.1.4.displaylowqty", ftypes.UINT16, nil, nil, nil, "If DisplayMethod = Random")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.display_method = ProtoField.new("Display Method", "nasdaq.mrxoptions.otto.ouch.v2.1.4.displaymethod", ftypes.STRING, nil, nil, nil, "I=Initial, R=Random, N=None")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.display_qty = ProtoField.new("Display Qty", "nasdaq.mrxoptions.otto.ouch.v2.1.4.displayqty", ftypes.UINT16, nil, nil, nil, "Initial Display Quantity")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.display_when = ProtoField.new("Display When", "nasdaq.mrxoptions.otto.ouch.v2.1.4.displaywhen", ftypes.STRING, nil, nil, nil, "I=Immediate, E=Exhaust, N=N/A")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.effective_time = ProtoField.new("Effective Time", "nasdaq.mrxoptions.otto.ouch.v2.1.4.effectivetime", ftypes.UINT64, nil, nil, nil, "Agreed upon time for the stopped price. UTC time in milliseconds.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.event_code = ProtoField.new("Event Code", "nasdaq.mrxoptions.otto.ouch.v2.1.4.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.event_source = ProtoField.new("Event Source", "nasdaq.mrxoptions.otto.ouch.v2.1.4.eventsource", ftypes.STRING, nil, nil, nil, "A=Matching Engine, M=Manual Trade Entry, U=Trade Modification (user), C=Trade Modification (contra-side user), E=Trade Modification (exchange), B=Trade Bust (exchange)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.exec_flag = ProtoField.new("Exec Flag", "nasdaq.mrxoptions.otto.ouch.v2.1.4.execflag", ftypes.STRING, nil, nil, nil, "0=None, 1=AON")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.expir_day = ProtoField.new("Expir Day", "nasdaq.mrxoptions.otto.ouch.v2.1.4.expirday", ftypes.UINT8, nil, nil, nil, "Expiration Day (1-31)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.expir_mon = ProtoField.new("Expir Mon", "nasdaq.mrxoptions.otto.ouch.v2.1.4.expirmon", ftypes.UINT8, nil, nil, nil, "Expiration Month (1-12)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.expir_year = ProtoField.new("Expir Year", "nasdaq.mrxoptions.otto.ouch.v2.1.4.expiryear", ftypes.UINT8, nil, nil, nil, "Expiration Year (less 2000)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.firm_id = ProtoField.new("Firm Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.firmid", ftypes.STRING, nil, nil, nil, "Firm ID (e.g. ABCD, 123A)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.flash_inst = ProtoField.new("Flash Inst", "nasdaq.mrxoptions.otto.ouch.v2.1.4.flashinst", ftypes.STRING, nil, nil, nil, "Auction (DNF) - Only non-customer orders can opt out of Flash Auction This instruction is ignored for complex orders")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.instrument_id = ProtoField.new("Instrument Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.instrumentid", ftypes.UINT32, nil, nil, nil, "Instrument ID, as specified by Option Directory notifications")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.instrument_type = ProtoField.new("Instrument Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.instrumenttype", ftypes.STRING, nil, nil, nil, "A=All, O=Simple Instrument, C=Standard Combination, S=Stock Combination")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.iso = ProtoField.new("Iso", "nasdaq.mrxoptions.otto.ouch.v2.1.4.iso", ftypes.STRING, nil, nil, nil, "N=Not ISO, I=ISO")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.kill_action = ProtoField.new("Kill Action", "nasdaq.mrxoptions.otto.ouch.v2.1.4.killaction", ftypes.STRING, nil, nil, nil, "delete all open orders")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.leg_id = ProtoField.new("Leg Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.legid", ftypes.UINT8, nil, nil, nil, "0-based LegId within complex instrument identified by the InstrumentId field. Only meaningful for OrdExecType C or D.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.leg_instrument_id = ProtoField.new("Leg Instrument Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.leginstrumentid", ftypes.UINT32, nil, nil, nil, "Leg Instrument ID. Only populated for OrdExecType=C. Zero otherwise.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.mrxoptions.otto.ouch.v2.1.4.legratio", ftypes.UINT16, nil, nil, nil, "1 <= n <= 9,999")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.leg_side = ProtoField.new("Leg Side", "nasdaq.mrxoptions.otto.ouch.v2.1.4.legside", ftypes.STRING, nil, nil, nil, "B=Buy, S=Sell")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.leg_type = ProtoField.new("Leg Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.legtype", ftypes.STRING, nil, nil, nil, "O=Option, S=Stock")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.liquidity_ind = ProtoField.new("Liquidity Ind", "nasdaq.mrxoptions.otto.ouch.v2.1.4.liquidityind", ftypes.UINT8, nil, nil, nil, "See Liquidity (Maker/Taker) Field Codes")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.match_id = ProtoField.new("Match Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.matchid", ftypes.UINT32, nil, nil, nil, "MatchId of the trade to be modified")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.min_qty = ProtoField.new("Min Qty", "nasdaq.mrxoptions.otto.ouch.v2.1.4.minqty", ftypes.UINT32, nil, nil, nil, "0 or Quantity")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.mpv = ProtoField.new("Mpv", "nasdaq.mrxoptions.otto.ouch.v2.1.4.mpv", ftypes.STRING, nil, nil, nil, "E=Penny Everywhere, S=Scaled, P=Penny Pilot")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.num_canceled = ProtoField.new("Num Canceled", "nasdaq.mrxoptions.otto.ouch.v2.1.4.numcanceled", ftypes.UINT32, nil, nil, nil, "Number of order canceled")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.num_legs = ProtoField.new("Num Legs", "nasdaq.mrxoptions.otto.ouch.v2.1.4.numlegs", ftypes.UINT8, nil, nil, nil, "Number or legs (2-10)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.num_pending = ProtoField.new("Num Pending", "nasdaq.mrxoptions.otto.ouch.v2.1.4.numpending", ftypes.UINT32, nil, nil, nil, "Number of order where cancelation is pending")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.num_splits = ProtoField.new("Num Splits", "nasdaq.mrxoptions.otto.ouch.v2.1.4.numsplits", ftypes.UINT16, nil, nil, nil, "Number of parties this trade is being split into (1 <= n <= 10)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.occ_account = ProtoField.new("Occ Account", "nasdaq.mrxoptions.otto.ouch.v2.1.4.occaccount", ftypes.UINT32, nil, nil, nil, "OCC # to use for clearing (give up)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.open_close = ProtoField.new("Open Close", "nasdaq.mrxoptions.otto.ouch.v2.1.4.openclose", ftypes.STRING, nil, nil, nil, "Open = \"O\" Closed = \"C\" Carry Forward = Blank Space")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.option_type = ProtoField.new("Option Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.optiontype", ftypes.STRING, nil, nil, nil, "C=Call, P=Put")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.ord_exec_type = ProtoField.new("Ord Exec Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.ordexectype", ftypes.STRING, nil, nil, nil, "Type of the execution being reported: instrument (option) instrument order order")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_capacity = ProtoField.new("Order Capacity", "nasdaq.mrxoptions.otto.ouch.v2.1.4.ordercapacity", ftypes.STRING, nil, nil, nil, "See Order Capacity Field")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_id = ProtoField.new("Order Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.orderid", ftypes.UINT64, nil, nil, nil, "Day-unique Order identifier assigned by exchange")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_type = ProtoField.new("Order Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.ordertype", ftypes.STRING, nil, nil, nil, "L=Limit, M=Market")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.origclordid", ftypes.STRING, nil, nil, nil, "Client Order Identifier of the order to be replaced. If no open order with such identifier is found, request is rejected.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.orig_order_id = ProtoField.new("Orig Order Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.origorderid", ftypes.UINT64, nil, nil, nil, "Exchange ID of the replaced order")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.mrxoptions.otto.ouch.v2.1.4.packetlength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.password = ProtoField.new("Password", "nasdaq.mrxoptions.otto.ouch.v2.1.4.password", ftypes.STRING, nil, nil, nil, "Login password")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.pending_msg_type = ProtoField.new("Pending Msg Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.pendingmsgtype", ftypes.STRING, nil, nil, nil, "Type of the message placed in pending state")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.pending_reason = ProtoField.new("Pending Reason", "nasdaq.mrxoptions.otto.ouch.v2.1.4.pendingreason", ftypes.STRING, nil, nil, nil, "A=Request In Progress")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.persist_inst = ProtoField.new("Persist Inst", "nasdaq.mrxoptions.otto.ouch.v2.1.4.persistinst", ftypes.STRING, nil, nil, nil, "N=Do not persist, P=Persist (Reinstate on System Failure)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.position_effect_mask = ProtoField.new("Position Effect Mask", "nasdaq.mrxoptions.otto.ouch.v2.1.4.positioneffectmask", ftypes.UINT16, nil, nil, nil, "See Position Effect Mask Field")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.preferred_party = ProtoField.new("Preferred Party", "nasdaq.mrxoptions.otto.ouch.v2.1.4.preferredparty", ftypes.STRING, nil, nil, nil, "IFI of the preferred Market Maker. Blank if none.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.price = ProtoField.new("Price", "nasdaq.mrxoptions.otto.ouch.v2.1.4.price", ftypes.DOUBLE, nil, nil, nil, "Limit price. Should be set to 0 if Order Type = M.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.price_protection = ProtoField.new("Price Protection", "nasdaq.mrxoptions.otto.ouch.v2.1.4.priceprotection", ftypes.STRING, nil, nil, nil, "L=Local Market, N=National Market")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_capacity = ProtoField.new("Primary Capacity", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primarycapacity", ftypes.STRING, nil, nil, nil, "See Order Capacity Field")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_cl_ord_id = ProtoField.new("Primary Cl Ord Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primaryclordid", ftypes.STRING, nil, nil, nil, "See Client Order Id")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_clearing_account = ProtoField.new("Primary Clearing Account", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primaryclearingaccount", ftypes.STRING, nil, nil, nil, "Sub-account/MM Identifier at the registered")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_cmta = ProtoField.new("Primary Cmta", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primarycmta", ftypes.UINT32, nil, nil, nil, "CMTA")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_cust_acct = ProtoField.new("Primary Cust Acct", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primarycustacct", ftypes.STRING, nil, nil, nil, "Account on the customer system (pass-through)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_occ_account = ProtoField.new("Primary Occ Account", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primaryoccaccount", ftypes.UINT32, nil, nil, nil, "OCC # to use for clearing (give up)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_order_id = ProtoField.new("Primary Order Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primaryorderid", ftypes.UINT64, nil, nil, nil, "Day-unique Order identifier assigned by exchange")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_position_effect_mask = ProtoField.new("Primary Position Effect Mask", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primarypositioneffectmask", ftypes.UINT16, nil, nil, nil, "See Position Effect Mask Field")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_price = ProtoField.new("Primary Price", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primaryprice", ftypes.DOUBLE, nil, nil, nil, "Limit price. Primary Side of a Cross order cannot be")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_quantity = ProtoField.new("Primary Quantity", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primaryquantity", ftypes.UINT32, nil, nil, nil, "Number of contracts")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_stock_leg_mpid = ProtoField.new("Primary Stock Leg Mpid", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primarystocklegmpid", ftypes.STRING, nil, nil, nil, "Give-up for the stock leg")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_stock_leg_short_sale = ProtoField.new("Primary Stock Leg Short Sale", "nasdaq.mrxoptions.otto.ouch.v2.1.4.primarystocklegshortsale", ftypes.STRING, nil, nil, nil, "N=Not Applicable")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.product_id = ProtoField.new("Product Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.productid", ftypes.UINT16, nil, nil, nil, "Product (Underlying) ID, as specified by Option Directory notifications. Must be populated if Scope=P and UnderlyingSymbol not populated.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.product_name = ProtoField.new("Product Name", "nasdaq.mrxoptions.otto.ouch.v2.1.4.productname", ftypes.STRING, nil, nil, nil, "Product (Underlying) name; must be provided if ProductID = 0")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.quantity = ProtoField.new("Quantity", "nasdaq.mrxoptions.otto.ouch.v2.1.4.quantity", ftypes.UINT32, nil, nil, nil, "Number of contracts")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.quantity_short = ProtoField.new("Quantity Short", "nasdaq.mrxoptions.otto.ouch.v2.1.4.quantityshort", ftypes.UINT16, nil, nil, nil, "Number of contracts")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.ref_match_id = ProtoField.new("Ref Match Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.refmatchid", ftypes.UINT32, nil, nil, nil, "For TransType=C indicates MatchId of the original")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.reject_code = ProtoField.new("Reject Code", "nasdaq.mrxoptions.otto.ouch.v2.1.4.rejectcode", ftypes.UINT16, nil, nil, nil, "Reason for the reject")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.reject_msg_type = ProtoField.new("Reject Msg Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.rejectmsgtype", ftypes.STRING, nil, nil, nil, "Type of the message being rejected")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.mrxoptions.otto.ouch.v2.1.4.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.mrxoptions.otto.ouch.v2.1.4.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.mrxoptions.otto.ouch.v2.1.4.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.scope = ProtoField.new("Scope", "nasdaq.mrxoptions.otto.ouch.v2.1.4.scope", ftypes.STRING, nil, nil, nil, "Scope of the deletion request: specified FirmID/ProductID/InstrumentType (requires ProductID). InstrumentID must be set to 0. for the specified FirmID/InstrumentID (requires InstrumentID). ProductID must be set to 0. specified FirmID/InstrumentType. ProductId and InstrumentId must be set to zero(0).")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.mrxoptions.otto.ouch.v2.1.4.securitysymbol", ftypes.STRING, nil, nil, nil, "Industry assigned security symbol for the option")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.side = ProtoField.new("Side", "nasdaq.mrxoptions.otto.ouch.v2.1.4.side", ftypes.STRING, nil, nil, nil, "B=Buy, S=Sell")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.stock_leg_mpid = ProtoField.new("Stock Leg Mpid", "nasdaq.mrxoptions.otto.ouch.v2.1.4.stocklegmpid", ftypes.STRING, nil, nil, nil, "Give-up for the stock leg")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.stock_leg_short_sale = ProtoField.new("Stock Leg Short Sale", "nasdaq.mrxoptions.otto.ouch.v2.1.4.stocklegshortsale", ftypes.STRING, nil, nil, nil, "If this is a multi-leg order for a stock combo where stock leg is on the Sell side StockLegShortSale may be set to H or E. In all other cases value N should be used.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.stock_venue = ProtoField.new("Stock Venue", "nasdaq.mrxoptions.otto.ouch.v2.1.4.stockvenue", ftypes.STRING, nil, nil, nil, "See Stock Execution Venues")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.mrxoptions.otto.ouch.v2.1.4.strikeprice", ftypes.DOUBLE)
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.subscription = ProtoField.new("Subscription", "nasdaq.mrxoptions.otto.ouch.v2.1.4.subscription", ftypes.STRING, nil, nil, nil, "A list of notification types to be included in the current session. This field can contain 0 or more types and should be padded with spaces on the right: S=Simple Instrument Directory, s=Complex Instrument Directory, H=Instrument Trading Action, A=Auction Notification, T=Trade Details (only for the OTTO connection the subscription request was sent).")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.system_partition = ProtoField.new("System Partition", "nasdaq.mrxoptions.otto.ouch.v2.1.4.systempartition", ftypes.UINT8, nil, nil, nil, "For future use")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.target_firm_id = ProtoField.new("Target Firm Id", "nasdaq.mrxoptions.otto.ouch.v2.1.4.targetfirmid", ftypes.STRING, nil, nil, nil, "Firm ID being targeted by the Kill Switch Request")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.tif = ProtoField.new("Tif", "nasdaq.mrxoptions.otto.ouch.v2.1.4.tif", ftypes.STRING, nil, nil, nil, "See Time in Force Field (TIF)")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.mrxoptions.otto.ouch.v2.1.4.timestamp", ftypes.UINT64, nil, nil, nil, "Nanoseconds since midnight")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.tradable = ProtoField.new("Tradable", "nasdaq.mrxoptions.otto.ouch.v2.1.4.tradable", ftypes.STRING, nil, nil, nil, "Y=Tradable, N=Not Tradable")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.trade_splits = ProtoField.new("Trade Splits", "nasdaq.mrxoptions.otto.ouch.v2.1.4.tradesplits", ftypes.STRING, nil, nil, nil, "Trade Splits [1..10]")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.trading_state = ProtoField.new("Trading State", "nasdaq.mrxoptions.otto.ouch.v2.1.4.tradingstate", ftypes.STRING, nil, nil, nil, "assumed to be Trading unless notified as Halted by this message.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.trans_type = ProtoField.new("Trans Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.transtype", ftypes.STRING, nil, nil, nil, "A=New Trade, B=Trade Busted, C=Modified Trade")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.mrxoptions.otto.ouch.v2.1.4.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Denotes the unique underlying stock symbol for the option symbol. Must be populated if Scope = P and ProductID not populated.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.mrxoptions.otto.ouch.v2.1.4.unsequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying unsequenced message type")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.username = ProtoField.new("Username", "nasdaq.mrxoptions.otto.ouch.v2.1.4.username", ftypes.STRING, nil, nil, nil, "Session username")
+
+-- Nasdaq MrxOptions Otto Ouch 2.1.4 Framing
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.client_packet = ProtoField.new("Tcp Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.clientpacket", ftypes.STRING, nil, nil, nil, "SoupBinTCP Packet sent by the client")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.client_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.mrxoptions.otto.ouch.v2.1.4.clientpacketheader", ftypes.STRING, nil, nil, nil, "Packet header of a packet sent by the client")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.clientsoupbintcppacket", ftypes.STRING, nil, nil, nil, "Soup Bin Tcp Packet sent by the client")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.server_packet = ProtoField.new("Tcp Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.serverpacket", ftypes.STRING, nil, nil, nil, "SoupBinTCP Packet sent by the server")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.server_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.mrxoptions.otto.ouch.v2.1.4.serverpacketheader", ftypes.STRING, nil, nil, nil, "Packet header of a packet sent by the server")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.serversoupbintcppacket", ftypes.STRING, nil, nil, nil, "Soup Bin Tcp Packet sent by the server")
+
+-- Nasdaq MrxOptions Otto 2.1.4 Application Messages
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.add_complex_instrument_message = ProtoField.new("Add Complex Instrument Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.addcomplexinstrumentmessage", ftypes.STRING, nil, nil, nil, "This is a variable length message where length is controlled by the number of legs in the instrument.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.add_complex_instrument_response_message = ProtoField.new("Add Complex Instrument Response Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.addcomplexinstrumentresponsemessage", ftypes.STRING, nil, nil, nil, "Add Complex Instrument Response is sent out when new or existing complex strategy requested via Add Complex Instrument Request is successfully created.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.auctionnotificationmessage", ftypes.STRING, nil, nil, nil, "Auction Notification message announces that a new Auction has started in the market for Nasdaq GEMX (GEMX) and Nasdaq MRX (MRX).")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.cancelordermessage", ftypes.STRING, nil, nil, nil, "The order to be deleted is identified by the ClOrdId field. If the order cannot be deleted, or cannot be found, the request is rejected.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.complex_instrument_directory_message = ProtoField.new("Complex Instrument Directory Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.complexinstrumentdirectorymessage", ftypes.STRING, nil, nil, nil, "This message is sent whenever new complex strategy is created on the system.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cross_order_accepted_message = ProtoField.new("Cross Order Accepted Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.crossorderacceptedmessage", ftypes.STRING, nil, nil, nil, "This message acknowledges the receipt and acceptance of a valid New Cross Order.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.instrument_trading_action_message = ProtoField.new("Instrument Trading Action Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.instrumenttradingactionmessage", ftypes.STRING, nil, nil, nil, "This message notifies of changes to the trading status of an instrument.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.mass_cancel_message = ProtoField.new("Mass Cancel Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.masscancelmessage", ftypes.STRING, nil, nil, nil, "This message is used to mass-delete multiple open orders based on the specified Scope.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.mass_cancel_response_message = ProtoField.new("Mass Cancel Response Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.masscancelresponsemessage", ftypes.STRING, nil, nil, nil, "Mass Cancel Response is sent out upon completion of processing of a valid Mass Cancel Request.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.member_kill_switch_notification_message = ProtoField.new("Member Kill Switch Notification Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.memberkillswitchnotificationmessage", ftypes.STRING, nil, nil, nil, "The Member Kill Switch Notification informs of:")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.member_kill_switch_request_message = ProtoField.new("Member Kill Switch Request Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.memberkillswitchrequestmessage", ftypes.STRING, nil, nil, nil, "The Member Kill Switch Request is used to block ability to enter new orders, alter existing orders, delete orders, and create complex instruments on NOM, ISE, GEMX and MRX.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.modify_trade_message = ProtoField.new("Modify Trade Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.modifytrademessage", ftypes.STRING, nil, nil, nil, "The Modify Trade request is used to change clearing information on an existing trade as well as split a trade into multiple components with different clearing assignments.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.modify_trade_response_message = ProtoField.new("Modify Trade Response Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.modifytraderesponsemessage", ftypes.STRING, nil, nil, nil, "Modify Trade Response is sent when a valid Modify Trade Request is accepted.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.new_cross_order_message = ProtoField.new("New Cross Order Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.newcrossordermessage", ftypes.STRING, nil, nil, nil, "Cross Order message allows specifying two opposite sides to trade against each other. The primary side of the order is exposed in an auction if CrossType is set to A (Auction).")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.new_order_long_form_message = ProtoField.new("New Order Long Form Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.neworderlongformmessage", ftypes.STRING, nil, nil, nil, "Long form of the New Order request provides full flexibility of configuring order attributes:")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.new_order_short_form_message = ProtoField.new("New Order Short Form Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.newordershortformmessage", ftypes.STRING, nil, nil, nil, "Short format of the New Order request is a compact message (less than 50 bytes) with limited flexibility:")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_accepted_long_form_message = ProtoField.new("Order Accepted Long Form Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.orderacceptedlongformmessage", ftypes.STRING, nil, nil, nil, "This message is used to acknowledge a valid order submitted via New Order (Long Form).")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_accepted_short_form_message = ProtoField.new("Order Accepted Short Form Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.orderacceptedshortformmessage", ftypes.STRING, nil, nil, nil, "This message is used to acknowledge a valid order submitted via New Order (Short Form).")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.ordercanceledmessage", ftypes.STRING, nil, nil, nil, "An Order Canceled Message informs you that an order has been fully canceled. This could be acknowledging a Cancel Order Message, or it could be the result of the order being canceled automatically by the system.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_executed_message = ProtoField.new("Order Executed Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.orderexecutedmessage", ftypes.STRING, nil, nil, nil, "Order Executed Message informs you that all or part of an order has been executed. This message is used for simple as well as complex instruments.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.orderreplacedmessage", ftypes.STRING, nil, nil, nil, "This message acknowledges the receipt and acceptance of a valid Replace Order Message. Like Order Accepted Message, Order Replaced Message always comes before any Order Executed Messages or Order Canceled Messages for the replacement.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.pending_response_message = ProtoField.new("Pending Response Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.pendingresponsemessage", ftypes.STRING, nil, nil, nil, "A Pending Response is sent when a request cannot be immediately, fully processed or validated, and indicates that the final status of the request is not yet known.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.reject_message = ProtoField.new("Reject Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.rejectmessage", ftypes.STRING, nil, nil, nil, "Reject is sent in response to a Request that is deemed invalid. Reject message contains error code explaining the reason for rejection")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.replace_order_message = ProtoField.new("Replace Order Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.replaceordermessage", ftypes.STRING, nil, nil, nil, "Replace Order message is used to modify an existing order for both simple and complex instruments.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.simple_instrument_directory_message = ProtoField.new("Simple Instrument Directory Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.simpleinstrumentdirectorymessage", ftypes.STRING, nil, nil, nil, "At the start of each trading day and during intra-day market state changes, the system disseminates directory messages for all symbols trading on the system.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.subscription_request_message = ProtoField.new("Subscription Request Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.subscriptionrequestmessage", ftypes.STRING, nil, nil, nil, "OTTO protocol specifies a number of notification message types that can be sent to the client optionally.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.subscription_response_message = ProtoField.new("Subscription Response Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.subscriptionresponsemessage", ftypes.STRING, nil, nil, nil, "Subscription Response is sent after a valid Subscription Request has been processed.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.systemeventmessage", ftypes.STRING, nil, nil, nil, "System Event message informs of a market or a session-level event.")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.trade_details_message = ProtoField.new("Trade Details Message", "nasdaq.mrxoptions.otto.ouch.v2.1.4.tradedetailsmessage", ftypes.STRING, nil, nil, nil, "A Trade Details message contains additional details, specifically clearing information. This message is sent out with a nominal delay after Order Executed message.")
+
+-- Nasdaq MrxOptions Otto 2.1.4 Session Messages
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.clientheartbeatpacket", ftypes.BYTES, nil, nil, nil, "SoupBinTCP client sends a heartbeat to indicate the connection is alive; carries no payload")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.debugpacket", ftypes.STRING, nil, nil, nil, "Debug packets are intended to provide human readable text that may aid in debugging problems")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.endofsessionpacket", ftypes.BYTES, nil, nil, nil, "SoupBinTCP server signals end of session; client may now disconnect. Carries no payload")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.loginacceptedpacket", ftypes.STRING, nil, nil, nil, "The SoupBinTCP server sends a Login Accepted Packet in response to receiving a valid Login Request from the client")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.loginrejectedpacket", ftypes.STRING, nil, nil, nil, "The SoupBinTCP server sends this packet in response to an invalid Login Request Packet from the client")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.loginrequestpacket", ftypes.STRING, nil, nil, nil, "The SoupBinTCP client must send a Login Request Packet immediately upon establishing a new TCP/IP socket connection to the server")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.logoutrequestpacket", ftypes.BYTES, nil, nil, nil, "SoupBinTCP client requests session logout; server completes any in-flight messages then closes. Carries no payload")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.serverheartbeatpacket", ftypes.BYTES, nil, nil, nil, "SoupBinTCP server sends a heartbeat to indicate the connection is alive; carries no payload")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.mrxoptions.otto.ouch.v2.1.4.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server")
+
+-- Nasdaq MrxOptions Otto Ouch 2.1.4 Generated Fields
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.complex_directory_legs_index = ProtoField.new("Complex Directory Legs Index", "nasdaq.mrxoptions.otto.ouch.v2.1.4.complexdirectorylegsindex", ftypes.UINT16)
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.complex_instrument_legs_index = ProtoField.new("Complex Instrument Legs Index", "nasdaq.mrxoptions.otto.ouch.v2.1.4.complexinstrumentlegsindex", ftypes.UINT16)
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.trade_splits_index = ProtoField.new("Trade Splits Index", "nasdaq.mrxoptions.otto.ouch.v2.1.4.tradesplitsindex", ftypes.UINT16)
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.mrxoptions.otto.ouch.v2.1.4.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq MrxOptions Otto Ouch 2.1.4 Expert Info
+nasdaq_mrxoptions_otto_ouch_v2_1_4.experts = {}
+nasdaq_mrxoptions_otto_ouch_v2_1_4.experts.not_a_number = ProtoExpert.new("nasdaq.mrxoptions.otto.ouch.v2.1.4.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.experts = { nasdaq_mrxoptions_otto_ouch_v2_1_4.experts.not_a_number }
+
+-----------------------------------------------------------------------
+-- Nasdaq MrxOptions Otto Ouch 2.1.4 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp_format = 2
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Nasdaq MrxOptions Otto Ouch 2.1.4 Element Dissection Options
+show.application_messages = true
+show.structs = true
+show.headers = true
+show.repeating_groups = true
+show.session_messages = true
+show.indexes = true
+show.sequences = true
+
+-- Register Nasdaq MrxOptions Otto Ouch 2.1.4 Show Options
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
+-- Handle changed preferences
+function omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_headers then
+    show.headers = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_repeating_groups
+  end
+  if show.session_messages ~= omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_session_messages then
+    show.session_messages = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_session_messages
+  end
+  if show.structs ~= omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_structs then
+    show.structs = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_structs
+  end
+  if show.indexes ~= omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_indexes then
+    show.indexes = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_sequences then
+    show.sequences = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.show_sequences
+  end
+  if nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp_format ~= omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.timestamp_format then
+    nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp_format = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.timestamp_format
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation = {}
+nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.flows = {}
+
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stream_frame = nil
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stream_occurrence = 0
+
+-- Conversation key for the current packet (src/dst tuple)
+nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.data = function(packet)
+  local key = nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.key(packet)
+  local data = nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.flows[key]
+  if data == nil then
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.current = nil
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  -- UInt64.new reads a leading zero as octal, so "0045296" would read as 298
+  local significant = str:match("^%s*0*(%d+)%s*$")
+
+  if significant == nil then
+    return nil
+  end
+
+  local value = UInt64.new(significant)
+
+  -- UInt64.new stops at its maximum rather than failing, so a wider run is read back
+  if #significant > 19 and tostring(value) ~= significant then
+    return nil
+  end
+
+  return value
+end
+
+
+-----------------------------------------------------------------------
+-- Nasdaq MrxOptions Otto Ouch 2.1.4 Fields
+-----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_mrxoptions_otto_ouch_v2_1_4.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_session = {}
+
+-- Size: Accepted Session
+nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_session.size = 10
+
+-- Display: Accepted Session
+nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.alloc_qty = {}
+
+-- Size: Alloc Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.alloc_qty.size = 4
+
+-- Display: Alloc Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.alloc_qty.display = function(value)
+  return "Alloc Qty: "..value
+end
+
+-- Dissect: Alloc Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.alloc_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.alloc_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.alloc_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.alloc_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alo Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst = {}
+
+-- Size: Alo Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.size = 1
+
+-- Display: Alo Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.labels = {
+  ["N"] = "Alo Inst: Not Alo (N)",
+  ["R"] = "Alo Inst: Re Price (R)",
+  ["C"] = "Alo Inst: Cancel (C)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.labels[value] or "Alo Inst: Unknown("..value..")"
+end
+
+-- Dissect: Alo Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.alo_inst, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Alloc Pct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_alloc_pct = {}
+
+-- Size: Auction Alloc Pct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_alloc_pct.size = 1
+
+-- Display: Auction Alloc Pct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_alloc_pct.display = function(value)
+  return "Auction Alloc Pct: "..value
+end
+
+-- Dissect: Auction Alloc Pct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_alloc_pct.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_alloc_pct.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_alloc_pct.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.auction_alloc_pct, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Event
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_event = {}
+
+-- Size: Auction Event
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_event.size = 1
+
+-- Display: Auction Event
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_event.labels = {
+  ["S"] = "Auction Event: Start (S)",
+  ["U"] = "Auction Event: Auction Update (U)",
+  ["E"] = "Auction Event: End Of Auction (E)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_event.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_event.labels[value] or "Auction Event: Unknown("..value..")"
+end
+
+-- Dissect: Auction Event
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_event.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_event.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_event.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.auction_event, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id = {}
+
+-- Size: Auction Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.size = 4
+
+-- Display: Auction Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.display = function(value)
+  return "Auction Id: "..value
+end
+
+-- Dissect: Auction Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.auction_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type = {}
+
+-- Size: Auction Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size = 1
+
+-- Display: Auction Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.labels = {
+  ["B"] = "Auction Type: Block Order Auction (B)",
+  ["E"] = "Auction Type: Exposure Auction (E)",
+  ["F"] = "Auction Type: Flash Auction (F)",
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["P"] = "Auction Type: Pim Auction (P)",
+  ["H"] = "Auction Type: Facilitation Auction (H)",
+  ["S"] = "Auction Type: Solicitation Auction (S)",
+  ["N"] = "Auction Type: None (N)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
+end
+
+-- Dissect: Auction Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.auction_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Response Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_price = {}
+
+-- Size: Best Response Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_price.size = 8
+
+-- Display: Best Response Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_price.display = function(value)
+  return "Best Response Price: "..value
+end
+
+-- Translate: Best Response Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Best Response Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_price.translate(raw)
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.best_response_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Response Size
+nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_size = {}
+
+-- Size: Best Response Size
+nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_size.size = 4
+
+-- Display: Best Response Size
+nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_size.display = function(value)
+  return "Best Response Size: "..value
+end
+
+-- Dissect: Best Response Size
+nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.best_response_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Reason
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_reason = {}
+
+-- Size: Cancel Reason
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_reason.size = 1
+
+-- Display: Cancel Reason
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_reason.labels = {
+  ["U"] = "Cancel Reason: User Requested Cancel (U)",
+  ["I"] = "Cancel Reason: Immediate Or Cancel Order (I)",
+  ["S"] = "Cancel Reason: Supervisory (S)",
+  ["D"] = "Cancel Reason: Regulatory Restriction (D)",
+  ["Q"] = "Cancel Reason: Anti Internalize (Q)",
+  ["B"] = "Cancel Reason: Alo Order Canceled (B)",
+  ["A"] = "Cancel Reason: Unexecuted Auction Response (A)",
+  ["K"] = "Cancel Reason: Kill Switch (K)",
+  ["C"] = "Cancel Reason: Cancel On Disconnect (C)",
+  ["O"] = "Cancel Reason: Open Delay Timer Cancellation (O)",
+  ["P"] = "Cancel Reason: Atr Limit Cancellation (P)",
+  ["Z"] = "Cancel Reason: Rejected Cancel Replace Attempt (Z)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_reason.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Reason
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cancel_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity = {}
+
+-- Size: Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.size = 1
+
+-- Display: Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.display = function(value)
+  if value == "C" then
+    return "Capacity: Customer (C)"
+  end
+  if value == "F" then
+    return "Capacity: Firm (F)"
+  end
+  if value == "M" then
+    return "Capacity: Market Maker (M)"
+  end
+  if value == "O" then
+    return "Capacity: Other Exchange Registered Market Maker (O)"
+  end
+  if value == "P" then
+    return "Capacity: Professional Customer (P)"
+  end
+  if value == "B" then
+    return "Capacity: Broker Dealer Customer (B)"
+  end
+  if value == "K" then
+    return "Capacity: Broker Dealer Firm (K)"
+  end
+  if value == "J" then
+    return "Capacity: Joint Back Office (J)"
+  end
+  if value == "R" then
+    return "Capacity: Retail (R)"
+  end
+  if value == "E" then
+    return "Capacity: Proprietary Customer (E)"
+  end
+  if value == " " then
+    return "Capacity: Na (<whitespace>)"
+  end
+
+  return "Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id = {}
+
+-- Size: Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size = 16
+
+-- Display: Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.display = function(value)
+  return "Cl Ord Id: "..value
+end
+
+-- Dissect: Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cl Request Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id = {}
+
+-- Size: Cl Request Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size = 16
+
+-- Display: Cl Request Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.display = function(value)
+  return "Cl Request Id: "..value
+end
+
+-- Dissect: Cl Request Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cl_request_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account = {}
+
+-- Size: Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.size = 4
+
+-- Display: Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.display = function(value)
+  return "Clearing Account: "..value
+end
+
+-- Dissect: Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.clearing_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Packet Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_type = {}
+
+-- Size: Client Packet Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_type.size = 1
+
+-- Display: Client Packet Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Packet Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.client_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Only
+nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_only = {}
+
+-- Size: Closing Only
+nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_only.size = 1
+
+-- Display: Closing Only
+nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_only.labels = {
+  ["N"] = "Closing Only: Unrestricted (N)",
+  ["Y"] = "Closing Only: Option Is Closing Position Only Only Mm Origin (Y)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_only.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_only.labels[value] or "Closing Only: Unknown("..value..")"
+end
+
+-- Dissect: Closing Only
+nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_only.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_only.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_only.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.closing_only, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_type = {}
+
+-- Size: Closing Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_type.size = 1
+
+-- Display: Closing Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_type.labels = {
+  ["N"] = "Closing Type: Normal Hours (N)",
+  ["L"] = "Closing Type: Late Hours (L)",
+  ["W"] = "Closing Type: Wco Early Closing At 1200 Noon (W)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_type.labels[value] or "Closing Type: Unknown("..value..")"
+end
+
+-- Dissect: Closing Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.closing_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta = {}
+
+-- Size: Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.size = 4
+
+-- Display: Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.display = function(value)
+  return "Cmta: "..value
+end
+
+-- Dissect: Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cmta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_capacity = {}
+
+-- Size: Contra Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_capacity.size = 1
+
+-- Display: Contra Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_capacity.display = function(value)
+  if value == "C" then
+    return "Contra Capacity: Customer (C)"
+  end
+  if value == "F" then
+    return "Contra Capacity: Firm (F)"
+  end
+  if value == "M" then
+    return "Contra Capacity: Market Maker (M)"
+  end
+  if value == "O" then
+    return "Contra Capacity: Other Exchange Registered Market Maker (O)"
+  end
+  if value == "P" then
+    return "Contra Capacity: Professional Customer (P)"
+  end
+  if value == "B" then
+    return "Contra Capacity: Broker Dealer Customer (B)"
+  end
+  if value == "K" then
+    return "Contra Capacity: Broker Dealer Firm (K)"
+  end
+  if value == "J" then
+    return "Contra Capacity: Joint Back Office (J)"
+  end
+  if value == "R" then
+    return "Contra Capacity: Retail (R)"
+  end
+  if value == "E" then
+    return "Contra Capacity: Proprietary Customer (E)"
+  end
+  if value == " " then
+    return "Contra Capacity: Na (<whitespace>)"
+  end
+
+  return "Contra Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Contra Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_capacity.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cl_ord_id = {}
+
+-- Size: Contra Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cl_ord_id.size = 16
+
+-- Display: Contra Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cl_ord_id.display = function(value)
+  return "Contra Cl Ord Id: "..value
+end
+
+-- Dissect: Contra Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_clearing_account = {}
+
+-- Size: Contra Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_clearing_account.size = 4
+
+-- Display: Contra Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_clearing_account.display = function(value)
+  return "Contra Clearing Account: "..value
+end
+
+-- Dissect: Contra Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_clearing_account.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_clearing_account.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_clearing_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_clearing_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cmta = {}
+
+-- Size: Contra Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cmta.size = 4
+
+-- Display: Contra Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cmta.display = function(value)
+  return "Contra Cmta: "..value
+end
+
+-- Dissect: Contra Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cmta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cmta.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cmta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_cmta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cust_acct = {}
+
+-- Size: Contra Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cust_acct.size = 10
+
+-- Display: Contra Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cust_acct.display = function(value)
+  return "Contra Cust Acct: "..value
+end
+
+-- Dissect: Contra Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cust_acct.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cust_acct.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cust_acct.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_cust_acct, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_occ_account = {}
+
+-- Size: Contra Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_occ_account.size = 4
+
+-- Display: Contra Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_occ_account.display = function(value)
+  return "Contra Occ Account: "..value
+end
+
+-- Dissect: Contra Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_occ_account.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_occ_account.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_occ_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_occ_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_id = {}
+
+-- Size: Contra Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_id.size = 8
+
+-- Display: Contra Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_id.display = function(value)
+  return "Contra Order Id: "..value
+end
+
+-- Dissect: Contra Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Order Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type = {}
+
+-- Size: Contra Order Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type.size = 1
+
+-- Display: Contra Order Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type.labels = {
+  ["L"] = "Contra Order Type: Limit (L)",
+  ["M"] = "Contra Order Type: Market (M)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type.labels[value] or "Contra Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Contra Order Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_position_effect_mask = {}
+
+-- Size: Contra Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_position_effect_mask.size = 2
+
+-- Display: Contra Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_position_effect_mask.display = function(value)
+  return "Contra Position Effect Mask: "..value
+end
+
+-- Dissect: Contra Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_position_effect_mask.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_position_effect_mask.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_position_effect_mask.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_position_effect_mask, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price = {}
+
+-- Size: Contra Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price.size = 8
+
+-- Display: Contra Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price.display = function(value)
+  return "Contra Price: "..value
+end
+
+-- Translate: Contra Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Contra Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price.translate(raw)
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_quantity = {}
+
+-- Size: Contra Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_quantity.size = 4
+
+-- Display: Contra Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_quantity.display = function(value)
+  return "Contra Quantity: "..value
+end
+
+-- Dissect: Contra Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_mpid = {}
+
+-- Size: Contra Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_mpid.size = 4
+
+-- Display: Contra Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_mpid.display = function(value)
+  return "Contra Stock Leg Mpid: "..value
+end
+
+-- Dissect: Contra Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_mpid.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_mpid.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_mpid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_stock_leg_mpid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale = {}
+
+-- Size: Contra Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale.size = 1
+
+-- Display: Contra Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale.labels = {
+  ["N"] = "Contra Stock Leg Short Sale: Not Applicable (N)",
+  ["H"] = "Contra Stock Leg Short Sale: Sell Short (H)",
+  ["E"] = "Contra Stock Leg Short Sale: Sell Short Exempt (E)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale.labels[value] or "Contra Stock Leg Short Sale: Unknown("..value..")"
+end
+
+-- Dissect: Contra Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contra_stock_leg_short_sale, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Size
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contract_size = {}
+
+-- Size: Contract Size
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contract_size.size = 2
+
+-- Display: Contract Size
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contract_size.display = function(value)
+  return "Contract Size: "..value
+end
+
+-- Dissect: Contract Size
+nasdaq_mrxoptions_otto_ouch_v2_1_4.contract_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.contract_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.contract_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.contract_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id = {}
+
+-- Size: Cross Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.size = 4
+
+-- Display: Cross Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.display = function(value)
+  return "Cross Id: "..value
+end
+
+-- Dissect: Cross Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cross_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type = {}
+
+-- Size: Cross Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type.size = 1
+
+-- Display: Cross Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type.labels = {
+  ["A"] = "Cross Type: Auction (A)",
+  ["Q"] = "Cross Type: Qcc (Q)",
+  ["C"] = "Cross Type: Ccc (C)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
+end
+
+-- Dissect: Cross Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cross_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct = {}
+
+-- Size: Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.size = 10
+
+-- Display: Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.display = function(value)
+  return "Cust Acct: "..value
+end
+
+-- Dissect: Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cust_acct, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_text = {}
+
+-- Display: Debug Text
+nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect runtime sized field: Debug Text
+nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_text.display(value, packet, parent, size)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.debug_text, range, value, display)
+
+  return offset + size, value
+end
+
+-- Disclosure Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask = {}
+
+-- Size: Disclosure Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.size = 1
+
+-- Display: Disclosure Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.display = function(value)
+  return "Disclosure Mask: "..value
+end
+
+-- Dissect: Disclosure Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.disclosure_mask, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display High Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_high_qty = {}
+
+-- Size: Display High Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_high_qty.size = 2
+
+-- Display: Display High Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_high_qty.display = function(value)
+  return "Display High Qty: "..value
+end
+
+-- Dissect: Display High Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_high_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_high_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_high_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.display_high_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display Low Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_low_qty = {}
+
+-- Size: Display Low Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_low_qty.size = 2
+
+-- Display: Display Low Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_low_qty.display = function(value)
+  return "Display Low Qty: "..value
+end
+
+-- Dissect: Display Low Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_low_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_low_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_low_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.display_low_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display Method
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method = {}
+
+-- Size: Display Method
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method.size = 1
+
+-- Display: Display Method
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method.labels = {
+  ["I"] = "Display Method: Initial (I)",
+  ["R"] = "Display Method: Random (R)",
+  ["N"] = "Display Method: None (N)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method.labels[value] or "Display Method: Unknown("..value..")"
+end
+
+-- Dissect: Display Method
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.display_method, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_qty = {}
+
+-- Size: Display Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_qty.size = 2
+
+-- Display: Display Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_qty.display = function(value)
+  return "Display Qty: "..value
+end
+
+-- Dissect: Display Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.display_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display When
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when = {}
+
+-- Size: Display When
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when.size = 1
+
+-- Display: Display When
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when.labels = {
+  ["I"] = "Display When: Immediate (I)",
+  ["E"] = "Display When: Exhaust (E)",
+  ["N"] = "Display When: Na (N)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when.labels[value] or "Display When: Unknown("..value..")"
+end
+
+-- Dissect: Display When
+nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.display_when, range, value, display)
+
+  return offset + length, value
+end
+
+-- Effective Time
+nasdaq_mrxoptions_otto_ouch_v2_1_4.effective_time = {}
+
+-- Size: Effective Time
+nasdaq_mrxoptions_otto_ouch_v2_1_4.effective_time.size = 8
+
+-- Display: Effective Time
+nasdaq_mrxoptions_otto_ouch_v2_1_4.effective_time.display = function(value)
+  return "Effective Time: "..value
+end
+
+-- Dissect: Effective Time
+nasdaq_mrxoptions_otto_ouch_v2_1_4.effective_time.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.effective_time.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.effective_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.effective_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.event_code = {}
+
+-- Size: Event Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.event_code.size = 1
+
+-- Display: Event Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["W"] = "Event Code: End Of Wco Early Closing (W)",
+  ["N"] = "Event Code: End Of Normal Hours Processing (N)",
+  ["L"] = "Event Code: End Of Late Hours Processing (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.event_code.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.event_code.labels[value] or "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Source
+nasdaq_mrxoptions_otto_ouch_v2_1_4.event_source = {}
+
+-- Size: Event Source
+nasdaq_mrxoptions_otto_ouch_v2_1_4.event_source.size = 1
+
+-- Display: Event Source
+nasdaq_mrxoptions_otto_ouch_v2_1_4.event_source.labels = {
+  ["A"] = "Event Source: Matching Engine (A)",
+  ["M"] = "Event Source: Manual Trade Entry (M)",
+  ["U"] = "Event Source: Trade Modification User (U)",
+  ["C"] = "Event Source: Trade Modification Contra Side User (C)",
+  ["E"] = "Event Source: Trade Modification Exchange (E)",
+  ["B"] = "Event Source: Trade Bust Exchange (B)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.event_source.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.event_source.labels[value] or "Event Source: Unknown("..value..")"
+end
+
+-- Dissect: Event Source
+nasdaq_mrxoptions_otto_ouch_v2_1_4.event_source.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.event_source.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.event_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.event_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Flag
+nasdaq_mrxoptions_otto_ouch_v2_1_4.exec_flag = {}
+
+-- Size: Exec Flag
+nasdaq_mrxoptions_otto_ouch_v2_1_4.exec_flag.size = 1
+
+-- Display: Exec Flag
+nasdaq_mrxoptions_otto_ouch_v2_1_4.exec_flag.labels = {
+  ["0"] = "Exec Flag: None (0)",
+  ["1"] = "Exec Flag: Aon (1)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.exec_flag.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.exec_flag.labels[value] or "Exec Flag: Unknown("..value..")"
+end
+
+-- Dissect: Exec Flag
+nasdaq_mrxoptions_otto_ouch_v2_1_4.exec_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.exec_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.exec_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.exec_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expir Day
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_day = {}
+
+-- Size: Expir Day
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_day.size = 1
+
+-- Display: Expir Day
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_day.display = function(value)
+  return "Expir Day: "..value
+end
+
+-- Dissect: Expir Day
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_day.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_day.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.expir_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expir Mon
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_mon = {}
+
+-- Size: Expir Mon
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_mon.size = 1
+
+-- Display: Expir Mon
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_mon.display = function(value)
+  return "Expir Mon: "..value
+end
+
+-- Dissect: Expir Mon
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_mon.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_mon.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_mon.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.expir_mon, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expir Year
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_year = {}
+
+-- Size: Expir Year
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_year.size = 1
+
+-- Display: Expir Year
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_year.display = function(value)
+  return "Expir Year: "..value
+end
+
+-- Dissect: Expir Year
+nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_year.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_year.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.expir_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Firm Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id = {}
+
+-- Size: Firm Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size = 4
+
+-- Display: Firm Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.display = function(value)
+  return "Firm Id: "..value
+end
+
+-- Dissect: Firm Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.firm_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Flash Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.flash_inst = {}
+
+-- Size: Flash Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.flash_inst.size = 1
+
+-- Display: Flash Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.flash_inst.display = function(value)
+  if value == " " then
+    return "Flash Inst: Default D Do Not Start Flash (<whitespace>)"
+  end
+  if value == "D" then
+    return "Flash Inst: Do Not Start Flash Auction Dnf (D)"
+  end
+
+  return "Flash Inst: Unknown("..value..")"
+end
+
+-- Dissect: Flash Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.flash_inst.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.flash_inst.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.flash_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.flash_inst, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id = {}
+
+-- Size: Instrument Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size = 4
+
+-- Display: Instrument Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.display = function(value)
+  return "Instrument Id: "..value
+end
+
+-- Dissect: Instrument Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type = {}
+
+-- Size: Instrument Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type.size = 1
+
+-- Display: Instrument Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type.labels = {
+  ["A"] = "Instrument Type: All (A)",
+  ["O"] = "Instrument Type: Simple Instrument (O)",
+  ["C"] = "Instrument Type: Standard Combination (C)",
+  ["S"] = "Instrument Type: Stock Combination (S)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.instrument_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Iso
+nasdaq_mrxoptions_otto_ouch_v2_1_4.iso = {}
+
+-- Size: Iso
+nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.size = 1
+
+-- Display: Iso
+nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.labels = {
+  ["N"] = "Iso: Not Iso (N)",
+  ["I"] = "Iso: Iso (I)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.labels[value] or "Iso: Unknown("..value..")"
+end
+
+-- Dissect: Iso
+nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.iso, range, value, display)
+
+  return offset + length, value
+end
+
+-- Kill Action
+nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action = {}
+
+-- Size: Kill Action
+nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action.size = 1
+
+-- Display: Kill Action
+nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action.labels = {
+  ["A"] = "Kill Action: Block Entry Of New Requests And (A)",
+  ["R"] = "Kill Action: Kill Switch Block Removed By (R)",
+  ["B"] = "Kill Action: Block Entry Of New Requests (B)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action.labels[value] or "Kill Action: Unknown("..value..")"
+end
+
+-- Dissect: Kill Action
+nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.kill_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id = {}
+
+-- Size: Leg Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id.size = 1
+
+-- Display: Leg Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id.display = function(value)
+  return "Leg Id: "..value
+end
+
+-- Dissect: Leg Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.leg_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Instrument Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id = {}
+
+-- Size: Leg Instrument Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.size = 4
+
+-- Display: Leg Instrument Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.display = function(value)
+  return "Leg Instrument Id: "..value
+end
+
+-- Dissect: Leg Instrument Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.leg_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_ratio = {}
+
+-- Size: Leg Ratio
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_ratio.size = 2
+
+-- Display: Leg Ratio
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Side
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side = {}
+
+-- Size: Leg Side
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side.size = 1
+
+-- Display: Leg Side
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side.labels = {
+  ["B"] = "Leg Side: Buy (B)",
+  ["S"] = "Leg Side: Sell (S)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
+end
+
+-- Dissect: Leg Side
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.leg_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type = {}
+
+-- Size: Leg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type.size = 1
+
+-- Display: Leg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type.labels = {
+  ["O"] = "Leg Type: Option (O)",
+  ["S"] = "Leg Type: Stock (S)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type.labels[value] or "Leg Type: Unknown("..value..")"
+end
+
+-- Dissect: Leg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.leg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Liquidity Ind
+nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind = {}
+
+-- Size: Liquidity Ind
+nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind.size = 1
+
+-- Display: Liquidity Ind
+nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind.labels = {
+  [0] = "Liquidity Ind: None (0)",
+  [1] = "Liquidity Ind: Maker (1)",
+  [2] = "Liquidity Ind: Taker (2)",
+  [4] = "Liquidity Ind: Response (4)",
+  [5] = "Liquidity Ind: Hidden (5)",
+  [6] = "Liquidity Ind: Opening Rotation (6)",
+  [7] = "Liquidity Ind: Cross (7)",
+  [8] = "Liquidity Ind: Flashed Order (8)",
+  [9] = "Liquidity Ind: Flash Response (9)",
+  [10] = "Liquidity Ind: Routed Out (10)",
+  [11] = "Liquidity Ind: Trade Report (11)",
+  [12] = "Liquidity Ind: Combo Maker Against Combo (12)",
+  [13] = "Liquidity Ind: Combo Taker Against Combo (13)",
+  [14] = "Liquidity Ind: Combo Response Against Combo (14)",
+  [15] = "Liquidity Ind: Combo Hidden Against Combo (15)",
+  [16] = "Liquidity Ind: Combo Opening Rotation (16)",
+  [17] = "Liquidity Ind: Combo Cross (17)",
+  [18] = "Liquidity Ind: Combo Taker Against Regular (18)",
+  [19] = "Liquidity Ind: Regular Maker Against Combo (19)",
+  [20] = "Liquidity Ind: Combo Taker Against Io (20)",
+  [21] = "Liquidity Ind: Regular Incl Pim Taker Against Io (21)",
+  [22] = "Liquidity Ind: Io Maker Against Combo (22)",
+  [23] = "Liquidity Ind: Io Maker Against Regular (23)",
+  [24] = "Liquidity Ind: Regular Maker Against Io Participant (24)",
+  [25] = "Liquidity Ind: Io Participant Taker Against Regular (25)",
+  [26] = "Liquidity Ind: Broken Price Improvement (26)",
+  [27] = "Liquidity Ind: Broken Facilitation (27)",
+  [28] = "Liquidity Ind: Broken Solicitation (28)",
+  [29] = "Liquidity Ind: Combo Broken Price Improvement (29)",
+  [30] = "Liquidity Ind: Combo Broken Facilitation (30)",
+  [31] = "Liquidity Ind: Combo Broken Solicitation (31)",
+  [32] = "Liquidity Ind: Block (32)",
+  [33] = "Liquidity Ind: Block Response (33)",
+  [34] = "Liquidity Ind: Directed Response (34)",
+  [35] = "Liquidity Ind: Facilitation (35)",
+  [36] = "Liquidity Ind: Facilitation Response (36)",
+  [37] = "Liquidity Ind: Price Improvement (37)",
+  [38] = "Liquidity Ind: Price Improvement Response (38)",
+  [39] = "Liquidity Ind: Solicitation (39)",
+  [40] = "Liquidity Ind: Solicitation Response (40)",
+  [41] = "Liquidity Ind: Qualified Contingent Cross (41)",
+  [42] = "Liquidity Ind: Customer To Customer (42)",
+  [43] = "Liquidity Ind: Combo Facilitation (43)",
+  [44] = "Liquidity Ind: Combo Facilitation Response (44)",
+  [45] = "Liquidity Ind: Combo Price Improvement (45)",
+  [46] = "Liquidity Ind: Combo Price Improvement Response (46)",
+  [47] = "Liquidity Ind: Combo Solicitation (47)",
+  [48] = "Liquidity Ind: Combo Solicitation Response (48)",
+  [49] = "Liquidity Ind: Combo Qualified Contingent Cross (49)",
+  [50] = "Liquidity Ind: Combo Customer To Customer (50)",
+  [51] = "Liquidity Ind: Sweep Routed Out (51)",
+  [52] = "Liquidity Ind: Sweep Trade Report (52)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind.labels[value] or "Liquidity Ind: Unknown("..value..")"
+end
+
+-- Dissect: Liquidity Ind
+nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.liquidity_ind, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id = {}
+
+-- Size: Match Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.size = 4
+
+-- Display: Match Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.display = function(value)
+  return "Match Id: "..value
+end
+
+-- Dissect: Match Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.min_qty = {}
+
+-- Size: Min Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.min_qty.size = 4
+
+-- Display: Min Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.min_qty.display = function(value)
+  return "Min Qty: "..value
+end
+
+-- Dissect: Min Qty
+nasdaq_mrxoptions_otto_ouch_v2_1_4.min_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.min_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.min_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.min_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mpv = {}
+
+-- Size: Mpv
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mpv.size = 1
+
+-- Display: Mpv
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mpv.labels = {
+  ["E"] = "Mpv: Penny Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Penny Pilot (P)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mpv.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.mpv.labels[value] or "Mpv: Unknown("..value..")"
+end
+
+-- Dissect: Mpv
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.mpv.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Canceled
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_canceled = {}
+
+-- Size: Num Canceled
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_canceled.size = 4
+
+-- Display: Num Canceled
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_canceled.display = function(value)
+  return "Num Canceled: "..value
+end
+
+-- Dissect: Num Canceled
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_canceled.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_canceled.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_canceled.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.num_canceled, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_legs = {}
+
+-- Size: Num Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_legs.size = 1
+
+-- Display: Num Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_legs.display = function(value)
+  return "Num Legs: "..value
+end
+
+-- Dissect: Num Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_legs.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_legs.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_legs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.num_legs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Pending
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_pending = {}
+
+-- Size: Num Pending
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_pending.size = 4
+
+-- Display: Num Pending
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_pending.display = function(value)
+  return "Num Pending: "..value
+end
+
+-- Dissect: Num Pending
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_pending.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_pending.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_pending.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.num_pending, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Splits
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_splits = {}
+
+-- Size: Num Splits
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_splits.size = 2
+
+-- Display: Num Splits
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_splits.display = function(value)
+  return "Num Splits: "..value
+end
+
+-- Dissect: Num Splits
+nasdaq_mrxoptions_otto_ouch_v2_1_4.num_splits.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_splits.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_splits.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.num_splits, range, value, display)
+
+  return offset + length, value
+end
+
+-- Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account = {}
+
+-- Size: Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.size = 4
+
+-- Display: Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.display = function(value)
+  return "Occ Account: "..value
+end
+
+-- Dissect: Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.occ_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Close
+nasdaq_mrxoptions_otto_ouch_v2_1_4.open_close = {}
+
+-- Size: Open Close
+nasdaq_mrxoptions_otto_ouch_v2_1_4.open_close.size = 1
+
+-- Display: Open Close
+nasdaq_mrxoptions_otto_ouch_v2_1_4.open_close.display = function(value)
+  if value == "O" then
+    return "Open Close: Open (O)"
+  end
+  if value == "C" then
+    return "Open Close: Closed (C)"
+  end
+  if value == " " then
+    return "Open Close: Carry Forward (<whitespace>)"
+  end
+
+  return "Open Close: Unknown("..value..")"
+end
+
+-- Dissect: Open Close
+nasdaq_mrxoptions_otto_ouch_v2_1_4.open_close.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.open_close.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.open_close.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.open_close, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.option_type = {}
+
+-- Size: Option Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.option_type.size = 1
+
+-- Display: Option Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.option_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.option_type.labels[value] or "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.option_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.option_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Exec Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type = {}
+
+-- Size: Ord Exec Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type.size = 1
+
+-- Display: Ord Exec Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type.labels = {
+  ["A"] = "Ord Exec Type: Execution Of An Order For A Simple (A)",
+  ["B"] = "Ord Exec Type: Execution Of An Order For A Complex (B)",
+  ["C"] = "Ord Exec Type: Execution Of An Option Leg Of A Complex (C)",
+  ["D"] = "Ord Exec Type: Execution Of A Stock Leg Of A Complex (D)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type.labels[value] or "Ord Exec Type: Unknown("..value..")"
+end
+
+-- Dissect: Ord Exec Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.ord_exec_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_capacity = {}
+
+-- Size: Order Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_capacity.size = 1
+
+-- Display: Order Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_capacity.display = function(value)
+  if value == "C" then
+    return "Order Capacity: Customer (C)"
+  end
+  if value == "F" then
+    return "Order Capacity: Firm (F)"
+  end
+  if value == "M" then
+    return "Order Capacity: Market Maker (M)"
+  end
+  if value == "O" then
+    return "Order Capacity: Other Exchange Registered Market Maker (O)"
+  end
+  if value == "P" then
+    return "Order Capacity: Professional Customer (P)"
+  end
+  if value == "B" then
+    return "Order Capacity: Broker Dealer Customer (B)"
+  end
+  if value == "K" then
+    return "Order Capacity: Broker Dealer Firm (K)"
+  end
+  if value == "J" then
+    return "Order Capacity: Joint Back Office (J)"
+  end
+  if value == "R" then
+    return "Order Capacity: Retail (R)"
+  end
+  if value == "E" then
+    return "Order Capacity: Proprietary Customer (E)"
+  end
+  if value == " " then
+    return "Order Capacity: Na (<whitespace>)"
+  end
+
+  return "Order Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Order Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_capacity.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id = {}
+
+-- Size: Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.size = 8
+
+-- Display: Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type = {}
+
+-- Size: Order Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.size = 1
+
+-- Display: Order Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.labels = {
+  ["L"] = "Order Type: Limit (L)",
+  ["M"] = "Order Type: Market (M)",
+  ["N"] = "Order Type: Not Disclosed (N)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.labels[value] or "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_cl_ord_id = {}
+
+-- Size: Orig Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_cl_ord_id.size = 16
+
+-- Display: Orig Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_cl_ord_id.display = function(value)
+  return "Orig Cl Ord Id: "..value
+end
+
+-- Dissect: Orig Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.orig_cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_order_id = {}
+
+-- Size: Orig Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_order_id.size = 8
+
+-- Display: Orig Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_order_id.display = function(value)
+  return "Orig Order Id: "..value
+end
+
+-- Dissect: Orig Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.orig_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Length
+nasdaq_mrxoptions_otto_ouch_v2_1_4.packet_length = {}
+
+-- Size: Packet Length
+nasdaq_mrxoptions_otto_ouch_v2_1_4.packet_length.size = 2
+
+-- Display: Packet Length
+nasdaq_mrxoptions_otto_ouch_v2_1_4.packet_length.display = function(value)
+  return "Packet Length: "..value
+end
+
+-- Dissect: Packet Length
+nasdaq_mrxoptions_otto_ouch_v2_1_4.packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.packet_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+nasdaq_mrxoptions_otto_ouch_v2_1_4.password = {}
+
+-- Size: Password
+nasdaq_mrxoptions_otto_ouch_v2_1_4.password.size = 10
+
+-- Display: Password
+nasdaq_mrxoptions_otto_ouch_v2_1_4.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+nasdaq_mrxoptions_otto_ouch_v2_1_4.password.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.password.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pending Msg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_msg_type = {}
+
+-- Size: Pending Msg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_msg_type.size = 1
+
+-- Display: Pending Msg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_msg_type.display = function(value)
+  return "Pending Msg Type: "..value
+end
+
+-- Dissect: Pending Msg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_msg_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.pending_msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pending Reason
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_reason = {}
+
+-- Size: Pending Reason
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_reason.size = 1
+
+-- Display: Pending Reason
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_reason.labels = {
+  ["A"] = "Pending Reason: Request In Progress (A)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_reason.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_reason.labels[value] or "Pending Reason: Unknown("..value..")"
+end
+
+-- Dissect: Pending Reason
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.pending_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Persist Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst = {}
+
+-- Size: Persist Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst.size = 1
+
+-- Display: Persist Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst.labels = {
+  ["N"] = "Persist Inst: Do Not Persist (N)",
+  ["P"] = "Persist Inst: Persist Reinstate On System Failure (P)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst.labels[value] or "Persist Inst: Unknown("..value..")"
+end
+
+-- Dissect: Persist Inst
+nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.persist_inst, range, value, display)
+
+  return offset + length, value
+end
+
+-- Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask = {}
+
+-- Size: Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.size = 2
+
+-- Display: Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.display = function(value)
+  return "Position Effect Mask: "..value
+end
+
+-- Dissect: Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.position_effect_mask, range, value, display)
+
+  return offset + length, value
+end
+
+-- Preferred Party
+nasdaq_mrxoptions_otto_ouch_v2_1_4.preferred_party = {}
+
+-- Size: Preferred Party
+nasdaq_mrxoptions_otto_ouch_v2_1_4.preferred_party.size = 3
+
+-- Display: Preferred Party
+nasdaq_mrxoptions_otto_ouch_v2_1_4.preferred_party.display = function(value)
+  return "Preferred Party: "..value
+end
+
+-- Dissect: Preferred Party
+nasdaq_mrxoptions_otto_ouch_v2_1_4.preferred_party.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.preferred_party.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.preferred_party.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.preferred_party, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.price = {}
+
+-- Size: Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.price.size = 8
+
+-- Display: Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = nasdaq_mrxoptions_otto_ouch_v2_1_4.price.translate(raw)
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Protection
+nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection = {}
+
+-- Size: Price Protection
+nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.size = 1
+
+-- Display: Price Protection
+nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.labels = {
+  ["L"] = "Price Protection: Local Market (L)",
+  ["N"] = "Price Protection: National Market (N)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.labels[value] or "Price Protection: Unknown("..value..")"
+end
+
+-- Dissect: Price Protection
+nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.price_protection, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_capacity = {}
+
+-- Size: Primary Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_capacity.size = 1
+
+-- Display: Primary Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_capacity.display = function(value)
+  if value == "C" then
+    return "Primary Capacity: Customer (C)"
+  end
+  if value == "F" then
+    return "Primary Capacity: Firm (F)"
+  end
+  if value == "M" then
+    return "Primary Capacity: Market Maker (M)"
+  end
+  if value == "O" then
+    return "Primary Capacity: Other Exchange Registered Market Maker (O)"
+  end
+  if value == "P" then
+    return "Primary Capacity: Professional Customer (P)"
+  end
+  if value == "B" then
+    return "Primary Capacity: Broker Dealer Customer (B)"
+  end
+  if value == "K" then
+    return "Primary Capacity: Broker Dealer Firm (K)"
+  end
+  if value == "J" then
+    return "Primary Capacity: Joint Back Office (J)"
+  end
+  if value == "R" then
+    return "Primary Capacity: Retail (R)"
+  end
+  if value == "E" then
+    return "Primary Capacity: Proprietary Customer (E)"
+  end
+  if value == " " then
+    return "Primary Capacity: Na (<whitespace>)"
+  end
+
+  return "Primary Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Primary Capacity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_capacity.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cl_ord_id = {}
+
+-- Size: Primary Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cl_ord_id.size = 16
+
+-- Display: Primary Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cl_ord_id.display = function(value)
+  return "Primary Cl Ord Id: "..value
+end
+
+-- Dissect: Primary Cl Ord Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_clearing_account = {}
+
+-- Size: Primary Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_clearing_account.size = 4
+
+-- Display: Primary Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_clearing_account.display = function(value)
+  return "Primary Clearing Account: "..value
+end
+
+-- Dissect: Primary Clearing Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_clearing_account.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_clearing_account.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_clearing_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_clearing_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cmta = {}
+
+-- Size: Primary Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cmta.size = 4
+
+-- Display: Primary Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cmta.display = function(value)
+  return "Primary Cmta: "..value
+end
+
+-- Dissect: Primary Cmta
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cmta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cmta.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cmta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_cmta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cust_acct = {}
+
+-- Size: Primary Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cust_acct.size = 10
+
+-- Display: Primary Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cust_acct.display = function(value)
+  return "Primary Cust Acct: "..value
+end
+
+-- Dissect: Primary Cust Acct
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cust_acct.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cust_acct.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cust_acct.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_cust_acct, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_occ_account = {}
+
+-- Size: Primary Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_occ_account.size = 4
+
+-- Display: Primary Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_occ_account.display = function(value)
+  return "Primary Occ Account: "..value
+end
+
+-- Dissect: Primary Occ Account
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_occ_account.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_occ_account.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_occ_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_occ_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_order_id = {}
+
+-- Size: Primary Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_order_id.size = 8
+
+-- Display: Primary Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_order_id.display = function(value)
+  return "Primary Order Id: "..value
+end
+
+-- Dissect: Primary Order Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_position_effect_mask = {}
+
+-- Size: Primary Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_position_effect_mask.size = 2
+
+-- Display: Primary Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_position_effect_mask.display = function(value)
+  return "Primary Position Effect Mask: "..value
+end
+
+-- Dissect: Primary Position Effect Mask
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_position_effect_mask.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_position_effect_mask.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_position_effect_mask.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_position_effect_mask, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price = {}
+
+-- Size: Primary Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price.size = 8
+
+-- Display: Primary Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price.display = function(value)
+  return "Primary Price: "..value
+end
+
+-- Translate: Primary Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Primary Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price.translate(raw)
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_quantity = {}
+
+-- Size: Primary Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_quantity.size = 4
+
+-- Display: Primary Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_quantity.display = function(value)
+  return "Primary Quantity: "..value
+end
+
+-- Dissect: Primary Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_mpid = {}
+
+-- Size: Primary Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_mpid.size = 4
+
+-- Display: Primary Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_mpid.display = function(value)
+  return "Primary Stock Leg Mpid: "..value
+end
+
+-- Dissect: Primary Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_mpid.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_mpid.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_mpid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_stock_leg_mpid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale = {}
+
+-- Size: Primary Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale.size = 1
+
+-- Display: Primary Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale.labels = {
+  ["N"] = "Primary Stock Leg Short Sale: Not Applicable (N)",
+  ["H"] = "Primary Stock Leg Short Sale: Sell Short (H)",
+  ["E"] = "Primary Stock Leg Short Sale: Sell Short Exempt (E)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale.labels[value] or "Primary Stock Leg Short Sale: Unknown("..value..")"
+end
+
+-- Dissect: Primary Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.primary_stock_leg_short_sale, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id = {}
+
+-- Size: Product Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.size = 2
+
+-- Display: Product Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.display = function(value)
+  return "Product Id: "..value
+end
+
+-- Dissect: Product Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.product_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Name
+nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name = {}
+
+-- Size: Product Name
+nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name.size = 13
+
+-- Display: Product Name
+nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name.display = function(value)
+  return "Product Name: "..value
+end
+
+-- Dissect: Product Name
+nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.product_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity = {}
+
+-- Size: Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.size = 4
+
+-- Display: Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Short
+nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity_short = {}
+
+-- Size: Quantity Short
+nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity_short.size = 2
+
+-- Display: Quantity Short
+nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity_short.display = function(value)
+  return "Quantity Short: "..value
+end
+
+-- Dissect: Quantity Short
+nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.quantity_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ref Match Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.ref_match_id = {}
+
+-- Size: Ref Match Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.ref_match_id.size = 4
+
+-- Display: Ref Match Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.ref_match_id.display = function(value)
+  return "Ref Match Id: "..value
+end
+
+-- Dissect: Ref Match Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.ref_match_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.ref_match_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.ref_match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.ref_match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_code = {}
+
+-- Size: Reject Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_code.size = 2
+
+-- Display: Reject Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_code.labels = {
+  [10] = "Reject Code: Invalid Firm (10)",
+  [11] = "Reject Code: Invalid Instrument (11)",
+  [12] = "Reject Code: Invalid Instrument Type (12)",
+  [13] = "Reject Code: Invalid Quantity (13)",
+  [14] = "Reject Code: Invalid Price (14)",
+  [15] = "Reject Code: Invalid Side (15)",
+  [16] = "Reject Code: Invalid Tif (16)",
+  [17] = "Reject Code: Invalid Iso (17)",
+  [18] = "Reject Code: Invalid Auction Type (18)",
+  [19] = "Reject Code: Invalid Auction Id (19)",
+  [20] = "Reject Code: Invalid Order Type (20)",
+  [21] = "Reject Code: Invalid Pref Party (21)",
+  [22] = "Reject Code: Invalid Alo (22)",
+  [23] = "Reject Code: Invalid Capacity (23)",
+  [24] = "Reject Code: Invalid Flash Inst (24)",
+  [25] = "Reject Code: Invalid Trade (25)",
+  [26] = "Reject Code: Invalid Format (26)",
+  [27] = "Reject Code: Invalid Cross Type (27)",
+  [28] = "Reject Code: Invalid Min Quantity (28)",
+  [29] = "Reject Code: Invalid Price Protection (29)",
+  [30] = "Reject Code: Invalid Reserve (30)",
+  [31] = "Reject Code: Invalid Persist (31)",
+  [32] = "Reject Code: Invalid Short Sale Ind (32)",
+  [33] = "Reject Code: Invalid Product (33)",
+  [34] = "Reject Code: Invalid Scope (34)",
+  [35] = "Reject Code: Invalid Clearing Info (35)",
+  [36] = "Reject Code: Invalid Position Effect (36)",
+  [37] = "Reject Code: Invalid Cross Id (37)",
+  [38] = "Reject Code: Invalid Match Id (38)",
+  [39] = "Reject Code: Invalid Client Order Id (39)",
+  [40] = "Reject Code: Invalid Killswitch Action (40)",
+  [41] = "Reject Code: Invalid Leg Count (41)",
+  [42] = "Reject Code: Invalid Leg Type (42)",
+  [43] = "Reject Code: Invalid Leg Ratio (43)",
+  [44] = "Reject Code: Invalid Mpid (44)",
+  [45] = "Reject Code: Invalid Time (45)",
+  [46] = "Reject Code: Invalid Msg Type (46)",
+  [47] = "Reject Code: Invalid Disclosure Mask (47)",
+  [101] = "Reject Code: Not Free Trading (101)",
+  [102] = "Reject Code: Pref Not Allowed (102)",
+  [103] = "Reject Code: Stock Combo Not Allowed (103)",
+  [104] = "Reject Code: Instrument Halted (104)",
+  [105] = "Reject Code: Kill Switch In Effect (105)",
+  [106] = "Reject Code: System Closed (106)",
+  [107] = "Reject Code: Test Mode (107)",
+  [108] = "Reject Code: Order Not Found (108)",
+  [109] = "Reject Code: Too Late To Act (109)",
+  [110] = "Reject Code: Instrument Closed (110)",
+  [111] = "Reject Code: Instrument State (111)",
+  [112] = "Reject Code: Action Not Allowed (112)",
+  [113] = "Reject Code: Luld In Effect (113)",
+  [114] = "Reject Code: Too Many Combos (114)",
+  [115] = "Reject Code: Request Cancelled (115)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_code.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_code.labels[value] or "Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Reject Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_code.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Msg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_msg_type = {}
+
+-- Size: Reject Msg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_msg_type.size = 1
+
+-- Display: Reject Msg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_msg_type.display = function(value)
+  return "Reject Msg Type: "..value
+end
+
+-- Dissect: Reject Msg Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_msg_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.reject_msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_reason_code = {}
+
+-- Size: Reject Reason Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_reason_code.size = 1
+
+-- Display: Reject Reason Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_reason_code.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
+end
+
+-- Dissect: Reject Reason Code
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_reason_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.reject_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Sequence Number
+nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_sequence_number = {}
+
+-- Size: Requested Sequence Number
+nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_sequence_number.size = 20
+
+-- Display: Requested Sequence Number
+nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_sequence_number.display = function(value)
+  return "Requested Sequence Number: "..value
+end
+
+-- Dissect: Requested Sequence Number
+nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_sequence_number.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_mrxoptions_otto_ouch_v2_1_4.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.requested_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Session
+nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_session = {}
+
+-- Size: Requested Session
+nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_session.size = 10
+
+-- Display: Requested Session
+nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_session.display = function(value)
+  return "Requested Session: "..value
+end
+
+-- Dissect: Requested Session
+nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_session.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.requested_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Scope
+nasdaq_mrxoptions_otto_ouch_v2_1_4.scope = {}
+
+-- Size: Scope
+nasdaq_mrxoptions_otto_ouch_v2_1_4.scope.size = 1
+
+-- Display: Scope
+nasdaq_mrxoptions_otto_ouch_v2_1_4.scope.labels = {
+  ["P"] = "Scope: Product Cancel All Open Orders For The (P)",
+  ["I"] = "Scope: Instrument Cancel All The Open Orders (I)",
+  ["F"] = "Scope: Firm Cancel All Open Orders For The (F)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.scope.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.scope.labels[value] or "Scope: Unknown("..value..")"
+end
+
+-- Dissect: Scope
+nasdaq_mrxoptions_otto_ouch_v2_1_4.scope.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.scope.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.scope, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Symbol
+nasdaq_mrxoptions_otto_ouch_v2_1_4.security_symbol = {}
+
+-- Size: Security Symbol
+nasdaq_mrxoptions_otto_ouch_v2_1_4.security_symbol.size = 5
+
+-- Display: Security Symbol
+nasdaq_mrxoptions_otto_ouch_v2_1_4.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+nasdaq_mrxoptions_otto_ouch_v2_1_4.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.security_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequenced Message Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message_type = {}
+
+-- Size: Sequenced Message Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message_type.size = 1
+
+-- Display: Sequenced Message Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message_type.labels = {
+  ["z"] = "Sequenced Message Type: System Event Message (z)",
+  ["o"] = "Sequenced Message Type: Simple Instrument Directory Message (o)",
+  ["s"] = "Sequenced Message Type: Complex Instrument Directory Message (s)",
+  ["i"] = "Sequenced Message Type: Instrument Trading Action Message (i)",
+  ["n"] = "Sequenced Message Type: Auction Notification Message (n)",
+  ["a"] = "Sequenced Message Type: Order Accepted Long Form Message (a)",
+  ["b"] = "Sequenced Message Type: Order Accepted Short Form Message (b)",
+  ["r"] = "Sequenced Message Type: Order Replaced Message (r)",
+  ["c"] = "Sequenced Message Type: Order Canceled Message (c)",
+  ["e"] = "Sequenced Message Type: Order Executed Message (e)",
+  ["t"] = "Sequenced Message Type: Trade Details Message (t)",
+  ["x"] = "Sequenced Message Type: Cross Order Accepted Message (x)",
+  ["k"] = "Sequenced Message Type: Member Kill Switch Notification Message (k)",
+  ["u"] = "Sequenced Message Type: Mass Cancel Response Message (u)",
+  ["d"] = "Sequenced Message Type: Add Complex Instrument Response Message (d)",
+  ["m"] = "Sequenced Message Type: Modify Trade Response Message (m)",
+  ["f"] = "Sequenced Message Type: Subscription Response Message (f)",
+  ["j"] = "Sequenced Message Type: Reject Message (j)",
+  ["p"] = "Sequenced Message Type: Pending Response Message (p)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Sequenced Message Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Server Packet Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_type = {}
+
+-- Size: Server Packet Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_type.size = 1
+
+-- Display: Server Packet Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Server Packet Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+nasdaq_mrxoptions_otto_ouch_v2_1_4.side = {}
+
+-- Size: Side
+nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size = 1
+
+-- Display: Side
+nasdaq_mrxoptions_otto_ouch_v2_1_4.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+  ["O"] = "Side: Offer (O)",
+  ["N"] = "Side: Not Disclosed (N)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.side.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.side.labels[value] or "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid = {}
+
+-- Size: Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.size = 4
+
+-- Display: Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.display = function(value)
+  return "Stock Leg Mpid: "..value
+end
+
+-- Dissect: Stock Leg Mpid
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.stock_leg_mpid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale = {}
+
+-- Size: Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.size = 1
+
+-- Display: Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.labels = {
+  ["N"] = "Stock Leg Short Sale: Not Applicable (N)",
+  ["H"] = "Stock Leg Short Sale: Sell Short (H)",
+  ["E"] = "Stock Leg Short Sale: Sell Short Exempt (E)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.labels[value] or "Stock Leg Short Sale: Unknown("..value..")"
+end
+
+-- Dissect: Stock Leg Short Sale
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.stock_leg_short_sale, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stock Venue
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_venue = {}
+
+-- Size: Stock Venue
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_venue.size = 1
+
+-- Display: Stock Venue
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_venue.labels = {
+  ["X"] = "Stock Venue: Not Applicable (X)",
+  ["A"] = "Stock Venue: Bny Converg Ex Us Transaction Services (A)",
+  ["B"] = "Stock Venue: Bny Converg Ex Millennium Ats (B)",
+  ["G"] = "Stock Venue: Cheevers (G)",
+  ["H"] = "Stock Venue: Libucki (H)",
+  ["I"] = "Stock Venue: Fog Equities (I)",
+  ["J"] = "Stock Venue: Knight Capital Group (J)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_venue.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_venue.labels[value] or "Stock Venue: Unknown("..value..")"
+end
+
+-- Dissect: Stock Venue
+nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_venue.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_venue.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_venue.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.stock_venue, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.strike_price = {}
+
+-- Size: Strike Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.strike_price.size = 8
+
+-- Display: Strike Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.strike_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Strike Price
+nasdaq_mrxoptions_otto_ouch_v2_1_4.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = nasdaq_mrxoptions_otto_ouch_v2_1_4.strike_price.translate(raw)
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Subscription
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription = {}
+
+-- Size: Subscription
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription.size = 16
+
+-- Display: Subscription
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription.display = function(value)
+  return "Subscription: "..value
+end
+
+-- Dissect: Subscription
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.subscription, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Partition
+nasdaq_mrxoptions_otto_ouch_v2_1_4.system_partition = {}
+
+-- Size: System Partition
+nasdaq_mrxoptions_otto_ouch_v2_1_4.system_partition.size = 1
+
+-- Display: System Partition
+nasdaq_mrxoptions_otto_ouch_v2_1_4.system_partition.display = function(value)
+  return "System Partition: "..value
+end
+
+-- Dissect: System Partition
+nasdaq_mrxoptions_otto_ouch_v2_1_4.system_partition.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.system_partition.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.system_partition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.system_partition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Target Firm Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.target_firm_id = {}
+
+-- Size: Target Firm Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.target_firm_id.size = 4
+
+-- Display: Target Firm Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.target_firm_id.display = function(value)
+  return "Target Firm Id: "..value
+end
+
+-- Dissect: Target Firm Id
+nasdaq_mrxoptions_otto_ouch_v2_1_4.target_firm_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.target_firm_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.target_firm_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.target_firm_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tif
+nasdaq_mrxoptions_otto_ouch_v2_1_4.tif = {}
+
+-- Size: Tif
+nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.size = 1
+
+-- Display: Tif
+nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.labels = {
+  ["D"] = "Tif: Day (D)",
+  ["F"] = "Tif: Fok (F)",
+  ["I"] = "Tif: Ioc (I)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.labels[value] or "Tif: Unknown("..value..")"
+end
+
+-- Dissect: Tif
+nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.tif, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp = {}
+
+-- Size: Timestamp
+nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size = 8
+
+-- Display: Timestamp
+nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Timestamp
+nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tradable
+nasdaq_mrxoptions_otto_ouch_v2_1_4.tradable = {}
+
+-- Size: Tradable
+nasdaq_mrxoptions_otto_ouch_v2_1_4.tradable.size = 1
+
+-- Display: Tradable
+nasdaq_mrxoptions_otto_ouch_v2_1_4.tradable.labels = {
+  ["Y"] = "Tradable: Tradable (Y)",
+  ["N"] = "Tradable: Not Tradable (N)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.tradable.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.tradable.labels[value] or "Tradable: Unknown("..value..")"
+end
+
+-- Dissect: Tradable
+nasdaq_mrxoptions_otto_ouch_v2_1_4.tradable.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.tradable.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.tradable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.tradable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading State
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trading_state = {}
+
+-- Size: Trading State
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trading_state.size = 1
+
+-- Display: Trading State
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trading_state.labels = {
+  ["H"] = "Trading State: Halted (H)",
+  ["T"] = "Trading State: Trading Note At The Start Of Day All Instruments Are (T)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trading_state.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.trading_state.labels[value] or "Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Trading State
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trans Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trans_type = {}
+
+-- Size: Trans Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trans_type.size = 1
+
+-- Display: Trans Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trans_type.labels = {
+  ["A"] = "Trans Type: New Trade (A)",
+  ["B"] = "Trans Type: Trade Busted (B)",
+  ["C"] = "Trans Type: Modified Trade (C)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trans_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.trans_type.labels[value] or "Trans Type: Unknown("..value..")"
+end
+
+-- Dissect: Trans Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trans_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.trans_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.trans_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.trans_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+nasdaq_mrxoptions_otto_ouch_v2_1_4.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+nasdaq_mrxoptions_otto_ouch_v2_1_4.underlying_symbol.size = 13
+
+-- Display: Underlying Symbol
+nasdaq_mrxoptions_otto_ouch_v2_1_4.underlying_symbol.display = function(value)
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+nasdaq_mrxoptions_otto_ouch_v2_1_4.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.underlying_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unsequenced Message Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message_type = {}
+
+-- Size: Unsequenced Message Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message_type.size = 1
+
+-- Display: Unsequenced Message Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message_type.labels = {
+  ["A"] = "Unsequenced Message Type: New Order Long Form Message (A)",
+  ["B"] = "Unsequenced Message Type: New Order Short Form Message (B)",
+  ["R"] = "Unsequenced Message Type: Replace Order Message (R)",
+  ["C"] = "Unsequenced Message Type: Cancel Order Message (C)",
+  ["U"] = "Unsequenced Message Type: Mass Cancel Message (U)",
+  ["X"] = "Unsequenced Message Type: New Cross Order Message (X)",
+  ["S"] = "Unsequenced Message Type: Add Complex Instrument Message (S)",
+  ["M"] = "Unsequenced Message Type: Modify Trade Message (M)",
+  ["K"] = "Unsequenced Message Type: Member Kill Switch Request Message (K)",
+  ["F"] = "Unsequenced Message Type: Subscription Request Message (F)",
+}
+
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message_type.display = function(value)
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Unsequenced Message Type
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.unsequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+nasdaq_mrxoptions_otto_ouch_v2_1_4.username = {}
+
+-- Size: Username
+nasdaq_mrxoptions_otto_ouch_v2_1_4.username.size = 6
+
+-- Display: Username
+nasdaq_mrxoptions_otto_ouch_v2_1_4.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+nasdaq_mrxoptions_otto_ouch_v2_1_4.username.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_otto_ouch_v2_1_4.username.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq MrxOptions Otto Ouch 2.1.4
+-----------------------------------------------------------------------
+
+-- End Of Session Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.end_of_session_packet = {}
+
+-- Display: End Of Session Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.end_of_session_packet.display = function(packet, parent, length)
+  return "End Of Session Packet"
+end
+
+
+-- Dissect: End Of Session Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.end_of_session_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.end_of_session_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_heartbeat_packet = {}
+
+-- Display: Server Heartbeat Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_heartbeat_packet.display = function(packet, parent, length)
+  return "Server Heartbeat Packet"
+end
+
+
+-- Dissect: Server Heartbeat Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Pending Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_response_message = {}
+
+-- Size: Pending Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_response_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_msg_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_reason.size
+
+-- Display: Pending Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Pending Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Pending Msg Type: Alpha
+  index, pending_msg_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_msg_type.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: Alphanumeric
+  index, cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Pending Reason: Alpha
+  index, pending_reason = nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Pending Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.pending_response_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Reject Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_message = {}
+
+-- Size: Reject Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_msg_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_code.size
+
+-- Display: Reject Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Reject Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Reject Msg Type: Alpha
+  index, reject_msg_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_msg_type.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: Alphanumeric
+  index, cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Reject Code: Integer
+  index, reject_code = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Reject Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.reject_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Subscription Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_response_message = {}
+
+-- Size: Subscription Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_response_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size
+
+-- Display: Subscription Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Subscription Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Request Id: Alphanumeric
+  index, cl_request_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Subscription Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.subscription_response_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Modify Trade Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_response_message = {}
+
+-- Size: Modify Trade Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_response_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.size
+
+-- Display: Modify Trade Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Trade Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Request Id: Alphanumeric
+  index, cl_request_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: Alphanumeric
+  index, cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Cross Id: Integer
+  index, cross_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.dissect(buffer, index, packet, parent)
+
+  -- Match Id: Integer
+  index, match_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Modify Trade Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.modify_trade_response_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Add Complex Instrument Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_response_message = {}
+
+-- Size: Add Complex Instrument Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_response_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size
+
+-- Display: Add Complex Instrument Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Complex Instrument Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Request Id: Alphanumeric
+  index, cl_request_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Add Complex Instrument Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.add_complex_instrument_response_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mass Cancel Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_response_message = {}
+
+-- Size: Mass Cancel Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_response_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.num_canceled.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.num_pending.size
+
+-- Display: Mass Cancel Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Request Id: Alphanumeric
+  index, cl_request_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.dissect(buffer, index, packet, parent)
+
+  -- Num Canceled: Integer
+  index, num_canceled = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_canceled.dissect(buffer, index, packet, parent)
+
+  -- Num Pending: Integer
+  index, num_pending = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_pending.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Response Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.mass_cancel_response_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Member Kill Switch Notification Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_notification_message = {}
+
+-- Size: Member Kill Switch Notification Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_notification_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.target_firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action.size
+
+-- Display: Member Kill Switch Notification Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_notification_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Member Kill Switch Notification Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_notification_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Request Id: Alphanumeric
+  index, cl_request_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.dissect(buffer, index, packet, parent)
+
+  -- Target Firm Id: Alphanumeric
+  index, target_firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.target_firm_id.dissect(buffer, index, packet, parent)
+
+  -- Kill Action: Alpha
+  index, kill_action = nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Member Kill Switch Notification Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_notification_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.member_kill_switch_notification_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_notification_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_notification_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_notification_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Cross Order Accepted Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_order_accepted_message = {}
+
+-- Size: Cross Order Accepted Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_order_accepted_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_alloc_pct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.effective_time.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_order_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cmta.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_clearing_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_occ_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cust_acct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_quantity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_position_effect_mask.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_mpid.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cmta.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_clearing_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_occ_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cust_acct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_quantity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_position_effect_mask.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_mpid.size
+
+-- Display: Cross Order Accepted Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_order_accepted_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cross Order Accepted Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_order_accepted_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Cross Type: Alpha
+  index, cross_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Integer
+  index, auction_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Auction Alloc Pct: Integer
+  index, auction_alloc_pct = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_alloc_pct.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect(buffer, index, packet, parent)
+
+  -- Iso: Alpha
+  index, iso = nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.dissect(buffer, index, packet, parent)
+
+  -- Price Protection: Alpha
+  index, price_protection = nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.dissect(buffer, index, packet, parent)
+
+  -- Effective Time: Integer
+  index, effective_time = nasdaq_mrxoptions_otto_ouch_v2_1_4.effective_time.dissect(buffer, index, packet, parent)
+
+  -- Disclosure Mask: Integer
+  index, disclosure_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.dissect(buffer, index, packet, parent)
+
+  -- Primary Order Id: Integer
+  index, primary_order_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_order_id.dissect(buffer, index, packet, parent)
+
+  -- Primary Cl Ord Id: Alphanumeric
+  index, primary_cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Primary Cmta: Integer
+  index, primary_cmta = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cmta.dissect(buffer, index, packet, parent)
+
+  -- Primary Clearing Account: Alphanumeric
+  index, primary_clearing_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Primary Occ Account: Integer
+  index, primary_occ_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_occ_account.dissect(buffer, index, packet, parent)
+
+  -- Primary Cust Acct: Alphanumeric
+  index, primary_cust_acct = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cust_acct.dissect(buffer, index, packet, parent)
+
+  -- Primary Price: Integer
+  index, primary_price = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price.dissect(buffer, index, packet, parent)
+
+  -- Primary Quantity: Integer
+  index, primary_quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_quantity.dissect(buffer, index, packet, parent)
+
+  -- Primary Capacity: Alpha
+  index, primary_capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_capacity.dissect(buffer, index, packet, parent)
+
+  -- Primary Position Effect Mask: Integer
+  index, primary_position_effect_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_position_effect_mask.dissect(buffer, index, packet, parent)
+
+  -- Primary Stock Leg Short Sale: Alpha
+  index, primary_stock_leg_short_sale = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale.dissect(buffer, index, packet, parent)
+
+  -- Primary Stock Leg Mpid: Alphanumeric
+  index, primary_stock_leg_mpid = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_mpid.dissect(buffer, index, packet, parent)
+
+  -- Contra Order Id: Integer
+  index, contra_order_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_id.dissect(buffer, index, packet, parent)
+
+  -- Contra Cl Ord Id: Alphanumeric
+  index, contra_cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Contra Cmta: Integer
+  index, contra_cmta = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cmta.dissect(buffer, index, packet, parent)
+
+  -- Contra Clearing Account: Alphanumeric
+  index, contra_clearing_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Contra Occ Account: Integer
+  index, contra_occ_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_occ_account.dissect(buffer, index, packet, parent)
+
+  -- Contra Cust Acct: Alphanumeric
+  index, contra_cust_acct = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cust_acct.dissect(buffer, index, packet, parent)
+
+  -- Contra Order Type: Alpha
+  index, contra_order_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type.dissect(buffer, index, packet, parent)
+
+  -- Contra Price: Integer
+  index, contra_price = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price.dissect(buffer, index, packet, parent)
+
+  -- Contra Quantity: Integer
+  index, contra_quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_quantity.dissect(buffer, index, packet, parent)
+
+  -- Contra Capacity: Alpha
+  index, contra_capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_capacity.dissect(buffer, index, packet, parent)
+
+  -- Contra Position Effect Mask: Integer
+  index, contra_position_effect_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_position_effect_mask.dissect(buffer, index, packet, parent)
+
+  -- Contra Stock Leg Short Sale: Alpha
+  index, contra_stock_leg_short_sale = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale.dissect(buffer, index, packet, parent)
+
+  -- Contra Stock Leg Mpid: Alphanumeric
+  index, contra_stock_leg_mpid = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_mpid.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Cross Order Accepted Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_order_accepted_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cross_order_accepted_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_order_accepted_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_order_accepted_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_order_accepted_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trade Details Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_details_message = {}
+
+-- Size: Trade Details Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_details_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.trans_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.event_source.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.ref_match_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_venue.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.open_close.size
+
+-- Display: Trade Details Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_details_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Details Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_details_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Integer
+  index, product_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.dissect(buffer, index, packet, parent)
+
+  -- Ord Exec Type: Alpha
+  index, ord_exec_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Instrument Id: Integer
+  index, leg_instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Id: Integer
+  index, leg_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id.dissect(buffer, index, packet, parent)
+
+  -- Trans Type: Alpha
+  index, trans_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.trans_type.dissect(buffer, index, packet, parent)
+
+  -- Event Source: Alpha
+  index, event_source = nasdaq_mrxoptions_otto_ouch_v2_1_4.event_source.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Integer
+  index, order_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: Alphanumeric
+  index, cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Cross Id: Integer
+  index, cross_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.dissect(buffer, index, packet, parent)
+
+  -- Match Id: Integer
+  index, match_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.dissect(buffer, index, packet, parent)
+
+  -- Ref Match Id: Integer
+  index, ref_match_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.ref_match_id.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect(buffer, index, packet, parent)
+
+  -- Stock Leg Short Sale: Alpha
+  index, stock_leg_short_sale = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = nasdaq_mrxoptions_otto_ouch_v2_1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Integer
+  index, quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.dissect(buffer, index, packet, parent)
+
+  -- Liquidity Ind: Integer
+  index, liquidity_ind = nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind.dissect(buffer, index, packet, parent)
+
+  -- Cmta: Integer
+  index, cmta = nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.dissect(buffer, index, packet, parent)
+
+  -- Clearing Account: Alphanumeric
+  index, clearing_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Occ Account: Integer
+  index, occ_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.dissect(buffer, index, packet, parent)
+
+  -- Cust Acct: Alphanumeric
+  index, cust_acct = nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.dissect(buffer, index, packet, parent)
+
+  -- Stock Venue: Alpha
+  index, stock_venue = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_venue.dissect(buffer, index, packet, parent)
+
+  -- Stock Leg Mpid: Alphanumeric
+  index, stock_leg_mpid = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alpha
+  index, capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.dissect(buffer, index, packet, parent)
+
+  -- Open Close: Alpha
+  index, open_close = nasdaq_mrxoptions_otto_ouch_v2_1_4.open_close.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Details Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_details_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.trade_details_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_details_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_details_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_details_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Executed Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_executed_message = {}
+
+-- Size: Order Executed Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_executed_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind.size
+
+-- Display: Order Executed Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_executed_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Executed Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_executed_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Integer
+  index, product_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.dissect(buffer, index, packet, parent)
+
+  -- Ord Exec Type: Alpha
+  index, ord_exec_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.ord_exec_type.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Instrument Id: Integer
+  index, leg_instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Id: Integer
+  index, leg_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Integer
+  index, order_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cross Id: Integer
+  index, cross_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.dissect(buffer, index, packet, parent)
+
+  -- Match Id: Integer
+  index, match_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect(buffer, index, packet, parent)
+
+  -- Stock Leg Short Sale: Alpha
+  index, stock_leg_short_sale = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = nasdaq_mrxoptions_otto_ouch_v2_1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Integer
+  index, quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.dissect(buffer, index, packet, parent)
+
+  -- Liquidity Ind: Integer
+  index, liquidity_ind = nasdaq_mrxoptions_otto_ouch_v2_1_4.liquidity_ind.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Executed Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_executed_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_executed_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_executed_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_executed_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.order_executed_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Canceled Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_canceled_message = {}
+
+-- Size: Order Canceled Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_canceled_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_reason.size
+
+-- Display: Order Canceled Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_canceled_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Canceled Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_canceled_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Integer
+  index, order_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cancel Reason: Alpha
+  index, cancel_reason = nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Canceled Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_canceled_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_canceled_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_canceled_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_canceled_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.order_canceled_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Replaced Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_replaced_message = {}
+
+-- Size: Order Replaced Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_replaced_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_order_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.size
+
+-- Display: Order Replaced Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_replaced_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Replaced Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_replaced_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Order Id: Integer
+  index, orig_order_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_order_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Integer
+  index, order_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Cl Ord Id: Alphanumeric
+  index, orig_cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Alo Inst: Alpha
+  index, alo_inst = nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.dissect(buffer, index, packet, parent)
+
+  -- Iso: Alpha
+  index, iso = nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alpha
+  index, order_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = nasdaq_mrxoptions_otto_ouch_v2_1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Integer
+  index, quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.dissect(buffer, index, packet, parent)
+
+  -- Tif: Alpha
+  index, tif = nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.dissect(buffer, index, packet, parent)
+
+  -- Cust Acct: Alphanumeric
+  index, cust_acct = nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alpha
+  index, capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Integer
+  index, auction_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Position Effect Mask: Integer
+  index, position_effect_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.dissect(buffer, index, packet, parent)
+
+  -- Price Protection: Alpha
+  index, price_protection = nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Replaced Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_replaced_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_replaced_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_replaced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_replaced_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.order_replaced_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Accepted Short Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_short_form_message = {}
+
+-- Size: Order Accepted Short Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_short_form_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity_short.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.size
+
+-- Display: Order Accepted Short Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_short_form_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Accepted Short Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_short_form_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Integer
+  index, order_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: Alphanumeric
+  index, cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Alo Inst: Alpha
+  index, alo_inst = nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.dissect(buffer, index, packet, parent)
+
+  -- Iso: Alpha
+  index, iso = nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alpha
+  index, order_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = nasdaq_mrxoptions_otto_ouch_v2_1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity Short: Integer
+  index, quantity_short = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity_short.dissect(buffer, index, packet, parent)
+
+  -- Tif: Alpha
+  index, tif = nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alpha
+  index, capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Integer
+  index, auction_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Price Protection: Alpha
+  index, price_protection = nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.dissect(buffer, index, packet, parent)
+
+  -- Position Effect Mask: Integer
+  index, position_effect_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Accepted Short Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_short_form_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_accepted_short_form_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_short_form_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_short_form_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_short_form_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Accepted Long Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_long_form_message = {}
+
+-- Size: Order Accepted Long Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_long_form_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.preferred_party.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.min_qty.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.flash_inst.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.display_qty.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.display_low_qty.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.display_high_qty.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst.size
+
+-- Display: Order Accepted Long Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_long_form_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Accepted Long Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_long_form_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Integer
+  index, order_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: Alphanumeric
+  index, cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Cmta: Integer
+  index, cmta = nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.dissect(buffer, index, packet, parent)
+
+  -- Clearing Account: Alphanumeric
+  index, clearing_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Occ Account: Integer
+  index, occ_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.dissect(buffer, index, packet, parent)
+
+  -- Cust Acct: Alphanumeric
+  index, cust_acct = nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.dissect(buffer, index, packet, parent)
+
+  -- Preferred Party: Alpha
+  index, preferred_party = nasdaq_mrxoptions_otto_ouch_v2_1_4.preferred_party.dissect(buffer, index, packet, parent)
+
+  -- Alo Inst: Alpha
+  index, alo_inst = nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.dissect(buffer, index, packet, parent)
+
+  -- Iso: Alpha
+  index, iso = nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alpha
+  index, order_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = nasdaq_mrxoptions_otto_ouch_v2_1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Integer
+  index, quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.dissect(buffer, index, packet, parent)
+
+  -- Min Qty: Integer
+  index, min_qty = nasdaq_mrxoptions_otto_ouch_v2_1_4.min_qty.dissect(buffer, index, packet, parent)
+
+  -- Tif: Alpha
+  index, tif = nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alpha
+  index, capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Integer
+  index, auction_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Flash Inst: Alpha
+  index, flash_inst = nasdaq_mrxoptions_otto_ouch_v2_1_4.flash_inst.dissect(buffer, index, packet, parent)
+
+  -- Disclosure Mask: Integer
+  index, disclosure_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.dissect(buffer, index, packet, parent)
+
+  -- Display Qty: Integer
+  index, display_qty = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_qty.dissect(buffer, index, packet, parent)
+
+  -- Display When: Alpha
+  index, display_when = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when.dissect(buffer, index, packet, parent)
+
+  -- Display Method: Alpha
+  index, display_method = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method.dissect(buffer, index, packet, parent)
+
+  -- Display Low Qty: Integer
+  index, display_low_qty = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_low_qty.dissect(buffer, index, packet, parent)
+
+  -- Display High Qty: Integer
+  index, display_high_qty = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_high_qty.dissect(buffer, index, packet, parent)
+
+  -- Position Effect Mask: Integer
+  index, position_effect_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.dissect(buffer, index, packet, parent)
+
+  -- Stock Leg Short Sale: Alpha
+  index, stock_leg_short_sale = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.dissect(buffer, index, packet, parent)
+
+  -- Stock Leg Mpid: Alphanumeric
+  index, stock_leg_mpid = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.dissect(buffer, index, packet, parent)
+
+  -- Persist Inst: Alpha
+  index, persist_inst = nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Accepted Long Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_long_form_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.order_accepted_long_form_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_long_form_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_long_form_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_long_form_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Notification Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_notification_message = {}
+
+-- Size: Auction Notification Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_notification_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.exec_flag.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_event.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_size.size
+
+-- Display: Auction Notification Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_notification_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Notification Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_notification_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Instrument Type: Alpha
+  index, instrument_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Integer
+  index, auction_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alpha
+  index, order_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = nasdaq_mrxoptions_otto_ouch_v2_1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Integer
+  index, quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.dissect(buffer, index, packet, parent)
+
+  -- Exec Flag: Alpha
+  index, exec_flag = nasdaq_mrxoptions_otto_ouch_v2_1_4.exec_flag.dissect(buffer, index, packet, parent)
+
+  -- Order Capacity: Alpha
+  index, order_capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_capacity.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Occ Account: Integer
+  index, occ_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.dissect(buffer, index, packet, parent)
+
+  -- Cmta: Integer
+  index, cmta = nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.dissect(buffer, index, packet, parent)
+
+  -- Auction Event: Alpha
+  index, auction_event = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_event.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Best Response Price: Integer
+  index, best_response_price = nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_price.dissect(buffer, index, packet, parent)
+
+  -- Best Response Size: Integer
+  index, best_response_size = nasdaq_mrxoptions_otto_ouch_v2_1_4.best_response_size.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Notification Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_notification_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.auction_notification_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_notification_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_notification_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_notification_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Instrument Trading Action Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_trading_action_message = {}
+
+-- Size: Instrument Trading Action Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_trading_action_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.trading_state.size
+
+-- Display: Instrument Trading Action Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_trading_action_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Trading Action Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_trading_action_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Integer
+  index, product_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Trading State: Alpha
+  index, trading_state = nasdaq_mrxoptions_otto_ouch_v2_1_4.trading_state.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Trading Action Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_trading_action_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.instrument_trading_action_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_trading_action_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_trading_action_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_trading_action_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Complex Directory Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_directory_legs = {}
+
+-- Size: Complex Directory Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_directory_legs.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_ratio.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id.size
+
+-- Display: Complex Directory Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_directory_legs.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Directory Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_directory_legs.fields = function(buffer, offset, packet, parent, complex_directory_legs_index)
+  local index = offset
+
+  -- Implicit Complex Directory Legs Index
+  if complex_directory_legs_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.complex_directory_legs_index, complex_directory_legs_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Type: Alpha
+  index, leg_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type.dissect(buffer, index, packet, parent)
+
+  -- Leg Instrument Id: Integer
+  index, leg_instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: Alpha
+  index, leg_side = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio: Integer
+  index, leg_ratio = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_ratio.dissect(buffer, index, packet, parent)
+
+  -- Leg Id: Integer
+  index, leg_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Complex Directory Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_directory_legs.dissect = function(buffer, offset, packet, parent, complex_directory_legs_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.complex_directory_legs, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_directory_legs.fields(buffer, offset, packet, parent, complex_directory_legs_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_directory_legs.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_directory_legs.fields(buffer, offset, packet, parent, complex_directory_legs_index)
+  end
+end
+
+-- Complex Instrument Directory Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_directory_message = {}
+
+-- Calculate size of: Complex Instrument Directory Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.num_legs.size
+
+  -- Calculate field size from count
+  local complex_directory_legs_count = buffer(offset + index - 1, 1):uint()
+  index = index + complex_directory_legs_count * 9
+
+  return index
+end
+
+-- Display: Complex Instrument Directory Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_directory_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Instrument Directory Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_directory_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Integer
+  index, product_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.dissect(buffer, index, packet, parent)
+
+  -- Product Name: Alphanumeric
+  index, product_name = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Num Legs: Integer
+  index, num_legs = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_legs.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Complex Directory Legs
+  for complex_directory_legs_index = 1, num_legs do
+    index, complex_directory_legs = nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_directory_legs.dissect(buffer, index, packet, parent, complex_directory_legs_index)
+  end
+
+  return index
+end
+
+-- Dissect: Complex Instrument Directory Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_directory_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.complex_instrument_directory_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_directory_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_directory_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_directory_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Simple Instrument Directory Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.simple_instrument_directory_message = {}
+
+-- Size: Simple Instrument Directory Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.simple_instrument_directory_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_year.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_mon.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_day.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.strike_price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.option_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.tradable.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_only.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contract_size.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.mpv.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.system_partition.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.security_symbol.size
+
+-- Display: Simple Instrument Directory Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.simple_instrument_directory_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Simple Instrument Directory Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.simple_instrument_directory_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Integer
+  index, product_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.dissect(buffer, index, packet, parent)
+
+  -- Product Name: Alphanumeric
+  index, product_name = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Expir Year: Integer
+  index, expir_year = nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_year.dissect(buffer, index, packet, parent)
+
+  -- Expir Mon: Integer
+  index, expir_mon = nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_mon.dissect(buffer, index, packet, parent)
+
+  -- Expir Day: Integer
+  index, expir_day = nasdaq_mrxoptions_otto_ouch_v2_1_4.expir_day.dissect(buffer, index, packet, parent)
+
+  -- Strike Price: Integer
+  index, strike_price = nasdaq_mrxoptions_otto_ouch_v2_1_4.strike_price.dissect(buffer, index, packet, parent)
+
+  -- Option Type: Alpha
+  index, option_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.option_type.dissect(buffer, index, packet, parent)
+
+  -- Closing Type: Alpha
+  index, closing_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_type.dissect(buffer, index, packet, parent)
+
+  -- Tradable: Alpha
+  index, tradable = nasdaq_mrxoptions_otto_ouch_v2_1_4.tradable.dissect(buffer, index, packet, parent)
+
+  -- Closing Only: Alpha
+  index, closing_only = nasdaq_mrxoptions_otto_ouch_v2_1_4.closing_only.dissect(buffer, index, packet, parent)
+
+  -- Contract Size: Integer
+  index, contract_size = nasdaq_mrxoptions_otto_ouch_v2_1_4.contract_size.dissect(buffer, index, packet, parent)
+
+  -- Mpv: Alpha
+  index, mpv = nasdaq_mrxoptions_otto_ouch_v2_1_4.mpv.dissect(buffer, index, packet, parent)
+
+  -- System Partition: Integer
+  index, system_partition = nasdaq_mrxoptions_otto_ouch_v2_1_4.system_partition.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Alphanumeric
+  index, security_symbol = nasdaq_mrxoptions_otto_ouch_v2_1_4.security_symbol.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Simple Instrument Directory Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.simple_instrument_directory_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.simple_instrument_directory_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.simple_instrument_directory_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.simple_instrument_directory_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.simple_instrument_directory_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- System Event Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.system_event_message = {}
+
+-- Size: System Event Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.system_event_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.event_code.size
+
+-- Display: System Event Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.system_event_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: System Event Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.system_event_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_mrxoptions_otto_ouch_v2_1_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Event Code: Alpha
+  index, event_code = nasdaq_mrxoptions_otto_ouch_v2_1_4.event_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: System Event Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.system_event_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.system_event_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.system_event_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.system_event_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequenced Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message = {}
+
+-- Dispatch: Sequenced Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message.dispatch = {
+  ["z"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.system_event_message.dissect,
+  ["o"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.simple_instrument_directory_message.dissect,
+  ["s"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_directory_message.dissect,
+  ["i"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_trading_action_message.dissect,
+  ["n"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_notification_message.dissect,
+  ["a"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_long_form_message.dissect,
+  ["b"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_accepted_short_form_message.dissect,
+  ["r"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_replaced_message.dissect,
+  ["c"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_canceled_message.dissect,
+  ["e"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_executed_message.dissect,
+  ["t"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_details_message.dissect,
+  ["x"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_order_accepted_message.dissect,
+  ["k"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_notification_message.dissect,
+  ["u"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_response_message.dissect,
+  ["d"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_response_message.dissect,
+  ["m"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_response_message.dissect,
+  ["f"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_response_message.dissect,
+  ["j"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_message.dissect,
+  ["p"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.pending_response_message.dissect,
+}
+
+-- Dissect: Sequenced Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
+  local dissect = nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Sequenced Data Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_data_packet = {}
+
+-- Read runtime size of: Sequenced Data Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Sequenced Data Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Data Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+  local index = offset
+
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number.current)
+      end
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if nasdaq_mrxoptions_otto_ouch_v2_1_4.stream_frame ~= packet.number or nasdaq_mrxoptions_otto_ouch_v2_1_4.stream_occurrence >= #memo then
+          nasdaq_mrxoptions_otto_ouch_v2_1_4.stream_frame = packet.number
+          nasdaq_mrxoptions_otto_ouch_v2_1_4.stream_occurrence = 0
+        end
+        nasdaq_mrxoptions_otto_ouch_v2_1_4.stream_occurrence = nasdaq_mrxoptions_otto_ouch_v2_1_4.stream_occurrence + 1
+        local value = memo[nasdaq_mrxoptions_otto_ouch_v2_1_4.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
+
+  -- Sequenced Message Type: 1 Byte Ascii String Enum with 19 values
+  index, sequenced_message_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Sequenced Message: Runtime Type with 19 branches
+  index = nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_message.dissect(buffer, index, packet, parent, sequenced_message_type)
+
+  return index
+end
+
+-- Dissect: Sequenced Data Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+  local size_of_sequenced_data_packet = nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_sequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.sequenced_data_packet, buffer(offset, 0))
+    local current = nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+    parent:set_len(size_of_sequenced_data_packet)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Login Rejected Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_rejected_packet = {}
+
+-- Size: Login Rejected Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_rejected_packet.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_reason_code.size
+
+-- Display: Login Rejected Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_rejected_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Rejected Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_rejected_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reject Reason Code: 1 Byte Ascii String Enum with 2 values
+  index, reject_reason_code = nasdaq_mrxoptions_otto_ouch_v2_1_4.reject_reason_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Rejected Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.login_rejected_packet, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.login_rejected_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.login_rejected_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.login_rejected_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Accepted Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_accepted_packet = {}
+
+-- Size: Login Accepted Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_accepted_packet.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_session.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number.size
+
+-- Display: Login Accepted Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_accepted_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Accepted Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_accepted_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_session.dissect(buffer, index, packet, parent)
+
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Store Accepted Sequence Number Value
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number.current = accepted_sequence_number
+
+  if not packet.visited then
+    nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.current.accepted_sequence_number.last = accepted_sequence_number
+  end
+
+  return index
+end
+
+-- Dissect: Login Accepted Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.login_accepted_packet, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.login_accepted_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.login_accepted_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.login_accepted_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Debug Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_packet = {}
+
+-- Calculate size of: Debug Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Parse runtime size of: Debug Text
+  index = index + buffer(offset + index - 3, 2):uint()
+
+  return index
+end
+
+-- Display: Debug Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Debug Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Debug Text
+  local size_of_debug_text = packet_length - 1
+
+  -- Debug Text: 0 Byte Ascii String
+  index, debug_text = nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_text.dissect(buffer, index, packet, parent, size_of_debug_text)
+
+  return index
+end
+
+-- Dissect: Debug Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.debug_packet, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Payload
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_payload = {}
+
+-- Dispatch: Server Payload
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_payload.dispatch = {
+  ["+"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_packet.dissect,
+  ["A"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.login_accepted_packet.dissect,
+  ["J"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.login_rejected_packet.dissect,
+  ["S"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_heartbeat_packet.dissect,
+  ["Z"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.end_of_session_packet.dissect,
+}
+
+-- Dissect: Server Payload
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
+  local dissect = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Server Packet Header
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_header = {}
+
+-- Size: Server Packet Header
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_header.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.packet_length.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_type.size
+
+-- Display: Server Packet Header
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Packet Header
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, packet_length = nasdaq_mrxoptions_otto_ouch_v2_1_4.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Server Packet Type: 1 Byte Ascii String Enum with 6 values
+  index, server_packet_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Server Packet Header
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.server_packet_header, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Soup Bin Tcp Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_soup_bin_tcp_packet = {}
+
+-- Display: Server Soup Bin Tcp Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_soup_bin_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Soup Bin Tcp Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+  local index = offset
+
+  -- Server Packet Header: Struct of 2 fields
+  index, server_packet_header = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Server Packet Type
+  local server_packet_type = buffer(index - 1, 1):string()
+
+  -- Server Payload: Runtime Type with 6 branches
+  index = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
+
+  return index
+end
+
+-- Dissect: Server Soup Bin Tcp Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+  local index = offset + size_of_server_soup_bin_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    parent:set_len(size_of_server_soup_bin_tcp_packet)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_mrxoptions_otto_ouch_v2_1_4.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Soup Bin Tcp Packet
+local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Server Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet = {}
+
+-- Verify required size of Tcp packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet_header.size
+end
+
+-- Dissect Server Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.data(packet)
+  if not packet.visited then
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
+  end
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.current = data
+
+  local index = 0
+
+  -- Dependency for Server Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Server Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_soup_bin_tcp_packet = server_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_soup_bin_tcp_packet):tvb()
+      index = nasdaq_mrxoptions_otto_ouch_v2_1_4.server_soup_bin_tcp_packet.dissect(frame, index, packet, parent, size_of_server_soup_bin_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+-- Logout Request Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.logout_request_packet = {}
+
+-- Display: Logout Request Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.logout_request_packet.display = function(packet, parent, length)
+  return "Logout Request Packet"
+end
+
+
+-- Dissect: Logout Request Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.logout_request_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.logout_request_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_heartbeat_packet = {}
+
+-- Display: Client Heartbeat Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_heartbeat_packet.display = function(packet, parent, length)
+  return "Client Heartbeat Packet"
+end
+
+
+-- Dissect: Client Heartbeat Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Subscription Request Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_request_message = {}
+
+-- Size: Subscription Request Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_request_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription.size
+
+-- Display: Subscription Request Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Subscription Request Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Request Id: Alphanumeric
+  index, cl_request_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.dissect(buffer, index, packet, parent)
+
+  -- Subscription: Alpha
+  index, subscription = nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Subscription Request Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.subscription_request_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Member Kill Switch Request Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_request_message = {}
+
+-- Size: Member Kill Switch Request Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_request_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.target_firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action.size
+
+-- Display: Member Kill Switch Request Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Member Kill Switch Request Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Request Id: Alphanumeric
+  index, cl_request_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.dissect(buffer, index, packet, parent)
+
+  -- Target Firm Id: Alphanumeric
+  index, target_firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.target_firm_id.dissect(buffer, index, packet, parent)
+
+  -- Kill Action: Alpha
+  index, kill_action = nasdaq_mrxoptions_otto_ouch_v2_1_4.kill_action.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Member Kill Switch Request Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.member_kill_switch_request_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trade Splits
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_splits = {}
+
+-- Size: Trade Splits
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_splits.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.alloc_qty.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.open_close.size
+
+-- Display: Trade Splits
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_splits.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Splits
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_splits.fields = function(buffer, offset, packet, parent, trade_splits_index)
+  local index = offset
+
+  -- Implicit Trade Splits Index
+  if trade_splits_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.trade_splits_index, trade_splits_index)
+    iteration:set_generated()
+  end
+
+  -- Alloc Qty: Integer
+  index, alloc_qty = nasdaq_mrxoptions_otto_ouch_v2_1_4.alloc_qty.dissect(buffer, index, packet, parent)
+
+  -- Cmta: Integer
+  index, cmta = nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.dissect(buffer, index, packet, parent)
+
+  -- Clearing Account: Alphanumeric
+  index, clearing_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Occ Account: Integer
+  index, occ_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.dissect(buffer, index, packet, parent)
+
+  -- Cust Acct: Alphanumeric
+  index, cust_acct = nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.dissect(buffer, index, packet, parent)
+
+  -- Stock Leg Mpid: Alphanumeric
+  index, stock_leg_mpid = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alpha
+  index, capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.dissect(buffer, index, packet, parent)
+
+  -- Open Close: Alpha
+  index, open_close = nasdaq_mrxoptions_otto_ouch_v2_1_4.open_close.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Splits
+nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_splits.dissect = function(buffer, offset, packet, parent, trade_splits_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.trade_splits, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_splits.fields(buffer, offset, packet, parent, trade_splits_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_splits.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_splits.fields(buffer, offset, packet, parent, trade_splits_index)
+  end
+end
+
+-- Modify Trade Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_message = {}
+
+-- Calculate size of: Modify Trade Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.num_splits.size
+
+  -- Calculate field size from count
+  local trade_splits_count = buffer(offset + index - 2, 2):uint()
+  index = index + trade_splits_count * 32
+
+  return index
+end
+
+-- Display: Modify Trade Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Trade Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Request Id: Alphanumeric
+  index, cl_request_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: Alphanumeric
+  index, cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Cross Id: Integer
+  index, cross_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_id.dissect(buffer, index, packet, parent)
+
+  -- Match Id: Integer
+  index, match_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.match_id.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Integer
+  index, quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.dissect(buffer, index, packet, parent)
+
+  -- Num Splits: Integer
+  index, num_splits = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_splits.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Trade Splits
+  for trade_splits_index = 1, num_splits do
+    index, trade_splits = nasdaq_mrxoptions_otto_ouch_v2_1_4.trade_splits.dissect(buffer, index, packet, parent, trade_splits_index)
+  end
+
+  return index
+end
+
+-- Dissect: Modify Trade Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.modify_trade_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Complex Instrument Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_legs = {}
+
+-- Size: Complex Instrument Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_legs.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_ratio.size
+
+-- Display: Complex Instrument Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_legs.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Instrument Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_legs.fields = function(buffer, offset, packet, parent, complex_instrument_legs_index)
+  local index = offset
+
+  -- Implicit Complex Instrument Legs Index
+  if complex_instrument_legs_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.complex_instrument_legs_index, complex_instrument_legs_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Type: Alpha
+  index, leg_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_type.dissect(buffer, index, packet, parent)
+
+  -- Leg Instrument Id: Integer
+  index, leg_instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: Alpha
+  index, leg_side = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_side.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio: Integer
+  index, leg_ratio = nasdaq_mrxoptions_otto_ouch_v2_1_4.leg_ratio.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Complex Instrument Legs
+nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_legs.dissect = function(buffer, offset, packet, parent, complex_instrument_legs_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.complex_instrument_legs, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_legs.fields(buffer, offset, packet, parent, complex_instrument_legs_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_legs.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_legs.fields(buffer, offset, packet, parent, complex_instrument_legs_index)
+  end
+end
+
+-- Add Complex Instrument Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_message = {}
+
+-- Calculate size of: Add Complex Instrument Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name.size
+
+  index = index + nasdaq_mrxoptions_otto_ouch_v2_1_4.num_legs.size
+
+  -- Calculate field size from count
+  local complex_instrument_legs_count = buffer(offset + index - 1, 1):uint()
+  index = index + complex_instrument_legs_count * 8
+
+  return index
+end
+
+-- Display: Add Complex Instrument Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Complex Instrument Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Request Id: Alphanumeric
+  index, cl_request_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Integer
+  index, product_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.dissect(buffer, index, packet, parent)
+
+  -- Product Name: Alphanumeric
+  index, product_name = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_name.dissect(buffer, index, packet, parent)
+
+  -- Num Legs: Integer
+  index, num_legs = nasdaq_mrxoptions_otto_ouch_v2_1_4.num_legs.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Complex Instrument Legs
+  for complex_instrument_legs_index = 1, num_legs do
+    index, complex_instrument_legs = nasdaq_mrxoptions_otto_ouch_v2_1_4.complex_instrument_legs.dissect(buffer, index, packet, parent, complex_instrument_legs_index)
+  end
+
+  return index
+end
+
+-- Dissect: Add Complex Instrument Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.add_complex_instrument_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Cross Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_cross_order_message = {}
+
+-- Size: New Cross Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_cross_order_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_alloc_pct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.effective_time.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cmta.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_clearing_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_occ_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cust_acct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_quantity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_position_effect_mask.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_mpid.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cmta.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_clearing_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_occ_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cust_acct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_quantity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_position_effect_mask.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_mpid.size
+
+-- Display: New Cross Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_cross_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Cross Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_cross_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Cross Type: Alpha
+  index, cross_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.cross_type.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Auction Alloc Pct: Integer
+  index, auction_alloc_pct = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_alloc_pct.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect(buffer, index, packet, parent)
+
+  -- Iso: Alpha
+  index, iso = nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.dissect(buffer, index, packet, parent)
+
+  -- Price Protection: Alpha
+  index, price_protection = nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.dissect(buffer, index, packet, parent)
+
+  -- Effective Time: Integer
+  index, effective_time = nasdaq_mrxoptions_otto_ouch_v2_1_4.effective_time.dissect(buffer, index, packet, parent)
+
+  -- Disclosure Mask: Integer
+  index, disclosure_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.dissect(buffer, index, packet, parent)
+
+  -- Primary Cl Ord Id: Alphanumeric
+  index, primary_cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Primary Cmta: Integer
+  index, primary_cmta = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cmta.dissect(buffer, index, packet, parent)
+
+  -- Primary Clearing Account: Alphanumeric
+  index, primary_clearing_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Primary Occ Account: Integer
+  index, primary_occ_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_occ_account.dissect(buffer, index, packet, parent)
+
+  -- Primary Cust Acct: Alphanumeric
+  index, primary_cust_acct = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_cust_acct.dissect(buffer, index, packet, parent)
+
+  -- Primary Price: Integer
+  index, primary_price = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_price.dissect(buffer, index, packet, parent)
+
+  -- Primary Quantity: Integer
+  index, primary_quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_quantity.dissect(buffer, index, packet, parent)
+
+  -- Primary Capacity: Alpha
+  index, primary_capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_capacity.dissect(buffer, index, packet, parent)
+
+  -- Primary Position Effect Mask: Integer
+  index, primary_position_effect_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_position_effect_mask.dissect(buffer, index, packet, parent)
+
+  -- Primary Stock Leg Short Sale: Alpha
+  index, primary_stock_leg_short_sale = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_short_sale.dissect(buffer, index, packet, parent)
+
+  -- Primary Stock Leg Mpid: Alphanumeric
+  index, primary_stock_leg_mpid = nasdaq_mrxoptions_otto_ouch_v2_1_4.primary_stock_leg_mpid.dissect(buffer, index, packet, parent)
+
+  -- Contra Cl Ord Id: Alphanumeric
+  index, contra_cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Contra Cmta: Integer
+  index, contra_cmta = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cmta.dissect(buffer, index, packet, parent)
+
+  -- Contra Clearing Account: Alphanumeric
+  index, contra_clearing_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Contra Occ Account: Integer
+  index, contra_occ_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_occ_account.dissect(buffer, index, packet, parent)
+
+  -- Contra Cust Acct: Alphanumeric
+  index, contra_cust_acct = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_cust_acct.dissect(buffer, index, packet, parent)
+
+  -- Contra Order Type: Alpha
+  index, contra_order_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_order_type.dissect(buffer, index, packet, parent)
+
+  -- Contra Price: Integer
+  index, contra_price = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_price.dissect(buffer, index, packet, parent)
+
+  -- Contra Quantity: Integer
+  index, contra_quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_quantity.dissect(buffer, index, packet, parent)
+
+  -- Contra Capacity: Alpha
+  index, contra_capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_capacity.dissect(buffer, index, packet, parent)
+
+  -- Contra Position Effect Mask: Integer
+  index, contra_position_effect_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_position_effect_mask.dissect(buffer, index, packet, parent)
+
+  -- Contra Stock Leg Short Sale: Alpha
+  index, contra_stock_leg_short_sale = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_short_sale.dissect(buffer, index, packet, parent)
+
+  -- Contra Stock Leg Mpid: Alphanumeric
+  index, contra_stock_leg_mpid = nasdaq_mrxoptions_otto_ouch_v2_1_4.contra_stock_leg_mpid.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Cross Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_cross_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.new_cross_order_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.new_cross_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.new_cross_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.new_cross_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mass Cancel Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_message = {}
+
+-- Size: Mass Cancel Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.scope.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.underlying_symbol.size
+
+-- Display: Mass Cancel Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Request Id: Alphanumeric
+  index, cl_request_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_request_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Type: Alpha
+  index, instrument_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_type.dissect(buffer, index, packet, parent)
+
+  -- Scope: Alpha
+  index, scope = nasdaq_mrxoptions_otto_ouch_v2_1_4.scope.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Integer
+  index, product_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.product_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Underlying Symbol: Alpha
+  index, underlying_symbol = nasdaq_mrxoptions_otto_ouch_v2_1_4.underlying_symbol.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.mass_cancel_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Cancel Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_order_message = {}
+
+-- Size: Cancel Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_order_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size
+
+-- Display: Cancel Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cancel Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: Alphanumeric
+  index, cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Cancel Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.cancel_order_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replace Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.replace_order_message = {}
+
+-- Size: Replace Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.replace_order_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.size
+
+-- Display: Replace Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.replace_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replace Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.replace_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Cl Ord Id: Alphanumeric
+  index, orig_cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Integer
+  index, quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alpha
+  index, order_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.dissect(buffer, index, packet, parent)
+
+  -- Tif: Alpha
+  index, tif = nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.dissect(buffer, index, packet, parent)
+
+  -- Cust Acct: Alphanumeric
+  index, cust_acct = nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.dissect(buffer, index, packet, parent)
+
+  -- Price Protection: Alpha
+  index, price_protection = nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replace Order Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.replace_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.replace_order_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.replace_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.replace_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.replace_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Order Short Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_short_form_message = {}
+
+-- Size: New Order Short Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_short_form_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity_short.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.size
+
+-- Display: New Order Short Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_short_form_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Short Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_short_form_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: Alphanumeric
+  index, cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Alo Inst: Alpha
+  index, alo_inst = nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.dissect(buffer, index, packet, parent)
+
+  -- Iso: Alpha
+  index, iso = nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alpha
+  index, order_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = nasdaq_mrxoptions_otto_ouch_v2_1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity Short: Integer
+  index, quantity_short = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity_short.dissect(buffer, index, packet, parent)
+
+  -- Tif: Alpha
+  index, tif = nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alpha
+  index, capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Integer
+  index, auction_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Price Protection: Alpha
+  index, price_protection = nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.dissect(buffer, index, packet, parent)
+
+  -- Position Effect Mask: Integer
+  index, position_effect_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Order Short Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_short_form_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.new_order_short_form_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_short_form_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_short_form_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_short_form_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Order Long Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_long_form_message = {}
+
+-- Size: New Order Long Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_long_form_message.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.preferred_party.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.side.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.min_qty.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.flash_inst.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.display_qty.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.display_low_qty.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.display_high_qty.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst.size
+
+-- Display: New Order Long Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_long_form_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Long Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_long_form_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Firm Id: Alphanumeric
+  index, firm_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Integer
+  index, instrument_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: Alphanumeric
+  index, cl_ord_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Cmta: Integer
+  index, cmta = nasdaq_mrxoptions_otto_ouch_v2_1_4.cmta.dissect(buffer, index, packet, parent)
+
+  -- Clearing Account: Alphanumeric
+  index, clearing_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Occ Account: Integer
+  index, occ_account = nasdaq_mrxoptions_otto_ouch_v2_1_4.occ_account.dissect(buffer, index, packet, parent)
+
+  -- Cust Acct: Alphanumeric
+  index, cust_acct = nasdaq_mrxoptions_otto_ouch_v2_1_4.cust_acct.dissect(buffer, index, packet, parent)
+
+  -- Preferred Party: Alpha
+  index, preferred_party = nasdaq_mrxoptions_otto_ouch_v2_1_4.preferred_party.dissect(buffer, index, packet, parent)
+
+  -- Alo Inst: Alpha
+  index, alo_inst = nasdaq_mrxoptions_otto_ouch_v2_1_4.alo_inst.dissect(buffer, index, packet, parent)
+
+  -- Iso: Alpha
+  index, iso = nasdaq_mrxoptions_otto_ouch_v2_1_4.iso.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_mrxoptions_otto_ouch_v2_1_4.side.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alpha
+  index, order_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = nasdaq_mrxoptions_otto_ouch_v2_1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Integer
+  index, quantity = nasdaq_mrxoptions_otto_ouch_v2_1_4.quantity.dissect(buffer, index, packet, parent)
+
+  -- Min Qty: Integer
+  index, min_qty = nasdaq_mrxoptions_otto_ouch_v2_1_4.min_qty.dissect(buffer, index, packet, parent)
+
+  -- Tif: Alpha
+  index, tif = nasdaq_mrxoptions_otto_ouch_v2_1_4.tif.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alpha
+  index, capacity = nasdaq_mrxoptions_otto_ouch_v2_1_4.capacity.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Integer
+  index, auction_id = nasdaq_mrxoptions_otto_ouch_v2_1_4.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Flash Inst: Alpha
+  index, flash_inst = nasdaq_mrxoptions_otto_ouch_v2_1_4.flash_inst.dissect(buffer, index, packet, parent)
+
+  -- Disclosure Mask: Integer
+  index, disclosure_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.disclosure_mask.dissect(buffer, index, packet, parent)
+
+  -- Price Protection: Alpha
+  index, price_protection = nasdaq_mrxoptions_otto_ouch_v2_1_4.price_protection.dissect(buffer, index, packet, parent)
+
+  -- Display Qty: Integer
+  index, display_qty = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_qty.dissect(buffer, index, packet, parent)
+
+  -- Display When: Alpha
+  index, display_when = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_when.dissect(buffer, index, packet, parent)
+
+  -- Display Method: Alpha
+  index, display_method = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_method.dissect(buffer, index, packet, parent)
+
+  -- Display Low Qty: Integer
+  index, display_low_qty = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_low_qty.dissect(buffer, index, packet, parent)
+
+  -- Display High Qty: Integer
+  index, display_high_qty = nasdaq_mrxoptions_otto_ouch_v2_1_4.display_high_qty.dissect(buffer, index, packet, parent)
+
+  -- Position Effect Mask: Integer
+  index, position_effect_mask = nasdaq_mrxoptions_otto_ouch_v2_1_4.position_effect_mask.dissect(buffer, index, packet, parent)
+
+  -- Stock Leg Short Sale: Alpha
+  index, stock_leg_short_sale = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_short_sale.dissect(buffer, index, packet, parent)
+
+  -- Stock Leg Mpid: Alphanumeric
+  index, stock_leg_mpid = nasdaq_mrxoptions_otto_ouch_v2_1_4.stock_leg_mpid.dissect(buffer, index, packet, parent)
+
+  -- Persist Inst: Alpha
+  index, persist_inst = nasdaq_mrxoptions_otto_ouch_v2_1_4.persist_inst.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Order Long Form Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_long_form_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.new_order_long_form_message, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_long_form_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_long_form_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_long_form_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Unsequenced Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message = {}
+
+-- Dispatch: Unsequenced Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message.dispatch = {
+  ["A"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_long_form_message.dissect,
+  ["B"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.new_order_short_form_message.dissect,
+  ["R"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.replace_order_message.dissect,
+  ["C"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.cancel_order_message.dissect,
+  ["U"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.mass_cancel_message.dissect,
+  ["X"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.new_cross_order_message.dissect,
+  ["S"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.add_complex_instrument_message.dissect,
+  ["M"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.modify_trade_message.dissect,
+  ["K"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.member_kill_switch_request_message.dissect,
+  ["F"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.subscription_request_message.dissect,
+}
+
+-- Dissect: Unsequenced Message
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+  local dissect = nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Unsequenced Data Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_data_packet = {}
+
+-- Read runtime size of: Unsequenced Data Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Unsequenced Data Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local index = offset
+
+  -- Unsequenced Message Type: 1 Byte Ascii String Enum with 10 values
+  index, unsequenced_message_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Unsequenced Message: Runtime Type with 10 branches
+  index = nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local size_of_unsequenced_data_packet = nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Login Request Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_request_packet = {}
+
+-- Size: Login Request Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_request_packet.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.username.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.password.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_session.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_sequence_number.size
+
+-- Display: Login Request Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = nasdaq_mrxoptions_otto_ouch_v2_1_4.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = nasdaq_mrxoptions_otto_ouch_v2_1_4.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 20 Byte Ascii String
+  index, requested_sequence_number = nasdaq_mrxoptions_otto_ouch_v2_1_4.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.login_request_packet, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_payload = {}
+
+-- Dispatch: Client Payload
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_payload.dispatch = {
+  ["+"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.debug_packet.dissect,
+  ["L"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.login_request_packet.dissect,
+  ["U"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_heartbeat_packet.dissect,
+  ["O"] = nasdaq_mrxoptions_otto_ouch_v2_1_4.logout_request_packet.dissect,
+}
+
+-- Dissect: Client Payload
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+  local dissect = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Packet Header
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_header = {}
+
+-- Size: Client Packet Header
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_header.size =
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.packet_length.size + 
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_type.size
+
+-- Display: Client Packet Header
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Packet Header
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, packet_length = nasdaq_mrxoptions_otto_ouch_v2_1_4.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, client_packet_type = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Packet Header
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.client_packet_header, buffer(offset, 0))
+    local index = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Soup Bin Tcp Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_soup_bin_tcp_packet = {}
+
+-- Display: Client Soup Bin Tcp Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_soup_bin_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Soup Bin Tcp Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset
+
+  -- Client Packet Header: Struct of 2 fields
+  index, client_packet_header = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Client Packet Type
+  local client_packet_type = buffer(index - 1, 1):string()
+
+  -- Client Payload: Runtime Type with 5 branches
+  index = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
+
+  return index
+end
+
+-- Dissect: Client Soup Bin Tcp Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset + size_of_client_soup_bin_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    parent:set_len(size_of_client_soup_bin_tcp_packet)
+    local display = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_mrxoptions_otto_ouch_v2_1_4.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Soup Bin Tcp Packet
+local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Client Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet = {}
+
+-- Verify required size of Tcp packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet_header.size
+end
+
+-- Dissect Client Packet
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Client Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_soup_bin_tcp_packet = client_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_soup_bin_tcp_packet):tvb()
+      index = nasdaq_mrxoptions_otto_ouch_v2_1_4.client_soup_bin_tcp_packet.dissect(frame, index, packet, parent, size_of_client_soup_bin_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.init()
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.accepted_sequence_number.current = nil
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.current = nil
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.conversation.flows = {}
+end
+
+-- Connection roles for Nasdaq MrxOptions Otto Ouch 2.1.4: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+nasdaq_mrxoptions_otto_ouch_v2_1_4.role = function(packet)
+  if omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nasdaq_mrxoptions_otto_ouch_v2_1_4.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
+-- Dissector for Nasdaq MrxOptions Otto Ouch 2.1.4
+function omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4, buffer(), omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.description, "("..buffer:len().." Bytes)")
+  local role = nasdaq_mrxoptions_otto_ouch_v2_1_4.role(packet)
+
+  if role == "initiator" then
+    return nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet.dissect(buffer, packet, protocol)
+  end
+
+  return nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local client_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if client_packet_type == "+" then
+    return true
+  end
+
+  -- Login Request Packet
+  if client_packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return true
+  end
+
+  -- Client Heartbeat Packet
+  if client_packet_type == "R" then
+    return true
+  end
+
+  -- Logout Request Packet
+  if client_packet_type == "O" then
+    return true
+  end
+
+  return false
+end
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local server_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if server_packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if server_packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if server_packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet
+  if server_packet_type == "S" then
+    return true
+  end
+
+  -- Server Heartbeat Packet
+  if server_packet_type == "H" then
+    return true
+  end
+
+  -- End Of Session Packet
+  if server_packet_type == "Z" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Nasdaq MrxOptions Otto Ouch 2.1.4 (Tcp)
+local function omi_nasdaq_mrxoptions_otto_ouch_v2_1_4_tcp_initiator_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp client packet message dispatch
+  if not nasdaq_mrxoptions_otto_ouch_v2_1_4.client_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4
+  omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nasdaq MrxOptions Otto Ouch 2.1.4 (Tcp)
+local function omi_nasdaq_mrxoptions_otto_ouch_v2_1_4_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp server packet message dispatch
+  if not nasdaq_mrxoptions_otto_ouch_v2_1_4.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4
+  omi_nasdaq_mrxoptions_otto_ouch_v2_1_4.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nasdaq MrxOptions Otto Ouch 2.1.4 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nasdaq_mrxoptions_otto_ouch_v2_1_4_tcp_heuristic(buffer, packet, parent)
+  local role = nasdaq_mrxoptions_otto_ouch_v2_1_4.role(packet)
+  local initiator = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4_tcp_initiator_heuristic
+  local acceptor = omi_nasdaq_mrxoptions_otto_ouch_v2_1_4_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  nasdaq_mrxoptions_otto_ouch_v2_1_4.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Nasdaq MrxOptions Otto Ouch 2.1.4
+omi_nasdaq_mrxoptions_otto_ouch_v2_1_4:register_heuristic("tcp", omi_nasdaq_mrxoptions_otto_ouch_v2_1_4_tcp_heuristic)
+
+-- Register Nasdaq MrxOptions Otto Ouch 2.1.4 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nasdaq_mrxoptions_otto_ouch_v2_1_4)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
+--   Version: 2.1.4
+--   Date: Monday, August 27, 2018
+--   Specification: Nasdaq OTTO.pdf
+--   Specification: OUCHtoTradeOptions_OTTO_0.pdf
+--   Specification: OTTO 2.1.4 Technical Specification 4.7.2020.pdf
+--
+-- Script:
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------
